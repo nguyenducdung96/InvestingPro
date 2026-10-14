@@ -7,6 +7,10 @@
   "observability": { "enabled": true },
   "env": {
     "preview": { "name": "investing-pro-web-preview" },
-    "staging": { "name": "investing-pro-web-staging" },
+    "staging": {
+      "name": "investing-pro-web-staging",
+      "workers_dev": true,
+      "preview_urls": false,
+    },
   },
 }
