@@ -23,7 +23,7 @@ export async function CompanyPage({
       );
       if (result.data.length > 1)
         return (
-          <Unavailable message="Ticker matches multiple exchanges; use the company ID" />
+          <Unavailable message="Mã chứng khoán trùng trên nhiều sàn; vui lòng dùng mã định danh doanh nghiệp" />
         );
       company = result.data[0];
     }
@@ -34,10 +34,10 @@ export async function CompanyPage({
   if (!company || !assets) notFound();
   return (
     <>
-      <p className="eyebrow">VERIFIED COMPANY INTERESTS</p>
+      <p className="eyebrow">QUAN HỆ DOANH NGHIỆP ĐÃ XÁC MINH</p>
       <h1>{company.entity.name}</h1>
       <SourceBadge citation={company.lineage} />
-      <h2>Port assets</h2>
+      <h2>Tài sản cảng biển</h2>
       <AssetList result={assets} />
     </>
   );

@@ -1,3 +1,4 @@
+import { label, displayDate, warningLabel } from "@/lib/display";
 import Link from "next/link";
 import type {
   CatalogItem,
@@ -10,22 +11,22 @@ export function SourceBadge({ citation }: { citation: Citation }) {
   return (
     <details>
       <summary>
-        <span className="badge">{citation.quality}</span> {citation.sourceName}
+        <span className="badge">{label(citation.quality)}</span> {citation.sourceName}
       </summary>
       <p className="meta">
         <a href={citation.sourceUrl} target="_blank" rel="noopener noreferrer">
-          Official source
+          Nguồn chính thức
         </a>{" "}
-        · Fetched {citation.fetchedAt} · Published{" "}
-        {citation.publishedAt ?? "Not reported"}
+        · Thu thập {displayDate(citation.fetchedAt)} · Công bố{" "}
+        {displayDate(citation.publishedAt)}
       </p>
       <p className="meta">
-        Reporting period: {citation.reportingPeriod.from ?? "Not reported"} →{" "}
-        {citation.reportingPeriod.to ?? "Not reported"}
+        Kỳ báo cáo: {displayDate(citation.reportingPeriod.from)} →{" "}
+        {displayDate(citation.reportingPeriod.to)}
         <br />
-        Parser: {citation.parserVersion}
+        Phiên bản bộ phân tích: {citation.parserVersion}
         <br />
-        Evidence: {citation.sourceRecordId}
+        Mã bằng chứng: {citation.sourceRecordId}
         <br />
         SHA-256: {citation.contentHash}
       </p>
@@ -34,16 +35,16 @@ export function SourceBadge({ citation }: { citation: Citation }) {
 }
 export function Metadata({ meta }: { meta: Meta }) {
   return (
-    <aside className="notice" aria-label="Data confidence">
-      <span className="badge">{meta.quality}</span>
+    <aside className="notice" aria-label="Độ tin cậy dữ liệu">
+      <span className="badge">{label(meta.quality)}</span>
       <p className="meta">
-        As of: {meta.asOf ?? "Not available"} · Coverage: {meta.coverage.scope}{" "}
-        · Operational coverage: not measured · Methodology:{" "}
+        Dữ liệu tính đến: {displayDate(meta.asOf, "Chưa có dữ liệu")} · Phạm vi: {label(meta.coverage.scope)}{" "}
+        · Độ bao phủ hoạt động: chưa đo lường · Phương pháp:{" "}
         {meta.methodologyVersion}
       </p>
       {meta.warnings.map((w) => (
         <p className="meta" key={w}>
-          {w}
+          {warningLabel(w)}
         </p>
       ))}
     </aside>
@@ -64,7 +65,7 @@ export function CatalogList({ result }: { result: Envelope<CatalogItem[]> }) {
         <div className="grid">
           {result.data.map((item) => (
             <article className="panel" key={item.entity.id}>
-              <p className="eyebrow">{item.entity.kind.replace("_", " ")}</p>
+              <p className="eyebrow">{label(item.entity.kind)}</p>
               <h2>
                 <Link
                   href={`${hrefs[item.entity.kind]}${item.entity.kind === "company" ? item.entity.id : item.entity.slug}`}
@@ -78,15 +79,15 @@ export function CatalogList({ result }: { result: Envelope<CatalogItem[]> }) {
         </div>
       ) : (
         <div className="empty">
-          <h2>No verified records yet</h2>
+          <h2>Chưa có bản ghi đã xác minh</h2>
           <p>
-            Catalog entries appear after official evidence is recorded and
-            reviewed. Missing data is not shown as zero.
+            Bản ghi hiển thị sau khi bằng chứng chính thức được lưu và xét duyệt.
+            Dữ liệu thiếu không được hiển thị thành số 0.
           </p>
         </div>
       )}
       {result.meta.nextCursor && (
-        <Link href={`?cursor=${result.meta.nextCursor}`}>Next page</Link>
+        <Link href={`?cursor=${result.meta.nextCursor}`}>Trang tiếp theo</Link>
       )}
     </>
   );
@@ -105,24 +106,24 @@ export function AssetList({ result }: { result: Envelope<InterestItem[]> }) {
             </h2>
             <dl className="facts">
               <div>
-                <dt>Interest</dt>
-                <dd>{interest.interest_type}</dd>
+                <dt>Loại quan hệ</dt>
+                <dd>{label(interest.interest_type)}</dd>
               </div>
               <div>
-                <dt>Ownership</dt>
+                <dt>Tỷ lệ sở hữu</dt>
                 <dd>
                   {interest.ownership_pct === null
-                    ? "Not reported"
+                    ? "Chưa công bố"
                     : `${interest.ownership_pct}%`}
                 </dd>
               </div>
               <div>
-                <dt>Effective from</dt>
-                <dd>{interest.valid_from}</dd>
+                <dt>Hiệu lực từ</dt>
+                <dd>{displayDate(interest.valid_from)}</dd>
               </div>
               <div>
-                <dt>Effective to (exclusive)</dt>
-                <dd>{interest.valid_to ?? "Open ended"}</dd>
+                <dt>Hiệu lực đến (không gồm ngày này)</dt>
+                <dd>{displayDate(interest.valid_to, "Chưa có ngày kết thúc")}</dd>
               </div>
             </dl>
             <p>{interest.evidence_excerpt}</p>
@@ -131,28 +132,28 @@ export function AssetList({ result }: { result: Envelope<InterestItem[]> }) {
         ))
       ) : (
         <div className="empty">
-          <h2>No verified asset mappings</h2>
+          <h2>Chưa có quan hệ tài sản đã xác minh</h2>
           <p>
-            No ownership or operator relationship is inferred from a similar
-            company name.
+            Không suy luận quan hệ sở hữu hoặc vận hành chỉ từ tên doanh nghiệp
+            tương tự.
           </p>
         </div>
       )}
       {result.meta.nextCursor && (
-        <Link href={`?cursor=${result.meta.nextCursor}`}>Next page</Link>
+        <Link href={`?cursor=${result.meta.nextCursor}`}>Trang tiếp theo</Link>
       )}
     </>
   );
 }
 export function Unavailable({
-  message = "Catalog database is not available yet",
+  message = "Chưa kết nối được cơ sở dữ liệu danh mục",
 }: {
   message?: string;
 }) {
   return (
     <section className="notice" role="status">
       <h2>{message}</h2>
-      <p>Verified data could not be loaded. Please try again later.</p>
+      <p>Không tải được dữ liệu đã xác minh. Vui lòng thử lại sau.</p>
     </section>
   );
 }

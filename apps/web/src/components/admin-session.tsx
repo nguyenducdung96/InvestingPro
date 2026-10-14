@@ -1,4 +1,5 @@
 "use client";
+import { requestError } from "@/lib/display";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 export function AdminSession() {
@@ -20,25 +21,23 @@ export function AdminSession() {
             body: JSON.stringify({ token }),
           });
           if (!r.ok) {
-            const v = await r.json();
-            setError(v.error);
+            setError(requestError(r.status));
           } else {
             setToken("");
             router.refresh();
           }
         } catch {
-          setError("Connection failed. Try again.");
+          setError("Không kết nối được. Vui lòng thử lại.");
         } finally {
           setBusy(false);
         }
       }}
     >
-      <h2>Admin session</h2>
+      <h2>Phiên đăng nhập quản trị</h2>
       <p>
-        Use a short-lived Supabase access token for an account with the admin
-        role. Tokens stay in an HTTP-only session cookie.
+        Dán mã truy cập Supabase còn hiệu lực của tài khoản quản trị để đăng nhập.
       </p>
-      <label htmlFor="token">Access token</label>
+      <label htmlFor="token">Mã truy cập (access token)</label>
       <input
         id="token"
         type="password"
@@ -50,7 +49,7 @@ export function AdminSession() {
       />
       <div className="actions">
         <button disabled={busy}>
-          {busy ? "Checking…" : "Start admin session"}
+          {busy ? "Đang kiểm tra…" : "Đăng nhập quản trị"}
         </button>
       </div>
       <p id="session-error" className="error" role="status">

@@ -18,8 +18,8 @@ export default async function Page({
   }
   return (
     <>
-      <p className="eyebrow">COMPANY REGISTRY</p>
-      <h1>Listed companies</h1>
+      <p className="eyebrow">DANH MỤC DOANH NGHIỆP</p>
+      <h1>Doanh nghiệp niêm yết</h1>
       <Metadata meta={result.meta} />
       {result.data.length ? (
         result.data.map((c) => (
@@ -36,10 +36,10 @@ export default async function Page({
           </article>
         ))
       ) : (
-        <p>No verified listings yet.</p>
+        <p>Chưa có thông tin niêm yết đã xác minh.</p>
       )}
       {result.meta.nextCursor && (
-        <Link href={`?cursor=${result.meta.nextCursor}`}>Next page</Link>
+        <Link href={`?cursor=${result.meta.nextCursor}`}>Trang tiếp theo</Link>
       )}
     </>
   );

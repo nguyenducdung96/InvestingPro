@@ -1,4 +1,5 @@
 "use client";
+import { requestError } from "@/lib/display";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { ReviewItem } from "@invest/domain";
@@ -9,7 +10,7 @@ export function ReviewActions({ item }: { item: ReviewItem }) {
   const router = useRouter();
   async function decide(decision: "verified" | "rejected") {
     if (!note.trim()) {
-      setError("Add a review note before deciding.");
+      setError("Vui lòng ghi lý do trước khi duyệt.");
       return;
     }
     setBusy(true);
@@ -24,11 +25,10 @@ export function ReviewActions({ item }: { item: ReviewItem }) {
         },
       );
       if (!r.ok) {
-        const v = await r.json();
-        setError(v.error);
+        setError(requestError(r.status, true));
       } else router.refresh();
     } catch {
-      setError("Connection failed. Your note has been retained.");
+      setError("Không kết nối được. Ghi chú của bạn vẫn được giữ lại.");
     } finally {
       setBusy(false);
     }
@@ -36,7 +36,7 @@ export function ReviewActions({ item }: { item: ReviewItem }) {
   const id = `review-${item.mapping.id}`;
   return (
     <div>
-      <label htmlFor={id}>Decision evidence and reasoning</label>
+      <label htmlFor={id}>Bằng chứng và lý do quyết định</label>
       <textarea
         id={id}
         maxLength={4000}
@@ -49,16 +49,16 @@ export function ReviewActions({ item }: { item: ReviewItem }) {
           disabled={busy || item.mapping.resolution_method === "fuzzy_name"}
           onClick={() => decide("verified")}
         >
-          {busy ? "Saving…" : "Verify mapping"}
+          {busy ? "Đang lưu…" : "Xác minh quan hệ"}
         </button>
         <button disabled={busy} onClick={() => decide("rejected")}>
-          Reject
+          Từ chối
         </button>
       </div>
       {item.mapping.resolution_method === "fuzzy_name" && (
         <p>
-          Fuzzy proposals require a new proposal with documentary evidence
-          before verification.
+          Đề xuất dựa trên tên gần giống cần được thay bằng đề xuất có bằng chứng
+          tài liệu trước khi xác minh.
         </p>
       )}
       <p id={`${id}-error`} className="error" role="status">

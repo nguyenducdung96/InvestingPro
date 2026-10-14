@@ -1,3 +1,4 @@
+import { label } from "@/lib/display";
 import { notFound } from "next/navigation";
 import type { EntityKind } from "@invest/domain";
 import { publicRepository } from "@/lib/server";
@@ -32,19 +33,19 @@ export async function DetailPage({
   const item = result.data;
   return (
     <>
-      <p className="eyebrow">VERIFIED {kind.replace("_", " ")}</p>
+      <p className="eyebrow">ĐÃ XÁC MINH / {label(kind)}</p>
       <h1>{item.entity.name}</h1>
       <Metadata meta={result.meta} />
       <section className="panel">
-        <h2>Catalog evidence</h2>
+        <h2>Bằng chứng danh mục</h2>
         <SourceBadge citation={item.lineage} />
         <dl className="facts">
           {Object.entries(item.details)
             .filter(([k]) => !["id", "kind"].includes(k))
             .map(([k, v]) => (
               <div key={k}>
-                <dt>{k.replaceAll("_", " ")}</dt>
-                <dd>{v === null ? "Not reported" : String(v)}</dd>
+                <dt>{label(k)}</dt>
+                <dd>{v === null ? "Chưa công bố" : String(v)}</dd>
               </div>
             ))}
         </dl>
@@ -53,18 +54,18 @@ export async function DetailPage({
         <section>
           <h2>
             {kind === "port_authority"
-              ? "Ports"
+              ? "Cảng biển"
               : kind === "port"
-                ? "Terminals"
-                : "Berths"}
+                ? "Bến cảng"
+                : "Cầu cảng"}
           </h2>
           <CatalogList result={children} />
         </section>
       )}
       <section className="panel">
-        <h2>Operating data</h2>
+        <h2>Dữ liệu hoạt động</h2>
         <p>
-          Operating metrics have not been published in this catalog release.
+          Chỉ tiêu hoạt động chưa được công bố trong phiên bản danh mục này.
         </p>
       </section>
     </>

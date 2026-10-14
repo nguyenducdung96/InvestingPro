@@ -19,19 +19,18 @@ export default async function Page({
   }
   return (
     <>
-      <p className="eyebrow">VIETNAM / VERIFIED CATALOG</p>
-      <h1>Port intelligence starts with evidence.</h1>
+      <p className="eyebrow">VIỆT NAM / DANH MỤC ĐÃ XÁC MINH</p>
+      <h1>Thông tin cảng biển từ nguồn xác minh.</h1>
       <p>
-        Explore port authorities, terminals and company interests with a
-        traceable source for every relationship.
+        Tra cứu cảng vụ, cảng biển, bến cảng và quan hệ doanh nghiệp với nguồn
+        bằng chứng cho từng quan hệ.
       </p>
       {content}
       <section className="panel">
-        <h2>Operations coverage</h2>
+        <h2>Phạm vi dữ liệu hoạt động</h2>
         <p>
-          Vessel calls, DWT, throughput and rankings are not available in this
-          catalog release. DWT represents vessel design capacity and is not
-          actual cargo throughput.
+          Phiên bản danh mục này chưa có lượt tàu, DWT, sản lượng và xếp hạng.
+          DWT là trọng tải thiết kế của tàu, không phải sản lượng hàng hóa thực tế.
         </p>
       </section>
     </>

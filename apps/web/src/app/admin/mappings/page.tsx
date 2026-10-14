@@ -1,3 +1,4 @@
+import { label, displayDate } from "@/lib/display";
 import Link from "next/link";
 import { adminRepository, HttpError } from "@/lib/server";
 import { AdminSession } from "@/components/admin-session";
@@ -21,7 +22,7 @@ export default async function Page({
   } catch (e) {
     return (
       <>
-        <h1>Mapping review</h1>
+        <h1>Duyệt quan hệ</h1>
         {e instanceof HttpError && [401, 403].includes(e.status) ? (
           <AdminSession />
         ) : (
@@ -32,25 +33,25 @@ export default async function Page({
   }
   return (
     <>
-      <p className="eyebrow">ADMIN / EVIDENCE REVIEW</p>
-      <h1>Mapping review queue</h1>
-      <nav aria-label="Proposal types">
-        <Link href="?type=company_asset_interests">Company interests</Link>
-        <Link href="?type=entity_mappings">Entity identities</Link>
+      <p className="eyebrow">QUẢN TRỊ / XÉT DUYỆT BẰNG CHỨNG</p>
+      <h1>Danh sách quan hệ chờ duyệt</h1>
+      <nav aria-label="Loại đề xuất">
+        <Link href="?type=company_asset_interests">Quan hệ doanh nghiệp</Link>
+        <Link href="?type=entity_mappings">Định danh thực thể</Link>
       </nav>
       <Metadata meta={result.meta} />
       {result.data.map((item) => (
         <article className="panel" key={item.mapping.id}>
-            <span className="badge">{item.mapping.verification_status} proposal</span>
+            <span className="badge">{label(item.mapping.verification_status)}</span>
           <h2>
             {"external_name" in item.mapping
               ? item.mapping.external_name
-              : `${item.mapping.interest_type}: ${item.mapping.asset_id}`}
+              : `${label(item.mapping.interest_type)}: ${item.mapping.asset_id}`}
           </h2>
           <p>
-            Effective {item.mapping.valid_from} →{" "}
-            {item.mapping.valid_to ?? "open ended"} · Method:{" "}
-            {item.mapping.resolution_method} · Confidence:{" "}
+            Hiệu lực {displayDate(item.mapping.valid_from)} →{" "}
+            {displayDate(item.mapping.valid_to, "Chưa có ngày kết thúc")} · Phương thức:{" "}
+            {label(item.mapping.resolution_method)} · Độ tin cậy:{" "}
             {item.mapping.confidence}
           </p>
           <p>{item.mapping.evidence_excerpt}</p>
@@ -58,10 +59,10 @@ export default async function Page({
           <ReviewActions item={item} />
         </article>
       ))}
-      {!result.data.length && <p>No pending proposals.</p>}
+      {!result.data.length && <p>Không có đề xuất chờ duyệt.</p>}
       {result.meta.nextCursor && (
         <Link href={`?type=${type}&cursor=${result.meta.nextCursor}`}>
-          Next page
+          Trang tiếp theo
         </Link>
       )}
     </>
