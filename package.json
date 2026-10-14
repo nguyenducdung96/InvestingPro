@@ -1,0 +1,25 @@
+{
+  "name": "investing-pro",
+  "private": true,
+  "packageManager": "pnpm@10.32.1",
+  "scripts": {
+    "dev": "pnpm --filter @invest/web dev",
+    "build": "pnpm --filter @invest/web build",
+    "build:cloudflare": "pnpm --filter @invest/web build:cloudflare",
+    "typecheck": "tsc --noEmit && pnpm --filter @invest/web typecheck",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "vitest": "^3.2.4",
+    "eslint": "^9.39.0",
+    "typescript-eslint": "^8.46.0",
+    "@playwright/test": "^1.56.0",
+    "@electric-sql/pglite": "^0.3.14"
+  }
+}

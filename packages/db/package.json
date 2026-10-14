@@ -1,0 +1,10 @@
+{
+  "name": "@invest/db",
+  "private": true,
+  "type": "module",
+  "exports": "./src/index.ts",
+  "dependencies": {
+    "@invest/domain": "workspace:*",
+    "@supabase/supabase-js": "^2.95.0"
+  }
+}

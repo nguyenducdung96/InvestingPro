@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "plugins": [{ "name": "next" }],
+    "paths": {
+      "@/*": ["./src/*"],
+      "@invest/domain": ["../../packages/domain/src/index.ts"],
+      "@invest/db": ["../../packages/db/src/index.ts"],
+      "@invest/port": ["../../packages/modules/port/src/index.ts"]
+    },
+    "incremental": true
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}

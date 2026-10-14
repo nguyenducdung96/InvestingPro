@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "paths": {
+      "@invest/domain": ["./packages/domain/src/index.ts"],
+      "@invest/db": ["./packages/db/src/index.ts"],
+      "@invest/port": ["./packages/modules/port/src/index.ts"]
+    }
+  },
+  "include": ["packages/**/*.ts", "tests/**/*.ts", "*.ts"]
+}

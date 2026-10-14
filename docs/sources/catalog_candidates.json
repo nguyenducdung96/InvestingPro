@@ -1,0 +1,9 @@
+{
+  "note": "Candidates from the supplied source document; no live connector is enabled and rights remain to_verify.",
+  "sources": [
+    {"code":"vimawa_ports_catalog","name":"VIMAWA port catalog","owner":"Cục Hàng hải và Đường thủy Việt Nam","source_class":"official_government","base_url":"https://vimawa.gov.vn/","discovery_url":"https://vimawa.gov.vn/vi/noi-dung/ve-viec-cong-bo-danh-muc-ben-cang-cau-cang-thuoc-cac-cang-bien-viet-nam","rights_status":"to_verify","rights_notes":"Review current robots, terms and redistribution rights before import."},
+    {"code":"ssc_disclosures","name":"SSC disclosures","owner":"Ủy ban Chứng khoán Nhà nước","source_class":"official_regulator","base_url":"https://congbothongtin.ssc.gov.vn/","discovery_url":"https://congbothongtin.ssc.gov.vn/","rights_status":"to_verify","rights_notes":"Use canonical URLs without jsessionid; review current terms before import."},
+    {"code":"hose_disclosures","name":"HOSE disclosures","owner":"Sở Giao dịch Chứng khoán TP.HCM","source_class":"official_exchange","base_url":"https://www.hsx.vn/","discovery_url":"https://www1.hsx.vn/vi/tin-tuc/tin-to-chuc-niem-yet","rights_status":"to_verify","rights_notes":"Verify public document rights; no market data redistribution is authorized."},
+    {"code":"hnx_disclosures","name":"HNX disclosures","owner":"Sở Giao dịch Chứng khoán Hà Nội","source_class":"official_exchange","base_url":"https://www.hnx.vn/","discovery_url":"https://www.hnx.vn/vi-vn/thong-tin-cong-bo-ny-hnx.html","rights_status":"to_verify","rights_notes":"Review public document rights before import."}
+  ]
+}

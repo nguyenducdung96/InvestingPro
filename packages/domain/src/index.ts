@@ -1,0 +1,255 @@
+export type Quality = "verified" | "preliminary" | "estimated" | "incomplete";
+export type Verification = "pending" | "verified" | "rejected";
+export type EntityKind =
+  "port_authority" | "port" | "terminal" | "berth" | "company";
+export type AssetKind = Extract<EntityKind, "port" | "terminal" | "berth">;
+export type InterestType =
+  | "ownership"
+  | "operator"
+  | "joint_venture"
+  | "concession"
+  | "lease"
+  | "indirect";
+export type ResolutionMethod =
+  "official_identifier" | "document_evidence" | "fuzzy_name";
+export interface Source {
+  id: string;
+  code: string;
+  name: string;
+  owner: string;
+  source_class: string;
+  base_url: string;
+  rights_status: "to_verify" | "approved" | "blocked";
+  rights_notes: string;
+  terms_url: string | null;
+  robots_checked_at: string | null;
+  verified_at: string | null;
+  created_at: string;
+}
+export interface SourceRecord {
+  id: string;
+  source_id: string;
+  source_url: string;
+  canonical_url: string;
+  external_id: string;
+  published_at: string | null;
+  updated_at: string | null;
+  fetched_at: string;
+  reporting_period_start: string | null;
+  reporting_period_end: string | null;
+  content_type: string;
+  content_hash: string;
+  raw_storage_key: string;
+  parser_name: string;
+  parser_version: string;
+  quality_status: Quality;
+  supersedes_source_record_id: string | null;
+  created_at: string;
+}
+export interface Entity {
+  id: string;
+  kind: EntityKind;
+  slug: string;
+  name: string;
+  source_record_id: string;
+  quality_status: Quality;
+  created_at: string;
+  updated_at: string;
+}
+export interface Authority {
+  id: string;
+  kind: "port_authority";
+  region: string | null;
+}
+export interface Port {
+  id: string;
+  kind: "port";
+  authority_id: string;
+  latitude: number | null;
+  longitude: number | null;
+}
+export interface Terminal {
+  id: string;
+  kind: "terminal";
+  port_id: string;
+  terminal_type: string | null;
+}
+export interface Berth {
+  id: string;
+  kind: "berth";
+  terminal_id: string;
+}
+export interface Company {
+  id: string;
+  kind: "company";
+  legal_name: string;
+  enterprise_id: string | null;
+  official_website: string | null;
+  ir_url: string | null;
+}
+export interface Listing {
+  id: string;
+  company_id: string;
+  ticker: string;
+  exchange: "HOSE" | "HNX" | "UPCOM" | "OTC";
+  valid_from: string;
+  valid_to: string | null;
+  source_record_id: string;
+  verification_status: Verification;
+  verified_by: string | null;
+  verified_at: string | null;
+}
+export interface MappingAudit {
+  id: string;
+  valid_from: string;
+  valid_to: string | null;
+  verification_status: Verification;
+  verification_source_id: string;
+  source_record_id: string;
+  evidence_excerpt: string;
+  resolution_method: ResolutionMethod;
+  confidence: number;
+  created_at: string;
+  updated_at: string;
+  created_by: string | null;
+  reviewed_by: string | null;
+  reviewed_at: string | null;
+  review_note: string | null;
+}
+export interface AssetInterest extends MappingAudit {
+  company_id: string;
+  asset_id: string;
+  asset_kind: AssetKind;
+  interest_type: InterestType;
+  ownership_pct: number | null;
+  supersedes_interest_id: string | null;
+}
+export interface EntityMapping extends MappingAudit {
+  entity_id: string;
+  external_id: string;
+  external_name: string;
+  supersedes_mapping_id: string | null;
+}
+export interface AuditEvent {
+  id: string;
+  table_name: string;
+  record_id: string;
+  actor_id: string | null;
+  action: string;
+  before_row: unknown;
+  after_row: unknown;
+  created_at: string;
+}
+export interface Citation {
+  sourceId: string;
+  sourceName: string;
+  sourceUrl: string;
+  canonicalUrl: string;
+  sourceRecordId: string;
+  fetchedAt: string;
+  publishedAt: string | null;
+  reportingPeriod: { from: string | null; to: string | null };
+  quality: Quality;
+  contentHash: string;
+  rawStorageKey: string;
+  parserVersion: string;
+}
+export interface Meta {
+  asOf: string | null;
+  reportingPeriod: { from: string; to: string } | null;
+  sources: Citation[];
+  quality: Quality;
+  coverage: {
+    expectedDays: null;
+    observedDays: null;
+    ratio: null;
+    scope: string;
+  };
+  methodologyVersion: "catalog-v1";
+  unit: null;
+  entitlement: "public_catalog" | "admin";
+  warnings: string[];
+  nextCursor?: string | null;
+}
+export interface Envelope<T> {
+  data: T;
+  meta: Meta;
+}
+export interface CatalogItem {
+  entity: Entity;
+  details: Authority | Port | Terminal | Berth | Company;
+  lineage: Citation;
+}
+export interface InterestItem {
+  interest: AssetInterest;
+  asset: Entity;
+  company: Entity;
+  lineage: Citation;
+}
+export interface ReviewItem {
+  type: "company_asset_interests" | "entity_mappings";
+  mapping: AssetInterest | EntityMapping;
+  lineage: Citation;
+}
+export interface PageQuery {
+  limit: number;
+  cursor?: string;
+  at: string;
+}
+export interface CatalogRepository {
+  list(
+    kind: EntityKind,
+    query: PageQuery,
+    parentId?: string,
+  ): Promise<Envelope<CatalogItem[]>>;
+  detail(kind: EntityKind, key: string): Promise<Envelope<CatalogItem | null>>;
+  listedCompanies(
+    query: PageQuery,
+    ticker?: string,
+  ): Promise<Envelope<(CatalogItem & { listings: Listing[] })[]>>;
+  companyAssets(
+    companyId: string,
+    query: PageQuery,
+  ): Promise<Envelope<InterestItem[]>>;
+  reviewQueue(
+    type: ReviewItem["type"],
+    query: PageQuery,
+  ): Promise<Envelope<ReviewItem[]>>;
+  propose(
+    type: ReviewItem["type"],
+    input: Proposal,
+  ): Promise<Envelope<MappingAudit>>;
+  review(
+    type: ReviewItem["type"],
+    id: string,
+    decision: "verified" | "rejected",
+    note: string,
+  ): Promise<Envelope<MappingAudit>>;
+}
+export type Proposal = Pick<
+  MappingAudit,
+  | "valid_from"
+  | "valid_to"
+  | "verification_source_id"
+  | "source_record_id"
+  | "evidence_excerpt"
+  | "resolution_method"
+  | "confidence"
+> &
+  Partial<
+    Pick<
+      AssetInterest,
+      | "company_id"
+      | "asset_id"
+      | "asset_kind"
+      | "interest_type"
+      | "ownership_pct"
+      | "supersedes_interest_id"
+    >
+  > &
+  Partial<
+    Pick<
+      EntityMapping,
+      "entity_id" | "external_id" | "external_name" | "supersedes_mapping_id"
+    >
+  >;

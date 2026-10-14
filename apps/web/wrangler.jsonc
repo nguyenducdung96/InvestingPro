@@ -1,0 +1,12 @@
+{
+  "name": "investing-pro-web",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-10-14",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
+  "observability": { "enabled": true },
+  "env": {
+    "preview": { "name": "investing-pro-web-preview" },
+    "staging": { "name": "investing-pro-web-staging" },
+  },
+}
