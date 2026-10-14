@@ -1,4 +1,4 @@
-import { label, displayDate, warningLabel } from "@/lib/display";
+import { label, displayDate, warningLabel, scopeLabel } from "@/lib/display";
 import Link from "next/link";
 import type {
   CatalogItem,
@@ -11,7 +11,8 @@ export function SourceBadge({ citation }: { citation: Citation }) {
   return (
     <details>
       <summary>
-        <span className="badge">{label(citation.quality)}</span> {citation.sourceName}
+        <span className="badge">{label(citation.quality)}</span>{" "}
+        {citation.sourceName}
       </summary>
       <p className="meta">
         <a href={citation.sourceUrl} target="_blank" rel="noopener noreferrer">
@@ -38,9 +39,9 @@ export function Metadata({ meta }: { meta: Meta }) {
     <aside className="notice" aria-label="Độ tin cậy dữ liệu">
       <span className="badge">{label(meta.quality)}</span>
       <p className="meta">
-        Dữ liệu tính đến: {displayDate(meta.asOf, "Chưa có dữ liệu")} · Phạm vi: {label(meta.coverage.scope)}{" "}
-        · Độ bao phủ hoạt động: chưa đo lường · Phương pháp:{" "}
-        {meta.methodologyVersion}
+        Dữ liệu tính đến: {displayDate(meta.asOf, "Chưa có dữ liệu")} · Phạm vi:{" "}
+        {scopeLabel(meta.coverage.scope)} · Độ bao phủ hoạt động: chưa đo lường
+        · Phương pháp: {meta.methodologyVersion}
       </p>
       {meta.warnings.map((w) => (
         <p className="meta" key={w}>
@@ -57,7 +58,13 @@ const hrefs = {
   berth: "/berths/",
   company: "/companies/id/",
 };
-export function CatalogList({ result }: { result: Envelope<CatalogItem[]> }) {
+export function CatalogList({
+  result,
+  paginationParams,
+}: {
+  result: Envelope<CatalogItem[]>;
+  paginationParams?: Record<string, string>;
+}) {
   return (
     <>
       <Metadata meta={result.meta} />
@@ -81,13 +88,17 @@ export function CatalogList({ result }: { result: Envelope<CatalogItem[]> }) {
         <div className="empty">
           <h2>Chưa có bản ghi đã xác minh</h2>
           <p>
-            Bản ghi hiển thị sau khi bằng chứng chính thức được lưu và xét duyệt.
-            Dữ liệu thiếu không được hiển thị thành số 0.
+            Bản ghi hiển thị sau khi bằng chứng chính thức được lưu và xét
+            duyệt. Dữ liệu thiếu không được hiển thị thành số 0.
           </p>
         </div>
       )}
       {result.meta.nextCursor && (
-        <Link href={`?cursor=${result.meta.nextCursor}`}>Trang tiếp theo</Link>
+        <Link
+          href={`?${new URLSearchParams({ ...paginationParams, cursor: result.meta.nextCursor })}`}
+        >
+          Trang tiếp theo
+        </Link>
       )}
     </>
   );
@@ -123,7 +134,9 @@ export function AssetList({ result }: { result: Envelope<InterestItem[]> }) {
               </div>
               <div>
                 <dt>Hiệu lực đến (không gồm ngày này)</dt>
-                <dd>{displayDate(interest.valid_to, "Chưa có ngày kết thúc")}</dd>
+                <dd>
+                  {displayDate(interest.valid_to, "Chưa có ngày kết thúc")}
+                </dd>
               </div>
             </dl>
             <p>{interest.evidence_excerpt}</p>

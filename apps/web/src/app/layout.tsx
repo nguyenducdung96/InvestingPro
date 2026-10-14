@@ -17,7 +17,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
           <nav aria-label="Điều hướng chính">
             <Link href="/industries/ports">Danh mục cảng</Link>
-            <Link href="/industries/ports/companies">Doanh nghiệp niêm yết</Link>
+            <Link href="/industries/ports/companies?view=all">Doanh nghiệp</Link>
             <Link href="/admin/mappings">Duyệt quan hệ</Link>
           </nav>
         </header>

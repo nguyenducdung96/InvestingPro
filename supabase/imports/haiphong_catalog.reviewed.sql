@@ -1,0 +1,28 @@
+-- Manual reviewed import, NOT a seed or connector. Run only after verifying
+-- the two private R2 objects described in docs/slice_1_staging_acceptance.md.
+-- Dates identify evidence/catalog validity, NOT company operating tenure.
+begin;
+insert into core.sources(id,code,name,owner,source_class,base_url,rights_status,rights_notes,terms_url,verified_at) values
+('10000000-0000-0000-0000-000000000001','gov_hp_authority_23_2019','Cục Thông tin và Truyền thông Chính phủ – Thông tư 23/2019/TT-BGTVT','Bộ Giao thông vận tải','official_government','https://vanban.chinhphu.vn','approved','Chỉ nhập tên cảng vụ/cảng từ văn bản quy phạm pháp luật công khai. Footer yêu cầu ghi rõ nguồn Chính phủ khi phát hành lại; tên nguồn/citation giữ attribution. Không thu thập dữ liệu cá nhân, không nhập tọa độ/vùng nước hoặc khẳng định thông tư chưa bị sửa đổi.','https://vanban.chinhphu.vn/default.aspx?docid=197297&pageid=27160',now()),
+('10000000-0000-0000-0000-000000000002','gov_catalog_505_2026','Bộ Xây dựng – Danh mục 505/QĐ-BXD, đối chiếu VIMAWA','Bộ Xây dựng','official_government','https://moc.gov.vn','approved','Phạm vi duyệt chỉ văn bản hành chính công khai 505/QĐ-BXD và dữ kiện tên/hierarchy trong phụ lục, không phải giấy phép toàn website. Căn cứ khoản 2 Điều 15 Luật SHTT cho văn bản hành chính. PDF đính kèm trống số/ngày ở trang đầu; số và ngày được đối chiếu từ cả cổng Bộ Xây dựng vID=4914 và trang VIMAWA. Hai file trùng SHA-256. Không tái phân phối bài viết, ảnh, giá hoặc công bố quan hệ doanh nghiệp từ tài liệu này.','https://moc.gov.vn/vn/pages/ChiTietVanBan.aspx?TypeVB=1&vID=4914',now())
+on conflict do nothing;
+insert into core.source_records(id,source_id,source_url,canonical_url,external_id,published_at,fetched_at,content_type,content_hash,raw_storage_key,parser_name,parser_version,quality_status) values
+('10000000-0000-0000-0000-000000000003','10000000-0000-0000-0000-000000000001','https://datafiles.chinhphu.vn/cpp/files/vbpq/2019/07/23-bgtvt.signed.pdf','https://vanban.chinhphu.vn/default.aspx?docid=197297&pageid=27160','23-2019-TT-BGTVT','2019-06-21', '__AUTHORITY_FETCHED_AT__','application/pdf','b3443a0b3803fe7820fac3ad85f38e9bf24adeade737a7a9b0d4703370826548','catalog-evidence/sha256/b3443a0b3803fe7820fac3ad85f38e9bf24adeade737a7a9b0d4703370826548','manual-visual-review','hp-catalog-v1','verified'),
+('10000000-0000-0000-0000-000000000004','10000000-0000-0000-0000-000000000002','https://moc.gov.vn/Images/FileVanBan/BXD_505-QD-BXD_17042026.pdf','https://moc.gov.vn/vn/pages/ChiTietVanBan.aspx?TypeVB=1&vID=4914','505-QD-BXD-2026','2026-04-17','__CATALOG_FETCHED_AT__','application/pdf','f04add8517aac678a238ef8c94aea3e3cbd02c57971694c42c6e3d06c9861a04','catalog-evidence/sha256/f04add8517aac678a238ef8c94aea3e3cbd02c57971694c42c6e3d06c9861a04','manual-visual-review','hp-catalog-v1','verified')
+on conflict do nothing;
+insert into catalog.entities(id,kind,slug,name,source_record_id,quality_status) values
+('10000000-0000-0000-0000-000000000005','port_authority','cang-vu-hang-hai-hai-phong','Cảng vụ Hàng hải Hải Phòng','10000000-0000-0000-0000-000000000003','verified'),
+('10000000-0000-0000-0000-000000000006','port','cang-bien-hai-phong','Cảng biển Hải Phòng','10000000-0000-0000-0000-000000000003','verified'),
+('10000000-0000-0000-0000-000000000007','terminal','ben-cang-chua-ve','Bến cảng Chùa Vẽ','10000000-0000-0000-0000-000000000004','verified'),
+('10000000-0000-0000-0000-000000000008','berth','chua-ve-cau-cang-1','Cầu cảng số 1 – Chùa Vẽ','10000000-0000-0000-0000-000000000004','verified'),
+('10000000-0000-0000-0000-000000000009','berth','chua-ve-cau-cang-2','Cầu cảng số 2 – Chùa Vẽ','10000000-0000-0000-0000-000000000004','verified'),
+('10000000-0000-0000-0000-000000000010','berth','chua-ve-cau-cang-3','Cầu cảng số 3 – Chùa Vẽ','10000000-0000-0000-0000-000000000004','verified'),
+('10000000-0000-0000-0000-000000000011','berth','chua-ve-cau-cang-4','Cầu cảng số 4 – Chùa Vẽ','10000000-0000-0000-0000-000000000004','verified'),
+('10000000-0000-0000-0000-000000000012','berth','chua-ve-cau-cang-5','Cầu cảng số 5 – Chùa Vẽ','10000000-0000-0000-0000-000000000004','verified') on conflict do nothing;
+insert into port.port_authorities(id) values('10000000-0000-0000-0000-000000000005') on conflict do nothing;
+insert into port.ports(id,authority_id) values('10000000-0000-0000-0000-000000000006','10000000-0000-0000-0000-000000000005') on conflict do nothing;
+insert into port.terminals(id,port_id) values('10000000-0000-0000-0000-000000000007','10000000-0000-0000-0000-000000000006') on conflict do nothing;
+insert into port.berths(id,terminal_id) select id,'10000000-0000-0000-0000-000000000007'::uuid from catalog.entities where id in ('10000000-0000-0000-0000-000000000008','10000000-0000-0000-0000-000000000009','10000000-0000-0000-0000-000000000010','10000000-0000-0000-0000-000000000011','10000000-0000-0000-0000-000000000012') on conflict do nothing;
+insert into port.entity_mappings(id,entity_id,verification_source_id,source_record_id,external_id,external_name,valid_from,resolution_method,confidence,evidence_excerpt) values
+('10000000-0000-0000-0000-000000000013','10000000-0000-0000-0000-000000000007','10000000-0000-0000-0000-000000000002','10000000-0000-0000-0000-000000000004','505-QD-BXD-2026:phu-luc-I:38','Bến cảng Chùa Vẽ','2026-04-17','document_evidence',1,'Đối chiếu trực quan PDF phụ lục I, dòng 38, trang 5–6: bến Chùa Vẽ có cầu 1–5; số/ngày quyết định đối chiếu cổng Bộ Xây dựng và VIMAWA. Hiệu lực mapping định danh danh mục, không phải thời điểm bắt đầu hoạt động hoặc quyền sở hữu doanh nghiệp.') on conflict do nothing;
+commit;

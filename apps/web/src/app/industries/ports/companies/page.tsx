@@ -1,6 +1,11 @@
 import Link from "next/link";
 import { publicRepository } from "@/lib/server";
-import { Metadata, SourceBadge, Unavailable } from "@/components/catalog";
+import {
+  CatalogList,
+  Metadata,
+  SourceBadge,
+  Unavailable,
+} from "@/components/catalog";
 import { pageQuery } from "@invest/port";
 export const dynamic = "force-dynamic";
 export default async function Page({
@@ -8,10 +13,34 @@ export default async function Page({
 }: {
   searchParams: Promise<Record<string, string>>;
 }) {
+  const search = await searchParams;
+  const tabs = (
+    <nav aria-label="Danh mục doanh nghiệp">
+      <Link href="?view=all">Tất cả doanh nghiệp</Link>
+      <Link href="?view=listed">Niêm yết / đăng ký giao dịch</Link>
+    </nav>
+  );
+  if (search.view === "all") {
+    try {
+      const result = await publicRepository().list(
+        "company",
+        pageQuery(new URLSearchParams(search)),
+      );
+      return (
+        <>
+          <h1>Danh mục doanh nghiệp</h1>
+          {tabs}
+          <CatalogList result={result} paginationParams={{ view: "all" }} />
+        </>
+      );
+    } catch {
+      return <Unavailable />;
+    }
+  }
   let result;
   try {
     result = await publicRepository().listedCompanies(
-      pageQuery(new URLSearchParams(await searchParams)),
+      pageQuery(new URLSearchParams(search)),
     );
   } catch {
     return <Unavailable />;
@@ -19,7 +48,8 @@ export default async function Page({
   return (
     <>
       <p className="eyebrow">DANH MỤC DOANH NGHIỆP</p>
-      <h1>Doanh nghiệp niêm yết</h1>
+      <h1>Doanh nghiệp niêm yết / đăng ký giao dịch</h1>
+      {tabs}
       <Metadata meta={result.meta} />
       {result.data.length ? (
         result.data.map((c) => (

@@ -17,10 +17,11 @@ test("catalog shell explains evidence and does not fabricate metrics", async ({
       () => document.documentElement.scrollWidth <= window.innerWidth,
     ),
   ).toBe(true);
-  await page
-    .getByRole("link", { name: "Doanh nghiệp niêm yết", exact: true })
-    .click();
+  await page.getByRole("link", { name: "Doanh nghiệp", exact: true }).click();
   await expect(page.locator("main")).toBeVisible();
+  await expect(
+    page.getByRole("link", { name: "Fixture Company", exact: true }),
+  ).toBeVisible();
 });
 test("unauthenticated review API denies access and UI hides proposals", async ({
   page,
