@@ -8,6 +8,8 @@ Người dùng cung cấp ảnh danh mục 15 mã: GMD, PHP, VGR, DVP, PDN, CDN,
 
 Phạm vi yêu cầu vẫn gồm doanh nghiệp trên HOSE/HNX/UPCoM có quan hệ với cảng biển và cảng sông, kể cả sở hữu gián tiếp. ICD hiển thị riêng. Doanh nghiệp khai thác, doanh nghiệp sở hữu và cảng/bến vật lý là các thực thể khác nhau.
 
+Phạm vi chính đã chốt thêm: cảng thương mại và doanh nghiệp sở hữu cảng/ICD; bến chuyên dùng của nhà máy thuộc nhóm bổ sung riêng. Không đưa mọi doanh nghiệp logistics hoặc mọi khoản đầu tư cổ phiếu vào quan hệ tài sản cảng khi chưa có bằng chứng phù hợp.
+
 ## Tài liệu và trạng thái
 
 `listed-port-baseline.json` lưu từng hồ sơ đối chiếu, liên kết tài liệu gốc, SHA-256, thời điểm tải thật và các điểm phải rà soát. Cả 15 hồ sơ hiện có tài liệu ứng viên. Các trường `pending`, `to_verify` và `current_2026_changes_reviewed: false` được giữ nguyên cho đến khi hoàn tất kiểm tra tương ứng.
@@ -19,6 +21,10 @@ Raw files và ảnh review ở `.local/catalog-research/`, không commit vào Gi
 Đã upload đủ 30 PDF vào `investing-pro-evidence-staging/catalog-evidence/sha256/` và đối chiếu thấy đủ 30 key mới trên hai trang danh sách object. Bucket giữ riêng tư. `evidence-artifacts.json` lưu metadata của đợt này; chưa tải ngược toàn bộ 30 file để đối chiếu SHA-256, nên `r2_verified` vẫn false và `sha256_readback_status` vẫn pending. Trạng thái lưu trữ không thay thế duyệt quyền sử dụng hoặc duyệt quan hệ doanh nghiệp–tài sản.
 
 ## Quy trình duyệt mỗi hồ sơ
+
+`registry-exchange-observations.json` lưu lần đối chiếu trực tiếp 11 hồ sơ HNX/UPCoM. Đây là dữ kiện nghiên cứu, chưa phải listing được duyệt và không cấp phép phát hành dữ liệu website HNX. Ngày giao dịch đầu tiên khác ngày quyết định đăng ký; ví dụ PHP cần giữ riêng ngày giao dịch 14/09/2022 với ngày 06/09/2022 nêu trong báo cáo.
+
+Catalog pháp lý đã được mở rộng riêng bằng hồ sơ 505 trong `supabase/imports/data/`: 17 nhóm cảng, 59 bến, 167 mục cầu. 58 định danh mới đã duyệt qua UI staging, không suy ra quan hệ doanh nghiệp. Bến Thủy giữ số 1, 3, 6; Phước An giữ 5, 6, 7; không tự lấp số còn thiếu. Nhóm pháp lý “cảng biển” trong văn bản không tự xác định vị trí địa lý biển/sông của từng bến.
 
 1. Xác minh pháp nhân, mã và sàn bằng hồ sơ chính thức hoặc tài liệu doanh nghiệp; lưu bằng chứng ngày hiệu lực. Ảnh tham khảo chỉ xác định yêu cầu độ phủ.
 2. Xác định từng cảng/bến/cầu cảng và ICD từ danh mục pháp lý; kiểm tra alias trước khi tạo entity mới. Không suy ra cảng vụ chỉ từ tên hoặc địa bàn doanh nghiệp.

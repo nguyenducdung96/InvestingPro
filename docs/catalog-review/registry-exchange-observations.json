@@ -1,0 +1,139 @@
+{
+  "scope": "research_only_exchange_cross_check",
+  "listing_publication_status": "pending",
+  "note": "Hồ sơ giao dịch được đối chiếu trực tiếp; chưa tự cấp phép phát hành dữ liệu website HNX và chưa tự xác minh listing trong database.",
+  "observations": [
+    {
+      "ticker": "CDN",
+      "exchange": "HNX",
+      "fields": {
+        "Mã CK": "Mã CK CDN",
+        "Tên TCPH": "Tên TCPH Công ty cổ phần Cảng Đà Nẵng",
+        "Ngày GD đầu tiên": "Ngày GD đầu tiên 30/11/2016",
+        "Trạng thái giao dịch": "Trạng thái giao dịch Hoạt động"
+      },
+      "source_url": "https://www.hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-ny-CDN.html",
+      "captured_at": "2026-10-15T02:44:17.563Z"
+    },
+    {
+      "ticker": "DXP",
+      "exchange": "HNX",
+      "fields": {
+        "Mã CK": "Mã CK DXP",
+        "Tên TCPH": "Tên TCPH Công ty cổ phần Cảng Đoạn Xá",
+        "Ngày GD đầu tiên": "Ngày GD đầu tiên 08/06/2009",
+        "Trạng thái giao dịch": "Trạng thái giao dịch Hoạt động"
+      },
+      "source_url": "https://www.hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-ny-DXP.html",
+      "captured_at": "2026-10-15T02:44:20.180Z"
+    },
+    {
+      "ticker": "NAP",
+      "exchange": "HNX",
+      "fields": {
+        "Mã CK": "Mã CK NAP",
+        "Tên TCPH": "Tên TCPH Công ty Cổ phần Cảng Nghệ Tĩnh",
+        "Ngày GD đầu tiên": "Ngày GD đầu tiên 27/03/2018",
+        "Trạng thái giao dịch": "Trạng thái giao dịch Hoạt động"
+      },
+      "source_url": "https://www.hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-ny-NAP.html",
+      "captured_at": "2026-10-15T02:44:22.720Z"
+    },
+    {
+      "ticker": "PHP",
+      "exchange": "UPCOM",
+      "fields": {
+        "Mã CK": "Mã CK PHP",
+        "Tên TCPH": "Tên TCPH CTCP Cảng Hải Phòng",
+        "Ngày GD đầu tiên": "Ngày GD đầu tiên 14/09/2022",
+        "Trạng thái giao dịch": "Trạng thái giao dịch Hoạt động"
+      },
+      "source_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-php.html",
+      "captured_at": "2026-10-15T02:44:44.229Z"
+    },
+    {
+      "ticker": "VGR",
+      "exchange": "UPCOM",
+      "fields": {
+        "Mã CK": "Mã CK VGR",
+        "Tên TCPH": "Tên TCPH Công ty Cổ phần Cảng xanh VIP",
+        "Ngày GD đầu tiên": "Ngày GD đầu tiên 12/04/2018",
+        "Trạng thái giao dịch": "Trạng thái giao dịch Hoạt động"
+      },
+      "source_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-vgr.html",
+      "captured_at": "2026-10-15T02:44:46.745Z"
+    },
+    {
+      "ticker": "CQN",
+      "exchange": "UPCOM",
+      "fields": {
+        "Mã CK": "Mã CK CQN",
+        "Tên TCPH": "Tên TCPH CTCP Cảng Quảng Ninh",
+        "Ngày GD đầu tiên": "Ngày GD đầu tiên 18/08/2020",
+        "Trạng thái giao dịch": "Trạng thái giao dịch Hoạt động"
+      },
+      "source_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-cqn.html",
+      "captured_at": "2026-10-15T02:44:52.448Z"
+    },
+    {
+      "ticker": "PSP",
+      "exchange": "UPCOM",
+      "fields": {
+        "Mã CK": "Mã CK PSP",
+        "Tên TCPH": "Tên TCPH CTCP Cảng dịch vụ Dầu khí Đình Vũ",
+        "Ngày GD đầu tiên": "Ngày GD đầu tiên 10/11/2009",
+        "Trạng thái giao dịch": "Trạng thái giao dịch Hoạt động"
+      },
+      "source_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-psp.html",
+      "captured_at": "2026-10-15T02:44:55.368Z"
+    },
+    {
+      "ticker": "PAP",
+      "exchange": "UPCOM",
+      "fields": {
+        "Mã CK": "Mã CK PAP",
+        "Tên TCPH": "Tên TCPH CTCP Dầu khí Đầu tư Khai thác Cảng Phước An",
+        "Ngày GD đầu tiên": "Ngày GD đầu tiên 14/07/2021",
+        "Trạng thái giao dịch": "Trạng thái giao dịch Hoạt động"
+      },
+      "source_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-pap.html",
+      "captured_at": "2026-10-15T02:44:58.153Z"
+    },
+    {
+      "ticker": "SGP",
+      "exchange": "UPCOM",
+      "fields": {
+        "Mã CK": "Mã CK SGP",
+        "Tên TCPH": "Tên TCPH CTCP Cảng Sài Gòn",
+        "Ngày GD đầu tiên": "Ngày GD đầu tiên 25/04/2016",
+        "Trạng thái giao dịch": "Trạng thái giao dịch Hoạt động"
+      },
+      "source_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-sgp.html",
+      "captured_at": "2026-10-15T02:45:00.922Z"
+    },
+    {
+      "ticker": "QSP",
+      "exchange": "UPCOM",
+      "fields": {
+        "Mã CK": "Mã CK QSP",
+        "Tên TCPH": "Tên TCPH CTCP Tân Cảng Quy Nhơn",
+        "Ngày GD đầu tiên": "Ngày GD đầu tiên 23/09/2016",
+        "Trạng thái giao dịch": "Trạng thái giao dịch Hoạt động"
+      },
+      "source_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-qsp.html",
+      "captured_at": "2026-10-15T02:45:05.472Z"
+    },
+    {
+      "ticker": "MVN",
+      "exchange": "UPCOM",
+      "fields": {
+        "Mã CK": "Mã CK MVN",
+        "Tên TCPH": "Tên TCPH Tổng công ty Hàng hải Việt Nam - CTCP",
+        "Ngày GD đầu tiên": "Ngày GD đầu tiên 08/10/2018",
+        "Trạng thái giao dịch": "Trạng thái giao dịch Hoạt động"
+      },
+      "source_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-mvn.html",
+      "captured_at": "2026-10-15T02:45:09.161Z"
+    }
+  ]
+}

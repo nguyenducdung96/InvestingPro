@@ -1,0 +1,844 @@
+{
+  "document": "505/QĐ-BXD",
+  "effective_date": "2026-04-17",
+  "verified_raw_sha256": "f04add8517aac678a238ef8c94aea3e3cbd02c57971694c42c6e3d06c9861a04",
+  "review_scope": "Tên và hierarchy của các mục được chọn; không xác nhận doanh nghiệp, quyền sở hữu, trạng thái khai thác hoặc toàn bộ danh mục quốc gia. Cảng biển là nhóm pháp lý trong cột nguồn, không suy ra địa lý biển/sông từ tên.",
+  "authority_assignment": "Chỉ tái sử dụng cảng vụ Hải Phòng đã xác minh. Các cảng khác giữ authority_id NULL.",
+  "terminals": [
+    {
+      "number": 11,
+      "name": "Bến cảng tổng hợp Cái Lân",
+      "port": "Quảng Ninh",
+      "berths": [
+        "Cầu cảng Tạm",
+        "Cầu cảng số 1",
+        "Cầu cảng số 2",
+        "Cầu cảng số 3",
+        "Cầu cảng số 4",
+        "Cầu cảng số 5",
+        "Cầu cảng số 6",
+        "Cầu cảng số 7"
+      ],
+      "pages": [
+        3,
+        4
+      ],
+      "review_note": "Tên bến tiếp nối trang 3–4. Hai nhóm số 2,3,4 và 5,6,7 được tách theo các số được nêu rõ trong nguồn; không gán cùng đơn vị khai thác.",
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 28,
+      "name": "Bến cảng Hải Phòng (khu cảng chính, Hoàng Diệu)",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2",
+        "Cầu cảng số 3",
+        "Cầu cảng số 4",
+        "Cầu cảng số 5",
+        "Cầu cảng số 6",
+        "Cầu cảng số 7",
+        "Cầu cảng số 8",
+        "Cầu cảng số 9"
+      ],
+      "pages": [
+        5
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 31,
+      "name": "Bến cảng Cửa Cấm",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2",
+        "Cầu cảng số 3"
+      ],
+      "pages": [
+        5
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 33,
+      "name": "Bến cảng Nam Hải",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng Nam Hải"
+      ],
+      "pages": [
+        5
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 34,
+      "name": "Bến cảng Đoạn Xá",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng Đoạn Xá"
+      ],
+      "pages": [
+        5
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 37,
+      "name": "Bến cảng Greenport",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2"
+      ],
+      "pages": [
+        5
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 38,
+      "name": "Bến cảng Chùa Vẽ",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2",
+        "Cầu cảng số 3",
+        "Cầu cảng số 4",
+        "Cầu cảng số 5"
+      ],
+      "pages": [
+        5,
+        6
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 46,
+      "name": "Bến cảng Hải An",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng Hải An"
+      ],
+      "pages": [
+        6
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 50,
+      "name": "Bến cảng PTSC Đình Vũ",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng PTSC Đình Vũ"
+      ],
+      "pages": [
+        6
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 51,
+      "name": "Bến cảng Đình Vũ",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2"
+      ],
+      "pages": [
+        6
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 52,
+      "name": "Bến cảng Tân Vũ",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2",
+        "Cầu cảng số 3",
+        "Cầu cảng số 4",
+        "Cầu cảng số 5"
+      ],
+      "pages": [
+        6
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 53,
+      "name": "Bến cảng VIMC Đình Vũ",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng VIMC Đình Vũ"
+      ],
+      "pages": [
+        6
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 54,
+      "name": "Bến cảng Nam Hải Đình Vũ",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2"
+      ],
+      "pages": [
+        6
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 55,
+      "name": "Bến cảng Container Vip Greenport",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2"
+      ],
+      "pages": [
+        6
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 60,
+      "name": "Bến cảng Nam Đình Vũ",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2",
+        "Cầu cảng số 3",
+        "Cầu cảng số 4"
+      ],
+      "pages": [
+        7
+      ],
+      "review_note": "Danh mục 505 chỉ nêu cầu số 1–4. Các cầu khác/giai đoạn mở rộng phải có bằng chứng bổ sung, không tự thêm từ số lượng trong tin doanh nghiệp.",
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 61,
+      "name": "Bến cảng Container Quốc tế Tân cảng Hải Phòng (TC-HICT)",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2",
+        "Cầu số 1A"
+      ],
+      "pages": [
+        7
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 62,
+      "name": "Bến cảng HTIT (Lạch Huyện)",
+      "port": "Hải Phòng",
+      "berths": [
+        "Cầu cảng số 3",
+        "Cầu cảng số 4"
+      ],
+      "pages": [
+        7
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 86,
+      "name": "Bến cảng Cửa Lò",
+      "port": "Nghệ An",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2",
+        "Cầu cảng số 3",
+        "Cầu cảng số 4",
+        "Cầu cảng số 5"
+      ],
+      "pages": [
+        9
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 88,
+      "name": "Bến cảng Bến Thủy",
+      "port": "Nghệ An",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 3",
+        "Cầu cảng số 6"
+      ],
+      "pages": [
+        9
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 106,
+      "name": "Bến cảng Chân Mây",
+      "port": "Thừa Thiên Huế",
+      "berths": [
+        "Cầu cảng số 1 (tuyến mép bến phía biển)",
+        "Cầu cảng số 1 (tuyến mép bến phía bờ)",
+        "Cầu cảng số 3"
+      ],
+      "pages": [
+        11
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 108,
+      "name": "Bến cảng Tiên Sa",
+      "port": "Đà Nẵng",
+      "berths": [
+        "Cầu cảng số 1 (mép bến hạ lưu – bến TS1A)",
+        "Cầu cảng số 1 (mép bến thượng lưu – bến TS1B)",
+        "Cầu cảng số 2 (mép bến hạ lưu – bến TS2A)",
+        "Cầu cảng số 2 (mép bến thượng lưu – bến TS2B)",
+        "Cầu cảng số 3 Tiên Sa",
+        "Cầu cảng số 4 Tiên Sa",
+        "Cầu cảng số 5 Tiên Sa",
+        "Cầu cảng số 7 Tiên Sa"
+      ],
+      "pages": [
+        11
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 118,
+      "name": "Bến cảng PTSC Quảng Ngãi",
+      "port": "Quảng Ngãi",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng bến tàu lai dắt"
+      ],
+      "pages": [
+        12
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 119,
+      "name": "Bến cảng Germadept Dung Quất",
+      "port": "Quảng Ngãi",
+      "berths": [
+        "Cầu cảng số 1 - Khu bến tổng hợp I - cảng biển Dung Quất"
+      ],
+      "pages": [
+        12
+      ],
+      "review_note": "Giữ nguyên cách viết Germadept trong danh mục hành chính. Alias sang tên doanh nghiệp Gemadept cần đối chiếu tài liệu doanh nghiệp, không fuzzy auto-verify.",
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 127,
+      "name": "Bến cảng Quy Nhơn",
+      "port": "Bình Định",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2",
+        "Cầu cảng số 3",
+        "Cầu cảng số 4"
+      ],
+      "pages": [
+        13
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 128,
+      "name": "Bến cảng Tân cảng Quy Nhơn",
+      "port": "Bình Định",
+      "berths": [
+        "Cầu cảng Tân cảng Quy Nhơn"
+      ],
+      "pages": [
+        13
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 129,
+      "name": "Bến cảng Thị Nại",
+      "port": "Bình Định",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2"
+      ],
+      "pages": [
+        13
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 145,
+      "name": "Bến cảng Nha Trang",
+      "port": "Khánh Hoà",
+      "berths": [
+        "Cầu cảng số 3 (mặt phía biển)"
+      ],
+      "pages": [
+        14
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 147,
+      "name": "Bến cảng Ba Ngòi",
+      "port": "Khánh Hoà",
+      "berths": [
+        "Cầu cảng BN1",
+        "Cầu cảng BN2",
+        "Cầu cảng BN3",
+        "Cầu cảng BN5"
+      ],
+      "pages": [
+        14
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 164,
+      "name": "Bến cảng Thương cảng Vũng Tàu",
+      "port": "Bà Rịa - Vũng Tàu",
+      "berths": [
+        "Cầu cảng Thương cảng Vũng Tàu"
+      ],
+      "pages": [
+        15
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 173,
+      "name": "Bến cảng xăng dầu PTSC",
+      "port": "Bà Rịa - Vũng Tàu",
+      "berths": [
+        "Cầu cảng chuyên dùng kho xăng dầu"
+      ],
+      "pages": [
+        16
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 175,
+      "name": "Bến cảng thượng lưu PTSC",
+      "port": "Bà Rịa - Vũng Tàu",
+      "berths": [
+        "Cầu cảng dịch vụ dầu khí Vũng Tàu (Thượng lưu PTSC)"
+      ],
+      "pages": [
+        16
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 177,
+      "name": "Bến cảng hạ lưu PTSC",
+      "port": "Bà Rịa - Vũng Tàu",
+      "berths": [
+        "Cầu cảng hạ lưu PTSC (phân đoạn 9 -17)",
+        "Cầu cảng căn cứ dịch vụ kỹ thuật dầu khí hạ lưu Vũng Tàu (phân đoạn 1 – 8)"
+      ],
+      "pages": [
+        16
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 190,
+      "name": "Bến cảng tổng hợp Thị Vải (ODA)",
+      "port": "Bà Rịa - Vũng Tàu",
+      "berths": [
+        "Cầu cảng số 1"
+      ],
+      "pages": [
+        17
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 191,
+      "name": "Bến cảng Quốc tế SP-PSA",
+      "port": "Bà Rịa - Vũng Tàu",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2"
+      ],
+      "pages": [
+        17
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 202,
+      "name": "Bến cảng Quốc tế Cái Mép (CMIT)",
+      "port": "Bà Rịa - Vũng Tàu",
+      "berths": [
+        "Cầu cảng Quốc tế Cái Mép"
+      ],
+      "pages": [
+        18
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 203,
+      "name": "Bến cảng container Quốc tế Cái Mép",
+      "port": "Bà Rịa - Vũng Tàu",
+      "berths": [
+        "Cầu cảng Container Quốc tế Cái Mép"
+      ],
+      "pages": [
+        18
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 204,
+      "name": "Bến cảng container Quốc tế Cảng Sài Gòn-SSA (SSIT)",
+      "port": "Bà Rịa - Vũng Tàu",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2",
+        "Cầu cảng số 3"
+      ],
+      "pages": [
+        18
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 205,
+      "name": "Bến cảng Cái Mép Gemadept-Terminal Link",
+      "port": "Bà Rịa - Vũng Tàu",
+      "berths": [
+        "Cầu cảng sà lan",
+        "Cầu chính"
+      ],
+      "pages": [
+        18
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 208,
+      "name": "Bến cảng tổng hợp Bình Dương",
+      "port": "Bình Dương",
+      "berths": [
+        "Cầu cảng tổng hợp Bình Dương"
+      ],
+      "pages": [
+        18
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 209,
+      "name": "Bến cảng Đồng Nai (Phân cảng Long Bình Tân)",
+      "port": "Đồng Nai",
+      "berths": [
+        "Cầu cảng số 2",
+        "Cầu cảng số 3",
+        "Cầu cảng liên kết Cầu cảng số 2 & Cầu cảng số 3"
+      ],
+      "pages": [
+        18
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 223,
+      "name": "Bến cảng Đồng Nai (Phân cảng Gò Dầu A)",
+      "port": "Đồng Nai",
+      "berths": [
+        "Cầu cảng số 1 (phân cảng Gò Dầu A)",
+        "Cầu cảng số 2 (phân cảng Gò Dầu A)",
+        "Cầu cảng số 3 (phân cảng Gò Dầu A)"
+      ],
+      "pages": [
+        19
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 226,
+      "name": "Bến cảng Đồng Nai (Phân cảng Gò Dầu B)",
+      "port": "Đồng Nai",
+      "berths": [
+        "Cầu cảng tổng hợp Gò Dầu B1",
+        "Cầu cảng tổng hợp Gò Dầu B2",
+        "Cầu cảng số 3 (Gò Dầu B3)",
+        "Cầu cảng số 4 (Gò Dầu B4)",
+        "Cầu cảng số 5 (Gò Dầu B5)"
+      ],
+      "pages": [
+        19,
+        20
+      ],
+      "review_note": "Tên bến tiếp nối trang 19–20; giữ đủ hậu tố B, không gộp với phân cảng Gò Dầu A.",
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 227,
+      "name": "Bến cảng Phước An",
+      "port": "Đồng Nai",
+      "berths": [
+        "Cầu cảng số 5",
+        "Cầu cảng số 6",
+        "Cầu cảng số 7"
+      ],
+      "pages": [
+        20
+      ],
+      "source_berth_labels": [
+        "Cầu cảng số 5",
+        "Cầu cảng số 6",
+        "Cầu cảng số 7 và 90m cầu cảng số 6 nối dài"
+      ],
+      "review_note": "Dòng cuối nguồn gồm cầu số 7 và phần nối dài 90m của cầu số 6. Không tạo thêm một cầu số 6 trùng lặp; không suy ra cầu số 1–4 hoặc 8–9.",
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 228,
+      "name": "Bến cảng Sài Gòn",
+      "port": "Thành phố Hồ Chí Minh",
+      "berths": [
+        "Cầu cảng MM1",
+        "Cầu cảng MM2",
+        "Cầu cảng MM3",
+        "Cầu cảng MM4",
+        "Cầu cảng K0",
+        "Cầu cảng K1",
+        "Cầu cảng K2",
+        "Cầu cảng K3",
+        "Cầu cảng K4",
+        "Cầu cảng K5",
+        "Cầu cảng K6",
+        "Cầu cảng K7",
+        "Cầu cảng K8",
+        "Cầu cảng K9",
+        "Cầu cảng K10",
+        "Cầu cảng K12B",
+        "Cầu cảng K12C",
+        "Cầu cảng K12C1",
+        "Cầu cảng K12",
+        "Cầu cảng K12A"
+      ],
+      "pages": [
+        20
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 231,
+      "name": "Bến cảng Container Quốc tế Việt Nam (VICT)",
+      "port": "Thành phố Hồ Chí Minh",
+      "berths": [
+        "Cầu cảng V1",
+        "Cầu cảng V2",
+        "Cầu cảng V3",
+        "Cầu cảng V4"
+      ],
+      "pages": [
+        21
+      ],
+      "source_berth_labels": [
+        "Cầu cảng V1",
+        "Cầu cảng V2",
+        "Cầu cảng V3, V4"
+      ],
+      "review_note": "Nguồn nêu V3,V4 trong cùng ô; tách đúng hai định danh được nêu, không suy ra đơn vị khai thác.",
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 233,
+      "name": "Bến cảng Tân Thuận 2",
+      "port": "Thành phố Hồ Chí Minh",
+      "berths": [
+        "Cầu cảng Tân Thuận 2"
+      ],
+      "pages": [
+        21
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 240,
+      "name": "Bến cảng Bến Nghé - Phú Hữu",
+      "port": "Thành phố Hồ Chí Minh",
+      "berths": [
+        "Cầu cảng Bến Nghé Phú Hữu"
+      ],
+      "pages": [
+        21
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 241,
+      "name": "Bến cảng Tân cảng Cát Lái",
+      "port": "Thành phố Hồ Chí Minh",
+      "berths": [
+        "Cầu cảng 2.200DWT",
+        "Cầu cảng số 1",
+        "Cầu cảng số II",
+        "Cầu cảng số 4",
+        "Cầu tàu số 5",
+        "Cầu tàu số 7"
+      ],
+      "pages": [
+        21
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 242,
+      "name": "Bến cảng Cát Lái",
+      "port": "Thành phố Hồ Chí Minh",
+      "berths": [
+        "Cầu cảng dịch vụ biển thuộc Bến cảng Tân Cảng Cát Lái"
+      ],
+      "pages": [
+        21
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 260,
+      "name": "Bến cảng Tân cảng Hiệp Phước",
+      "port": "Thành phố Hồ Chí Minh",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2",
+        "Cầu cảng số 3 (Bến sà lan)"
+      ],
+      "pages": [
+        23
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 267,
+      "name": "Bến cảng Sài Gòn - Hiệp Phước",
+      "port": "Thành phố Hồ Chí Minh",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2",
+        "Cầu cảng số 3"
+      ],
+      "pages": [
+        23
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 272,
+      "name": "Bến cảng Mỹ Tho",
+      "port": "Tiền Giang",
+      "berths": [
+        "Cầu cảng 1.000 DWT",
+        "Cầu cảng Mỹ Tho"
+      ],
+      "pages": [
+        24
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 273,
+      "name": "Bến cảng Đồng Tháp",
+      "port": "Đồng Tháp",
+      "berths": [
+        "Cầu cảng Đồng Tháp"
+      ],
+      "pages": [
+        24
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 275,
+      "name": "Bến cảng Sa Đéc",
+      "port": "Đồng Tháp",
+      "berths": [
+        "Cầu cảng Sa Đéc"
+      ],
+      "pages": [
+        24
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 290,
+      "name": "Bến cảng Hoàng Diệu (Cần Thơ)",
+      "port": "Cần Thơ",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2"
+      ],
+      "pages": [
+        25
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 295,
+      "name": "Bến cảng Tân Cảng Cái Cui",
+      "port": "Cần Thơ",
+      "berths": [
+        "Cầu cảng Tân Cảng Cái Cui"
+      ],
+      "pages": [
+        25
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 296,
+      "name": "Bến cảng Cái Cui",
+      "port": "Cần Thơ",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng số 2"
+      ],
+      "pages": [
+        25
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 297,
+      "name": "Bến cảng tổng hợp VIMC Hậu Giang",
+      "port": "Hậu Giang",
+      "berths": [
+        "Cầu cảng số 1",
+        "Cầu cảng 5.000DWT"
+      ],
+      "pages": [
+        25
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    },
+    {
+      "number": 304,
+      "name": "Bến cảng Mỹ Thới",
+      "port": "An Giang",
+      "berths": [
+        "Cầu cảng Mỹ Thới"
+      ],
+      "pages": [
+        26
+      ],
+      "visual_review": "reviewed_against_rendered_pdf"
+    }
+  ]
+}

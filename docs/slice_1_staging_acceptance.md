@@ -14,6 +14,18 @@ Worker investing-pro-web-staging, Supabase phát triển loapslojajawgzekozfv, n
 
 ## Bộ dữ liệu thật
 
+### Đợt mở rộng danh mục pháp lý ngày 15/10/2026
+
+Đã nạp `supabase/imports/505_commercial_catalog.reviewed.sql`: tổng catalog thật có 17 nhóm cảng biển pháp lý, 59 bến và 167 mục cầu cảng. Đây là các mục đã đọc trực quan trong Quyết định 505/QĐ-BXD, không phải toàn bộ danh mục quốc gia. Hồ sơ đầu vào ở `supabase/imports/data/505-commercial-catalog.reviewed.json`; compiler ngoại tuyến chỉ tạo import thủ công, không chạy connector hay tự duyệt.
+
+Đã duyệt riêng 58 định danh mới qua UI quản trị bằng phiên người dùng, có ghi chú tài liệu/trang/phạm vi cho từng mục; định danh Chùa Vẽ đã duyệt trước đó được giữ nguyên. Hàng đợi `entity_mappings` sau đợt này không còn proposal. Quyết định định danh không xác minh chủ sở hữu, đơn vị khai thác hoặc tình trạng hoạt động. Bằng chứng raw sử dụng lại file 505 đã kiểm tra SHA-256 sau tải ngược R2; source record mới giữ thời điểm tải thật từ record trước, không sửa evidence bất biến.
+
+Nguồn `synthetic_dev` đã được chuyển sang blocked bằng import có điều kiện đúng ID/code/owner/URL. Không xóa entities hoặc lịch sử audit. API cloud sau thay đổi trả về 17 nhóm cảng và 59 bến, không còn bến synthetic. Bộ 37 tests đạt, gồm 3 tests mới về import lặp lại, hierarchy, số cầu không liên tiếp và việc ẩn đúng fixture mà vẫn giữ dữ liệu thật. Lint đạt. Các kết quả 2 bến/10 cầu bên dưới là mốc bộ mẫu ban đầu.
+
+Chưa có listing thật hoặc quan hệ doanh nghiệp mới nào được xác minh trong đợt mở rộng này. Vì vậy **chưa hoàn thành nghiệm thu dữ liệu Slice 1**. Phạm vi chính đã chốt: cảng thương mại và doanh nghiệp sở hữu cảng/ICD, gồm biển và sông; ICD riêng; bến chuyên dùng của nhà máy thuộc nhóm bổ sung riêng. Còn phải chốt universe, hoàn thiện chuỗi pháp nhân/tài sản và nguồn/thời gian, nhập proposals rồi duyệt và đối chiếu độ phủ từng mã.
+
+### Mốc bộ mẫu ban đầu
+
 1 cảng vụ Hải Phòng, 1 cảng biển Hải Phòng, 2 bến Chùa Vẽ/Tân Vũ, 10 cầu cảng, Công ty cổ phần Cảng Hải Phòng: 15 entities. Đã duyệt định danh Chùa Vẽ và quan hệ vận hành doanh nghiệp–Tân Vũ qua UI. Hiệu lực quan hệ từ phạm vi quyết định 04/06/2026, không phải ngày bắt đầu khai thác lịch sử. Tỷ lệ sở hữu giữ null. Không dùng danh sách cũ để khẳng định doanh nghiệp trực tiếp vận hành Chùa Vẽ sau thay đổi đơn vị năm 2025.
 
 Chưa nạp ticker thật từ nguồn chưa duyệt. Danh mục tất cả doanh nghiệp tách khỏi danh mục niêm yết/đăng ký giao dịch; không tự gắn PHP hoặc sàn giao dịch. Chức năng listing được kiểm tra bằng fixtures và SQL tests.
