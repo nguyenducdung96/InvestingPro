@@ -51,6 +51,16 @@ Valid_from của đợt này là **mốc cấp phép khai thác được báo c�
 
 ## Quy trình duyệt mỗi hồ sơ
 
+### Kiểm chứng được chủ dự án giao cho Codex ngày 15/10/2026
+
+Chủ dự án đã giao Codex tự kiểm chứng và duyệt các hồ sơ đủ căn cứ, ưu tiên trang chủ và tài liệu doanh nghiệp. Không cần yêu cầu chủ dự án đọc lại từng báo cáo chỉ vì thao tác review là thủ công. Vẫn phải ghi đúng phạm vi dữ kiện, quyền nguồn và actor thực tế; không giả phiên người dùng hoặc bỏ RLS.
+
+`factual-review-20261015.json` ghi kết quả đọc trực quan từng trang cho VGR, DVP, PAP, QSP và VSC, tách **kết luận về dữ kiện trong tài liệu** khỏi **quyết định công bố trong ứng dụng**. Đã tải thêm hai PDF VGR trực tiếp từ website doanh nghiệp, tính hash và giữ thời điểm tải; chưa upload chúng lên R2. BCTC bán niên xác nhận định danh, UPCoM và công ty mẹ; nghị quyết 09/2026 là đầu tư trái phiếu, không phải mua cảng. Hai hợp đồng thuê bãi năm 2026 chưa đủ để xác định ICD hoặc bến pháp lý mới.
+
+Đã nhận diện VSC là mã cần bổ sung ngoài 15 mã tối thiểu, có chuỗi pháp nhân qua VGR và GLC/Quảng Bình–Đình Vũ. Báo cáo VSC có các tỷ lệ HAH khác nhau ở trang PDF 7 và 11, cần đối chiếu mốc và BCTC trước khi chọn; không lấy tỷ lệ vốn pháp nhân làm tỷ lệ sở hữu cầu cảng. Trang PAP hiện quảng bá năm bến container đang khai thác nhưng không nêu số bến pháp lý tương ứng; không tự biến cầu 8/9 thành đang vận hành.
+
+Không có quyết định mới trên staging trong đợt này: công cụ trình duyệt từ chối quan sát origin theo saved permission/managed policy. Đây là giới hạn công cụ thao tác, không phải kết luận website lỗi hay người dùng chưa đăng nhập. Không đi đường vòng bằng HTTP, trình duyệt khác hoặc SQL để thực hiện thao tác đã bị chặn. Hồ sơ research không được trình bày là đã xuất bản.
+
 `registry-exchange-observations.json` lưu lần đối chiếu trực tiếp 11 hồ sơ HNX/UPCoM. Đây là dữ kiện nghiên cứu, chưa phải listing được duyệt và không cấp phép phát hành dữ liệu website HNX. Ngày giao dịch đầu tiên khác ngày quyết định đăng ký; ví dụ PHP cần giữ riêng ngày giao dịch 14/09/2022 với ngày 06/09/2022 nêu trong báo cáo.
 
 Catalog pháp lý đã được mở rộng riêng bằng hồ sơ 505 trong `supabase/imports/data/`: 17 nhóm cảng, 59 bến, 167 mục cầu. 58 định danh mới đã duyệt qua UI staging, không suy ra quan hệ doanh nghiệp. Bến Thủy giữ số 1, 3, 6; Phước An giữ 5, 6, 7; không tự lấp số còn thiếu. Nhóm pháp lý “cảng biển” trong văn bản không tự xác định vị trí địa lý biển/sông của từng bến.

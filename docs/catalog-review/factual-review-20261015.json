@@ -1,0 +1,129 @@
+{
+  "reviewed_at": "2026-10-15T16:05:18Z",
+  "reviewer": "Codex document review, delegated by project owner",
+  "scope": "Slice 1 factual assessment of named claims; not an approval in the application",
+  "method": "Visual inspection of rendered issuer PDF pages, official company website cross-checks, explicit separation of legal entity, physical asset, role and effective-date basis",
+  "cloud_mutations": 0,
+  "publication_status": "not_published",
+  "publication_blocker": "Browser observation of the staging origin was denied by a saved user permission or managed policy. No alternate transport or SQL impersonation was used.",
+  "source_rights": "Not inferred from an official domain. These assessments do not grant a licence to republish PDFs, website text, images or exchange datasets.",
+  "items": [
+    {
+      "ticker": "VGR",
+      "fact_assessment": "supported_in_cited_scope",
+      "annual_evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015939361_VI_BaoCaoThuongNien_2025_.pdf",
+        "sha256": "6ff3e575ed2beaf8c1789673ccdbf9e2838f50ff2faacb506a6e50d202fed0c6",
+        "pdf_pages_visually_reviewed": [2],
+        "r2_readback_verified": true
+      },
+      "claims": [
+        {"subject":"Công ty Cổ phần Cảng Xanh VIP","predicate":"enterprise_id","value":"0201579242","basis":"Annual report, PDF page 2; corroborated by interim report, PDF page 13"},
+        {"subject":"VGR","predicate":"trading_venue","value":"UPCOM","as_of":"2026-06-30","basis":"Interim report, PDF page 13; historical first trading date 2018-04-12 in annual report PDF page 2"},
+        {"subject":"Công ty Cổ phần Cảng Xanh VIP","predicate":"operator","object":"Bến cảng Container Vip Greenport","reported_start":"2015-11-27","date_basis":"Issuer explicitly reports first vessel and start of exploitation on this date; annual PDF page 2","ownership_pct":null,"existing_proposal_id":"41a892c9-3a96-5303-975c-708a861c9714"},
+        {"subject":"Công ty Cổ phần Container Việt Nam","predicate":"parent_company_of","object":"Công ty Cổ phần Cảng Xanh VIP","as_of":"2026-06-30","basis":"Interim report, PDF page 13","physical_asset_ownership_pct":null}
+      ],
+      "new_evidence": [
+        {
+          "source_url":"https://vipgreenport.com.vn/uploads/1/VI_BaoCaoTaiChinh_KiemToan_Bannien_2026.pdf",
+          "discovery_url":"https://www.vipgreenport.com.vn/index.php/stin-co-dong/bao-cao-tai-chinh-ban-nien-2026",
+          "fetched_at":"2026-10-15T16:01:04.3078468+00:00",
+          "sha256":"58376aea2dc5bca5c0c14ca894ab184f89e7ce8d687991eb95267f2d6377f0e6",
+          "bytes":4688050,
+          "pdf_pages_visually_reviewed":[13,29],
+          "reporting_period_end":"2026-06-30",
+          "raw_storage_key":null,
+          "r2_uploaded":false,
+          "findings":"Page 13 corroborates identity, ticker, venue and parent. Page 29 describes land and two yard leases, including contracts dated 2026-01-01 and 2026-04-01. Yard locations alone do not identify a legal terminal or an ICD, so no new port/ICD relation is inferred."
+        },
+        {
+          "source_url":"https://vipgreenport.com.vn/uploads/1/1.EN_Boardresolution.pdf",
+          "discovery_url":"https://www.vipgreenport.com.vn/index.php/stin-co-dong/vgr-cong-bo-thong-nghi-quyet-hdqt-so-09-2026",
+          "fetched_at":"2026-10-15T16:01:12.7481865+00:00",
+          "sha256":"fe85af9cf3c1268a09392a13a9901becc03d23648f54e5ee3381a2376266d0c7",
+          "bytes":2906438,
+          "pdf_pages_visually_reviewed":[1,2],
+          "document_date":"2026-08-22",
+          "raw_storage_key":null,
+          "r2_uploaded":false,
+          "findings":"Resolution 09/2026/NQ-HDQT concerns a corporate bond investment. It does not establish ownership or operation of another port. It is excluded from port-asset mappings."
+        }
+      ],
+      "cross_checks":["https://www.vipgreenport.com.vn/index.php/sdich-vu/kho-bai-sua-chua-v-container"],
+      "limits":["The cited 2026 documents are a targeted update check, not an exhaustive review of every 2026 disclosure.","No licence or cloud approval was recorded. The two new PDFs have not been uploaded to R2."]
+    },
+    {
+      "ticker":"DVP",
+      "fact_assessment":"supported_historical_authorization; current_berth_availability_not_established",
+      "evidence":{
+        "source_url":"https://dinhvuport.com.vn/userdata/IR/2026/15-20260313---DVP---BAO-CAO-THUONG-NIEN-NAM-2025.pdf",
+        "sha256":"b31fcc7482c2d0c76588373e15a0a159a350e89498d86f2de32d425548c9314a",
+        "pdf_pages_visually_reviewed":[2],
+        "r2_readback_verified":true
+      },
+      "claims":[
+        {"subject":"DVP","predicate":"reported_authorization_to_operate","object":"Cầu cảng số 1, Bến cảng Đình Vũ","date":"2005-02-25","decision":"87/QĐ-CHHVN","basis":"Issuer annual report; original administrative decision not inspected in this review","ownership_pct":null},
+        {"subject":"DVP","predicate":"reported_authorization_to_operate","object":"Cầu cảng số 2, Bến cảng Đình Vũ","date":"2008-06-13","decision":"377/QĐ-CHHVN","basis":"Issuer annual report; original administrative decision not inspected in this review","ownership_pct":null}
+      ],
+      "cross_checks":["https://www.dinhvuport.com.vn/","https://www.dinhvuport.com.vn/vn/infrastructure.html"],
+      "limits":["The issuer still advertises port services and two berths, but the infrastructure page contains depth measurements from 2018. It is not a 2026 survey or proof of uninterrupted berth availability.","The linked depot website timed out; a depot must not be classified as an ICD without additional evidence.","The historical permit dates are not the first vessel date, land ownership dates, or a guarantee that each berth is currently available."]
+    },
+    {
+      "ticker":"PAP",
+      "fact_assessment":"historical_operating_and_construction_scope_supported; current_numbering_unresolved",
+      "evidence":{
+        "source_url":"https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016032257_VI_Congbobaocaothuongniennam2025_PAP.pdf",
+        "sha256":"81f0546ee15331c47767461ea4d7569b1ea6497ed1646379cf67ec474af696ea",
+        "pdf_pages_visually_reviewed":[4],
+        "printed_page":2,
+        "r2_readback_verified":false
+      },
+      "claims":[
+        {"object":"Cầu cảng số 5 và số 6, Bến cảng Phước An","predicate":"reported_business_eligibility_certificate","date":"2024-12-31","document":"47/2024/GCC-CHHVN","date_is_first_operation":false},
+        {"object":"Cầu cảng số 7 và cầu cảng số 6 nối dài","predicate":"reported_opening_decision","date":"2025-12-05","document":"2620/QĐ-CHHVN","date_is_first_operation":false},
+        {"object":"Cầu cảng số 8 và số 9","predicate":"construction_in_annual_report","current_operation_inferred":false}
+      ],
+      "cross_checks":["https://www.phuocanport.com/vi-tri-dia-ly-co-so-ha-tang/co-so-ha-tang/"],
+      "limits":["The current official infrastructure page advertises five operating container berths but does not map them to legal berth numbers. It also retains future phase descriptions. This is not enough to activate berths 8 and 9 or manufacture a commissioning date.","The selected government catalog contains legal berths 5, 6 and 7. Do not invent berths 1–4 or duplicate berth 6 for its extension.","R2 readback and source permission remain separate unresolved publication checks."]
+    },
+    {
+      "ticker":"QSP",
+      "fact_assessment":"identity_and_non_direct_operator_role_supported",
+      "evidence":{
+        "source_url":"https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016048592_2.BCTN_202520260327_152123Signed.PDF",
+        "sha256":"1927e08c428e009b445e9fe73173c85c104d2ec86dd40207ba4a0adf9f12326a",
+        "pdf_pages_visually_reviewed":[1,5],
+        "document_date":"2026-03-27",
+        "r2_readback_verified":false
+      },
+      "claims":[
+        {"subject":"Công ty Cổ phần Tân Cảng Quy Nhơn","predicate":"enterprise_id","value":"4100694020"},
+        {"subject":"QSP","predicate":"first_trading_date","value":"2016-09-23","venue":"UPCOM"},
+        {"subject":"Công ty Cổ phần Tân Cảng Quy Nhơn","predicate":"reported_role","value":"Hợp tác kinh doanh khai thác hạ tầng cầu cảng và cho thuê bãi; không trực tiếp vận hành khai thác","direct_operator_approved":false}
+      ],
+      "cross_checks":["https://www.hnx.vn/vi-vn/m-tim-kiem-QSP.html"],
+      "limits":["QSP is not QNP. The contracting counterparty, term and precise legal assets require the agreement or equivalent issuer disclosure.","The issuer website quynhonnewport.vn timed out. No access restriction was bypassed.","No lease start date or ownership percentage is inferred from the company incorporation or listing date."]
+    },
+    {
+      "ticker":"VSC",
+      "fact_assessment":"additional_universe_candidate_supported_by_issuer; portfolio_percentages_require_reconciliation",
+      "evidence":{
+        "source_url":"https://viconship.com/wp-content/uploads/2026/04/CBTT-Bao-cao-thuong-nien-nam-2025.pdf",
+        "sha256":"4bd4f0da1db1c203065c5a7864d4c9d13dd5ed25639dd224f369822b3fc3bbc4",
+        "pdf_pages_visually_reviewed":[3,6,7,11],
+        "r2_readback_verified":false
+      },
+      "claims":[
+        {"subject":"Công ty Cổ phần Container Việt Nam","predicate":"enterprise_id","value":"0200453688"},
+        {"subject":"VSC","predicate":"reported_first_trading_date","value":"2008-01-09","venue":"HOSE","basis":"Annual report PDF page 3; not a fresh exchange status check"},
+        {"subject":"VSC","predicate":"reported_parent_of","object":"VGR","equity_pct":54.35,"as_of":"2025-12-31","physical_asset_ownership_pct":null},
+        {"subject":"VSC","predicate":"reported_indirect_subsidiary_chain","chain":["VSC","Công ty TNHH MTV Trung tâm Logistics Xanh","Công ty Cổ phần Cảng cạn Quảng Bình - Đình Vũ"],"classification":"ICD candidate, display separately","physical_asset_ownership_pct":null}
+      ],
+      "conflicts":[
+        {"field":"VSC equity interest in HAH","pdf_page_7_pct":23.99,"pdf_page_11_pct":17.68,"page_11_as_of":"2025-12-30","resolution":"Unresolved; reconcile dated financial statements and transaction disclosures. Do not publish either as a current asset ownership ratio."},
+        {"field":"VSC equity interest in Nam Hải Đình Vũ legal entity","pdf_page_6_pct":99.99,"pdf_page_11_pct":99.9998,"page_11_transaction_date":"2025-09-22","resolution":"Table precision differs; do not silently round or assign either percentage to physical berths."}
+      ],
+      "limits":["This establishes why the initial 15 tickers are insufficient. VSC is not yet a new cloud company/listing in this review.","A corporate subsidiary relation does not by itself identify all physical ports or authorize VSC as their direct operator.","Current exchange status, 2026 changes, raw R2 readback and rights remain to be checked for publication."]
+    }
+  ]
+}
