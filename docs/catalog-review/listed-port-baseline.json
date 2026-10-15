@@ -1,0 +1,310 @@
+{
+  "scope": "slice-1-catalog-review",
+  "reference_baseline_count": 15,
+  "scope_note": "Đây là danh sách tối thiểu từ ảnh, không phải khẳng định toàn bộ thị trường. Phạm vi yêu cầu gồm HOSE/HNX/UPCoM, cảng biển và cảng sông; ICD hiển thị riêng.",
+  "publication_status": "research_only",
+  "items": [
+    {
+      "ticker_candidate": "GMD",
+      "display_label": "Gemadept",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": null,
+      "evidence_candidates": [
+        {
+          "source_url": "https://www.gemadept.com.vn/wp-content/uploads/2026/04/20260418_GMD-AR_VN_SmartPDF01.pdf",
+          "content_hash": "19f18cccab1d93cd8b2db5713d2c82440fce3b5719fceaa0d152a05ec8f25f6a",
+          "fetched_at": "2026-10-14T20:17:45.229338+00:00",
+          "page_count": 93,
+          "raw_storage_key": "catalog-evidence/sha256/19f18cccab1d93cd8b2db5713d2c82440fce3b5719fceaa0d152a05ec8f25f6a"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Đối chiếu danh mục hiện tại với lịch sử thoái vốn. Tách Nam Hải ICD và Phước Long ICD; không tự gán cảng Nam Hải lịch sử."
+    },
+    {
+      "ticker_candidate": "PHP",
+      "display_label": "Cảng Hải Phòng",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-php.html",
+      "evidence_candidates": [
+        {
+          "source_url": "https://haiphongport.com.vn/FileUpload/Documents/bao_cao_thuong_nien_nam_2025pdf.pdf",
+          "content_hash": "de8eb243f3b07b5a415e0a3241953ce091029f1cd7f434920c0b6cbc5fa8a5f4",
+          "fetched_at": "2026-10-14T20:41:34.842086+00:00",
+          "page_count": 84,
+          "raw_storage_key": "catalog-evidence/sha256/de8eb243f3b07b5a415e0a3241953ce091029f1cd7f434920c0b6cbc5fa8a5f4"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Rà soát tái cơ cấu Hoàng Diệu–Chùa Vẽ năm 2025, bến Lạch Huyện 3–4 qua pháp nhân TIL, DVP và các quan hệ gián tiếp. Quan hệ Tân Vũ đã duyệt không chứng minh toàn danh mục."
+    },
+    {
+      "ticker_candidate": "VGR",
+      "display_label": "Cảng Xanh VIP",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-vgr.html",
+      "evidence_candidates": [
+        {
+          "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015939361_VI_BaoCaoThuongNien_2025_.pdf",
+          "content_hash": "6ff3e575ed2beaf8c1789673ccdbf9e2838f50ff2faacb506a6e50d202fed0c6",
+          "fetched_at": "2026-10-14T20:32:16.118039+00:00",
+          "page_count": 74,
+          "raw_storage_key": "catalog-evidence/sha256/6ff3e575ed2beaf8c1789673ccdbf9e2838f50ff2faacb506a6e50d202fed0c6"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Trang PDF 2 có lịch sử khai thác VIP GREENPORT và ngày giao dịch đầu tiên; OCR phải đối chiếu ảnh trước khi duyệt."
+    },
+    {
+      "ticker_candidate": "DVP",
+      "display_label": "Cảng Đình Vũ",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": null,
+      "evidence_candidates": [
+        {
+          "source_url": "https://dinhvuport.com.vn/userdata/IR/2026/15-20260313---DVP---BAO-CAO-THUONG-NIEN-NAM-2025.pdf",
+          "content_hash": "b31fcc7482c2d0c76588373e15a0a159a350e89498d86f2de32d425548c9314a",
+          "fetched_at": "2026-10-14T20:40:58.145144+00:00",
+          "page_count": 64,
+          "raw_storage_key": "catalog-evidence/sha256/b31fcc7482c2d0c76588373e15a0a159a350e89498d86f2de32d425548c9314a"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Phân biệt doanh nghiệp Cảng Đình Vũ với tên khu vực Đình Vũ và các doanh nghiệp khác cùng khu vực."
+    },
+    {
+      "ticker_candidate": "PDN",
+      "display_label": "Cảng Đồng Nai",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": null,
+      "evidence_candidates": [
+        {
+          "source_url": "https://storage-vnportal.vnpt.vn/bpc-khdn/3234/V%C4%83n%20b%E1%BA%A3n/20260330%20-%20PDN%20-%20Bao%20cao%20thuong%20nien-VI.pdf",
+          "content_hash": "cbf94b2e38cba156a770c4aa5a3aac120d54148b1495425490507b812f087069",
+          "fetched_at": "2026-10-14T20:43:10.637988+00:00",
+          "page_count": 75,
+          "raw_storage_key": "catalog-evidence/sha256/cbf94b2e38cba156a770c4aa5a3aac120d54148b1495425490507b812f087069"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Rà soát Long Bình Tân và Gò Dầu A/B; không đồng nhất địa bàn kinh doanh với một bến duy nhất."
+    },
+    {
+      "ticker_candidate": "CDN",
+      "display_label": "Cảng Đà Nẵng",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": "https://www.hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-ny-CDN.html",
+      "evidence_candidates": [
+        {
+          "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015940470_VI_Baocaothuongnien2025.pdf",
+          "content_hash": "97655fb01ef10acd41821e4b0c9c86c356be2b84ddf558975e19b037b60aa76a",
+          "fetched_at": "2026-10-14T20:24:13.121531+00:00",
+          "page_count": 76,
+          "raw_storage_key": "catalog-evidence/sha256/97655fb01ef10acd41821e4b0c9c86c356be2b84ddf558975e19b037b60aa76a"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Đối chiếu đơn vị trực thuộc Tiên Sa; không mang danh mục Sông Hàn lịch sử sang hiện tại khi chưa có chứng cứ."
+    },
+    {
+      "ticker_candidate": "CQN",
+      "display_label": "Cảng Quảng Ninh",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-cqn.html",
+      "evidence_candidates": [
+        {
+          "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W3/000000016150064_VN_BaoCaoThuongNien_2025.pdf",
+          "content_hash": "431ab0e9293cbfb0e694cb723a1406dd0c5f5cd0ceaa0d831322ec08f85391ba",
+          "fetched_at": "2026-10-14T20:31:16.796510+00:00",
+          "page_count": 34,
+          "raw_storage_key": "catalog-evidence/sha256/431ab0e9293cbfb0e694cb723a1406dd0c5f5cd0ceaa0d831322ec08f85391ba"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Phân biệt bến Cái Lân do CQN khai thác với các cầu 2–4 do CICT khai thác; tên địa bàn chung không phải bằng chứng sở hữu toàn khu cảng."
+    },
+    {
+      "ticker_candidate": "DXP",
+      "display_label": "Cảng Đoạn Xá",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": "https://www.hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-ny-DXP.html",
+      "evidence_candidates": [
+        {
+          "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016108897_VI_BaoCaoThuongNien_2025.pdf",
+          "content_hash": "4cd0830ef0548b4307caaa31db5dc988ee69155310398cfe150f9479b083a02e",
+          "fetched_at": "2026-10-15T02:03:40.128448+00:00",
+          "page_count": 40,
+          "raw_storage_key": "catalog-evidence/sha256/4cd0830ef0548b4307caaa31db5dc988ee69155310398cfe150f9479b083a02e"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Hồ sơ HNX và báo cáo 2025 đã thu thập. Cần đối chiếu mô hình kinh doanh cảng và thay đổi năm 2026 trước khi duyệt."
+    },
+    {
+      "ticker_candidate": "PSP",
+      "display_label": "Cảng Dịch vụ Dầu khí Đình Vũ",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-psp.html",
+      "evidence_candidates": [
+        {
+          "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016029545_VI_BaoCaoThuongNien_2025.pdf",
+          "content_hash": "e658b499224f3c404fbef49040af66b84c9d5f2c2f8e6ef82ca0529ded1eec94",
+          "fetched_at": "2026-10-14T20:31:42.691873+00:00",
+          "page_count": 37,
+          "raw_storage_key": "catalog-evidence/sha256/e658b499224f3c404fbef49040af66b84c9d5f2c2f8e6ef82ca0529ded1eec94"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Phải xác định bến vật lý và vai trò thực tế từ tài liệu; không gán cả khu Đình Vũ từ tên doanh nghiệp."
+    },
+    {
+      "ticker_candidate": "PAP",
+      "display_label": "Cảng Phước An",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-pap.html",
+      "evidence_candidates": [
+        {
+          "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016032257_VI_Congbobaocaothuongniennam2025_PAP.pdf",
+          "content_hash": "81f0546ee15331c47767461ea4d7569b1ea6497ed1646379cf67ec474af696ea",
+          "fetched_at": "2026-10-14T20:31:18.950314+00:00",
+          "page_count": 52,
+          "raw_storage_key": "catalog-evidence/sha256/81f0546ee15331c47767461ea4d7569b1ea6497ed1646379cf67ec474af696ea"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Tách bến đã mở và công trình đang xây dựng; đối chiếu quyết định mở bến, không suy ra trạng thái vận hành từ quy hoạch."
+    },
+    {
+      "ticker_candidate": "SGP",
+      "display_label": "Cảng Sài Gòn",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-sgp.html",
+      "evidence_candidates": [
+        {
+          "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016036254_VN_340__Bao_cao_thuong_nien_nam_2025_CTCP_Cang_Sai_Gon_HNX.pdf",
+          "content_hash": "f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+          "fetched_at": "2026-10-14T20:31:50.379658+00:00",
+          "page_count": 35,
+          "raw_storage_key": "catalog-evidence/sha256/f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Tách chi nhánh khai thác trực tiếp, Sài Gòn Hiệp Phước và các liên doanh SP-PSA, SSIT, CMIT. Dự án Cần Giờ không tự coi là đang khai thác."
+    },
+    {
+      "ticker_candidate": "QNP",
+      "display_label": "Cảng Quy Nhơn",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": null,
+      "evidence_candidates": [
+        {
+          "source_url": "https://file.fpts.com.vn/FileStore2/File/EzIR/UploadFile/News/2026/03/18/File_1_1206_20260318_-_QNP_-_Bao_cao_thuong_nien_2025.pdf",
+          "content_hash": "bc0aa1f6820172833622cb737d1d664bd9058ed879303f6e5c7a6432cd432c29",
+          "fetched_at": "2026-10-15T02:03:22.230294+00:00",
+          "page_count": 60,
+          "raw_storage_key": "catalog-evidence/sha256/bc0aa1f6820172833622cb737d1d664bd9058ed879303f6e5c7a6432cd432c29"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "QNP khác QSP. Kho EzIR được website doanh nghiệp liên kết; cần duyệt phạm vi sử dụng tài liệu, không lấy số liệu thị trường của nền tảng.",
+      "issuer_ir_url": "https://www.quynhonport.vn/quan-he-co-dong.html",
+      "delegated_disclosure_url": "https://ezir.fpts.com.vn/thongtindoanhnghiepclient/QNP"
+    },
+    {
+      "ticker_candidate": "QSP",
+      "display_label": "Tân Cảng Quy Nhơn",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-qsp.html",
+      "evidence_candidates": [
+        {
+          "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016048592_2.BCTN_202520260327_152123Signed.PDF",
+          "content_hash": "1927e08c428e009b445e9fe73173c85c104d2ec86dd40207ba4a0adf9f12326a",
+          "fetched_at": "2026-10-14T20:31:49.844261+00:00",
+          "page_count": 34,
+          "raw_storage_key": "catalog-evidence/sha256/1927e08c428e009b445e9fe73173c85c104d2ec86dd40207ba4a0adf9f12326a"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Trang PDF 5 nêu hợp tác khai thác hạ tầng/cho thuê và không trực tiếp vận hành. Không đề xuất operator chỉ dựa trên tên cảng."
+    },
+    {
+      "ticker_candidate": "NAP",
+      "display_label": "Cảng Nghệ Tĩnh",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": "https://www.hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-ny-NAP.html",
+      "evidence_candidates": [
+        {
+          "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015918065_VI_BaoCaoThuongNien_2025.pdf",
+          "content_hash": "6490390e619bd532294767de4ed75b56d4e0ff43fe1e92a95415b480d6c0f9fd",
+          "fetched_at": "2026-10-14T20:24:20.531648+00:00",
+          "page_count": 41,
+          "raw_storage_key": "catalog-evidence/sha256/6490390e619bd532294767de4ed75b56d4e0ff43fe1e92a95415b480d6c0f9fd"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Đối chiếu Cửa Lò và Bến Thủy, không biến công ty lai dắt liên kết thành tài sản cảng."
+    },
+    {
+      "ticker_candidate": "MVN",
+      "display_label": "Tổng công ty Hàng hải Việt Nam",
+      "membership_basis": "Ảnh danh mục do người dùng cung cấp; chỉ dùng làm danh sách đối chiếu yêu cầu, không phải nguồn xác minh niêm yết.",
+      "official_profile_url": "https://hnx.vn/cophieu-etfs/chi-tiet-chung-khoan-uc-mvn.html",
+      "evidence_candidates": [
+        {
+          "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+          "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+          "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+          "page_count": 85,
+          "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0"
+        }
+      ],
+      "rights_status": "to_verify",
+      "listing_review_status": "pending",
+      "portfolio_review_status": "pending",
+      "current_2026_changes_reviewed": false,
+      "review_notes": "Công ty mẹ/holding: cần chuỗi pháp nhân đến từng tài sản; không gắn operator trực tiếp cho toàn bộ cảng thành viên."
+    }
+  ]
+}

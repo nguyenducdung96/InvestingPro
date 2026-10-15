@@ -6,6 +6,8 @@ Ngày 15/10/2026 (Asia/Ho_Chi_Minh). Kết quả: đạt chức năng Slice 1 v�
 
 Theo yêu cầu bổ sung của người dùng ngày 15/10/2026, Slice 1 chỉ được coi là hoàn thành dữ liệu sau khi rà soát doanh nghiệp cảng trên HOSE, HNX và UPCoM, đối chiếu các tài sản cảng biển/cảng sông trực tiếp và gián tiếp, và công khai các khoảng trống bằng chứng. ICD phải hiển thị riêng. Một quan hệ đã xác minh không chứng minh hồ sơ doanh nghiệp đầy đủ. Bộ dữ liệu nhỏ và tests dưới đây chỉ là nghiệm thu chức năng, không phải nghiệm thu độ phủ.
 
+Ảnh người dùng cung cấp xác định 15 mã đối chiếu tối thiểu. Đã lưu hồ sơ tài liệu ứng viên cho cả 15 mã tại [catalog-review](catalog-review/README.md), gồm nguồn gốc, hash và thời điểm tải; tất cả vẫn chờ duyệt. Thu thập được báo cáo không đồng nghĩa hoàn tất xác minh sàn, tài sản, quan hệ, ngày hiệu lực hoặc biến động năm 2026. Danh sách 15 mã không thay thế việc rà soát toàn thị trường và phạm vi cảng sông/ICD bổ sung.
+
 ## Môi trường
 
 Worker investing-pro-web-staging, Supabase phát triển loapslojajawgzekozfv, nhánh codex/cloudflare-next-compat. Runtime có SUPABASE_URL/SUPABASE_ANON_KEY dạng Secret; web không dùng service-role key. Bucket investing-pro-evidence-staging là Standard, Public Access Disabled.
@@ -40,7 +42,7 @@ Source records ghi fetched_at thật. Đã append source correction hp-catalog-v
 
 ## Kết quả kiểm tra
 
-- Lint, typecheck, 29 tests (gồm 12 SQL constraint/RLS cases), 12 desktop/mobile checks, Next.js build: đạt.
+- Lint, typecheck, 34 tests (gồm 15 SQL constraint/RLS cases), 12 desktop/mobile checks, Next.js build: đạt; đã chạy lại ngày 15/10/2026 cho phần ICD và duyệt listing.
 - API thật: 2 bến, mỗi bến 5 cầu; coverage.ratio null, không biến thiếu dữ liệu thành zero.
 - Tài sản công ty tại 03/06/2026: 0 quan hệ; tại 04/06/2026: 1 verified. Sau correction: đúng một active interest ...0034, nguồn v2, publishedAt null.
 - Anonymous admin API: 401. Audit mẫu đã xác nhận actor/thời điểm/ghi chú; review thật chạy qua UI, không UPDATE verification_status bằng SQL.

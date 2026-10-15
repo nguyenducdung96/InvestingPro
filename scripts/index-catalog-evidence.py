@@ -29,6 +29,7 @@ urls.update({
     "tcl-2025.pdf": "https://tancanglogistics.com/quan-he-co-dong/Documents/20260319%20-%20TCL%20-%20BAO%20CAO%20THUONG%20NIEN%20202520260319161535.pdf",
     "pdn-2025.pdf": "https://storage-vnportal.vnpt.vn/bpc-khdn/3234/V%C4%83n%20b%E1%BA%A3n/20260330%20-%20PDN%20-%20Bao%20cao%20thuong%20nien-VI.pdf",
     "php-2025-full.pdf": "https://haiphongport.com.vn/FileUpload/Documents/bao_cao_thuong_nien_nam_2025pdf.pdf",
+    "qnp-2025.pdf": "https://file.fpts.com.vn/FileStore2/File/EzIR/UploadFile/News/2026/03/18/File_1_1206_20260318_-_QNP_-_Bao_cao_thuong_nien_2025.pdf",
 })
 manifest = []
 uploads = root / "r2-objects"
