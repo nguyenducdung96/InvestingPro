@@ -210,6 +210,60 @@ it("denies publication RPCs to ordinary users and anonymous callers",async()=>{
   await db.exec("reset role");
 });
 
+it("imports sixteen additional HNX histories while preserving suspensions, renamed identities and review gates",async()=>{
+  const sql=readFileSync("supabase/imports/market_issuer_registry.proposals.sql","utf8");
+  const audits=await db.query("select count(*) from core.audit_events");
+  // The last row fails after preceding inserts: none of them may survive.
+  await expect(db.exec(sql.replace("enterprise_id='0201768923'","enterprise_id='0200453688'"))).rejects.toThrow("GIC identity already exists");
+  await db.exec("rollback");
+  expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(audits.rows);
+  expect((await db.query("select * from catalog.company_listings where ticker='CCP'")).rows).toHaveLength(0);
+  const previousInterests=await db.query("select * from port.company_asset_interests order by id");
+  await db.exec(sql);
+  expect((await db.query("select * from catalog.companies")).rows).toHaveLength(36);
+  expect((await db.query("select * from catalog.company_listings")).rows).toHaveLength(36);
+  expect((await db.query("select * from port.company_asset_interests order by id")).rows).toEqual(previousInterests.rows);
+  expect((await db.query("select valid_from::text from catalog.company_listings where ticker='PSB'")).rows).toEqual([{valid_from:"2010-02-25"}]);
+  expect((await db.query("select legal_name,enterprise_id from catalog.companies c join catalog.company_listings l on l.company_id=c.id where ticker='PSB'")).rows).toEqual([{legal_name:"Công ty Cổ phần Cảng Kỹ thuật PTSC Sao Mai",enterprise_id:"3500794814"}]);
+  const cpi=await db.query<{evidence_excerpt:string}>("select evidence_excerpt from catalog.company_listings where ticker='CPI'");
+  expect(cpi.rows[0].evidence_excerpt).toContain("Tạm ngừng giao dịch");
+  const cmp=await db.query<{evidence_excerpt:string}>("select evidence_excerpt from catalog.company_listings where ticker='CMP'");
+  expect(cmp.rows[0].evidence_excerpt).toContain("không đáp ứng điều kiện công ty đại chúng");
+  const records=await db.query<{reporting_period_start:null;reporting_period_end:null;quality_status:string}>("select reporting_period_start,reporting_period_end,quality_status from core.source_records where parser_name='manual-indexed-profile-field-review'");
+  expect(records.rows).toHaveLength(16);
+  expect(records.rows.every(r=>r.reporting_period_start===null && r.reporting_period_end===null && r.quality_status==='incomplete')).toBe(true);
+  const after=await db.query("select count(*) from core.audit_events");
+  await db.exec(sql);
+  expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(after.rows);
+  await db.exec("set role anon");
+  expect((await db.query("select * from catalog.company_listings where ticker in ('CCP','CCT','CPI','IST','PSB','SWC','TNP','TCW','VGP','PVS','CMP','PQN','VLG','PSN','VMS','GIC')")).rows).toHaveLength(0);
+  await db.exec("reset role");
+});
+
+it("keeps issuer identity evidence separate from listing dates and leaves unknown STG dates unfilled",async()=>{
+  const sql=readFileSync("supabase/imports/final_issuer_identities.proposals.sql","utf8");
+  await db.exec(sql);
+  expect((await db.query("select * from catalog.companies")).rows).toHaveLength(41);
+  expect((await db.query("select * from catalog.company_listings")).rows).toHaveLength(40);
+  expect((await db.query("select ticker,valid_from::text from catalog.company_listings where ticker in ('HAH','CLL','ILB','TMS','STG') order by ticker")).rows).toEqual([
+    {ticker:"CLL",valid_from:"2014-07-08"},
+    {ticker:"HAH",valid_from:"2015-03-11"},
+    {ticker:"ILB",valid_from:"2019-05-15"},
+    {ticker:"TMS",valid_from:"2000-08-04"},
+  ]);
+  expect((await db.query("select legal_name from catalog.companies where enterprise_id='0300645369'")).rows).toEqual([{legal_name:"Công ty Cổ phần Kho vận Miền Nam"}]);
+  const lineage=await db.query<{ticker:string;identity_url:string;listing_url:string}>(`select l.ticker,ir.source_url identity_url,lr.source_url listing_url from catalog.company_listings l join catalog.entities e on e.id=l.company_id join core.source_records ir on ir.id=e.source_record_id join core.source_records lr on lr.id=l.source_record_id where l.ticker in ('HAH','ILB','TMS')`);
+  expect(lineage.rows).toHaveLength(3);
+  for(const row of lineage.rows) expect(row.identity_url).not.toBe(row.listing_url);
+  expect(lineage.rows.find(r=>r.ticker==='ILB')?.listing_url).toContain("staticfile.hsx.vn");
+  const audit=await db.query("select count(*) from core.audit_events");
+  await db.exec(sql);
+  expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(audit.rows);
+  await db.exec("set role anon");
+  expect((await db.query("select * from catalog.company_listings where ticker in ('HAH','CLL','ILB','TMS')")).rows).toHaveLength(0);
+  await db.exec("reset role");
+});
+
 it("publishes through explicit source, immutable evidence, entity and listing decisions; withdrawal hides the result",async()=>{
   await db.exec(`select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000099","app_metadata":{"role":"admin"}}',false);set role authenticated`);
   const originalId='a40343bd-a826-5470-bc99-9cccce655d59';

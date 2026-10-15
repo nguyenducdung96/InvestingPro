@@ -3,6 +3,7 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   {
     ignores: [
+      ".local/**",
       "**/node_modules/**",
       "**/.next/**",
       "**/.open-next/**",

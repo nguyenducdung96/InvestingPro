@@ -26,7 +26,7 @@ Nguồn, SHA-256, thời điểm tải, object R2, trang PDF và các điểm ch
 
 40 trong 42 quan sát chưa xác định được ngày bắt đầu quan hệ chính xác. Compiler không dùng ngày tải, ngày báo cáo, ngày thành lập tiền thân hoặc ngày đầu tháng suy đoán để sinh temporal interest. Các quan hệ có ngày đã đối chiếu VGR/DVP và bộ PAP vẫn giữ bộ import riêng hiện có; không tạo bản trùng từ manifest này.
 
-Universe chưa đóng: PVS, ILB, STG và TCW còn cần báo cáo gốc và đối chiếu phạm vi cảng/ICD/dịch vụ; đây cũng chưa phải danh sách đầy đủ mọi doanh nghiệp cần rà soát. Dữ liệu báo cáo 2025 không tự được coi là tình trạng tháng 10/2026. Còn thiếu một số cảng sông, ICD, cầu cảng chi tiết, biến động vốn/khai thác, thời hạn và căn cứ nguồn. Không đánh dấu hoàn thành chỉ vì có đủ tên/mã.
+Universe chưa đóng. Cập nhật 16/10: đã bổ sung báo cáo gốc PVS, ILB, STG và hồ sơ HNX TCW; bộ định danh tổng hợp đạt 41 doanh nghiệp ứng viên, 40 lịch sử giao dịch. Chi tiết và ngoại lệ tại `issuer-registry-progress-20261016.md`. Bộ portfolio 29 doanh nghiệp/42 quan sát ở trên chưa tự mở rộng theo số định danh mới. Dữ liệu báo cáo 2025 không tự được coi là tình trạng tháng 10/2026. Còn thiếu một số cảng sông, ICD, cầu cảng chi tiết, biến động vốn/khai thác, thời hạn và căn cứ nguồn. Không đánh dấu hoàn thành chỉ vì có đủ tên/mã.
 
 ## Tái tạo và kiểm tra
 

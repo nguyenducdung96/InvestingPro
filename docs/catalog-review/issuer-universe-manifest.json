@@ -1,0 +1,490 @@
+{
+  "publication_status": "pending",
+  "cloud_applied": false,
+  "universe_complete": false,
+  "current_market_status_certified": false,
+  "company_count": 41,
+  "listing_history_count": 40,
+  "missing_listing_dates": [
+    "STG"
+  ],
+  "input_sql": [
+    {
+      "file": "hnx_registry.proposals.sql",
+      "sha256": "6bb8a3f4b42112f5943370867963a0af62206504079ea4be3665b29b6d953cd9"
+    },
+    {
+      "file": "hose_registry.proposals.sql",
+      "sha256": "bc1e641399921126146498d62d4631b141b8b895ab681fd29428e94234432768"
+    },
+    {
+      "file": "vsc_registry.proposals.sql",
+      "sha256": "d99c8c2911f74c20a0b9bf8874fb338e5605a95521a4ce7dd6a39cb8424e46ba"
+    },
+    {
+      "file": "expanded_issuer_registry.proposals.sql",
+      "sha256": "12e5859999638b488bdb5d871391cc7005ebbed3efb2cbc7bc334c6c93c65a7a"
+    },
+    {
+      "file": "market_issuer_registry.proposals.sql",
+      "sha256": "da59a40040a1f7d082f84f7e3aacaa1742f4c7a9b9bc2005e928182eb51e2839"
+    },
+    {
+      "file": "final_issuer_identities.proposals.sql",
+      "sha256": "8d247a6a4677d0e230065bfea16486f749ceece4804d8f8c1211a5382f0bdf37"
+    }
+  ],
+  "items": [
+    {
+      "ticker": "CAG",
+      "company_id": "c4fb1616-7620-5e06-8c8b-5df2477272be",
+      "legal_name": "Công ty Cổ phần Cảng An Giang",
+      "exchange_as_reported": "HNX",
+      "first_trading_date_as_reported": "2017-12-04",
+      "enterprise_id_as_reported": "1600125108",
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "expanded-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "CCP",
+      "company_id": "0363c2b0-09c6-566e-b11f-33528fad8c92",
+      "legal_name": "CTCP Cảng Cửa Cấm Hải Phòng",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2017-03-16",
+      "enterprise_id_as_reported": "0200576055",
+      "group": "commercial_port",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "CCR",
+      "company_id": "24129e88-70bb-57a0-a54c-233f1b5f5b5a",
+      "legal_name": "Công ty Cổ phần Cảng Cam Ranh",
+      "exchange_as_reported": "HNX",
+      "first_trading_date_as_reported": "2021-11-19",
+      "enterprise_id_as_reported": "4200272350",
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "expanded-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "CCT",
+      "company_id": "1215d2c8-22d0-5403-b546-3fa37ee72bbe",
+      "legal_name": "CTCP Cảng Cần Thơ",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2017-06-30",
+      "enterprise_id_as_reported": "1801319907",
+      "group": "commercial_port",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "CDN",
+      "company_id": "443f0dda-0429-5afe-a1ad-aa0b2a8478b5",
+      "legal_name": "Công ty cổ phần Cảng Đà Nẵng",
+      "exchange_as_reported": "HNX",
+      "first_trading_date_as_reported": "2016-11-30",
+      "enterprise_id_as_reported": null,
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "CLL",
+      "company_id": "1245c901-bdef-507c-bc9a-77826e76afa9",
+      "legal_name": "Công ty Cổ phần Cảng Cát Lái",
+      "exchange_as_reported": "HOSE",
+      "first_trading_date_as_reported": "2014-07-08",
+      "enterprise_id_as_reported": "0305168938",
+      "group": "commercial_port",
+      "current_status_verified": false,
+      "lineage_manifest": "final-issuer-identities-manifest.json"
+    },
+    {
+      "ticker": "CMP",
+      "company_id": "99672e19-688d-5f7a-b1e9-83ffc0e77db6",
+      "legal_name": "Công ty Cổ phần Cảng Chân Mây",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2016-02-15",
+      "enterprise_id_as_reported": "3300515171",
+      "group": "commercial_port",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "CPI",
+      "company_id": "aced02eb-5ed2-55b8-a6ad-b9aa5a5d5854",
+      "legal_name": "CTCP Đầu tư Cảng Cái Lân",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2017-07-28",
+      "enterprise_id_as_reported": "5700688013",
+      "group": "port_holding",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "CQN",
+      "company_id": "9f129103-683b-5d07-8ecf-b9f7327fa4da",
+      "legal_name": "CTCP Cảng Quảng Ninh",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2020-08-18",
+      "enterprise_id_as_reported": null,
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "DVP",
+      "company_id": "fafba875-a5cd-55f2-ac4f-0acf54a64164",
+      "legal_name": "Công ty Cổ phần Đầu tư và Phát triển Cảng Đình Vũ",
+      "exchange_as_reported": "HOSE",
+      "first_trading_date_as_reported": "2009-12-01",
+      "enterprise_id_as_reported": "0200511481",
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "issuer-registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "DXP",
+      "company_id": "8d7f119e-ef74-5000-b3c3-57bb0f553c38",
+      "legal_name": "Công ty cổ phần Cảng Đoạn Xá",
+      "exchange_as_reported": "HNX",
+      "first_trading_date_as_reported": "2009-06-08",
+      "enterprise_id_as_reported": null,
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "GIC",
+      "company_id": "cc9dfab2-8b85-595c-8dc5-fbc8972a429b",
+      "legal_name": "Công ty cổ phần VSC GREEN LOGISTCS",
+      "exchange_as_reported": "HNX",
+      "first_trading_date_as_reported": "2020-11-06",
+      "enterprise_id_as_reported": "0201768923",
+      "group": "needs_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "GMD",
+      "company_id": "69e45fe8-140b-5e1a-809c-2c621e2ccb44",
+      "legal_name": "Công ty Cổ phần Tập đoàn Gemadept",
+      "exchange_as_reported": "HOSE",
+      "first_trading_date_as_reported": "2002-04-22",
+      "enterprise_id_as_reported": "0301116791",
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "issuer-registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "HAH",
+      "company_id": "f8a636b7-78cf-51ce-9ed8-3ead2d9f8774",
+      "legal_name": "Công ty Cổ phần Vận tải và Xếp dỡ Hải An",
+      "exchange_as_reported": "HOSE",
+      "first_trading_date_as_reported": "2015-03-11",
+      "enterprise_id_as_reported": "0103818809",
+      "group": "port_holding",
+      "current_status_verified": false,
+      "lineage_manifest": "final-issuer-identities-manifest.json"
+    },
+    {
+      "ticker": "ILB",
+      "company_id": "19f237ab-b0de-5f5a-aaa5-4008b4cdb943",
+      "legal_name": "Công ty Cổ phần ICD Tân Cảng - Long Bình",
+      "exchange_as_reported": "HOSE",
+      "first_trading_date_as_reported": "2019-05-15",
+      "enterprise_id_as_reported": "3601033213",
+      "group": "icd",
+      "current_status_verified": false,
+      "lineage_manifest": "final-issuer-identities-manifest.json"
+    },
+    {
+      "ticker": "IST",
+      "company_id": "96a0cafd-6952-52f9-a161-fd270065cb67",
+      "legal_name": "CTCP ICD Tân Cảng Sóng Thần",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2017-01-05",
+      "enterprise_id_as_reported": "3700785006",
+      "group": "icd",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "MVN",
+      "company_id": "f9399e04-83f6-5f5f-b344-a271988d1dca",
+      "legal_name": "Tổng công ty Hàng hải Việt Nam - CTCP",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2018-10-08",
+      "enterprise_id_as_reported": null,
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "NAP",
+      "company_id": "00db3f03-66b1-501b-940c-f4e6b0cf6d3d",
+      "legal_name": "Công ty Cổ phần Cảng Nghệ Tĩnh",
+      "exchange_as_reported": "HNX",
+      "first_trading_date_as_reported": "2018-03-27",
+      "enterprise_id_as_reported": null,
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "PAP",
+      "company_id": "c0a6f7c5-4ee6-503b-8ad5-5183696ff2ae",
+      "legal_name": "CTCP Dầu khí Đầu tư Khai thác Cảng Phước An",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2021-07-14",
+      "enterprise_id_as_reported": null,
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "PDN",
+      "company_id": "d3aebe0e-ee56-5e8b-9f44-195c17e6aa5e",
+      "legal_name": "Công ty Cổ phần Cảng Đồng Nai",
+      "exchange_as_reported": "HOSE",
+      "first_trading_date_as_reported": "2011-10-26",
+      "enterprise_id_as_reported": "3600334112",
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "issuer-registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "PHP",
+      "company_id": "10000000-0000-0000-0000-000000000017",
+      "legal_name": "CTCP Cảng Hải Phòng",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2022-09-14",
+      "enterprise_id_as_reported": null,
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "PNP",
+      "company_id": "3b1bd36a-5aa0-5818-aa5a-e510042a3743",
+      "legal_name": "Công ty Cổ phần Tân Cảng - Phú Hữu",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2019-05-17",
+      "enterprise_id_as_reported": "0309444635",
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "expanded-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "PQN",
+      "company_id": "44c10074-185a-57f4-abe1-7cad10fb0b2e",
+      "legal_name": "CTCP Dịch vụ Dầu khí Quảng Ngãi PTSC",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2019-10-04",
+      "enterprise_id_as_reported": "4300351623",
+      "group": "commercial_port",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "PSB",
+      "company_id": "d4ee7127-127b-567d-be18-268f32942840",
+      "legal_name": "Công ty Cổ phần Cảng Kỹ thuật PTSC Sao Mai",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2010-02-25",
+      "enterprise_id_as_reported": "3500794814",
+      "group": "supplementary_industrial_base",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "PSN",
+      "company_id": "3581f240-4e58-5dd9-a468-fa0d11027ce9",
+      "legal_name": "CTCP Dịch vụ Kỹ thuật PTSC Thanh Hóa",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2017-06-29",
+      "enterprise_id_as_reported": "2801448559",
+      "group": "commercial_port",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "PSP",
+      "company_id": "59d90fe3-3faa-513f-b987-481113e220c9",
+      "legal_name": "CTCP Cảng dịch vụ Dầu khí Đình Vũ",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2009-11-10",
+      "enterprise_id_as_reported": null,
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "PVS",
+      "company_id": "a28b0cbf-37c4-50dd-8dbf-28549b9a87d7",
+      "legal_name": "Tổng CTCP Dịch Vụ Kỹ Thuật Dầu Khí Việt Nam",
+      "exchange_as_reported": "HNX",
+      "first_trading_date_as_reported": "2007-09-20",
+      "enterprise_id_as_reported": "0100150577",
+      "group": "port_holding",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "QNP",
+      "company_id": "4524d230-e0e3-5b42-8397-5f43bca80011",
+      "legal_name": "Công ty Cổ phần Cảng Quy Nhơn",
+      "exchange_as_reported": "HOSE",
+      "first_trading_date_as_reported": "2024-01-18",
+      "enterprise_id_as_reported": "4100258793",
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "issuer-registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "QSP",
+      "company_id": "c08c08f9-970d-52cb-bf34-89bb9685136c",
+      "legal_name": "CTCP Tân Cảng Quy Nhơn",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2016-09-23",
+      "enterprise_id_as_reported": null,
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "SGP",
+      "company_id": "fe97fde6-6583-58fb-b6b8-6574d495c575",
+      "legal_name": "CTCP Cảng Sài Gòn",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2016-04-25",
+      "enterprise_id_as_reported": null,
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "STG",
+      "company_id": "a2ff75f4-f168-561d-a52a-ed4a48094cfb",
+      "legal_name": "Công ty Cổ phần Kho vận Miền Nam",
+      "exchange_as_reported": "HOSE",
+      "first_trading_date_as_reported": null,
+      "enterprise_id_as_reported": "0300645369",
+      "group": "port_holding",
+      "current_status_verified": false,
+      "lineage_manifest": "final-issuer-identities-manifest.json"
+    },
+    {
+      "ticker": "SWC",
+      "company_id": "de1a1cc1-64cd-5066-be80-50dab575bfb2",
+      "legal_name": "Tổng CTCP Đường sông Miền Nam",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2011-04-29",
+      "enterprise_id_as_reported": "0300447173",
+      "group": "river_port",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "TCL",
+      "company_id": "009b5929-253c-5b10-8d75-22b9828c93ae",
+      "legal_name": "Công ty Cổ phần Đại lý Giao nhận Vận tải Xếp dỡ Tân Cảng",
+      "exchange_as_reported": "HOSE",
+      "first_trading_date_as_reported": "2009-12-24",
+      "enterprise_id_as_reported": "0304875444",
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "expanded-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "TCW",
+      "company_id": "a251ebfd-2516-5067-99f7-91dce6623f7b",
+      "legal_name": "CTCP Kho vận Tân Cảng",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2017-06-26",
+      "enterprise_id_as_reported": "0309532497",
+      "group": "needs_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "TMS",
+      "company_id": "e1f4c72a-f321-524f-aca8-75881a362efd",
+      "legal_name": "Công ty Cổ phần Transimex",
+      "exchange_as_reported": "HOSE",
+      "first_trading_date_as_reported": "2000-08-04",
+      "enterprise_id_as_reported": "0301874259",
+      "group": "port_holding",
+      "current_status_verified": false,
+      "lineage_manifest": "final-issuer-identities-manifest.json"
+    },
+    {
+      "ticker": "TNP",
+      "company_id": "5f57623f-6c97-5864-a4fa-3d00ab190eea",
+      "legal_name": "CTCP Cảng Thị Nại",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2016-12-23",
+      "enterprise_id_as_reported": "4100259282",
+      "group": "commercial_port",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "VGP",
+      "company_id": "273200ed-04e0-5ac4-a8d7-32c517f435fd",
+      "legal_name": "CTCP Cảng Rau Quả",
+      "exchange_as_reported": "HNX",
+      "first_trading_date_as_reported": "2009-06-12",
+      "enterprise_id_as_reported": "0302336158",
+      "group": "commercial_port",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "VGR",
+      "company_id": "7b1b3668-9997-5148-a498-185c92e9ff55",
+      "legal_name": "Công ty Cổ phần Cảng xanh VIP",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2018-04-12",
+      "enterprise_id_as_reported": null,
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "registry-proposals-manifest.json"
+    },
+    {
+      "ticker": "VLG",
+      "company_id": "3c09b6d5-b354-585c-9705-8e03114a26c9",
+      "legal_name": "Công ty Cổ phần VIMC Logistics",
+      "exchange_as_reported": "UPCOM",
+      "first_trading_date_as_reported": "2015-09-18",
+      "enterprise_id_as_reported": "0102345275",
+      "group": "icd",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "VMS",
+      "company_id": "92745a3e-72d9-50bf-b16d-c34c3cec1a26",
+      "legal_name": "Công ty cổ phần Phát triển Hàng hải",
+      "exchange_as_reported": "HNX",
+      "first_trading_date_as_reported": "2015-10-20",
+      "enterprise_id_as_reported": "0200580975",
+      "group": "needs_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "market-issuer-registry-manifest.json"
+    },
+    {
+      "ticker": "VSC",
+      "company_id": "596a9594-a1d8-53d1-a415-0733a8edb553",
+      "legal_name": "Công ty Cổ phần Container Việt Nam",
+      "exchange_as_reported": "HOSE",
+      "first_trading_date_as_reported": "2008-01-09",
+      "enterprise_id_as_reported": "0200453688",
+      "group": "requires_asset_scope_review",
+      "current_status_verified": false,
+      "lineage_manifest": "vsc-registry-proposals-manifest.json"
+    }
+  ]
+}

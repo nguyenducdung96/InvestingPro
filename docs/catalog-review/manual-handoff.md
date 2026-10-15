@@ -1,5 +1,7 @@
 # Thao tác thủ công cho bộ bổ sung PAP và VSC
 
+**Cập nhật bộ doanh nghiệp 16/10:** bộ chung `supabase/imports/issuer_registry_all.handoff.sql` đã gộp sáu bộ registry: 41 định danh ứng viên và 40 lịch sử giao dịch, chưa chạy cloud. Không cần lắp ghép các bộ registry riêng khi sử dụng bộ chung. Hồ sơ, nguồn và khoảng trống tại `issuer-registry-progress-20261016.md`. Bộ chung không bao gồm PAP berths, không duyệt nguồn/quan hệ, không đồng nghĩa toàn bộ Slice 1 đã hoàn thành. Hướng dẫn PAP/VSC dưới đây là phạm vi cũ; hai PDF đã có trên R2 không đại diện cho các bằng chứng mới vẫn chỉ lưu tại máy.
+
 Phần mềm Slice 1 đã có migration/types/repository/API/tests và hàng đợi quản trị. Bộ này bổ sung dữ liệu chuẩn bị ngoại tuyến, **chưa chạy trên cloud và chưa công bố**. Không phải bộ nghiệm thu toàn bộ doanh nghiệp cảng Việt Nam. Không thay đổi Slice 2–5.
 
 ## 1. Kiểm tra hai bằng chứng đã lưu trên R2
