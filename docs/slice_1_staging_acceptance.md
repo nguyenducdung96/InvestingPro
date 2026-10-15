@@ -40,6 +40,10 @@ Kiểm tra local đạt: lint, typecheck, Next production build và 14 kiểm tr
 
 Toàn bộ 42 tests, lint và typecheck đạt. Các tests bổ sung kiểm tra ngày giao dịch, tên Gemadept theo điều lệ 2026, bảo toàn PHP, replay và ẩn dữ liệu chưa duyệt. Chưa duyệt listing hoặc tự cấp phép nguồn; chưa thêm quan hệ tài sản cho bốn mã này. Trình duyệt vẫn từ chối quyền quan sát origin staging khi thử lại sau import. Cần hoàn thiện phạm vi doanh nghiệp/tài sản và duyệt hợp lệ trước khi tuyên bố hoàn thành Slice 1.
 
+### Đề xuất quan hệ DVP
+
+Đã tải ngược raw DVP từ R2, SHA-256 khớp bản gốc; đọc trực quan trang PDF 1–2. Import cloud thêm ba quan hệ pending cho bến Đình Vũ và cầu 1, 2; query đọc lại tên, ngày và ownership_pct NULL khớp dossier. Bằng chứng mới giữ quality incomplete, nguồn to_verify; không sửa entity hay bản ghi bằng chứng cũ. Mốc valid_from là mốc cấp phép được báo cáo nêu, không phải ngày tàu đầu tiên. Cần đối chiếu quyết định gốc và thay đổi khai thác/cải tạo 2026 trước duyệt. Chưa công bố quan hệ hoặc hoàn tất danh mục DVP. Bộ 43 tests và lint đạt; biên nhận ở `docs/catalog-review/dvp-asset-import-receipt.json`.
+
 ### Chi tiết bộ mẫu ban đầu (lịch sử)
 
 1 cảng vụ Hải Phòng, 1 cảng biển Hải Phòng, 2 bến Chùa Vẽ/Tân Vũ, 10 cầu cảng, Công ty cổ phần Cảng Hải Phòng: 15 entities. Đã duyệt định danh Chùa Vẽ và quan hệ vận hành doanh nghiệp–Tân Vũ qua UI. Hiệu lực quan hệ từ phạm vi quyết định 04/06/2026, không phải ngày bắt đầu khai thác lịch sử. Tỷ lệ sở hữu giữ null. Không dùng danh sách cũ để khẳng định doanh nghiệp trực tiếp vận hành Chùa Vẽ sau thay đổi đơn vị năm 2025.

@@ -18,7 +18,7 @@ Phạm vi chính đã chốt thêm: cảng thương mại và doanh nghiệp s�
 
 Raw files và ảnh review ở `.local/catalog-research/`, không commit vào Git. Script `scripts/index-catalog-evidence.py` lập chỉ mục và tên object theo hash, không upload hay cấp phép nguồn. `scripts/read-catalog-pdf.py` hỗ trợ đọc/render/OCR ngoại tuyến, không nhập dữ liệu vào database.
 
-Đã upload đủ 30 PDF vào `investing-pro-evidence-staging/catalog-evidence/sha256/` và đối chiếu thấy đủ 30 key mới trên hai trang danh sách object. Bucket giữ riêng tư. `evidence-artifacts.json` lưu metadata từng file: bản VGR đã tải ngược và SHA-256 khớp; 29 bản còn lại chưa đối chiếu tải ngược. Trạng thái lưu trữ không thay thế duyệt quyền sử dụng hoặc duyệt quan hệ doanh nghiệp–tài sản.
+Đã upload đủ 30 PDF vào `investing-pro-evidence-staging/catalog-evidence/sha256/` và đối chiếu thấy đủ 30 key mới trên hai trang danh sách object. Bucket giữ riêng tư. `evidence-artifacts.json` lưu metadata từng file: bản VGR và DVP đã tải ngược và SHA-256 khớp; 28 bản còn lại chưa đối chiếu tải ngược. Trạng thái lưu trữ không thay thế duyệt quyền sử dụng hoặc duyệt quan hệ doanh nghiệp–tài sản.
 
 ## Đợt nhập proposals registry và VGR
 
@@ -38,6 +38,16 @@ Hồ sơ nguồn HNX có ghi yêu cầu liên hệ khi phát hành thông tin we
 Hồ sơ đầu vào `supabase/imports/data/hose-registry.proposals.json` ghi chính xác trang/mục đã đọc, không suy ra danh mục tài sản. GMD dùng tên pháp nhân trong điều lệ tháng 5/2026; ngày giao dịch đầu tiên lấy từ trang 3 tài liệu giới thiệu lịch sử, không nhập giá/cổ đông năm 2007 thành dữ liệu hiện tại. PDN dùng ngày 26/10/2011 trong mục Lịch sử hình thành của website chính thức, không dùng card timeline 2006 mâu thuẫn. QNP phân biệt ngày giao dịch đầu tiên với ngày chấp thuận niêm yết. Published_at giữ NULL khi chưa biết timestamp công bố chính xác.
 
 `scripts/compile-issuer-registry.py` biên dịch ngoại tuyến, kiểm tra hash bản raw và giữ nguyên thời điểm tải cũ. Import chỉ thêm proposals, không duyệt nguồn/listing và không sửa hồ sơ PHP đã xác minh. Tests kiểm tra đủ 15 hồ sơ tối thiểu ở trạng thái pending, ngày hiệu lực, tên mới Gemadept, replay không thêm audit và RLS tiếp tục ẩn hồ sơ chưa duyệt. Đạt đủ 15 proposals không có nghĩa đủ universe hoặc đã nghiệm thu các quan hệ cảng/ICD.
+
+## Đề xuất tài sản DVP
+
+Đã nhập `supabase/imports/dvp_assets.proposals.sql` lên cloud, đối chiếu ba bản ghi pending: đúng bến Đình Vũ mục 51 của 505/QĐ-BXD và hai cầu số 1, 2. Không gộp PTSC/VIMC/Nam Hải Đình Vũ. Dossier và manifest ghi phạm vi trang 1–2 báo cáo thường niên; raw PDF tải ngược từ R2 có SHA-256 khớp. Không tạo entity mới hoặc sửa evidence/định danh đã duyệt.
+
+Valid_from của đợt này là **mốc cấp phép khai thác được báo cáo nêu**, lần lượt 25/02/2005 và 13/06/2008, không phải ngày tàu đầu tiên. Website lịch sử công ty chỉ nêu chuyến tàu đầu tiên tháng 05/2005. Tin công ty 09/07/2026 cho biết lựa chọn nhà thầu cải tạo cầu số 1; chưa đủ chứng cứ kết luận tình trạng khai thác liên tục trong 2026. Quyết định gốc, biến động hiện tại và quyền nguồn còn phải kiểm tra trước duyệt. Tỷ lệ sở hữu giữ NULL.
+
+`scripts/compile-asset-proposals.py` kiểm tra hash, pháp nhân, tên và hierarchy mục 51, không tự thêm cầu hoặc suy ra sở hữu. Import lặp không thêm audit; entity/evidence cũ giữ nguyên. Bộ 43 tests và lint đạt. Biên nhận `dvp-asset-import-receipt.json` xác nhận ba bản ghi cloud; chưa phải công bố dữ liệu hoặc nghiệm thu đầy đủ danh mục DVP.
+
+Đã đọc trực quan thêm trang 4 báo cáo PAP: cần phân biệt chứng nhận điều kiện khai thác cầu 5/6 ngày 31/12/2024, quyết định mở cầu 7 và nối dài cầu 6 ngày 05/12/2025, và các cầu 8/9 đang xây dựng trong mô tả báo cáo. Chưa nhập quan hệ PAP hoặc gán ngày bắt đầu vận hành từ các mốc giấy phép này khi chưa đối chiếu đủ bằng chứng.
 
 ## Quy trình duyệt mỗi hồ sơ
 

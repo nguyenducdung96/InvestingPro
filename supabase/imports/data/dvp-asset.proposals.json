@@ -1,0 +1,27 @@
+{
+  "ticker": "DVP",
+  "enterprise_id": "0200511481",
+  "artifact_key": "dvp_annual",
+  "reviewed_pages": [1, 2],
+  "terminal_number": 51,
+  "terminal_name": "Bến cảng Đình Vũ",
+  "date_basis": "reported_legal_authorization",
+  "publication_status": "pending",
+  "scope_note": "Đề xuất vai trò khai thác theo mốc cấp phép được doanh nghiệp báo cáo, không phải ngày tàu đầu tiên hoặc quyền sở hữu. Cần đối chiếu quyết định gốc và công bố 2026 trước khi duyệt.",
+  "interests": [
+    {"asset_kind":"terminal","berth_label":null,"interest_type":"operator","valid_from":"2005-02-25","decision":"87/QĐ-CHHVN","ownership_pct":null},
+    {"asset_kind":"berth","berth_label":"Cầu cảng số 1","interest_type":"operator","valid_from":"2005-02-25","decision":"87/QĐ-CHHVN","ownership_pct":null},
+    {"asset_kind":"berth","berth_label":"Cầu cảng số 2","interest_type":"operator","valid_from":"2008-06-13","decision":"377/QĐ-CHHVN","ownership_pct":null}
+  ],
+  "review_gaps": [
+    "Ngày 14/01/2003 trong trang 1 là công ty bắt đầu hoạt động, không phải ngày khai thác cảng.",
+    "Website lịch sử công ty nêu chuyến tàu đầu tiên tháng 05/2005, khác mốc cấp phép 25/02/2005; không nhập ngày tàu đầu tiên khi chỉ biết tháng.",
+    "Tin công ty ngày 09/07/2026 nêu lựa chọn nhà thầu cải tạo cầu tàu số 1. Chưa đối chiếu quyết định/tiến độ để khẳng định cầu cảng khai thác liên tục trong năm 2026.",
+    "Chưa kiểm tra xong depot/bãi container và các quan hệ qua pháp nhân khác; ba proposals không chứng minh đầy đủ tài sản DVP.",
+    "Nguồn và bằng chứng chưa được duyệt công bố; không suy ra sở hữu 100% hoặc sao chép số liệu công suất, giá, sản lượng."
+  ],
+  "cross_checks": [
+    "https://www.dinhvuport.com.vn/vn/company-history.html",
+    "https://www.dinhvuport.com.vn/vn/blog/7/Tin-cong-ty"
+  ]
+}

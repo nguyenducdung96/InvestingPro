@@ -152,7 +152,7 @@
       "published_at": null,
       "page_count": 64,
       "raw_storage_key": "catalog-evidence/sha256/b31fcc7482c2d0c76588373e15a0a159a350e89498d86f2de32d425548c9314a",
-      "r2_verified": false,
+      "r2_verified": true,
       "rights_status": "to_verify",
       "fact_review_status": "pending",
       "parser_version": "manual-catalog-review-v1",
@@ -160,7 +160,9 @@
       "artifact_label": "dvp-2025.pdf",
       "storage_upload_status": "uploaded_and_listed",
       "storage_checked_at": "2026-10-15T02:13:27.807Z",
-      "sha256_readback_status": "pending"
+      "sha256_readback_status": "matched",
+      "sha256_readback_checked_at": "2026-10-15T15:28:36Z",
+      "visual_review_scope": "PDF pages 1–2 only; registry identity and reported legal authorization dates. Source rights and current 2026 asset status remain pending."
     },
     {
       "ticker": "DXP",

@@ -1,0 +1,24 @@
+{
+  "checked_at": "2026-10-15T15:28:36Z",
+  "environment": "staging",
+  "supabase_project": "loapslojajawgzekozfv",
+  "import": "supabase/imports/dvp_assets.proposals.sql",
+  "publication_status": "not_published",
+  "database_status": "SQL Editor import success, three exact rows read back",
+  "verification_status": "pending",
+  "date_basis": "reported_legal_authorization",
+  "rows": [
+    {"name":"Bến cảng Đình Vũ","valid_from":"2005-02-25","ownership_pct":null},
+    {"name":"Cầu cảng số 1 – Đình Vũ","valid_from":"2005-02-25","ownership_pct":null},
+    {"name":"Cầu cảng số 2 – Đình Vũ","valid_from":"2008-06-13","ownership_pct":null}
+  ],
+  "raw_evidence": {
+    "bucket": "investing-pro-evidence-staging",
+    "key": "catalog-evidence/sha256/b31fcc7482c2d0c76588373e15a0a159a350e89498d86f2de32d425548c9314a",
+    "sha256_readback_status": "matched",
+    "method": "R2 Dashboard Download followed by Get-FileHash SHA256",
+    "public_access": "disabled",
+    "reviewed_pages": [1, 2]
+  },
+  "limitations": "Source rights, original decisions and 2026 operating changes await review. Authorization dates do not establish first vessel calls. Not a complete DVP portfolio."
+}

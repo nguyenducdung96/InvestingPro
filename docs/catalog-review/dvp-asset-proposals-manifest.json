@@ -1,0 +1,82 @@
+{
+  "publication_status": "pending",
+  "date_basis": "reported_legal_authorization",
+  "artifact": {
+    "key": "dvp_annual",
+    "ticker": "DVP",
+    "label": "dvp-2025.pdf",
+    "reviewed_pages": [
+      1
+    ],
+    "source_url": "https://dinhvuport.com.vn/userdata/IR/2026/15-20260313---DVP---BAO-CAO-THUONG-NIEN-NAM-2025.pdf",
+    "fetched_at": "2026-10-14T20:40:58.145144+00:00",
+    "content_hash": "b31fcc7482c2d0c76588373e15a0a159a350e89498d86f2de32d425548c9314a",
+    "bytes": 23440298,
+    "raw_storage_key": "catalog-evidence/sha256/b31fcc7482c2d0c76588373e15a0a159a350e89498d86f2de32d425548c9314a",
+    "source_record_id": "a40343bd-a826-5470-bc99-9cccce655d59",
+    "content_type": "application/pdf",
+    "upload_needed": false,
+    "rights_status": "to_verify",
+    "verification_status": "pending"
+  },
+  "review_record_id": "812aacc2-8049-50e6-8587-56b257d093e7",
+  "reviewed_pages": [
+    1,
+    2
+  ],
+  "interests": [
+    {
+      "asset_kind": "terminal",
+      "berth_label": null,
+      "interest_type": "operator",
+      "valid_from": "2005-02-25",
+      "decision": "87/QĐ-CHHVN",
+      "ownership_pct": null,
+      "id": "2e55e13b-1e0b-550c-af7a-bfe24627082e",
+      "company_id": "fafba875-a5cd-55f2-ac4f-0acf54a64164",
+      "asset_id": "962a94b7-eaf0-545d-a5aa-36c317051cd5",
+      "asset_name": "Bến cảng Đình Vũ",
+      "source_record_id": "812aacc2-8049-50e6-8587-56b257d093e7",
+      "verification_status": "pending"
+    },
+    {
+      "asset_kind": "berth",
+      "berth_label": "Cầu cảng số 1",
+      "interest_type": "operator",
+      "valid_from": "2005-02-25",
+      "decision": "87/QĐ-CHHVN",
+      "ownership_pct": null,
+      "id": "b2f3c4b2-83f9-5a24-bb69-5f1b4bc4cde4",
+      "company_id": "fafba875-a5cd-55f2-ac4f-0acf54a64164",
+      "asset_id": "1a1008ae-0b27-5d4a-a582-f2cf51775098",
+      "asset_name": "Cầu cảng số 1 – Đình Vũ",
+      "source_record_id": "812aacc2-8049-50e6-8587-56b257d093e7",
+      "verification_status": "pending"
+    },
+    {
+      "asset_kind": "berth",
+      "berth_label": "Cầu cảng số 2",
+      "interest_type": "operator",
+      "valid_from": "2008-06-13",
+      "decision": "377/QĐ-CHHVN",
+      "ownership_pct": null,
+      "id": "e16c3300-0ba4-52d3-ad1b-19ab0242e736",
+      "company_id": "fafba875-a5cd-55f2-ac4f-0acf54a64164",
+      "asset_id": "c8b25976-ddf7-530b-af7c-b342d60f97fb",
+      "asset_name": "Cầu cảng số 2 – Đình Vũ",
+      "source_record_id": "812aacc2-8049-50e6-8587-56b257d093e7",
+      "verification_status": "pending"
+    }
+  ],
+  "review_gaps": [
+    "Ngày 14/01/2003 trong trang 1 là công ty bắt đầu hoạt động, không phải ngày khai thác cảng.",
+    "Website lịch sử công ty nêu chuyến tàu đầu tiên tháng 05/2005, khác mốc cấp phép 25/02/2005; không nhập ngày tàu đầu tiên khi chỉ biết tháng.",
+    "Tin công ty ngày 09/07/2026 nêu lựa chọn nhà thầu cải tạo cầu tàu số 1. Chưa đối chiếu quyết định/tiến độ để khẳng định cầu cảng khai thác liên tục trong năm 2026.",
+    "Chưa kiểm tra xong depot/bãi container và các quan hệ qua pháp nhân khác; ba proposals không chứng minh đầy đủ tài sản DVP.",
+    "Nguồn và bằng chứng chưa được duyệt công bố; không suy ra sở hữu 100% hoặc sao chép số liệu công suất, giá, sản lượng."
+  ],
+  "cross_checks": [
+    "https://www.dinhvuport.com.vn/vn/company-history.html",
+    "https://www.dinhvuport.com.vn/vn/blog/7/Tin-cong-ty"
+  ]
+}
