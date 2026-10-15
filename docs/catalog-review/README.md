@@ -51,6 +51,14 @@ Valid_from của đợt này là **mốc cấp phép khai thác được báo c�
 
 ## Quy trình duyệt mỗi hồ sơ
 
+### Bộ bổ sung ngoại tuyến PAP và VSC
+
+`supabase/imports/pap_assets.proposals.sql` chuẩn bị ba quan hệ pending cho các cầu 5, 6 và 7, theo trang PDF 3–4 báo cáo PAP 2025 và đúng UUID/hierarchy mục 227 của danh mục 505. Phân biệt mốc chứng nhận 31/12/2024 với mốc quyết định mở 05/12/2025; không coi đó là ngày tàu đầu tiên, không thêm cầu 8–9 hoặc cầu 6 nối dài trùng lặp. Chỉ bổ sung pháp nhân PAP còn incomplete; không sửa định danh đã xác minh.
+
+`supabase/imports/vsc_registry.proposals.sql` chuẩn bị thêm mã VSC ngoài 15 mã tối thiểu: tên pháp nhân, mã doanh nghiệp và lịch sử giao dịch được đọc trực quan trang PDF 3 báo cáo doanh nghiệp. Không tự thêm quan hệ khai thác hoặc tỷ lệ vốn vào tài sản. Hai compiler kiểm tra hash bytes gốc, giữ fetched_at thực, không tạo timestamp công bố khi chưa biết.
+
+Hai file **chưa áp dụng trên cloud**. Bộ gộp `slice1_additional_catalog.handoff.sql` dùng một transaction, có query đối chiếu 3 PAP pending/1 VSC pending và có thể chạy lại sau từng import riêng. Hướng dẫn từng thao tác ở [manual-handoff.md](manual-handoff.md). Các bài kiểm thử chạy PostgreSQL cục bộ, kiểm tra ngày/đích pháp lý, bảo toàn hồ sơ đã xác minh, replay và RLS; không quyết định quyền nguồn hoặc công bố dữ liệu thật.
+
 ### Kiểm chứng được chủ dự án giao cho Codex ngày 15/10/2026
 
 Chủ dự án đã giao Codex tự kiểm chứng và duyệt các hồ sơ đủ căn cứ, ưu tiên trang chủ và tài liệu doanh nghiệp. Không cần yêu cầu chủ dự án đọc lại từng báo cáo chỉ vì thao tác review là thủ công. Vẫn phải ghi đúng phạm vi dữ kiện, quyền nguồn và actor thực tế; không giả phiên người dùng hoặc bỏ RLS.

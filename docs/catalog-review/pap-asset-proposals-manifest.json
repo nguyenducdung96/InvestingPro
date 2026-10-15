@@ -1,0 +1,90 @@
+{
+  "publication_status": "pending",
+  "cloud_applied": false,
+  "source_id": "dde6133a-c4bc-5e89-9d8d-a043ebb0f5b1",
+  "review_record_id": "a03b46d2-3bc6-55db-bdfb-5e541f9f0a1c",
+  "artifact": {
+    "ticker": "PAP",
+    "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016032257_VI_Congbobaocaothuongniennam2025_PAP.pdf",
+    "content_type": "application/pdf",
+    "content_hash": "81f0546ee15331c47767461ea4d7569b1ea6497ed1646379cf67ec474af696ea",
+    "bytes": 3301436,
+    "fetched_at": "2026-10-14T20:31:18.950314+00:00",
+    "published_at": null,
+    "page_count": 52,
+    "raw_storage_key": "catalog-evidence/sha256/81f0546ee15331c47767461ea4d7569b1ea6497ed1646379cf67ec474af696ea",
+    "r2_verified": false,
+    "rights_status": "to_verify",
+    "fact_review_status": "pending",
+    "parser_version": "manual-catalog-review-v1",
+    "note": "Research evidence; upload/listing confirmation does not approve source rights, facts, effective dates or SHA-256 read-back integrity.",
+    "artifact_label": "pap-2025.pdf",
+    "storage_upload_status": "uploaded_and_listed",
+    "storage_checked_at": "2026-10-15T02:13:27.807Z",
+    "sha256_readback_status": "pending"
+  },
+  "reviewed_pages": [
+    3,
+    4
+  ],
+  "interests": [
+    {
+      "id": "9262dc99-9352-54bf-8f3f-ebf494996aa1",
+      "asset_id": "0a4badcd-368b-5e16-bbe4-9990d32cd518",
+      "asset_name": "Cầu cảng số 5 – Phước An",
+      "asset_kind": "berth",
+      "interest_type": "operator",
+      "company_id": "c0a6f7c5-4ee6-503b-8ad5-5183696ff2ae",
+      "ownership_pct": null,
+      "valid_from": "2024-12-31",
+      "date_basis": "reported_business_eligibility_certificate",
+      "decision": "47/2024/GCC-CHHVN",
+      "evidence_note": "Đọc trực quan báo cáo thường niên PAP 2025, trang PDF 3–4 (trang in 1–2): pháp nhân Công ty Cổ phần Dầu khí Đầu tư Khai thác Cảng Phước An, mã doanh nghiệp 3601010336. Đối chiếu Cầu cảng số 5 thuộc bến Phước An mục 227 danh mục 505/QĐ-BXD. valid_from 2024-12-31 là mốc reported_business_eligibility_certificate theo văn bản 47/2024/GCC-CHHVN do doanh nghiệp báo cáo, không phải ngày tàu đầu tiên hoặc ngày bắt đầu khai thác thực tế. Báo cáo nêu phân kỳ 1, cầu 7 và cầu 6 nối dài đã khai thác; cầu 8–9 đang xây dựng. Không tạo thêm cầu 6 cho phần nối dài, không suy ra sở hữu 100%. Chưa đối chiếu bản gốc giấy phép, biến động 2026, quyền nguồn hoặc hash tải ngược R2; giữ pending.",
+      "source_record_id": "a03b46d2-3bc6-55db-bdfb-5e541f9f0a1c",
+      "verification_status": "pending"
+    },
+    {
+      "id": "435f5a9c-6042-5d5f-b8cf-31b5e96b8e0a",
+      "asset_id": "ee9e16a2-a731-5aea-9d4b-6a77d834f3c6",
+      "asset_name": "Cầu cảng số 6 – Phước An",
+      "asset_kind": "berth",
+      "interest_type": "operator",
+      "company_id": "c0a6f7c5-4ee6-503b-8ad5-5183696ff2ae",
+      "ownership_pct": null,
+      "valid_from": "2024-12-31",
+      "date_basis": "reported_business_eligibility_certificate",
+      "decision": "47/2024/GCC-CHHVN",
+      "evidence_note": "Đọc trực quan báo cáo thường niên PAP 2025, trang PDF 3–4 (trang in 1–2): pháp nhân Công ty Cổ phần Dầu khí Đầu tư Khai thác Cảng Phước An, mã doanh nghiệp 3601010336. Đối chiếu Cầu cảng số 6 thuộc bến Phước An mục 227 danh mục 505/QĐ-BXD. valid_from 2024-12-31 là mốc reported_business_eligibility_certificate theo văn bản 47/2024/GCC-CHHVN do doanh nghiệp báo cáo, không phải ngày tàu đầu tiên hoặc ngày bắt đầu khai thác thực tế. Báo cáo nêu phân kỳ 1, cầu 7 và cầu 6 nối dài đã khai thác; cầu 8–9 đang xây dựng. Không tạo thêm cầu 6 cho phần nối dài, không suy ra sở hữu 100%. Chưa đối chiếu bản gốc giấy phép, biến động 2026, quyền nguồn hoặc hash tải ngược R2; giữ pending. Mốc 2024-12-31 chỉ áp dụng cầu 6 ban đầu; phần nối dài có quyết định riêng ngày 2025-12-05.",
+      "source_record_id": "a03b46d2-3bc6-55db-bdfb-5e541f9f0a1c",
+      "verification_status": "pending"
+    },
+    {
+      "id": "f48acef2-fa7b-5673-bbcc-e10770b20d48",
+      "asset_id": "44f107aa-da11-5351-aa42-f6545c82784d",
+      "asset_name": "Cầu cảng số 7 – Phước An",
+      "asset_kind": "berth",
+      "interest_type": "operator",
+      "company_id": "c0a6f7c5-4ee6-503b-8ad5-5183696ff2ae",
+      "ownership_pct": null,
+      "valid_from": "2025-12-05",
+      "date_basis": "reported_opening_decision",
+      "decision": "2620/QĐ-CHHVN",
+      "evidence_note": "Đọc trực quan báo cáo thường niên PAP 2025, trang PDF 3–4 (trang in 1–2): pháp nhân Công ty Cổ phần Dầu khí Đầu tư Khai thác Cảng Phước An, mã doanh nghiệp 3601010336. Đối chiếu Cầu cảng số 7 thuộc bến Phước An mục 227 danh mục 505/QĐ-BXD. valid_from 2025-12-05 là mốc reported_opening_decision theo văn bản 2620/QĐ-CHHVN do doanh nghiệp báo cáo, không phải ngày tàu đầu tiên hoặc ngày bắt đầu khai thác thực tế. Báo cáo nêu phân kỳ 1, cầu 7 và cầu 6 nối dài đã khai thác; cầu 8–9 đang xây dựng. Không tạo thêm cầu 6 cho phần nối dài, không suy ra sở hữu 100%. Chưa đối chiếu bản gốc giấy phép, biến động 2026, quyền nguồn hoặc hash tải ngược R2; giữ pending.",
+      "source_record_id": "a03b46d2-3bc6-55db-bdfb-5e541f9f0a1c",
+      "verification_status": "pending"
+    }
+  ],
+  "excluded_assets": [
+    "Cầu 8",
+    "Cầu 9",
+    "Khu công nghiệp Phước An",
+    "ICD suy ra từ bãi logistics"
+  ],
+  "review_gaps": [
+    "R2 SHA-256 readback",
+    "Source rights",
+    "Original administrative decisions",
+    "2026 legal berth numbering and changes"
+  ],
+  "as_of_scope": "Issuer annual report 2025; historical qualification/opening dates only, not uninterrupted current berth availability"
+}

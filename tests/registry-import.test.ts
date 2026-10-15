@@ -115,6 +115,56 @@ it("proposes only DVP's canonical terminal and two berths, preserving legal date
   await db.exec("reset role");
 });
 
+it("imports PAP's exact legal berths as pending proposals, retains date precision and replays without new audit", async()=>{
+  const proposal=readFileSync("supabase/imports/pap_assets.proposals.sql","utf8");
+  const approvedBefore=await db.query("select * from catalog.entities where quality_status='verified' order by id");
+  await db.exec(proposal);
+  const rows=await db.query<{name:string;valid_from:string;ownership_pct:null;verification_status:string;evidence_excerpt:string}>(`select e.name,i.valid_from::text,i.ownership_pct,i.verification_status,i.evidence_excerpt from port.company_asset_interests i join catalog.entities e on e.id=i.asset_id where i.company_id='c0a6f7c5-4ee6-503b-8ad5-5183696ff2ae' order by e.name`);
+  expect(rows.rows.map(row=>({name:row.name,valid_from:row.valid_from,ownership_pct:row.ownership_pct,verification_status:row.verification_status}))).toEqual([
+    {name:"Cầu cảng số 5 – Phước An",valid_from:"2024-12-31",ownership_pct:null,verification_status:"pending"},
+    {name:"Cầu cảng số 6 – Phước An",valid_from:"2024-12-31",ownership_pct:null,verification_status:"pending"},
+    {name:"Cầu cảng số 7 – Phước An",valid_from:"2025-12-05",ownership_pct:null,verification_status:"pending"},
+  ]);
+  expect(String(rows.rows[1].evidence_excerpt)).toContain("phần nối dài có quyết định riêng ngày 2025-12-05");
+  const evidence=await db.query<{quality_status:string;rights_status:string;published_at:null;fetched_at:Date}>(`select r.quality_status,s.rights_status,r.published_at,r.fetched_at from core.source_records r join core.sources s on s.id=r.source_id where r.external_id='PAP-2025:asset-review-p3-p4'`);
+  expect(evidence.rows[0]).toMatchObject({quality_status:"incomplete",rights_status:"to_verify",published_at:null});
+  expect(evidence.rows[0].fetched_at.toISOString()).toBe("2026-10-14T20:31:18.950Z");
+  expect((await db.query("select * from catalog.entities where quality_status='verified' order by id")).rows).toEqual(approvedBefore.rows);
+  const audits=await db.query("select count(*) from core.audit_events");
+  await db.exec(proposal);
+  expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(audits.rows);
+  await db.exec("set role anon");
+  expect((await db.query("select * from port.company_asset_interests where company_id='c0a6f7c5-4ee6-503b-8ad5-5183696ff2ae'")).rows).toHaveLength(0);
+  await db.exec("reset role");
+});
+
+it("adds VSC beyond the fifteen-ticker baseline without inventing company-asset interests",async()=>{
+  const proposal=readFileSync("supabase/imports/vsc_registry.proposals.sql","utf8");
+  const assets=await db.query("select * from port.company_asset_interests order by id");
+  await db.exec(proposal);
+  expect((await db.query(`select c.legal_name,c.enterprise_id,l.ticker,l.exchange,l.valid_from::text,l.verification_status from catalog.companies c join catalog.company_listings l on l.company_id=c.id where l.ticker='VSC'`)).rows).toEqual([
+    {legal_name:"Công ty Cổ phần Container Việt Nam",enterprise_id:"0200453688",ticker:"VSC",exchange:"HOSE",valid_from:"2008-01-09",verification_status:"pending"},
+  ]);
+  expect((await db.query("select * from port.company_asset_interests order by id")).rows).toEqual(assets.rows);
+  const audits=await db.query("select count(*) from core.audit_events");
+  await db.exec(proposal);
+  expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(audits.rows);
+  await db.exec("set role anon");
+  expect((await db.query("select * from catalog.company_listings where ticker='VSC'")).rows).toHaveLength(0);
+  await db.exec("reset role");
+});
+
+it("runs the exact user handoff bundle safely after either individual import",async()=>{
+  const bundle=readFileSync("supabase/imports/slice1_additional_catalog.handoff.sql","utf8");
+  const audits=await db.query("select count(*) from core.audit_events");
+  const results=await db.exec(bundle);
+  expect(results.at(-1)?.rows).toEqual([
+    {item:"PAP berth proposals",rows:3,pending:3},
+    {item:"VSC listing",rows:1,pending:1},
+  ]);
+  expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(audits.rows);
+});
+
 it("denies publication RPCs to ordinary users and anonymous callers",async()=>{
   await db.exec(`select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000098","app_metadata":{"role":"user"},"user_metadata":{"role":"admin"}}',false);set role authenticated`);
   await expect(db.query("select * from core.publication_queue('sources')")).rejects.toThrow("Admin review required");

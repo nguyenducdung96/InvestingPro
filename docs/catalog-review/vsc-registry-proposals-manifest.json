@@ -1,0 +1,45 @@
+{
+  "ticker": "VSC",
+  "publication_status": "pending",
+  "cloud_applied": false,
+  "company_id": "596a9594-a1d8-53d1-a415-0733a8edb553",
+  "listing_id": "b77d3520-0fb3-5233-985d-f553c45f66ce",
+  "source_id": "ed5e376e-3ca3-5e56-b294-92c71e6d4d4c",
+  "source_record_id": "1fffe6e2-c190-50f6-bece-6305ec88890d",
+  "enterprise_id": "0200453688",
+  "legal_name": "Công ty Cổ phần Container Việt Nam",
+  "exchange": "HOSE",
+  "first_trading_date": "2008-01-09",
+  "reviewed_pages": [
+    3
+  ],
+  "artifact": {
+    "ticker": "VSC",
+    "source_url": "https://viconship.com/wp-content/uploads/2026/04/CBTT-Bao-cao-thuong-nien-nam-2025.pdf",
+    "content_type": "application/pdf",
+    "content_hash": "4bd4f0da1db1c203065c5a7864d4c9d13dd5ed25639dd224f369822b3fc3bbc4",
+    "bytes": 65506030,
+    "fetched_at": "2026-10-14T20:23:02.416871+00:00",
+    "published_at": null,
+    "page_count": 94,
+    "raw_storage_key": "catalog-evidence/sha256/4bd4f0da1db1c203065c5a7864d4c9d13dd5ed25639dd224f369822b3fc3bbc4",
+    "r2_verified": false,
+    "rights_status": "to_verify",
+    "fact_review_status": "pending",
+    "parser_version": "manual-catalog-review-v1",
+    "note": "Research evidence; upload/listing confirmation does not approve source rights, facts, effective dates or SHA-256 read-back integrity.",
+    "artifact_label": "vsc-2025.pdf",
+    "storage_upload_status": "uploaded_and_listed",
+    "storage_checked_at": "2026-10-15T02:13:27.807Z",
+    "sha256_readback_status": "pending"
+  },
+  "note": "Đọc trực quan báo cáo thường niên VSC 2025 trang PDF 3 (trang in 2): Công ty Cổ phần Container Việt Nam, mã doanh nghiệp 0200453688, mã VSC, giao dịch đầu tiên tại HOSE ngày 09/01/2008; quyết định niêm yết 12/12/2007 là mốc khác. Phạm vi registry theo báo cáo; chưa xác minh đầy đủ trạng thái giao dịch hoặc biến động năm 2026. Các trang PDF 6–7 và 11 dùng tìm chuỗi pháp nhân, không gán VSC khai thác trực tiếp mọi cảng của công ty con; tỷ lệ vốn không phải tỷ lệ sở hữu cầu cảng. Chờ duyệt nguồn, bằng chứng và listing.",
+  "interests_added": 0,
+  "review_gaps": [
+    "Current exchange status",
+    "2026 changes",
+    "R2 SHA-256 readback",
+    "Source rights"
+  ],
+  "portfolio_review": "See factual-review-20261015.json; HAH percentages unresolved, ICD chain separate"
+}
