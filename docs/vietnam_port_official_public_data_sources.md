@@ -4,6 +4,8 @@
 **Ngày rà soát:** 2026-10-13  
 **Phạm vi:** Nguồn công khai của cơ quan nhà nước, sở giao dịch chứng khoán và doanh nghiệp cung cấp dữ liệu gốc hoặc tài liệu gốc. `dulieucangbien.com` chỉ là website tham khảo về sản phẩm, không phải nguồn dữ liệu đầu vào.
 
+**Bổ sung ngày 15/10/2026:** Đã rà soát thêm VSDC, FPTS EzIR, CafeF, VietstockFinance, SSI Research và FiinPro-X cho việc hoàn thiện registry doanh nghiệp/quan hệ tài sản Slice 1. Vai trò, URL đã tra cứu, giới hạn truy cập và quy tắc truy về tài liệu gốc được ghi tại [Chính sách nguồn chứng khoán cho catalog](catalog-review/securities-source-policy.md). Nguồn tổng hợp/phân tích chỉ dùng discovery và kiểm tra chéo khi chưa có quyền sử dụng phù hợp; không tự trở thành nguồn được duyệt trong database. Không dùng báo không rõ nguồn, diễn đàn hoặc mạng xã hội làm bằng chứng xác minh.
+
 ---
 
 ## 1. Kết luận nhanh
