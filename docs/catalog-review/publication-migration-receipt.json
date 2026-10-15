@@ -1,0 +1,13 @@
+{
+  "checked_at": "2026-10-15T15:45:34Z",
+  "environment": "staging",
+  "supabase_project": "loapslojajawgzekozfv",
+  "migration": "202610150004_admin_publication_review.sql",
+  "method": "Supabase SQL Editor success, followed by schema and privilege query",
+  "review_table_ready": true,
+  "rls_enabled": true,
+  "authenticated_rpc_execute": true,
+  "anonymous_rpc_execute": false,
+  "decisions_written": 0,
+  "note": "RPCs additionally require app_metadata admin role and non-null auth.uid. No source rights, evidence, entity or mapping was approved by this deployment."
+}

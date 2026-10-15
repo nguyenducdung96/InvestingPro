@@ -114,3 +114,50 @@ it("proposes only DVP's canonical terminal and two berths, preserving legal date
   expect((await db.query("select * from port.company_asset_interests where company_id='fafba875-a5cd-55f2-ac4f-0acf54a64164'")).rows).toHaveLength(0);
   await db.exec("reset role");
 });
+
+it("denies publication RPCs to ordinary users and anonymous callers",async()=>{
+  await db.exec(`select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000098","app_metadata":{"role":"user"},"user_metadata":{"role":"admin"}}',false);set role authenticated`);
+  await expect(db.query("select * from core.publication_queue('sources')")).rejects.toThrow("Admin review required");
+  await expect(db.query("select core.review_publication('sources','00000000-0000-0000-0000-000000000001','approved','A sufficiently long review note')")).rejects.toThrow("Admin review required");
+  await db.exec("reset role;set role anon");
+  await expect(db.query("select * from core.publication_queue('evidence')")).rejects.toThrow("permission denied");
+  await db.exec("reset role");
+});
+
+it("publishes through explicit source, immutable evidence, entity and listing decisions; withdrawal hides the result",async()=>{
+  await db.exec(`select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000099","app_metadata":{"role":"admin"}}',false);set role authenticated`);
+  const originalId='a40343bd-a826-5470-bc99-9cccce655d59';
+  const original=(await db.query<{source_id:string;content_hash:string;fetched_at:Date;published_at:null;raw_storage_key:string;quality_status:string}>(`select * from core.source_records where id='${originalId}'`)).rows[0];
+  const note="Đã đối chiếu hồ sơ thử nghiệm, trang 1–2 và phạm vi dữ kiện.";
+  // Fixture only; no source rights are decided by production scripts or tests.
+  const approveEvidence=(hash:string)=>db.query<{result:{replacementRecordId:string}}>(`select core.review_publication('evidence','${originalId}','approved',$1,null,null,null,$2,true) as result`,[note,hash]);
+  await expect(approveEvidence(original.content_hash)).rejects.toThrow("Source rights approval required");
+  await expect(db.query(`select core.review_publication('sources','${original.source_id}','approved',$1,'too short','too short',null,null,true)`,[note])).rejects.toThrow("Source basis and scope required");
+  await db.query(`select core.review_publication('sources','${original.source_id}','approved',$1,$2,$3,null,null,true)`,[note,"TEST ONLY: fixture license covering these exact factual fields.","TEST ONLY: fixture identity and listing evidence, no third-party publication."]);
+  const queue=await db.query<{publication_queue:{id:string;blockers:string[]}}>("select * from core.publication_queue('evidence',100)");
+  expect(queue.rows.find(x=>x.publication_queue.id===originalId)?.publication_queue.blockers).toEqual([]);
+  await expect(approveEvidence('0'.repeat(64))).rejects.toThrow("Evidence hash confirmation required");
+  const result=(await approveEvidence(original.content_hash)).rows[0].result;
+  expect((await db.query<{publication_queue:{id:string}}>("select * from core.publication_queue('evidence',100)")).rows.some(x=>x.publication_queue.id===originalId)).toBe(false);
+  const copy=(await db.query<typeof original>(`select * from core.source_records where id='${result.replacementRecordId}'`)).rows[0];
+  expect(copy).toMatchObject({quality_status:"verified",content_hash:original.content_hash,raw_storage_key:original.raw_storage_key,published_at:original.published_at});
+  expect(copy.fetched_at).toEqual(original.fetched_at);
+  expect((await db.query(`select quality_status from core.source_records where id='${originalId}'`)).rows).toEqual([{quality_status:"incomplete"}]);
+  await expect(approveEvidence(original.content_hash)).rejects.toThrow("already decided");
+  await expect(db.exec(`update core.source_records set quality_status='verified' where id='${originalId}'`)).rejects.toThrow("immutable");
+  expect((await db.query(`select source_record_id from catalog.company_listings where ticker='DVP'`)).rows).toEqual([{source_record_id:result.replacementRecordId}]);
+  await db.query(`select core.review_publication('entities','fafba875-a5cd-55f2-ac4f-0acf54a64164','approved',$1,null,null,null,null,true)`,[note]);
+  await db.query(`update catalog.company_listings set verification_status='verified',review_note=$1 where ticker='DVP'`,[note]);
+  const history=await db.query<{actor_id:string}>("select actor_id from core.publication_reviews");
+  expect(history.rows.length).toBe(3);
+  expect(history.rows.every(r=>r.actor_id==='00000000-0000-0000-0000-000000000099')).toBe(true);
+  await db.exec("reset role;set role anon");
+  expect((await db.query("select ticker from catalog.company_listings where ticker='DVP'")).rows).toEqual([{ticker:"DVP"}]);
+  // Separate DVP asset evidence has not been reviewed just because registry evidence was.
+  expect((await db.query("select * from port.company_asset_interests where company_id='fafba875-a5cd-55f2-ac4f-0acf54a64164'")).rows).toHaveLength(0);
+  await db.exec("reset role;set role authenticated");
+  await db.query(`select core.review_publication('sources','${original.source_id}','rejected',$1)`,["TEST ONLY: withdraw this fixture source pending corrected permission."]);
+  await db.exec("reset role;set role anon");
+  expect((await db.query("select ticker from catalog.company_listings where ticker='DVP'")).rows).toHaveLength(0);
+  await db.exec("reset role");
+});

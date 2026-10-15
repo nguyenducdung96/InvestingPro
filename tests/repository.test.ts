@@ -4,6 +4,17 @@ import {
   supabaseTransport,
   DatabaseError,
 } from "../packages/db/src/index";
+it("sends publication RPCs through the existing admin session without a service-role credential",async()=>{
+  const mock=vi.spyOn(globalThis,"fetch").mockResolvedValue(Response.json({id:"review",replacementRecordId:null,decision:"approved"}));
+  try {
+    const repo=new SupabaseCatalogRepository(supabaseTransport("https://database.example","anon","admin-token"),true);
+    const result=await repo.reviewPublication("sources","source-id",{decision:"approved",note:"Reviewed exact scope and permission.",confirm:true,basis:"Written permission for specified facts.",scope:"Specific documented catalog facts only."});
+    expect(result.id).toBe("review");
+    expect(String(mock.mock.calls[0][0])).toContain("/rest/v1/rpc/review_publication");
+    expect(mock.mock.calls[0][1]?.headers).toMatchObject({"Content-Profile":"core",Authorization:"Bearer admin-token"});
+    expect(JSON.parse(String(mock.mock.calls[0][1]?.body))).toMatchObject({p_kind:"sources",p_confirm:true,p_terms_url:null});
+  } finally {mock.mockRestore();}
+});
 it("keeps empty catalog evidence and coverage null", async () => {
   const read = vi.fn(async () => []);
   const repo = new SupabaseCatalogRepository({

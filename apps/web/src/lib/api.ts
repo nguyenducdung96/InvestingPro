@@ -1,4 +1,4 @@
-import type { CatalogRepository, EntityKind } from "@invest/domain";
+import type { CatalogRepository, EntityKind, PublicationKind, PublicationInput } from "@invest/domain";
 import { DatabaseError } from "@invest/db";
 import {
   InputError,
@@ -26,7 +26,9 @@ async function body(request: Request) {
   const raw = await request.text();
   if (raw.length > 16384) throw new HttpError(413, "Request too large");
   try {
-    return JSON.parse(raw) as Record<string, unknown>;
+    const value = JSON.parse(raw);
+    if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error();
+    return value as Record<string, unknown>;
   } catch {
     throw new InputError("Invalid JSON");
   }
@@ -46,6 +48,29 @@ export async function handleCatalog(
       if (request.method !== "GET" && !sameOrigin(request))
         throw new HttpError(403, "Cross-origin writes are forbidden");
       const repo = await adminRepo();
+      if (path[1] === "publication" && [3,4].includes(path.length)) {
+        const kind = path[2] as PublicationKind;
+        if (!["sources","evidence","entities"].includes(kind)) throw new InputError("Invalid publication kind");
+        if (request.method === "GET" && path.length === 3) return json(await repo.publicationQueue(kind,q));
+        if (request.method === "PATCH" && path.length === 4) {
+          if (!UUID.test(path[3])) throw new InputError("Invalid review identifier");
+          const v = await body(request);
+          if (Object.keys(v).some(k=>!["decision","note","basis","scope","termsUrl","hash","confirm"].includes(k)) ||
+            !["approved","rejected"].includes(String(v.decision)) || typeof v.note!=="string" ||
+            v.note.trim().length<20 || v.note.length>4000 || typeof v.confirm!=="boolean" ||
+            ["basis","scope","termsUrl","hash"].some(k=>v[k]!==undefined && (typeof v[k]!=="string" || String(v[k]).length>4000)))
+            throw new InputError("Cần lý do từ 20 đến 4.000 ký tự và quyết định hợp lệ.");
+          if (v.decision === "approved" && !v.confirm) throw new InputError("Cần xác nhận đã kiểm tra hồ sơ.");
+          if (v.decision === "approved" && kind === "sources" &&
+            [v.basis,v.scope].some(x=>typeof x!=="string" || x.trim().length<20))
+            throw new InputError("Cần căn cứ quyền sử dụng và phạm vi dữ liệu, mỗi mục ít nhất 20 ký tự.");
+          if (v.termsUrl && !/^https:\/\//.test(String(v.termsUrl))) throw new InputError("Liên kết điều khoản phải dùng HTTPS.");
+          if (v.decision === "approved" && kind === "evidence" && !/^[a-f0-9]{64}$/.test(String(v.hash)))
+            throw new InputError("Cần SHA-256 gồm 64 ký tự để đối chiếu bằng chứng.");
+          return json(await repo.reviewPublication(kind,path[3],v as unknown as PublicationInput));
+        }
+        return json({error:"Method not allowed"},405);
+      }
       if (path[1] !== "mappings" || path.length > 3)
         return json({ error: "Not found" }, 404);
       const type = mappingType(

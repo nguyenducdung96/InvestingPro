@@ -123,11 +123,14 @@ const rows = {
   current_asset_interests: [interest, { ...interest, id: id(12), asset_id: id(8), asset_kind: "icd", interest_type: "indirect", ownership_pct: 25, valid_from: "2025-01-01", evidence_excerpt: "Synthetic ICD evidence" }],
   entity_mappings: [mapping],
 };
+const publicationState={sources:false,evidence:false,entities:false};
+const publicationSource={...source,id:id(40),owner:"Fixture issuing company",base_url:"https://example.gov.vn",rights_notes:"Fixture only: permission must be explicitly reviewed.",rights_status:"to_verify"};
 createServer(async (req, res) => {
   res.setHeader("Content-Type", "application/json");
   const url = new URL(req.url ?? "/", "http://127.0.0.1:54329");
   const admin = req.headers.authorization === "Bearer fixture-admin";
   if (url.pathname === "/reset" && req.method === "POST") {
+    Object.assign(publicationState,{sources:false,evidence:false,entities:false});
     Object.assign(mapping, {
       verification_status: "pending",
       reviewed_at: null,
@@ -148,6 +151,21 @@ createServer(async (req, res) => {
     return;
   }
   const table = url.pathname.split("/").at(-1);
+  if (["publication_queue","review_publication"].includes(table)) {
+    if(!admin) {res.statusCode=403;res.end('{}');return;}
+    let raw="";for await(const chunk of req) raw+=chunk;
+    const input=JSON.parse(raw);
+    if(table==="review_publication") {
+      publicationState[input.p_kind]=true;
+      res.end(JSON.stringify({id:id(49),replacementRecordId:input.p_kind==='evidence'?id(45):null,decision:input.p_decision}));return;
+    }
+    const kind=input.p_kind;
+    const blockers=kind==='evidence' && !publicationState.sources?['Cần duyệt quyền sử dụng nguồn trước.']:kind==='entities' && !publicationState.evidence?['Cần duyệt nguồn và xác minh bằng chứng trước.']:[];
+    const item={id:id(kind==='sources'?40:kind==='evidence'?41:42),kind,name:kind==='sources'?'Fixture publication source':kind==='evidence'?'Fixture evidence p.1–2':'Fixture pending company',source:{...publicationSource,rights_status:publicationState.sources?'approved':'to_verify'},blockers};
+    if(kind!=='sources') item.record={...record,id:id(41),source_id:id(40),quality_status:publicationState.evidence?'verified':'incomplete'};
+    if(kind==='entities') item.entity={...entities[4],id:id(42),name:'Fixture pending company',quality_status:'incomplete'};
+    res.end(JSON.stringify(publicationState[kind]?[]:[item]));return;
+  }
   let data = rows[table] ?? [];
   if (["entity_mappings", "company_asset_interests"].includes(table) && !admin)
     data = data.filter((r) => r.verification_status === "verified");

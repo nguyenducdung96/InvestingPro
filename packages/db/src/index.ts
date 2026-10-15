@@ -13,6 +13,7 @@ import type {
   Proposal,
   ReviewItem,
   Listing,
+  PublicationKind, PublicationItem, PublicationInput, PublicationDecision,
 } from "@invest/domain";
 import type { Tables } from "./database.types";
 export type { Database } from "./database.types";
@@ -25,6 +26,8 @@ export class DatabaseError extends Error {
   }
 }
 export interface Transport {
+  publicationQueue?(body: object): Promise<PublicationItem[]>;
+  reviewPublication?(body: object): Promise<PublicationDecision>;
   read<S extends keyof Tables, T extends keyof Tables[S]>(
     schema: S,
     table: T,
@@ -76,6 +79,8 @@ export function supabaseTransport(
     return response.json() as Promise<T[]>;
   }
   return {
+    publicationQueue: (b) => request("core", "rpc/publication_queue", new URLSearchParams(), "POST", b),
+    reviewPublication: (b) => request("core", "rpc/review_publication", new URLSearchParams(), "POST", b) as unknown as Promise<PublicationDecision>,
     read: (s, t, p) => request(s, String(t), p),
     activeInterests: (p) => request("port", "current_asset_interests", p),
     write: (t, p, b, m) => request(t === "company_listings" ? "catalog" : "port", t, p, m, b),
@@ -96,6 +101,20 @@ export class SupabaseCatalogRepository implements CatalogRepository {
     private db: Transport,
     private admin = false,
   ) {}
+  async publicationQueue(kind: PublicationKind, q: PageQuery) {
+    if (!this.admin) throw new DatabaseError(403);
+    if (!this.db.publicationQueue) throw new DatabaseError(503);
+    const rows = await this.db.publicationQueue({p_kind:kind,p_limit:q.limit+1,p_cursor:q.cursor ?? null});
+    const page = rows.slice(0,q.limit);
+    return this.envelope(page, [], "admin publication review", rows.length>q.limit ? page.at(-1)!.id : null);
+  }
+  async reviewPublication(kind: PublicationKind, id: string, input: PublicationInput) {
+    if (!this.admin) throw new DatabaseError(403);
+    if (!this.db.reviewPublication) throw new DatabaseError(503);
+    return this.db.reviewPublication({p_kind:kind,p_id:id,p_decision:input.decision,p_note:input.note,
+      p_basis:input.basis ?? null,p_scope:input.scope ?? null,p_terms_url:input.termsUrl || null,
+      p_hash:input.hash ?? null,p_confirm:input.confirm});
+  }
   private async citations(recordIds: string[]): Promise<Map<string, Citation>> {
     if (!recordIds.length) return new Map();
     const records = await this.db.read(
@@ -358,10 +377,22 @@ export class SupabaseCatalogRepository implements CatalogRepository {
       : await this.db.read("port", type, p);
     const page = rows.slice(0, q.limit);
     const cites = await this.citations(page.map((r) => r.source_record_id));
+    const recordRows = page.length ? await this.db.read("core","source_records",params({id:ids(page.map(r=>r.source_record_id))})) : [];
+    const sourceRows = recordRows.length ? await this.db.read("core","sources",params({id:ids(recordRows.map(r=>r.source_id))})) : [];
+    const targetIds = page.flatMap(r=>"company_id" in r ? [r.company_id,...("asset_id" in r ? [r.asset_id] : [])] : [r.entity_id]);
+    const targetRows = targetIds.length ? await this.db.read("catalog","entities",params({id:ids([...new Set(targetIds)])})) : [];
     const data = page.map((mapping) => {
       const lineage = cites.get(mapping.source_record_id);
       if (!lineage) throw new DatabaseError(502, "missing_lineage");
-      return { type, mapping, lineage };
+      const record = recordRows.find(r=>r.id===mapping.source_record_id);
+      const source = sourceRows.find(s=>s.id===record?.source_id);
+      const requiredIds = "company_id" in mapping ? [mapping.company_id,...("asset_id" in mapping ? [mapping.asset_id] : [])] : [mapping.entity_id];
+      const targets = targetRows.filter(e=>requiredIds.includes(e.id));
+      const blockers = [];
+      if (source?.rights_status !== "approved") blockers.push("Cần duyệt quyền sử dụng nguồn.");
+      if (record?.quality_status !== "verified") blockers.push("Cần xác minh bằng chứng.");
+      if (requiredIds.some(id=>!targets.some(e=>e.id===id && e.quality_status==="verified"))) blockers.push("Cần xác minh doanh nghiệp và tài sản liên quan.");
+      return { type, mapping, lineage, blockers, targets };
     });
     return this.envelope(
       data,

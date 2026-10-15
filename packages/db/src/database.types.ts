@@ -14,12 +14,14 @@ import type {
   AssetInterest,
   EntityMapping,
   AuditEvent,
+  PublicationReviewEvent, PublicationItem, PublicationDecision,
 } from "@invest/domain";
 export interface Tables {
   core: {
     sources: Source;
     source_records: SourceRecord;
     audit_events: AuditEvent;
+    publication_reviews: PublicationReviewEvent;
   };
   catalog: { entities: Entity; companies: Company; company_listings: Listing };
   port: {
@@ -54,6 +56,7 @@ interface Inserts {
       | "quality_status"
     >;
     audit_events: never;
+    publication_reviews: never;
   };
   catalog: {
     entities: RequiredFields<
@@ -112,7 +115,9 @@ type Schema<S extends keyof Tables> = {
     ? { current_asset_interests: { Row: AssetInterest; Relationships: [] } }
     : Record<string, never>;
   Functions: S extends "core"
-    ? { is_admin: { Args: Record<string, never>; Returns: boolean } }
+    ? { is_admin: { Args: Record<string, never>; Returns: boolean };
+        publication_queue: { Args: {p_kind:string;p_limit?:number;p_cursor?:string|null}; Returns: PublicationItem[] };
+        review_publication: { Args: {p_kind:string;p_id:string;p_decision:string;p_note:string;p_basis?:string|null;p_scope?:string|null;p_terms_url?:string|null;p_hash?:string|null;p_confirm?:boolean}; Returns: PublicationDecision } }
     : Record<string, never>;
   Enums: Record<string, never>;
   CompositeTypes: Record<string, never>;

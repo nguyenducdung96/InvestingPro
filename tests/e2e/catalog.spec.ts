@@ -1,4 +1,35 @@
 import { test, expect } from "@playwright/test";
+test("publication review guides an admin through source, evidence and identity with explicit confirmations",async({page,request},testInfo)=>{
+  await request.post("http://127.0.0.1:54329/reset");
+  await page.goto('/admin/publication?kind=evidence');
+  await page.getByLabel('Mã truy cập (access token)').fill('fixture-admin');
+  await page.getByRole('button',{name:'Đăng nhập quản trị'}).click();
+  await expect(page.getByRole('button',{name:'Xác minh bằng chứng',exact:true})).toBeDisabled();
+  await expect(page.getByText('Cần duyệt quyền sử dụng nguồn trước.')).toBeVisible();
+  await page.getByRole('link',{name:'1. Quyền sử dụng nguồn'}).click();
+  await page.getByLabel('Căn cứ được phép sử dụng dữ liệu').fill('Fixture written permission for these specific catalog fields.');
+  await page.getByLabel('Phạm vi được phép sử dụng').fill('Fixture identity and catalog facts only, retaining source attribution.');
+  await page.getByLabel('Bằng chứng và lý do quyết định (20–4.000 ký tự)').fill('Checked fixture permission, scope and source attribution.');
+  await expect(page.getByRole('button',{name:'Duyệt quyền nguồn'})).toBeDisabled();
+  await page.getByRole('checkbox').check();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+  await page.screenshot({path:`test-results/publication-${testInfo.project.name}.png`,fullPage:true});
+  await page.getByRole('button',{name:'Duyệt quyền nguồn'}).click();
+  await expect(page.getByText('Không còn hồ sơ chờ duyệt ở bước này.',{exact:false})).toBeVisible();
+  await page.getByRole('link',{name:'2. Bằng chứng',exact:true}).click();
+  await page.getByLabel('SHA-256 thực tế sau khi tải lại từ R2').fill('a'.repeat(64));
+  await page.getByLabel('Bằng chứng và lý do quyết định (20–4.000 ký tự)').fill('Checked fixture raw hash, original pages 1–2 and identity fields.');
+  await page.getByRole('checkbox').check();
+  await page.getByRole('button',{name:'Xác minh bằng chứng',exact:true}).click();
+  await expect(page.getByText('Không còn hồ sơ chờ duyệt ở bước này.',{exact:false})).toBeVisible();
+  await page.getByRole('link',{name:'3. Doanh nghiệp / thực thể',exact:true}).click();
+  await page.getByLabel('Bằng chứng và lý do quyết định (20–4.000 ký tự)').fill('Checked fixture company identity against reviewed evidence pages.');
+  await page.getByRole('checkbox').check();
+  await page.getByRole('button',{name:'Xác minh doanh nghiệp / thực thể'}).click();
+  await expect(page.getByText('Không còn hồ sơ chờ duyệt ở bước này.',{exact:false})).toBeVisible();
+  await page.getByRole('link',{name:'4. Mã chứng khoán và quan hệ',exact:true}).click();
+  await expect(page.getByRole('heading',{name:'Danh sách quan hệ chờ duyệt'})).toBeVisible();
+});
 test("catalog shell explains evidence and does not fabricate metrics", async ({
   page,
 }) => {

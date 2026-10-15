@@ -44,6 +44,14 @@ Toàn bộ 42 tests, lint và typecheck đạt. Các tests bổ sung kiểm tra 
 
 Đã tải ngược raw DVP từ R2, SHA-256 khớp bản gốc; đọc trực quan trang PDF 1–2. Import cloud thêm ba quan hệ pending cho bến Đình Vũ và cầu 1, 2; query đọc lại tên, ngày và ownership_pct NULL khớp dossier. Bằng chứng mới giữ quality incomplete, nguồn to_verify; không sửa entity hay bản ghi bằng chứng cũ. Mốc valid_from là mốc cấp phép được báo cáo nêu, không phải ngày tàu đầu tiên. Cần đối chiếu quyết định gốc và thay đổi khai thác/cải tạo 2026 trước duyệt. Chưa công bố quan hệ hoặc hoàn tất danh mục DVP. Bộ 43 tests và lint đạt; biên nhận ở `docs/catalog-review/dvp-asset-import-receipt.json`.
 
+### Luồng duyệt nguồn, bằng chứng và định danh
+
+Đã bổ sung `/admin/publication` và API admin cho ba bước nguồn → bằng chứng → định danh, nối sang hàng đợi mã/quan hệ hiện có. Không tự duyệt nguồn thật. Migration `202610150004_admin_publication_review.sql` đã áp dụng trên Supabase cloud; query kiểm tra cho thấy bảng review tồn tại, RLS bật, authenticated có quyền gọi RPC (hàm vẫn kiểm tra admin/UID), anon không có quyền execute và chưa có quyết định công bố nào được tạo.
+
+Xác minh bằng chứng append bản immutable mới, bảo toàn metadata tải/công bố/hash/key/parser, ghi actor và lý do riêng; chỉ repoint các đề xuất pending và định danh chưa công bố. Bản gốc và quyết định đã duyệt giữ nguyên. Duyệt bằng chứng không tự duyệt doanh nghiệp/listing/quan hệ. Hàng đợi quan hệ hiển thị tên thực thể và khóa xác minh khi thiếu nguồn/bằng chứng/định danh.
+
+Đạt 47 tests, 16 kiểm tra desktop/mobile, lint, typecheck và production build. Kiểm thử SQL đi hết luồng từ private tới public, kiểm tra từ chối người không có quyền, hash sai, replay, bằng chứng bất biến, audit actor và ẩn dữ liệu khi nguồn bị thu hồi. Ảnh UI dùng fixture; không phải ảnh duyệt dữ liệu thật trên staging. Hướng dẫn người dùng ở `docs/admin_publication_guide.md`. Luồng quản trị hoàn thiện không đồng nghĩa đã nghiệm thu độ phủ dữ liệu Slice 1.
+
 ### Chi tiết bộ mẫu ban đầu (lịch sử)
 
 1 cảng vụ Hải Phòng, 1 cảng biển Hải Phòng, 2 bến Chùa Vẽ/Tân Vũ, 10 cầu cảng, Công ty cổ phần Cảng Hải Phòng: 15 entities. Đã duyệt định danh Chùa Vẽ và quan hệ vận hành doanh nghiệp–Tân Vũ qua UI. Hiệu lực quan hệ từ phạm vi quyết định 04/06/2026, không phải ngày bắt đầu khai thác lịch sử. Tỷ lệ sở hữu giữ null. Không dùng danh sách cũ để khẳng định doanh nghiệp trực tiếp vận hành Chùa Vẽ sau thay đổi đơn vị năm 2025.

@@ -41,6 +41,22 @@ const run = (
         throw new HttpError(401, "Sign in");
       }),
   );
+
+it("validates publication decisions, admin authentication and CSRF without forwarding privileged fields",async()=>{
+  const reviewPublication=vi.fn(async()=>({id:"review",replacementRecordId:null,decision:"approved" as const}));
+  const publicationQueue=vi.fn(async()=>({data:[],meta}));
+  const admin=async()=>({...repo,reviewPublication,publicationQueue} as unknown as CatalogRepository);
+  const path="admin/publication/sources/00000000-0000-0000-0000-000000000001";
+  expect((await run("admin/publication/sources")).status).toBe(401);
+  expect((await run(path,"PATCH",{decision:"approved",note:"short",confirm:true},admin)).status).toBe(400);
+  const valid={decision:"approved",note:"Reviewed the exact source permission and scope.",basis:"Documented permission for these specific factual fields.",scope:"Identity and listing facts only, with original source attribution.",confirm:true};
+  expect((await run(path,"PATCH",{...valid,actor_id:"forged"},admin)).status).toBe(400);
+  expect((await run(path,"PATCH",{...valid,confirm:false},admin)).status).toBe(400);
+  expect((await run(path,"PATCH",valid,admin)).status).toBe(200);
+  expect(reviewPublication).toHaveBeenCalledTimes(1);
+  const request=new Request(`http://localhost/api/v1/${path}`,{method:"PATCH",headers:{Origin:"https://attacker.invalid"},body:JSON.stringify(valid)});
+  expect((await handleCatalog(request,path.split('/'),()=>repo,admin)).status).toBe(403);
+});
 describe("API contract and access control", () => {
   it("returns metadata and does not fabricate missing coverage", async () => {
     const r = await run("ports");

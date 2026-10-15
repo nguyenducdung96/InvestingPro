@@ -9,6 +9,7 @@ export function ReviewActions({ item }: { item: ReviewItem }) {
   const [error, setError] = useState("");
   const router = useRouter();
   const fuzzy = "resolution_method" in item.mapping && item.mapping.resolution_method === "fuzzy_name";
+  const blocked = Boolean(item.blockers?.length);
   async function decide(decision: "verified" | "rejected") {
     if (!note.trim()) {
       setError("Vui lòng ghi lý do trước khi duyệt.");
@@ -47,7 +48,7 @@ export function ReviewActions({ item }: { item: ReviewItem }) {
       />
       <div className="actions">
         <button
-          disabled={busy || fuzzy}
+          disabled={busy || fuzzy || blocked}
           onClick={() => decide("verified")}
         >
           {busy ? "Đang lưu…" : "Xác minh quan hệ"}
@@ -62,6 +63,7 @@ export function ReviewActions({ item }: { item: ReviewItem }) {
           tài liệu trước khi xác minh.
         </p>
       )}
+      {blocked && <div className="notice"><p>Chưa đủ điều kiện xác minh:</p><ul>{item.blockers!.map(text=><li key={text}>{text}</li>)}</ul><a href="/admin/publication">Mở quy trình duyệt nguồn, bằng chứng và doanh nghiệp</a></div>}
       <p id={`${id}-error`} className="error" role="status">
         {error}
       </p>

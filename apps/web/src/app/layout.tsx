@@ -19,6 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/industries/ports">Danh mục cảng</Link>
             <Link href="/industries/ports/companies?view=all">Doanh nghiệp</Link>
             <Link href="/admin/mappings">Duyệt quan hệ</Link>
+            <Link href="/admin/publication">Duyệt nguồn</Link>
           </nav>
         </header>
         <main id="main">{children}</main>

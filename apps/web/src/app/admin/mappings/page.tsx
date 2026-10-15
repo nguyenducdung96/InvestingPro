@@ -35,6 +35,7 @@ export default async function Page({
     <>
       <p className="eyebrow">QUẢN TRỊ / XÉT DUYỆT BẰNG CHỨNG</p>
       <h1>Danh sách quan hệ chờ duyệt</h1>
+      <p><Link href="/admin/publication">Bước 1–3: Duyệt nguồn → bằng chứng → doanh nghiệp</Link> · Bước 4: Duyệt mã và quan hệ tại đây.</p>
       <nav aria-label="Loại đề xuất">
         <Link href="?type=company_asset_interests">Quan hệ doanh nghiệp</Link>
         <Link href="?type=entity_mappings">Định danh thực thể</Link>
@@ -49,6 +50,7 @@ export default async function Page({
               ? item.mapping.external_name
               : `${label(item.mapping.interest_type)}: ${item.mapping.asset_id}`}
           </h2>
+          {item.targets?.map(target=><p key={target.id}>{target.name}</p>)}
           <p>
             Hiệu lực {displayDate(item.mapping.valid_from)} →{" "}
             {displayDate(item.mapping.valid_to, "Chưa có ngày kết thúc")} · Phương thức:{" "}

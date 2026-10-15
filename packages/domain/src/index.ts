@@ -198,6 +198,46 @@ export interface ReviewItem {
   type: "company_asset_interests" | "entity_mappings" | "company_listings";
   mapping: AssetInterest | EntityMapping | Listing;
   lineage: Citation;
+  blockers?: string[];
+  targets?: Entity[];
+}
+export type PublicationKind = "sources" | "evidence" | "entities";
+export interface PublicationItem {
+  id: string;
+  kind: PublicationKind;
+  name: string;
+  source: Source;
+  record?: SourceRecord;
+  entity?: Entity;
+  company?: Company | null;
+  blockers: string[];
+}
+export interface PublicationInput {
+  decision: "approved" | "rejected";
+  note: string;
+  basis?: string;
+  scope?: string;
+  termsUrl?: string;
+  hash?: string;
+  confirm: boolean;
+}
+export interface PublicationDecision {
+  id: string;
+  replacementRecordId: string | null;
+  decision: "approved" | "rejected";
+}
+export interface PublicationReviewEvent {
+  id: string;
+  kind: PublicationKind;
+  target_id: string;
+  decision: "approved" | "rejected";
+  note: string;
+  basis: string | null;
+  scope: string | null;
+  confirmed_hash: string | null;
+  replacement_record_id: string | null;
+  actor_id: string;
+  reviewed_at: string;
 }
 export interface PageQuery {
   limit: number;
@@ -205,6 +245,8 @@ export interface PageQuery {
   at: string;
 }
 export interface CatalogRepository {
+  publicationQueue(kind: PublicationKind, query: PageQuery): Promise<Envelope<PublicationItem[]>>;
+  reviewPublication(kind: PublicationKind, id: string, input: PublicationInput): Promise<PublicationDecision>;
   list(
     kind: EntityKind,
     query: PageQuery,
