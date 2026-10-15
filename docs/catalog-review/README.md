@@ -16,6 +16,8 @@ Phạm vi yêu cầu vẫn gồm doanh nghiệp trên HOSE/HNX/UPCoM có quan h�
 
 Raw files và ảnh review ở `.local/catalog-research/`, không commit vào Git. Script `scripts/index-catalog-evidence.py` lập chỉ mục và tên object theo hash, không upload hay cấp phép nguồn. `scripts/read-catalog-pdf.py` hỗ trợ đọc/render/OCR ngoại tuyến, không nhập dữ liệu vào database.
 
+Đã upload đủ 30 PDF vào `investing-pro-evidence-staging/catalog-evidence/sha256/` và đối chiếu thấy đủ 30 key mới trên hai trang danh sách object. Bucket giữ riêng tư. `evidence-artifacts.json` lưu metadata của đợt này; chưa tải ngược toàn bộ 30 file để đối chiếu SHA-256, nên `r2_verified` vẫn false và `sha256_readback_status` vẫn pending. Trạng thái lưu trữ không thay thế duyệt quyền sử dụng hoặc duyệt quan hệ doanh nghiệp–tài sản.
+
 ## Quy trình duyệt mỗi hồ sơ
 
 1. Xác minh pháp nhân, mã và sàn bằng hồ sơ chính thức hoặc tài liệu doanh nghiệp; lưu bằng chứng ngày hiệu lực. Ảnh tham khảo chỉ xác định yêu cầu độ phủ.
