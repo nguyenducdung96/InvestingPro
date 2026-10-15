@@ -40,4 +40,6 @@ Nguồn/bằng chứng/định danh/listing vẫn đi qua quy trình trong `docs
 
 ## Còn thiếu để nghiệm thu toàn bộ phạm vi người dùng yêu cầu
 
+Bộ nghiên cứu mở rộng mới nhất nằm ở `expanded-data-progress.md`. Ngoài PAP/VSC, file `supabase/imports/expanded_issuer_registry.proposals.sql` đã chuẩn bị bốn company/listing CAG, CCR, TCL, PNP chờ duyệt trong một transaction, có câu truy vấn kết quả ở cuối. File này chưa chạy cloud; khi nhập cần giữ nguyên toàn bộ transaction như bước 2, không chạy từng đoạn nếu có xung đột. Metadata/hash và trang đã đối chiếu của bốn PDF nằm trong `expanded-issuer-registry-manifest.json`; cần kiểm tra bản lưu R2 trước. SQL chỉ thêm đề xuất, không tự duyệt hoặc khiến dữ liệu xuất hiện trên website.
+
 Chưa chốt toàn bộ universe ngoài danh sách tối thiểu; chưa đủ danh mục tài sản và chuỗi pháp nhân của mọi mã; chưa xử lý xong các mâu thuẫn, thay đổi 2026, quyền nguồn và R2 readback; chưa công bố/đối chiếu độ phủ trên staging. Việc nhập thành công bộ bổ sung này không đánh dấu Slice 1 hoàn thành.

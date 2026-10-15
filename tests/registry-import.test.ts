@@ -165,6 +165,42 @@ it("runs the exact user handoff bundle safely after either individual import",as
   expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(audits.rows);
 });
 
+it("rolls back earlier rows when a later issuer identity conflicts",async()=>{
+  const proposal=readFileSync("supabase/imports/expanded_issuer_registry.proposals.sql","utf8");
+  const audits=await db.query("select count(*) from core.audit_events");
+  await expect(db.exec(proposal.replace("enterprise_id='0309444635'", "enterprise_id='0200453688'"))).rejects.toThrow("PNP identity already exists");
+  await db.exec("rollback");
+  expect((await db.query("select * from catalog.company_listings where ticker in ('CAG','CCR','TCL','PNP')")).rows).toHaveLength(0);
+  expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(audits.rows);
+});
+
+it("imports four additional issuer histories without publishing or creating guessed asset interests",async()=>{
+  const proposal=readFileSync("supabase/imports/expanded_issuer_registry.proposals.sql","utf8");
+  const interests=await db.query("select * from port.company_asset_interests order by id");
+  const reviewed=await db.query("select * from catalog.entities where quality_status='verified' order by id");
+  const result=await db.exec(proposal);
+  expect(result.at(-1)?.rows).toEqual([
+    {ticker:"CAG",exchange:"HNX",valid_from:new Date("2017-12-04T00:00:00Z"),verification_status:"pending"},
+    {ticker:"CCR",exchange:"HNX",valid_from:new Date("2021-11-19T00:00:00Z"),verification_status:"pending"},
+    {ticker:"PNP",exchange:"UPCOM",valid_from:new Date("2019-05-17T00:00:00Z"),verification_status:"pending"},
+    {ticker:"TCL",exchange:"HOSE",valid_from:new Date("2009-12-24T00:00:00Z"),verification_status:"pending"},
+  ]);
+  expect((await db.query("select * from port.company_asset_interests order by id")).rows).toEqual(interests.rows);
+  expect((await db.query("select * from catalog.entities where quality_status='verified' order by id")).rows).toEqual(reviewed.rows);
+  const lineage=await db.query<{rights_status:string;quality_status:string;published_at:null;raw_storage_key:string;content_hash:string}>(`select s.rights_status,r.quality_status,r.published_at,r.raw_storage_key,r.content_hash from catalog.company_listings l join core.source_records r on r.id=l.source_record_id join core.sources s on s.id=r.source_id where l.ticker in ('CAG','CCR','TCL','PNP')`);
+  expect(lineage.rows).toHaveLength(4);
+  for(const row of lineage.rows) {
+    expect(row).toMatchObject({rights_status:"to_verify",quality_status:"incomplete",published_at:null});
+    expect(row.raw_storage_key).toBe(`catalog-evidence/sha256/${row.content_hash}`);
+  }
+  const audit=await db.query("select count(*) from core.audit_events");
+  await db.exec(proposal);
+  expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(audit.rows);
+  await db.exec("set role anon");
+  expect((await db.query("select * from catalog.company_listings where ticker in ('CAG','CCR','TCL','PNP')")).rows).toHaveLength(0);
+  await db.exec("reset role");
+});
+
 it("denies publication RPCs to ordinary users and anonymous callers",async()=>{
   await db.exec(`select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000098","app_metadata":{"role":"user"},"user_metadata":{"role":"admin"}}',false);set role authenticated`);
   await expect(db.query("select * from core.publication_queue('sources')")).rejects.toThrow("Admin review required");

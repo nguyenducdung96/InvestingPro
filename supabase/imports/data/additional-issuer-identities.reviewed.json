@@ -1,0 +1,10 @@
+{
+  "publication_status": "pending",
+  "scope": "Issuer-reported historical identity and first trade; not a current exchange-status certification",
+  "items": [
+    {"ticker":"CAG","legal_name":"Công ty Cổ phần Cảng An Giang","enterprise_id":"1600125108","website":"https://angiangport.com.vn","exchange":"HNX","first_trading_date":"2017-12-04","artifact_label":"cag-2025.pdf","reviewed_pages":[4,5],"note":"Trang PDF 4 xác nhận pháp nhân và mã CAG; trang PDF 5 ghi giao dịch đầu tiên 04/12/2017. Nghị quyết 25/11/2016 không phải ngày giao dịch đầu tiên."},
+    {"ticker":"CCR","legal_name":"Công ty Cổ phần Cảng Cam Ranh","enterprise_id":"4200272350","website":"https://camranhport.vn","exchange":"HNX","first_trading_date":"2021-11-19","artifact_label":"ccr-2025.pdf","reviewed_pages":[4,5],"note":"Trang PDF 4 xác nhận pháp nhân, mã CCR (HNX); trang PDF 5 phân biệt chấp thuận niêm yết 26/10/2021 với giao dịch đầu tiên 19/11/2021."},
+    {"ticker":"TCL","legal_name":"Công ty Cổ phần Đại lý Giao nhận Vận tải Xếp dỡ Tân Cảng","enterprise_id":"0304875444","website":"http://tancanglogistics.com","exchange":"HOSE","first_trading_date":"2009-12-24","artifact_label":"tcl-2025.pdf","reviewed_pages":[1,2],"note":"Trang PDF 1 xác nhận pháp nhân và mã TCL; trang PDF 2 ghi quyết định niêm yết 11/12/2009 và giao dịch lần đầu 24/12/2009 tại SGHCM. Không gắn toàn bộ cảng Tân Cảng cho doanh nghiệp cung cấp dịch vụ xếp dỡ."},
+    {"ticker":"PNP","legal_name":"Công ty Cổ phần Tân Cảng - Phú Hữu","enterprise_id":"0309444635","website":"https://phuhuuport.com","exchange":"UPCOM","first_trading_date":"2019-05-17","artifact_label":"pnp-2025.pdf","reviewed_pages":[6,7],"note":"Trang PDF 6 xác nhận pháp nhân và mã PNP; trang PDF 7 phân biệt chấp thuận đăng ký giao dịch 25/04/2019 với chính thức lên UPCoM 17/05/2019. Ngày thành công ty đại chúng không phải ngày giao dịch đầu tiên."}
+  ]
+}

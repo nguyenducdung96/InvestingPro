@@ -1,0 +1,2384 @@
+{
+  "scope": "29 archived issuer dossiers; not an exhaustive market universe or current ownership certification",
+  "reporting_year": 2025,
+  "publication_status": "research_only",
+  "date_rule": "The report period and publication/capture dates are not relationship commencement dates. A null effective_from remains null; no SQL interest is generated from a guessed date.",
+  "items": [
+    {
+      "ticker": "GMD",
+      "artifact_label": "gmd-2025.pdf",
+      "reviewed_pages": [
+        11,
+        13,
+        14
+      ],
+      "assets": [
+        {
+          "terminal_number": 60,
+          "role": "indirect",
+          "via": [
+            "Công ty Cổ phần Cảng Nam Đình Vũ"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "4d491f35-12ab-5340-be88-4ae85bf88238",
+          "canonical_terminal_name": "Bến cảng Nam Đình Vũ",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 119,
+          "role": "indirect",
+          "via": [
+            "Công ty Cổ phần Cảng quốc tế Gemadept - Dung Quất"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "c5bdee0f-a78b-5d48-9e02-655c73d1d276",
+          "canonical_terminal_name": "Bến cảng Germadept Dung Quất",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 208,
+          "role": "indirect",
+          "via": [
+            "Công ty Cổ phần Cảng Bình Dương"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "c90f1fd0-77a8-56d4-bb45-cd73f7c50c74",
+          "canonical_terminal_name": "Bến cảng tổng hợp Bình Dương",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 205,
+          "role": "indirect",
+          "via": [
+            "Công ty Cổ phần Cảng Cái Mép Gemadept - Terminal Link"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "58b3db5d-8673-58bd-8467-2e36ba4dc4f7",
+          "canonical_terminal_name": "Bến cảng Cái Mép Gemadept-Terminal Link",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "name": "Nam Hải ICD",
+          "asset_kind": "icd",
+          "role": "indirect",
+          "via": [
+            "Công ty Cổ phần ICD Nam Hải"
+          ],
+          "effective_from": null,
+          "canonical_match": "requires_inland_port_registry",
+          "sql_interest_generated": false
+        },
+        {
+          "name": "Phước Long ICD",
+          "asset_kind": "icd",
+          "role": "indirect",
+          "via": [
+            "Công ty TNHH Cảng Phước Long"
+          ],
+          "effective_from": null,
+          "canonical_match": "requires_inland_port_registry",
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Trang 11 liệt kê sáu cơ sở trong mạng lưới cảng. Trang 13–14 phân biệt công ty con, công ty con gián tiếp và cơ sở đồng kiểm soát. Cột ngày bắt đầu là người liên quan không phải ngày bắt đầu khai thác tài sản. Không gắn lại Nam Hải hoặc Nam Hải Đình Vũ lịch sử theo tên tập đoàn. Có công ty liên kết Thương cảng Vũng Tàu ở trang 14; chưa xác minh đủ chuỗi tới tài sản để thêm mapping.",
+      "unresolved": [
+        "Historical effective dates",
+        "2026 disposals/acquisitions",
+        "Current subsidiary equity and complete indirect chains",
+        "Legal ICD identity"
+      ],
+      "evidence": {
+        "source_url": "https://www.gemadept.com.vn/wp-content/uploads/2026/04/20260418_GMD-AR_VN_SmartPDF01.pdf",
+        "content_hash": "19f18cccab1d93cd8b2db5713d2c82440fce3b5719fceaa0d152a05ec8f25f6a",
+        "fetched_at": "2026-10-14T20:17:45.229338+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/19f18cccab1d93cd8b2db5713d2c82440fce3b5719fceaa0d152a05ec8f25f6a",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "PHP",
+      "artifact_label": "php-2025-full.pdf",
+      "reviewed_pages": [
+        8,
+        9,
+        33
+      ],
+      "assets": [
+        {
+          "terminal_number": 38,
+          "role": "indirect",
+          "via": [
+            "Công ty TNHH một thành viên Cảng Hoàng Diệu Chùa Vẽ"
+          ],
+          "effective_from": null,
+          "reported_change_month": "2025-07",
+          "canonical_terminal_id": "10000000-0000-0000-0000-000000000007",
+          "canonical_terminal_name": "Bến cảng Chùa Vẽ",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 28,
+          "role": "indirect",
+          "via": [
+            "Công ty TNHH một thành viên Cảng Hoàng Diệu Chùa Vẽ"
+          ],
+          "effective_from": null,
+          "reported_change_month": "2025-07",
+          "canonical_terminal_id": "89276759-7bdb-5fcf-bb61-d373d3628494",
+          "canonical_terminal_name": "Bến cảng Hải Phòng (khu cảng chính, Hoàng Diệu)",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 51,
+          "role": "indirect",
+          "via": [
+            "Công ty Cổ phần Đầu tư và Phát triển Cảng Đình Vũ"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "962a94b7-eaf0-545d-a5aa-36c317051cd5",
+          "canonical_terminal_name": "Bến cảng Đình Vũ",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "corporate_interests": [
+        {
+          "company": "Công ty TNHH một thành viên Cảng Hoàng Diệu Chùa Vẽ",
+          "equity_pct": 100,
+          "as_of": "2025-12-31"
+        },
+        {
+          "company": "Công ty Cổ phần Đầu tư và Phát triển Cảng Đình Vũ",
+          "equity_pct": 51,
+          "as_of": "2025-12-31"
+        },
+        {
+          "company": "Công ty TNHH Cảng quốc tế TIL Cảng Hải Phòng",
+          "economic_interest_pct": 51,
+          "voting_pct": 50,
+          "as_of": "2025-12-31"
+        }
+      ],
+      "existing_reviewed_assets": [
+        "Tân Vũ: retain existing reviewed decision, do not create a duplicate"
+      ],
+      "notes": "Trang 33 nêu sáp nhập Hoàng Diệu và chi nhánh Chùa Vẽ trong tháng 7/2025; không suy ra ngày 01/07 khi nguồn chỉ nêu tháng. Không gắn PHP khai thác trực tiếp Chùa Vẽ sau tái cơ cấu. Quan hệ vốn TIL chưa tự chứng minh mọi cầu HTIT thuộc phạm vi vận hành nào.",
+      "unresolved": [
+        "Exact merger effective date and 2026 relocation scope",
+        "HTIT physical operator document",
+        "SITC–Đình Vũ depot classification"
+      ],
+      "evidence": {
+        "source_url": "https://haiphongport.com.vn/FileUpload/Documents/bao_cao_thuong_nien_nam_2025pdf.pdf",
+        "content_hash": "de8eb243f3b07b5a415e0a3241953ce091029f1cd7f434920c0b6cbc5fa8a5f4",
+        "fetched_at": "2026-10-14T20:41:34.842086+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/de8eb243f3b07b5a415e0a3241953ce091029f1cd7f434920c0b6cbc5fa8a5f4",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "VGR",
+      "artifact_label": "vgr-2025.pdf",
+      "reviewed_pages": [
+        2
+      ],
+      "assets": [
+        {
+          "terminal_number": 55,
+          "role": "operator",
+          "via": [],
+          "effective_from": "2015-11-27",
+          "date_basis": "reported_first_vessel_and_operation",
+          "existing_proposal": "41a892c9-3a96-5303-975c-708a861c9714",
+          "canonical_terminal_id": "e5a56736-c32e-55d8-a767-edcc97fb577f",
+          "canonical_terminal_name": "Bến cảng Container Vip Greenport",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Không gộp VIP Greenport mục 55 với Greenport mục 37. BCTC bán niên 2026 có thêm hợp đồng thuê bãi, chưa đủ định danh bến/ICD mới.",
+      "unresolved": [
+        "2026 leased-yard legal identities; see factual-review-20261015.json"
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015939361_VI_BaoCaoThuongNien_2025_.pdf",
+        "content_hash": "6ff3e575ed2beaf8c1789673ccdbf9e2838f50ff2faacb506a6e50d202fed0c6",
+        "fetched_at": "2026-10-14T20:32:16.118039+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/6ff3e575ed2beaf8c1789673ccdbf9e2838f50ff2faacb506a6e50d202fed0c6",
+        "r2_verified": true,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "DVP",
+      "artifact_label": "dvp-2025.pdf",
+      "reviewed_pages": [
+        1,
+        2
+      ],
+      "assets": [
+        {
+          "terminal_number": 51,
+          "role": "operator",
+          "via": [],
+          "effective_from": "2005-02-25",
+          "date_basis": "reported_legal_authorization",
+          "existing_import": "dvp_assets.proposals.sql",
+          "canonical_terminal_id": "962a94b7-eaf0-545d-a5aa-36c317051cd5",
+          "canonical_terminal_name": "Bến cảng Đình Vũ",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Hai cầu và các mốc cấp phép riêng nằm trong dossier DVP đã có. Không chuyển mốc cấp phép thành ngày tàu đầu tiên. Không tạo cảng mới từ depot hoặc tỷ lệ 100%.",
+      "unresolved": [
+        "Current berth refurbishment and availability",
+        "Depot/SITC legal asset chain"
+      ],
+      "evidence": {
+        "source_url": "https://dinhvuport.com.vn/userdata/IR/2026/15-20260313---DVP---BAO-CAO-THUONG-NIEN-NAM-2025.pdf",
+        "content_hash": "b31fcc7482c2d0c76588373e15a0a159a350e89498d86f2de32d425548c9314a",
+        "fetched_at": "2026-10-14T20:40:58.145144+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/b31fcc7482c2d0c76588373e15a0a159a350e89498d86f2de32d425548c9314a",
+        "r2_verified": true,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "PDN",
+      "artifact_label": "pdn-2025.pdf",
+      "reviewed_pages": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "assets": [
+        {
+          "terminal_number": 209,
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "canonical_terminal_id": "07545945-34c0-5cd2-b695-c2441d7f7bad",
+          "canonical_terminal_name": "Bến cảng Đồng Nai (Phân cảng Long Bình Tân)",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 223,
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "canonical_terminal_id": "ab7b1a9a-3f88-5560-8679-47f0e349fb4f",
+          "canonical_terminal_name": "Bến cảng Đồng Nai (Phân cảng Gò Dầu A)",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 226,
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "canonical_terminal_id": "582fb94d-4c81-5089-99c0-76caadf8bd19",
+          "canonical_terminal_name": "Bến cảng Đồng Nai (Phân cảng Gò Dầu B)",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Doanh nghiệp mô tả hai khu vực Long Bình Tân và Gò Dầu; danh mục pháp lý tách Gò Dầu A/B thành hai bến. Các mốc B3 (05/2006), A3 (05/2007), Long Bình Tân (02/2010), B5 (09/2021) chỉ có tháng, không bịa ngày đầu tháng. Dự án B6 chuyển công năng không chứng minh đang hoạt động.",
+      "unresolved": [
+        "Exact commissioning/qualification dates",
+        "2026 B6 status",
+        "Berth-specific operator scope"
+      ],
+      "evidence": {
+        "source_url": "https://storage-vnportal.vnpt.vn/bpc-khdn/3234/V%C4%83n%20b%E1%BA%A3n/20260330%20-%20PDN%20-%20Bao%20cao%20thuong%20nien-VI.pdf",
+        "content_hash": "cbf94b2e38cba156a770c4aa5a3aac120d54148b1495425490507b812f087069",
+        "fetched_at": "2026-10-14T20:43:10.637988+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/cbf94b2e38cba156a770c4aa5a3aac120d54148b1495425490507b812f087069",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "CDN",
+      "artifact_label": "cdn-2025.pdf",
+      "reviewed_pages": [
+        9,
+        11,
+        12
+      ],
+      "assets": [
+        {
+          "terminal_number": 108,
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "canonical_terminal_id": "38ef2795-17f5-586f-834b-4f683b4f0e3c",
+          "canonical_terminal_name": "Bến cảng Tiên Sa",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Sơ đồ tổ chức nêu một xí nghiệp trực thuộc là Cảng Tiên Sa; trang 12 nêu không có công ty con. Không gắn dự án Liên Chiểu hoặc logistics Hòa Vang thành cảng đã vận hành, không gắn Sông Hàn lịch sử là tài sản đang khai thác.",
+      "unresolved": [
+        "Exact start/current legal documents",
+        "2026 Hòa Vang commissioning and classification"
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015940470_VI_Baocaothuongnien2025.pdf",
+        "content_hash": "97655fb01ef10acd41821e4b0c9c86c356be2b84ddf558975e19b037b60aa76a",
+        "fetched_at": "2026-10-14T20:24:13.121531+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/97655fb01ef10acd41821e4b0c9c86c356be2b84ddf558975e19b037b60aa76a",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "CQN",
+      "artifact_label": "cqn-2025.pdf",
+      "reviewed_pages": [
+        6,
+        8
+      ],
+      "assets": [],
+      "candidate_assets": [
+        {
+          "terminal_number": 11,
+          "candidate_berths": [
+            "Cầu cảng số 1",
+            "Cầu cảng số 5",
+            "Cầu cảng số 6",
+            "Cầu cảng số 7"
+          ],
+          "role": "operator",
+          "effective_from": null,
+          "evidence_to_inspect": "https://quangninhport.com.vn/FileUpload/Documents/2.GPKDCB.pdf"
+        }
+      ],
+      "corporate_interests": [
+        {
+          "company": "Công ty Cổ phần Đầu tư Cảng Cái Lân",
+          "equity_pct": 8.14,
+          "scope": "Vốn trực tiếp CQN; không cộng vốn cán bộ nhân viên vào tỷ lệ công ty",
+          "as_of": "2025-12-31"
+        }
+      ],
+      "notes": "Sơ đồ có Xí nghiệp xếp dỡ Cái Lân; báo cáo nêu không có công ty do CQN nắm trên 50%. CQN và CPI/CICT là các pháp nhân khác. Không gán toàn bộ tám mục cầu của bến Cái Lân cho CQN.",
+      "unresolved": [
+        "Inspect original berth eligibility permit",
+        "Reconcile CICT berths 2/3/4 and CPI chain",
+        "Current scope"
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W3/000000016150064_VN_BaoCaoThuongNien_2025.pdf",
+        "content_hash": "431ab0e9293cbfb0e694cb723a1406dd0c5f5cd0ceaa0d831322ec08f85391ba",
+        "fetched_at": "2026-10-14T20:31:16.796510+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/431ab0e9293cbfb0e694cb723a1406dd0c5f5cd0ceaa0d831322ec08f85391ba",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "DXP",
+      "artifact_label": "dxp-2025.pdf",
+      "reviewed_pages": [
+        1,
+        4,
+        6
+      ],
+      "assets": [],
+      "candidate_assets": [
+        {
+          "terminal_number": 34,
+          "role": "operator",
+          "effective_from": null
+        }
+      ],
+      "notes": "Pháp nhân kế thừa Xí nghiệp xếp dỡ Đoạn Xá và báo cáo có phòng Điều độ khai thác, kế hoạch cảng/logistics. Kế hoạch phát triển không đủ chứng minh trạng thái hoạt động hiện tại hoặc ngày bắt đầu; cần phần hoạt động thực tế/quyết định khai thác.",
+      "unresolved": [
+        "Current operating/lease scope versus asphalt business",
+        "Exact legal effective date"
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016108897_VI_BaoCaoThuongNien_2025.pdf",
+        "content_hash": "4cd0830ef0548b4307caaa31db5dc988ee69155310398cfe150f9479b083a02e",
+        "fetched_at": "2026-10-15T02:03:40.128448+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/4cd0830ef0548b4307caaa31db5dc988ee69155310398cfe150f9479b083a02e",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "PSP",
+      "artifact_label": "psp-2025.pdf",
+      "reviewed_pages": [
+        7
+      ],
+      "assets": [
+        {
+          "terminal_number": 50,
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "canonical_terminal_id": "9c506fea-1f69-51e4-8a38-8196dd01f23c",
+          "canonical_terminal_name": "Bến cảng PTSC Đình Vũ",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Trang PDF 7 xác định pháp nhân PTSC Đình Vũ và mục đích đầu tư/quản lý khai thác dự án cầu cảng. Tháng 05/2009 là cơ bản hoàn thiện dự án, không phải ngày chính xác đưa vào khai thác. Không gộp bến Đình Vũ của DVP.",
+      "unresolved": [
+        "Exact operating permit/first operation date",
+        "Changes after annual report"
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016029545_VI_BaoCaoThuongNien_2025.pdf",
+        "content_hash": "e658b499224f3c404fbef49040af66b84c9d5f2c2f8e6ef82ca0529ded1eec94",
+        "fetched_at": "2026-10-14T20:31:42.691873+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/e658b499224f3c404fbef49040af66b84c9d5f2c2f8e6ef82ca0529ded1eec94",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "PAP",
+      "artifact_label": "pap-2025.pdf",
+      "reviewed_pages": [
+        3,
+        4
+      ],
+      "assets": [
+        {
+          "terminal_number": 227,
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "existing_import": "pap_assets.proposals.sql",
+          "canonical_terminal_id": "ebbe8ba2-c983-5780-8447-b0e366777f78",
+          "canonical_terminal_name": "Bến cảng Phước An",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Ba cầu 5/6/7 và mốc giấy phép riêng đã được chuẩn bị trong dossier PAP. Không suy ra cầu 8/9 đang vận hành từ danh sách dự án hoặc con số tổng bến quảng bá.",
+      "unresolved": [
+        "2026 legal berth numbers and current stage completion"
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016032257_VI_Congbobaocaothuongniennam2025_PAP.pdf",
+        "content_hash": "81f0546ee15331c47767461ea4d7569b1ea6497ed1646379cf67ec474af696ea",
+        "fetched_at": "2026-10-14T20:31:18.950314+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/81f0546ee15331c47767461ea4d7569b1ea6497ed1646379cf67ec474af696ea",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "SGP",
+      "artifact_label": "sgp-2025.pdf",
+      "reviewed_pages": [
+        5,
+        6,
+        16
+      ],
+      "assets": [
+        {
+          "terminal_number": 228,
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "canonical_terminal_id": "6dd61f90-f5ec-5f4a-9a6e-fdf24395fbac",
+          "canonical_terminal_name": "Bến cảng Sài Gòn",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 233,
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "canonical_terminal_id": "7ce7f282-ee35-5812-ac56-64fd1bc3b793",
+          "canonical_terminal_name": "Bến cảng Tân Thuận 2",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 267,
+          "role": "indirect",
+          "via": [
+            "Công ty Cổ phần Cảng Sài Gòn - Hiệp Phước"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "e5328149-9d07-5afe-a3aa-ff9566eff350",
+          "canonical_terminal_name": "Bến cảng Sài Gòn - Hiệp Phước",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 191,
+          "role": "indirect",
+          "via": [
+            "Công ty TNHH Cảng Quốc tế SP-PSA"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "698cc13f-4c40-55d4-b97f-4735963fdf57",
+          "canonical_terminal_name": "Bến cảng Quốc tế SP-PSA",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 202,
+          "role": "indirect",
+          "via": [
+            "Công ty TNHH Cảng Quốc tế Cái Mép"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "d0b6b0e1-b87c-5b46-ace2-f952e208e99b",
+          "canonical_terminal_name": "Bến cảng Quốc tế Cái Mép (CMIT)",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 204,
+          "role": "indirect",
+          "via": [
+            "Công ty TNHH Liên doanh Dịch vụ container quốc tế CSG-SSA"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "cf9cf703-ac97-5640-a88d-95132f483cbe",
+          "canonical_terminal_name": "Bến cảng container Quốc tế Cảng Sài Gòn-SSA (SSIT)",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "corporate_interests": [
+        {
+          "company": "Công ty Cổ phần Cảng Sài Gòn - Hiệp Phước",
+          "equity_pct": 90.54,
+          "as_of": "2025-12-31"
+        },
+        {
+          "company": "Công ty TNHH Cảng Quốc tế SP-PSA",
+          "equity_pct": 36,
+          "as_of": "2025-12-31"
+        },
+        {
+          "company": "Công ty TNHH Cảng Quốc tế Cái Mép",
+          "equity_pct": 15,
+          "as_of": "2025-12-31"
+        },
+        {
+          "company": "Công ty TNHH Liên doanh Dịch vụ container quốc tế CSG-SSA",
+          "equity_pct": 38.93,
+          "as_of": "2025-12-31"
+        }
+      ],
+      "notes": "Trang 16 mô tả tái cơ cấu chi nhánh thành trung tâm điều hành tại Nhà Rồng–Khánh Hội, Tân Thuận, Bà Rịa–Vũng Tàu. Dừng hoạt động chi nhánh pháp lý không tự đồng nghĩa đóng bến vật lý. Các tỷ lệ là vốn tại pháp nhân, không phải sở hữu bến; SP-PSA, CMIT và SSIT không gộp làm một.",
+      "unresolved": [
+        "Relocation and 2026 changes",
+        "Korea Express and Thị Vải physical scope",
+        "Exact effective dates"
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016036254_VN_340__Bao_cao_thuong_nien_nam_2025_CTCP_Cang_Sai_Gon_HNX.pdf",
+        "content_hash": "f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+        "fetched_at": "2026-10-14T20:31:50.379658+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "QNP",
+      "artifact_label": "qnp-2025.pdf",
+      "reviewed_pages": [
+        7,
+        8,
+        10
+      ],
+      "assets": [
+        {
+          "terminal_number": 127,
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "canonical_terminal_id": "e75942bd-6070-5dfa-8a1e-792c9be6c97e",
+          "canonical_terminal_name": "Bến cảng Quy Nhơn",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Trang 10 mô tả địa bàn Cảng Quy Nhơn và hoạt động khai thác của doanh nghiệp. Không gắn tự động QNP khai thác bến Tân cảng Quy Nhơn của QSP; quan hệ vốn hoặc giao dịch chưa chứng minh phạm vi hợp đồng.",
+      "unresolved": [
+        "QSP cooperation agreement",
+        "Berth permits and exact dates",
+        "2026 berth 1 works"
+      ],
+      "evidence": {
+        "source_url": "https://file.fpts.com.vn/FileStore2/File/EzIR/UploadFile/News/2026/03/18/File_1_1206_20260318_-_QNP_-_Bao_cao_thuong_nien_2025.pdf",
+        "content_hash": "bc0aa1f6820172833622cb737d1d664bd9058ed879303f6e5c7a6432cd432c29",
+        "fetched_at": "2026-10-15T02:03:22.230294+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/bc0aa1f6820172833622cb737d1d664bd9058ed879303f6e5c7a6432cd432c29",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "QSP",
+      "artifact_label": "qsp-2025.pdf",
+      "reviewed_pages": [
+        1,
+        5
+      ],
+      "assets": [
+        {
+          "terminal_number": 128,
+          "role": "lessor_and_infrastructure_cooperation",
+          "via": [],
+          "effective_from": null,
+          "canonical_interest_type": null,
+          "canonical_terminal_id": "b20141b1-3ff0-566e-ae28-3b13be1a1699",
+          "canonical_terminal_name": "Bến cảng Tân cảng Quy Nhơn",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Doanh nghiệp tự nêu không trực tiếp vận hành khai thác. Không đổi vai trò thành operator. Cần hợp đồng để xác định bên thuê/khai thác, kỳ hạn và chiều của quan hệ lease trước chuyển vào canonical interests.",
+      "unresolved": [
+        "Counterparty, agreement and effective period",
+        "Exact legal interest classification"
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016048592_2.BCTN_202520260327_152123Signed.PDF",
+        "content_hash": "1927e08c428e009b445e9fe73173c85c104d2ec86dd40207ba4a0adf9f12326a",
+        "fetched_at": "2026-10-14T20:31:49.844261+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/1927e08c428e009b445e9fe73173c85c104d2ec86dd40207ba4a0adf9f12326a",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "NAP",
+      "artifact_label": "nap-2025.pdf",
+      "reviewed_pages": [
+        2,
+        3
+      ],
+      "assets": [
+        {
+          "terminal_number": 86,
+          "role": "operator",
+          "via": [
+            "Xí nghiệp xếp dỡ Cửa Lò"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "4587abec-ba60-51bc-9d75-6fa95a3738f4",
+          "canonical_terminal_name": "Bến cảng Cửa Lò",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 88,
+          "role": "operator",
+          "via": [
+            "Xí nghiệp xếp dỡ Bến Thủy"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "42e4d7c4-18a0-5c26-b8cb-f355eff76607",
+          "canonical_terminal_name": "Bến cảng Bến Thủy",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Hai xí nghiệp là đơn vị trực thuộc, khác với công ty lai dắt liên kết. Không gắn tỷ lệ 36% công ty lai dắt thành tỷ lệ sở hữu Cửa Lò. Chưa gán từng cầu, đặc biệt phần mở rộng có thể có đơn vị khai thác khác.",
+      "unresolved": [
+        "Exact operating periods and berth allocation",
+        "Current expansion operator"
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015918065_VI_BaoCaoThuongNien_2025.pdf",
+        "content_hash": "6490390e619bd532294767de4ed75b56d4e0ff43fe1e92a95415b480d6c0f9fd",
+        "fetched_at": "2026-10-14T20:24:20.531648+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/6490390e619bd532294767de4ed75b56d4e0ff43fe1e92a95415b480d6c0f9fd",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "MVN",
+      "artifact_label": "mvn-2025.pdf",
+      "reviewed_pages": [
+        14
+      ],
+      "assets": [],
+      "corporate_interests": [
+        {
+          "company": "Công ty Cổ phần Cảng Hải Phòng",
+          "company_ticker": "PHP",
+          "equity_pct": 92.56
+        },
+        {
+          "company": "Công ty Cổ phần Cảng Quy Nhơn",
+          "company_ticker": "QNP",
+          "equity_pct": 75.01
+        },
+        {
+          "company": "Công ty Cổ phần Cảng Đà Nẵng",
+          "company_ticker": "CDN",
+          "equity_pct": 75
+        },
+        {
+          "company": "Công ty Cổ phần Cảng Sài Gòn",
+          "company_ticker": "SGP",
+          "equity_pct": 65.45
+        },
+        {
+          "company": "Công ty Cổ phần Cảng Nghệ Tĩnh",
+          "company_ticker": "NAP",
+          "equity_pct": 51
+        },
+        {
+          "company": "Công ty Cổ phần Cảng Cần Thơ",
+          "company_ticker": "CCT",
+          "equity_pct": 99.05
+        },
+        {
+          "company": "Công ty Cổ phần Cảng Cam Ranh",
+          "company_ticker": "CCR",
+          "equity_pct": 80.9
+        },
+        {
+          "company": "Công ty Cổ phần Đầu tư Cảng Cái Lân",
+          "company_ticker": "CPI",
+          "equity_pct": 56.58
+        },
+        {
+          "company": "Công ty TNHH Cảng Quốc tế Cái Mép",
+          "equity_pct": 36
+        },
+        {
+          "company": "Công ty TNHH Cảng Quốc tế SP-PSA",
+          "equity_pct": 15
+        },
+        {
+          "company": "Công ty Liên doanh Dịch vụ Container Quốc tế Cảng Sài Gòn - SSA",
+          "equity_pct": 11.07
+        }
+      ],
+      "notes": "Đọc bảng cấu trúc tập đoàn, không gán MVN trực tiếp khai thác toàn hệ thống. Các tỷ lệ ở đây là vốn pháp nhân theo bảng năm 2025, không phải tổng lợi ích xuyên chuỗi hoặc tỷ lệ tài sản vật lý. Không cộng trực tiếp và gián tiếp trước đối chiếu thuyết minh tránh đếm trùng.",
+      "unresolved": [
+        "All asset endpoints through subsidiaries",
+        "Direct versus consolidated equity definitions",
+        "River ports Năm Căn/Khuyến Lương and Hậu Giang chain",
+        "2026 changes"
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+        "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+        "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": [
+        {
+          "child_ticker": "PHP",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Hải Phòng",
+            "Công ty TNHH một thành viên Cảng Hoàng Diệu Chùa Vẽ"
+          ],
+          "terminal_number": 38,
+          "canonical_terminal_id": "10000000-0000-0000-0000-000000000007",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Chùa Vẽ",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "PHP",
+              "pages": [
+                8,
+                9,
+                33
+              ],
+              "source_url": "https://haiphongport.com.vn/FileUpload/Documents/bao_cao_thuong_nien_nam_2025pdf.pdf",
+              "content_hash": "de8eb243f3b07b5a415e0a3241953ce091029f1cd7f434920c0b6cbc5fa8a5f4",
+              "fetched_at": "2026-10-14T20:41:34.842086+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/de8eb243f3b07b5a415e0a3241953ce091029f1cd7f434920c0b6cbc5fa8a5f4",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "PHP",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Hải Phòng",
+            "Công ty TNHH một thành viên Cảng Hoàng Diệu Chùa Vẽ"
+          ],
+          "terminal_number": 28,
+          "canonical_terminal_id": "89276759-7bdb-5fcf-bb61-d373d3628494",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Hải Phòng (khu cảng chính, Hoàng Diệu)",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "PHP",
+              "pages": [
+                8,
+                9,
+                33
+              ],
+              "source_url": "https://haiphongport.com.vn/FileUpload/Documents/bao_cao_thuong_nien_nam_2025pdf.pdf",
+              "content_hash": "de8eb243f3b07b5a415e0a3241953ce091029f1cd7f434920c0b6cbc5fa8a5f4",
+              "fetched_at": "2026-10-14T20:41:34.842086+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/de8eb243f3b07b5a415e0a3241953ce091029f1cd7f434920c0b6cbc5fa8a5f4",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "PHP",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Hải Phòng",
+            "Công ty Cổ phần Đầu tư và Phát triển Cảng Đình Vũ"
+          ],
+          "terminal_number": 51,
+          "canonical_terminal_id": "962a94b7-eaf0-545d-a5aa-36c317051cd5",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Đình Vũ",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "PHP",
+              "pages": [
+                8,
+                9,
+                33
+              ],
+              "source_url": "https://haiphongport.com.vn/FileUpload/Documents/bao_cao_thuong_nien_nam_2025pdf.pdf",
+              "content_hash": "de8eb243f3b07b5a415e0a3241953ce091029f1cd7f434920c0b6cbc5fa8a5f4",
+              "fetched_at": "2026-10-14T20:41:34.842086+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/de8eb243f3b07b5a415e0a3241953ce091029f1cd7f434920c0b6cbc5fa8a5f4",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "QNP",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Quy Nhơn"
+          ],
+          "terminal_number": 127,
+          "canonical_terminal_id": "e75942bd-6070-5dfa-8a1e-792c9be6c97e",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Quy Nhơn",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "QNP",
+              "pages": [
+                7,
+                8,
+                10
+              ],
+              "source_url": "https://file.fpts.com.vn/FileStore2/File/EzIR/UploadFile/News/2026/03/18/File_1_1206_20260318_-_QNP_-_Bao_cao_thuong_nien_2025.pdf",
+              "content_hash": "bc0aa1f6820172833622cb737d1d664bd9058ed879303f6e5c7a6432cd432c29",
+              "fetched_at": "2026-10-15T02:03:22.230294+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/bc0aa1f6820172833622cb737d1d664bd9058ed879303f6e5c7a6432cd432c29",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "CDN",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Đà Nẵng"
+          ],
+          "terminal_number": 108,
+          "canonical_terminal_id": "38ef2795-17f5-586f-834b-4f683b4f0e3c",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Tiên Sa",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "CDN",
+              "pages": [
+                9,
+                11,
+                12
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015940470_VI_Baocaothuongnien2025.pdf",
+              "content_hash": "97655fb01ef10acd41821e4b0c9c86c356be2b84ddf558975e19b037b60aa76a",
+              "fetched_at": "2026-10-14T20:24:13.121531+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/97655fb01ef10acd41821e4b0c9c86c356be2b84ddf558975e19b037b60aa76a",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "SGP",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Sài Gòn"
+          ],
+          "terminal_number": 228,
+          "canonical_terminal_id": "6dd61f90-f5ec-5f4a-9a6e-fdf24395fbac",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Sài Gòn",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "SGP",
+              "pages": [
+                5,
+                6,
+                16
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016036254_VN_340__Bao_cao_thuong_nien_nam_2025_CTCP_Cang_Sai_Gon_HNX.pdf",
+              "content_hash": "f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+              "fetched_at": "2026-10-14T20:31:50.379658+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "SGP",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Sài Gòn"
+          ],
+          "terminal_number": 233,
+          "canonical_terminal_id": "7ce7f282-ee35-5812-ac56-64fd1bc3b793",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Tân Thuận 2",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "SGP",
+              "pages": [
+                5,
+                6,
+                16
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016036254_VN_340__Bao_cao_thuong_nien_nam_2025_CTCP_Cang_Sai_Gon_HNX.pdf",
+              "content_hash": "f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+              "fetched_at": "2026-10-14T20:31:50.379658+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "SGP",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Sài Gòn",
+            "Công ty Cổ phần Cảng Sài Gòn - Hiệp Phước"
+          ],
+          "terminal_number": 267,
+          "canonical_terminal_id": "e5328149-9d07-5afe-a3aa-ff9566eff350",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Sài Gòn - Hiệp Phước",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "SGP",
+              "pages": [
+                5,
+                6,
+                16
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016036254_VN_340__Bao_cao_thuong_nien_nam_2025_CTCP_Cang_Sai_Gon_HNX.pdf",
+              "content_hash": "f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+              "fetched_at": "2026-10-14T20:31:50.379658+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "SGP",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Sài Gòn",
+            "Công ty TNHH Cảng Quốc tế SP-PSA"
+          ],
+          "terminal_number": 191,
+          "canonical_terminal_id": "698cc13f-4c40-55d4-b97f-4735963fdf57",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Quốc tế SP-PSA",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "SGP",
+              "pages": [
+                5,
+                6,
+                16
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016036254_VN_340__Bao_cao_thuong_nien_nam_2025_CTCP_Cang_Sai_Gon_HNX.pdf",
+              "content_hash": "f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+              "fetched_at": "2026-10-14T20:31:50.379658+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "SGP",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Sài Gòn",
+            "Công ty TNHH Cảng Quốc tế Cái Mép"
+          ],
+          "terminal_number": 202,
+          "canonical_terminal_id": "d0b6b0e1-b87c-5b46-ace2-f952e208e99b",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Quốc tế Cái Mép (CMIT)",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "SGP",
+              "pages": [
+                5,
+                6,
+                16
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016036254_VN_340__Bao_cao_thuong_nien_nam_2025_CTCP_Cang_Sai_Gon_HNX.pdf",
+              "content_hash": "f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+              "fetched_at": "2026-10-14T20:31:50.379658+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "SGP",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Sài Gòn",
+            "Công ty TNHH Liên doanh Dịch vụ container quốc tế CSG-SSA"
+          ],
+          "terminal_number": 204,
+          "canonical_terminal_id": "cf9cf703-ac97-5640-a88d-95132f483cbe",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng container Quốc tế Cảng Sài Gòn-SSA (SSIT)",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "SGP",
+              "pages": [
+                5,
+                6,
+                16
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016036254_VN_340__Bao_cao_thuong_nien_nam_2025_CTCP_Cang_Sai_Gon_HNX.pdf",
+              "content_hash": "f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+              "fetched_at": "2026-10-14T20:31:50.379658+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "NAP",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Nghệ Tĩnh",
+            "Xí nghiệp xếp dỡ Cửa Lò"
+          ],
+          "terminal_number": 86,
+          "canonical_terminal_id": "4587abec-ba60-51bc-9d75-6fa95a3738f4",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Cửa Lò",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "NAP",
+              "pages": [
+                2,
+                3
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015918065_VI_BaoCaoThuongNien_2025.pdf",
+              "content_hash": "6490390e619bd532294767de4ed75b56d4e0ff43fe1e92a95415b480d6c0f9fd",
+              "fetched_at": "2026-10-14T20:24:20.531648+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/6490390e619bd532294767de4ed75b56d4e0ff43fe1e92a95415b480d6c0f9fd",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "NAP",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Nghệ Tĩnh",
+            "Xí nghiệp xếp dỡ Bến Thủy"
+          ],
+          "terminal_number": 88,
+          "canonical_terminal_id": "42e4d7c4-18a0-5c26-b8cb-f355eff76607",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Bến Thủy",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "NAP",
+              "pages": [
+                2,
+                3
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015918065_VI_BaoCaoThuongNien_2025.pdf",
+              "content_hash": "6490390e619bd532294767de4ed75b56d4e0ff43fe1e92a95415b480d6c0f9fd",
+              "fetched_at": "2026-10-14T20:24:20.531648+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/6490390e619bd532294767de4ed75b56d4e0ff43fe1e92a95415b480d6c0f9fd",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "CCT",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Cần Thơ"
+          ],
+          "terminal_number": 290,
+          "canonical_terminal_id": "04a1d172-e36d-5634-ba00-fa298cea6c7f",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Hoàng Diệu (Cần Thơ)",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "CCT",
+              "pages": [
+                4,
+                6
+              ],
+              "source_url": "https://owa.hnx.vn/ftp/cims/2026/4_W1/000000016093289_VI__BAO_CAO_THUONG_NIEN_2025.pdf",
+              "content_hash": "26639fbd9477efe97a3fcba81f963c3765bc4d350d4ca19619f0f65ef943c36c",
+              "fetched_at": "2026-10-14T20:17:51.571182+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/26639fbd9477efe97a3fcba81f963c3765bc4d350d4ca19619f0f65ef943c36c",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "CCT",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Cần Thơ"
+          ],
+          "terminal_number": 296,
+          "canonical_terminal_id": "861d5c61-627d-5a97-bf63-ceda73f97eee",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Cái Cui",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "CCT",
+              "pages": [
+                4,
+                6
+              ],
+              "source_url": "https://owa.hnx.vn/ftp/cims/2026/4_W1/000000016093289_VI__BAO_CAO_THUONG_NIEN_2025.pdf",
+              "content_hash": "26639fbd9477efe97a3fcba81f963c3765bc4d350d4ca19619f0f65ef943c36c",
+              "fetched_at": "2026-10-14T20:17:51.571182+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/26639fbd9477efe97a3fcba81f963c3765bc4d350d4ca19619f0f65ef943c36c",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "CCT",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Cần Thơ"
+          ],
+          "terminal_number": null,
+          "canonical_terminal_id": null,
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Cơ sở cảng sông khu vực Duyên Hải, Trà Vinh",
+          "asset_kind": "river_port",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "CCT",
+              "pages": [
+                4,
+                6
+              ],
+              "source_url": "https://owa.hnx.vn/ftp/cims/2026/4_W1/000000016093289_VI__BAO_CAO_THUONG_NIEN_2025.pdf",
+              "content_hash": "26639fbd9477efe97a3fcba81f963c3765bc4d350d4ca19619f0f65ef943c36c",
+              "fetched_at": "2026-10-14T20:17:51.571182+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/26639fbd9477efe97a3fcba81f963c3765bc4d350d4ca19619f0f65ef943c36c",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "CCR",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Cảng Cam Ranh"
+          ],
+          "terminal_number": 147,
+          "canonical_terminal_id": "d86894c7-018a-5043-9ef9-74d27fe7363c",
+          "canonical_berth_ids": [],
+          "berth_subset": [],
+          "name": "Bến cảng Ba Ngòi",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "CCR",
+              "pages": [
+                4,
+                5,
+                7
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016023149_VI_Baocaothuongnien_2025.pdf",
+              "content_hash": "0aa0f2ed188e4256295fcb5d37a62cd9e68bc87c4595c91b62c0899f2e9e6892",
+              "fetched_at": "2026-10-14T20:23:08.544691+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/0aa0f2ed188e4256295fcb5d37a62cd9e68bc87c4595c91b62c0899f2e9e6892",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        },
+        {
+          "child_ticker": "CPI",
+          "role": "indirect",
+          "effective_from": null,
+          "via": [
+            "Công ty Cổ phần Đầu tư Cảng Cái Lân",
+            "Công ty TNHH Cảng container quốc tế Cái Lân"
+          ],
+          "terminal_number": 11,
+          "canonical_terminal_id": "3d62cd6f-4230-50ec-a262-33af59142f50",
+          "canonical_berth_ids": [
+            "c04b772e-3faa-5d10-b316-6974cbfee9b8",
+            "a3aa6ae8-79b4-5447-a364-3d636feb1f2b",
+            "65cf783a-c62e-523a-b396-d5b5894282ed"
+          ],
+          "berth_subset": [
+            "Cầu cảng số 2",
+            "Cầu cảng số 3",
+            "Cầu cảng số 4"
+          ],
+          "name": "Bến cảng tổng hợp Cái Lân",
+          "asset_kind": "terminal",
+          "evidence_path": [
+            {
+              "ticker": "MVN",
+              "pages": [
+                14
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016121240_vi_baocaothuongnien_2025.pdf",
+              "content_hash": "f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "fetched_at": "2026-10-14T20:32:04.286925+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/f7a8674d453718c335b2e3d460c750d028a2d323211ba7d645b87000ef890da0",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            },
+            {
+              "ticker": "CPI",
+              "pages": [
+                1,
+                2,
+                3
+              ],
+              "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015931885_VI_BaoCaoThuongNien_2025.pdf",
+              "content_hash": "2eb515f1a2f4cd619305e57248a4c356acbb5b83a22cb4be4df8ed7b4bea4e96",
+              "fetched_at": "2026-10-14T20:31:16.190135+00:00",
+              "published_at": null,
+              "raw_storage_key": "catalog-evidence/sha256/2eb515f1a2f4cd619305e57248a4c356acbb5b83a22cb4be4df8ed7b4bea4e96",
+              "r2_verified": false,
+              "rights_status": "to_verify"
+            }
+          ],
+          "decision": "requires_chain_and_period_review",
+          "sql_interest_generated": false
+        }
+      ]
+    },
+    {
+      "ticker": "VSC",
+      "artifact_label": "vsc-2025.pdf",
+      "reviewed_pages": [
+        3,
+        6,
+        7,
+        11
+      ],
+      "assets": [
+        {
+          "terminal_number": 55,
+          "role": "indirect",
+          "via": [
+            "Công ty Cổ phần Cảng Xanh VIP"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "e5a56736-c32e-55d8-a767-edcc97fb577f",
+          "canonical_terminal_name": "Bến cảng Container Vip Greenport",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "terminal_number": 54,
+          "role": "indirect",
+          "via": [
+            "Công ty TNHH Cảng Nam Hải Đình Vũ"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "402be62f-76d1-515e-988c-7f4943e9733b",
+          "canonical_terminal_name": "Bến cảng Nam Hải Đình Vũ",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "name": "Cảng cạn Quảng Bình - Đình Vũ",
+          "asset_kind": "icd",
+          "role": "indirect",
+          "via": [
+            "Công ty TNHH MTV Trung tâm Logistics Xanh",
+            "Công ty Cổ phần Cảng cạn Quảng Bình - Đình Vũ"
+          ],
+          "effective_from": null,
+          "canonical_match": "requires_inland_port_registry",
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Quan hệ qua VGR và Nam Hải Đình Vũ không phải VSC vận hành trực tiếp. Chưa nối pháp nhân Dịch vụ Cảng Xanh với bến Greenport nếu chỉ dựa tên. Hai tỷ lệ HAH và cách làm tròn Nam Hải Đình Vũ trong báo cáo cần đối chiếu; giữ chi tiết mâu thuẫn ở factual-review-20261015.json.",
+      "unresolved": [
+        "Greenport operator endpoint",
+        "HAH equity discrepancy",
+        "2026 changes and actual asset interest dates",
+        "Legal ICD registry"
+      ],
+      "evidence": {
+        "source_url": "https://viconship.com/wp-content/uploads/2026/04/CBTT-Bao-cao-thuong-nien-nam-2025.pdf",
+        "content_hash": "4bd4f0da1db1c203065c5a7864d4c9d13dd5ed25639dd224f369822b3fc3bbc4",
+        "fetched_at": "2026-10-14T20:23:02.416871+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/4bd4f0da1db1c203065c5a7864d4c9d13dd5ed25639dd224f369822b3fc3bbc4",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "CAG",
+      "artifact_label": "cag-2025.pdf",
+      "reviewed_pages": [
+        4,
+        5,
+        7
+      ],
+      "assets": [
+        {
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "terminal_number": 304,
+          "canonical_terminal_id": "55d20b08-e549-51e1-abcb-57a7f872cf2d",
+          "canonical_terminal_name": "Bến cảng Mỹ Thới",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "canonical_match": "requires_inland_port_registry",
+          "name": "Cảng Bình Long",
+          "asset_kind": "river_port",
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Trang PDF 7 nêu hai xí nghiệp Cảng Mỹ Thới và Cảng Bình Long là địa bàn hoạt động. Không tạo công ty con độc lập từ xí nghiệp trực thuộc; không tự gán mã bến biển cho cảng sông Bình Long.",
+      "unresolved": [
+        "Exact operating periods",
+        "Bình Long inland-port decision and berth list",
+        "Current exchange status"
+      ],
+      "legal_name": "Công ty Cổ phần Cảng An Giang",
+      "enterprise_id": "1600125108",
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016033024_CAG_BAO_CAO_THUONG_NIEN_2025.pdf",
+        "content_hash": "27ffaedc0e10ecc3a1b9b95f90081754c0dbbdc90eb1dd7e0bc9259970596dbe",
+        "fetched_at": "2026-10-14T20:23:06.622420+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/27ffaedc0e10ecc3a1b9b95f90081754c0dbbdc90eb1dd7e0bc9259970596dbe",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "CCP",
+      "artifact_label": "ccp-2025.pdf",
+      "reviewed_pages": [
+        1
+      ],
+      "assets": [],
+      "notes": "Trang PDF 1 xác nhận Công ty Cổ phần Cảng Cửa Cấm Hải Phòng, mã CCP và mã doanh nghiệp 0200576055. Tên pháp nhân chưa đủ để gắn tự động mọi cầu của bến Cửa Cấm.",
+      "unresolved": [
+        "Physical operating scope and date",
+        "Current listing market and first trade"
+      ],
+      "legal_name": "Công ty Cổ phần Cảng Cửa Cấm Hải Phòng",
+      "enterprise_id": "0200576055",
+      "candidates": [
+        {
+          "terminal_number": 31,
+          "role": "operator",
+          "status": "needs_asset_scope_evidence"
+        }
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W3/000000016139646_Bao_cao_thuong_nien_nam_2025.pdf",
+        "content_hash": "ada2e1d0c67ff7632cd14b0cfd6bf4168188ab6c14db4ccdcc353c5b2bd2907b",
+        "fetched_at": "2026-10-14T20:31:13.637569+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/ada2e1d0c67ff7632cd14b0cfd6bf4168188ab6c14db4ccdcc353c5b2bd2907b",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "CCR",
+      "artifact_label": "ccr-2025.pdf",
+      "reviewed_pages": [
+        4,
+        5,
+        7
+      ],
+      "assets": [
+        {
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "terminal_number": 147,
+          "canonical_terminal_id": "d86894c7-018a-5043-9ef9-74d27fe7363c",
+          "canonical_terminal_name": "Bến cảng Ba Ngòi",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Trang PDF 4 mô tả Cảng Ba Ngòi chuyển đổi, đổi tên thành Cảng Cam Ranh; trang PDF 7 mô tả kinh doanh khai thác cảng tại Cam Ranh. Đối chiếu bến Ba Ngòi mục 147. Mốc doanh nghiệp tiền thân năm 1991 không tự thành ngày bắt đầu quan hệ của pháp nhân cổ phần hiện nay.",
+      "unresolved": [
+        "Current legal berth permits",
+        "Exact relationship commencement after corporate conversion",
+        "2026 changes"
+      ],
+      "legal_name": "Công ty Cổ phần Cảng Cam Ranh",
+      "enterprise_id": "4200272350",
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016023149_VI_Baocaothuongnien_2025.pdf",
+        "content_hash": "0aa0f2ed188e4256295fcb5d37a62cd9e68bc87c4595c91b62c0899f2e9e6892",
+        "fetched_at": "2026-10-14T20:23:08.544691+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/0aa0f2ed188e4256295fcb5d37a62cd9e68bc87c4595c91b62c0899f2e9e6892",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "CCT",
+      "artifact_label": "cct-2025.pdf",
+      "reviewed_pages": [
+        4,
+        6
+      ],
+      "assets": [
+        {
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "terminal_number": 290,
+          "canonical_terminal_id": "04a1d172-e36d-5634-ba00-fa298cea6c7f",
+          "canonical_terminal_name": "Bến cảng Hoàng Diệu (Cần Thơ)",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "terminal_number": 296,
+          "canonical_terminal_id": "861d5c61-627d-5a97-bf63-ceda73f97eee",
+          "canonical_terminal_name": "Bến cảng Cái Cui",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        },
+        {
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "canonical_match": "requires_inland_port_registry",
+          "name": "Cơ sở cảng sông khu vực Duyên Hải, Trà Vinh",
+          "asset_kind": "river_port",
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Trang PDF 6 xác nhận sở hữu/khai thác cầu cảng, bến bãi ở Cái Cui, Hoàng Diệu và cảng sông Duyên Hải Trà Vinh. Cái Cui mục 296 khác Tân Cảng Cái Cui mục 295. Không tự chia 667m cầu biển và 200m cầu sông thành số cầu hoặc gán toàn bộ công suất cho một bến.",
+      "unresolved": [
+        "Exact effective periods",
+        "Duyên Hải legal name and decision",
+        "Berth allocation and current exchange status"
+      ],
+      "legal_name": "Công ty Cổ phần Cảng Cần Thơ",
+      "enterprise_id": "1801319907",
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp/cims/2026/4_W1/000000016093289_VI__BAO_CAO_THUONG_NIEN_2025.pdf",
+        "content_hash": "26639fbd9477efe97a3fcba81f963c3765bc4d350d4ca19619f0f65ef943c36c",
+        "fetched_at": "2026-10-14T20:17:51.571182+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/26639fbd9477efe97a3fcba81f963c3765bc4d350d4ca19619f0f65ef943c36c",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "CPI",
+      "artifact_label": "cpi-2025.pdf",
+      "reviewed_pages": [
+        1,
+        2,
+        3
+      ],
+      "assets": [
+        {
+          "role": "indirect",
+          "via": [
+            "Công ty TNHH Cảng container quốc tế Cái Lân"
+          ],
+          "effective_from": null,
+          "berth_subset": [
+            "Cầu cảng số 2",
+            "Cầu cảng số 3",
+            "Cầu cảng số 4"
+          ],
+          "terminal_number": 11,
+          "canonical_terminal_id": "3d62cd6f-4230-50ec-a262-33af59142f50",
+          "canonical_terminal_name": "Bến cảng tổng hợp Cái Lân",
+          "canonical_berth_ids": [
+            "c04b772e-3faa-5d10-b316-6974cbfee9b8",
+            "a3aa6ae8-79b4-5447-a364-3d636feb1f2b",
+            "65cf783a-c62e-523a-b396-d5b5894282ed"
+          ],
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Trang PDF 2 xác nhận liên doanh CICT quản lý khai thác bến 2,3,4 Cái Lân; trang PDF 3 ghi CPI nắm 51% vốn CICT. 27/07/2012 là mốc mở cảng, 31/08/2012 là tàu đầu tiên, không tự coi là ngày CPI bắt đầu sở hữu vốn. Không gắn CPI toàn bộ các cầu Cái Lân, không nhầm với CQN khai thác các cầu khác.",
+      "unresolved": [
+        "Exact equity effective period",
+        "Current corporate interest and current listing status"
+      ],
+      "legal_name": "Công ty Cổ phần Đầu tư Cảng Cái Lân",
+      "enterprise_id": "5700688013",
+      "corporate_interests": [
+        {
+          "company": "Công ty TNHH Cảng container quốc tế Cái Lân",
+          "equity_pct": 51,
+          "as_of": "2025-12-31"
+        }
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015931885_VI_BaoCaoThuongNien_2025.pdf",
+        "content_hash": "2eb515f1a2f4cd619305e57248a4c356acbb5b83a22cb4be4df8ed7b4bea4e96",
+        "fetched_at": "2026-10-14T20:31:16.190135+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/2eb515f1a2f4cd619305e57248a4c356acbb5b83a22cb4be4df8ed7b4bea4e96",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "HAH",
+      "artifact_label": "hah-2025.pdf",
+      "reviewed_pages": [
+        4,
+        9,
+        10,
+        11,
+        12
+      ],
+      "assets": [
+        {
+          "terminal_number": 46,
+          "role": "indirect",
+          "via": [
+            "Công ty TNHH Cảng Hải An"
+          ],
+          "effective_from": null,
+          "canonical_terminal_id": "aa25c2d5-7319-52d9-88b6-d8fc68c8c8a3",
+          "canonical_terminal_name": "Bến cảng Hải An",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "corporate_interests": [
+        {
+          "company": "Công ty TNHH Cảng Hải An",
+          "equity_pct": 100,
+          "as_of": "2025-12-31"
+        },
+        {
+          "company": "Công ty TNHH Pan Hải An",
+          "equity_pct": 51,
+          "as_of": "2025-12-31"
+        }
+      ],
+      "notes": "Trang PDF 4 xác nhận pháp nhân HAH. Trang PDF 9 ghi công ty con TNHH Cảng Hải An, ngành khai thác cảng và tỷ lệ vốn 100% tại 31/12/2025; gắn chuỗi gián tiếp tới bến Hải An, không gán HAH khai thác trực tiếp. Trang PDF 12 ghi Pan Hải An 51%, ngành kho bãi và bãi container, chưa đủ để gọi là ICD. Tỷ lệ vốn công ty con không gán thành tỷ lệ tài sản vật lý.",
+      "unresolved": [
+        "Exact port operating and equity effective dates",
+        "Pan Hải An depot classification",
+        "First trade and 2026 changes"
+      ],
+      "legal_name": "Công ty Cổ phần Vận tải và Xếp dỡ Hải An",
+      "enterprise_id": "0103818809",
+      "evidence": {
+        "source_url": "https://haiants.vn/files/Quan_he_co_dong/Bao-cao-thuong-nien/HAH-Bao-cao-thuong-nien-nam-2025.pdf",
+        "content_hash": "93e996178136ae1f6f3b8deeaf2387a8345007d3695c090ad386489965d7fa19",
+        "fetched_at": "2026-10-14T20:32:20.611125+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/93e996178136ae1f6f3b8deeaf2387a8345007d3695c090ad386489965d7fa19",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "IST",
+      "artifact_label": "ist-2025.pdf",
+      "reviewed_pages": [
+        1
+      ],
+      "assets": [
+        {
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "canonical_match": "requires_inland_port_registry",
+          "name": "ICD Tân Cảng Sóng Thần",
+          "asset_kind": "icd",
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Trang PDF 1 nêu điểm thông quan nội địa Tân Cảng Sóng Thần và lịch sử pháp nhân: 21/12/2000 là tiền thân thuộc Tân Cảng Sài Gòn, tháng 03/2007 thành công ty TNHH MTV và 01/06/2016 chuyển cổ phần. Không gán ngày thành lập tiền thân cho quan hệ của pháp nhân hiện tại. ICD giữ nhóm riêng.",
+      "unresolved": [
+        "Legal ICD decision and operator period",
+        "Current listing market and first trade"
+      ],
+      "legal_name": "Công ty Cổ phần ICD Tân Cảng Sóng Thần",
+      "enterprise_id": "3700785006",
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W5/000000016065722_VI_BAO_CAO_THUONG_NIEN_NAM_2025.pdf",
+        "content_hash": "ca4115787f88b910f3835e37f41f41e5a24923a050308a23a3aeac484a6bf6c2",
+        "fetched_at": "2026-10-14T20:31:59.275112+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/ca4115787f88b910f3835e37f41f41e5a24923a050308a23a3aeac484a6bf6c2",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "PNP",
+      "artifact_label": "pnp-2025.pdf",
+      "reviewed_pages": [
+        6,
+        7
+      ],
+      "assets": [],
+      "notes": "Trang PDF 6–7 xác nhận lịch sử Công ty Cổ phần Tân Cảng - Phú Hữu, hợp tác khai thác hàng với Tổng công ty Tân Cảng từ tháng 7/2015 và UPCoM 17/05/2019. Chưa gắn mục 240 Bến Nghé - Phú Hữu nếu chưa có tài liệu ranh giới/đơn vị khai thác của chính bến đó; không đánh dấu phần cầu dự kiến xây dựng là đang khai thác.",
+      "unresolved": [
+        "Legal physical terminal and lease/cooperation scope",
+        "Exact operating dates and berth permits"
+      ],
+      "legal_name": "Công ty Cổ phần Tân Cảng - Phú Hữu",
+      "enterprise_id": "0309444635",
+      "candidates": [
+        {
+          "terminal_number": 240,
+          "status": "needs_physical_scope_evidence"
+        }
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016034328_VI_BaoCaoThuongNien_2025.pdf",
+        "content_hash": "25ab02ca42b5e68fb1f2ef430f2e35757c63fd3e392be3cf2d68b40501212a35",
+        "fetched_at": "2026-10-14T20:31:30.600604+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/25ab02ca42b5e68fb1f2ef430f2e35757c63fd3e392be3cf2d68b40501212a35",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "PSB",
+      "artifact_label": "psb-2025.pdf",
+      "reviewed_pages": [
+        4,
+        5
+      ],
+      "assets": [],
+      "notes": "Trang PDF 5 mô tả căn cứ dịch vụ dầu khí và bàn giao bãi 39,8ha cho PV Shipyard thuê ngày 11/11/2009. Đây là bãi/cơ sở công nghiệp, không tự chuyển thành bến cảng thương mại. Hợp đồng liên doanh cảng container 26/04/2010 đã chấm dứt 01/01/2012; không tái tạo thành tài sản hiện tại. Số đăng ký trong trang PDF 4 cần đối chiếu độc lập trước nhập registry.",
+      "unresolved": [
+        "Enterprise identifier conflict",
+        "Industrial-base versus commercial-port classification",
+        "Current operating assets and berth permits"
+      ],
+      "legal_name": "Công ty Cổ phần Đầu tư Dầu khí Sao Mai - Bến Đình",
+      "group": "supplementary_industrial_base",
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016130846_VI_BaocCaoThuongNien_2025.pdf",
+        "content_hash": "9358fd43c840602ee6a33f5f95d75a4ace75dbb397480378652bb72a2b596d1d",
+        "fetched_at": "2026-10-14T20:31:35.845887+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/9358fd43c840602ee6a33f5f95d75a4ace75dbb397480378652bb72a2b596d1d",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "SWC",
+      "artifact_label": "swc-2025.pdf",
+      "reviewed_pages": [
+        3,
+        6
+      ],
+      "assets": [
+        {
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "canonical_match": "requires_inland_port_registry",
+          "name": "Cảng Sowatco Long Bình",
+          "asset_kind": "river_port",
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Trang PDF 6 mô tả Cảng Sowatco Long Bình trên sông Đồng Nai với sáu cầu và bốn bến phao; chưa chia thành sáu tài sản canonical khi thiếu quyết định danh mục. Tuyến vận tải tới ICD/VICT không chứng minh sở hữu mọi điểm đến. Bến phao không đồng nghĩa ICD hoặc cầu cứng.",
+      "unresolved": [
+        "Long Bình legal inland-port decision and effective period",
+        "VICT and other associate chains",
+        "Current first-trade/exchange status"
+      ],
+      "legal_name": "Tổng Công ty Cổ phần Đường sông Miền Nam",
+      "enterprise_id": "0300447173",
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016132083_VI_BaoCaoThuongNien_2025.pdf",
+        "content_hash": "4d6ca2a4de5e85909b6328f839897172149d870d3ef9a66c7f1623e4f9c74edd",
+        "fetched_at": "2026-10-14T20:31:52.388298+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/4d6ca2a4de5e85909b6328f839897172149d870d3ef9a66c7f1623e4f9c74edd",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "TCL",
+      "artifact_label": "tcl-2025.pdf",
+      "reviewed_pages": [
+        1,
+        2,
+        7
+      ],
+      "assets": [
+        {
+          "role": "cargo_handling_service",
+          "via": [],
+          "effective_from": null,
+          "canonical_match": "requires_inland_port_registry",
+          "name": "ICD Tân Cảng Nhơn Trạch",
+          "asset_kind": "icd",
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Trang PDF 2 nêu khai trương kho tại ICD Tân Cảng Nhơn Trạch và hoạt động thủ tục hải quan; không chứng minh TCL sở hữu cảng toàn bộ. Trang PDF 7 là vốn pháp nhân Tiếp vận Tân Cảng Đồng Nai 51%, Tân Cảng - Bến Thành 36%, Cát Lái - Đông Sài Gòn 20% tại 31/12/2025. Depot Mỹ Thủy, Tân Vạn không tự trở thành ICD. Chưa chuyển vai trò dịch vụ thành canonical operator.",
+      "unresolved": [
+        "ICD legal operator and service versus asset ownership",
+        "Exact periods",
+        "Subsidiary asset endpoints"
+      ],
+      "legal_name": "Công ty Cổ phần Đại lý Giao nhận Vận tải Xếp dỡ Tân Cảng",
+      "enterprise_id": "0304875444",
+      "corporate_interests": [
+        {
+          "company": "Công ty Cổ phần Tiếp vận Tân Cảng Đồng Nai",
+          "equity_pct": 51,
+          "as_of": "2025-12-31"
+        },
+        {
+          "company": "Công ty Cổ phần Tân Cảng - Bến Thành",
+          "equity_pct": 36,
+          "as_of": "2025-12-31"
+        },
+        {
+          "company": "Công ty Cổ phần Cát Lái - Đông Sài Gòn",
+          "equity_pct": 20,
+          "as_of": "2025-12-31"
+        }
+      ],
+      "evidence": {
+        "source_url": "https://tancanglogistics.com/quan-he-co-dong/Documents/20260319%20-%20TCL%20-%20BAO%20CAO%20THUONG%20NIEN%20202520260319161535.pdf",
+        "content_hash": "f884d92dfb0a3f9c6fdd32abeeff90e83c8d3c9072a593f9e7a5488a592b9cdb",
+        "fetched_at": "2026-10-14T20:41:32.154091+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/f884d92dfb0a3f9c6fdd32abeeff90e83c8d3c9072a593f9e7a5488a592b9cdb",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "TNP",
+      "artifact_label": "tnp-2025.pdf",
+      "reviewed_pages": [
+        1
+      ],
+      "assets": [
+        {
+          "role": "operator",
+          "via": [],
+          "effective_from": null,
+          "terminal_number": 129,
+          "canonical_terminal_id": "929311e1-25f6-5630-8829-feba8ece1858",
+          "canonical_terminal_name": "Bến cảng Thị Nại",
+          "canonical_berth_ids": [],
+          "sql_interest_generated": false
+        }
+      ],
+      "notes": "Trang PDF 1 xác nhận Công ty Cổ phần Cảng Thị Nại, mã TNP, cảng ở Quy Nhơn. Không nhầm TNP với Tân Cảng Thị Vải. Mốc doanh nghiệp tiền thân 05/01/1994 không tự dùng làm ngày bắt đầu của pháp nhân cổ phần hiện tại.",
+      "unresolved": [
+        "Exact current-entity operating date",
+        "Legal permits and berth scope",
+        "Current listing market and first trade"
+      ],
+      "legal_name": "Công ty Cổ phần Cảng Thị Nại",
+      "enterprise_id": "4100259282",
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W5/000000016066372_BC_thuong_nien_2025_0001.pdf",
+        "content_hash": "f3a1ec66404c8f7c920c997d03e9cd8f8d0d95e63ff3ded8ff85d540c3b5faa0",
+        "fetched_at": "2026-10-14T20:32:07.044553+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/f3a1ec66404c8f7c920c997d03e9cd8f8d0d95e63ff3ded8ff85d540c3b5faa0",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    },
+    {
+      "ticker": "VGP",
+      "artifact_label": "vgp-2025.pdf",
+      "reviewed_pages": [
+        1
+      ],
+      "assets": [],
+      "notes": "Trang PDF 1 xác nhận Công ty Cổ phần Cảng Rau Quả, mã VGP và niêm yết HNX. Chưa tự tạo bến theo tên pháp nhân khi thiếu đối chiếu danh mục và tình trạng chuyển công năng.",
+      "unresolved": [
+        "Legal terminal match",
+        "Current operation or change-of-use evidence",
+        "Exact first trading date"
+      ],
+      "legal_name": "Công ty Cổ phần Cảng Rau Quả",
+      "enterprise_id": "0302336158",
+      "candidates": [
+        {
+          "name": "Cảng Rau Quả",
+          "status": "needs_legal_catalog_match"
+        }
+      ],
+      "evidence": {
+        "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W3/000000016156439_VI_BaoCaoThuongNien_2025.pdf",
+        "content_hash": "5a679df7a8db00586b26f6e096844bbf18ea41bd5e4b9b6a31392b04256ae079",
+        "fetched_at": "2026-10-14T20:24:22.669889+00:00",
+        "published_at": null,
+        "raw_storage_key": "catalog-evidence/sha256/5a679df7a8db00586b26f6e096844bbf18ea41bd5e4b9b6a31392b04256ae079",
+        "r2_verified": false,
+        "rights_status": "to_verify"
+      },
+      "reporting_period_end": "2025-12-31",
+      "publication_status": "research_only",
+      "current_status_verified": false,
+      "derived_candidates": []
+    }
+  ],
+  "further_universe_research": [
+    {
+      "ticker": "PVS",
+      "status": "needs_primary_issuer_report_and_subsidiary_chain",
+      "reason": "Parent PTSC; service ports must be separated from PSP/PSB subsidiaries"
+    },
+    {
+      "ticker": "ILB",
+      "status": "needs_primary_issuer_artifact",
+      "reason": "ICD Tân Cảng Long Bình is separate from IST Sóng Thần"
+    },
+    {
+      "ticker": "STG",
+      "status": "needs_primary_issuer_artifact",
+      "source_url": "https://sotransgroup.vn/danh-sach-bao-cao/",
+      "reason": "Sotrans holding and port/ICD chains; do not equate transport destinations with ownership"
+    },
+    {
+      "ticker": "TCW",
+      "status": "needs_primary_issuer_artifact",
+      "source_url": "https://tancangwarehousing.com.vn",
+      "reason": "Warehouse/service scope is not automatically port ownership"
+    }
+  ]
+}
