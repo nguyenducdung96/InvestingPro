@@ -1,0 +1,42 @@
+{
+  "scope": "Four remaining companies from the 15-ticker reference; pending issuer-document proposals only",
+  "artifacts": [
+    {"key":"gmd_annual","ticker":"GMD","label":"gmd-2025.pdf","reviewed_pages":[5,9]},
+    {"key":"gmd_charter","ticker":"GMD","label":"gmd-charter-2026.pdf","source_url":"https://www.gemadept.com.vn/wp-content/uploads/2026/05/Dieu-le-GMD-sua-doi-bo-sung_VN.pdf","reviewed_pages":[1,6]},
+    {"key":"gmd_history","ticker":"GMD","label":"gmd-presentation-2007.pdf","source_url":"https://www.gemadept.com.vn/wp-content/uploads/2021/01/Gemadept-presentation-phien-ban-tieng-Viet-1.pdf","reviewed_pages":[3]},
+    {"key":"dvp_annual","ticker":"DVP","label":"dvp-2025.pdf","reviewed_pages":[1]},
+    {"key":"pdn_annual","ticker":"PDN","label":"pdn-2025.pdf","reviewed_pages":[7]},
+    {"key":"pdn_overview","ticker":"PDN","label":"pdn-issuer-overview-20261015.html","source_url":"https://www.dongnaiport.com.vn/tong-quan","reviewed_sections":["Lịch sử hình thành","Thông tin chủ quản và mã số thuế"],"review_method":"read_rendered_browser_dom_and_original_html"},
+    {"key":"qnp_annual","ticker":"QNP","label":"qnp-2025.pdf","reviewed_pages":[7,8]}
+  ],
+  "companies": [
+    {
+      "ticker":"GMD","legal_name":"Công ty Cổ phần Tập đoàn Gemadept","enterprise_id":"0301116791",
+      "official_website":"https://www.gemadept.com.vn","ir_url":"https://www.gemadept.com.vn/co-dong/",
+      "identity_artifact":"gmd_charter","listing_artifact":"gmd_history","first_trading_date":"2002-04-22",
+      "supporting_artifacts":["gmd_annual","gmd_charter","gmd_history"],
+      "evidence_note":"Tài liệu giới thiệu doanh nghiệp năm 2007, trang PDF 3, nêu mã GMD và phiên giao dịch đầu tiên 22/4/2002. Báo cáo thường niên 2025 trang PDF 5 và 9 đối chiếu mã doanh nghiệp 0301116791 và HOSE:GMD. Điều lệ 06/05/2026 trang PDF 1 và 6 ghi tên Công ty Cổ phần Tập đoàn Gemadept; không dùng tên cũ của báo cáo 2025 làm tên hiện tại. Không nhập cơ cấu cổ đông/giá năm 2007 thành dữ liệu hiện nay; không khẳng định toàn bộ lịch sử thay đổi thị trường đã được rà soát. Chờ duyệt nguồn và listing."
+    },
+    {
+      "ticker":"DVP","legal_name":"Công ty Cổ phần Đầu tư và Phát triển Cảng Đình Vũ","enterprise_id":"0200511481",
+      "official_website":"https://dinhvuport.com.vn","ir_url":null,
+      "identity_artifact":"dvp_annual","listing_artifact":"dvp_annual","first_trading_date":"2009-12-01",
+      "supporting_artifacts":["dvp_annual"],
+      "evidence_note":"Đọc trực quan báo cáo thường niên DVP 2025 trang PDF 1: tên pháp nhân, mã số doanh nghiệp 0200511481, mã DVP và niêm yết tại Sở Giao dịch Chứng khoán TP.HCM ngày 01/12/2009. Phân biệt với ngày quyết định chấp thuận 24/11/2009. Chỉ đối chiếu registry; chưa xác nhận danh mục tài sản hoặc tỷ lệ sở hữu. Chờ duyệt nguồn và listing."
+    },
+    {
+      "ticker":"PDN","legal_name":"Công ty Cổ phần Cảng Đồng Nai","enterprise_id":"3600334112",
+      "official_website":"https://www.dongnaiport.com.vn","ir_url":null,
+      "identity_artifact":"pdn_overview","listing_artifact":"pdn_overview","first_trading_date":"2011-10-26",
+      "supporting_artifacts":["pdn_overview","pdn_annual"],
+      "evidence_note":"Đọc trực tiếp mục Lịch sử hình thành trên website chính thức doanh nghiệp: mã PDN niêm yết HOSE ngày 26/10/2011; footer ghi mã số thuế 3600334112. Báo cáo thường niên 2025 trang PDF 7 đối chiếu pháp nhân, mã và hai khu vực Long Bình Tân/Gò Dầu; nội dung lịch sử báo cáo chỉ nêu tháng 10/2011. Card timeline 2006 trên website gộp cổ phần hóa và niêm yết, không dùng làm ngày niêm yết. Không suy ra 07/10/2011 hoặc tự nhập số cầu/tổng công suất trên website. Chờ duyệt nguồn và listing."
+    },
+    {
+      "ticker":"QNP","legal_name":"Công ty Cổ phần Cảng Quy Nhơn","enterprise_id":"4100258793",
+      "official_website":"https://www.quynhonport.vn","ir_url":"https://www.quynhonport.vn/quan-he-co-dong.html",
+      "identity_artifact":"qnp_annual","listing_artifact":"qnp_annual","first_trading_date":"2024-01-18",
+      "supporting_artifacts":["qnp_annual"],
+      "evidence_note":"Đọc trực quan báo cáo thường niên QNP 2025 trang PDF 7–8: mã QNP (HOSE), mã doanh nghiệp 4100258793 và giao dịch đầu tiên 18/01/2024. Phân biệt với chấp thuận niêm yết ngày 29/12/2023 và chuyển mô hình doanh nghiệp năm 2013. Tài liệu doanh nghiệp được lưu tại FPTS EzIR, không dùng dữ liệu giá của nền tảng. QNP khác QSP; không tạo quan hệ vận hành chỉ từ tên cảng. Chờ duyệt nguồn và listing."
+    }
+  ]
+}

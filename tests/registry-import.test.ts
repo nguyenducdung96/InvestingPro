@@ -55,6 +55,29 @@ it("keeps proposals private and refuses publication even by an admin until evide
   await db.exec("reset role");
 });
 
+it("adds four HOSE dossiers with current legal identities, exact first-trade dates and private evidence", async () => {
+  const proposal = readFileSync("supabase/imports/hose_registry.proposals.sql", "utf8");
+  const php = await db.query("select * from catalog.entities where id='10000000-0000-0000-0000-000000000017'");
+  await db.exec(proposal);
+  expect((await db.query("select * from catalog.companies")).rows).toHaveLength(15);
+  expect((await db.query(`select ticker,valid_from::text,verification_status from catalog.company_listings where exchange='HOSE' order by ticker`)).rows).toEqual([
+    {ticker:"DVP",valid_from:"2009-12-01",verification_status:"pending"},
+    {ticker:"GMD",valid_from:"2002-04-22",verification_status:"pending"},
+    {ticker:"PDN",valid_from:"2011-10-26",verification_status:"pending"},
+    {ticker:"QNP",valid_from:"2024-01-18",verification_status:"pending"},
+  ]);
+  expect((await db.query(`select c.legal_name,c.enterprise_id from catalog.companies c join catalog.company_listings l on l.company_id=c.id where l.ticker='GMD'`)).rows).toEqual([{legal_name:"Công ty Cổ phần Tập đoàn Gemadept",enterprise_id:"0301116791"}]);
+  expect((await db.query("select * from core.sources where code like 'issuer_registry_%' and rights_status='to_verify'")).rows).toHaveLength(4);
+  const count = await db.query("select count(*) from core.audit_events");
+  await db.exec(proposal);
+  expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(count.rows);
+  expect((await db.query("select * from catalog.entities where id='10000000-0000-0000-0000-000000000017'")).rows).toEqual(php.rows);
+  await db.exec("set role anon");
+  expect((await db.query("select * from catalog.company_listings")).rows).toHaveLength(0);
+  expect((await db.query("select * from catalog.companies")).rows).toHaveLength(1);
+  await db.exec("reset role");
+});
+
 it("adds a pending operator proposal for VIP Greenport without inventing ownership or modifying Greenport", async () => {
   const proposal = readFileSync("supabase/imports/vgr_operator.proposal.sql", "utf8");
   await db.exec(proposal);

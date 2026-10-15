@@ -1,0 +1,32 @@
+{
+  "checked_at": "2026-10-15T15:05:49Z",
+  "environment": "staging",
+  "supabase_project": "loapslojajawgzekozfv",
+  "bucket": "investing-pro-evidence-staging",
+  "upload": {
+    "artifacts": 3,
+    "method": "R2 Dashboard; UI confirmed 3/3 files uploaded and all successful",
+    "public_access": "disabled",
+    "sha256_readback_status": "pending"
+  },
+  "database": {
+    "method": "SQL Editor import success, followed by grouped count query",
+    "added_hose_listings": 4,
+    "added_source_records": 7,
+    "reference_listings_total": 15,
+    "counts_by_exchange": {
+      "HNX": 3,
+      "HOSE": 4,
+      "UPCOM": 8
+    },
+    "verification_status": "pending",
+    "rights_status": "to_verify"
+  },
+  "raw_storage_keys": [
+    "catalog-evidence/sha256/e1fa9cad6979dff0d75573c0c226aaa0c8c1f5ab78d3f53d3cb99fd618554619",
+    "catalog-evidence/sha256/6a0e499d92121b630474c21e5f58f923e92fb8ad9632321727cec9002a91e44b",
+    "catalog-evidence/sha256/60a8b094fefae4f5be0545233a48508e4da8119b2281121f943eff429d64b2ac"
+  ],
+  "publication_status": "not_published",
+  "note": "Reference proposals only; not complete market or asset coverage. Source rights and admin review remain pending. Existing four annual PDFs were archived earlier. Browser policy still denies staging app observation."
+}

@@ -29,7 +29,15 @@ Raw files và ảnh review ở `.local/catalog-research/`, không commit vào Gi
 - `supabase/imports/hnx_registry.proposals.sql`: import có thể chạy lại; không tự duyệt nguồn, entity hay listing. `scripts/compile-registry-proposals.py` biên dịch ngoại tuyến và kiểm tra quan sát khớp raw snapshot.
 - `supabase/imports/vgr_operator.proposal.sql`: đề xuất VGR khai thác đúng bến Container Vip Greenport theo trang PDF 1–2 báo cáo năm 2025, mốc lịch sử 27/11/2015 được nêu rõ. Không gộp với bến Greenport; ownership_pct giữ NULL. Bổ sung mã doanh nghiệp/website vào hồ sơ chưa duyệt bằng đúng bằng chứng báo cáo.
 
-Hồ sơ nguồn HNX có ghi yêu cầu liên hệ khi phát hành thông tin website; chưa xác minh quyền phát hành cho dự án. Nguồn báo cáo VGR cũng giữ to_verify. Vì vậy các bản ghi mới chưa được duyệt và chưa xuất hiện trong registry công khai. Không thay đổi quyền nguồn chỉ để làm danh sách có dữ liệu. Cần chốt phạm vi sử dụng hoặc tài liệu gốc thay thế phù hợp, kiểm tra biến động sau kỳ báo cáo và duyệt bằng phiên admin. Đây chưa phải nghiệm thu đầy đủ 15 mã hay toàn thị trường; GMD, DVP, PDN, QNP vẫn chưa có listing proposal trong đợt này.
+Hồ sơ nguồn HNX có ghi yêu cầu liên hệ khi phát hành thông tin website; chưa xác minh quyền phát hành cho dự án. Nguồn báo cáo VGR cũng giữ to_verify. Vì vậy các bản ghi mới chưa được duyệt và chưa xuất hiện trong registry công khai. Không thay đổi quyền nguồn chỉ để làm danh sách có dữ liệu. Cần chốt phạm vi sử dụng hoặc tài liệu gốc thay thế phù hợp, kiểm tra biến động sau kỳ báo cáo và duyệt bằng phiên admin. Đây chưa phải nghiệm thu đầy đủ 15 mã hay toàn thị trường.
+
+### Bổ sung bốn hồ sơ HOSE
+
+Đã nhập `supabase/imports/hose_registry.proposals.sql` trên staging: GMD, DVP, PDN, QNP. Query cloud sau import trả HNX 3, HOSE 4, UPCOM 8, đều pending và nguồn to_verify. `issuer-registry-import-receipt.json` ghi riêng kết quả nhập và ba raw object mới đã upload thành công; chưa coi upload là kiểm tra tải ngược. Các PDF báo cáo thường niên dùng lại bản raw đã lưu trước đó.
+
+Hồ sơ đầu vào `supabase/imports/data/hose-registry.proposals.json` ghi chính xác trang/mục đã đọc, không suy ra danh mục tài sản. GMD dùng tên pháp nhân trong điều lệ tháng 5/2026; ngày giao dịch đầu tiên lấy từ trang 3 tài liệu giới thiệu lịch sử, không nhập giá/cổ đông năm 2007 thành dữ liệu hiện tại. PDN dùng ngày 26/10/2011 trong mục Lịch sử hình thành của website chính thức, không dùng card timeline 2006 mâu thuẫn. QNP phân biệt ngày giao dịch đầu tiên với ngày chấp thuận niêm yết. Published_at giữ NULL khi chưa biết timestamp công bố chính xác.
+
+`scripts/compile-issuer-registry.py` biên dịch ngoại tuyến, kiểm tra hash bản raw và giữ nguyên thời điểm tải cũ. Import chỉ thêm proposals, không duyệt nguồn/listing và không sửa hồ sơ PHP đã xác minh. Tests kiểm tra đủ 15 hồ sơ tối thiểu ở trạng thái pending, ngày hiệu lực, tên mới Gemadept, replay không thêm audit và RLS tiếp tục ẩn hồ sơ chưa duyệt. Đạt đủ 15 proposals không có nghĩa đủ universe hoặc đã nghiệm thu các quan hệ cảng/ICD.
 
 ## Quy trình duyệt mỗi hồ sơ
 

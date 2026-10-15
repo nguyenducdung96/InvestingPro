@@ -1,0 +1,201 @@
+{
+  "publication_status": "pending",
+  "artifacts": [
+    {
+      "key": "gmd_annual",
+      "ticker": "GMD",
+      "label": "gmd-2025.pdf",
+      "reviewed_pages": [
+        5,
+        9
+      ],
+      "source_url": "https://www.gemadept.com.vn/wp-content/uploads/2026/04/20260418_GMD-AR_VN_SmartPDF01.pdf",
+      "fetched_at": "2026-10-14T20:17:45.229338+00:00",
+      "content_hash": "19f18cccab1d93cd8b2db5713d2c82440fce3b5719fceaa0d152a05ec8f25f6a",
+      "bytes": 10132742,
+      "raw_storage_key": "catalog-evidence/sha256/19f18cccab1d93cd8b2db5713d2c82440fce3b5719fceaa0d152a05ec8f25f6a",
+      "source_record_id": "9ad98634-7111-5098-a41d-5133b79c67b9",
+      "content_type": "application/pdf",
+      "upload_needed": false,
+      "rights_status": "to_verify",
+      "verification_status": "pending"
+    },
+    {
+      "key": "gmd_charter",
+      "ticker": "GMD",
+      "label": "gmd-charter-2026.pdf",
+      "source_url": "https://www.gemadept.com.vn/wp-content/uploads/2026/05/Dieu-le-GMD-sua-doi-bo-sung_VN.pdf",
+      "reviewed_pages": [
+        1,
+        6
+      ],
+      "fetched_at": "2026-10-15T03:05:13.320564+00:00",
+      "content_hash": "e1fa9cad6979dff0d75573c0c226aaa0c8c1f5ab78d3f53d3cb99fd618554619",
+      "bytes": 1133027,
+      "raw_storage_key": "catalog-evidence/sha256/e1fa9cad6979dff0d75573c0c226aaa0c8c1f5ab78d3f53d3cb99fd618554619",
+      "source_record_id": "e1db813e-e20b-51cc-9962-16c05200a341",
+      "content_type": "application/pdf",
+      "upload_needed": true,
+      "rights_status": "to_verify",
+      "verification_status": "pending"
+    },
+    {
+      "key": "gmd_history",
+      "ticker": "GMD",
+      "label": "gmd-presentation-2007.pdf",
+      "source_url": "https://www.gemadept.com.vn/wp-content/uploads/2021/01/Gemadept-presentation-phien-ban-tieng-Viet-1.pdf",
+      "reviewed_pages": [
+        3
+      ],
+      "fetched_at": "2026-10-15T14:56:25.510008+00:00",
+      "content_hash": "6a0e499d92121b630474c21e5f58f923e92fb8ad9632321727cec9002a91e44b",
+      "bytes": 4435404,
+      "raw_storage_key": "catalog-evidence/sha256/6a0e499d92121b630474c21e5f58f923e92fb8ad9632321727cec9002a91e44b",
+      "source_record_id": "de4884fc-42ff-57dd-adb4-500fb268c579",
+      "content_type": "application/pdf",
+      "upload_needed": true,
+      "rights_status": "to_verify",
+      "verification_status": "pending"
+    },
+    {
+      "key": "dvp_annual",
+      "ticker": "DVP",
+      "label": "dvp-2025.pdf",
+      "reviewed_pages": [
+        1
+      ],
+      "source_url": "https://dinhvuport.com.vn/userdata/IR/2026/15-20260313---DVP---BAO-CAO-THUONG-NIEN-NAM-2025.pdf",
+      "fetched_at": "2026-10-14T20:40:58.145144+00:00",
+      "content_hash": "b31fcc7482c2d0c76588373e15a0a159a350e89498d86f2de32d425548c9314a",
+      "bytes": 23440298,
+      "raw_storage_key": "catalog-evidence/sha256/b31fcc7482c2d0c76588373e15a0a159a350e89498d86f2de32d425548c9314a",
+      "source_record_id": "a40343bd-a826-5470-bc99-9cccce655d59",
+      "content_type": "application/pdf",
+      "upload_needed": false,
+      "rights_status": "to_verify",
+      "verification_status": "pending"
+    },
+    {
+      "key": "pdn_annual",
+      "ticker": "PDN",
+      "label": "pdn-2025.pdf",
+      "reviewed_pages": [
+        7
+      ],
+      "source_url": "https://storage-vnportal.vnpt.vn/bpc-khdn/3234/V%C4%83n%20b%E1%BA%A3n/20260330%20-%20PDN%20-%20Bao%20cao%20thuong%20nien-VI.pdf",
+      "fetched_at": "2026-10-14T20:43:10.637988+00:00",
+      "content_hash": "cbf94b2e38cba156a770c4aa5a3aac120d54148b1495425490507b812f087069",
+      "bytes": 20061570,
+      "raw_storage_key": "catalog-evidence/sha256/cbf94b2e38cba156a770c4aa5a3aac120d54148b1495425490507b812f087069",
+      "source_record_id": "27dd33fd-d211-5be0-a42f-de395e1c218c",
+      "content_type": "application/pdf",
+      "upload_needed": false,
+      "rights_status": "to_verify",
+      "verification_status": "pending"
+    },
+    {
+      "key": "pdn_overview",
+      "ticker": "PDN",
+      "label": "pdn-issuer-overview-20261015.html",
+      "source_url": "https://www.dongnaiport.com.vn/tong-quan",
+      "reviewed_sections": [
+        "Lịch sử hình thành",
+        "Thông tin chủ quản và mã số thuế"
+      ],
+      "review_method": "read_rendered_browser_dom_and_original_html",
+      "fetched_at": "2026-10-15T14:56:24.047595+00:00",
+      "content_hash": "60a8b094fefae4f5be0545233a48508e4da8119b2281121f943eff429d64b2ac",
+      "bytes": 70672,
+      "raw_storage_key": "catalog-evidence/sha256/60a8b094fefae4f5be0545233a48508e4da8119b2281121f943eff429d64b2ac",
+      "source_record_id": "0faf8e52-9158-55a4-99e7-786dd995cdf4",
+      "content_type": "text/html; charset=utf-8",
+      "upload_needed": true,
+      "rights_status": "to_verify",
+      "verification_status": "pending"
+    },
+    {
+      "key": "qnp_annual",
+      "ticker": "QNP",
+      "label": "qnp-2025.pdf",
+      "reviewed_pages": [
+        7,
+        8
+      ],
+      "source_url": "https://file.fpts.com.vn/FileStore2/File/EzIR/UploadFile/News/2026/03/18/File_1_1206_20260318_-_QNP_-_Bao_cao_thuong_nien_2025.pdf",
+      "fetched_at": "2026-10-15T02:03:22.230294+00:00",
+      "content_hash": "bc0aa1f6820172833622cb737d1d664bd9058ed879303f6e5c7a6432cd432c29",
+      "bytes": 11158755,
+      "raw_storage_key": "catalog-evidence/sha256/bc0aa1f6820172833622cb737d1d664bd9058ed879303f6e5c7a6432cd432c29",
+      "source_record_id": "8529fe0f-8f18-5fe1-a881-6f0f32766596",
+      "content_type": "application/pdf",
+      "upload_needed": false,
+      "rights_status": "to_verify",
+      "verification_status": "pending"
+    }
+  ],
+  "companies": [
+    {
+      "ticker": "GMD",
+      "legal_name": "Công ty Cổ phần Tập đoàn Gemadept",
+      "enterprise_id": "0301116791",
+      "official_website": "https://www.gemadept.com.vn",
+      "ir_url": "https://www.gemadept.com.vn/co-dong/",
+      "identity_artifact": "gmd_charter",
+      "listing_artifact": "gmd_history",
+      "first_trading_date": "2002-04-22",
+      "supporting_artifacts": [
+        "gmd_annual",
+        "gmd_charter",
+        "gmd_history"
+      ],
+      "evidence_note": "Tài liệu giới thiệu doanh nghiệp năm 2007, trang PDF 3, nêu mã GMD và phiên giao dịch đầu tiên 22/4/2002. Báo cáo thường niên 2025 trang PDF 5 và 9 đối chiếu mã doanh nghiệp 0301116791 và HOSE:GMD. Điều lệ 06/05/2026 trang PDF 1 và 6 ghi tên Công ty Cổ phần Tập đoàn Gemadept; không dùng tên cũ của báo cáo 2025 làm tên hiện tại. Không nhập cơ cấu cổ đông/giá năm 2007 thành dữ liệu hiện nay; không khẳng định toàn bộ lịch sử thay đổi thị trường đã được rà soát. Chờ duyệt nguồn và listing.",
+      "company_id": "69e45fe8-140b-5e1a-809c-2c621e2ccb44"
+    },
+    {
+      "ticker": "DVP",
+      "legal_name": "Công ty Cổ phần Đầu tư và Phát triển Cảng Đình Vũ",
+      "enterprise_id": "0200511481",
+      "official_website": "https://dinhvuport.com.vn",
+      "ir_url": null,
+      "identity_artifact": "dvp_annual",
+      "listing_artifact": "dvp_annual",
+      "first_trading_date": "2009-12-01",
+      "supporting_artifacts": [
+        "dvp_annual"
+      ],
+      "evidence_note": "Đọc trực quan báo cáo thường niên DVP 2025 trang PDF 1: tên pháp nhân, mã số doanh nghiệp 0200511481, mã DVP và niêm yết tại Sở Giao dịch Chứng khoán TP.HCM ngày 01/12/2009. Phân biệt với ngày quyết định chấp thuận 24/11/2009. Chỉ đối chiếu registry; chưa xác nhận danh mục tài sản hoặc tỷ lệ sở hữu. Chờ duyệt nguồn và listing.",
+      "company_id": "fafba875-a5cd-55f2-ac4f-0acf54a64164"
+    },
+    {
+      "ticker": "PDN",
+      "legal_name": "Công ty Cổ phần Cảng Đồng Nai",
+      "enterprise_id": "3600334112",
+      "official_website": "https://www.dongnaiport.com.vn",
+      "ir_url": null,
+      "identity_artifact": "pdn_overview",
+      "listing_artifact": "pdn_overview",
+      "first_trading_date": "2011-10-26",
+      "supporting_artifacts": [
+        "pdn_overview",
+        "pdn_annual"
+      ],
+      "evidence_note": "Đọc trực tiếp mục Lịch sử hình thành trên website chính thức doanh nghiệp: mã PDN niêm yết HOSE ngày 26/10/2011; footer ghi mã số thuế 3600334112. Báo cáo thường niên 2025 trang PDF 7 đối chiếu pháp nhân, mã và hai khu vực Long Bình Tân/Gò Dầu; nội dung lịch sử báo cáo chỉ nêu tháng 10/2011. Card timeline 2006 trên website gộp cổ phần hóa và niêm yết, không dùng làm ngày niêm yết. Không suy ra 07/10/2011 hoặc tự nhập số cầu/tổng công suất trên website. Chờ duyệt nguồn và listing.",
+      "company_id": "d3aebe0e-ee56-5e8b-9f44-195c17e6aa5e"
+    },
+    {
+      "ticker": "QNP",
+      "legal_name": "Công ty Cổ phần Cảng Quy Nhơn",
+      "enterprise_id": "4100258793",
+      "official_website": "https://www.quynhonport.vn",
+      "ir_url": "https://www.quynhonport.vn/quan-he-co-dong.html",
+      "identity_artifact": "qnp_annual",
+      "listing_artifact": "qnp_annual",
+      "first_trading_date": "2024-01-18",
+      "supporting_artifacts": [
+        "qnp_annual"
+      ],
+      "evidence_note": "Đọc trực quan báo cáo thường niên QNP 2025 trang PDF 7–8: mã QNP (HOSE), mã doanh nghiệp 4100258793 và giao dịch đầu tiên 18/01/2024. Phân biệt với chấp thuận niêm yết ngày 29/12/2023 và chuyển mô hình doanh nghiệp năm 2013. Tài liệu doanh nghiệp được lưu tại FPTS EzIR, không dùng dữ liệu giá của nền tảng. QNP khác QSP; không tạo quan hệ vận hành chỉ từ tên cảng. Chờ duyệt nguồn và listing.",
+      "company_id": "4524d230-e0e3-5b42-8397-5f43bca80011"
+    }
+  ]
+}

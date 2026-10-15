@@ -34,6 +34,12 @@ Kiểm tra local đạt: lint, typecheck, Next production build và 14 kiểm tr
 
 Đã chạy import registry trên cloud: 11 listing HNX/UPCoM pending và một đề xuất VGR khai thác VIP Greenport pending. Biên nhận tại `docs/catalog-review/registry-import-receipt.json`; query count sau import trả đúng 11 và 1, rights_status của hai nguồn vẫn to_verify. Đã lưu 11 snapshot riêng tư trên R2; PDF VGR tải ngược có hash khớp. Không tự duyệt nguồn, không công bố listing hoặc quan hệ mới. Toàn bộ 41 tests và lint đạt, gồm kiểm tra replay không tạo thêm audit, không sửa PHP đã xác minh, bảo toàn ngày giao dịch/capture time và chặn admin xuất bản khi nguồn chưa được duyệt. Vẫn chưa nghiệm thu dữ liệu Slice 1 đầy đủ.
 
+### Bổ sung registry HOSE
+
+Đã nhập thêm GMD, DVP, PDN, QNP từ hồ sơ doanh nghiệp chính thức được đọc trực tiếp. Query trên Supabase cloud xác nhận tổng 15 listing pending: HNX 3, HOSE 4, UPCOM 8; nguồn vẫn to_verify. Ba raw object mới đã upload thành công vào bucket riêng tư; bốn PDF báo cáo thường niên dùng lại bản lưu trước. Bảy source records mới giữ published_at NULL và không đổi thời điểm tải cũ. Biên nhận riêng tại `docs/catalog-review/issuer-registry-import-receipt.json`.
+
+Toàn bộ 42 tests, lint và typecheck đạt. Các tests bổ sung kiểm tra ngày giao dịch, tên Gemadept theo điều lệ 2026, bảo toàn PHP, replay và ẩn dữ liệu chưa duyệt. Chưa duyệt listing hoặc tự cấp phép nguồn; chưa thêm quan hệ tài sản cho bốn mã này. Trình duyệt vẫn từ chối quyền quan sát origin staging khi thử lại sau import. Cần hoàn thiện phạm vi doanh nghiệp/tài sản và duyệt hợp lệ trước khi tuyên bố hoàn thành Slice 1.
+
 ### Chi tiết bộ mẫu ban đầu (lịch sử)
 
 1 cảng vụ Hải Phòng, 1 cảng biển Hải Phòng, 2 bến Chùa Vẽ/Tân Vũ, 10 cầu cảng, Công ty cổ phần Cảng Hải Phòng: 15 entities. Đã duyệt định danh Chùa Vẽ và quan hệ vận hành doanh nghiệp–Tân Vũ qua UI. Hiệu lực quan hệ từ phạm vi quyết định 04/06/2026, không phải ngày bắt đầu khai thác lịch sử. Tỷ lệ sở hữu giữ null. Không dùng danh sách cũ để khẳng định doanh nghiệp trực tiếp vận hành Chùa Vẽ sau thay đổi đơn vị năm 2025.
