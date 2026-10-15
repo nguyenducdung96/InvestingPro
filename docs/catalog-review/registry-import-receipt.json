@@ -1,0 +1,34 @@
+{
+  "checked_at": "2026-10-15T14:38:15.906Z",
+  "environment": "staging",
+  "supabase_project": "loapslojajawgzekozfv",
+  "bucket": "investing-pro-evidence-staging",
+  "upload": {
+    "artifacts": 11,
+    "method": "R2 dashboard file upload; UI confirmed 11/11 successful",
+    "public_access": "disabled",
+    "sha256_readback_status": "pending"
+  },
+  "database": {
+    "method": "SQL Editor; import success and grouped count query read back",
+    "listings": 11,
+    "operator_proposals": 1,
+    "verification_status": "pending",
+    "rights_status": "to_verify"
+  },
+  "raw_storage_keys": [
+    "catalog-evidence/sha256/1d25ba78e5548fbc3f54aa7cd72447c0f795ada313aff46f1601eb5951d62cfc",
+    "catalog-evidence/sha256/cada9378d2945993db5306607758dd32d6650e7d3cda6dc28cf89d59a73b37e0",
+    "catalog-evidence/sha256/21e8856f421fe9b0a3f84ff669702a88606d71e54d4db6482ba56b1e81224247",
+    "catalog-evidence/sha256/ce5f1273d57678dfd3b61330c58390bd590fa7c1867cd60aa4d5a07bcbcd07e3",
+    "catalog-evidence/sha256/aec8694daa0e6b4d64c31be9e5975ed5c404b3d127832e9b9c4a5642f65900c1",
+    "catalog-evidence/sha256/e2314d4d7ab07bba6a207c1a69e19b880cb4e6ec746a731754baa4d33defc2b2",
+    "catalog-evidence/sha256/40179e75066998dfefa6751973d4e7e8795f24cb5d77e2807657d74f4cd30d3a",
+    "catalog-evidence/sha256/a4d1404bd33e52d7c7de89544f7ee90b5261b63bd049c0adf9cd5ffac6b9e0f2",
+    "catalog-evidence/sha256/07c942c970d38ad1f5d3f6b77c0f167f7bcd961c8fe0e0251d4c201f02d41543",
+    "catalog-evidence/sha256/898e4140a3ee540fcd2055e50835f7efbd926792784cb0a146d8609af23c302b",
+    "catalog-evidence/sha256/f7cd37d3e412e65b1322826761d616a775c23f1bdb3e92e8218e17b3e60a62fd"
+  ],
+  "publication_status": "not_published",
+  "note": "Import receipt does not approve source rights, replace admin review or prove complete market coverage."
+}

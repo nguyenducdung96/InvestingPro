@@ -572,7 +572,7 @@
       "published_at": null,
       "page_count": 74,
       "raw_storage_key": "catalog-evidence/sha256/6ff3e575ed2beaf8c1789673ccdbf9e2838f50ff2faacb506a6e50d202fed0c6",
-      "r2_verified": false,
+      "r2_verified": true,
       "rights_status": "to_verify",
       "fact_review_status": "pending",
       "parser_version": "manual-catalog-review-v1",
@@ -580,7 +580,15 @@
       "artifact_label": "vgr-2025.pdf",
       "storage_upload_status": "uploaded_and_listed",
       "storage_checked_at": "2026-10-15T02:13:27.807Z",
-      "sha256_readback_status": "pending"
+      "sha256_readback_status": "matched",
+      "sha256_readback_checked_at": "2026-10-15T14:38:45.964375+00:00",
+      "visual_review": {
+        "pages": [
+          1,
+          2
+        ],
+        "scope": "Legal identity and explicitly stated first operating date; source rights and complete 2026 portfolio remain pending."
+      }
     },
     {
       "ticker": "VSC",

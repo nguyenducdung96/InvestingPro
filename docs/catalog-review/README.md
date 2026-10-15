@@ -18,7 +18,18 @@ Phạm vi chính đã chốt thêm: cảng thương mại và doanh nghiệp s�
 
 Raw files và ảnh review ở `.local/catalog-research/`, không commit vào Git. Script `scripts/index-catalog-evidence.py` lập chỉ mục và tên object theo hash, không upload hay cấp phép nguồn. `scripts/read-catalog-pdf.py` hỗ trợ đọc/render/OCR ngoại tuyến, không nhập dữ liệu vào database.
 
-Đã upload đủ 30 PDF vào `investing-pro-evidence-staging/catalog-evidence/sha256/` và đối chiếu thấy đủ 30 key mới trên hai trang danh sách object. Bucket giữ riêng tư. `evidence-artifacts.json` lưu metadata của đợt này; chưa tải ngược toàn bộ 30 file để đối chiếu SHA-256, nên `r2_verified` vẫn false và `sha256_readback_status` vẫn pending. Trạng thái lưu trữ không thay thế duyệt quyền sử dụng hoặc duyệt quan hệ doanh nghiệp–tài sản.
+Đã upload đủ 30 PDF vào `investing-pro-evidence-staging/catalog-evidence/sha256/` và đối chiếu thấy đủ 30 key mới trên hai trang danh sách object. Bucket giữ riêng tư. `evidence-artifacts.json` lưu metadata từng file: bản VGR đã tải ngược và SHA-256 khớp; 29 bản còn lại chưa đối chiếu tải ngược. Trạng thái lưu trữ không thay thế duyệt quyền sử dụng hoặc duyệt quan hệ doanh nghiệp–tài sản.
+
+## Đợt nhập proposals registry và VGR
+
+Đã chuyển 11 quan sát HNX/UPCoM thành proposals thật trong Supabase staging: CDN, DXP, NAP, PHP, VGR, CQN, PSP, PAP, SGP, QSP, MVN. Mười pháp nhân được thêm ở quality incomplete; PHP tái sử dụng ID thật đã tồn tại. Không sửa entity PHP đã xác minh. Đã lưu riêng 11 snapshot DOM vào R2 theo SHA-256; các snapshot không được hiển thị công khai hoặc dùng để nhập dữ liệu giá.
+
+- `registry-proposals-manifest.json`: nguồn, tên pháp nhân, ngày giao dịch đầu tiên, thời điểm quan sát thật, hash/key và ID từng proposal.
+- `registry-import-receipt.json`: biên nhận 11 upload thành công và kết quả SQL cloud: 11 listing pending, 1 operator proposal pending, hai nguồn to_verify.
+- `supabase/imports/hnx_registry.proposals.sql`: import có thể chạy lại; không tự duyệt nguồn, entity hay listing. `scripts/compile-registry-proposals.py` biên dịch ngoại tuyến và kiểm tra quan sát khớp raw snapshot.
+- `supabase/imports/vgr_operator.proposal.sql`: đề xuất VGR khai thác đúng bến Container Vip Greenport theo trang PDF 1–2 báo cáo năm 2025, mốc lịch sử 27/11/2015 được nêu rõ. Không gộp với bến Greenport; ownership_pct giữ NULL. Bổ sung mã doanh nghiệp/website vào hồ sơ chưa duyệt bằng đúng bằng chứng báo cáo.
+
+Hồ sơ nguồn HNX có ghi yêu cầu liên hệ khi phát hành thông tin website; chưa xác minh quyền phát hành cho dự án. Nguồn báo cáo VGR cũng giữ to_verify. Vì vậy các bản ghi mới chưa được duyệt và chưa xuất hiện trong registry công khai. Không thay đổi quyền nguồn chỉ để làm danh sách có dữ liệu. Cần chốt phạm vi sử dụng hoặc tài liệu gốc thay thế phù hợp, kiểm tra biến động sau kỳ báo cáo và duyệt bằng phiên admin. Đây chưa phải nghiệm thu đầy đủ 15 mã hay toàn thị trường; GMD, DVP, PDN, QNP vẫn chưa có listing proposal trong đợt này.
 
 ## Quy trình duyệt mỗi hồ sơ
 

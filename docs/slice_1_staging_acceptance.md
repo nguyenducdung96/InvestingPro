@@ -30,7 +30,11 @@ Trang `/industries/ports` trước đây chỉ liệt kê cảng vụ, khiến c
 
 Kiểm tra local đạt: lint, typecheck, Next production build và 14 kiểm tra desktop/mobile, gồm hồi quy cảng không có cảng vụ, chuyển loại và phân trang. Ảnh kiểm tra local dùng fixture, không phải bằng chứng dữ liệu cloud. Quyền quan sát origin staging trong công cụ trình duyệt đang bị thiết lập đã lưu chặn; chưa xác nhận trực quan bản giao diện mới trên cloud.
 
-### Chi tiết bộ mẫu ban đầu
+### Đợt registry chờ duyệt
+
+Đã chạy import registry trên cloud: 11 listing HNX/UPCoM pending và một đề xuất VGR khai thác VIP Greenport pending. Biên nhận tại `docs/catalog-review/registry-import-receipt.json`; query count sau import trả đúng 11 và 1, rights_status của hai nguồn vẫn to_verify. Đã lưu 11 snapshot riêng tư trên R2; PDF VGR tải ngược có hash khớp. Không tự duyệt nguồn, không công bố listing hoặc quan hệ mới. Toàn bộ 41 tests và lint đạt, gồm kiểm tra replay không tạo thêm audit, không sửa PHP đã xác minh, bảo toàn ngày giao dịch/capture time và chặn admin xuất bản khi nguồn chưa được duyệt. Vẫn chưa nghiệm thu dữ liệu Slice 1 đầy đủ.
+
+### Chi tiết bộ mẫu ban đầu (lịch sử)
 
 1 cảng vụ Hải Phòng, 1 cảng biển Hải Phòng, 2 bến Chùa Vẽ/Tân Vũ, 10 cầu cảng, Công ty cổ phần Cảng Hải Phòng: 15 entities. Đã duyệt định danh Chùa Vẽ và quan hệ vận hành doanh nghiệp–Tân Vũ qua UI. Hiệu lực quan hệ từ phạm vi quyết định 04/06/2026, không phải ngày bắt đầu khai thác lịch sử. Tỷ lệ sở hữu giữ null. Không dùng danh sách cũ để khẳng định doanh nghiệp trực tiếp vận hành Chùa Vẽ sau thay đổi đơn vị năm 2025.
 
