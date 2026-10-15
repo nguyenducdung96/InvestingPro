@@ -24,7 +24,13 @@ Nguồn `synthetic_dev` đã được chuyển sang blocked bằng import có đ
 
 Chưa có listing thật hoặc quan hệ doanh nghiệp mới nào được xác minh trong đợt mở rộng này. Vì vậy **chưa hoàn thành nghiệm thu dữ liệu Slice 1**. Phạm vi chính đã chốt: cảng thương mại và doanh nghiệp sở hữu cảng/ICD, gồm biển và sông; ICD riêng; bến chuyên dùng của nhà máy thuộc nhóm bổ sung riêng. Còn phải chốt universe, hoàn thiện chuỗi pháp nhân/tài sản và nguồn/thời gian, nhập proposals rồi duyệt và đối chiếu độ phủ từng mã.
 
-### Mốc bộ mẫu ban đầu
+### Sửa đường truy cập danh mục
+
+Trang `/industries/ports` trước đây chỉ liệt kê cảng vụ, khiến các nhóm cảng chưa có `authority_id` không được tìm thấy từ trang chính. Đã đổi mặc định sang danh sách cảng và bổ sung điều hướng Cảng / Bến cảng / Cầu cảng / ICD và cảng cạn / Cảng vụ. Mỗi danh sách dùng repository và RLS hiện có, không gán cảng vụ bằng suy đoán hoặc hardcode dữ liệu doanh nghiệp. Phân trang giữ loại danh mục, giới hạn và ngày truy vấn. Trang chính nêu riêng độ thiếu dữ liệu doanh nghiệp để không đồng nhất catalog hạ tầng với hồ sơ niêm yết đầy đủ.
+
+Kiểm tra local đạt: lint, typecheck, Next production build và 14 kiểm tra desktop/mobile, gồm hồi quy cảng không có cảng vụ, chuyển loại và phân trang. Ảnh kiểm tra local dùng fixture, không phải bằng chứng dữ liệu cloud. Quyền quan sát origin staging trong công cụ trình duyệt đang bị thiết lập đã lưu chặn; chưa xác nhận trực quan bản giao diện mới trên cloud.
+
+### Chi tiết bộ mẫu ban đầu
 
 1 cảng vụ Hải Phòng, 1 cảng biển Hải Phòng, 2 bến Chùa Vẽ/Tân Vũ, 10 cầu cảng, Công ty cổ phần Cảng Hải Phòng: 15 entities. Đã duyệt định danh Chùa Vẽ và quan hệ vận hành doanh nghiệp–Tân Vũ qua UI. Hiệu lực quan hệ từ phạm vi quyết định 04/06/2026, không phải ngày bắt đầu khai thác lịch sử. Tỷ lệ sở hữu giữ null. Không dùng danh sách cũ để khẳng định doanh nghiệp trực tiếp vận hành Chùa Vẽ sau thay đổi đơn vị năm 2025.
 

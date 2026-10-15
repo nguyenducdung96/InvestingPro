@@ -50,6 +50,7 @@ test("catalog hierarchy and company assets carry evidence and validity", async (
   page,
 }) => {
   await page.goto("/industries/ports");
+  await page.getByRole("link", { name: "Cảng vụ", exact: true }).click();
   await page.getByRole("link", { name: "Fixture Authority" }).click();
   await page.getByRole("link", { name: "Fixture Port" }).click();
   await page.getByRole("link", { name: "Fixture Terminal" }).click();
@@ -66,6 +67,19 @@ test("catalog hierarchy and company assets carry evidence and validity", async (
   await expect(icdSection.getByRole("link", { name: "Fixture ICD" })).toBeVisible();
   await icdSection.getByRole("link", { name: "Fixture ICD" }).click();
   await expect(page.getByRole("heading", { name: "Fixture ICD", exact: true })).toBeVisible();
+});
+
+test("catalog exposes ports without authorities and preserves the selected category across pagination", async ({ page }) => {
+  await page.goto("/industries/ports?limit=1");
+  await expect(page.getByRole("link", { name: "Cảng", exact: true })).toHaveAttribute("aria-current", "page");
+  await page.getByRole("link", { name: "Trang tiếp theo", exact: true }).click();
+  await expect(page).toHaveURL(/view=ports/);
+  await expect(page.getByRole("link", { name: "Fixture Port Without Authority", exact: true })).toBeVisible();
+  await page.getByRole("link", { name: "Bến cảng", exact: true }).click();
+  await expect(page.getByRole("link", { name: "Fixture Terminal", exact: true })).toBeVisible();
+  await page.getByRole("link", { name: "ICD và cảng cạn", exact: true }).click();
+  await expect(page.getByRole("link", { name: "Fixture ICD", exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Fixture Terminal", exact: true })).toHaveCount(0);
 });
 test("admin session sees evidence and can make a review decision", async ({
   page,

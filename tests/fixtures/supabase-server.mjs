@@ -42,6 +42,7 @@ const entities = [
   created_at: stamp,
   updated_at: stamp,
 }));
+entities.push({ ...entities[1], id: id(20), slug: "unassigned-port", name: "Fixture Port Without Authority" });
 const interest = {
   id: id(10),
   company_id: id(7),
@@ -82,6 +83,7 @@ const rows = {
     { id: id(3), kind: "port_authority", region: "Test region" },
   ],
   ports: [
+    { id: id(20), kind: "port", authority_id: null, latitude: null, longitude: null },
     {
       id: id(4),
       kind: "port",
