@@ -56,6 +56,7 @@ const hrefs = {
   port: "/ports/",
   terminal: "/terminals/",
   berth: "/berths/",
+  icd: "/icds/",
   company: "/companies/id/",
 };
 export function CatalogList({
@@ -103,10 +104,10 @@ export function CatalogList({
     </>
   );
 }
-export function AssetList({ result }: { result: Envelope<InterestItem[]> }) {
+export function AssetList({ result, showMetadata = true }: { result: Envelope<InterestItem[]>; showMetadata?: boolean }) {
   return (
     <>
-      <Metadata meta={result.meta} />
+      {showMetadata && <Metadata meta={result.meta} />}
       {result.data.length ? (
         result.data.map(({ interest, asset, lineage }) => (
           <article className="panel" key={interest.id}>

@@ -24,7 +24,7 @@ export function pageQuery(params: URLSearchParams): PageQuery {
   };
 }
 export function mappingType(value: unknown): ReviewItem["type"] {
-  if (value !== "company_asset_interests" && value !== "entity_mappings")
+  if (value !== "company_asset_interests" && value !== "entity_mappings" && value !== "company_listings")
     throw new InputError("Invalid mapping type");
   return value;
 }
@@ -32,6 +32,7 @@ export function validateProposal(
   type: ReviewItem["type"],
   value: unknown,
 ): Proposal {
+  if (type === "company_listings") throw new InputError("Listing proposals are created by the reviewed catalog import");
   if (!value || typeof value !== "object" || Array.isArray(value))
     throw new InputError("Expected mapping object");
   const v = value as Record<string, unknown>;
@@ -105,7 +106,7 @@ export function validateProposal(
     throw new InputError("Confidence must be 0–1");
   if (type === "company_asset_interests") {
     if (
-      !["port", "terminal", "berth"].includes(String(v.asset_kind)) ||
+      !["port", "terminal", "berth", "icd"].includes(String(v.asset_kind)) ||
       ![
         "ownership",
         "operator",

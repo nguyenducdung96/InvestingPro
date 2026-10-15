@@ -1,8 +1,8 @@
 export type Quality = "verified" | "preliminary" | "estimated" | "incomplete";
 export type Verification = "pending" | "verified" | "rejected";
 export type EntityKind =
-  "port_authority" | "port" | "terminal" | "berth" | "company";
-export type AssetKind = Extract<EntityKind, "port" | "terminal" | "berth">;
+  "port_authority" | "port" | "terminal" | "berth" | "company" | "icd";
+export type AssetKind = Extract<EntityKind, "port" | "terminal" | "berth" | "icd">;
 export type InterestType =
   | "ownership"
   | "operator"
@@ -64,7 +64,8 @@ export interface Authority {
 export interface Port {
   id: string;
   kind: "port";
-  authority_id: string;
+  authority_id: string | null;
+  port_category?: "marine" | "river" | "unknown";
   latitude: number | null;
   longitude: number | null;
 }
@@ -78,6 +79,11 @@ export interface Berth {
   id: string;
   kind: "berth";
   terminal_id: string;
+}
+export interface InlandDepot {
+  id: string;
+  kind: "icd";
+  address: string | null;
 }
 export interface Company {
   id: string;
@@ -98,6 +104,8 @@ export interface Listing {
   verification_status: Verification;
   verified_by: string | null;
   verified_at: string | null;
+  evidence_excerpt?: string | null;
+  review_note?: string | null;
 }
 export interface MappingAudit {
   id: string;
@@ -177,7 +185,7 @@ export interface Envelope<T> {
 }
 export interface CatalogItem {
   entity: Entity;
-  details: Authority | Port | Terminal | Berth | Company;
+  details: Authority | Port | Terminal | Berth | Company | InlandDepot;
   lineage: Citation;
 }
 export interface InterestItem {
@@ -187,8 +195,8 @@ export interface InterestItem {
   lineage: Citation;
 }
 export interface ReviewItem {
-  type: "company_asset_interests" | "entity_mappings";
-  mapping: AssetInterest | EntityMapping;
+  type: "company_asset_interests" | "entity_mappings" | "company_listings";
+  mapping: AssetInterest | EntityMapping | Listing;
   lineage: Citation;
 }
 export interface PageQuery {
@@ -218,13 +226,13 @@ export interface CatalogRepository {
   propose(
     type: ReviewItem["type"],
     input: Proposal,
-  ): Promise<Envelope<MappingAudit>>;
+  ): Promise<Envelope<MappingAudit | Listing>>;
   review(
     type: ReviewItem["type"],
     id: string,
     decision: "verified" | "rejected",
     note: string,
-  ): Promise<Envelope<MappingAudit>>;
+  ): Promise<Envelope<MappingAudit | Listing>>;
 }
 export type Proposal = Pick<
   MappingAudit,

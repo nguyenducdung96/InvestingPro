@@ -59,6 +59,11 @@ describe("temporal mappings and validation", () => {
       }),
     ).toThrow();
   });
+  it("accepts an ICD as a distinct asset without inventing ownership", () => {
+    const result = validateProposal("company_asset_interests", { ...proposal, asset_kind: "icd", interest_type: "indirect", ownership_pct: null });
+    expect(result.asset_kind).toBe("icd");
+    expect(result.ownership_pct).toBeNull();
+  });
   it("bounds ownership, pagination and identifiers", () => {
     for (const ownership_pct of [-1, 101, NaN])
       expect(() =>

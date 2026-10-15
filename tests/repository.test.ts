@@ -51,3 +51,11 @@ it("uses schema profiles, the user token and no-store for database access", asyn
     fetchMock.mockRestore();
   }
 });
+it("sends listing decisions to the catalog schema with the admin token and note", async () => {
+  const fetchMock = vi.spyOn(globalThis, "fetch").mockResolvedValue(Response.json([]));
+  try {
+    await supabaseTransport("https://database.example", "anon", "admin-token").write("company_listings", new URLSearchParams({ id: "eq.listing-id", verification_status: "eq.pending" }), { verification_status: "verified", review_note: "Checked filing" }, "PATCH");
+    expect(fetchMock.mock.calls[0][1]?.headers).toMatchObject({ "Content-Profile": "catalog", Authorization: "Bearer admin-token" });
+    expect(JSON.parse(String(fetchMock.mock.calls[0][1]?.body))).toMatchObject({ review_note: "Checked filing" });
+  } finally { fetchMock.mockRestore(); }
+});

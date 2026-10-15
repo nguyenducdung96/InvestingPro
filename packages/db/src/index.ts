@@ -12,6 +12,7 @@ import type {
   PageQuery,
   Proposal,
   ReviewItem,
+  Listing,
 } from "@invest/domain";
 import type { Tables } from "./database.types";
 export type { Database } from "./database.types";
@@ -35,7 +36,7 @@ export interface Transport {
     params: URLSearchParams,
     body: object,
     method: "POST" | "PATCH",
-  ): Promise<MappingAudit[]>;
+  ): Promise<(MappingAudit | Listing)[]>;
 }
 export function supabaseTransport(
   url: string,
@@ -77,7 +78,7 @@ export function supabaseTransport(
   return {
     read: (s, t, p) => request(s, String(t), p),
     activeInterests: (p) => request("port", "current_asset_interests", p),
-    write: (t, p, b, m) => request("port", t, p, m, b),
+    write: (t, p, b, m) => request(t === "company_listings" ? "catalog" : "port", t, p, m, b),
   };
 }
 const detailsTables = {
@@ -85,6 +86,7 @@ const detailsTables = {
   port: "ports",
   terminal: "terminals",
   berth: "berths",
+  icd: "icds",
   company: "companies",
 } as const;
 const params = (values: Record<string, string>) => new URLSearchParams(values);
@@ -222,7 +224,7 @@ export class SupabaseCatalogRepository implements CatalogRepository {
           : kind === "terminal"
             ? "port_id"
             : "terminal_id";
-      if (kind === "company" || kind === "port_authority")
+      if (kind === "company" || kind === "port_authority" || kind === "icd")
         throw new DatabaseError(400);
       // Filter and paginate in PostgreSQL, not by scanning the entire catalog.
       const dp = params({
@@ -351,7 +353,9 @@ export class SupabaseCatalogRepository implements CatalogRepository {
       limit: String(q.limit + 1),
     });
     if (q.cursor) p.set("id", `gt.${q.cursor}`);
-    const rows = await this.db.read("port", type, p);
+    const rows = type === "company_listings"
+      ? await this.db.read("catalog", "company_listings", p)
+      : await this.db.read("port", type, p);
     const page = rows.slice(0, q.limit);
     const cites = await this.citations(page.map((r) => r.source_record_id));
     const data = page.map((mapping) => {
@@ -368,6 +372,7 @@ export class SupabaseCatalogRepository implements CatalogRepository {
   }
   async propose(type: ReviewItem["type"], input: Proposal) {
     if (!this.admin) throw new DatabaseError(403);
+    if (type === "company_listings") throw new DatabaseError(400, "trusted_listing_import_required");
     const [row] = await this.db.write(
       type,
       params({}),

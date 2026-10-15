@@ -8,6 +8,7 @@ export function ReviewActions({ item }: { item: ReviewItem }) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
   const router = useRouter();
+  const fuzzy = "resolution_method" in item.mapping && item.mapping.resolution_method === "fuzzy_name";
   async function decide(decision: "verified" | "rejected") {
     if (!note.trim()) {
       setError("Vui lòng ghi lý do trước khi duyệt.");
@@ -46,7 +47,7 @@ export function ReviewActions({ item }: { item: ReviewItem }) {
       />
       <div className="actions">
         <button
-          disabled={busy || item.mapping.resolution_method === "fuzzy_name"}
+          disabled={busy || fuzzy}
           onClick={() => decide("verified")}
         >
           {busy ? "Đang lưu…" : "Xác minh quan hệ"}
@@ -55,7 +56,7 @@ export function ReviewActions({ item }: { item: ReviewItem }) {
           Từ chối
         </button>
       </div>
-      {item.mapping.resolution_method === "fuzzy_name" && (
+      {fuzzy && (
         <p>
           Đề xuất dựa trên tên gần giống cần được thay bằng đề xuất có bằng chứng
           tài liệu trước khi xác minh.

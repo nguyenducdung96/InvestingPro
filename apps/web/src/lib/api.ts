@@ -89,6 +89,7 @@ export async function handleCatalog(
       ports: "port",
       terminals: "terminal",
       berths: "berth",
+      icds: "icd",
     };
     const kind = kinds[path[0]];
     if (kind && path.length === 1) return json(await repo.list(kind, q));

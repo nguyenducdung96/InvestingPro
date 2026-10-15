@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { publicRepository } from "@/lib/server";
-import { AssetList, SourceBadge, Unavailable } from "./catalog";
+import { AssetList, Metadata, SourceBadge, Unavailable } from "./catalog";
 import { UUID, pageQuery } from "@invest/port";
 export async function CompanyPage({
   keyValue,
@@ -37,8 +38,15 @@ export async function CompanyPage({
       <p className="eyebrow">QUAN HỆ DOANH NGHIỆP ĐÃ XÁC MINH</p>
       <h1>{company.entity.name}</h1>
       <SourceBadge citation={company.lineage} />
-      <h2>Tài sản cảng biển</h2>
-      <AssetList result={assets} />
+      <Metadata meta={assets.meta} />
+      <p className="notice">Các quan hệ bên dưới đã được xác minh từng bản ghi. Danh sách này chưa được chứng nhận là toàn bộ tài sản của doanh nghiệp.</p>
+      <h2>Cảng biển và cảng sông</h2>
+      <AssetList showMetadata={false} result={{ ...assets, data: assets.data.filter(x => x.asset.kind !== "icd"), meta: { ...assets.meta, nextCursor: null } }} />
+      {assets.data.some(x => x.asset.kind === "icd") && <section aria-label="ICD và cảng cạn">
+        <h2>ICD / cảng cạn</h2>
+        <AssetList showMetadata={false} result={{ ...assets, data: assets.data.filter(x => x.asset.kind === "icd"), meta: { ...assets.meta, nextCursor: null } }} />
+      </section>}
+      {assets.meta.nextCursor && <Link href={`?${new URLSearchParams({ ...query, cursor: assets.meta.nextCursor })}`}>Trang tiếp theo</Link>}
     </>
   );
 }

@@ -202,4 +202,36 @@ describe.sequential("actual PostgreSQL migrations, constraints and RLS", () => {
     await db.exec("rollback; select set_config('app.environment','test',false)");
     await db.exec(seed);
   });
+  it("keeps inland depots distinct, protects their writes and gates them on approved evidence", async () => {
+    await role("authenticated", true);
+    await db.exec(`insert into catalog.entities(id,kind,slug,name,source_record_id,quality_status) values('${id(80)}','icd','test-icd','Test ICD','${id(2)}','verified'); insert into port.icds(id) values('${id(80)}');`);
+    await role("anon");
+    expect((await db.query("select * from port.icds")).rows).toHaveLength(1);
+    await role("authenticated");
+    expect((await db.query("update port.icds set address='Forged' returning id")).rows).toHaveLength(0);
+    await role("authenticated", true);
+    await db.exec(`update core.sources set rights_status='blocked' where id='${id(1)}'`);
+    await role("anon");
+    expect((await db.query("select * from port.icds")).rows).toHaveLength(0);
+    await role("authenticated", true);
+    await db.exec(`update core.sources set rights_status='approved' where id='${id(1)}'`);
+  });
+  it("preserves unknown authority instead of inventing one from the port category", async () => {
+    await role("authenticated", true);
+    await db.exec(`insert into catalog.entities(id,kind,slug,name,source_record_id,quality_status) values('${id(81)}','port','test-river-port','Test River Port','${id(2)}','verified'); insert into port.ports(id,port_category) values('${id(81)}','river')`);
+    await db.exec(`update port.ports set port_category='marine' where id='${id(81)}'`);
+    expect((await db.query<{authority_id: string | null}>(`select authority_id from port.ports where id='${id(81)}'`)).rows[0].authority_id).toBeNull();
+    await expect(db.exec(`update port.ports set authority_id='${id(82)}' where id='${id(81)}'`)).rejects.toThrow();
+  });
+  it("requires an admin and an explicit note to publish a queued listing", async () => {
+    await role("authenticated", true);
+    await db.exec(`insert into catalog.company_listings(id,company_id,ticker,exchange,valid_from,source_record_id,evidence_excerpt) values('${id(83)}','${id(7)}','REVIEW','HNX','2026-01-01','${id(2)}','Test issuer filing')`);
+    await role("authenticated");
+    expect((await db.query(`update catalog.company_listings set verification_status='verified',review_note='Forged' where id='${id(83)}' returning id`)).rows).toHaveLength(0);
+    await role("authenticated", true);
+    await expect(db.exec(`update catalog.company_listings set verification_status='verified' where id='${id(83)}'`)).rejects.toThrow("review note");
+    await db.exec(`update catalog.company_listings set verification_status='verified',review_note='Checked issuer, exchange and effective period' where id='${id(83)}'`);
+    expect((await db.query<{verified_by:string}>(`select verified_by from catalog.company_listings where id='${id(83)}'`)).rows[0].verified_by).toBe(id(99));
+    await expect(db.exec(`update catalog.company_listings set ticker='FORGED' where id='${id(83)}'`)).rejects.toThrow("immutable");
+  });
 });

@@ -45,7 +45,7 @@ export async function DetailPage({
             .map(([k, v]) => (
               <div key={k}>
                 <dt>{label(k)}</dt>
-                <dd>{v === null ? "Chưa công bố" : String(v)}</dd>
+                <dd>{v === null ? "Chưa công bố" : k === "port_category" ? label(String(v)) : String(v)}</dd>
               </div>
             ))}
         </dl>

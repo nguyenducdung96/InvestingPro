@@ -38,23 +38,24 @@ export default async function Page({
       <nav aria-label="Loại đề xuất">
         <Link href="?type=company_asset_interests">Quan hệ doanh nghiệp</Link>
         <Link href="?type=entity_mappings">Định danh thực thể</Link>
+        <Link href="?type=company_listings">Mã chứng khoán và sàn</Link>
       </nav>
       <Metadata meta={result.meta} />
       {result.data.map((item) => (
         <article className="panel" key={item.mapping.id}>
             <span className="badge">{label(item.mapping.verification_status)}</span>
           <h2>
-            {"external_name" in item.mapping
+            {"ticker" in item.mapping ? `${item.mapping.exchange}: ${item.mapping.ticker}` : "external_name" in item.mapping
               ? item.mapping.external_name
               : `${label(item.mapping.interest_type)}: ${item.mapping.asset_id}`}
           </h2>
           <p>
             Hiệu lực {displayDate(item.mapping.valid_from)} →{" "}
             {displayDate(item.mapping.valid_to, "Chưa có ngày kết thúc")} · Phương thức:{" "}
-            {label(item.mapping.resolution_method)} · Độ tin cậy:{" "}
-            {item.mapping.confidence}
+            {"resolution_method" in item.mapping ? label(item.mapping.resolution_method) : "Hồ sơ công bố thông tin"} · Độ tin cậy:{" "}
+            {"confidence" in item.mapping ? item.mapping.confidence : "Theo bằng chứng nguồn"}
           </p>
-          <p>{item.mapping.evidence_excerpt}</p>
+          <p>{item.mapping.evidence_excerpt ?? "Đối chiếu tên pháp lý, mã chứng khoán, sàn và thời gian giao dịch trong nguồn."}</p>
           <SourceBadge citation={item.lineage} />
           <ReviewActions item={item} />
         </article>

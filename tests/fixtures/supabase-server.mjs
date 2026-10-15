@@ -31,6 +31,7 @@ const entities = [
   ["terminal", "terminal", "Fixture Terminal"],
   ["berth", "berth", "Fixture Berth"],
   ["company", "company", "Fixture Company"],
+  ["icd", "icd", "Fixture ICD"],
 ].map(([kind, slug, name], i) => ({
   id: id(i + 3),
   kind,
@@ -93,6 +94,7 @@ const rows = {
     { id: id(5), kind: "terminal", port_id: id(4), terminal_type: null },
   ],
   berths: [{ id: id(6), kind: "berth", terminal_id: id(5) }],
+  icds: [{ id: id(8), kind: "icd", address: null }],
   companies: [
     {
       id: id(7),
@@ -116,7 +118,7 @@ const rows = {
     },
   ],
   company_asset_interests: [interest],
-  current_asset_interests: [interest],
+  current_asset_interests: [interest, { ...interest, id: id(12), asset_id: id(8), asset_kind: "icd", interest_type: "indirect", ownership_pct: 25, valid_from: "2025-01-01", evidence_excerpt: "Synthetic ICD evidence" }],
   entity_mappings: [mapping],
 };
 createServer(async (req, res) => {

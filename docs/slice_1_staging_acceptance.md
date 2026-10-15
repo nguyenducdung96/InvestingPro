@@ -1,6 +1,10 @@
 # Nghiệm thu Slice 1 trên staging
 
-Ngày 15/10/2026 (Asia/Ho_Chi_Minh). Kết quả: đạt chức năng Slice 1 và bộ catalog thật nhỏ. Không triển khai Slice 2–5.
+Ngày 15/10/2026 (Asia/Ho_Chi_Minh). Kết quả: đạt chức năng Slice 1 và bộ catalog thật nhỏ. **Chưa nghiệm thu độ đầy đủ dữ liệu Slice 1 trên toàn thị trường.** Không triển khai Slice 2–5.
+
+## Phạm vi dữ liệu cần hoàn thiện
+
+Theo yêu cầu bổ sung của người dùng ngày 15/10/2026, Slice 1 chỉ được coi là hoàn thành dữ liệu sau khi rà soát doanh nghiệp cảng trên HOSE, HNX và UPCoM, đối chiếu các tài sản cảng biển/cảng sông trực tiếp và gián tiếp, và công khai các khoảng trống bằng chứng. ICD phải hiển thị riêng. Một quan hệ đã xác minh không chứng minh hồ sơ doanh nghiệp đầy đủ. Bộ dữ liệu nhỏ và tests dưới đây chỉ là nghiệm thu chức năng, không phải nghiệm thu độ phủ.
 
 ## Môi trường
 

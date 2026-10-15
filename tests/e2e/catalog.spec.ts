@@ -61,6 +61,11 @@ test("catalog hierarchy and company assets carry evidence and validity", async (
   await expect(page.getByText("01/01/2026", { exact: true })).toBeVisible();
   await expect(page.getByText("Chưa công bố", { exact: true })).toBeVisible();
   await expect(page.getByText("Synthetic fixture evidence p.10")).toBeVisible();
+  await expect(page.getByText("Danh sách này chưa được chứng nhận là toàn bộ tài sản", { exact: false })).toBeVisible();
+  const icdSection = page.getByRole("region", { name: "ICD và cảng cạn" });
+  await expect(icdSection.getByRole("link", { name: "Fixture ICD" })).toBeVisible();
+  await icdSection.getByRole("link", { name: "Fixture ICD" }).click();
+  await expect(page.getByRole("heading", { name: "Fixture ICD", exact: true })).toBeVisible();
 });
 test("admin session sees evidence and can make a review decision", async ({
   page,

@@ -8,6 +8,7 @@ import type {
   Port,
   Terminal,
   Berth,
+  InlandDepot,
   Company,
   Listing,
   AssetInterest,
@@ -26,6 +27,7 @@ export interface Tables {
     ports: Port;
     terminals: Terminal;
     berths: Berth;
+    icds: InlandDepot;
     company_asset_interests: AssetInterest;
     entity_mappings: EntityMapping;
   };
@@ -69,6 +71,7 @@ interface Inserts {
     ports: RequiredFields<Port, "id" | "authority_id">;
     terminals: RequiredFields<Terminal, "id" | "port_id">;
     berths: RequiredFields<Berth, "id" | "terminal_id">;
+    icds: RequiredFields<InlandDepot, "id">;
     company_asset_interests: RequiredFields<
       AssetInterest,
       | "company_id"
