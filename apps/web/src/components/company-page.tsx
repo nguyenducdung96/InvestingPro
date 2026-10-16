@@ -3,6 +3,7 @@ import Link from "next/link";
 import { publicRepository } from "@/lib/server";
 import { AssetList, Metadata, SourceBadge, Unavailable } from "./catalog";
 import { UUID, pageQuery } from "@invest/port";
+import { ReportedAssets } from "./reported-assets";
 export async function CompanyPage({
   keyValue,
   query,
@@ -12,6 +13,7 @@ export async function CompanyPage({
 }) {
   let company;
   let assets;
+  let reported;
   try {
     const repo = publicRepository();
     const q = pageQuery(new URLSearchParams(query));
@@ -28,7 +30,10 @@ export async function CompanyPage({
         );
       company = result.data[0];
     }
-    if (company) assets = await repo.companyAssets(company.entity.id, q);
+    if (company) {
+      assets = await repo.companyAssets(company.entity.id, q);
+      reported = await repo.reportedAssets(company.entity.id,{...q,cursor:undefined,limit:100});
+    }
   } catch {
     return <Unavailable />;
   }
@@ -47,6 +52,7 @@ export async function CompanyPage({
         <AssetList showMetadata={false} result={{ ...assets, data: assets.data.filter(x => x.asset.kind === "icd"), meta: { ...assets.meta, nextCursor: null } }} />
       </section>}
       {assets.meta.nextCursor && <Link href={`?${new URLSearchParams({ ...query, cursor: assets.meta.nextCursor })}`}>Trang tiếp theo</Link>}
+      {!!reported?.data.length&&<section aria-label="Quan hệ theo kỳ báo cáo"><h2>Quan hệ doanh nghiệp báo cáo theo kỳ</h2><ReportedAssets items={reported.data}/></section>}
     </>
   );
 }

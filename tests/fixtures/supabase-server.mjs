@@ -124,6 +124,10 @@ const rows = {
   entity_mappings: [mapping],
 };
 const publicationState={sources:false,evidence:false,entities:false};
+const reportedFixture={id:id(61),dossier_id:id(60),company_id:id(7),asset_id:id(5),asset_name:'Fixture report-period terminal',asset_kind:'terminal',reported_role:'operator',via:[],berth_scope:[],reporting_period_end:'2025-12-31',relationship_started_on:null,date_basis:null,source_record_id:id(2),supporting_evidence:[],evidence_pages:[10],evidence_note:'Synthetic report-period facts, not a current ownership certification.',verification_status:'verified',reviewed_by:id(99),reviewed_at:stamp,review_note:'Synthetic reviewed observation',supersedes_observation_id:null};
+rows.catalog_dossiers=[{id:id(60),company_id:id(7),ticker:'TEST',reporting_period_end:'2025-12-31',source_record_id:id(2),reviewed_pages:[10],review_outcome:'reported_assets',review_note:'Synthetic scoped dossier review',gaps:['Historical start remains unknown'],scope_version:'fixture-scope'}];
+rows.reported_asset_observations=[reportedFixture];
+rows.published_asset_observations=[reportedFixture];
 const publicationSource={...source,id:id(40),owner:"Fixture issuing company",base_url:"https://example.gov.vn",rights_notes:"Fixture only: permission must be explicitly reviewed.",rights_status:"to_verify"};
 createServer(async (req, res) => {
   res.setHeader("Content-Type", "application/json");
@@ -167,6 +171,7 @@ createServer(async (req, res) => {
     res.end(JSON.stringify(publicationState[kind]?[]:[item]));return;
   }
   let data = rows[table] ?? [];
+  if(table==='catalog_dossiers'&&!admin) data=[];
   if (["entity_mappings", "company_asset_interests"].includes(table) && !admin)
     data = data.filter((r) => r.verification_status === "verified");
   for (const [column, filter] of url.searchParams) {

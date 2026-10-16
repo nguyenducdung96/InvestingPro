@@ -1247,6 +1247,8 @@ Charts phải có unit, source, as-of, tooltip định nghĩa metric, tùy chọ
 
 **Exit:** Không còn hardcode mapping trong UI; mọi mapping có nguồn và hiệu lực.
 
+**Điều chỉnh được chấp thuận 16/10/2026:** quan hệ theo kỳ báo cáo được lưu riêng với nguồn/trang/kỳ và ngày bắt đầu có thể chưa xác định. Không dùng ngày cuối kỳ thay ngày hiệu lực; không yêu cầu lấp đủ lịch sử để nghiệm thu phạm vi snapshot đã chốt. Quan hệ hiệu lực đã xác minh giữ mô hình cũ. Phạm vi, tiêu chí và giới hạn công bố tại [slice_1_reported_catalog_scope.md](slice_1_reported_catalog_scope.md).
+
 #### Slice 2: Port-call facts and daily table
 
 - One verified public connector with fixture coverage.

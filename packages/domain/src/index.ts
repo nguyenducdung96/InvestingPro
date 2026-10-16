@@ -244,7 +244,30 @@ export interface PageQuery {
   cursor?: string;
   at: string;
 }
+export interface ReportedAssetObservation {
+  id: string; dossier_id: string; company_id: string; asset_id: string | null;
+  asset_name: string; asset_kind: "terminal" | "berth" | "river_port" | "icd" | "port";
+  scope_group: "main" | "supplementary_industrial_base";
+  reported_role: string; via: string[]; berth_scope: string[];
+  reporting_period_end: string; relationship_started_on: string | null;
+  date_basis: string | null; source_record_id: string;
+  supporting_evidence: { source_url: string; content_hash: string; reviewed_pages: number[] }[];
+  evidence_pages: number[]; evidence_note: string;
+  verification_status: Verification; reviewed_by: string | null;
+  reviewed_at: string | null; review_note: string | null; supersedes_observation_id: string | null;
+}
+export interface CatalogDossier {
+  id: string; company_id: string; ticker: string; reporting_period_end: string;
+  source_record_id: string; reviewed_pages: number[];
+  review_outcome: "reported_assets" | "no_assertable_assets";
+  review_note: string; gaps: string[]; scope_version: string;
+}
+export interface ReportedAssetItem { observation: ReportedAssetObservation; lineage: Citation }
+export interface DossierItem { dossier: CatalogDossier; company: Entity; lineage: Citation; observations: ReportedAssetItem[] }
 export interface CatalogRepository {
+  reviewReported(id:string,decision:"verified"|"rejected",note:string):Promise<ReportedAssetObservation>;
+  reportedAssets(companyId: string, query: PageQuery): Promise<Envelope<ReportedAssetItem[]>>;
+  researchCatalog(query: PageQuery, ticker?: string): Promise<Envelope<DossierItem[]>>;
   publicationQueue(kind: PublicationKind, query: PageQuery): Promise<Envelope<PublicationItem[]>>;
   reviewPublication(kind: PublicationKind, id: string, input: PublicationInput): Promise<PublicationDecision>;
   list(

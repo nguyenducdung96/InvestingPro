@@ -48,6 +48,17 @@ export async function handleCatalog(
       if (request.method !== "GET" && !sameOrigin(request))
         throw new HttpError(403, "Cross-origin writes are forbidden");
       const repo = await adminRepo();
+      if(path[1]==="reported-assets"&&path.length===3&&request.method==="PATCH") {
+        if(!UUID.test(path[2])) throw new InputError("Invalid observation identifier");
+        const v=await body(request);
+        if(Object.keys(v).some(k=>!["decision","note"].includes(k))||!["verified","rejected"].includes(String(v.decision))||typeof v.note!=="string"||v.note.trim().length<20||v.note.length>4000) throw new InputError("Valid decision and review note required");
+        return json(await repo.reviewReported(path[2],v.decision as "verified"|"rejected",v.note));
+      }
+      if(path[1]==="catalog" && path.length===2 && request.method==="GET") {
+        const ticker=url.searchParams.get("ticker")??undefined;
+        if(ticker&&!/^[A-Z0-9]{1,12}$/.test(ticker)) throw new InputError("Invalid ticker");
+        return json(await repo.researchCatalog(q,ticker));
+      }
       if (path[1] === "publication" && [3,4].includes(path.length)) {
         const kind = path[2] as PublicationKind;
         if (!["sources","evidence","entities"].includes(kind)) throw new InputError("Invalid publication kind");
@@ -167,6 +178,7 @@ export async function handleCatalog(
       if (path.length === 2) return json(company);
       if (path[2] === "port-assets")
         return json(await repo.companyAssets(id, q));
+      if(path[2]==="reported-assets") return json(await repo.reportedAssets(id,q));
     }
     return json({ error: "Not found" }, 404);
   } catch (error) {

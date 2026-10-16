@@ -1,4 +1,18 @@
 import { test, expect } from "@playwright/test";
+test("report-period observations retain unknown commencement dates and private dossiers require admin",async({page,request})=>{
+  const denied=await request.get('/api/v1/admin/catalog');
+  expect(denied.status()).toBe(401);
+  await page.goto('/companies/TEST');
+  const section=page.getByRole('region',{name:'Quan hệ theo kỳ báo cáo'});
+  await expect(section.getByRole('heading',{name:'Fixture report-period terminal'})).toBeVisible();
+  await expect(section.getByText('Chưa xác định',{exact:false})).toBeVisible();
+  await expect(section.getByText('31/12/2025',{exact:false})).toBeVisible();
+  await page.goto('/admin/catalog?ticker=TEST');
+  await page.getByLabel('Mã truy cập (access token)').fill('fixture-admin');
+  await page.getByRole('button',{name:'Đăng nhập quản trị'}).click();
+  await expect(page.getByRole('region',{name:'Hồ sơ TEST'})).toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth)).toBe(true);
+});
 test("publication review guides an admin through source, evidence and identity with explicit confirmations",async({page,request},testInfo)=>{
   await request.post("http://127.0.0.1:54329/reset");
   await page.goto('/admin/publication?kind=evidence');

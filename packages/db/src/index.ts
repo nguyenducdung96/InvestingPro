@@ -14,6 +14,8 @@ import type {
   ReviewItem,
   Listing,
   PublicationKind, PublicationItem, PublicationInput, PublicationDecision,
+  ReportedAssetItem, DossierItem,
+  ReportedAssetObservation,
 } from "@invest/domain";
 import type { Tables } from "./database.types";
 export type { Database } from "./database.types";
@@ -26,6 +28,7 @@ export class DatabaseError extends Error {
   }
 }
 export interface Transport {
+  reviewReported?(body: object): Promise<ReportedAssetObservation>;
   publicationQueue?(body: object): Promise<PublicationItem[]>;
   reviewPublication?(body: object): Promise<PublicationDecision>;
   read<S extends keyof Tables, T extends keyof Tables[S]>(
@@ -79,6 +82,7 @@ export function supabaseTransport(
     return response.json() as Promise<T[]>;
   }
   return {
+    reviewReported: (b) => request("port", "rpc/review_reported_observation", new URLSearchParams(), "POST", b) as unknown as Promise<ReportedAssetObservation>,
     publicationQueue: (b) => request("core", "rpc/publication_queue", new URLSearchParams(), "POST", b),
     reviewPublication: (b) => request("core", "rpc/review_publication", new URLSearchParams(), "POST", b) as unknown as Promise<PublicationDecision>,
     read: (s, t, p) => request(s, String(t), p),
@@ -363,6 +367,49 @@ export class SupabaseCatalogRepository implements CatalogRepository {
       `verified interests effective ${q.at}`,
       interests.length > q.limit ? page.at(-1)!.id : null,
     );
+  }
+  async reportedAssets(companyId: string, q: PageQuery): Promise<Envelope<ReportedAssetItem[]>> {
+    const p = params({company_id:`eq.${companyId}`, reporting_period_end:`lte.${q.at}`, order:"id.asc", limit:String(q.limit+1)});
+    if(q.cursor) p.set("id",`gt.${q.cursor}`);
+    if(!this.admin) p.set("verification_status","eq.verified");
+    const rows=await this.db.read("port",this.admin?"reported_asset_observations":"published_asset_observations",p);
+    const page=rows.slice(0,q.limit);
+    const cites=await this.citations(page.map(r=>r.source_record_id));
+    const data=page.map(observation=>{
+      const lineage=cites.get(observation.source_record_id);
+      if(!lineage) throw new DatabaseError(502,"missing_lineage");
+      return {observation,lineage};
+    });
+    const result=this.envelope(data,[...cites.values()],"reported relationships; report date is not an ownership commencement date",rows.length>q.limit?page.at(-1)!.id:null);
+    result.meta.warnings.push("Quan hệ theo kỳ báo cáo; không xác nhận tình trạng hiện tại hoặc ngày bắt đầu sở hữu/khai thác.");
+    return result;
+  }
+  async researchCatalog(q: PageQuery, ticker?: string): Promise<Envelope<DossierItem[]>> {
+    if(!this.admin) throw new DatabaseError(403);
+    const p=params({order:"id.asc",limit:String(q.limit+1)});
+    if(q.cursor) p.set("id",`gt.${q.cursor}`);
+    if(ticker) p.set("ticker",`eq.${ticker}`);
+    const rows=await this.db.read("port","catalog_dossiers",p);
+    const page=rows.slice(0,q.limit);
+    const entities=page.length?await this.db.read("catalog","entities",params({id:ids(page.map(r=>r.company_id))})):[];
+    const observations=page.length?await this.db.read("port","reported_asset_observations",params({company_id:ids(page.map(r=>r.company_id)),reporting_period_end:`lte.${q.at}`,order:"id.asc",limit:"1000"})):[];
+    if(observations.length>=1000) throw new DatabaseError(413,"snapshot_page_too_large");
+    const cites=await this.citations([...page.map(r=>r.source_record_id),...observations.map(r=>r.source_record_id)]);
+    const data=page.map(dossier=>{
+      const company=entities.find(e=>e.id===dossier.company_id),lineage=cites.get(dossier.source_record_id);
+      if(!company||!lineage) throw new DatabaseError(502,"missing_lineage");
+      const items=observations.filter(o=>o.dossier_id===dossier.id).map(observation=>{
+        const evidence=cites.get(observation.source_record_id);
+        if(!evidence) throw new DatabaseError(502,"missing_lineage");
+        return {observation,lineage:evidence};
+      });
+      return {dossier,company,lineage,observations:items};
+    });
+    return this.envelope(data,[...cites.values()],"private scoped catalog review; not public publication",rows.length>q.limit?page.at(-1)!.id:null);
+  }
+  async reviewReported(id:string, decision:"verified"|"rejected",note:string) {
+    if(!this.admin||!this.db.reviewReported) throw new DatabaseError(403);
+    return this.db.reviewReported({p_id:id,p_decision:decision,p_note:note});
   }
   async reviewQueue(type: ReviewItem["type"], q: PageQuery) {
     if (!this.admin) throw new DatabaseError(403);

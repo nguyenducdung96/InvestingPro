@@ -20,6 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <Link href="/industries/ports/companies?view=all">Doanh nghiệp</Link>
             <Link href="/admin/mappings">Duyệt quan hệ</Link>
             <Link href="/admin/publication">Duyệt nguồn</Link>
+            <Link href="/admin/catalog">Hồ sơ theo kỳ</Link>
           </nav>
         </header>
         <main id="main">{children}</main>

@@ -13,6 +13,7 @@ import type {
   Listing,
   AssetInterest,
   EntityMapping,
+  CatalogDossier, ReportedAssetObservation,
   AuditEvent,
   PublicationReviewEvent, PublicationItem, PublicationDecision,
 } from "@invest/domain";
@@ -32,6 +33,9 @@ export interface Tables {
     icds: InlandDepot;
     company_asset_interests: AssetInterest;
     entity_mappings: EntityMapping;
+    catalog_dossiers: CatalogDossier;
+    reported_asset_observations: ReportedAssetObservation;
+    published_asset_observations: ReportedAssetObservation;
   };
 }
 type RequiredFields<T, K extends keyof T> = Pick<T, K> & Partial<Omit<T, K>>;

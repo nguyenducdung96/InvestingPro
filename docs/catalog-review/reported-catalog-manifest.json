@@ -1,0 +1,298 @@
+{
+  "scope_version": "listed-port-candidates-41-report-2025-v1",
+  "reporting_period_end": "2025-12-31",
+  "market_universe_complete": false,
+  "publication_status": "pending",
+  "company_count": 41,
+  "observation_count": 63,
+  "sql_sha256": "94d17f867363c54166603e6cb973610f58a70c8870f8b122291378201966ba8e",
+  "items": [
+    {
+      "ticker": "GMD",
+      "company_id": "69e45fe8-140b-5e1a-809c-2c621e2ccb44",
+      "dossier_id": "ac69f6dd-a5ca-5d4a-a591-97a05861673b",
+      "observation_count": 6,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "PHP",
+      "company_id": "10000000-0000-0000-0000-000000000017",
+      "dossier_id": "921bf89a-e850-52bf-aba3-6d54c4b47de8",
+      "observation_count": 3,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "VGR",
+      "company_id": "7b1b3668-9997-5148-a498-185c92e9ff55",
+      "dossier_id": "e87e49e0-3c97-5815-9b5f-e8c870ffa63b",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "DVP",
+      "company_id": "fafba875-a5cd-55f2-ac4f-0acf54a64164",
+      "dossier_id": "5b80da05-e1f4-51d4-91f0-25ea83090854",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "PDN",
+      "company_id": "d3aebe0e-ee56-5e8b-9f44-195c17e6aa5e",
+      "dossier_id": "e2e4d33e-a8e9-5500-bd23-3db7f17cad7f",
+      "observation_count": 3,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "CDN",
+      "company_id": "443f0dda-0429-5afe-a1ad-aa0b2a8478b5",
+      "dossier_id": "c6d5d9b7-9cbe-54d0-9a3c-2a9d8c6b6ee6",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "CQN",
+      "company_id": "9f129103-683b-5d07-8ecf-b9f7327fa4da",
+      "dossier_id": "21b40294-476d-54aa-a992-f297de4bb769",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "DXP",
+      "company_id": "8d7f119e-ef74-5000-b3c3-57bb0f553c38",
+      "dossier_id": "b0b78756-af3a-5308-aef0-4d2c0d08c9f7",
+      "observation_count": 0,
+      "outcome": "no_assertable_assets"
+    },
+    {
+      "ticker": "PSP",
+      "company_id": "59d90fe3-3faa-513f-b987-481113e220c9",
+      "dossier_id": "02ce8875-6b8a-5ebb-85e5-1d56da043489",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "PAP",
+      "company_id": "c0a6f7c5-4ee6-503b-8ad5-5183696ff2ae",
+      "dossier_id": "4da1df4b-7ee9-5fdc-bb4d-1ceb267f0f70",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "SGP",
+      "company_id": "fe97fde6-6583-58fb-b6b8-6574d495c575",
+      "dossier_id": "2cbb3e71-e7da-523f-ab65-73fd2edc9558",
+      "observation_count": 6,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "QNP",
+      "company_id": "4524d230-e0e3-5b42-8397-5f43bca80011",
+      "dossier_id": "75cb65fa-b464-5407-8752-975d3d8e9ae2",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "QSP",
+      "company_id": "c08c08f9-970d-52cb-bf34-89bb9685136c",
+      "dossier_id": "46f6b454-7db6-52e0-ae56-ed70d67a5fbb",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "NAP",
+      "company_id": "00db3f03-66b1-501b-940c-f4e6b0cf6d3d",
+      "dossier_id": "30cf200f-34cf-556b-8410-c0539af3a171",
+      "observation_count": 2,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "MVN",
+      "company_id": "f9399e04-83f6-5f5f-b344-a271988d1dca",
+      "dossier_id": "5fd23afd-cc97-574d-b221-edcf08659a73",
+      "observation_count": 0,
+      "outcome": "no_assertable_assets"
+    },
+    {
+      "ticker": "VSC",
+      "company_id": "596a9594-a1d8-53d1-a415-0733a8edb553",
+      "dossier_id": "d7c5ac44-eff7-5911-ac00-05a171e8a13e",
+      "observation_count": 3,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "CAG",
+      "company_id": "c4fb1616-7620-5e06-8c8b-5df2477272be",
+      "dossier_id": "47943a15-6295-53c3-a118-593a1c0d3cc0",
+      "observation_count": 2,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "CCP",
+      "company_id": "0363c2b0-09c6-566e-b11f-33528fad8c92",
+      "dossier_id": "65595e25-5142-5beb-9802-200a237de78b",
+      "observation_count": 0,
+      "outcome": "no_assertable_assets"
+    },
+    {
+      "ticker": "CCR",
+      "company_id": "24129e88-70bb-57a0-a54c-233f1b5f5b5a",
+      "dossier_id": "401f8f3d-27ae-58f9-9b26-83fdf559e4b3",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "CCT",
+      "company_id": "1215d2c8-22d0-5403-b546-3fa37ee72bbe",
+      "dossier_id": "73b04dae-8b90-57dc-b64e-6da08a07ec0b",
+      "observation_count": 3,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "CPI",
+      "company_id": "aced02eb-5ed2-55b8-a6ad-b9aa5a5d5854",
+      "dossier_id": "452771f2-cf09-596c-ae14-0c274535470d",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "HAH",
+      "company_id": "f8a636b7-78cf-51ce-9ed8-3ead2d9f8774",
+      "dossier_id": "e423d06a-37a2-584f-afb9-ebac8a5d1521",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "IST",
+      "company_id": "96a0cafd-6952-52f9-a161-fd270065cb67",
+      "dossier_id": "5afcf6da-2b0e-5d67-b90f-c4aab5bc3baf",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "PNP",
+      "company_id": "3b1bd36a-5aa0-5818-aa5a-e510042a3743",
+      "dossier_id": "47e69dea-001b-5f5a-a6dc-d1efe50a1992",
+      "observation_count": 0,
+      "outcome": "no_assertable_assets"
+    },
+    {
+      "ticker": "PSB",
+      "company_id": "d4ee7127-127b-567d-be18-268f32942840",
+      "dossier_id": "e36be746-ea0f-5597-a42a-9aa47457e726",
+      "observation_count": 0,
+      "outcome": "no_assertable_assets"
+    },
+    {
+      "ticker": "SWC",
+      "company_id": "de1a1cc1-64cd-5066-be80-50dab575bfb2",
+      "dossier_id": "a3ab0132-f5e9-5045-b7ef-9179b17224ec",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "TCL",
+      "company_id": "009b5929-253c-5b10-8d75-22b9828c93ae",
+      "dossier_id": "bd7032dd-e672-555c-9619-51c90b86f2a4",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "TNP",
+      "company_id": "5f57623f-6c97-5864-a4fa-3d00ab190eea",
+      "dossier_id": "f60da12b-c276-51f4-affd-77555f6a69bc",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "VGP",
+      "company_id": "273200ed-04e0-5ac4-a8d7-32c517f435fd",
+      "dossier_id": "02c71bc6-c562-5017-b2a8-eb232b329bb3",
+      "observation_count": 0,
+      "outcome": "no_assertable_assets"
+    },
+    {
+      "ticker": "PVS",
+      "company_id": "a28b0cbf-37c4-50dd-8dbf-28549b9a87d7",
+      "dossier_id": "4e0339aa-afe7-5d2a-abb1-8686d5622b8f",
+      "observation_count": 8,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "ILB",
+      "company_id": "19f237ab-b0de-5f5a-aaa5-4008b4cdb943",
+      "dossier_id": "702bd67c-01fa-571e-b27f-ddedea464ddf",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "CMP",
+      "company_id": "99672e19-688d-5f7a-b1e9-83ffc0e77db6",
+      "dossier_id": "6c86a92a-789c-5105-9a5d-718675e9cc23",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "TMS",
+      "company_id": "e1f4c72a-f321-524f-aca8-75881a362efd",
+      "dossier_id": "a1e0123f-0617-5cec-8638-a88ba982dd10",
+      "observation_count": 2,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "STG",
+      "company_id": "a2ff75f4-f168-561d-a52a-ed4a48094cfb",
+      "dossier_id": "06e85b50-d50b-501d-8be5-849f08b9df39",
+      "observation_count": 0,
+      "outcome": "no_assertable_assets"
+    },
+    {
+      "ticker": "CLL",
+      "company_id": "1245c901-bdef-507c-bc9a-77826e76afa9",
+      "dossier_id": "330b6b7a-30b4-575c-8e8e-4d0a72a81bc3",
+      "observation_count": 3,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "PQN",
+      "company_id": "44c10074-185a-57f4-abe1-7cad10fb0b2e",
+      "dossier_id": "21276ae0-1480-58a7-84ea-b81458593f3a",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "PSN",
+      "company_id": "3581f240-4e58-5dd9-a468-fa0d11027ce9",
+      "dossier_id": "9d132279-780b-508f-8804-9c200396c16a",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "VLG",
+      "company_id": "3c09b6d5-b354-585c-9705-8e03114a26c9",
+      "dossier_id": "ebdf0ac3-2d15-5223-8cd1-fd9109c52e78",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "TCW",
+      "company_id": "a251ebfd-2516-5067-99f7-91dce6623f7b",
+      "dossier_id": "84e318c7-a85b-5c12-b9a4-b32df831cac4",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    },
+    {
+      "ticker": "GIC",
+      "company_id": "cc9dfab2-8b85-595c-8dc5-fbc8972a429b",
+      "dossier_id": "6b76c20b-0f68-5a1b-8b3a-c148f669dd02",
+      "observation_count": 0,
+      "outcome": "no_assertable_assets"
+    },
+    {
+      "ticker": "VMS",
+      "company_id": "92745a3e-72d9-50bf-b16d-c34c3cec1a26",
+      "dossier_id": "ea87685e-b9ff-5974-9492-439dce56908f",
+      "observation_count": 1,
+      "outcome": "reported_assets"
+    }
+  ]
+}
