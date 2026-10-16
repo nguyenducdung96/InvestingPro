@@ -270,6 +270,11 @@ export interface DossierResearchPath {
   decision:"requires_chain_and_period_review";
 }
 export interface DossierItem { dossier: CatalogDossier; company: Entity; lineage: Citation; observations: ReportedAssetItem[]; researchPaths:DossierResearchPath[] }
+export interface ReferenceSnapshot {
+ id:string;company_id:string;ticker:string;provider:string;fetched_at:string;raw_sha256:string;
+ reference_data:Record<string,unknown>;review_status:"pending"|"accepted"|"rejected";
+ reviewed_by:string|null;reviewed_at:string|null;review_note:string|null;run_id:string;
+}
 export interface CatalogRepository {
   reviewReported(id:string,decision:"verified"|"rejected",note:string):Promise<ReportedAssetObservation>;
   reportedAssets(companyId: string, query: PageQuery): Promise<Envelope<ReportedAssetItem[]>>;

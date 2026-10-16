@@ -50,6 +50,7 @@ if (install) {
 if (!existsSync(python)) throw new Error('Run pnpm data:refresh --install once with Python 3.12+ installed');
 tickers ??= scope.map(r => r.ticker).join(',');
 let code = run(python, ['scripts/refresh-vnstock.py', '--source', 'vci', '--datasets', 'organizations', '--tickers', tickers, ...(force ? ['--force'] : [])]);
+if (run(python, ['scripts/export-reference-bundle.py'])) code = 1;
 if (web && run(python, ['scripts/refresh-company-web-sources.py'])) code = 1;
 if (code) process.stderr.write('Refresh incomplete. Inspect .local/company-refresh/*last-run.json; prior snapshots retained.\n');
 process.exitCode = code;

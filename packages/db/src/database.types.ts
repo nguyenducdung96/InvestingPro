@@ -15,6 +15,7 @@ import type {
   EntityMapping,
   CatalogDossier, ReportedAssetObservation,
   DossierResearchPath,
+  ReferenceSnapshot,
   AuditEvent,
   PublicationReviewEvent, PublicationItem, PublicationDecision,
 } from "@invest/domain";
@@ -38,6 +39,8 @@ export interface Tables {
     reported_asset_observations: ReportedAssetObservation;
     published_asset_observations: ReportedAssetObservation;
     dossier_research_paths: DossierResearchPath;
+    company_reference_snapshots: ReferenceSnapshot;
+    reference_refresh_runs: {id:string;imported_at:string;imported_by:string;entry_count:number};
   };
 }
 type RequiredFields<T, K extends keyof T> = Pick<T, K> & Partial<Omit<T, K>>;

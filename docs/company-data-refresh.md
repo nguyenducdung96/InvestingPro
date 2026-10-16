@@ -79,3 +79,9 @@ Phần điều kiện trên áp dụng cho FiinGroup và API quan hệ chưa m�
 ## Kết quả kiểm tra live 16/10/2026
 
 Đã lấy đủ 41/41 hồ sơ cơ bản trong phạm vi qua VCI, kiểm tra SHA-256 của cả 41 raw JSON và ticker trong response khớp mã yêu cầu. GMD đã được gọi lại thật và nhận unchanged. Raw/snapshot ở local riêng tư, chưa upload R2 hay nhập Supabase; trạng thái cloud của Slice 1 không bị thay đổi. Biên nhận không chứa nội dung profile: `catalog-review/company-refresh-live-receipt-20261016.json`. Trang hỗ trợ VNFDATA lưu baseline thành công; trang Nam Đình Vũ trả HTTP 500 lúc kiểm tra trực tiếp. API quan hệ VCI trong phiên guest báo `VNSTOCK_TIER_ROUTE`, không coi phần quan hệ API đã hoàn tất.
+
+## Khép kín luồng staging ngày 17/10/2026
+
+`pnpm data:refresh` tự xuất `.local/company-refresh/staging-bundle.json` sau khi kiểm tra raw hash. Mở `/admin/refresh` bằng phiên admin, chọn bundle rồi **Nhập và đối chiếu thay đổi**. API kiểm tra hash một lần nữa; RPC kiểm tra 41 mã/UUID trong phạm vi, nhập transaction và chống trùng. Trang hiển thị dữ liệu thật từ Supabase, lần nhập gần nhất, snapshot mới nhất và so sánh phiên bản trước. Quyết định chấp nhận tham chiếu hoặc từ chối có actor/note/thời gian và bất biến sau duyệt; quyết định này không thay xác minh quan hệ cảng hoặc quyền công bố. Raw JSON lưu trong bảng chỉ admin truy cập. Người dùng không cần SQL Editor để cập nhật hồ sơ.
+
+Các đoạn nói công cụ chưa nhập được Supabase ở trên mô tả lượt triển khai local ngày 16/10; luồng upload có xác thực này thay thế giới hạn đó. Không có lịch tự chạy hoặc lấy token từ trình duyệt.

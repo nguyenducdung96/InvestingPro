@@ -1,0 +1,31 @@
+import {PGlite} from "@electric-sql/pglite";
+import {readFileSync,readdirSync} from "node:fs";
+import {createHash} from "node:crypto";
+import {it,expect} from "vitest";
+it("imports references atomically, preserves history and isolates internal review from publication",async()=>{
+ const db=new PGlite();try{
+ await db.exec(`create role anon;create role authenticated;create role service_role bypassrls;create schema auth;
+ create function auth.jwt() returns jsonb language sql stable as $$select coalesce(nullif(current_setting('request.jwt.claims',true),''),'{}')::jsonb$$;
+ create function auth.uid() returns uuid language sql stable as $$select (auth.jwt()->>'sub')::uuid$$;
+ grant usage on schema auth to anon,authenticated,service_role;grant execute on all functions in schema auth to anon,authenticated,service_role;`);
+ for(const f of readdirSync("supabase/migrations").sort())await db.exec(readFileSync(`supabase/migrations/${f}`,"utf8"));
+ for(const f of ["haiphong_catalog.reviewed.sql","tan_vu_interest.reviewed.sql","evidence_date_precision.correction.sql","505_commercial_catalog.reviewed.sql","slice1_company_catalog.handoff.sql","reported_catalog_2025.pending.sql"])await db.exec(readFileSync(`supabase/imports/${f}`,"utf8").replaceAll("__AUTHORITY_FETCHED_AT__","2026-10-14T00:00:00Z").replaceAll("__CATALOG_FETCHED_AT__","2026-10-14T00:00:00Z").replaceAll("__FETCHED_AT__","2026-10-14T00:00:00Z"));
+ const raw=JSON.stringify([{symbol:"PHP",name:"TEST synthetic reference"}]);
+ const entry={ticker:"PHP",company_id:"10000000-0000-0000-0000-000000000017",provider:"vnstock-vci",fetched_at:"2026-10-16T00:00:00Z",raw_sha256:createHash("sha256").update(raw).digest("hex"),raw_text:raw};
+ const call=()=>db.query("select port.import_reference_refresh($1,$2::jsonb) as result",["1".repeat(64),JSON.stringify([entry])]);
+ await db.exec(`select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000099","user_metadata":{"role":"admin"}}',false);set role authenticated`);
+ await expect(call()).rejects.toThrow("Admin review required");
+ await db.exec(`reset role;select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000099","app_metadata":{"role":"admin"}}',false);set role authenticated`);
+ expect((await call()).rows).toEqual([{result:{inserted:1,received:1,publication_performed:false}}]);
+ expect((await call()).rows).toEqual([{result:{inserted:0,received:1,publication_performed:false}}]);
+ const row=(await db.query<{id:string}>("select id from port.company_reference_snapshots")).rows[0];
+ await db.query("select port.review_reference_snapshot($1,'accepted','TEST ONLY: checked provider identity and limited scope')",[row.id]);
+ await expect(db.query("select port.review_reference_snapshot($1,'rejected','TEST ONLY: cannot overwrite reviewed history')",[row.id])).rejects.toThrow("Pending reference required");
+ const invalid={...entry,ticker:"GMD"};await expect(db.query("select port.import_reference_refresh($1,$2::jsonb)",["2".repeat(64),JSON.stringify([invalid])])).rejects.toThrow("outside accepted scope");
+ expect((await db.query("select * from port.reference_refresh_runs")).rows).toHaveLength(1);
+ await db.exec("reset role;set role anon");
+ await expect(db.query("select * from port.company_reference_snapshots")).rejects.toThrow("permission denied");
+ expect((await db.query("select * from port.published_asset_observations")).rows).toHaveLength(0);
+ await db.exec("reset role");await expect(db.query("delete from port.company_reference_snapshots")).rejects.toThrow("immutable");
+ }finally{await db.close();}
+});

@@ -16,6 +16,7 @@ import type {
   PublicationKind, PublicationItem, PublicationInput, PublicationDecision,
   ReportedAssetItem, DossierItem,
   ReportedAssetObservation,
+  ReferenceSnapshot,
 } from "@invest/domain";
 import type { Tables } from "./database.types";
 export type { Database } from "./database.types";
@@ -28,6 +29,8 @@ export class DatabaseError extends Error {
   }
 }
 export interface Transport {
+  importReferences?(body:object):Promise<{inserted:number;received:number}>;
+  reviewReference?(body:object):Promise<ReferenceSnapshot>;
   reviewReported?(body: object): Promise<ReportedAssetObservation>;
   publicationQueue?(body: object): Promise<PublicationItem[]>;
   reviewPublication?(body: object): Promise<PublicationDecision>;
@@ -82,6 +85,8 @@ export function supabaseTransport(
     return response.json() as Promise<T[]>;
   }
   return {
+    importReferences: (b) => request("port","rpc/import_reference_refresh",new URLSearchParams(),"POST",b) as unknown as Promise<{inserted:number;received:number}>,
+    reviewReference: (b) => request("port","rpc/review_reference_snapshot",new URLSearchParams(),"POST",b) as unknown as Promise<ReferenceSnapshot>,
     reviewReported: (b) => request("port", "rpc/review_reported_observation", new URLSearchParams(), "POST", b) as unknown as Promise<ReportedAssetObservation>,
     publicationQueue: (b) => request("core", "rpc/publication_queue", new URLSearchParams(), "POST", b),
     reviewPublication: (b) => request("core", "rpc/review_publication", new URLSearchParams(), "POST", b) as unknown as Promise<PublicationDecision>,
@@ -105,6 +110,24 @@ export class SupabaseCatalogRepository implements CatalogRepository {
     private db: Transport,
     private admin = false,
   ) {}
+  async referenceSnapshots(ticker?:string) {
+    if(!this.admin) throw new DatabaseError(403);
+    const p=params({select:"id,company_id,ticker,provider,fetched_at,raw_sha256,reference_data,review_status,reviewed_by,reviewed_at,review_note,run_id",order:"fetched_at.desc,id.desc",limit:"500"});
+    if(ticker)p.set("ticker",`eq.${ticker}`);
+    return this.db.read("port","company_reference_snapshots",p);
+  }
+  async referenceRuns() {
+    if(!this.admin)throw new DatabaseError(403);
+    return this.db.read("port","reference_refresh_runs",params({select:"*",order:"imported_at.desc",limit:"5"}));
+  }
+  async importReferences(id:string,entries:object[]) {
+    if(!this.admin||!this.db.importReferences)throw new DatabaseError(403);
+    return this.db.importReferences({p_id:id,p_entries:entries});
+  }
+  async reviewReference(id:string,decision:string,note:string) {
+    if(!this.admin||!this.db.reviewReference)throw new DatabaseError(403);
+    return this.db.reviewReference({p_id:id,p_decision:decision,p_note:note});
+  }
   async publicationQueue(kind: PublicationKind, q: PageQuery) {
     if (!this.admin) throw new DatabaseError(403);
     if (!this.db.publicationQueue) throw new DatabaseError(503);

@@ -1,4 +1,22 @@
 import { test, expect } from "@playwright/test";
+import {createHash} from "node:crypto";
+test("admin imports API references with checksum validation and reviews without public publication",async({page,request})=>{
+ await request.post('http://127.0.0.1:54329/reset');
+ await page.goto('/admin/refresh');await page.getByLabel('Mã truy cập (access token)').fill('fixture-admin');await page.getByRole('button',{name:'Đăng nhập quản trị'}).click();
+ await expect(page.getByRole('heading',{name:'Cập nhật hồ sơ từ API',exact:true})).toBeVisible();
+ const raw=JSON.stringify([{symbol:'TEST',name:'Synthetic API company',profile:'Synthetic reference profile'}]);
+ const bundle={schema:'slice1-reference-refresh-v1',entries:[{ticker:'TEST',company_id:'00000000-0000-0000-0000-000000000007',provider:'vnstock-vci',fetched_at:'2026-10-16T00:00:00Z',raw_text:raw,raw_sha256:createHash('sha256').update(raw).digest('hex')}]};
+ await page.getByLabel('File kết quả refresh JSON (tối đa 2 MB)').setInputFiles({name:'test.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(bundle))});
+ await page.getByRole('button',{name:'Nhập và đối chiếu thay đổi'}).click();
+ await expect(page.getByText('Đã nhận 1 hồ sơ, thêm 1 phiên bản mới.',{exact:false})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'TEST · Synthetic API company'})).toBeVisible();
+ await page.getByText('Đối chiếu hồ sơ tham chiếu',{exact:true}).click();await page.getByLabel('Kết quả đối chiếu (20–4.000 ký tự)').fill('TEST ONLY: verified synthetic API reference identity');
+ await page.getByRole('button',{name:'Chấp nhận tham chiếu',exact:true}).click();await expect(page.getByText('Đã chấp nhận tham chiếu nội bộ',{exact:false})).toBeVisible();
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
+ bundle.entries[0].raw_sha256='0'.repeat(64);
+ await page.getByLabel('File kết quả refresh JSON (tối đa 2 MB)').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(bundle))});await page.getByRole('button',{name:'Nhập và đối chiếu thay đổi'}).click();
+ await expect(page.getByText('Chưa nhập được.',{exact:false})).toBeVisible();
+});
 test("report-period observations retain unknown commencement dates and private dossiers require admin",async({page,request})=>{
   const denied=await request.get('/api/v1/admin/catalog');
   expect(denied.status()).toBe(401);

@@ -22,7 +22,7 @@ export default async function Page({searchParams}:{searchParams:Promise<Record<s
     <h1>Hồ sơ doanh nghiệp theo kỳ báo cáo</h1>
     <p className="notice">Phạm vi đối chiếu: 41 doanh nghiệp ứng viên trong bộ báo cáo 2025, không phải chứng nhận đầy đủ toàn thị trường. Hồ sơ nội bộ có thể chứa nguồn chưa được duyệt để công bố. Không đồng nhất việc rà soát tài liệu với quyền công bố hoặc tình trạng giao dịch hiện tại.</p>
     <form method="get"><label htmlFor="catalog-ticker">Mã doanh nghiệp</label><input id="catalog-ticker" name="ticker" defaultValue={search.ticker??""} maxLength={12} placeholder="Ví dụ: GMD"/><button type="submit">Tra cứu hồ sơ</button></form>
-    <p><Link href="/admin/catalog">Toàn bộ phạm vi đối chiếu</Link> · <Link href="/admin/publication">Duyệt nguồn và bằng chứng</Link></p>
+    <p><Link href="/admin/catalog">Toàn bộ phạm vi đối chiếu</Link> · <Link href="/admin/refresh">Cập nhật từ API</Link> · <Link href="/admin/publication">Duyệt nguồn và bằng chứng</Link></p>
     {result.data.map(({dossier:d,company,lineage,observations,researchPaths})=><section key={d.id} aria-label={`Hồ sơ ${d.ticker}`}>
       <h2>{d.ticker} · {company.name}</h2>
       <p>Kỳ báo cáo đến {displayDate(d.reporting_period_end)} · {observations.length} quan sát tài sản trong hồ sơ</p>
