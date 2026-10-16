@@ -29,7 +29,7 @@ it("imports the complete handoff atomically, preserves reviewed PHP and replays 
     expect((await db.query("select * from catalog.company_listings")).rows).toHaveLength(0);
     await db.exec(bundle);
     expect((await db.query("select * from catalog.companies")).rows).toHaveLength(41);
-    expect((await db.query("select * from catalog.company_listings")).rows).toHaveLength(40);
+    expect((await db.query("select * from catalog.company_listings")).rows).toHaveLength(41);
     expect((await db.query("select * from catalog.entities where id='10000000-0000-0000-0000-000000000017'")).rows).toEqual(php.rows);
     expect((await db.query("select * from port.company_asset_interests order by id")).rows).toEqual(interests.rows);
     const audit = await db.query("select count(*) from core.audit_events");
@@ -51,13 +51,29 @@ it("imports the complete handoff atomically, preserves reviewed PHP and replays 
     await db.exec("rollback");
     expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(beforeAll.rows);
     expect((await db.query("select * from port.icds")).rows).toHaveLength(0);
+    // A final CQN identity conflict must undo the earlier registry/ICD/asset rows.
+    const badCqn = all.replace("e.name='Cầu cảng số 7 – tổng hợp Cái Lân'", "e.name='Conflicting berth identity'");
+    expect(badCqn).not.toBe(all);
+    await expect(db.exec(badCqn)).rejects.toThrow("CQN berth identity mismatch");
+    await db.exec("rollback");
+    expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(beforeAll.rows);
+    expect((await db.query("select * from port.icds")).rows).toHaveLength(0);
     await db.exec(all);
     expect((await db.query("select * from port.icds")).rows).toHaveLength(2);
     expect((await db.query("select * from catalog.companies where enterprise_id is not null")).rows).toHaveLength(40);
     expect((await db.query("select enterprise_id from catalog.companies where id='10000000-0000-0000-0000-000000000017'")).rows).toEqual([{enterprise_id:null}]);
     const cdn=JSON.parse(readFileSync("docs/catalog-review/registry-proposals-manifest.json","utf8")).find((r:{ticker:string})=>r.ticker==='CDN');
     expect((await db.query("select enterprise_id from catalog.companies where id=$1",[cdn.company_id])).rows).toEqual([{enterprise_id:"0400101972"}]);
-    expect((await db.query("select * from port.company_asset_interests where verification_status='pending'")).rows).toHaveLength(existingPending + 9);
+    expect((await db.query("select * from port.company_asset_interests where verification_status='pending'")).rows).toHaveLength(existingPending + 14);
+    const cqn = JSON.parse(readFileSync("docs/catalog-review/cqn-license-proposals-manifest.json", "utf8"));
+    expect((await db.query(`select e.name,i.valid_from::text,i.interest_type,i.ownership_pct,i.verification_status
+      from port.company_asset_interests i join catalog.entities e on e.id=i.asset_id
+      where i.company_id=$1 order by e.name`, [cqn.company_id])).rows).toEqual([
+        "Cầu cảng Tạm", "Cầu cảng số 1", "Cầu cảng số 5", "Cầu cảng số 6", "Cầu cảng số 7",
+      ].sort().map(name => ({ name:name + " – tổng hợp Cái Lân", valid_from:"2020-06-24", interest_type:"operator", ownership_pct:null, verification_status:"pending" })));
+    expect((await db.query("select * from port.company_asset_interests where company_id=$1 and asset_kind='terminal'", [cqn.company_id])).rows).toHaveLength(0);
+    const handoffManifest = JSON.parse(readFileSync("docs/catalog-review/company-catalog-handoff-manifest.json", "utf8"));
+    expect(handoffManifest).toMatchObject({company_count:41, listing_history_count:41, new_interest_proposal_count:14, publication_status:"pending"});
     expect((await db.query(`select l.ticker,i.valid_from::text,i.ownership_pct from port.company_asset_interests i join catalog.company_listings l on l.company_id=i.company_id where i.asset_kind='icd' order by l.ticker`)).rows).toEqual([
       {ticker:"ILB",valid_from:"2023-01-06",ownership_pct:null},
       {ticker:"VLG",valid_from:"2024-12-16",ownership_pct:null},

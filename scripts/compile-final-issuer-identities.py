@@ -7,6 +7,7 @@ import json
 import re
 import unicodedata
 import uuid
+from datetime import date
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -23,10 +24,14 @@ def literal(value):
 def compile_import():
     artifacts={a["artifact_label"]:a for a in json.loads((ROOT/"docs/catalog-review/evidence-artifacts.json").read_text(encoding="utf-8"))["artifacts"]}
     rows=json.loads((ROOT/"supabase/imports/data/final-issuer-identities.reviewed.json").read_text(encoding="utf-8"))["items"]
-    sql=["-- OFFLINE PENDING IDENTITIES. Separate legal identity and historical listing evidence.","-- STG has no generated listing until an exact date is supported. No cloud approval or interests.","begin;"]
+    sql=["-- OFFLINE PENDING IDENTITIES. Separate legal identity and historical listing evidence.","-- Historical listings do not certify current trading status. No cloud approval or interests.","begin;"]
     manifest=[]
     for row in rows:
         ticker=row["ticker"];company=identity("company:"+row["enterprise_id"])
+        if row["first_trading_date"]:
+            date.fromisoformat(row["first_trading_date"])
+            if not row["listing_artifact"] or not row["note"].strip():
+                raise ValueError("Missing listing evidence: " + ticker)
         listing=identity(ticker+":"+str(row["first_trading_date"])) if row["first_trading_date"] else None
         guard=f"exists(select 1 from catalog.companies where enterprise_id={literal(row['enterprise_id'])} and id<>{literal(company)})"
         if listing:guard+=f" or exists(select 1 from catalog.company_listings where exchange={literal(row['exchange'])} and ticker={literal(ticker)} and id<>{literal(listing)})"
@@ -36,6 +41,12 @@ def compile_import():
             if name is None:continue
             a=artifacts[name];raw=(ROOT/".local/catalog-research"/name).read_bytes()
             if hashlib.sha256(raw).hexdigest()!=a["content_hash"]:raise ValueError("Changed evidence: "+name)
+            for kind in ("identity", "listing"):
+                if row[kind+"_artifact"] != name:
+                    continue
+                pages = row[kind+"_pages"]
+                if a["page_count"] is not None and (not pages or any(type(p) is not int or not 1 <= p <= a["page_count"] for p in pages)):
+                    raise ValueError("Invalid reviewed pages: " + ticker + ":" + kind)
             source=identity(ticker+":source:"+name);record=identity(ticker+":record:"+a["content_hash"])
             records[name]=record
             owner="Sở Giao dịch Chứng khoán Thành phố Hồ Chí Minh" if name=="hose-2019-factbook.pdf" else row["legal_name"]
@@ -58,7 +69,7 @@ def compile_import():
     sql += ["commit;",""]
     (ROOT/"supabase/imports/final_issuer_identities.proposals.sql").write_text("\n".join(sql),encoding="utf-8")
     (ROOT/"docs/catalog-review/final-issuer-identities-manifest.json").write_text(json.dumps(dict(publication_status="pending",cloud_applied=False,items=manifest),ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    print("Prepared five pending identities and four historical listings; no cloud changes.")
+    print(f"Prepared {len(rows)} pending identities and {sum(r['first_trading_date'] is not None for r in rows)} historical listings; no cloud changes.")
 
 
 if __name__=="__main__":compile_import()

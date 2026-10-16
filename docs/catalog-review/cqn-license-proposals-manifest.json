@@ -1,0 +1,67 @@
+{
+  "publication_status": "pending",
+  "cloud_applied": false,
+  "current_status_verified": false,
+  "company_id": "9f129103-683b-5d07-8ecf-b9f7327fa4da",
+  "enterprise_id": "5700100231",
+  "source_id": "1ce434d2-3832-52ad-bbbe-378b2da0e315",
+  "source_record_id": "da8e606f-ae93-5978-a292-9d915ea9d4f2",
+  "artifact_label": "cqn-port-license.pdf",
+  "content_hash": "aaef704b2ae7526c5626b2425b170b1e2e2762d71ad48055a01d087868e1d4ca",
+  "reviewed_pages": [
+    1,
+    2
+  ],
+  "items": [
+    {
+      "asset_id": "a0428a2d-55d7-5096-9f2b-ca329dd89e8d",
+      "asset_name": "Cầu cảng Tạm – tổng hợp Cái Lân",
+      "interest_id": "9537bf7e-9556-578c-b533-c20e8a7d6e1c",
+      "asset_kind": "berth",
+      "interest_type": "operator",
+      "valid_from": "2020-06-24",
+      "date_basis": "certificate_88_2020_GCN_CHHVN_issue_date; documented operator authorization, not original commencement; current validity unverified"
+    },
+    {
+      "asset_id": "38ac11cb-ccb9-5d4c-befb-23e1a4746c65",
+      "asset_name": "Cầu cảng số 1 – tổng hợp Cái Lân",
+      "interest_id": "315279e2-dfcb-5566-84fd-a42101b55c93",
+      "asset_kind": "berth",
+      "interest_type": "operator",
+      "valid_from": "2020-06-24",
+      "date_basis": "certificate_88_2020_GCN_CHHVN_issue_date; documented operator authorization, not original commencement; current validity unverified"
+    },
+    {
+      "asset_id": "7c79dbf5-d236-5f9f-85a7-6dd85112dbc3",
+      "asset_name": "Cầu cảng số 5 – tổng hợp Cái Lân",
+      "interest_id": "105d1f8f-53f1-5935-96f8-2be16d68cbba",
+      "asset_kind": "berth",
+      "interest_type": "operator",
+      "valid_from": "2020-06-24",
+      "date_basis": "certificate_88_2020_GCN_CHHVN_issue_date; documented operator authorization, not original commencement; current validity unverified"
+    },
+    {
+      "asset_id": "55335d56-cca1-5668-bbba-bb8b6fa4535a",
+      "asset_name": "Cầu cảng số 6 – tổng hợp Cái Lân",
+      "interest_id": "0e4c1f00-52e3-5c28-9fd6-45a476d6a9a0",
+      "asset_kind": "berth",
+      "interest_type": "operator",
+      "valid_from": "2020-06-24",
+      "date_basis": "certificate_88_2020_GCN_CHHVN_issue_date; documented operator authorization, not original commencement; current validity unverified"
+    },
+    {
+      "asset_id": "250b903c-0da1-5a7b-918a-205d78eb730b",
+      "asset_name": "Cầu cảng số 7 – tổng hợp Cái Lân",
+      "interest_id": "30876bde-b79e-5b2b-b7e9-11f73d6077f2",
+      "asset_kind": "berth",
+      "interest_type": "operator",
+      "valid_from": "2020-06-24",
+      "date_basis": "certificate_88_2020_GCN_CHHVN_issue_date; documented operator authorization, not original commencement; current validity unverified"
+    }
+  ],
+  "limitations": [
+    "Hiệu lực hiện tại của giấy chứng nhận 88/2020 và các văn bản thay thế/thu hồi",
+    "Thay đổi phạm vi khai thác, hợp đồng thuê hạ tầng và công trình năm 2026",
+    "Quyền sử dụng nguồn; giấy chứng nhận không xác nhận quyền sở hữu tài sản"
+  ]
+}

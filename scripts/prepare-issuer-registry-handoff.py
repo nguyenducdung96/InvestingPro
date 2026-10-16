@@ -56,7 +56,6 @@ def compile_bundle():
         'missing_listing_dates': [x['ticker'] for x in items if x['first_trading_date_as_reported'] is None],
         'input_sql': inputs, 'items': items,
     }
-    (DOC / 'issuer-universe-manifest.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     checks = f"""
 select 'companies' as dataset,count(*) as rows from catalog.companies where id in ({ids})
 union all
@@ -69,7 +68,7 @@ select 'listing_histories',count(*) from catalog.company_listings where company_
     # Asset imports need the canonical catalog already installed. Keep them in
     # a separate explicitly named handoff instead of changing registry-only SQL.
     asset_bodies, asset_inputs = [], []
-    for name in ['vgr_operator.proposal.sql', 'dvp_assets.proposals.sql', 'pap_assets.proposals.sql', 'inland_depots.proposals.sql', 'registry_identity_enrichment.proposals.sql']:
+    for name in ['vgr_operator.proposal.sql', 'dvp_assets.proposals.sql', 'pap_assets.proposals.sql', 'inland_depots.proposals.sql', 'registry_identity_enrichment.proposals.sql', 'cqn_license.proposals.sql']:
         raw = (IMPORT / name).read_bytes()
         sql = raw.decode('utf-8-sig').replace('\r\n', '\n')
         start = list(re.finditer(r'^begin;\s*$', sql, re.M | re.I))
@@ -82,15 +81,33 @@ select 'listing_histories',count(*) from catalog.company_listings where company_
     combined += 'begin;\n\n' + '\n\n'.join(bodies + asset_bodies) + '\n\ncommit;\n' + checks
     combined += f"select i.asset_kind,i.verification_status,count(*) as rows from port.company_asset_interests i where i.company_id in ({ids}) group by i.asset_kind,i.verification_status order by i.asset_kind,i.verification_status;\n"
     (IMPORT / 'slice1_company_catalog.handoff.sql').write_text(combined, encoding='utf-8', newline='\n')
+    execution_file = DOC / 'company-catalog-cloud-import-receipt-20261016.json'
+    execution = json.loads(execution_file.read_text(encoding='utf-8')) if execution_file.exists() else {}
+    bundle_hash = hashlib.sha256((IMPORT / 'slice1_company_catalog.handoff.sql').read_bytes()).hexdigest()
+    interest_count = 1 + sum(len(json.loads((DOC / name).read_text(encoding='utf-8'))[key]) for name, key in [
+        ('dvp-asset-proposals-manifest.json', 'interests'),
+        ('pap-asset-proposals-manifest.json', 'interests'),
+        ('inland-depots-proposals-manifest.json', 'items'),
+        ('cqn-license-proposals-manifest.json', 'items'),
+    ])
+    applied = (execution.get('cloud_applied') is True and execution.get('bundle_sha256') == bundle_hash
+               and execution.get('project_id') == 'loapslojajawgzekozfv'
+               and execution.get('counts', {}).get('handoff_companies') == len(items)
+               and execution.get('counts', {}).get('handoff_listings') == result['listing_history_count']
+               and execution.get('counts', {}).get('handoff_pending_interests') == interest_count)
+    result['cloud_applied'] = applied
+    result['execution_receipt'] = execution_file.name if applied else None
+    (DOC / 'issuer-universe-manifest.json').write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     (DOC / 'company-catalog-handoff-manifest.json').write_text(json.dumps({
-        'publication_status': 'pending', 'cloud_applied': False,
+        'publication_status': 'pending', 'cloud_applied': applied,
+        'bundle_sha256': bundle_hash, 'execution_receipt': execution_file.name if applied else None,
         'prerequisite': 'Existing reviewed canonical catalog, including 505 commercial subset',
         'input_sql': inputs + asset_inputs,
         'company_count': len(items), 'listing_history_count': result['listing_history_count'],
-        'new_interest_proposal_count': 9,
+        'new_interest_proposal_count': interest_count,
         'warning': 'Research dossiers with unknown dates are not emitted as interests. This is not a complete market coverage certification.',
     }, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-    print(f"Prepared {result['company_count']} company identities / {result['listing_history_count']} listing histories; not applied to cloud")
+    print(f"Prepared {result['company_count']} company identities / {result['listing_history_count']} listing histories; matching cloud execution receipt: {applied}")
 
 
 if __name__ == '__main__':

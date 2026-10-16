@@ -1,13 +1,11 @@
 {
   "publication_status": "pending",
-  "cloud_applied": false,
+  "cloud_applied": true,
   "universe_complete": false,
   "current_market_status_certified": false,
   "company_count": 41,
-  "listing_history_count": 40,
-  "missing_listing_dates": [
-    "STG"
-  ],
+  "listing_history_count": 41,
+  "missing_listing_dates": [],
   "input_sql": [
     {
       "file": "hnx_registry.proposals.sql",
@@ -31,7 +29,7 @@
     },
     {
       "file": "final_issuer_identities.proposals.sql",
-      "sha256": "8d247a6a4677d0e230065bfea16486f749ceece4804d8f8c1211a5382f0bdf37"
+      "sha256": "bd327e7c863f76b9d5c83462b5e456fd6ae68506bd0f38e3cb0aee89ee1ee2a2"
     }
   ],
   "items": [
@@ -370,7 +368,7 @@
       "company_id": "a2ff75f4-f168-561d-a52a-ed4a48094cfb",
       "legal_name": "Công ty Cổ phần Kho vận Miền Nam",
       "exchange_as_reported": "HOSE",
-      "first_trading_date_as_reported": null,
+      "first_trading_date_as_reported": "2010-03-02",
       "enterprise_id_as_reported": "0300645369",
       "group": "port_holding",
       "current_status_verified": false,
@@ -486,5 +484,6 @@
       "current_status_verified": false,
       "lineage_manifest": "vsc-registry-proposals-manifest.json"
     }
-  ]
+  ],
+  "execution_receipt": "company-catalog-cloud-import-receipt-20261016.json"
 }

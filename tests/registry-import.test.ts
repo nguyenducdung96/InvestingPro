@@ -240,22 +240,24 @@ it("imports sixteen additional HNX histories while preserving suspensions, renam
   await db.exec("reset role");
 });
 
-it("keeps issuer identity evidence separate from listing dates and leaves unknown STG dates unfilled",async()=>{
+it("keeps issuer identity evidence separate from historical listing dates including the reviewed STG date",async()=>{
   const sql=readFileSync("supabase/imports/final_issuer_identities.proposals.sql","utf8");
   await db.exec(sql);
   expect((await db.query("select * from catalog.companies")).rows).toHaveLength(41);
-  expect((await db.query("select * from catalog.company_listings")).rows).toHaveLength(40);
+  expect((await db.query("select * from catalog.company_listings")).rows).toHaveLength(41);
   expect((await db.query("select ticker,valid_from::text from catalog.company_listings where ticker in ('HAH','CLL','ILB','TMS','STG') order by ticker")).rows).toEqual([
     {ticker:"CLL",valid_from:"2014-07-08"},
     {ticker:"HAH",valid_from:"2015-03-11"},
     {ticker:"ILB",valid_from:"2019-05-15"},
+    {ticker:"STG",valid_from:"2010-03-02"},
     {ticker:"TMS",valid_from:"2000-08-04"},
   ]);
   expect((await db.query("select legal_name from catalog.companies where enterprise_id='0300645369'")).rows).toEqual([{legal_name:"Công ty Cổ phần Kho vận Miền Nam"}]);
-  const lineage=await db.query<{ticker:string;identity_url:string;listing_url:string}>(`select l.ticker,ir.source_url identity_url,lr.source_url listing_url from catalog.company_listings l join catalog.entities e on e.id=l.company_id join core.source_records ir on ir.id=e.source_record_id join core.source_records lr on lr.id=l.source_record_id where l.ticker in ('HAH','ILB','TMS')`);
-  expect(lineage.rows).toHaveLength(3);
+  const lineage=await db.query<{ticker:string;identity_url:string;listing_url:string}>(`select l.ticker,ir.source_url identity_url,lr.source_url listing_url from catalog.company_listings l join catalog.entities e on e.id=l.company_id join core.source_records ir on ir.id=e.source_record_id join core.source_records lr on lr.id=l.source_record_id where l.ticker in ('HAH','ILB','TMS','STG')`);
+  expect(lineage.rows).toHaveLength(4);
   for(const row of lineage.rows) expect(row.identity_url).not.toBe(row.listing_url);
   expect(lineage.rows.find(r=>r.ticker==='ILB')?.listing_url).toContain("staticfile.hsx.vn");
+  expect(lineage.rows.find(r=>r.ticker==='STG')?.listing_url).toContain("Sotrans_Bao_cao_thuong_nien_nam_2012_Cus.pdf");
   const audit=await db.query("select count(*) from core.audit_events");
   await db.exec(sql);
   expect((await db.query("select count(*) from core.audit_events")).rows).toEqual(audit.rows);

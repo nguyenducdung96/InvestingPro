@@ -1,0 +1,40 @@
+{
+  "project_id": "loapslojajawgzekozfv",
+  "environment": "staging_development_project",
+  "bundle_file": "supabase/imports/slice1_company_catalog.handoff.sql",
+  "bundle_sha256": "ece045a370abb7c44799069f2fe9e38b7d6005c18145ba9c5f139303cc7e3632",
+  "cloud_applied": true,
+  "checked_at": "2026-10-16T15:29:31.397288+00:00",
+  "method": "Supabase SQL Editor UI: atomic pending-only import, then separate read-only count and RLS queries",
+  "query_url": "https://supabase.com/dashboard/project/loapslojajawgzekozfv/sql/aedab471-4a0e-4a40-90c6-91a62d6a7d4d",
+  "publication_performed": false,
+  "source_approval_performed": false,
+  "rls_changed": false,
+  "counts": {
+    "handoff_companies": 41,
+    "handoff_listings": 41,
+    "handoff_pending_interests": 14,
+    "company_rows_in_database": 42,
+    "companies_from_blocked_sources": 1,
+    "pending_berth_interests": 10,
+    "pending_icd_interests": 2,
+    "pending_terminal_interests": 2,
+    "verified_interest_rows_in_database": 3,
+    "source_approved": 3,
+    "source_to_verify": 52,
+    "source_blocked": 1,
+    "tables_without_rls": 0
+  },
+  "public_check": {
+    "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/industries/ports/companies?view=listed",
+    "visible_message": "Chưa có thông tin niêm yết đã xác minh.",
+    "new_listings_visible": false
+  },
+  "user_source_agreement_status": "User confirmed no source-use agreements on 2026-10-16",
+  "limitations": [
+    "Import is not approval or full Slice 1 acceptance",
+    "57 asset observations still lack exact dates",
+    "Current market/asset status and complete universe remain unverified",
+    "52 to_verify sources retain their status; no blanket source rights granted"
+  ]
+}

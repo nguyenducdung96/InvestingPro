@@ -642,6 +642,22 @@
       "bytes": 4435404,
       "status": "sha256_readback_verified",
       "checked_at": "2026-10-16T01:29:15.689387+00:00"
+    },
+    {
+      "artifact_label": "cqn-port-license.pdf",
+      "content_hash": "aaef704b2ae7526c5626b2425b170b1e2e2762d71ad48055a01d087868e1d4ca",
+      "raw_storage_key": "catalog-evidence/sha256/aaef704b2ae7526c5626b2425b170b1e2e2762d71ad48055a01d087868e1d4ca",
+      "bytes": 3178427,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-16T15:13:21.172856+00:00"
+    },
+    {
+      "artifact_label": "stg-2012.pdf",
+      "content_hash": "7c3dac93c997d0ce837a390859c7a39fb723f3b7356867f581912fb939bb79d0",
+      "raw_storage_key": "catalog-evidence/sha256/7c3dac93c997d0ce837a390859c7a39fb723f3b7356867f581912fb939bb79d0",
+      "bytes": 4698570,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-16T15:13:46.538195+00:00"
     }
   ]
 }

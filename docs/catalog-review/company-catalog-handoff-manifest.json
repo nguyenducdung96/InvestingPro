@@ -1,6 +1,8 @@
 {
   "publication_status": "pending",
-  "cloud_applied": false,
+  "cloud_applied": true,
+  "bundle_sha256": "ece045a370abb7c44799069f2fe9e38b7d6005c18145ba9c5f139303cc7e3632",
+  "execution_receipt": "company-catalog-cloud-import-receipt-20261016.json",
   "prerequisite": "Existing reviewed canonical catalog, including 505 commercial subset",
   "input_sql": [
     {
@@ -25,7 +27,7 @@
     },
     {
       "file": "final_issuer_identities.proposals.sql",
-      "sha256": "8d247a6a4677d0e230065bfea16486f749ceece4804d8f8c1211a5382f0bdf37"
+      "sha256": "bd327e7c863f76b9d5c83462b5e456fd6ae68506bd0f38e3cb0aee89ee1ee2a2"
     },
     {
       "file": "vgr_operator.proposal.sql",
@@ -46,10 +48,14 @@
     {
       "file": "registry_identity_enrichment.proposals.sql",
       "sha256": "f4153f5b50264d3e0cc2ee35ba590f8fad548491f68527e2f53547d02b76ff05"
+    },
+    {
+      "file": "cqn_license.proposals.sql",
+      "sha256": "5633b35ff0bd06fb798daeec2260356f98f73929d3b1d225484741bed1fd6fda"
     }
   ],
   "company_count": 41,
-  "listing_history_count": 40,
-  "new_interest_proposal_count": 9,
+  "listing_history_count": 41,
+  "new_interest_proposal_count": 14,
   "warning": "Research dossiers with unknown dates are not emitted as interests. This is not a complete market coverage certification."
 }

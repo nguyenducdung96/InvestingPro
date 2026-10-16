@@ -1,5 +1,11 @@
 # Danh mục doanh nghiệp chứng khoán — bộ nghiên cứu 16/10/2026
 
+**Trạng thái cloud mới nhất:** bộ chung đã được nhập pending qua Supabase SQL Editor UI sau khi người dùng đăng nhập. Đọc lại đúng 41 company IDs, 41 listing và 14 quan hệ pending; RLS vẫn bật. Hàng đợi thật đã có STG/CQN mới, trong khi listing công khai vẫn ẩn đúng quy tắc. Biên nhận: `company-catalog-cloud-import-receipt-20261016.json`, gắn SHA-256 của bộ SQL. Người dùng xác nhận chưa có thỏa thuận nguồn; không duyệt nguồn/bằng chứng/định danh/listing/quan hệ mới. Slice 1 vẫn chưa nghiệm thu đầy đủ. Các trạng thái chưa nhập cloud bên dưới là mốc lịch sử trước lần chạy này.
+
+**Cập nhật lượt hoàn thiện tiếp theo:** đã bổ sung listing STG lịch sử từ báo cáo Sotrans 2012 (trang PDF 7, mục 1.1.4, ngày 02/03/2010), nâng bộ nhập lên **41 định danh / 41 listing histories**. Năm đề xuất CQN theo giấy chứng nhận 88/2020 ngày 24/06/2020 nâng tổng quan hệ chờ duyệt lên **14**. Dossier có **63 quan sát**, vẫn **57 quan sát thiếu ngày**, và **82 tệp R2** đã đối chiếu byte tải ngược. Không xác minh tình trạng hiện tại từ tài liệu lịch sử. Chưa chạy import/công bố staging. Các con số 40/9/62/80 bên dưới là lịch sử đợt trước.
+
+Khoảng trống theo từng mã và kiểm tra tính toàn vẹn bộ nhập nằm trong `slice1-readiness.json`, tạo bằng `scripts/check-slice1-readiness.py --write-report`. Lượt này chạy đạt 63 tests Vitest và 5 tests kiểm tra bộ nhập; toàn bộ 16 kiểm tra trình duyệt desktop/mobile cũng đạt trên fixture local. Không dùng kết quả đó làm bằng chứng dữ liệu cloud hoặc nghiệm thu độ phủ.
+
 **Cập nhật danh mục tài sản:** đã đối chiếu báo cáo cho toàn bộ 41 ứng viên hiện có và ghi 62 quan sát tài sản, 22 đường liên hệ gián tiếp. Đây là hồ sơ nghiên cứu, chưa phải đầy đủ tài sản của mọi doanh nghiệp. Bộ nhập chung mới `supabase/imports/slice1_company_catalog.handoff.sql` gồm registry bên dưới, VGR/DVP/PAP và hai đề xuất ICD ILB/VLG (tổng 9 quan hệ chờ duyệt), giữ tách ICD và không phát sinh ngày cho 57 quan sát còn thiếu. Tên GIC được sửa từ LOGISTCS sang Logistics theo báo cáo gốc nếu hồ sơ vẫn nguyên trạng chờ duyệt; không sửa hồ sơ đã xác minh. Bản trích HNX ban đầu vẫn giữ nguyên trong lineage.
 
 Đã gộp sáu bộ nhập thành `supabase/imports/issuer_registry_all.handoff.sql`: **41 định danh doanh nghiệp ứng viên, 40 lịch sử niêm yết/đăng ký giao dịch có ngày cụ thể**. Đây là hồ sơ chờ duyệt, chưa nhập cloud và chưa phải xác nhận đủ mọi doanh nghiệp có cảng tại Việt Nam. Không triển khai Slice 2–5.
@@ -16,7 +22,7 @@ Nguồn là hồ sơ HNX, tài liệu HOSE và tài liệu do doanh nghiệp ph�
 
 ## Các ngoại lệ cần giữ rõ
 
-- STG mới có định danh pháp nhân, chưa tạo listing vì chưa đối chiếu được ngày giao dịch đầu tiên. Có công bố năm 2026 về điều kiện công ty đại chúng; cần quyết định cập nhật, không suy ra tình trạng hiện tại từ báo cáo 2025.
+- STG đã bổ sung ngày giao dịch lịch sử 02/03/2010 từ báo cáo Sotrans 2012. Có công bố năm 2026 về điều kiện công ty đại chúng; vẫn cần quyết định cập nhật, không suy ra tình trạng hiện tại từ ngày giao dịch cũ.
 - CCP/CCT có cảnh báo trong hồ sơ quan sát; CPI có thông tin tạm ngừng giao dịch. CMP có công bố về việc không đáp ứng điều kiện công ty đại chúng. Không gắn nhãn cả danh sách đang giao dịch bình thường.
 - PSB có tên mới Cảng Kỹ thuật PTSC Sao Mai; VLG có tên VIMC Logistics. Bản trích HNX của GIC ghi VSC GREEN LOGISTCS; bằng chứng đó giữ nguyên. Báo cáo doanh nghiệp ghi Logistics; bộ bổ sung chỉ sửa tên hồ sơ chờ duyệt còn nguyên trạng.
 - GIC, TCW, VMS còn cần xác minh phạm vi sở hữu/khai thác cảng hoặc ICD. Không gộp doanh nghiệp dịch vụ kho bãi thành chủ cảng chỉ vì nằm trong nhóm ngành.

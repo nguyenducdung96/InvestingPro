@@ -1,5 +1,19 @@
 # Nghiệm thu Slice 1 trên staging
 
+## Trạng thái cloud mới nhất ngày 16/10/2026
+
+Đã kiểm tra lại bằng trình duyệt: staging hiện truy cập được và người dùng đã đăng nhập quản trị. Giới hạn truy cập ghi trong các đợt trước không còn áp dụng cho các thao tác đã thực hiện trong đợt này. Đã nhập nguyên bộ `slice1_company_catalog.handoff.sql` qua Supabase SQL Editor UI, chỉ tạo pending; query độc lập xác nhận đúng 41 company IDs, 41 listing pending và 14 quan hệ pending (10 berth, 2 ICD, 2 terminal). Một doanh nghiệp fixture khác vẫn thuộc nguồn blocked. Mọi bảng core/catalog/port vẫn bật RLS.
+
+Đã thấy nguồn mới trên giao diện `/admin/publication`. Trang công khai listing vẫn báo chưa có thông tin đã xác minh, không lộ proposal. Giữ nguyên ba source approved cũ, 52 source to_verify và một source blocked. Người dùng xác nhận chưa có thỏa thuận sử dụng nguồn; chưa thực hiện bất kỳ quyết định duyệt nguồn/dữ kiện hoặc công bố mới nào. Các văn bản hành chính riêng cần được đánh giá đúng phạm vi; không suy ra quyền đối với toàn file ghép hoặc báo cáo doanh nghiệp.
+
+Biên nhận `docs/catalog-review/company-catalog-cloud-import-receipt-20261016.json` chứa hash bộ SQL và số liệu kiểm tra. Kiểm tra local mới nhất: 63 tests Vitest và 6 tests readiness đạt; 16 browser tests, lint, typecheck và build đã đạt trong lượt hoàn thiện trước khi nhập cloud. **Chưa nghiệm thu toàn bộ Slice 1:** còn căn cứ sử dụng nguồn, 57 quan sát thiếu ngày, xác minh trạng thái hiện tại, chuỗi pháp nhân và độ phủ toàn thị trường. Các trạng thái chưa nhập/bị từ chối ở các phần dưới là lịch sử, không phải trạng thái truy cập mới nhất.
+
+## Cập nhật kiểm tra local ngày 16/10/2026
+
+Đã chạy lại toàn bộ 16 kiểm tra trình duyệt desktop/mobile trên fixture và xem ảnh catalog/quản trị: đạt. Bộ nhập mới có 41 định danh, 41 lịch sử giao dịch và 14 quan hệ chờ duyệt; thêm listing STG và 5 cầu/bến tạm CQN với nguồn/ngày cụ thể. 82 tệp raw đã có SHA-256 tải ngược R2 khớp. Toàn bộ 63 tests Vitest và 5 tests kiểm tra readiness đạt. Chưa import bộ mới, duyệt nguồn hoặc công bố staging; các số liệu và UI fixture không xác nhận trạng thái cloud.
+
+`docs/catalog-review/slice1-readiness.json` ghi từng mã còn thiếu gì, và kiểm tra bộ SQL không thay đổi so với manifest/biên nhận. Kết quả integrity đạt, nghiệm thu tổng thể chưa đạt: 57 quan sát thiếu ngày, biến động hiện tại/chuỗi gián tiếp/quyền nguồn/độ phủ toàn thị trường chưa xong. Quyền thao tác staging bị từ chối từ lượt trước vẫn là giới hạn đã ghi nhận; không sử dụng SQL/HTTP/CLI để đi vòng thao tác bị từ chối.
+
 Ngày 15/10/2026 (Asia/Ho_Chi_Minh). Kết quả: đạt chức năng Slice 1 và bộ catalog thật nhỏ. **Chưa nghiệm thu độ đầy đủ dữ liệu Slice 1 trên toàn thị trường.** Không triển khai Slice 2–5.
 
 ## Phạm vi dữ liệu cần hoàn thiện

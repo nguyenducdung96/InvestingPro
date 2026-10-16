@@ -105,19 +105,22 @@
       "enterprise_id": "0300645369",
       "website": "https://sotransgroup.vn",
       "exchange": "HOSE",
-      "first_trading_date": null,
+      "first_trading_date": "2010-03-02",
       "identity_artifact": "stg-2025.pdf",
       "identity_pages": [
         3
       ],
-      "listing_artifact": null,
-      "listing_pages": [],
+      "listing_artifact": "stg-2012.pdf",
+      "listing_pages": [
+        7
+      ],
       "group": "port_holding",
-      "note": "Danh tính theo báo cáo 2025 trang PDF 3. Chưa có mốc giao dịch đầu tiên chính xác đã đối chiếu nên chỉ tạo pháp nhân, không tạo listing bằng ngày thành lập hoặc ngày chấp thuận niêm yết. Có công bố 25/03/2026 không đáp ứng điều kiện công ty đại chúng; cần quyết định xử lý tiếp theo để xác nhận trạng thái hiện tại.",
+      "note": "Danh tính theo báo cáo 2025 trang PDF 3; ngày giao dịch đầu tiên 02/03/2010 và mã STG/HOSE được đọc trực quan tại mục 1.1.4, trang PDF 7 báo cáo thường niên 2012 tải từ website doanh nghiệp. Đây là lịch sử giao dịch, chưa xác nhận cổ phiếu đang giao dịch hoặc công ty còn đại chúng tháng 10/2026; công bố 25/03/2026 yêu cầu kiểm tra quyết định tiếp theo.",
       "company_id": "a2ff75f4-f168-561d-a52a-ed4a48094cfb",
-      "listing_id": null,
+      "listing_id": "374e1bd6-d694-5713-94e3-7869930bc527",
       "source_records": {
-        "stg-2025.pdf": "73cb5679-bb0b-561d-91c4-370908a96b28"
+        "stg-2025.pdf": "73cb5679-bb0b-561d-91c4-370908a96b28",
+        "stg-2012.pdf": "62e06df4-40c9-5a2b-8f1a-46bd1ddef529"
       },
       "current_status_verified": false
     }

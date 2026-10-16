@@ -247,21 +247,27 @@
         6,
         8
       ],
-      "assets": [],
-      "candidate_assets": [
+      "assets": [
         {
           "terminal_number": 11,
-          "candidate_berths": [
+          "berth_subset": [
+            "Cầu cảng Tạm",
             "Cầu cảng số 1",
             "Cầu cảng số 5",
             "Cầu cảng số 6",
             "Cầu cảng số 7"
           ],
           "role": "operator",
-          "effective_from": null,
-          "evidence_to_inspect": "https://quangninhport.com.vn/FileUpload/Documents/2.GPKDCB.pdf"
+          "via": [],
+          "effective_from": "2020-06-24",
+          "date_basis": "certificate_88_2020_GCN_CHHVN_issue_date; documented operator authorization, not original commencement; current validity unverified",
+          "supporting_artifact": "cqn-port-license.pdf",
+          "supporting_pages": [
+            1
+          ]
         }
       ],
+      "candidate_assets": [],
       "corporate_interests": [
         {
           "company": "Công ty Cổ phần Đầu tư Cảng Cái Lân",
@@ -270,11 +276,20 @@
           "as_of": "2025-12-31"
         }
       ],
-      "notes": "Sơ đồ có Xí nghiệp xếp dỡ Cái Lân; báo cáo nêu không có công ty do CQN nắm trên 50%. CQN và CPI/CICT là các pháp nhân khác. Không gán toàn bộ tám mục cầu của bến Cái Lân cho CQN.",
+      "notes": "Đọc trực quan bản scan ký đóng dấu trang PDF 1: Giấy chứng nhận 88/2020/GCN-CHHVN ngày 24/06/2020, doanh nghiệp 5700100231, cho khai thác cầu 1, 5, 6, 7 và bến tạm Cái Lân. Không bao gồm cầu 2–3–4 của CICT; không gán toàn bến Cái Lân cho CQN. Mốc đề xuất là ngày giấy chứng nhận, không phải ngày đầu khai thác. Trang PDF 2 là quyết định 114/2020/QĐ-TGĐ ngày 03/04/2020 về phương án khai thác, không thay ngày giấy chứng nhận. Chưa xác minh tình trạng hiệu lực hoặc thay đổi năm 2026.",
       "unresolved": [
-        "Inspect original berth eligibility permit",
-        "Reconcile CICT berths 2/3/4 and CPI chain",
-        "Current scope"
+        "Hiệu lực hiện tại của giấy chứng nhận 88/2020 và các văn bản thay thế/thu hồi",
+        "Thay đổi phạm vi khai thác, hợp đồng thuê hạ tầng và công trình năm 2026",
+        "Quyền sử dụng nguồn; giấy chứng nhận không xác nhận quyền sở hữu tài sản"
+      ],
+      "supporting_artifacts": [
+        {
+          "artifact_label": "cqn-port-license.pdf",
+          "reviewed_pages": [
+            1,
+            2
+          ]
+        }
       ]
     },
     {
@@ -774,12 +789,33 @@
       "ticker": "HAH",
       "artifact_label": "hah-2025.pdf",
       "reviewed_pages": [
-        4, 9, 10, 11, 12
+        4,
+        9,
+        10,
+        11,
+        12
       ],
-      "assets": [{"terminal_number":46,"role":"indirect","via":["Công ty TNHH Cảng Hải An"],"effective_from":null}],
+      "assets": [
+        {
+          "terminal_number": 46,
+          "role": "indirect",
+          "via": [
+            "Công ty TNHH Cảng Hải An"
+          ],
+          "effective_from": null
+        }
+      ],
       "corporate_interests": [
-        {"company":"Công ty TNHH Cảng Hải An","equity_pct":100,"as_of":"2025-12-31"},
-        {"company":"Công ty TNHH Pan Hải An","equity_pct":51,"as_of":"2025-12-31"}
+        {
+          "company": "Công ty TNHH Cảng Hải An",
+          "equity_pct": 100,
+          "as_of": "2025-12-31"
+        },
+        {
+          "company": "Công ty TNHH Pan Hải An",
+          "equity_pct": 51,
+          "as_of": "2025-12-31"
+        }
       ],
       "notes": "Trang PDF 4 xác nhận pháp nhân HAH. Trang PDF 9 ghi công ty con TNHH Cảng Hải An, ngành khai thác cảng và tỷ lệ vốn 100% tại 31/12/2025; gắn chuỗi gián tiếp tới bến Hải An, không gán HAH khai thác trực tiếp. Trang PDF 12 ghi Pan Hải An 51%, ngành kho bãi và bãi container, chưa đủ để gọi là ICD. Tỷ lệ vốn công ty con không gán thành tỷ lệ tài sản vật lý.",
       "unresolved": [

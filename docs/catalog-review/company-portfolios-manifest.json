@@ -379,21 +379,37 @@
         6,
         8
       ],
-      "assets": [],
-      "candidate_assets": [
+      "assets": [
         {
           "terminal_number": 11,
-          "candidate_berths": [
+          "berth_subset": [
+            "Cầu cảng Tạm",
             "Cầu cảng số 1",
             "Cầu cảng số 5",
             "Cầu cảng số 6",
             "Cầu cảng số 7"
           ],
           "role": "operator",
-          "effective_from": null,
-          "evidence_to_inspect": "https://quangninhport.com.vn/FileUpload/Documents/2.GPKDCB.pdf"
+          "via": [],
+          "effective_from": "2020-06-24",
+          "date_basis": "certificate_88_2020_GCN_CHHVN_issue_date; documented operator authorization, not original commencement; current validity unverified",
+          "supporting_artifact": "cqn-port-license.pdf",
+          "supporting_pages": [
+            1
+          ],
+          "canonical_terminal_id": "3d62cd6f-4230-50ec-a262-33af59142f50",
+          "canonical_terminal_name": "Bến cảng tổng hợp Cái Lân",
+          "canonical_berth_ids": [
+            "a0428a2d-55d7-5096-9f2b-ca329dd89e8d",
+            "38ac11cb-ccb9-5d4c-befb-23e1a4746c65",
+            "7c79dbf5-d236-5f9f-85a7-6dd85112dbc3",
+            "55335d56-cca1-5668-bbba-bb8b6fa4535a",
+            "250b903c-0da1-5a7b-918a-205d78eb730b"
+          ],
+          "sql_interest_generated": false
         }
       ],
+      "candidate_assets": [],
       "corporate_interests": [
         {
           "company": "Công ty Cổ phần Đầu tư Cảng Cái Lân",
@@ -402,11 +418,29 @@
           "as_of": "2025-12-31"
         }
       ],
-      "notes": "Sơ đồ có Xí nghiệp xếp dỡ Cái Lân; báo cáo nêu không có công ty do CQN nắm trên 50%. CQN và CPI/CICT là các pháp nhân khác. Không gán toàn bộ tám mục cầu của bến Cái Lân cho CQN.",
+      "notes": "Đọc trực quan bản scan ký đóng dấu trang PDF 1: Giấy chứng nhận 88/2020/GCN-CHHVN ngày 24/06/2020, doanh nghiệp 5700100231, cho khai thác cầu 1, 5, 6, 7 và bến tạm Cái Lân. Không bao gồm cầu 2–3–4 của CICT; không gán toàn bến Cái Lân cho CQN. Mốc đề xuất là ngày giấy chứng nhận, không phải ngày đầu khai thác. Trang PDF 2 là quyết định 114/2020/QĐ-TGĐ ngày 03/04/2020 về phương án khai thác, không thay ngày giấy chứng nhận. Chưa xác minh tình trạng hiệu lực hoặc thay đổi năm 2026.",
       "unresolved": [
-        "Inspect original berth eligibility permit",
-        "Reconcile CICT berths 2/3/4 and CPI chain",
-        "Current scope"
+        "Hiệu lực hiện tại của giấy chứng nhận 88/2020 và các văn bản thay thế/thu hồi",
+        "Thay đổi phạm vi khai thác, hợp đồng thuê hạ tầng và công trình năm 2026",
+        "Quyền sử dụng nguồn; giấy chứng nhận không xác nhận quyền sở hữu tài sản"
+      ],
+      "supporting_artifacts": [
+        {
+          "artifact_label": "cqn-port-license.pdf",
+          "reviewed_pages": [
+            1,
+            2
+          ],
+          "evidence": {
+            "source_url": "https://quangninhport.com.vn/FileUpload/Documents/2.GPKDCB.pdf",
+            "content_hash": "aaef704b2ae7526c5626b2425b170b1e2e2762d71ad48055a01d087868e1d4ca",
+            "fetched_at": "2026-10-16T15:11:21.118076+00:00",
+            "published_at": null,
+            "raw_storage_key": "catalog-evidence/sha256/aaef704b2ae7526c5626b2425b170b1e2e2762d71ad48055a01d087868e1d4ca",
+            "r2_verified": true,
+            "rights_status": "to_verify"
+          }
+        }
       ],
       "evidence": {
         "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W3/000000016150064_VN_BaoCaoThuongNien_2025.pdf",
@@ -3241,7 +3275,7 @@
   "universe_complete": false,
   "coverage_summary": {
     "issuer_dossiers": 41,
-    "asset_observations": 62,
+    "asset_observations": 63,
     "unique_matched_terminals": 36,
     "observations_without_exact_effective_date": 57,
     "indirect_research_paths": 22,

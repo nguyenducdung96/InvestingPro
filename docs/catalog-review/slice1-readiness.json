@@ -1,0 +1,710 @@
+{
+  "scope": "offline_handoff_readiness_only",
+  "complete": false,
+  "integrity_ok": true,
+  "integrity_errors": [],
+  "acceptance_gaps": [
+    "Market universe has not been reconciled across HOSE/HNX/UPCoM",
+    "57 asset observations lack exact relationship dates",
+    "41 issuer dossiers lack current-status verification",
+    "Company-specific identity, asset, legal or indirect-chain reviews remain open",
+    "52 artifact source-rights entries remain unapproved (not distinct legal publishers)",
+    "Live admin decisions, public API/UI and per-issuer coverage need a staging acceptance receipt"
+  ],
+  "summary": {
+    "company_count": 41,
+    "listing_history_count": 41,
+    "pending_interest_proposals": 14,
+    "asset_observations": 63,
+    "observations_without_exact_effective_date": 57,
+    "archive_receipt_items": 82,
+    "cloud_applied": true
+  },
+  "companies": [
+    {
+      "ticker": "CAG",
+      "company_id": "c4fb1616-7620-5e06-8c8b-5df2477272be",
+      "historical_listing_date": "2017-12-04",
+      "current_status_verified": false,
+      "asset_observations": 2,
+      "missing_effective_dates": [
+        "Bến cảng Mỹ Thới",
+        "Cảng Bình Long"
+      ],
+      "observations_without_canonical_terminal": [
+        "Cảng Bình Long"
+      ],
+      "review_gaps": [
+        "Exact operating periods",
+        "Bình Long inland-port decision and berth list",
+        "Current exchange status"
+      ]
+    },
+    {
+      "ticker": "CCP",
+      "company_id": "0363c2b0-09c6-566e-b11f-33528fad8c92",
+      "historical_listing_date": "2017-03-16",
+      "current_status_verified": false,
+      "asset_observations": 0,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Physical operating scope and date",
+        "Current listing market and first trade"
+      ]
+    },
+    {
+      "ticker": "CCR",
+      "company_id": "24129e88-70bb-57a0-a54c-233f1b5f5b5a",
+      "historical_listing_date": "2021-11-19",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bến cảng Ba Ngòi"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Current legal berth permits",
+        "Exact relationship commencement after corporate conversion",
+        "2026 changes"
+      ]
+    },
+    {
+      "ticker": "CCT",
+      "company_id": "1215d2c8-22d0-5403-b546-3fa37ee72bbe",
+      "historical_listing_date": "2017-06-30",
+      "current_status_verified": false,
+      "asset_observations": 3,
+      "missing_effective_dates": [
+        "Bến cảng Hoàng Diệu (Cần Thơ)",
+        "Bến cảng Cái Cui",
+        "Cơ sở cảng sông khu vực Duyên Hải, Trà Vinh"
+      ],
+      "observations_without_canonical_terminal": [
+        "Cơ sở cảng sông khu vực Duyên Hải, Trà Vinh"
+      ],
+      "review_gaps": [
+        "Exact effective periods",
+        "Duyên Hải legal name and decision",
+        "Berth allocation and current exchange status"
+      ]
+    },
+    {
+      "ticker": "CDN",
+      "company_id": "443f0dda-0429-5afe-a1ad-aa0b2a8478b5",
+      "historical_listing_date": "2016-11-30",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bến cảng Tiên Sa"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Exact start/current legal documents",
+        "2026 Hòa Vang commissioning and classification"
+      ]
+    },
+    {
+      "ticker": "CLL",
+      "company_id": "1245c901-bdef-507c-bc9a-77826e76afa9",
+      "historical_listing_date": "2014-07-08",
+      "current_status_verified": false,
+      "asset_observations": 3,
+      "missing_effective_dates": [
+        "Bến cảng Tân cảng Cát Lái",
+        "Cảng Đức Long / Tân Cảng Quế Võ"
+      ],
+      "observations_without_canonical_terminal": [
+        "Cầu cảng container 216m do CLL báo cáo",
+        "Cảng Đức Long / Tân Cảng Quế Võ"
+      ],
+      "review_gaps": [
+        "Khớp cầu container 216m với quyết định pháp lý, tách bến sà lan B7",
+        "Ngày hiệu lực và phạm vi hợp tác TCL",
+        "Chuỗi vốn và ngày quan hệ Tân Cảng Quế Võ",
+        "Bản nguồn trực tiếp từ doanh nghiệp và quyền sử dụng"
+      ]
+    },
+    {
+      "ticker": "CMP",
+      "company_id": "99672e19-688d-5f7a-b1e9-83ffc0e77db6",
+      "historical_listing_date": "2016-02-15",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bến cảng Chân Mây"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Hồ sơ chuyển giao tài sản và giấy phép của pháp nhân hiện tại",
+        "Phạm vi cầu số 3 và các dự án khác",
+        "Công bố không đáp ứng điều kiện công ty đại chúng năm 2026"
+      ]
+    },
+    {
+      "ticker": "CPI",
+      "company_id": "aced02eb-5ed2-55b8-a6ad-b9aa5a5d5854",
+      "historical_listing_date": "2017-07-28",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bến cảng tổng hợp Cái Lân"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Exact equity effective period",
+        "Current corporate interest and current listing status"
+      ]
+    },
+    {
+      "ticker": "CQN",
+      "company_id": "9f129103-683b-5d07-8ecf-b9f7327fa4da",
+      "historical_listing_date": "2020-08-18",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Hiệu lực hiện tại của giấy chứng nhận 88/2020 và các văn bản thay thế/thu hồi",
+        "Thay đổi phạm vi khai thác, hợp đồng thuê hạ tầng và công trình năm 2026",
+        "Quyền sử dụng nguồn; giấy chứng nhận không xác nhận quyền sở hữu tài sản"
+      ]
+    },
+    {
+      "ticker": "DVP",
+      "company_id": "fafba875-a5cd-55f2-ac4f-0acf54a64164",
+      "historical_listing_date": "2009-12-01",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Current berth refurbishment and availability",
+        "Depot/SITC legal asset chain"
+      ]
+    },
+    {
+      "ticker": "DXP",
+      "company_id": "8d7f119e-ef74-5000-b3c3-57bb0f553c38",
+      "historical_listing_date": "2009-06-08",
+      "current_status_verified": false,
+      "asset_observations": 0,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Current operating/lease scope versus asphalt business",
+        "Exact legal effective date"
+      ]
+    },
+    {
+      "ticker": "GIC",
+      "company_id": "cc9dfab2-8b85-595c-8dc5-fbc8972a429b",
+      "historical_listing_date": "2020-11-06",
+      "current_status_verified": false,
+      "asset_observations": 0,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Giấy đăng ký doanh nghiệp mới nhất và hồ sơ đổi tên",
+        "Đối chiếu giấy phép trước khi phân loại ICD",
+        "Ngày hiệu lực cụ thể của cơ sở khai thác, không đổi tháng 07/2017 thành ngày đầu tháng"
+      ]
+    },
+    {
+      "ticker": "GMD",
+      "company_id": "69e45fe8-140b-5e1a-809c-2c621e2ccb44",
+      "historical_listing_date": "2002-04-22",
+      "current_status_verified": false,
+      "asset_observations": 6,
+      "missing_effective_dates": [
+        "Bến cảng Nam Đình Vũ",
+        "Bến cảng Germadept Dung Quất",
+        "Bến cảng tổng hợp Bình Dương",
+        "Bến cảng Cái Mép Gemadept-Terminal Link",
+        "Nam Hải ICD",
+        "Phước Long ICD"
+      ],
+      "observations_without_canonical_terminal": [
+        "Nam Hải ICD",
+        "Phước Long ICD"
+      ],
+      "review_gaps": [
+        "Historical effective dates",
+        "2026 disposals/acquisitions",
+        "Current subsidiary equity and complete indirect chains",
+        "Legal ICD identity"
+      ]
+    },
+    {
+      "ticker": "HAH",
+      "company_id": "f8a636b7-78cf-51ce-9ed8-3ead2d9f8774",
+      "historical_listing_date": "2015-03-11",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bến cảng Hải An"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Exact port operating and equity effective dates",
+        "Pan Hải An depot classification",
+        "First trade and 2026 changes"
+      ]
+    },
+    {
+      "ticker": "ILB",
+      "company_id": "19f237ab-b0de-5f5a-aaa5-4008b4cdb943",
+      "historical_listing_date": "2019-05-15",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [
+        "Cảng cạn Tân Cảng - Long Bình (giai đoạn 1)"
+      ],
+      "review_gaps": [
+        "Bản gốc quyết định 07/QĐ-BGTVT và ngày hiệu lực cụ thể",
+        "Phạm vi 20,8ha theo báo cáo 2025 so với 24,8ha tại tài liệu cũ",
+        "Tách ICD Long Bình khỏi IST Sóng Thần và kiểm tra biến động 2026"
+      ]
+    },
+    {
+      "ticker": "IST",
+      "company_id": "96a0cafd-6952-52f9-a161-fd270065cb67",
+      "historical_listing_date": "2017-01-05",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "ICD Tân Cảng Sóng Thần"
+      ],
+      "observations_without_canonical_terminal": [
+        "ICD Tân Cảng Sóng Thần"
+      ],
+      "review_gaps": [
+        "Legal ICD decision and operator period",
+        "Current listing market and first trade"
+      ]
+    },
+    {
+      "ticker": "MVN",
+      "company_id": "f9399e04-83f6-5f5f-b344-a271988d1dca",
+      "historical_listing_date": "2018-10-08",
+      "current_status_verified": false,
+      "asset_observations": 0,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "All asset endpoints through subsidiaries",
+        "Direct versus consolidated equity definitions",
+        "River ports Năm Căn/Khuyến Lương and Hậu Giang chain",
+        "2026 changes"
+      ]
+    },
+    {
+      "ticker": "NAP",
+      "company_id": "00db3f03-66b1-501b-940c-f4e6b0cf6d3d",
+      "historical_listing_date": "2018-03-27",
+      "current_status_verified": false,
+      "asset_observations": 2,
+      "missing_effective_dates": [
+        "Bến cảng Cửa Lò",
+        "Bến cảng Bến Thủy"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Exact operating periods and berth allocation",
+        "Current expansion operator"
+      ]
+    },
+    {
+      "ticker": "PAP",
+      "company_id": "c0a6f7c5-4ee6-503b-8ad5-5183696ff2ae",
+      "historical_listing_date": "2021-07-14",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bến cảng Phước An"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "2026 legal berth numbers and current stage completion"
+      ]
+    },
+    {
+      "ticker": "PDN",
+      "company_id": "d3aebe0e-ee56-5e8b-9f44-195c17e6aa5e",
+      "historical_listing_date": "2011-10-26",
+      "current_status_verified": false,
+      "asset_observations": 3,
+      "missing_effective_dates": [
+        "Bến cảng Đồng Nai (Phân cảng Long Bình Tân)",
+        "Bến cảng Đồng Nai (Phân cảng Gò Dầu A)",
+        "Bến cảng Đồng Nai (Phân cảng Gò Dầu B)"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Exact commissioning/qualification dates",
+        "2026 B6 status",
+        "Berth-specific operator scope"
+      ]
+    },
+    {
+      "ticker": "PHP",
+      "company_id": "10000000-0000-0000-0000-000000000017",
+      "historical_listing_date": "2022-09-14",
+      "current_status_verified": false,
+      "asset_observations": 3,
+      "missing_effective_dates": [
+        "Bến cảng Chùa Vẽ",
+        "Bến cảng Hải Phòng (khu cảng chính, Hoàng Diệu)",
+        "Bến cảng Đình Vũ"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Exact merger effective date and 2026 relocation scope",
+        "HTIT physical operator document",
+        "SITC–Đình Vũ depot classification"
+      ]
+    },
+    {
+      "ticker": "PNP",
+      "company_id": "3b1bd36a-5aa0-5818-aa5a-e510042a3743",
+      "historical_listing_date": "2019-05-17",
+      "current_status_verified": false,
+      "asset_observations": 0,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Legal physical terminal and lease/cooperation scope",
+        "Exact operating dates and berth permits"
+      ]
+    },
+    {
+      "ticker": "PQN",
+      "company_id": "44c10074-185a-57f4-abe1-7cad10fb0b2e",
+      "historical_listing_date": "2019-10-04",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bến cảng PTSC Quảng Ngãi"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Ngày giấy phép và ngày tiếp nhận từng cầu",
+        "Cầu số 3 xuất hiện trong báo cáo tập đoàn nhưng chưa khớp catalog",
+        "Biến động 2026"
+      ]
+    },
+    {
+      "ticker": "PSB",
+      "company_id": "d4ee7127-127b-567d-be18-268f32942840",
+      "historical_listing_date": "2010-02-25",
+      "current_status_verified": false,
+      "asset_observations": 0,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Enterprise identifier conflict",
+        "Industrial-base versus commercial-port classification",
+        "Current operating assets and berth permits"
+      ]
+    },
+    {
+      "ticker": "PSN",
+      "company_id": "3581f240-4e58-5dd9-a468-fa0d11027ce9",
+      "historical_listing_date": "2017-06-29",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Cảng Nghi Sơn của PTSC"
+      ],
+      "observations_without_canonical_terminal": [
+        "Cảng Nghi Sơn của PTSC"
+      ],
+      "review_gaps": [
+        "Quyết định chuyển giao gốc và ngày hiệu lực chính xác",
+        "Định danh pháp lý hai bến và phân biệt các chủ đầu tư ở Nghi Sơn",
+        "Thay đổi sau kỳ báo cáo"
+      ]
+    },
+    {
+      "ticker": "PSP",
+      "company_id": "59d90fe3-3faa-513f-b987-481113e220c9",
+      "historical_listing_date": "2009-11-10",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bến cảng PTSC Đình Vũ"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Exact operating permit/first operation date",
+        "Changes after annual report"
+      ]
+    },
+    {
+      "ticker": "PVS",
+      "company_id": "a28b0cbf-37c4-50dd-8dbf-28549b9a87d7",
+      "historical_listing_date": "2007-09-20",
+      "current_status_verified": false,
+      "asset_observations": 8,
+      "missing_effective_dates": [
+        "Bến cảng hạ lưu PTSC",
+        "Cảng Hòn La",
+        "Cảng Sơn Trà",
+        "Bến cảng PTSC Quảng Ngãi",
+        "Cảng PTSC Phú Mỹ",
+        "Cảng Nghi Sơn của PTSC",
+        "Bến cảng PTSC Đình Vũ",
+        "Cảng Sao Mai - Bến Đình"
+      ],
+      "observations_without_canonical_terminal": [
+        "Cảng Hòn La",
+        "Cảng Sơn Trà",
+        "Cảng PTSC Phú Mỹ",
+        "Cảng Nghi Sơn của PTSC",
+        "Cảng Sao Mai - Bến Đình"
+      ],
+      "review_gaps": [
+        "Ngày bắt đầu và kết thúc từng quan hệ",
+        "Pháp nhân trực tiếp quản lý Hạ lưu/Hòn La/Sơn Trà",
+        "Khớp danh mục pháp lý cho các cơ sở chưa có canonical ID",
+        "Thay đổi năm 2026 và quyền nguồn"
+      ]
+    },
+    {
+      "ticker": "QNP",
+      "company_id": "4524d230-e0e3-5b42-8397-5f43bca80011",
+      "historical_listing_date": "2024-01-18",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bến cảng Quy Nhơn"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "QSP cooperation agreement",
+        "Berth permits and exact dates",
+        "2026 berth 1 works"
+      ]
+    },
+    {
+      "ticker": "QSP",
+      "company_id": "c08c08f9-970d-52cb-bf34-89bb9685136c",
+      "historical_listing_date": "2016-09-23",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bến cảng Tân cảng Quy Nhơn"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Counterparty, agreement and effective period",
+        "Exact legal interest classification"
+      ]
+    },
+    {
+      "ticker": "SGP",
+      "company_id": "fe97fde6-6583-58fb-b6b8-6574d495c575",
+      "historical_listing_date": "2016-04-25",
+      "current_status_verified": false,
+      "asset_observations": 6,
+      "missing_effective_dates": [
+        "Bến cảng Sài Gòn",
+        "Bến cảng Tân Thuận 2",
+        "Bến cảng Sài Gòn - Hiệp Phước",
+        "Bến cảng Quốc tế SP-PSA",
+        "Bến cảng Quốc tế Cái Mép (CMIT)",
+        "Bến cảng container Quốc tế Cảng Sài Gòn-SSA (SSIT)"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Relocation and 2026 changes",
+        "Korea Express and Thị Vải physical scope",
+        "Exact effective dates"
+      ]
+    },
+    {
+      "ticker": "STG",
+      "company_id": "a2ff75f4-f168-561d-a52a-ed4a48094cfb",
+      "historical_listing_date": "2010-03-02",
+      "current_status_verified": false,
+      "asset_observations": 0,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Hợp đồng/chuyển giao và hiệu lực chuỗi STG–SII–SWC",
+        "Phạm vi ICD hiện tại thuộc Sotrans Logistics",
+        "Ngày giao dịch đầu tiên và điều kiện công ty đại chúng năm 2026"
+      ]
+    },
+    {
+      "ticker": "SWC",
+      "company_id": "de1a1cc1-64cd-5066-be80-50dab575bfb2",
+      "historical_listing_date": "2011-04-29",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Cảng Sowatco Long Bình"
+      ],
+      "observations_without_canonical_terminal": [
+        "Cảng Sowatco Long Bình"
+      ],
+      "review_gaps": [
+        "Long Bình legal inland-port decision and effective period",
+        "VICT and other associate chains",
+        "Current first-trade/exchange status"
+      ]
+    },
+    {
+      "ticker": "TCL",
+      "company_id": "009b5929-253c-5b10-8d75-22b9828c93ae",
+      "historical_listing_date": "2009-12-24",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "ICD Tân Cảng Nhơn Trạch"
+      ],
+      "observations_without_canonical_terminal": [
+        "ICD Tân Cảng Nhơn Trạch"
+      ],
+      "review_gaps": [
+        "ICD legal operator and service versus asset ownership",
+        "Exact periods",
+        "Subsidiary asset endpoints"
+      ]
+    },
+    {
+      "ticker": "TCW",
+      "company_id": "a251ebfd-2516-5067-99f7-91dce6623f7b",
+      "historical_listing_date": "2017-06-26",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bến cảng Tân cảng Cát Lái"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Phạm vi hợp đồng dịch vụ và hiệu lực",
+        "Định danh cơ sở depot riêng, không đổi thành cảng cạn",
+        "Các cơ sở của pháp nhân liên kết cần bằng chứng vận hành riêng"
+      ]
+    },
+    {
+      "ticker": "TMS",
+      "company_id": "e1f4c72a-f321-524f-aca8-75881a362efd",
+      "historical_listing_date": "2000-08-04",
+      "current_status_verified": false,
+      "asset_observations": 2,
+      "missing_effective_dates": [
+        "ICD Transimex",
+        "Cảng biển Mipec tại Hải Phòng"
+      ],
+      "observations_without_canonical_terminal": [
+        "ICD Transimex",
+        "Cảng biển Mipec tại Hải Phòng"
+      ],
+      "review_gaps": [
+        "Pháp nhân vận hành và chuỗi vốn ICD/Mipec",
+        "Khớp định danh pháp lý",
+        "Ngày hiệu lực quan hệ và biến động 2026"
+      ]
+    },
+    {
+      "ticker": "TNP",
+      "company_id": "5f57623f-6c97-5864-a4fa-3d00ab190eea",
+      "historical_listing_date": "2016-12-23",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bến cảng Thị Nại"
+      ],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Exact current-entity operating date",
+        "Legal permits and berth scope",
+        "Current listing market and first trade"
+      ]
+    },
+    {
+      "ticker": "VGP",
+      "company_id": "273200ed-04e0-5ac4-a8d7-32c517f435fd",
+      "historical_listing_date": "2009-06-12",
+      "current_status_verified": false,
+      "asset_observations": 0,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "Legal terminal match",
+        "Current operation or change-of-use evidence",
+        "Exact first trading date"
+      ]
+    },
+    {
+      "ticker": "VGR",
+      "company_id": "7b1b3668-9997-5148-a498-185c92e9ff55",
+      "historical_listing_date": "2018-04-12",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [],
+      "review_gaps": [
+        "2026 leased-yard legal identities; see factual-review-20261015.json"
+      ]
+    },
+    {
+      "ticker": "VLG",
+      "company_id": "3c09b6d5-b354-585c-9705-8e03114a26c9",
+      "historical_listing_date": "2015-09-18",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [],
+      "observations_without_canonical_terminal": [
+        "Cảng cạn Đông Phố Mới (Lào Cai)"
+      ],
+      "review_gaps": [
+        "Bản quyết định hoàn chỉnh đã ký và mặt bằng pháp lý",
+        "Kiểm tra thay đổi đến 2026",
+        "Quyền nguồn và R2 readback"
+      ]
+    },
+    {
+      "ticker": "VMS",
+      "company_id": "92745a3e-72d9-50bf-b16d-c34c3cec1a26",
+      "historical_listing_date": "2015-10-20",
+      "current_status_verified": false,
+      "asset_observations": 1,
+      "missing_effective_dates": [
+        "Bãi ICD Phước Long theo báo cáo VMS"
+      ],
+      "observations_without_canonical_terminal": [
+        "Bãi ICD Phước Long theo báo cáo VMS"
+      ],
+      "review_gaps": [
+        "Định danh pháp lý và phạm vi hợp tác bãi ICD Phước Long",
+        "Hợp đồng, đối tác và hiệu lực từng cơ sở",
+        "Thay đổi năm 2026"
+      ]
+    },
+    {
+      "ticker": "VSC",
+      "company_id": "596a9594-a1d8-53d1-a415-0733a8edb553",
+      "historical_listing_date": "2008-01-09",
+      "current_status_verified": false,
+      "asset_observations": 3,
+      "missing_effective_dates": [
+        "Bến cảng Container Vip Greenport",
+        "Bến cảng Nam Hải Đình Vũ",
+        "Cảng cạn Quảng Bình - Đình Vũ"
+      ],
+      "observations_without_canonical_terminal": [
+        "Cảng cạn Quảng Bình - Đình Vũ"
+      ],
+      "review_gaps": [
+        "Greenport operator endpoint",
+        "HAH equity discrepancy",
+        "2026 changes and actual asset interest dates",
+        "Legal ICD registry"
+      ]
+    }
+  ]
+}
