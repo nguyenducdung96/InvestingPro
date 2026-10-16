@@ -1,5 +1,11 @@
 # Tự duyệt hồ sơ trên InvestingPro staging
 
+## Xem dữ liệu ngay theo kỳ báo cáo
+
+Mở https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/admin/catalog sau khi đăng nhập. Nhập mã như GMD, MVN, ILB hoặc CQN rồi chọn **Tra cứu hồ sơ**. Trang này đọc trực tiếp 41 hồ sơ và 63 quan sát từ database, có kỳ báo cáo, vai trò, pháp nhân trung gian, trang tài liệu và các khoảng trống. ICD và nhóm bến chuyên dùng được tách riêng. 22 đường nghiên cứu qua pháp nhân nằm ở phần cần đối chiếu, không được gọi là sở hữu đã xác minh.
+
+Không cần nhập ngày bắt đầu giả để xem hoặc rà soát một hồ sơ. Ngày cuối kỳ, mốc cấp phép và ngày bắt đầu được doanh nghiệp báo cáo là các trường khác nhau. Muốn xử lý một quan sát thì mở **Duyệt quan sát này**; chỉ xác minh khi đã hoàn tất nguồn, bằng chứng và định danh liên quan. Thiếu quyền công bố không làm mất hồ sơ nội bộ, nhưng bản đó không hiện ra danh sách công khai.
+
 Đường dẫn: https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/admin/publication
 
 Luồng này thuộc Slice 1. Duyệt xong một hồ sơ không có nghĩa đã đủ danh mục toàn thị trường hoặc mọi tài sản của doanh nghiệp đó.

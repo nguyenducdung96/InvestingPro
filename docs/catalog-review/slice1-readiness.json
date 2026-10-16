@@ -1,13 +1,10 @@
 {
-  "scope": "offline_handoff_readiness_only",
+  "scope": "public_publication_readiness",
   "complete": false,
+  "snapshot_acceptance_report": "reported-catalog-acceptance.json",
   "integrity_ok": true,
   "integrity_errors": [],
   "acceptance_gaps": [
-    "Market universe has not been reconciled across HOSE/HNX/UPCoM",
-    "57 asset observations lack exact relationship dates",
-    "41 issuer dossiers lack current-status verification",
-    "Company-specific identity, asset, legal or indirect-chain reviews remain open",
     "52 artifact source-rights entries remain unapproved (not distinct legal publishers)",
     "Live admin decisions, public API/UI and per-issuer coverage need a staging acceptance receipt"
   ],

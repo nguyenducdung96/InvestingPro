@@ -1,0 +1,21 @@
+{
+  "scope_version": "listed-port-candidates-41-report-2025-v1",
+  "snapshot_scope_status": "accepted_on_staging",
+  "integrity_errors": [],
+  "cloud_snapshot_applied": true,
+  "authenticated_ui_verified": true,
+  "summary": {
+    "dossiers": 41,
+    "observations": 63,
+    "research_paths": 22,
+    "unknown_relationship_start_dates": 62
+  },
+  "historical_dates_required_for_snapshot_acceptance": false,
+  "public_publication_status": "pending_source_and_fact_review",
+  "not_certified": [
+    "Current trading/ownership status",
+    "Complete market-wide universe",
+    "Public redistribution rights for pending sources"
+  ],
+  "acceptance_receipt": "reported-catalog-staging-receipt-20261016.json"
+}

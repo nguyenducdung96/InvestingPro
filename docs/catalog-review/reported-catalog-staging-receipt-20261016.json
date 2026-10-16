@@ -1,0 +1,56 @@
+{
+  "project_id": "loapslojajawgzekozfv",
+  "checked_at": "2026-10-16T16:00:51.012533+00:00",
+  "scope_version": "listed-port-candidates-41-report-2025-v1",
+  "sql_sha256": "2b551468fde929104ec49f8fbeda02fcfede6eb18790bd5eb52616fd00c40111",
+  "migrations": [
+    {
+      "file": "202610160001_reported_catalog.sql",
+      "sha256": "2970dac7afeb44ee6f0ad9a06c4a56102018dbd67ee707a9300b090fd01c706c"
+    },
+    {
+      "file": "202610160002_reported_scope_groups.sql",
+      "sha256": "7e4f30cc46c6812095a0d74aeb09ece4fbd44e28efd43e09ba11d22e91afd0f5"
+    },
+    {
+      "file": "202610160003_reported_history.sql",
+      "sha256": "3f9133a4b893b5ac0ebc90c313817798f28343348931a092b216406bccb9dc90"
+    },
+    {
+      "file": "202610160004_dossier_research_paths.sql",
+      "sha256": "99f565b164a8edbf4f5c77aebff6b06b25cdb35413cacfd2c4cf4491ea7a0adc"
+    },
+    {
+      "file": "202610160005_reported_document_dates.sql",
+      "sha256": "018b8d3fdc608ac89eba109ca817e1acf0755aee21295c3254fe04d67b24680c"
+    }
+  ],
+  "counts": {
+    "dossiers": 41,
+    "observations": 63,
+    "unknown_relationship_start_dates": 62,
+    "icd_observations": 9,
+    "supplementary_observations": 1,
+    "tables_without_rls": 0,
+    "anonymous_dossiers": 0,
+    "anonymous_observations": 0,
+    "documented_dates": 6,
+    "research_paths": 22
+  },
+  "rls_enabled": true,
+  "pending_publication_hidden": true,
+  "authenticated_ui_verified": true,
+  "release_commit": "ddde915d37e5f986eed86db7b824290d1aa72ded",
+  "worker_build": "784d65cf-9d6f-40ae-a965-dac507060135",
+  "publication_performed": false,
+  "source_approvals_performed": false,
+  "worker_version": "973af286-b47d-47d9-bb4d-94dd4cb916d0",
+  "ui_checks": [
+    "GMD: six observations, ICD separate, collapsed review controls",
+    "ILB: unknown relationship start separated from documentary permission date 2023-01-06",
+    "MVN: research path expansion shows both original document links and PDF pages",
+    "Ticker search submitted through live UI",
+    "ILB viewport 845px: document width 830px, no horizontal overflow",
+    "Pagination cursor from displayed next-page link renders remaining dossiers PHP through TNP"
+  ]
+}

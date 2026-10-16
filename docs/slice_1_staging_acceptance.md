@@ -1,5 +1,17 @@
 # Nghiệm thu Slice 1 trên staging
 
+## Nghiệm thu mô hình hồ sơ theo kỳ — 16/10/2026, bản cuối
+
+**Đạt phạm vi snapshot Slice 1 đã được người dùng chấp thuận** tại `docs/slice_1_reported_catalog_scope.md`: 41 hồ sơ doanh nghiệp ứng viên của kỳ 2025, 63 quan sát tài sản và 22 đường nghiên cứu qua pháp nhân đã được nhập cloud. Chưa chứng nhận độ phủ toàn thị trường, trạng thái sở hữu/giao dịch hiện tại hoặc quyền công bố các nguồn đang chờ duyệt. Các nhận định chưa hoàn thành trong các phần lịch sử bên dưới dùng mô hình/phạm vi trước khi điều chỉnh.
+
+Đã áp dụng đủ năm migration `202610160001`–`202610160005`. Có 62 ngày bắt đầu quan hệ chưa xác định; sáu mốc tài liệu lưu riêng, không điền ngày cấp phép/ngày cuối kỳ thay ngày bắt đầu. ICD và căn cứ công nghiệp được phân nhóm riêng. RLS bật đầy đủ, truy vấn anonymous trả 0 hồ sơ và 0 quan sát chờ duyệt. Không duyệt thêm nguồn hoặc công bố dữ kiện trong đợt này.
+
+Cloudflare build `784d65cf-9d6f-40ae-a965-dac507060135` của commit `ddde915d37e5f986eed86db7b824290d1aa72ded` đã build/deploy thành công; Worker version `973af286-b47d-47d9-bb4d-94dd4cb916d0`. Đã kiểm tra trực tiếp giao diện có đăng nhập tại `/admin/catalog`: GMD có sáu quan sát và ICD riêng; ILB tách mốc cấp phép khỏi ngày bắt đầu; MVN mở được đường nghiên cứu với hai liên kết tài liệu và trang PDF; tra cứu mã hoạt động, ILB không tràn ngang ở viewport 845px.
+
+Kiểm tra local: 64 Vitest, 18 Playwright desktop/mobile, 6 readiness và 3 snapshot acceptance tests đạt; lint và typecheck đạt. Build sản xuất được xác nhận thêm bằng build Cloudflare nói trên. Tests fixture không thay thế quyết định duyệt dữ kiện thật. Biên nhận triển khai: `catalog-review/reported-catalog-staging-receipt-20261016.json`; kết quả nghiệm thu máy đọc: `catalog-review/reported-catalog-acceptance.json`.
+
+## Lịch sử các lần kiểm tra trước
+
 ## Trạng thái cloud mới nhất ngày 16/10/2026
 
 Đã kiểm tra lại bằng trình duyệt: staging hiện truy cập được và người dùng đã đăng nhập quản trị. Giới hạn truy cập ghi trong các đợt trước không còn áp dụng cho các thao tác đã thực hiện trong đợt này. Đã nhập nguyên bộ `slice1_company_catalog.handoff.sql` qua Supabase SQL Editor UI, chỉ tạo pending; query độc lập xác nhận đúng 41 company IDs, 41 listing pending và 14 quan hệ pending (10 berth, 2 ICD, 2 terminal). Một doanh nghiệp fixture khác vẫn thuộc nguồn blocked. Mọi bảng core/catalog/port vẫn bật RLS.
