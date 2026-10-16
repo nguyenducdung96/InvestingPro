@@ -1357,3 +1357,8 @@ Ràng buộc:
 8. Viết unit, database constraint, RLS và E2E tests cho catalog/mapping.
 9. Không kết nối hay scrape `dulieucangbien.com`; chỉ dùng làm UX reference.
 10. Chạy lint, typecheck, tests và builds; báo file, lệnh, kết quả và blockers.
+
+
+### 22.12 Bổ sung công cụ refresh tham chiếu Slice 1 (16/10/2026)
+
+Theo yêu cầu người dùng, bổ sung luồng refresh chi phí thấp qua Vnstock/VCI và adapter JSON/API FiinGroup có cấu hình riêng, kết hợp kiểm tra trang nguồn khai báo. Công cụ chạy local, chỉ hồ sơ/quan hệ công ty trong phạm vi nghiên cứu; không thêm giá, port calls, metrics hoặc Slice 2–5. Bản raw, snapshot và before/after được lưu riêng; không tự ghi đè dữ kiện đã duyệt hoặc tự công bố. Hướng dẫn vận hành và giới hạn live tại `docs/company-data-refresh.md`. Không còn áp dụng giới hạn “không connector” cũ cho riêng công cụ tham chiếu được yêu cầu bổ sung này.

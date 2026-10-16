@@ -1,0 +1,319 @@
+{
+  "checked_at": "2026-10-16T16:35:09.494566+00:00",
+  "library_version": "5.0.3",
+  "python_version": "3.12.14",
+  "scope_version": "listed-port-candidates-41-report-2025-v1",
+  "profile_snapshots": 41,
+  "raw_hashes_verified": 41,
+  "storage": "local_private_gitignored",
+  "r2_archive_performed": false,
+  "database_import_performed": false,
+  "publication_performed": false,
+  "relationship_api_status": "guest_route_not_available",
+  "relationship_error_code": "VNSTOCK_TIER_ROUTE",
+  "supporting_web_sources": [
+    {
+      "id": "gmd-port-network",
+      "ticker": "GMD",
+      "status": "failed",
+      "error_type": "ValueError"
+    },
+    {
+      "id": "gmd-vnf-profile",
+      "ticker": "GMD",
+      "url": "https://data.vietnamfinance.vn/co-phieu/GMD/ho-so-doanh-nghiep",
+      "checked_at": "2026-10-16T16:24:04.466271+00:00",
+      "raw_sha256": "303106115fc4879fd414060e784cb41e4b5f17a711d17b1bc55eed20d9f3ca94",
+      "status": "baseline"
+    }
+  ],
+  "items": [
+    {
+      "ticker": "GMD",
+      "company_id": "69e45fe8-140b-5e1a-809c-2c621e2ccb44",
+      "fetched_at": "2026-10-16T16:26:27.702339+00:00",
+      "raw_sha256": "9af775a61baf9162d3cc445f6bc8e70827fe25c9372b82e301e1c1ae4ad78088",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "PHP",
+      "company_id": "10000000-0000-0000-0000-000000000017",
+      "fetched_at": "2026-10-16T16:26:29.823423+00:00",
+      "raw_sha256": "8d34a7e0d5899e527f31a3c7a0963bb36fbde09687bef4a5e9e9c520a8d9bc0f",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "VGR",
+      "company_id": "7b1b3668-9997-5148-a498-185c92e9ff55",
+      "fetched_at": "2026-10-16T16:25:09.054731+00:00",
+      "raw_sha256": "5ed30ce9e9f9195156606ec87fc1342441aed01c13042e2718aa2cc001c4c91d",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "DVP",
+      "company_id": "fafba875-a5cd-55f2-ac4f-0acf54a64164",
+      "fetched_at": "2026-10-16T16:25:11.167020+00:00",
+      "raw_sha256": "3339d70cd29504118d6042d2bfd8c10f597205298fc6a81950fba5b06a46ab34",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "PDN",
+      "company_id": "d3aebe0e-ee56-5e8b-9f44-195c17e6aa5e",
+      "fetched_at": "2026-10-16T16:25:13.371850+00:00",
+      "raw_sha256": "9488c6848d5b7753d20cc0b7290f4b6d6a4b73d54ec7c4758aa74d31f8001daa",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "CDN",
+      "company_id": "443f0dda-0429-5afe-a1ad-aa0b2a8478b5",
+      "fetched_at": "2026-10-16T16:25:15.802640+00:00",
+      "raw_sha256": "9a91a7cb6a7ef60fbe22ca1ccfbdc61d89c9220196355afa1a9343af4a041b6e",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "CQN",
+      "company_id": "9f129103-683b-5d07-8ecf-b9f7327fa4da",
+      "fetched_at": "2026-10-16T16:26:40.394283+00:00",
+      "raw_sha256": "d276d51375c8f5f6aead597dc788c3ffbdd8860bc3315bb55eec056073d1ed39",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "DXP",
+      "company_id": "8d7f119e-ef74-5000-b3c3-57bb0f553c38",
+      "fetched_at": "2026-10-16T16:27:24.368402+00:00",
+      "raw_sha256": "9af577477e665bd11e2cc3ca0cccf1235f5862645b1c5fb40132deadc2a33390",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "PSP",
+      "company_id": "59d90fe3-3faa-513f-b987-481113e220c9",
+      "fetched_at": "2026-10-16T16:27:36.583324+00:00",
+      "raw_sha256": "52969dfaee03c083079155f894ba46cfa5409fd553ee24cbd8d074e0611e20d8",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "PAP",
+      "company_id": "c0a6f7c5-4ee6-503b-8ad5-5183696ff2ae",
+      "fetched_at": "2026-10-16T16:27:48.683738+00:00",
+      "raw_sha256": "1a97ad0ea3e6cd891bb5a7dc93eb4860865454f4e00a84b7c23c27aec9760171",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "SGP",
+      "company_id": "fe97fde6-6583-58fb-b6b8-6574d495c575",
+      "fetched_at": "2026-10-16T16:28:00.976989+00:00",
+      "raw_sha256": "ee98a9c253c729865815e3f0c33e72a3740994a6da71c4ef7940bdb27c2ad754",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "QNP",
+      "company_id": "4524d230-e0e3-5b42-8397-5f43bca80011",
+      "fetched_at": "2026-10-16T16:28:13.791712+00:00",
+      "raw_sha256": "6e829144b2366f15ae0a05a564381ede010c350ac3e226946f40fa87a0f0daaf",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "QSP",
+      "company_id": "c08c08f9-970d-52cb-bf34-89bb9685136c",
+      "fetched_at": "2026-10-16T16:28:27.870851+00:00",
+      "raw_sha256": "045eb97287ede2b95a294797d618ee73a4c475258d2151aaee244eaf7b33fe78",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "NAP",
+      "company_id": "00db3f03-66b1-501b-940c-f4e6b0cf6d3d",
+      "fetched_at": "2026-10-16T16:28:40.658723+00:00",
+      "raw_sha256": "3af72c82e72cdfcd08efebb0955b81abd7e3a4f9a5089125d05a55df2bbe0f37",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "MVN",
+      "company_id": "f9399e04-83f6-5f5f-b344-a271988d1dca",
+      "fetched_at": "2026-10-16T16:26:31.931181+00:00",
+      "raw_sha256": "a47851e6a02b64b5640c7d9d5c475831103d1554b9a62dbf5c89149df8d68eb3",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "VSC",
+      "company_id": "596a9594-a1d8-53d1-a415-0733a8edb553",
+      "fetched_at": "2026-10-16T16:28:52.882784+00:00",
+      "raw_sha256": "32975e4432455752cbfc2c48bc6fc63a28f779b676dcaf918a02cde085353b50",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "CAG",
+      "company_id": "c4fb1616-7620-5e06-8c8b-5df2477272be",
+      "fetched_at": "2026-10-16T16:29:05.232763+00:00",
+      "raw_sha256": "1d32cc504a2834bac20dca24a83d53ef75614839f05653accedcf8696391dced",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "CCP",
+      "company_id": "0363c2b0-09c6-566e-b11f-33528fad8c92",
+      "fetched_at": "2026-10-16T16:29:18.765622+00:00",
+      "raw_sha256": "b50796d8ce66cc641142367503b6f158f07a3260aa7b84b446315ae1dec20800",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "CCR",
+      "company_id": "24129e88-70bb-57a0-a54c-233f1b5f5b5a",
+      "fetched_at": "2026-10-16T16:29:30.872921+00:00",
+      "raw_sha256": "32936efa2dbd613a3b47de9e225cfadf000a16c2de9892f45f2fbec875672955",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "CCT",
+      "company_id": "1215d2c8-22d0-5403-b546-3fa37ee72bbe",
+      "fetched_at": "2026-10-16T16:29:43.041912+00:00",
+      "raw_sha256": "cbd4c40cb176a29dda34457b49a8833311a71ed2c29aa1f38b1c3843d80044c3",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "CPI",
+      "company_id": "aced02eb-5ed2-55b8-a6ad-b9aa5a5d5854",
+      "fetched_at": "2026-10-16T16:29:59.986458+00:00",
+      "raw_sha256": "878abcb9235762999bb3134cbc2134e1ebe79d90be44382b9b41a41a2f5434e7",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "HAH",
+      "company_id": "f8a636b7-78cf-51ce-9ed8-3ead2d9f8774",
+      "fetched_at": "2026-10-16T16:30:14.610686+00:00",
+      "raw_sha256": "7fd1539c63ba773d64cdf39e6453adebb56836edad19ba238f4deee5229f4e21",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "IST",
+      "company_id": "96a0cafd-6952-52f9-a161-fd270065cb67",
+      "fetched_at": "2026-10-16T16:30:27.778326+00:00",
+      "raw_sha256": "c71907ed34fbd389e58d2eb6bdcfc5cc85aa8f760907592eda56e8992a5a456d",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "PNP",
+      "company_id": "3b1bd36a-5aa0-5818-aa5a-e510042a3743",
+      "fetched_at": "2026-10-16T16:30:40.425997+00:00",
+      "raw_sha256": "33f9c59df4372a4fa1596aebd28617c4d92f449f9e96a0d4fc87becafec946ae",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "PSB",
+      "company_id": "d4ee7127-127b-567d-be18-268f32942840",
+      "fetched_at": "2026-10-16T16:30:54.972156+00:00",
+      "raw_sha256": "df2cbb30b22169209a0b20081895d54e350f0946e5598bf0d3551560754fd328",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "SWC",
+      "company_id": "de1a1cc1-64cd-5066-be80-50dab575bfb2",
+      "fetched_at": "2026-10-16T16:31:14.435875+00:00",
+      "raw_sha256": "87dc84ca4d3583d9506ab2f8242e63f638e0a076e3b67a11028d09e3b6f7fa7c",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "TCL",
+      "company_id": "009b5929-253c-5b10-8d75-22b9828c93ae",
+      "fetched_at": "2026-10-16T16:31:27.216244+00:00",
+      "raw_sha256": "4b50e0dd1b4ccc1baf475c8d81cd8bf7e6bd247463f08fc23697513e04a8aa41",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "TNP",
+      "company_id": "5f57623f-6c97-5864-a4fa-3d00ab190eea",
+      "fetched_at": "2026-10-16T16:31:39.673233+00:00",
+      "raw_sha256": "4915dafc00db228c73d645d24ca3c740c25affec126daf510453063c6626a704",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "VGP",
+      "company_id": "273200ed-04e0-5ac4-a8d7-32c517f435fd",
+      "fetched_at": "2026-10-16T16:31:54.524410+00:00",
+      "raw_sha256": "d1bfc5b16612d4925787f15bca1bb618d78564ed1f5ecea5f13d7dbc953e4336",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "PVS",
+      "company_id": "a28b0cbf-37c4-50dd-8dbf-28549b9a87d7",
+      "fetched_at": "2026-10-16T16:32:06.798278+00:00",
+      "raw_sha256": "335c08adbf0361bc1d116748baf7a170937655a9b1968fe3d23abac58cb1d719",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "ILB",
+      "company_id": "19f237ab-b0de-5f5a-aaa5-4008b4cdb943",
+      "fetched_at": "2026-10-16T16:32:28.408159+00:00",
+      "raw_sha256": "26ee1c6f0fb69afb66d4d27e2bd6417b406f2fa1c97ed8a55fd0096b3cd3aac8",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "CMP",
+      "company_id": "99672e19-688d-5f7a-b1e9-83ffc0e77db6",
+      "fetched_at": "2026-10-16T16:32:44.682704+00:00",
+      "raw_sha256": "c828a56476fc34642a587b3ea76e51a2ba0ba9517aa556c8b898a5a7de41d24c",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "TMS",
+      "company_id": "e1f4c72a-f321-524f-aca8-75881a362efd",
+      "fetched_at": "2026-10-16T16:32:58.804636+00:00",
+      "raw_sha256": "a993bb699830d438f093d7df1e8206eb7b96672f3ba0a8f2bb0f89207aa18eeb",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "STG",
+      "company_id": "a2ff75f4-f168-561d-a52a-ed4a48094cfb",
+      "fetched_at": "2026-10-16T16:33:11.158522+00:00",
+      "raw_sha256": "e92737698c8a1342698ac2d83149fdda52ad06e321ccd95c2bc30a57deef1f52",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "CLL",
+      "company_id": "1245c901-bdef-507c-bc9a-77826e76afa9",
+      "fetched_at": "2026-10-16T16:33:23.328629+00:00",
+      "raw_sha256": "d245bc844777f54df909c9d84ea6576af933b7f812623c92269f19e91dfd7147",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "PQN",
+      "company_id": "44c10074-185a-57f4-abe1-7cad10fb0b2e",
+      "fetched_at": "2026-10-16T16:33:35.632727+00:00",
+      "raw_sha256": "2921cbeb0014ee7dca8b0997cd495dec63b67f91eb29c434939fae0e23e2c454",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "PSN",
+      "company_id": "3581f240-4e58-5dd9-a468-fa0d11027ce9",
+      "fetched_at": "2026-10-16T16:33:47.745629+00:00",
+      "raw_sha256": "9d163fdf11c90cdd1875be03d702faa1d4fddaef8e9c9f4f091d14040cee298e",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "VLG",
+      "company_id": "3c09b6d5-b354-585c-9705-8e03114a26c9",
+      "fetched_at": "2026-10-16T16:33:59.889929+00:00",
+      "raw_sha256": "03a032f20e7adf0d93ca8a662f4a9f0b28b30c4b26c33940896f37f24906ffa8",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "TCW",
+      "company_id": "a251ebfd-2516-5067-99f7-91dce6623f7b",
+      "fetched_at": "2026-10-16T16:34:12.442460+00:00",
+      "raw_sha256": "76535b2b54ddf24c2f8a5f24b1bf3c9815866e640593f8e2d714a94e1568ab96",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "GIC",
+      "company_id": "cc9dfab2-8b85-595c-8dc5-fbc8972a429b",
+      "fetched_at": "2026-10-16T16:34:24.561039+00:00",
+      "raw_sha256": "3d98a1f03fe0a5efa5cc4794101568e1e5e6b71e0d550e8960d27705942188e3",
+      "provider": "vnstock-vci"
+    },
+    {
+      "ticker": "VMS",
+      "company_id": "92745a3e-72d9-50bf-b16d-c34c3cec1a26",
+      "fetched_at": "2026-10-16T16:34:36.704536+00:00",
+      "raw_sha256": "07a5cf848eebe728b0d8b3d878f76ea191fb6d90243bcd3b1ce71a5c8f90fde6",
+      "provider": "vnstock-vci"
+    }
+  ]
+}

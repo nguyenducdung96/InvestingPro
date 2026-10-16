@@ -1,0 +1,16 @@
+{
+  "sources": [
+    {
+      "id": "gmd-port-network",
+      "ticker": "GMD",
+      "url": "https://ndv.gemadept.com.vn/dong-tho-cang-nuoc-sau-gemalink-giai-doan-2-nang-tam-vi-the-cua-ngo-giao-thuong-quoc-te/",
+      "purpose": "Company description of port network; corroborate asset names, not legal ownership percentages"
+    },
+    {
+      "id": "gmd-vnf-profile",
+      "ticker": "GMD",
+      "url": "https://data.vietnamfinance.vn/co-phieu/GMD/ho-so-doanh-nghiep",
+      "purpose": "Secondary company/subsidiary cross-check; page may expose only a subset"
+    }
+  ]
+}

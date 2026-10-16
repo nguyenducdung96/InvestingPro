@@ -85,3 +85,7 @@ Tài liệu đầu vào và khoảng trống được lưu tại `docs/catalog-r
 2. Mở **Niêm yết / đăng ký giao dịch** để xem mã đã duyệt.
 3. Vào trang công ty kiểm tra từng quan hệ đã duyệt, nguồn và hiệu lực. Quan hệ chỉ hiện trong khoảng hiệu lực và khi các hồ sơ nguồn/định danh phụ thuộc đủ điều kiện.
 4. Nếu trống, xem lại điều kiện ở hàng đợi. Không sửa RLS hoặc cấp GRANT ALL để buộc dữ liệu hiện.
+
+## Refresh và kết hợp nguồn API
+
+Lệnh `pnpm data:refresh` cập nhật hồ sơ cơ bản qua Vnstock/VCI, lưu raw/hash, snapshot và batch thay đổi trong `.local/company-refresh`. Có cache 24 giờ và giữ bản trước khi lỗi. Xem `docs/company-data-refresh.md` để cài đặt, refresh một số mã, kiểm tra website hỗ trợ hoặc nhập JSON FiinGroup. Đây là công cụ nghiên cứu local, chưa tự ghi Supabase hoặc tự duyệt/public dữ kiện; dữ liệu trên giao diện staging không tự đổi sau khi chỉ chạy CLI.

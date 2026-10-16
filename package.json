@@ -9,7 +9,10 @@
     "typecheck": "tsc --noEmit && pnpm --filter @invest/web typecheck",
     "lint": "eslint .",
     "test": "vitest run",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "data:refresh": "node scripts/refresh-company-data.mjs",
+    "data:status": "node scripts/refresh-company-data.mjs --status",
+    "data:refresh:import": "python scripts/refresh-company-data.py"
   },
   "devDependencies": {
     "typescript": "^5.9.3",

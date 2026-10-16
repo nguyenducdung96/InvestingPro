@@ -1,0 +1,8 @@
+{
+  "dataset": "organizations",
+  "endpoint": "https://REPLACE-WITH-ACCOUNT-API-HOST/Company/GetOrganization",
+  "method": "GET",
+  "headers_from_env": {},
+  "records_path": [],
+  "complete_response_confirmed": false
+}
