@@ -17,7 +17,9 @@ it("imports the scoped snapshots without invented dates and preserves review, RL
     await db.exec(sql);
     expect((await db.query("select * from port.catalog_dossiers")).rows).toHaveLength(41);
     expect((await db.query("select * from port.reported_asset_observations")).rows).toHaveLength(63);
-    expect((await db.query("select * from port.reported_asset_observations where relationship_started_on is null")).rows).toHaveLength(57);
+    expect((await db.query("select * from port.dossier_research_paths")).rows).toHaveLength(22);
+    expect((await db.query("select * from port.reported_asset_observations where relationship_started_on is null")).rows).toHaveLength(62);
+    expect((await db.query("select * from port.reported_asset_observations where documented_date is not null")).rows).toHaveLength(6);
     expect((await db.query("select * from port.company_asset_interests order by id")).rows).toEqual(effective.rows);
     const audited=await db.query("select count(*) from core.audit_events");
     await db.exec(sql);

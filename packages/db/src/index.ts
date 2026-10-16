@@ -386,13 +386,14 @@ export class SupabaseCatalogRepository implements CatalogRepository {
   }
   async researchCatalog(q: PageQuery, ticker?: string): Promise<Envelope<DossierItem[]>> {
     if(!this.admin) throw new DatabaseError(403);
-    const p=params({order:"id.asc",limit:String(q.limit+1)});
+    const p=params({order:"id.asc",reporting_period_end:`lte.${q.at}`,limit:String(q.limit+1)});
     if(q.cursor) p.set("id",`gt.${q.cursor}`);
     if(ticker) p.set("ticker",`eq.${ticker}`);
     const rows=await this.db.read("port","catalog_dossiers",p);
     const page=rows.slice(0,q.limit);
     const entities=page.length?await this.db.read("catalog","entities",params({id:ids(page.map(r=>r.company_id))})):[];
     const observations=page.length?await this.db.read("port","reported_asset_observations",params({company_id:ids(page.map(r=>r.company_id)),reporting_period_end:`lte.${q.at}`,order:"id.asc",limit:"1000"})):[];
+    const researchPaths=page.length?await this.db.read("port","dossier_research_paths",params({dossier_id:ids(page.map(r=>r.id)),order:"id.asc",limit:"1000"})):[];
     if(observations.length>=1000) throw new DatabaseError(413,"snapshot_page_too_large");
     const cites=await this.citations([...page.map(r=>r.source_record_id),...observations.map(r=>r.source_record_id)]);
     const data=page.map(dossier=>{
@@ -403,7 +404,7 @@ export class SupabaseCatalogRepository implements CatalogRepository {
         if(!evidence) throw new DatabaseError(502,"missing_lineage");
         return {observation,lineage:evidence};
       });
-      return {dossier,company,lineage,observations:items};
+      return {dossier,company,lineage,observations:items,researchPaths:researchPaths.filter(p=>p.dossier_id===dossier.id)};
     });
     return this.envelope(data,[...cites.values()],"private scoped catalog review; not public publication",rows.length>q.limit?page.at(-1)!.id:null);
   }

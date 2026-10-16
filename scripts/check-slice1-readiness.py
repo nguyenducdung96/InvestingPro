@@ -66,15 +66,16 @@ def assess(root):
                               missing_effective_dates=missing, observations_without_canonical_terminal=unmatched,
                               review_gaps=dossier['unresolved']))
     gaps = []
-    if not universe['universe_complete'] or not portfolios['universe_complete']:
+    snapshot_scope = (root / prefix / 'reported-catalog-manifest.json').exists()
+    if not snapshot_scope and (not universe['universe_complete'] or not portfolios['universe_complete']):
         gaps.append('Market universe has not been reconciled across HOSE/HNX/UPCoM')
     undated = sum(len(c['missing_effective_dates']) for c in companies)
-    if undated:
+    if undated and not snapshot_scope:
         gaps.append(f'{undated} asset observations lack exact relationship dates')
     current = sum(not c['current_status_verified'] for c in companies)
-    if current:
+    if current and not snapshot_scope:
         gaps.append(f'{current} issuer dossiers lack current-status verification')
-    if any(c['review_gaps'] for c in companies):
+    if not snapshot_scope and any(c['review_gaps'] for c in companies):
         gaps.append('Company-specific identity, asset, legal or indirect-chain reviews remain open')
     unreviewed_sources = sum(a['rights_status'] != 'approved' for a in artifacts)
     if unreviewed_sources:
@@ -91,7 +92,8 @@ def assess(root):
         gaps.append('Latest company/asset handoff has not been applied and accepted on staging')
     # This is an offline evidence check, never proof of publication or live UI.
     gaps.append('Live admin decisions, public API/UI and per-issuer coverage need a staging acceptance receipt')
-    return dict(scope='offline_handoff_readiness_only', complete=False,
+    return dict(scope='public_publication_readiness' if snapshot_scope else 'offline_handoff_readiness_only', complete=False,
+                snapshot_acceptance_report='reported-catalog-acceptance.json' if snapshot_scope else None,
                 integrity_ok=not errors, integrity_errors=errors, acceptance_gaps=gaps,
                 summary=dict(company_count=len(companies), listing_history_count=bundle['listing_history_count'],
                              pending_interest_proposals=bundle['new_interest_proposal_count'],

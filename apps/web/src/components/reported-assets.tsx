@@ -20,7 +20,7 @@ export function ReportedAssets({items,review=false}:{items:ReportedAssetItem[];r
       <h3>{o.asset_name}</h3>
       <p>{label(o.asset_kind)} · {roles[o.reported_role]??label(o.reported_role)}</p>
       <p>Kỳ báo cáo đến {displayDate(o.reporting_period_end)} · Ngày bắt đầu quan hệ: {displayDate(o.relationship_started_on,"Chưa xác định")}</p>
-      {o.date_basis&&<p>Căn cứ mốc ngày: {o.date_basis}</p>}
+      {o.documented_date&&<p>Mốc trong tài liệu: {displayDate(o.documented_date)} · {o.date_basis?.includes("first_vessel")?"Doanh nghiệp báo cáo bắt đầu khai thác":o.date_basis?.includes("certificate")?"Giấy chứng nhận; không mặc định là ngày đầu khai thác":"Mốc cấp phép / quyết định; không mặc định là ngày đầu khai thác"}</p>}
       {o.via.length>0&&<p>Qua pháp nhân: {o.via.join(" → ")}</p>}
       {o.berth_scope.length>0&&<p>Chỉ phạm vi: {o.berth_scope.join(", ")}. Không đại diện toàn bến.</p>}
       {!o.asset_id&&<p>Chưa khớp định danh pháp lý của tài sản.</p>}
@@ -29,7 +29,7 @@ export function ReportedAssets({items,review=false}:{items:ReportedAssetItem[];r
         {o.supporting_evidence.map(s=><p key={s.content_hash}><a href={s.source_url} target="_blank" rel="noreferrer">Tài liệu đối chiếu bổ sung</a> · Trang {s.reviewed_pages.join(", ")||"HTML"}</p>)}
       </details>
       <SourceBadge citation={lineage}/>
-      {review&&o.verification_status==="pending"&&<ReportedReview id={o.id}/>}
+      {review&&o.verification_status==="pending"&&<details><summary>Duyệt quan sát này</summary><ReportedReview id={o.id}/></details>}
     </article>)}</section>)}
   </>;
 }

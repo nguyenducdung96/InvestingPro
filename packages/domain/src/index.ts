@@ -250,6 +250,7 @@ export interface ReportedAssetObservation {
   scope_group: "main" | "supplementary_industrial_base";
   reported_role: string; via: string[]; berth_scope: string[];
   reporting_period_end: string; relationship_started_on: string | null;
+  documented_date: string | null;
   date_basis: string | null; source_record_id: string;
   supporting_evidence: { source_url: string; content_hash: string; reviewed_pages: number[] }[];
   evidence_pages: number[]; evidence_note: string;
@@ -263,7 +264,12 @@ export interface CatalogDossier {
   review_note: string; gaps: string[]; scope_version: string;
 }
 export interface ReportedAssetItem { observation: ReportedAssetObservation; lineage: Citation }
-export interface DossierItem { dossier: CatalogDossier; company: Entity; lineage: Citation; observations: ReportedAssetItem[] }
+export interface DossierResearchPath {
+  id:string; dossier_id:string; child_ticker:string; asset_name:string; via:string[]; berth_scope:string[];
+  evidence_path:{ticker:string;pages:number[];source_url:string;content_hash:string}[];
+  decision:"requires_chain_and_period_review";
+}
+export interface DossierItem { dossier: CatalogDossier; company: Entity; lineage: Citation; observations: ReportedAssetItem[]; researchPaths:DossierResearchPath[] }
 export interface CatalogRepository {
   reviewReported(id:string,decision:"verified"|"rejected",note:string):Promise<ReportedAssetObservation>;
   reportedAssets(companyId: string, query: PageQuery): Promise<Envelope<ReportedAssetItem[]>>;

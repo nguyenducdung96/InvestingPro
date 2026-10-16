@@ -6,9 +6,11 @@ Thay đổi được người dùng chấp thuận ngày 16/10/2026: nghiệm th
 
 Danh sách cố định 41 ứng viên trong `catalog-review/reported-catalog-manifest.json`, kỳ báo cáo 2025. Mỗi mã có hồ sơ và kết quả đọc tài liệu: có quan sát tài sản hoặc chưa có quan hệ đủ căn cứ để khẳng định. Trường hợp sau không có nghĩa không sở hữu tài sản. Đây không phải universe toàn thị trường, không chứng nhận mọi mã đang giao dịch tháng 10/2026.
 
+22 đường nghiên cứu qua pháp nhân giữ cả hai tài liệu và nhãn cần đối chiếu, không tự biến thành quan hệ sở hữu đã xác minh.
+
 63 quan sát giữ tên tài sản, vai trò đúng nguồn, chuỗi pháp nhân được báo cáo, phạm vi cầu nếu có, trang tài liệu, hash, URL và giới hạn. ICD tách riêng; căn cứ công nghiệp/bến chuyên dùng nằm nhóm bổ sung. Dịch vụ tại cảng không biến thành sở hữu. Hai ICD ILB/VLG tái sử dụng định danh đã có. Các tài sản chưa khớp giữ tên và nhãn chưa khớp, không tạo định danh giả.
 
-`reporting_period_end` là kỳ tài liệu mô tả. `relationship_started_on` là ngày bắt đầu quan hệ nếu có bằng chứng riêng; có thể null. 57 giá trị null không chặn nghiệm thu bộ snapshot. Ngày tải, ngày công bố hoặc cuối kỳ không được điền thay ngày bắt đầu. Các quan hệ hiệu lực trong `company_asset_interests` và lịch sử đã duyệt vẫn nguyên trạng, không bị chuyển thành quan hệ snapshot.
+`reporting_period_end` là kỳ tài liệu mô tả. `relationship_started_on` là ngày bắt đầu quan hệ nếu có bằng chứng riêng; có thể null. Các giá trị null không chặn nghiệm thu bộ snapshot. Sáu mốc có ngày được giữ riêng ở documented_date; chỉ mốc doanh nghiệp nêu bắt đầu khai thác được ghi vào relationship_started_on. Vì vậy bộ cuối có 62 ngày bắt đầu chưa xác định, không đánh đồng năm mốc cấp phép với ngày bắt đầu. Ngày tải, ngày công bố hoặc cuối kỳ không được điền thay ngày bắt đầu. Các quan hệ hiệu lực trong `company_asset_interests` và lịch sử đã duyệt vẫn nguyên trạng, không bị chuyển thành quan hệ snapshot.
 
 ## Giao diện và API
 
@@ -30,4 +32,4 @@ Nghiệm thu chức năng/bộ snapshot phải được ghi riêng với tình t
 
 ## Bằng chứng triển khai
 
-Hai migration `202610160001_reported_catalog.sql`, `202610160002_reported_scope_groups.sql`; bộ import `reported_catalog_2025.pending.sql`. Import chạy trong transaction, có kiểm tra xung đột, chạy lại không thêm audit khi dữ liệu không đổi. Quyết định duyệt và bằng chứng gốc bất biến; review tạo/đọc evidence thay thế có cùng hash thay vì sửa raw record.
+Các migration `202610160001_reported_catalog.sql` đến `202610160005_reported_document_dates.sql`; bộ import `reported_catalog_2025.pending.sql`. Import chạy trong transaction, có kiểm tra xung đột, chạy lại không thêm audit khi dữ liệu không đổi. Quyết định duyệt và bằng chứng gốc bất biến; review tạo/đọc evidence thay thế có cùng hash thay vì sửa raw record.
