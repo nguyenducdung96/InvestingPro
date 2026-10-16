@@ -14,7 +14,10 @@
     "company_id": "443f0dda-0429-5afe-a1ad-aa0b2a8478b5",
     "listing_id": "9c866670-7d73-5deb-a80a-dd75c2484ace",
     "rights_status": "to_verify",
-    "verification_status": "pending"
+    "verification_status": "pending",
+    "r2_verified": true,
+    "r2_checked_at": "2026-10-16T01:28:53.391192+00:00",
+    "archival_receipt": "r2-additional-readback-20261016.json"
   },
   {
     "ticker": "DXP",
@@ -31,7 +34,10 @@
     "company_id": "8d7f119e-ef74-5000-b3c3-57bb0f553c38",
     "listing_id": "af0dd3f3-afcf-5c12-9bd5-445a990e7206",
     "rights_status": "to_verify",
-    "verification_status": "pending"
+    "verification_status": "pending",
+    "r2_verified": true,
+    "r2_checked_at": "2026-10-16T01:28:45.630439+00:00",
+    "archival_receipt": "r2-additional-readback-20261016.json"
   },
   {
     "ticker": "NAP",
@@ -48,7 +54,10 @@
     "company_id": "00db3f03-66b1-501b-940c-f4e6b0cf6d3d",
     "listing_id": "22f201d0-8d21-500c-a3c7-506307b342a1",
     "rights_status": "to_verify",
-    "verification_status": "pending"
+    "verification_status": "pending",
+    "r2_verified": true,
+    "r2_checked_at": "2026-10-16T01:28:57.548896+00:00",
+    "archival_receipt": "r2-additional-readback-20261016.json"
   },
   {
     "ticker": "PHP",
@@ -65,7 +74,10 @@
     "company_id": "10000000-0000-0000-0000-000000000017",
     "listing_id": "7dc8295c-f2e1-5d5c-8c5b-58de02c6bc62",
     "rights_status": "to_verify",
-    "verification_status": "pending"
+    "verification_status": "pending",
+    "r2_verified": true,
+    "r2_checked_at": "2026-10-16T01:28:51.347858+00:00",
+    "archival_receipt": "r2-additional-readback-20261016.json"
   },
   {
     "ticker": "VGR",
@@ -82,7 +94,10 @@
     "company_id": "7b1b3668-9997-5148-a498-185c92e9ff55",
     "listing_id": "d3811b28-fc33-5541-9bfe-febe64abcc78",
     "rights_status": "to_verify",
-    "verification_status": "pending"
+    "verification_status": "pending",
+    "r2_verified": true,
+    "r2_checked_at": "2026-10-16T01:29:03.247377+00:00",
+    "archival_receipt": "r2-additional-readback-20261016.json"
   },
   {
     "ticker": "CQN",
@@ -99,7 +114,10 @@
     "company_id": "9f129103-683b-5d07-8ecf-b9f7327fa4da",
     "listing_id": "52209e2b-a6d6-5a72-a1c7-4d6c796bf608",
     "rights_status": "to_verify",
-    "verification_status": "pending"
+    "verification_status": "pending",
+    "r2_verified": true,
+    "r2_checked_at": "2026-10-16T01:28:49.552038+00:00",
+    "archival_receipt": "r2-additional-readback-20261016.json"
   },
   {
     "ticker": "PSP",
@@ -116,7 +134,10 @@
     "company_id": "59d90fe3-3faa-513f-b987-481113e220c9",
     "listing_id": "29443372-1051-5911-95f6-243c16208f3c",
     "rights_status": "to_verify",
-    "verification_status": "pending"
+    "verification_status": "pending",
+    "r2_verified": true,
+    "r2_checked_at": "2026-10-16T01:28:59.465828+00:00",
+    "archival_receipt": "r2-additional-readback-20261016.json"
   },
   {
     "ticker": "PAP",
@@ -133,7 +154,10 @@
     "company_id": "c0a6f7c5-4ee6-503b-8ad5-5183696ff2ae",
     "listing_id": "b7b16c21-8c38-5591-a26e-e2060630ba7a",
     "rights_status": "to_verify",
-    "verification_status": "pending"
+    "verification_status": "pending",
+    "r2_verified": true,
+    "r2_checked_at": "2026-10-16T01:29:01.442602+00:00",
+    "archival_receipt": "r2-additional-readback-20261016.json"
   },
   {
     "ticker": "SGP",
@@ -150,7 +174,10 @@
     "company_id": "fe97fde6-6583-58fb-b6b8-6574d495c575",
     "listing_id": "9643e7e9-a7dd-5562-90be-073eb830fa5c",
     "rights_status": "to_verify",
-    "verification_status": "pending"
+    "verification_status": "pending",
+    "r2_verified": true,
+    "r2_checked_at": "2026-10-16T01:28:47.444551+00:00",
+    "archival_receipt": "r2-additional-readback-20261016.json"
   },
   {
     "ticker": "QSP",
@@ -167,7 +194,10 @@
     "company_id": "c08c08f9-970d-52cb-bf34-89bb9685136c",
     "listing_id": "4517585b-4511-5607-8ad6-cb4354a31e05",
     "rights_status": "to_verify",
-    "verification_status": "pending"
+    "verification_status": "pending",
+    "r2_verified": true,
+    "r2_checked_at": "2026-10-16T01:28:55.579712+00:00",
+    "archival_receipt": "r2-additional-readback-20261016.json"
   },
   {
     "ticker": "MVN",
@@ -184,6 +214,9 @@
     "company_id": "f9399e04-83f6-5f5f-b344-a271988d1dca",
     "listing_id": "7b3dda88-f0cb-595e-9843-a62664c59fc3",
     "rights_status": "to_verify",
-    "verification_status": "pending"
+    "verification_status": "pending",
+    "r2_verified": true,
+    "r2_checked_at": "2026-10-16T01:28:43.599386+00:00",
+    "archival_receipt": "r2-additional-readback-20261016.json"
   }
 ]

@@ -66,6 +66,30 @@ select 'listing_histories',count(*) from catalog.company_listings where company_
     output += '-- Keep the whole transaction. Any conflict requires reconciliation, never skip a guard.\n'
     output += 'begin;\n\n' + '\n\n'.join(bodies) + '\n\ncommit;\n' + checks
     (IMPORT / 'issuer_registry_all.handoff.sql').write_text(output, encoding='utf-8', newline='\n')
+    # Asset imports need the canonical catalog already installed. Keep them in
+    # a separate explicitly named handoff instead of changing registry-only SQL.
+    asset_bodies, asset_inputs = [], []
+    for name in ['vgr_operator.proposal.sql', 'dvp_assets.proposals.sql', 'pap_assets.proposals.sql', 'inland_depots.proposals.sql', 'registry_identity_enrichment.proposals.sql']:
+        raw = (IMPORT / name).read_bytes()
+        sql = raw.decode('utf-8-sig').replace('\r\n', '\n')
+        start = list(re.finditer(r'^begin;\s*$', sql, re.M | re.I))
+        end = list(re.finditer(r'^commit;\s*$', sql, re.M | re.I))
+        if len(start) != 1 or len(end) != 1 or start[0].end() >= end[0].start():
+            raise ValueError(f'Expected one asset transaction: {name}')
+        asset_bodies.append(f'-- Input: {name}\n' + sql[start[0].end():end[0].start()].strip())
+        asset_inputs.append({'file': name, 'sha256': hashlib.sha256(raw).hexdigest()})
+    combined = '-- OFFLINE ONLY. Requires the existing canonical catalog; no approvals or cloud execution.\n'
+    combined += 'begin;\n\n' + '\n\n'.join(bodies + asset_bodies) + '\n\ncommit;\n' + checks
+    combined += f"select i.asset_kind,i.verification_status,count(*) as rows from port.company_asset_interests i where i.company_id in ({ids}) group by i.asset_kind,i.verification_status order by i.asset_kind,i.verification_status;\n"
+    (IMPORT / 'slice1_company_catalog.handoff.sql').write_text(combined, encoding='utf-8', newline='\n')
+    (DOC / 'company-catalog-handoff-manifest.json').write_text(json.dumps({
+        'publication_status': 'pending', 'cloud_applied': False,
+        'prerequisite': 'Existing reviewed canonical catalog, including 505 commercial subset',
+        'input_sql': inputs + asset_inputs,
+        'company_count': len(items), 'listing_history_count': result['listing_history_count'],
+        'new_interest_proposal_count': 9,
+        'warning': 'Research dossiers with unknown dates are not emitted as interests. This is not a complete market coverage certification.',
+    }, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(f"Prepared {result['company_count']} company identities / {result['listing_history_count']} listing histories; not applied to cloud")
 
 

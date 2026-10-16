@@ -60,7 +60,19 @@ def compile_import():
             "insert into catalog.company_listings(id,company_id,ticker,exchange,valid_from,source_record_id,evidence_excerpt) values",
             "("+",".join(map(literal,(listing,company,ticker,row["exchange"],row["first_trading_date"],record,note)))+") on conflict do nothing;",
         ]
-        manifest.append(dict(**row,company_id=company,listing_id=listing,source_id=source,source_record_id=record))
+        prepared = dict(**row,company_id=company,listing_id=listing,source_id=source,source_record_id=record)
+        receipt_path = ROOT / 'docs/catalog-review/r2-additional-readback-20261016.json'
+        if receipt_path.exists():
+            receipt = json.loads(receipt_path.read_text(encoding='utf-8'))
+            if receipt['bucket'] != 'investing-pro-evidence-staging':
+                raise ValueError('Unexpected archive bucket')
+            checked = next((r for r in receipt['items'] if r['artifact_label'] == row['artifact_label'] and r['content_hash'] == row['content_hash'] and r['status'] == 'sha256_readback_verified'), None)
+            if checked:
+                cached = ROOT / '.local/catalog-research/r2-readback-20261016' / row['content_hash']
+                if hashlib.sha256(cached.read_bytes()).hexdigest() != row['content_hash']:
+                    raise ValueError('Changed remote readback cache')
+                prepared.update(storage_status_at_capture=row['storage_status'],storage_status='private_r2_readback_verified',r2_verified=True,r2_checked_at=checked['checked_at'],archival_receipt='r2-additional-readback-20261016.json')
+        manifest.append(prepared)
     sql += ["commit;", "select ticker,exchange,valid_from,verification_status from catalog.company_listings where ticker in ("+",".join(literal(r["ticker"]) for r in data["items"])+") order by ticker;", ""]
     (ROOT / "supabase/imports/market_issuer_registry.proposals.sql").write_text("\n".join(sql),encoding="utf-8")
     (ROOT / "docs/catalog-review/market-issuer-registry-manifest.json").write_text(json.dumps(dict(publication_status="pending",cloud_applied=False,items=manifest),ensure_ascii=False,indent=2)+"\n",encoding="utf-8")

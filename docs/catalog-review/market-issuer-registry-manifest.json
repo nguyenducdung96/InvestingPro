@@ -20,13 +20,17 @@
       "raw_storage_key": "catalog-evidence/sha256/ad6593a0d93b8421a1b994b2b7205edba77644df95318bdb56743d43f3129e07",
       "fetched_at": "2026-10-15T17:28:21.205003+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "0363c2b0-09c6-566e-b11f-33528fad8c92",
       "listing_id": "7af90441-ab10-543c-894a-ba0d69a00c62",
       "source_id": "416c53a0-a1a7-5dee-8f68-a0e8d90821b1",
-      "source_record_id": "2ea018dd-50a5-5c9e-b4aa-8ec2cc8af9b9"
+      "source_record_id": "2ea018dd-50a5-5c9e-b4aa-8ec2cc8af9b9",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:37.387900+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "CCT",
@@ -46,13 +50,17 @@
       "raw_storage_key": "catalog-evidence/sha256/238c0f6df881c00e911dfbb17c768795818a7689f94d8486b92aea717d254adc",
       "fetched_at": "2026-10-15T17:28:21.205003+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "1215d2c8-22d0-5403-b546-3fa37ee72bbe",
       "listing_id": "96d2c283-c6ac-51ab-aac3-9c8befb3014b",
       "source_id": "42665d56-714c-52cf-9d2a-ed32808d17b5",
-      "source_record_id": "d3eac4fd-de2a-5aed-aca1-706be389c258"
+      "source_record_id": "d3eac4fd-de2a-5aed-aca1-706be389c258",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:14:55.672151+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "CPI",
@@ -72,13 +80,17 @@
       "raw_storage_key": "catalog-evidence/sha256/cdf52967d75c3e5baf1b9f9e3ad07960e2c0e80522fad343e565312ca8b6e1f9",
       "fetched_at": "2026-10-15T17:28:21.205003+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "aced02eb-5ed2-55b8-a6ad-b9aa5a5d5854",
       "listing_id": "947b53f4-0f0a-59ba-a47e-9fe3f2836673",
       "source_id": "1c44dc20-1558-567a-8c84-ae03d5d98584",
-      "source_record_id": "3bd44787-76e8-567e-9a3e-9c7abc85a0d2"
+      "source_record_id": "3bd44787-76e8-567e-9a3e-9c7abc85a0d2",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:53.550840+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "IST",
@@ -98,13 +110,17 @@
       "raw_storage_key": "catalog-evidence/sha256/be77e877b0825763bae4c6beefcb01c3a49c3b49a92aaa02eee8ad1f60032041",
       "fetched_at": "2026-10-15T17:28:49.598041+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "96a0cafd-6952-52f9-a161-fd270065cb67",
       "listing_id": "1844df22-ea88-50a7-92ec-442e7c118494",
       "source_id": "54c72752-6763-506f-a732-8e2c1b60f0fc",
-      "source_record_id": "5089b15f-ba60-5c64-b90c-56e945b5840f"
+      "source_record_id": "5089b15f-ba60-5c64-b90c-56e945b5840f",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:15.616874+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "PSB",
@@ -124,13 +140,17 @@
       "raw_storage_key": "catalog-evidence/sha256/001a7f843dc3e7a8015d9e27c6dd03a1d6f8e717bc65dab6861f7b0f0c4256bf",
       "fetched_at": "2026-10-15T17:28:49.598041+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại. Tên hiện tại khác báo cáo 2025: Cảng Kỹ thuật PTSC Sao Mai; mã doanh nghiệp 3500794814. Ngày HNX ghi 25/02/2010 khác mốc báo cáo lịch sử 25/12/2009, không dùng mốc báo cáo đó làm ngày giao dịch đầu tiên.",
       "company_id": "d4ee7127-127b-567d-be18-268f32942840",
       "listing_id": "2730fc46-dd87-5b15-b352-cfa918bed9b5",
       "source_id": "98fae527-63ca-5f5f-a093-43f6900df9ce",
-      "source_record_id": "38adf2f4-bc51-5476-984f-ffc30fb951ae"
+      "source_record_id": "38adf2f4-bc51-5476-984f-ffc30fb951ae",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:16:00.411182+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "SWC",
@@ -150,13 +170,17 @@
       "raw_storage_key": "catalog-evidence/sha256/6793a2aa442f854b639062c0a235a55e1544ef67fa0a2539503bfa4d91adada0",
       "fetched_at": "2026-10-15T17:28:49.598041+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "de1a1cc1-64cd-5066-be80-50dab575bfb2",
       "listing_id": "4e5f253d-9ec0-542f-8262-f71d6fd9e607",
       "source_id": "79f83bb6-4a2f-5044-ab70-b945350210aa",
-      "source_record_id": "1fe8658f-68b2-58d9-8c91-af6b97510912"
+      "source_record_id": "1fe8658f-68b2-58d9-8c91-af6b97510912",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:23.639917+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "TNP",
@@ -176,13 +200,17 @@
       "raw_storage_key": "catalog-evidence/sha256/24f8c2876b3c0e6e73c1410d203b18d927e8890dddce4c2e6f627018c5782771",
       "fetched_at": "2026-10-15T17:28:51.836112+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "5f57623f-6c97-5864-a4fa-3d00ab190eea",
       "listing_id": "3a4cfbf2-5dea-5e0e-8445-082e583624c4",
       "source_id": "3888474d-26ba-51cc-9a6d-aed3de0677b5",
-      "source_record_id": "a2070032-4d49-53cb-b277-637cff598a70"
+      "source_record_id": "a2070032-4d49-53cb-b277-637cff598a70",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:05.466079+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "TCW",
@@ -202,13 +230,17 @@
       "raw_storage_key": "catalog-evidence/sha256/6ee93023127087d3343e510846c2a920b8ba121f12119ab83af6399420dbd0bd",
       "fetched_at": "2026-10-15T17:28:51.836112+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "a251ebfd-2516-5067-99f7-91dce6623f7b",
       "listing_id": "7ebcae67-020f-52c1-a9e0-d98b6dc954ee",
       "source_id": "2a5ae4e6-4a0c-5949-a2ff-a1cd8f94e8aa",
-      "source_record_id": "2a6d821c-6450-5e59-a937-1b77271e562f"
+      "source_record_id": "2a6d821c-6450-5e59-a937-1b77271e562f",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:11.714296+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "VGP",
@@ -228,13 +260,17 @@
       "raw_storage_key": "catalog-evidence/sha256/02f3d3ab0d4297ca4c7f80ab4a0e6d378e9819a9b57484f47e4bc716a2513ff3",
       "fetched_at": "2026-10-15T17:28:51.836112+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "273200ed-04e0-5ac4-a8d7-32c517f435fd",
       "listing_id": "467101ac-8ed6-547f-9a8d-545856135c70",
       "source_id": "a465aba8-5cb3-532b-a792-a71d06f31bf4",
-      "source_record_id": "daaf8d92-1448-595c-8797-27965a3103c7"
+      "source_record_id": "daaf8d92-1448-595c-8797-27965a3103c7",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:00.501315+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "PVS",
@@ -254,13 +290,17 @@
       "raw_storage_key": "catalog-evidence/sha256/a807233b99b35030a6bcf85745cccead0ef9b245bec016297ba295152022179a",
       "fetched_at": "2026-10-15T17:29:33.004131+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "a28b0cbf-37c4-50dd-8dbf-28549b9a87d7",
       "listing_id": "d6cfc509-345a-57c2-a11a-bd7bfb19b4dd",
       "source_id": "e23e94c1-cc8c-50cf-a00d-e18ffe0869c9",
-      "source_record_id": "1b3fa871-900c-5781-9e35-a1bdc1d48770"
+      "source_record_id": "1b3fa871-900c-5781-9e35-a1bdc1d48770",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:16:04.622768+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "CMP",
@@ -280,13 +320,17 @@
       "raw_storage_key": "catalog-evidence/sha256/f258f34c73a26326ae8102d756d3aca904eedf1600edcc2d38e789b334ac7322",
       "fetched_at": "2026-10-15T17:31:44.793888+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại. Có công bố 06/2026 về không đáp ứng điều kiện công ty đại chúng; phải đọc quyết định xử lý tiếp theo trước khi gắn trạng thái đang giao dịch.",
       "company_id": "99672e19-688d-5f7a-b1e9-83ffc0e77db6",
       "listing_id": "905a1ee0-31d3-5716-bd6d-144a2c3be011",
       "source_id": "0fdeb5cd-3a72-527b-a89e-e1c38d0cb168",
-      "source_record_id": "95d6193c-e64e-57f6-9e04-2f5c15dfdbcc"
+      "source_record_id": "95d6193c-e64e-57f6-9e04-2f5c15dfdbcc",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:33.333897+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "PQN",
@@ -306,13 +350,17 @@
       "raw_storage_key": "catalog-evidence/sha256/feb32911a1419c5ad135390bb1ce17e87b7d9aa4f4dfbadcd3eeac7701a1638a",
       "fetched_at": "2026-10-15T17:31:44.793888+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "44c10074-185a-57f4-abe1-7cad10fb0b2e",
       "listing_id": "5d5002ad-c752-5061-85db-70160546c1ac",
       "source_id": "6ad49f96-f48a-55d0-8605-7b25d5555ecd",
-      "source_record_id": "bc406d2c-29d1-5f36-a15e-e5a8444c00af"
+      "source_record_id": "bc406d2c-29d1-5f36-a15e-e5a8444c00af",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:49.820632+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "VLG",
@@ -332,13 +380,17 @@
       "raw_storage_key": "catalog-evidence/sha256/646ee8648343b691c52c288460705ec952c495d0e9f7babee6ff5b74064a78ae",
       "fetched_at": "2026-10-15T17:31:44.793888+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "3c09b6d5-b354-585c-9705-8e03114a26c9",
       "listing_id": "4b101e50-1f70-5819-8693-db9b5f5e1d46",
       "source_id": "ee61d25c-a98e-5577-877d-73cfc31aeede",
-      "source_record_id": "62fddac1-9d2f-545c-9d95-921cbfb9d83a"
+      "source_record_id": "62fddac1-9d2f-545c-9d95-921cbfb9d83a",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:19.337161+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "PSN",
@@ -358,13 +410,17 @@
       "raw_storage_key": "catalog-evidence/sha256/a1fe103c6a818f8bcb00b5059b362418ccfc268e414fdefac0a17772f2533bff",
       "fetched_at": "2026-10-15T17:33:50.513862+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "3581f240-4e58-5dd9-a468-fa0d11027ce9",
       "listing_id": "c9008904-18bf-5bfd-9d5d-db53cad28359",
       "source_id": "d29bd019-b67b-5f2b-a8be-74ca5fa1230c",
-      "source_record_id": "14c69818-670b-5bcf-a915-1cfc6174ec81"
+      "source_record_id": "14c69818-670b-5bcf-a915-1cfc6174ec81",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:41.853096+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "VMS",
@@ -384,13 +440,17 @@
       "raw_storage_key": "catalog-evidence/sha256/5beee6390afdb916db847c8bb9ccaa20059f3d4afd7c3f0c92ae7284b065bd40",
       "fetched_at": "2026-10-15T17:33:50.513862+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại.",
       "company_id": "92745a3e-72d9-50bf-b16d-c34c3cec1a26",
       "listing_id": "c56ac2b0-03da-5863-854b-c57e72692f79",
       "source_id": "94dd13e9-3904-5e97-a7b2-46b43ed69384",
-      "source_record_id": "9cb9c421-1e2d-585b-8360-a51e49de4f80"
+      "source_record_id": "9cb9c421-1e2d-585b-8360-a51e49de4f80",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:45.929037+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "ticker": "GIC",
@@ -410,13 +470,17 @@
       "raw_storage_key": "catalog-evidence/sha256/2f2935fd4f8c65e9ae7c562e5c5a8986f8b45f60b4249b00d83963f107244c3b",
       "fetched_at": "2026-10-15T17:33:50.513862+00:00",
       "published_at": null,
-      "storage_status": "local_only",
+      "storage_status": "private_r2_readback_verified",
       "retrieval_mode": "indexed_profile_field_excerpt",
       "note": "Đối chiếu các trường trong hồ sơ HNX qua nội dung được công cụ tìm kiếm lập chỉ mục. Đây là bản trích trường, không phải HTML gốc hoặc xác nhận dữ liệu trực tiếp thời gian thực. Chưa xác nhận toàn bộ biến động/chuyển sàn/hủy giao dịch đến thời điểm hiện tại. Tên LOGISTCS giữ đúng cách HNX ghi; cần giấy đăng ký mới để chuẩn hóa chính tả/tên pháp nhân sau đổi tên.",
       "company_id": "cc9dfab2-8b85-595c-8dc5-fbc8972a429b",
       "listing_id": "d221fe28-ce30-550b-b192-e39bec208935",
       "source_id": "6344c8cc-7837-534d-854a-2d367d9bce79",
-      "source_record_id": "31f07ebf-2593-545e-aee5-4e96f306137d"
+      "source_record_id": "31f07ebf-2593-545e-aee5-4e96f306137d",
+      "storage_status_at_capture": "local_only",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:15:28.144545+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     }
   ]
 }

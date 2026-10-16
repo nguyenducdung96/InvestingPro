@@ -1,0 +1,51 @@
+{
+  "publication_status": "pending",
+  "cloud_applied": false,
+  "items": [
+    {
+      "ticker": "ILB",
+      "enterprise_id": "3601033213",
+      "name": "Cảng cạn Tân Cảng - Long Bình (giai đoạn 1)",
+      "slug": "cang-can-tan-cang-long-binh-giai-doan-1",
+      "address": "Số 10 Phan Đăng Lưu, khu phố 7, phường Long Bình, Biên Hòa, Đồng Nai (địa chỉ trong thông báo mở cảng)",
+      "valid_from": "2023-01-06",
+      "date_basis": "reported_opening_permission",
+      "identity_artifact": "ilb-2025.pdf",
+      "date_artifact": "ilb-opening.html",
+      "website": "https://icdlongbinh.com",
+      "note": "Báo cáo thường niên 2025 trang PDF 6–7 xác nhận cảng cạn và hoạt động; thông báo trên website doanh nghiệp ghi quyết định mở ngày 06/01/2023. valid_from là mốc cấp phép do doanh nghiệp báo cáo, không phải ngày bắt đầu khai thác thực tế. Chưa đối chiếu bản gốc quyết định đã ký và biến động 2026. Phạm vi giai đoạn 1, không bao gồm toàn bộ khu kho Long Bình hoặc ICD Sóng Thần. Tài liệu có chênh lệch diện tích 20,8ha/24,8ha nên không nhập diện tích. Không suy ra tỷ lệ sở hữu 100%.",
+      "company_id": "19f237ab-b0de-5f5a-aaa5-4008b4cdb943",
+      "asset_id": "86f0f00b-6cc7-5c37-9074-218575fd2bd8",
+      "interest_id": "ef315936-e1e5-57e7-b1bc-61c9e2582718",
+      "identity_record_id": "25b8f523-5e86-59b8-9afd-4a5fcd429b91",
+      "opening_record_id": "eba7be62-6a39-5f40-8210-38ae5371d7a7"
+    },
+    {
+      "ticker": "VLG",
+      "enterprise_id": "0102345275",
+      "name": "Cảng cạn Đông Phố Mới (Lào Cai)",
+      "slug": "cang-can-dong-pho-moi-lao-cai",
+      "address": "Lô F9, F10 và một phần F11 KCN Đông Phố Mới, phường Phố Mới, Lào Cai (địa chỉ trong hồ sơ 2024)",
+      "valid_from": "2024-12-16",
+      "date_basis": "government_opening_metadata_correlated_with_issuer_report",
+      "identity_artifact": "vlg-2025.pdf",
+      "date_artifact": "dong-pho-moi-decision-landing.html",
+      "website": "https://vimclogistics.com.vn",
+      "note": "Báo cáo VLG 2025 trang PDF 3 và metadata văn bản 1549/QĐ-BGTVT trên cổng Bộ cùng ghi ngày mở/hiệu lực 16/12/2024. valid_from là ngày hiệu lực công bố mở, không phải ngày khởi đầu toàn bộ ICD lịch sử. VLG được nêu là chủ đầu tư có trách nhiệm khai thác; không gắn tỷ lệ sở hữu vật lý. PDF trong ZIP của Bộ còn trống số/ngày và không có chữ ký, chỉ là bằng chứng bổ sung, không coi là bản ký; cần bản hoàn chỉnh và rà biến động 2026 trước khi xác minh. Không tạo thêm một ICD Lào Cai trùng với Đông Phố Mới.",
+      "company_id": "3c09b6d5-b354-585c-9705-8e03114a26c9",
+      "asset_id": "f8265d17-4786-56ad-82ea-dca16c6e8d93",
+      "interest_id": "dd928735-e83d-557d-84e3-bad37bbcc351",
+      "identity_record_id": "ca2de857-2357-5504-a2f8-759fddffc50f",
+      "opening_record_id": "bed60e9b-6052-5e90-baa5-39f2f620807e"
+    }
+  ],
+  "gic_correction": {
+    "company_id": "cc9dfab2-8b85-595c-8dc5-fbc8972a429b",
+    "old_record_id": "31f07ebf-2593-545e-aee5-4e96f306137d",
+    "new_record_id": "02c31b3d-9973-53d2-a5cf-17b0aed87431",
+    "reviewed_pages": [
+      2,
+      3
+    ]
+  }
+}

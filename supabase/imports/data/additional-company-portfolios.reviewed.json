@@ -1,0 +1,103 @@
+{
+  "items": [
+    {
+      "ticker": "PVS", "artifact_label": "pvs-2025.pdf", "reviewed_pages": [25, 27],
+      "assets": [
+        {"terminal_number":177,"role":"group_portfolio","via":[],"effective_from":null},
+        {"name":"Cảng Hòn La","asset_kind":"terminal","role":"group_portfolio","via":[],"effective_from":null},
+        {"name":"Cảng Sơn Trà","asset_kind":"terminal","role":"group_portfolio","via":[],"effective_from":null},
+        {"terminal_number":118,"role":"indirect","via":["Công ty Cổ phần Dịch vụ Dầu khí Quảng Ngãi PTSC"],"effective_from":null},
+        {"name":"Cảng PTSC Phú Mỹ","asset_kind":"terminal","role":"indirect","via":["Công ty Cổ phần Cảng Dịch vụ Dầu khí Tổng hợp Phú Mỹ"],"effective_from":null},
+        {"name":"Cảng Nghi Sơn của PTSC","asset_kind":"terminal","role":"indirect","via":["Công ty Cổ phần Dịch vụ Kỹ thuật PTSC Thanh Hóa"],"effective_from":null},
+        {"terminal_number":50,"role":"indirect","via":["Công ty Cổ phần Cảng Dịch vụ Dầu khí Đình Vũ"],"effective_from":null},
+        {"name":"Cảng Sao Mai - Bến Đình","asset_kind":"terminal","role":"indirect","via":["Công ty Cổ phần Đầu tư Dầu khí Sao Mai - Bến Đình"],"effective_from":null,"scope_group":"supplementary_industrial_base"}
+      ],
+      "corporate_interests": [
+        {"company":"Công ty Cổ phần Dịch vụ Dầu khí Quảng Ngãi PTSC","company_ticker":"PQN","equity_pct_as_reported":95.19},
+        {"company":"Công ty Cổ phần Dịch vụ Kỹ thuật PTSC Thanh Hóa","company_ticker":"PSN","equity_pct_as_reported":54.69},
+        {"company":"Công ty Cổ phần Cảng Dịch vụ Dầu khí Đình Vũ","company_ticker":"PSP","equity_pct_as_reported":51},
+        {"company":"Công ty Cổ phần Đầu tư Dầu khí Sao Mai - Bến Đình","company_ticker":"PSB","equity_pct_as_reported":51}
+      ],
+      "notes":"Trang 27 liệt kê tám căn cứ cảng của hệ thống PTSC; trang 25 nêu các pháp nhân con. Vai trò group_portfolio chưa khẳng định công ty mẹ trực tiếp khai thác. Số cầu trong báo cáo không được tự sinh thành định danh cầu pháp lý. Tỷ lệ ở corporate_interests là vốn pháp nhân, không phải vốn tài sản. Tên Sao Mai theo báo cáo 2025 khác tên hồ sơ sàn 2026.",
+      "unresolved":["Ngày bắt đầu và kết thúc từng quan hệ", "Pháp nhân trực tiếp quản lý Hạ lưu/Hòn La/Sơn Trà", "Khớp danh mục pháp lý cho các cơ sở chưa có canonical ID", "Thay đổi năm 2026 và quyền nguồn"]
+    },
+    {
+      "ticker":"ILB","artifact_label":"ilb-2025.pdf","reviewed_pages":[6,7],
+      "supporting_artifacts":[{"artifact_label":"ilb-opening.html","reviewed_pages":[]}],
+      "assets":[{"name":"Cảng cạn Tân Cảng - Long Bình (giai đoạn 1)","asset_kind":"icd","role":"operator","via":[],"effective_from":"2023-01-06","date_basis":"reported_opening_permission; exact date from archived issuer opening announcement, annual report only gives month"}],
+      "notes":"Trang 6 ghi cấp phép cảng cạn vào 01/2023, chỉ có độ chính xác tháng. Trang 7 mô tả khai thác cảng cạn và kho bãi. Ngày 06/01/2023 lấy riêng từ thông báo mở cảng trên website doanh nghiệp đã lưu, không suy ra từ ngày đầu tháng. Chưa đối chiếu bản quyết định đã ký. Hệ thống kho, địa điểm kiểm hóa và cảng cạn có phạm vi khác nhau. Hoạt động thiết bị tại Cát Lái không tạo sở hữu cảng.",
+      "unresolved":["Bản gốc quyết định 07/QĐ-BGTVT và ngày hiệu lực cụ thể", "Phạm vi 20,8ha theo báo cáo 2025 so với 24,8ha tại tài liệu cũ", "Tách ICD Long Bình khỏi IST Sóng Thần và kiểm tra biến động 2026"]
+    },
+    {
+      "ticker":"CMP","artifact_label":"cmp-2025.pdf","reviewed_pages":[2,3],
+      "assets":[{"terminal_number":106,"berth_subset":["Cầu cảng số 1 (tuyến mép bến phía biển)","Cầu cảng số 1 (tuyến mép bến phía bờ)"],"role":"operator","via":[],"effective_from":null}],
+      "notes":"Trang 2 nêu bến số 1 được cho phép đón tàu từ 19/05/2003; đó là thời tiền thân. Trang 3 nêu pháp nhân cổ phần hoạt động từ 26/06/2015. Không tự suy ra ngày bắt đầu quan hệ của pháp nhân hiện tại từ một trong hai mốc. Chưa gắn cầu số 3 chỉ vì nằm cùng bến Chân Mây.",
+      "unresolved":["Hồ sơ chuyển giao tài sản và giấy phép của pháp nhân hiện tại", "Phạm vi cầu số 3 và các dự án khác", "Công bố không đáp ứng điều kiện công ty đại chúng năm 2026"]
+    },
+    {
+      "ticker":"TMS","artifact_label":"tms-2025.pdf","reviewed_pages":[2,3,4],
+      "assets":[
+        {"name":"ICD Transimex","asset_kind":"icd","role":"group_portfolio","via":[],"effective_from":null},
+        {"name":"Cảng biển Mipec tại Hải Phòng","asset_kind":"terminal","role":"indirect","via":["Công ty Cổ phần Cảng Mipec"],"effective_from":null}
+      ],
+      "notes":"Trang 2 gọi ICD Transimex và cảng Mipec là cơ sở hạ tầng thuộc tập đoàn. Trang 4 ghi trở thành công ty mẹ Cảng Mipec vào 11/2022, nhưng không có ngày cụ thể nên để trống hiệu lực. Chưa đủ để coi công ty mẹ trực tiếp khai thác hoặc gắn tỷ lệ vật lý. Kho VSIP II-A được mô tả là dự kiến vận hành 07/2026, không tự đưa thành cảng hoặc tài sản đang khai thác.",
+      "unresolved":["Pháp nhân vận hành và chuỗi vốn ICD/Mipec", "Khớp định danh pháp lý", "Ngày hiệu lực quan hệ và biến động 2026"]
+    },
+    {
+      "ticker":"STG","artifact_label":"stg-2025.pdf","reviewed_pages":[5,8,10],"assets":[],
+      "corporate_interests":[{"company":"Tổng Công ty Cổ phần Đường sông Miền Nam","company_ticker":"SWC","via":["Công ty TNHH MTV Đầu tư Hạ tầng SOTRANS","Tổng Công ty Cổ phần Đường sông Miền Nam"],"equity_pct_as_reported":93.34,"equity_scope":"Tỷ lệ SOTRANS báo cáo trong danh sách sở hữu trực tiếp và gián tiếp; không nhân thành vốn tài sản"}],
+      "candidates":[{"name":"SOTRANS ICD","status":"historical_unit_requires_current_operator_and_legal_match"}],
+      "notes":"Trang 10 thể hiện SWC dưới SOTRANS Infrastructure trong sơ đồ, khác quan hệ trực tiếp công ty mẹ. Đường STG–SII–SWC giữ đủ mắt xích và hai bằng chứng STG/SWC. Trang 8 nhắc đơn vị SOTRANS ICD thành lập năm 2010, chưa đủ chứng minh vận hành hiện tại. Cảng Miền Nam là pháp nhân, không tự biến thành tài sản cảng.",
+      "unresolved":["Hợp đồng/chuyển giao và hiệu lực chuỗi STG–SII–SWC", "Phạm vi ICD hiện tại thuộc Sotrans Logistics", "Ngày giao dịch đầu tiên và điều kiện công ty đại chúng năm 2026"]
+    },
+    {
+      "ticker":"CLL","artifact_label":"cll-2025.pdf","reviewed_pages":[4,5,6,7],
+      "assets":[
+        {"name":"Cầu cảng container 216m do CLL báo cáo","asset_kind":"berth","role":"operator","via":[],"effective_from":"2009-01-07","date_basis":"reported_opening_permission; not independently matched to a canonical berth"},
+        {"terminal_number":241,"berth_subset":["Cầu cảng 2.200DWT"],"role":"business_cooperation","via":["Công ty Cổ phần Đại lý Giao nhận Vận tải Xếp dỡ Tân Cảng"],"effective_from":null},
+        {"name":"Cảng Đức Long / Tân Cảng Quế Võ","asset_kind":"river_port","role":"indirect","via":["Công ty Cổ phần Tân Cảng Quế Võ"],"effective_from":null}
+      ],
+      "notes":"Trang 4 nêu cầu container 216m và giấy phép 07/01/2009. Trang 5 gọi bến tàu 2.200DWT hợp tác tháng 12/2009 là B7; không được gộp nó với cầu container số 7 chỉ vì cùng ký hiệu. Trang 6 ghi vốn tại Tân Cảng Quế Võ và trang 7 mô tả cơ sở Đức Long. Bản báo cáo doanh nghiệp lấy từ CDN CafeF; không dùng bài báo làm bằng chứng.",
+      "unresolved":["Khớp cầu container 216m với quyết định pháp lý, tách bến sà lan B7", "Ngày hiệu lực và phạm vi hợp tác TCL", "Chuỗi vốn và ngày quan hệ Tân Cảng Quế Võ", "Bản nguồn trực tiếp từ doanh nghiệp và quyền sử dụng"]
+    },
+    {
+      "ticker":"PQN","artifact_label":"pqn-2025.pdf","reviewed_pages":[2,3,9],
+      "assets":[{"terminal_number":118,"role":"operator","via":[],"effective_from":null}],
+      "notes":"Trang 9 ghi đơn vị Cảng PTSC Dung Quất thuộc cơ cấu PQN, cung cấp dịch vụ bốc xếp/kho bãi/đại lý hàng hải. Không nhầm với Gemadept Dung Quất mục 119. Trang 3 ghi 01/01/2011 là ngày chuyển đổi công ty, không phải ngày mở từng cầu. Trang 27 báo cáo PVS mô tả thêm cầu số 3; danh mục pháp lý đang có chỉ ghi cầu số 1 và bến lai dắt, cần đối chiếu bản bổ sung.",
+      "unresolved":["Ngày giấy phép và ngày tiếp nhận từng cầu", "Cầu số 3 xuất hiện trong báo cáo tập đoàn nhưng chưa khớp catalog", "Biến động 2026"]
+    },
+    {
+      "ticker":"PSN","artifact_label":"psn-2025.pdf","reviewed_pages":[1,2,4],
+      "assets":[{"name":"Cảng Nghi Sơn của PTSC","asset_kind":"terminal","role":"operator","via":[],"effective_from":null}],
+      "notes":"Trang 1 ghi doanh nghiệp thành lập trên cơ sở chuyển giao cảng Nghi Sơn tháng 09/2009 và cổ phần hóa ngày 01/01/2011. Không dùng ngày cổ phần hóa làm ngày mở cảng hoặc gắn mọi cảng tại khu Nghi Sơn cho PSN. Trang 2/4 xác nhận mảng căn cứ cảng và logistics.",
+      "unresolved":["Quyết định chuyển giao gốc và ngày hiệu lực chính xác", "Định danh pháp lý hai bến và phân biệt các chủ đầu tư ở Nghi Sơn", "Thay đổi sau kỳ báo cáo"]
+    },
+    {
+      "ticker":"VLG","artifact_label":"vlg-2025.pdf","reviewed_pages":[1,2,3],
+      "supporting_artifacts":[{"artifact_label":"dong-pho-moi-decision-landing.html","reviewed_pages":[]},{"artifact_label":"dong-pho-moi-1549.pdf","reviewed_pages":[1,2]}],
+      "assets":[{"name":"Cảng cạn Đông Phố Mới (Lào Cai)","asset_kind":"icd","role":"operator","via":[],"effective_from":"2024-12-16","date_basis":"opening decision 1549/QĐ-BGTVT; government metadata corroborates issuer report; archived attachment lacks filled number/signature date"}],
+      "notes":"Trang 3 báo cáo VLG xác nhận quyết định mở cảng cạn ngày 16/12/2024. Trang metadata văn bản của Bộ có cùng số/ngày hiệu lực. PDF đính kèm được tải từ ZIP của Bộ nhưng đầu trang còn trống số/ngày và không có chữ ký, không gọi là bản ký. ICD Lào Cai trong lịch sử và Đông Phố Mới là chuỗi chuyển đổi, không tự tạo hai cảng trùng.",
+      "unresolved":["Bản quyết định hoàn chỉnh đã ký và mặt bằng pháp lý", "Kiểm tra thay đổi đến 2026", "Quyền nguồn và R2 readback"]
+    },
+    {
+      "ticker":"TCW","artifact_label":"tcw-2025.pdf","reviewed_pages":[2,3,4,6],
+      "assets":[{"terminal_number":241,"role":"warehouse_and_yard_service","via":[],"effective_from":null}],
+      "service_facilities":[{"name":"Depot Tân Cảng Suối Tiên","facility_kind":"depot","role":"empty_container_depot_operations","effective_from":null}],
+      "notes":"Trang 3–4 mô tả kho 35.000m2, bãi 61.000m2 và khu cảng mở 12.000m2 trong Tân Cảng–Cát Lái, cùng depot Suối Tiên. Đây là dịch vụ trong cảng, không phải sở hữu cảng Cát Lái; depot không tự thành ICD. Trang 6 liệt kê các công ty con/liên kết về logistics; tên công ty Tân Cảng Hiệp Lực không đủ để gán sở hữu một bến cụ thể.",
+      "unresolved":["Phạm vi hợp đồng dịch vụ và hiệu lực", "Định danh cơ sở depot riêng, không đổi thành cảng cạn", "Các cơ sở của pháp nhân liên kết cần bằng chứng vận hành riêng"]
+    },
+    {
+      "ticker":"GIC","artifact_label":"gic-2025.pdf","reviewed_pages":[2,3],"assets":[],
+      "legal_name":"Công ty Cổ phần VSC Green Logistics","enterprise_id":"0201768923",
+      "notes":"Báo cáo ghi đúng tên LOGISTICS, khác lỗi LOGISTCS trong hồ sơ HNX được lập chỉ mục. Trang 2 ghi bãi container đi vào hoạt động tháng 07/2017; trang 3 ghi khai thác bãi và sửa chữa container, không có công ty con/liên kết. Website greenicd.com.vn không tự chứng minh cơ sở được cấp phép là ICD hoặc công ty sở hữu cảng biển.",
+      "unresolved":["Giấy đăng ký doanh nghiệp mới nhất và hồ sơ đổi tên", "Đối chiếu giấy phép trước khi phân loại ICD", "Ngày hiệu lực cụ thể của cơ sở khai thác, không đổi tháng 07/2017 thành ngày đầu tháng"]
+    },
+    {
+      "ticker":"VMS","artifact_label":"vms-2025.pdf","reviewed_pages":[1,6],
+      "assets":[{"name":"Bãi ICD Phước Long theo báo cáo VMS","asset_kind":"icd","role":"business_cooperation","via":[],"effective_from":null}],
+      "service_facilities":[{"name":"Bãi Nam Hòa 1","facility_kind":"yard","role":"business_cooperation","effective_from":null},{"name":"Bãi Nam Hòa 2","facility_kind":"yard","role":"yard_operations","effective_from":null},{"name":"Bãi Đông Hải","facility_kind":"yard","role":"lease_and_yard_operations","effective_from":null},{"name":"Bãi Chùa Vẽ","facility_kind":"warehouse","role":"lease","effective_from":null},{"name":"Bãi Gia Lâm","facility_kind":"yard","role":"lease","effective_from":null}],
+      "notes":"Trang 6 nêu hợp tác kinh doanh bãi Nam Hòa 1 và ICD Phước Long, khai thác/cho thuê bãi Đông Hải, Chùa Vẽ và Gia Lâm. Không coi bãi Chùa Vẽ là bến cảng Chùa Vẽ của PHP, không coi hợp tác ICD là sở hữu toàn bộ ICD. Nam Hòa 2 bắt đầu có lãi từ 03/2025 không phải ngày bắt đầu khai thác.",
+      "unresolved":["Định danh pháp lý và phạm vi hợp tác bãi ICD Phước Long", "Hợp đồng, đối tác và hiệu lực từng cơ sở", "Thay đổi năm 2026"]
+    }
+  ]
+}

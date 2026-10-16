@@ -29,15 +29,17 @@
         "published_at": null,
         "page_count": 49,
         "raw_storage_key": "catalog-evidence/sha256/27ffaedc0e10ecc3a1b9b95f90081754c0dbbdc90eb1dd7e0bc9259970596dbe",
-        "r2_verified": false,
+        "r2_verified": true,
         "rights_status": "to_verify",
         "fact_review_status": "pending",
         "parser_version": "manual-catalog-review-v1",
         "note": "Research evidence; upload/listing confirmation does not approve source rights, facts, effective dates or SHA-256 read-back integrity.",
         "artifact_label": "cag-2025.pdf",
-        "storage_upload_status": "uploaded_and_listed",
+        "storage_upload_status": "uploaded",
         "storage_checked_at": "2026-10-15T02:13:27.807Z",
-        "sha256_readback_status": "pending"
+        "sha256_readback_status": "verified",
+        "r2_checked_at": "2026-10-16T01:22:41.778010+00:00",
+        "archival_receipt": "r2-additional-readback-20261016.json"
       }
     },
     {
@@ -67,15 +69,17 @@
         "published_at": null,
         "page_count": 71,
         "raw_storage_key": "catalog-evidence/sha256/0aa0f2ed188e4256295fcb5d37a62cd9e68bc87c4595c91b62c0899f2e9e6892",
-        "r2_verified": false,
+        "r2_verified": true,
         "rights_status": "to_verify",
         "fact_review_status": "pending",
         "parser_version": "manual-catalog-review-v1",
         "note": "Research evidence; upload/listing confirmation does not approve source rights, facts, effective dates or SHA-256 read-back integrity.",
         "artifact_label": "ccr-2025.pdf",
-        "storage_upload_status": "uploaded_and_listed",
+        "storage_upload_status": "uploaded",
         "storage_checked_at": "2026-10-15T02:13:27.807Z",
-        "sha256_readback_status": "pending"
+        "sha256_readback_status": "verified",
+        "r2_checked_at": "2026-10-16T01:22:06.457682+00:00",
+        "archival_receipt": "r2-additional-readback-20261016.json"
       }
     },
     {
@@ -105,15 +109,17 @@
         "published_at": null,
         "page_count": 70,
         "raw_storage_key": "catalog-evidence/sha256/f884d92dfb0a3f9c6fdd32abeeff90e83c8d3c9072a593f9e7a5488a592b9cdb",
-        "r2_verified": false,
+        "r2_verified": true,
         "rights_status": "to_verify",
         "fact_review_status": "pending",
         "parser_version": "manual-catalog-review-v1",
         "note": "Research evidence; upload/listing confirmation does not approve source rights, facts, effective dates or SHA-256 read-back integrity.",
         "artifact_label": "tcl-2025.pdf",
-        "storage_upload_status": "uploaded_and_listed",
+        "storage_upload_status": "uploaded",
         "storage_checked_at": "2026-10-15T02:13:27.807Z",
-        "sha256_readback_status": "pending"
+        "sha256_readback_status": "verified",
+        "r2_checked_at": "2026-10-16T01:24:51.352746+00:00",
+        "archival_receipt": "r2-additional-readback-20261016.json"
       }
     },
     {
@@ -143,15 +149,17 @@
         "published_at": null,
         "page_count": 62,
         "raw_storage_key": "catalog-evidence/sha256/25ab02ca42b5e68fb1f2ef430f2e35757c63fd3e392be3cf2d68b40501212a35",
-        "r2_verified": false,
+        "r2_verified": true,
         "rights_status": "to_verify",
         "fact_review_status": "pending",
         "parser_version": "manual-catalog-review-v1",
         "note": "Research evidence; upload/listing confirmation does not approve source rights, facts, effective dates or SHA-256 read-back integrity.",
         "artifact_label": "pnp-2025.pdf",
-        "storage_upload_status": "uploaded_and_listed",
+        "storage_upload_status": "uploaded",
         "storage_checked_at": "2026-10-15T02:13:27.807Z",
-        "sha256_readback_status": "pending"
+        "sha256_readback_status": "verified",
+        "r2_checked_at": "2026-10-16T01:24:30.151536+00:00",
+        "archival_receipt": "r2-additional-readback-20261016.json"
       }
     }
   ]

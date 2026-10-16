@@ -6,9 +6,9 @@ type Dossier = {ticker:string;artifact_label:string;reviewed_pages:number[];asse
 const manifest=JSON.parse(readFileSync("docs/catalog-review/company-portfolios-manifest.json","utf8")) as {items:Dossier[];further_universe_research:{ticker:string}[]};
 const find=(ticker:string)=>manifest.items.find(d=>d.ticker===ticker)!;
 
-it("retains evidence lineage and explicit gaps for each of the 29 archived issuer dossiers",()=>{
-  expect(manifest.items).toHaveLength(29);
-  expect(new Set(manifest.items.map(d=>d.ticker)).size).toBe(29);
+it("retains evidence lineage and explicit gaps for all 41 candidate issuer dossiers",()=>{
+  expect(manifest.items).toHaveLength(41);
+  expect(new Set(manifest.items.map(d=>d.ticker)).size).toBe(41);
   for(const d of manifest.items) {
     expect(d.publication_status).toBe("research_only");
     expect(d.current_status_verified).toBe(false);
@@ -24,7 +24,38 @@ it("retains evidence lineage and explicit gaps for each of the 29 archived issue
       if(a.effective_from!==null) expect(a.date_basis).toBeTruthy();
     }
   }
-  expect(manifest.further_universe_research.map(x=>x.ticker)).toEqual(expect.arrayContaining(["PVS","ILB","STG","TCW"]));
+  expect(manifest.further_universe_research).toEqual([]);
+  const registry=JSON.parse(readFileSync("docs/catalog-review/issuer-universe-manifest.json","utf8"));
+  expect(manifest.items.map(d=>d.ticker).sort()).toEqual(registry.items.map((d:{ticker:string})=>d.ticker).sort());
+  expect(registry.universe_complete).toBe(false);
+});
+
+it("keeps industrial bases, warehouse services, inland depots and indirect chains distinct",()=>{
+  expect(find("PVS").assets).toHaveLength(8);
+  expect(find("PVS").assets.find(a=>a.terminal_number===118)?.via).toEqual(["Công ty Cổ phần Dịch vụ Dầu khí Quảng Ngãi PTSC"]);
+  expect(find("PQN").assets[0].terminal_number).toBe(118);
+  expect(find("GIC").assets).toEqual([]);
+  expect(find("TCW").assets[0]).toMatchObject({terminal_number:241,role:"warehouse_and_yard_service",effective_from:null});
+  expect(find("VMS").assets[0]).toMatchObject({asset_kind:"icd",role:"business_cooperation",effective_from:null});
+  const stg=JSON.parse(readFileSync("docs/catalog-review/company-portfolios-manifest.json","utf8")).items.find((d:{ticker:string})=>d.ticker==='STG');
+  expect(stg.derived_candidates.length).toBeGreaterThan(0);
+  expect(stg.derived_candidates[0].via.slice(0,2)).toEqual(["Công ty TNHH MTV Đầu tư Hạ tầng SOTRANS","Tổng Công ty Cổ phần Đường sông Miền Nam"]);
+  expect(stg.derived_candidates[0].evidence_path.map((p:{ticker:string})=>p.ticker)).toEqual(["STG","SWC"]);
+  expect(stg.derived_candidates[0]).not.toHaveProperty("ownership_pct");
+});
+
+it("retains separate exact-date evidence and warns about the unsigned government attachment",()=>{
+  const rows=JSON.parse(readFileSync("docs/catalog-review/company-portfolios-manifest.json","utf8")).items;
+  const ilb=rows.find((d:{ticker:string})=>d.ticker==='ILB');
+  expect(ilb.assets[0].effective_from).toBe('2023-01-06');
+  expect(ilb.supporting_artifacts[0].evidence.source_url).toContain('icdlongbinh.com/news/detail');
+  const vlg=rows.find((d:{ticker:string})=>d.ticker==='VLG');
+  expect(vlg.assets[0].effective_from).toBe('2024-12-16');
+  expect(vlg.supporting_artifacts.some((a:{evidence:{source_url:string}})=>a.evidence.source_url.includes('moc.gov.vn'))).toBe(true);
+  const artifacts=JSON.parse(readFileSync("docs/catalog-review/evidence-artifacts.json","utf8")).artifacts;
+  expect(artifacts.find((a:{artifact_label:string})=>a.artifact_label==='dong-pho-moi-1549.pdf').note).toContain('blank number/date');
+  expect(find('CLL').assets.find(a=>a.role==='business_cooperation')).toMatchObject({terminal_number:241,berth_subset:['Cầu cảng 2.200DWT'],effective_from:null});
+  expect(find('CMP').assets[0].effective_from).toBeNull();
 });
 
 it("keeps Cai Lan 2–3–4 separate from the other Cai Lan berths and preserves canonical IDs",()=>{

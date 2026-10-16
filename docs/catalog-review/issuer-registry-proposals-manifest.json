@@ -18,7 +18,10 @@
       "content_type": "application/pdf",
       "upload_needed": false,
       "rights_status": "to_verify",
-      "verification_status": "pending"
+      "verification_status": "pending",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:22:46.661715+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "key": "gmd_charter",
@@ -35,9 +38,12 @@
       "raw_storage_key": "catalog-evidence/sha256/e1fa9cad6979dff0d75573c0c226aaa0c8c1f5ab78d3f53d3cb99fd618554619",
       "source_record_id": "e1db813e-e20b-51cc-9962-16c05200a341",
       "content_type": "application/pdf",
-      "upload_needed": true,
+      "upload_needed": false,
       "rights_status": "to_verify",
-      "verification_status": "pending"
+      "verification_status": "pending",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:29:07.656681+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "key": "gmd_history",
@@ -53,9 +59,12 @@
       "raw_storage_key": "catalog-evidence/sha256/6a0e499d92121b630474c21e5f58f923e92fb8ad9632321727cec9002a91e44b",
       "source_record_id": "de4884fc-42ff-57dd-adb4-500fb268c579",
       "content_type": "application/pdf",
-      "upload_needed": true,
+      "upload_needed": false,
       "rights_status": "to_verify",
-      "verification_status": "pending"
+      "verification_status": "pending",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:29:15.689387+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "key": "dvp_annual",
@@ -73,7 +82,10 @@
       "content_type": "application/pdf",
       "upload_needed": false,
       "rights_status": "to_verify",
-      "verification_status": "pending"
+      "verification_status": "pending",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:24:19.804677+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "key": "pdn_annual",
@@ -91,7 +103,10 @@
       "content_type": "application/pdf",
       "upload_needed": false,
       "rights_status": "to_verify",
-      "verification_status": "pending"
+      "verification_status": "pending",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:24:06.210938+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "key": "pdn_overview",
@@ -109,9 +124,12 @@
       "raw_storage_key": "catalog-evidence/sha256/60a8b094fefae4f5be0545233a48508e4da8119b2281121f943eff429d64b2ac",
       "source_record_id": "0faf8e52-9158-55a4-99e7-786dd995cdf4",
       "content_type": "text/html; charset=utf-8",
-      "upload_needed": true,
+      "upload_needed": false,
       "rights_status": "to_verify",
-      "verification_status": "pending"
+      "verification_status": "pending",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:29:05.200714+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     },
     {
       "key": "qnp_annual",
@@ -130,7 +148,10 @@
       "content_type": "application/pdf",
       "upload_needed": false,
       "rights_status": "to_verify",
-      "verification_status": "pending"
+      "verification_status": "pending",
+      "r2_verified": true,
+      "r2_checked_at": "2026-10-16T01:22:56.556087+00:00",
+      "archival_receipt": "r2-additional-readback-20261016.json"
     }
   ],
   "companies": [

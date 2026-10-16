@@ -73,6 +73,17 @@ def compile_import():
                          "raw_storage_key": key, "source_record_id": record,
                          "company_id": company, "listing_id": identity(f"listing:{exchange}:{ticker}:{first_trade}"),
                          "rights_status": "to_verify", "verification_status": "pending"})
+        receipt_path = ROOT / "docs/catalog-review/r2-additional-readback-20261016.json"
+        if receipt_path.exists():
+            receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+            if receipt["bucket"] != "investing-pro-evidence-staging":
+                raise ValueError("Unexpected archive bucket")
+            checked = next((r for r in receipt["items"] if r["content_hash"] == digest and r["status"] == "sha256_readback_verified"), None)
+            if checked:
+                cached = RESEARCH / "r2-readback-20261016" / digest
+                if hashlib.sha256(cached.read_bytes()).hexdigest() != digest:
+                    raise ValueError("Changed remote readback cache")
+                manifest[-1].update(r2_verified=True,r2_checked_at=checked["checked_at"],archival_receipt="r2-additional-readback-20261016.json")
         records.append((record, SOURCE, item["source_url"], item["source_url"], f"hnx-profile:{ticker}:2026-10-15", observed_at, "text/plain; charset=utf-8", digest, key, "manual-dom-snapshot", "registry-proposals-v1", "incomplete"))
         entities.append((company, "company", slug(name), name, record, "incomplete"))
         companies.append((company, name))

@@ -1,0 +1,55 @@
+{
+  "publication_status": "pending",
+  "cloud_applied": false,
+  "prerequisite": "Existing reviewed canonical catalog, including 505 commercial subset",
+  "input_sql": [
+    {
+      "file": "hnx_registry.proposals.sql",
+      "sha256": "6bb8a3f4b42112f5943370867963a0af62206504079ea4be3665b29b6d953cd9"
+    },
+    {
+      "file": "hose_registry.proposals.sql",
+      "sha256": "bc1e641399921126146498d62d4631b141b8b895ab681fd29428e94234432768"
+    },
+    {
+      "file": "vsc_registry.proposals.sql",
+      "sha256": "d99c8c2911f74c20a0b9bf8874fb338e5605a95521a4ce7dd6a39cb8424e46ba"
+    },
+    {
+      "file": "expanded_issuer_registry.proposals.sql",
+      "sha256": "12e5859999638b488bdb5d871391cc7005ebbed3efb2cbc7bc334c6c93c65a7a"
+    },
+    {
+      "file": "market_issuer_registry.proposals.sql",
+      "sha256": "da59a40040a1f7d082f84f7e3aacaa1742f4c7a9b9bc2005e928182eb51e2839"
+    },
+    {
+      "file": "final_issuer_identities.proposals.sql",
+      "sha256": "8d247a6a4677d0e230065bfea16486f749ceece4804d8f8c1211a5382f0bdf37"
+    },
+    {
+      "file": "vgr_operator.proposal.sql",
+      "sha256": "f1732c832ef6bf53b6fdd6835f0844967d2885c9a04d1558c4849b31e41c7702"
+    },
+    {
+      "file": "dvp_assets.proposals.sql",
+      "sha256": "9336fd073bff8c2b86fd36690438bfa8fe901350074b3653af48f5fa13e7128b"
+    },
+    {
+      "file": "pap_assets.proposals.sql",
+      "sha256": "8b8fc86dc5351d2d766cd7425bf302d711e7f921f5853a03bdf5ec95ce0c2df6"
+    },
+    {
+      "file": "inland_depots.proposals.sql",
+      "sha256": "c396570819722b317a4ceae8ea3939aed4b4d6cffe6a25533ab8246dd86daa72"
+    },
+    {
+      "file": "registry_identity_enrichment.proposals.sql",
+      "sha256": "f4153f5b50264d3e0cc2ee35ba590f8fad548491f68527e2f53547d02b76ff05"
+    }
+  ],
+  "company_count": 41,
+  "listing_history_count": 40,
+  "new_interest_proposal_count": 9,
+  "warning": "Research dossiers with unknown dates are not emitted as interests. This is not a complete market coverage certification."
+}

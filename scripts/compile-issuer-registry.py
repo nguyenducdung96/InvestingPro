@@ -51,7 +51,19 @@ def compile_import():
         if urlparse(url).scheme != "https":
             raise ValueError("Expected an HTTPS evidence URL")
         fetched_at = previous["fetched_at"] if previous else datetime.fromtimestamp(path.stat().st_mtime, timezone.utc).isoformat()
-        needs_upload = not previous or previous.get("storage_upload_status") != "uploaded_and_listed"
+        needs_upload = not previous or previous.get("storage_upload_status") not in ("uploaded", "uploaded_and_listed")
+        receipt_path = ROOT / "docs/catalog-review/r2-additional-readback-20261016.json"
+        checked = None
+        if receipt_path.exists():
+            receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+            if receipt["bucket"] != "investing-pro-evidence-staging":
+                raise ValueError("Unexpected archive bucket")
+            checked = next((r for r in receipt["items"] if r["content_hash"] == digest and r["status"] == "sha256_readback_verified"), None)
+            if checked:
+                cached = LOCAL / "r2-readback-20261016" / digest
+                if hashlib.sha256(cached.read_bytes()).hexdigest() != digest:
+                    raise ValueError("Changed remote readback cache")
+                needs_upload = False
         if needs_upload:
             (upload_dir / digest).write_bytes(raw)
         artifacts[declaration["key"]] = {**declaration, "source_url": url, "fetched_at": fetched_at,
@@ -59,6 +71,8 @@ def compile_import():
             "source_record_id": identity("record:" + declaration["key"] + ":" + digest),
             "content_type": "application/pdf" if path.suffix == ".pdf" else "text/html; charset=utf-8",
             "upload_needed": needs_upload, "rights_status": "to_verify", "verification_status": "pending"}
+        if checked:
+            artifacts[declaration["key"]].update(r2_verified=True,r2_checked_at=checked["checked_at"],archival_receipt="r2-additional-readback-20261016.json")
     companies = dossier["companies"]
     if len({x["ticker"] for x in companies}) != len(companies) or len({x["enterprise_id"] for x in companies}) != len(companies):
         raise ValueError("Duplicate company identity")

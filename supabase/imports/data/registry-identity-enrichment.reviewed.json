@@ -1,0 +1,13 @@
+{
+  "items": [
+    {"ticker":"CDN","enterprise_id":"0400101972","artifact_label":"cdn-2025.pdf","reviewed_pages":[8],"website":"https://danangport.com","note":"Mã doanh nghiệp lấy nguyên từ báo cáo, không tự thêm số 0 vào chuỗi 400101972 thiếu ký tự trong hồ sơ sàn. Lịch sử thị trường giữ ở bằng chứng riêng."},
+    {"ticker":"CQN","enterprise_id":"5700100231","artifact_label":"cqn-2025.pdf","reviewed_pages":[6],"website":null,"note":"Pháp nhân Cảng Quảng Ninh; không đồng nhất với CPI/CICT."},
+    {"ticker":"DXP","enterprise_id":"0200443827","artifact_label":"dxp-2025.pdf","reviewed_pages":[1],"website":"https://www.doanxaport.com.vn","note":"Báo cáo có lịch sử HNX 2005, HOSE 2006; hồ sơ HNX hiện tại ghi ngày 08/06/2009 cho đợt thị trường hiện tại. Không ghi đè listing bằng mốc lịch sử khác."},
+    {"ticker":"NAP","enterprise_id":"2900325068","artifact_label":"nap-2025.pdf","reviewed_pages":[1],"website":"https://nghetinhport.vn","note":"Ngày niêm yết 19/07/2016 trong báo cáo cần đối chiếu chuỗi UPCoM/HNX; không thay mốc HNX 27/03/2018 của hồ sơ sàn bằng ngày đăng ký doanh nghiệp."},
+    {"ticker":"PSP","enterprise_id":"0200754420","artifact_label":"psp-2025.pdf","reviewed_pages":[7],"website":"https://www.ptscdinhvu.com.vn","note":"Pháp nhân Cảng Dịch vụ Dầu khí Đình Vũ, khác DVP và VIMC Đình Vũ."},
+    {"ticker":"QSP","enterprise_id":"4100694020","artifact_label":"qsp-2025.pdf","reviewed_pages":[1],"website":"https://www.quynhonnewport.vn","note":"Tân Cảng Quy Nhơn khác Cảng Quy Nhơn QNP. Định danh không thay đổi vai trò cho thuê/hợp tác đã ghi trong dossier."},
+    {"ticker":"SGP","enterprise_id":"0300479714","artifact_label":"sgp-2025.pdf","reviewed_pages":[1],"website":"https://www.saigonport.vn","note":"Định danh công ty mẹ Cảng Sài Gòn; không biến công ty con/liên doanh thành cùng một pháp nhân."},
+    {"ticker":"MVN","enterprise_id":"0100104595","artifact_label":"mvn-2025.pdf","reviewed_pages":[10],"website":"https://www.vimc.co","note":"Định danh Tổng công ty Hàng hải Việt Nam - CTCP, không phải tất cả pháp nhân thành viên."},
+    {"ticker":"PHP","enterprise_id":"0200236845","artifact_label":"php-2025-full.pdf","reviewed_pages":[4],"website":"https://haiphongport.com.vn","note":"Chỉ bổ sung tự động nếu hồ sơ vẫn chờ duyệt và chưa bị chỉnh độc lập. Hồ sơ PHP đã xác minh được giữ nguyên; bằng chứng định danh mới vẫn lưu để rà soát riêng."}
+  ]
+}

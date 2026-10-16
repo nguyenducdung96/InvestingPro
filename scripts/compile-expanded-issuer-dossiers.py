@@ -34,6 +34,10 @@ def terminal_id(number):
 def compile_dossiers():
     artifacts = {a["artifact_label"]: a for a in read("docs/catalog-review/evidence-artifacts.json")["artifacts"]}
     portfolios = read("supabase/imports/data/company-portfolios.reviewed.json")
+    portfolios["items"].extend(read("supabase/imports/data/additional-company-portfolios.reviewed.json")["items"])
+    portfolios["scope"] = f"{len(portfolios['items'])} archived issuer dossiers; not an exhaustive market universe or current ownership certification"
+    covered = {d["ticker"] for d in portfolios["items"]}
+    portfolios["further_universe_research"] = [d for d in portfolios["further_universe_research"] if d["ticker"] not in covered]
     catalog = read("supabase/imports/data/505-commercial-catalog.reviewed.json")
     terminals = {t["number"]: t for t in catalog["terminals"]}
     seen = set()
@@ -52,6 +56,18 @@ def compile_dossiers():
         dossier["evidence"] = {k: artifact[k] for k in (
             "source_url", "content_hash", "fetched_at", "published_at", "raw_storage_key", "r2_verified", "rights_status"
         )}
+        for support in dossier.get("supporting_artifacts", []):
+            a = artifacts[support["artifact_label"]]
+            raw = (ROOT / ".local/catalog-research" / support["artifact_label"]).read_bytes()
+            if hashlib.sha256(raw).hexdigest() != a["content_hash"]:
+                raise ValueError(f"Supporting artifact hash mismatch: {ticker}")
+            if a["page_count"] is not None and (not support["reviewed_pages"] or any(
+                not isinstance(p, int) or not 1 <= p <= a["page_count"] for p in support["reviewed_pages"]
+            )):
+                raise ValueError(f"Supporting pages not reviewed: {ticker}")
+            support["evidence"] = {k: a[k] for k in (
+                "source_url", "content_hash", "fetched_at", "published_at", "raw_storage_key", "r2_verified", "rights_status"
+            )}
         dossier["reporting_period_end"] = "2025-12-31"
         dossier["publication_status"] = "research_only"
         dossier["current_status_verified"] = False
@@ -88,7 +104,7 @@ def compile_dossiers():
             for asset in child["assets"]:
                 parent["derived_candidates"].append(dict(
                     child_ticker=child_ticker, role="indirect", effective_from=None,
-                    via=[interest["company"], *asset["via"]],
+                    via=[*interest.get("via", [interest["company"]]), *asset["via"]],
                     terminal_number=asset.get("terminal_number"),
                     canonical_terminal_id=asset.get("canonical_terminal_id"),
                     canonical_berth_ids=asset.get("canonical_berth_ids", []),
@@ -98,6 +114,15 @@ def compile_dossiers():
                     evidence_path=[dict(ticker=d["ticker"], pages=d["reviewed_pages"], **d["evidence"]) for d in (parent,child)],
                     decision="requires_chain_and_period_review", sql_interest_generated=False,
                 ))
+    observations = [a for d in portfolios["items"] for a in d["assets"]]
+    portfolios["universe_complete"] = False
+    portfolios["coverage_summary"] = dict(
+        issuer_dossiers=len(portfolios["items"]), asset_observations=len(observations),
+        unique_matched_terminals=len({a["canonical_terminal_id"] for a in observations if a.get("canonical_terminal_id")}),
+        observations_without_exact_effective_date=sum(a["effective_from"] is None for a in observations),
+        indirect_research_paths=sum(len(d["derived_candidates"]) for d in portfolios["items"]),
+        cloud_applied=False,
+    )
     output = ROOT / "docs/catalog-review/company-portfolios-manifest.json"
     output.write_text(json.dumps(portfolios, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
