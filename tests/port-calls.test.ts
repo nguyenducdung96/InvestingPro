@@ -1,6 +1,7 @@
 import {PGlite} from '@electric-sql/pglite';
 import {readFileSync,readdirSync} from 'node:fs';
-import {it,expect} from 'vitest';
+import {it,expect,vi} from 'vitest';
+import {fetchBinhThuanPositions} from '../packages/modules/port/src/public-anchorage';
 import {parseCallNotices,parseCallSource,callSource,noticeTime,sha256,CALL_SOURCE,CALL_PARSER} from '../packages/modules/port/src/calls';
 const tr=(cells:string[])=>`<tr>${cells.map(s=>`<td>${s}</td>`).join('')}</tr>`;
 const html=(name='TEST VESSEL',time='23:30-16/10')=>`KHU VỰC CỬA VIỆT<li>Thông báo tàu đến và rời cảng ngày 16/10/2026</li><table>${tr(['TH&Ocirc;NG B&Aacute;O T&Agrave;U ĐẾN CẢNG'])}${tr([name,'VN','100','1.234','80','3','redacted',time,'NIL','NIL','NIL'])}</table><table>${tr(['THÔNG BÁO TÀU RỜI CẢNG'])}${tr([name,'VN','100','1234','23:45-16/10','NIL','NIL','NIL'])}</table>`;
@@ -31,6 +32,36 @@ it('separates source areas and snapshot arrival columns, rejects wrong region, f
  const l=await parseCallSource(len,'quangtri-len-bang','2026-10-17T07:00:00Z');
  expect(l.rows).toHaveLength(2);expect(l.rows[0].key).not.toBe((await parseCallNotices(html())).rows[0].key);
 });
+it('preserves day-only and missing-year precision and excludes ended anchorage without inventing calls',async()=>{
+ const h=await parseCallSource(readFileSync('tests/fixtures/hcm-position-excerpt.html','utf8'),'hcm-in-port','2026-10-17T08:00:00Z');
+ expect(h.rows).toHaveLength(2);expect(h.rows[0]).toMatchObject({occurred_at:null,time_day:'2026-10-17',time_precision:'day',quarantine_reason:null});
+ const q=await parseCallSource(readFileSync('tests/fixtures/quangninh-position-excerpt.html','utf8'),'quangninh-in-port','2026-10-17T08:00:00Z');
+ expect(q.rows.length).toBeGreaterThan(0);for(const row of q.rows)expect(row).toMatchObject({occurred_at:null,time_precision:'unknown'});
+ const raw=readFileSync('tests/fixtures/binhthuan-anchorage-excerpt.json','utf8');
+ const b=await parseCallSource(raw,'binhthuan-open-anchorage','2026-10-17T08:00:00Z');
+ expect(b.rows).toHaveLength(1);expect(b.rows[0]).toMatchObject({time_basis:'anchorage_start',occurred_at:'2026-06-15T15:00:00+07:00'});
+ const broken=JSON.parse(raw);broken.total++;
+ await expect(parseCallSource(JSON.stringify(broken),'binhthuan-open-anchorage','2026-10-17T08:00:00Z')).rejects.toThrow('Incomplete');
+});
+it('reads visible Hai Phong berth labels and only the latest dated Hue snapshot',async()=>{
+ const hp=await parseCallSource(readFileSync('tests/fixtures/haiphong-position-excerpt.html','utf8'),'haiphong-in-port','2026-10-17T08:00:00Z');
+ expect(hp.rows).toHaveLength(1);expect(hp.rows[0]).toMatchObject({occurred_at:null,time_day:null,time_precision:'unknown',quarantine_reason:null});
+ const raw=readFileSync('tests/fixtures/hue-position-excerpt.html','utf8');
+ const hue=await parseCallSource(raw,'hue-chanmay-in-port','2026-10-17T08:00:00Z');
+ expect(hue.rows).toHaveLength(18);expect(hue.reported_days).toEqual(['2026-10-17']);
+ expect(hue.rows.every(r=>r.quarantine_reason===null)).toBe(true);
+ await expect(parseCallSource(raw.replaceAll('Name of','Changed'),'hue-chanmay-in-port','2026-10-17T08:00:00Z')).rejects.toThrow('columns changed');
+});
+it('uses anonymous public read resources only and rejects changed API destinations',async()=>{
+ const request=vi.fn<typeof fetch>();
+ request.mockResolvedValueOnce(new Response(JSON.stringify({user:{maritimeCode:'12'},getVmaScheduleAnchorage_Port_URL:'https://untrusted.example/private'})));
+ await expect(fetchBinhThuanPositions(request)).rejects.toThrow('Unexpected public resource destination');expect(request).toHaveBeenCalledTimes(1);
+ request.mockReset();request.mockResolvedValueOnce(new Response(JSON.stringify({user:{maritimeCode:'12'},getVmaScheduleAnchorage_Port_URL:'http://123.25.223.242/web/guest/public-kh;jsessionid=guest?p_p_id=vma_WAR_TichHopGiaoThongportlet&p_p_resource_id=vma_schedule_anchorage_port'})));
+ request.mockResolvedValueOnce(new Response('{"total":0,"data":[]}'));
+ expect(await fetchBinhThuanPositions(request)).toBe('{"total":0,"data":[]}');
+ const destination=new URL(String(request.mock.calls[1][0]));expect(destination.searchParams.get('end')).toBe('500');expect(destination.searchParams.get('maritimeCode')).toBe('12');
+ expect(request.mock.calls[1][1]?.redirect).toBe('error');
+});
 it('keeps concurrent area notices and replaces complete snapshots without manufacturing departures',async()=>{
  const db=new PGlite();try{
  await db.exec(`create role anon;create role authenticated;create role service_role bypassrls;create schema auth;
@@ -53,7 +84,10 @@ it('keeps concurrent area notices and replaces complete snapshots without manufa
  expect((await db.query('select * from port.published_in_port_snapshots')).rows).toHaveLength(3);
  expect((await db.query('select * from port.published_port_calls')).rows).toHaveLength(4);
  expect((await db.query("select * from port.port_calls where event_kind='in_port' and direction='departure'")).rows).toHaveLength(0);
- await db.exec('reset role;set role anon');expect((await db.query('select * from port.published_in_port_snapshots')).rows).toHaveLength(3);
+ await put(readFileSync('tests/fixtures/hcm-position-excerpt.html','utf8'),'hcm-in-port');
+ expect((await db.query("select occurred_at,time_day::text,time_precision from port.published_in_port_snapshots where source_area='hcm-in-port' order by row_number limit 1")).rows).toEqual([{occurred_at:null,time_day:'2026-10-17',time_precision:'day'}]);
+ expect((await db.query('select * from port.published_port_calls')).rows).toHaveLength(4);
+ await db.exec('reset role;set role anon');expect((await db.query('select * from port.published_in_port_snapshots')).rows).toHaveLength(5);
  await expect(db.query('select raw_text from port.call_artifacts')).rejects.toThrow('permission denied');
  }finally{await db.close();}
 });

@@ -125,8 +125,14 @@ export class SupabaseCatalogRepository implements CatalogRepository {
     if(!this.admin)throw new DatabaseError(403);
     return (await this.db.read('port','call_artifacts',params({id:`eq.${id}`,limit:'1'})))[0]??null;
   }
-  async callSnapshots() {
-    return this.db.read('port','published_in_port_snapshots',params({select:'*',order:'source_area.asc,vessel_name.asc,id.asc',limit:'1000'}));
+  async callSnapshots(area?:string) {
+    const scope:Record<string,string>=area?{source_area:`eq.${area}`}:{ };
+    const rows=await this.db.read('port','published_in_port_snapshots',params({...scope,select:'*',order:'source_area.asc,vessel_name.asc,id.asc',limit:'1000'}));
+    for(let offset=1000;rows.length===offset&&offset<5000;offset+=1000){
+      const page=await this.db.read('port','published_in_port_snapshots',params({...scope,select:'*',order:'source_area.asc,vessel_name.asc,id.asc',limit:'1000',offset:String(offset)}));
+      rows.push(...page);if(page.length<1000)break;
+    }
+    return rows;
   }
   async quarantinedCalls() {
     if(!this.admin)throw new DatabaseError(403);

@@ -29,6 +29,14 @@ it("keeps empty catalog evidence and coverage null", async () => {
   expect(result.meta.coverage.ratio).toBeNull();
   expect(read.mock.calls).toHaveLength(1);
 });
+it('reads snapshot pages beyond the Supabase 1000 row limit with the same area filter',async()=>{
+  const read=vi.fn().mockResolvedValueOnce(Array.from({length:1000},(_,id)=>({id}))).mockResolvedValueOnce([{id:1000}]);
+  const repo=new SupabaseCatalogRepository({read,activeInterests:async()=>[],write:async()=>[]});
+  expect(await repo.callSnapshots('hcm-in-port')).toHaveLength(1001);
+  expect(read).toHaveBeenCalledTimes(2);
+  expect(read.mock.calls[1][2].get('offset')).toBe('1000');
+  expect(read.mock.calls.every(c=>c[2].get('source_area')==='eq.hcm-in-port')).toBe(true);
+});
 it("public repositories cannot mutate or read proposals", async () => {
   const repo = new SupabaseCatalogRepository({
     read: async () => [],

@@ -1,6 +1,6 @@
 import {adminRepository,HttpError} from '@/lib/server';
 import {sameOrigin} from '@/lib/origin';
-import {CALL_SOURCES,callSource,parseCallSource,sha256,UUID} from '@invest/port';
+import {CALL_SOURCES,callSource,parseCallSource,fetchBinhThuanPositions,sha256,UUID} from '@invest/port';
 import {DatabaseError} from '@invest/db';
 export const dynamic='force-dynamic';
 export async function POST(request:Request){
@@ -14,6 +14,10 @@ export async function POST(request:Request){
   if(b.action==='refresh'){
    phase='source';
    const source=callSource(b.source_id??'quangtri-cua-viet');if(!source)throw new HttpError(400,'Nguồn chưa được hỗ trợ.');
+   if(source.id==='binhthuan-open-anchorage'){
+    const raw_text=await fetchBinhThuanPositions();
+    b={source_url:source.url,raw_text,raw_sha256:await sha256(raw_text),fetched_at:new Date().toISOString()};
+   }else{
    let sourceUrl:string=source.url;
    let response:Response|undefined;
    const sourceSignal=AbortSignal.timeout(25000);
@@ -31,6 +35,7 @@ export async function POST(request:Request){
    const bytes=new Uint8Array(size);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.length;}
    const raw_text=new TextDecoder('utf-8',{fatal:true}).decode(bytes);
    b={source_url:source.url,raw_text,raw_sha256:await sha256(raw_text),fetched_at:new Date().toISOString()};
+   }
   }
   phase='parse';
   const source=CALL_SOURCES.find(s=>s.url===b.source_url);

@@ -7,6 +7,13 @@ export const CALL_SOURCES = [
   {id:'cantho-ct',label:'Cần Thơ',url:'https://cangvuhanghaicantho.gov.vn/Index.aspx?kv=ct&page=vtttc',kind:'in_port' as const,marker:'VỊ TRÍ TÀU TẠI CẢNG'},
   {id:'cantho-hg',label:'Hậu Giang',url:'https://cangvuhanghaicantho.gov.vn/Index.aspx?kv=hg&page=vtttc',kind:'in_port' as const,marker:'VỊ TRÍ TÀU TẠI CẢNG'},
   {id:'cantho-st',label:'Mỹ Thới',url:'https://cangvuhanghaicantho.gov.vn/Index.aspx?kv=st&page=vtttc',kind:'in_port' as const,marker:'VỊ TRÍ TÀU TẠI CẢNG'},
+  {id:'cantho-tv',label:'Trà Vinh',url:'https://cangvuhanghaicantho.gov.vn/Index.aspx?kv=tv&page=vtttc',kind:'in_port' as const,marker:'VỊ TRÍ TÀU TẠI CẢNG'},
+  {id:'hcm-in-port',label:'TP.HCM / Cái Mép–Thị Vải',url:'https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipinport&cat=3106',kind:'in_port' as const,marker:'Cảng vụ Hàng hải Thành phố Hồ Chí Minh'},
+  {id:'quangninh-in-port',label:'Quảng Ninh',url:'https://kht1.cangvuhanghaiquangninh.gov.vn/vitritau.aspx',kind:'in_port' as const,marker:'CẢNG VỤ HÀNG HẢI QUẢNG NINH'},
+  {id:'hue-chanmay-in-port',label:'Chân Mây',url:'https://cangvuhanghaithuathienhue.gov.vn/index.aspx?cat=3130&page=news',kind:'in_port' as const,marker:'Khu vực hàng hải Chân Mây ngày'},
+  {id:'hue-thuanan-in-port',label:'Thuận An',url:'https://cangvuhanghaithuathienhue.gov.vn/index.aspx?page=news&cat=3131',kind:'in_port' as const,marker:'Vị trí tàu tại cảng ngày'},
+  {id:'binhthuan-open-anchorage',label:'Bình Thuận / Cà Ná · vị trí neo',url:'http://123.25.223.242/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/ViTriTauTaiCang',kind:'in_port' as const,marker:'binhthuan-public-api'},
+  {id:'haiphong-in-port',label:'Hải Phòng',url:'https://csdltau.cangvuhaiphong.gov.vn/pages/position.aspx',kind:'in_port' as const,marker:'VỊ TRÍ TÀU TẠI CẢNG'},
 ] as const;
 export function callSource(id:string){return CALL_SOURCES.find(s=>s.id===id);}
 export function callSourceLabel(id:string){return callSource(id)?.label??id;}
@@ -73,6 +80,8 @@ export async function parseCallNotices(html:string,sourceId='quangtri-cua-viet')
 export async function parseCallSource(html:string,sourceId:string,fetchedAt:string){
  const source=callSource(sourceId);if(!source)throw new Error('Unknown source');
  if(source.kind==='reported')return parseCallNotices(html,sourceId);
+ if(sourceId==='binhthuan-open-anchorage')return parseBinhThuanPositions(html,fetchedAt);
+ if(sourceId==='hcm-in-port'||sourceId==='quangninh-in-port'||sourceId==='haiphong-in-port'||sourceId.startsWith('hue-'))return parseRegionalSnapshot(html,sourceId,fetchedAt);
  if(!html.includes(source.marker)||!html.includes('CẢNG VỤ HÀNG HẢI CẦN THƠ'))throw new Error('Unexpected source area');
  const action=html.match(/<form\b[^>]*action="([^"]+)"/i)?.[1];
  if(!action||new URL(decodeHTML(action),source.url).searchParams.get('kv')!==new URL(source.url).searchParams.get('kv'))throw new Error('Unexpected source area');
@@ -94,6 +103,96 @@ export async function parseCallSource(html:string,sourceId:string,fetchedAt:stri
  }
  if(!rows.length&&!/rgNoRecords/.test(table))throw new Error('No rows or explicit empty snapshot');
  return {rows,reported_days:[reportDay],parser_version:'cantho-positions/1.0.0'};
+}
+
+type SnapshotObservation=CallObservation&{berth:string|null;time_day:string|null;time_precision:'minute'|'day'|'unknown';time_basis?:'port_arrival'|'anchorage_start'};
+async function snapshotRow(area:string,name:string,rawTime:string,berth:string,weight:string,reportedDay:string,rowNumber:number,fetchedAt:string):Promise<SnapshotObservation>{
+ const date=rawTime.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{2}))?$/);
+ const arrivalDay=date?day(date[1],date[2],date[3]):null;
+ const occurred=arrivalDay&&date?.[4]&&+date[4]<24&&+date[5]<60?`${arrivalDay}T${date[4].padStart(2,'0')}:${date[5]}:00+07:00`:null;
+ const precision=occurred?'minute':arrivalDay&&!date?.[4]?'day':'unknown';
+ // Missing years remain unknown. No clock-derived year or midnight is invented.
+ const malformed=!!date&&(!arrivalDay||!!date[4]&&!occurred);
+ const future=arrivalDay&&(arrivalDay>reportedDay||!!occurred&&Date.parse(occurred)>Date.parse(fetchedAt));
+ const reason=/[+/]/.test(name)?'multiple_vessels':malformed||future?'invalid_or_missing_time':null;
+ const key=await sha256([area,'in_port',name,rawTime,berth].join('|'));
+ return {key,vessel_name:name,identity_key:`observation:${key}`,identity_confidence:'source_observation',direction:'arrival',occurred_at:occurred,time_day:arrivalDay,time_precision:precision,reported_day:reportedDay,raw_time:rawTime,dwt:dwt(weight),row_number:rowNumber,quarantine_reason:reason,berth:berth||null};
+}
+async function parseRegionalSnapshot(html:string,sourceId:string,fetchedAt:string){
+ const source=callSource(sourceId)!;
+ if(!html.includes(source.marker))throw new Error('Unexpected source area');
+ let reportedDay=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'}).format(new Date(fetchedAt));
+ const rows:SnapshotObservation[]=[];
+ const cells=(tr:string)=>[...tr.matchAll(/<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/gi)].map(m=>plain(m[1]));
+ let version='';
+ if(sourceId==='haiphong-in-port'){
+  if(!html.includes('DataList_VTTauTaiCang'))throw new Error('Snapshot layout changed');
+  const sections=html.split('class="cssSpanCaption">').slice(1);
+  for(const section of sections){
+   const berth=plain(section.slice(0,section.indexOf('</span>')));
+   for(const ship of section.matchAll(/<td onmouseover="fixedtooltip\('([\s\S]*?)', this, event, '220px'\)"[^>]*>([\s\S]*?)<\/td>/gi)){
+    const name=plain(ship[1].match(/<b>([\s\S]*?)<\/b>/i)?.[1]??'');
+    const weight=plain(ship[1].match(/DWT:&nbsp;<b>([\s\S]*?)<\/b>/i)?.[1]??'');
+    if(!name||plain(ship[2]).replace(/^:\s*/,'')!==name)throw new Error('Snapshot vessel label changed');
+    rows.push(await snapshotRow(sourceId,name,'',berth,weight,reportedDay,rows.length+1,fetchedAt));
+   }
+  }version='haiphong-positions/1.0.0';
+ }else if(sourceId==='hcm-in-port'){
+  const table=html.match(/<table\b[^>]*id="ctl22_rgViTriTauTaiCang_ctl00"[^>]*>([\s\S]*?)<\/table>/i)?.[1];
+  if(!table||!plain(table).includes('Ngày/Giờ vào cầu'))throw new Error('Snapshot columns changed');
+  const header=cells(table.match(/<thead>([\s\S]*?)<\/thead>/i)?.[1]??'');
+  if(header.length!==7||header[1]!=='Tên tàu'||header[5]!=='Ngày đến')throw new Error('Snapshot columns changed');
+  for(const tr of table.matchAll(/<tr\b[^>]*class="rg(?:Alt)?Row"[^>]*>([\s\S]*?)<\/tr>/gi)){
+   const c=cells(tr[1]);if(c.length!==7||!c[1])throw new Error('Snapshot row columns changed');
+   rows.push(await snapshotRow(sourceId,c[1],c[5],[c[3],c[4]].filter(Boolean).join(' · '),'',reportedDay,rows.length+1,fetchedAt));
+  }
+  version='hcm-positions/1.0.0';
+ }else if(sourceId==='quangninh-in-port'){
+  const tables=[...html.matchAll(/<table\b[^>]*id="GridView_(CamPha|HonGai|QuangYen|VanGia)"[^>]*>([\s\S]*?)<\/table>/gi)];
+  if(tables.length!==4)throw new Error('Snapshot tables changed');
+  for(const table of tables){let berth='';const content=table[2];
+   if(!plain(content).includes('Thời gian neo'))throw new Error('Snapshot columns changed');
+   for(const tr of content.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)){
+    const c=cells(tr[1]);if(c.length===1){berth=c[0];continue;}if(!tr[1].includes('class="item-gridview"'))continue;
+    if(c.length!==8||!c[0])throw new Error('Snapshot row columns changed');
+    rows.push(await snapshotRow(sourceId,c[0],c[6],[berth,c[5]].filter(Boolean).join(' · '),c[2],reportedDay,rows.length+1,fetchedAt));
+   }
+  }version='quangninh-positions/1.0.0';
+ }else{
+  const heading=sourceId==='hue-chanmay-in-port'?/Khu vực hàng hải Chân Mây ngày\s*(\d{1,2})\/(\d{1,2})\/(\d{4})\s*<\/li>/gi:/Vị trí tàu tại cảng ngày\s*(\d{1,2})\/(\d{1,2})\/(\d{4})\s*<\/li>/gi;
+  const sections=[...html.matchAll(heading)].map(m=>({index:m.index!+m[0].length,day:day(m[1],m[2],m[3])})).filter(m=>m.day&&m.day<=reportedDay).sort((a,b)=>b.day!.localeCompare(a.day!));
+  if(!sections.length)throw new Error('No dated snapshot');
+  const newest=sections[0];reportedDay=newest.day!;
+  const end=Math.min(html.length,...sections.filter(s=>s.index>newest.index).map(s=>s.index));
+  const table=[...html.slice(newest.index,end).matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/gi)].map(m=>m[1]).join('');
+  if(!table||!plain(table).includes('Name of Ship')||!plain(table).includes('Date of Arival'))throw new Error('Snapshot columns changed');
+  let berth='';
+  for(const tr of table.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)){
+   const c=cells(tr[1]);if(c.length===1){berth=c[0];continue;}if(!/^\d+$/.test(c[0]??''))continue;
+   if(c.length!==10||!c[1])throw new Error('Snapshot row columns changed');
+   rows.push(await snapshotRow(sourceId,c[1],c[6],berth,c[4],reportedDay,rows.length+1,fetchedAt));
+  }version='hue-positions/1.0.0';
+ }
+ if(!rows.length)throw new Error('No snapshot rows; review source before accepting empty state');
+ return {rows,reported_days:[reportedDay],parser_version:version};
+}
+function parseBinhThuanPositions(raw:string,fetchedAt:string){
+ return (async()=>{
+  const value=JSON.parse(raw);
+  if(!Array.isArray(value.data)||!Number.isInteger(value.total)||value.total!==value.data.length||value.total>500)throw new Error('Incomplete public API page');
+  const reportedDay=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'}).format(new Date(fetchedAt));
+  const rows:SnapshotObservation[]=[];
+  for(let i=0;i<value.data.length;i++){
+   const r=value.data[i];
+   if(typeof r.nameOfShip!=='string'||typeof r.portRegionName!=='string'||!/^(BÌNH THUẬN|NINH THUẬN)/i.test(r.portRegionName)||!('anchoringDateFrom'in r)||!('anchoringDateTo'in r))throw new Error('Public API schema or area changed');
+   // Ended/dated anchorage stays are not current open positions or port departures.
+   if(r.anchoringDateTo)continue;
+   const row=await snapshotRow('binhthuan-open-anchorage',r.nameOfShip,String(r.anchoringDateFrom??''),[r.portHarbourName,r.portWharfName].filter(Boolean).join(' · '),r.dwt==null?'':String(r.dwt),reportedDay,i+1,fetchedAt);
+   rows.push({...row,time_basis:'anchorage_start'});
+  }
+  if(!rows.length&&value.total!==0)throw new Error('No open anchorage records; review before accepting empty snapshot');
+  return {rows,reported_days:[reportedDay],parser_version:'binhthuan-open-anchorage/1.0.0'};
+ })();
 }
 
 

@@ -121,3 +121,53 @@ qua các nguồn, không cộng hai khu vực cùng ngày thành hai ngày lịc
 build và deployment bản cuối `8dc5be9` Ready; build `a7066ed9-298e-4759-b065-c5c3a3e74bd0`,
 Worker prefix `66549e26`. Biên nhận: `catalog-review/slice2-free-sources-acceptance-20261017.json`.
 Hoàn thành chức năng Slice 2 với 5 nguồn miễn phí; chưa nghiệm thu mọi cảng Việt Nam.
+
+## Mở rộng nguồn khu vực — 17/10/2026
+
+Thêm connector miễn phí Hải Phòng, TP.HCM/Cái Mép–Thị Vải, Quảng Ninh,
+Chân Mây, Thuận An, Trà Vinh và vị trí neo Bình Thuận/Cà Ná. Tổng 12 connector,
+không đồng nghĩa 12 cảng chuẩn hay bao phủ toàn quốc. Không cần API key.
+Migration `202610170007_regional_snapshots.sql` giữ nguyên các bản nhập trước.
+
+Các bảng này là snapshot vị trí, không bổ sung lượt đến/rời vào biểu đồ.
+TP.HCM và Huế có ngày đến không có giờ: lưu `time_day`, timestamp null.
+Quảng Ninh thiếu năm; Hải Phòng không ghi thời gian: giữ unknown.
+API Bình Thuận công khai do trang Cảng vụ liên kết: chỉ lấy bản ghi neo chưa kết
+thúc; nhãn `anchorage_start` thể hiện bắt đầu neo, không suy ra đến/rời cảng.
+Không tải hoặc lưu metadata phiên khách vào artifact; archive response dữ liệu.
+API đầy đủ tối đa 500 dòng; total khác độ dài response thì từ chối nhập.
+
+Bảng công khai phân trang 50 dòng, lọc tên bến/cầu/phao. Repository đọc snapshot
+qua các trang 1.000 dòng, giới hạn 5.000; chạm giới hạn sẽ cảnh báo. Lượt đến/rời
+vẫn giới hạn 1.000 theo kỳ. Lệnh refresh:
+`pnpm data:refresh:calls -- --source haiphong-in-port` hoặc chọn nguồn tại admin.
+
+### Các khoảng trống toàn quốc còn phải xử lý
+
+Reference `vietnam_port_official_public_data_sources.md` đã được đối chiếu.
+Không dùng danh mục 17 nhóm cảng hiện tại làm mẫu số toàn quốc: tên địa giới và
+phạm vi quản lý thay đổi. Nguồn TP.HCM hiện bao gồm Cái Mép–Thị Vải, không được
+nhân bản thành nhiều nguồn độc lập hoặc tự gán mapping doanh nghiệp.
+
+- Nghệ An: tìm thấy báo cáo XLSX chính thức tại danh sách cat=2017, bản 14/10/2026.
+  Chưa có parser XLSX server kiểm thử; không coi đã tích hợp. Ngày trong workbook
+  là 2026 dù tên file ghi 2016, cần đọc ngày báo cáo trong nội dung.
+- Đà Nẵng: hệ thống public-kh timeout; Google Sheet và lịch khai thác tìm thấy là
+  kế hoạch, không chứng minh tàu đến/rời. Trang khai thác của cảng chưa có feed chi tiết.
+- Quy Nhơn/Gia Lai/Đắk Lắk: trang vị trí trả lỗi/chưa cập nhật; PDF lịch khai thác
+  là kế hoạch. Chưa có feed thực tế đã kiểm thử.
+- Khánh Hòa: bảng showtv công khai là kế hoạch; hệ thống kht yêu cầu đăng nhập.
+- Đồng Nai và Kiên Giang: trang chính thức truy cập được, menu vị trí chưa dẫn tới
+  bảng dữ liệu công khai đọc được. Không mặc định không có tàu.
+- Thanh Hóa và Quảng Bình cũ: domain nguồn cũ không phân giải. Quảng Trị đã có
+  Cửa Việt/Lèn Bảng, chưa đủ chứng minh mọi bến trong phạm vi sau sắp xếp.
+- Quảng Nam cũ: chứng thư không được trust; không tắt kiểm tra TLS để lấy dữ liệu.
+- Quảng Ngãi, Hà Tĩnh, Hưng Yên/Thái Bình cũ, Ninh Bình, Tây Ninh/Long An,
+  Vĩnh Long/Bến Tre, Đồng Tháp/Tiền Giang, Cà Mau: chưa xác lập feed chi tiết
+  công khai có thể refresh và kiểm thử. Chưa đủ căn cứ tuyên bố toàn quốc.
+- Cổng thống kê được reference dẫn tới `http://144.79.79.16/intro.html` hiển thị
+  các biểu tổng hợp; ứng dụng `/webtkhh` yêu cầu đăng nhập, không phải API lượt tàu.
+
+Đây là danh sách công việc còn mở, không phải dữ liệu zero và không phải trạng thái
+hoàn tất yêu cầu tất cả cảng. Không dùng kế hoạch, tổng hợp tháng hoặc số vị trí hiện
+có để điền giả lịch sử lượt tàu ở các khu vực còn thiếu.
