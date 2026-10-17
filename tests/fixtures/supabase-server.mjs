@@ -135,7 +135,7 @@ rows.editorial_catalog_editions=[];
 rows.published_port_calls=[{id:id(201),event_key:'e'.repeat(64),artifact_id:id(202),vessel_id:id(203),vessel_name:'SYNTHETIC TEST SHIP',source_area:'quangtri-cua-viet',event_kind:'reported',berth:null,direction:'arrival',occurred_at:'2026-10-16T23:30:00+07:00',reported_day:'2026-10-16',raw_time:'23:30-16/10',dwt:null,row_number:1,quarantine_reason:null,source_url:'https://example.gov.vn/test-only',raw_sha256:'a'.repeat(64),fetched_at:stamp,parser_version:'quangtri-notices/1.0.0',identity_confidence:'source_observation'}];
 rows.call_coverage=[{source_area:'quangtri-cua-viet',event_kind:'reported',reported_day:'2026-10-16',artifact_id:id(202),fetched_at:stamp,parser_version:'quangtri-notices/1.0.0',quarantined:1}];
 rows.call_coverage.push({...rows.call_coverage[0],source_area:'quangtri-len-bang'});
-  rows.published_in_port_snapshots=[{...rows.published_port_calls[0],id:id(211),event_key:'f'.repeat(64),source_area:'cantho-ct',event_kind:'in_port',vessel_name:'SYNTHETIC IN PORT SHIP',berth:'TEST BERTH',occurred_at:'2025-08-02T02:00:00+07:00',parser_version:'cantho-positions/1.0.0'}];rows.port_calls=[];rows.call_artifacts=[];
+  rows.published_in_port_snapshots=[{...rows.published_port_calls[0],id:id(211),event_key:'f'.repeat(64),source_area:'cantho-ct',event_kind:'in_port',vessel_name:'SYNTHETIC IN PORT SHIP',berth:'TEST BERTH',occurred_at:'2025-08-02T02:00:00+07:00',parser_version:'cantho-positions/1.0.0'}];rows.published_in_port_snapshots.push(...Array.from({length:51},(_,n)=>({...rows.published_in_port_snapshots[0],id:id(400+n),source_area:'haiphong-in-port',vessel_name:`PAGINATION SHIP ${String(n+1).padStart(2,'0')}`,berth:'TEST HP BERTH',occurred_at:null,time_day:n===0?'2026-10-17':null,time_precision:n===0?'day':'unknown',raw_time:''})));rows.port_calls=[];rows.call_artifacts=[];
 rows.current_quarantined_calls=[];
 const publicationSource={...source,id:id(40),owner:"Fixture issuing company",base_url:"https://example.gov.vn",rights_notes:"Fixture only: permission must be explicitly reviewed.",rights_status:"to_verify"};
 createServer(async (req, res) => {
@@ -203,7 +203,7 @@ createServer(async (req, res) => {
   if (["entity_mappings", "company_asset_interests"].includes(table) && !admin)
     data = data.filter((r) => r.verification_status === "verified");
   for (const [column, filter] of url.searchParams) {
-    if (["select", "order", "limit", "or"].includes(column)) continue;
+    if (["select", "order", "limit", "offset", "or"].includes(column)) continue;
     const [op, ...parts] = filter.split(".");
     const value = parts.join(".");
     if (op === "eq") data = data.filter((r) => String(r[column]) === value);
@@ -226,7 +226,7 @@ createServer(async (req, res) => {
   }
   data = [...data]
     .sort((a, b) => String(a.id).localeCompare(String(b.id)))
-    .slice(0, Number(url.searchParams.get("limit") ?? 1000));
+    .slice(Number(url.searchParams.get("offset") ?? 0), Number(url.searchParams.get("offset") ?? 0)+Number(url.searchParams.get("limit") ?? 1000));
   if (req.method === "PATCH") {
     if (!admin) {
       res.statusCode = 403;

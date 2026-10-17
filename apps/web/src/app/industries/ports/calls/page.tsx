@@ -4,7 +4,7 @@ import {callRange,callReport} from '@/lib/calls';
 import {Unavailable} from '@/components/catalog';
 export const dynamic='force-dynamic';
 const moment=(s:string|null)=>s===null?'Chưa rõ':new Date(s).toLocaleString('vi-VN',{timeZone:'Asia/Ho_Chi_Minh'});
-function paginate<T>(items:T[],raw:string|undefined){const pages=Math.max(1,Math.ceil(items.length/50));const page=Math.min(pages,Math.max(1,Number(raw)||1));return {items:items.slice((page-1)*50,page*50),page,pages};}
+function paginate<T>(items:T[],raw:string|undefined){const pages=Math.max(1,Math.ceil(items.length/50));const page=Math.min(pages,Math.max(1,Math.floor(Number(raw)||1)));return {items:items.slice((page-1)*50,page*50),page,pages};}
 function pageLink(p:Record<string,string>,key:string,value:number,anchor:string){return `?${new URLSearchParams({...p,[key]:String(value)})}#${anchor}`;}
 export default async function Page({searchParams}:{searchParams:Promise<Record<string,string>>}){
  const p=await searchParams;let report,range;

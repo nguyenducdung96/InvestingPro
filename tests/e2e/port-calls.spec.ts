@@ -30,3 +30,17 @@ test('area filter isolates snapshot data without adding it to reported arrivals'
  const body=await r.json();expect(body.data).toHaveLength(0);expect(body.snapshots).toHaveLength(1);
  expect((await request.get('/api/v1/port-calls?area=not-allowed')).status()).toBe(400);
 });
+test('large position boards paginate and preserve missing time without midnight',async({page})=>{
+ await page.goto('/industries/ports/calls?area=haiphong-in-port');
+ await expect(page.getByRole('cell',{name:'PAGINATION SHIP 01'})).toBeVisible();
+ await expect(page.getByText('Nguồn không ghi giờ',{exact:true})).toBeVisible();
+ await expect(page.getByRole('cell',{name:'PAGINATION SHIP 51'})).toHaveCount(0);
+ const nav=page.getByRole('navigation',{name:'Phân trang vị trí tàu'});
+ await nav.getByRole('link',{name:'Tiếp',exact:true}).click();
+ await expect(page.getByRole('cell',{name:'PAGINATION SHIP 51'})).toBeVisible();
+ await expect(page.getByRole('cell',{name:'PAGINATION SHIP 01'})).toHaveCount(0);
+ await expect(page.getByText('Chưa rõ ngày đến',{exact:false})).toBeVisible();
+ await page.getByLabel('Tên bến / cầu / phao').fill('NO MATCH');
+ await page.getByRole('button',{name:'Lọc nhật ký'}).click();
+ await expect(page.getByText('0 quan sát phù hợp · Mỗi trang tối đa 50 dòng.')).toBeVisible();
+});

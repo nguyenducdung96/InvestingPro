@@ -171,3 +171,22 @@ nhân bản thành nhiều nguồn độc lập hoặc tự gán mapping doanh n
 Đây là danh sách công việc còn mở, không phải dữ liệu zero và không phải trạng thái
 hoàn tất yêu cầu tất cả cảng. Không dùng kế hoạch, tổng hợp tháng hoặc số vị trí hiện
 có để điền giả lịch sử lượt tàu ở các khu vực còn thiếu.
+
+### Readback staging nguồn khu vực
+
+Ngày 17/10/2026, đã nhập thành công cả 7 connector mới. Hải Phòng 196,
+TP.HCM/Cái Mép–Thị Vải 728, Quảng Ninh 90, Chân Mây 18, Thuận An 2,
+Trà Vinh 2, Bình Thuận/Cà Ná 60 quan sát hợp lệ. Cộng 20 quan sát từ ba nguồn
+Cần Thơ/Hậu Giang/Mỹ Thới trước đó: API công khai trả 1.116 snapshot, vượt trang
+1.000 dòng đầu tiên của Supabase và không bị cắt ở lần readback này.
+164 thông báo đến/rời vẫn tách riêng; không tăng từ các snapshot mới.
+
+5 nguồn mới refresh trực tiếp trên staging; TP.HCM và Bình Thuận không tải được
+từ Worker tại lần thử, dùng CLI tải mới và nhập bundle qua UI quản trị. Nhập lại
+bundle Bình Thuận báo replay, không thêm trùng. Live source thay đổi nên số dòng
+khác mẫu nghiên cứu trước đó là bình thường; không dùng số fixture làm số live.
+
+74 Vitest, 6 Playwright lượt tàu desktop/mobile, lint/typecheck/Next build đạt.
+Kiểm thử thêm bảng 51 dòng, chuyển trang, ngày không có giờ, ngày chưa rõ và lọc bến.
+Biên nhận `catalog-review/slice2-regional-expansion-acceptance-20261017.json` giữ
+ranh giới nghiệm thu nguồn khu vực và yêu cầu tất cả cảng vẫn chưa hoàn thành.

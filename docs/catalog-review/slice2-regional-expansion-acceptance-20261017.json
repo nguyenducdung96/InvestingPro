@@ -1,0 +1,63 @@
+{
+  "checked_at": "2026-10-17T09:05:36.167Z",
+  "scope": "regional expansion; nationwide incomplete",
+  "code_commit": "9f88cb6",
+  "cloudflare_build": "7820045f-ccd8-4ea6-b13e-e7f7ea88c430",
+  "migration": "202610170007_regional_snapshots.sql",
+  "live": {
+    "status": 200,
+    "reported": 164,
+    "snapshots": 1116,
+    "counts": {
+      "binhthuan-open-anchorage": 60,
+      "cantho-ct": 8,
+      "cantho-hg": 8,
+      "cantho-st": 4,
+      "cantho-tv": 2,
+      "haiphong-in-port": 196,
+      "hcm-in-port": 728,
+      "hue-chanmay-in-port": 18,
+      "hue-thuanan-in-port": 2,
+      "quangninh-in-port": 90
+    },
+    "meta": {
+      "from": "2026-10-01",
+      "to": "2026-10-17",
+      "asOf": "2026-10-17T08:49:28.015+00:00",
+      "unit": "reported_vessel_arrival",
+      "methodologyVersion": "free-public-sources-v3",
+      "sourceArea": "multiple",
+      "complete": false,
+      "truncated": false,
+      "warnings": [
+        "Nhật ký đếm thông báo đến/rời; bảng vị trí là dữ liệu nguồn mới nhất, không phải xác nhận AIS và không cộng vào số lượt. Chưa bao phủ tất cả cảng Việt Nam.",
+        "Không có IMO: nhận dạng theo từng quan sát; không gộp tàu chỉ theo tên.",
+        "Ngày không có thông báo là thiếu dữ liệu, không phải 0 lượt."
+      ]
+    }
+  },
+  "refresh_direct": [
+    "haiphong-in-port",
+    "quangninh-in-port",
+    "hue-chanmay-in-port",
+    "hue-thuanan-in-port",
+    "cantho-tv"
+  ],
+  "refresh_local_bundle": [
+    "hcm-in-port",
+    "binhthuan-open-anchorage"
+  ],
+  "replay_verified": "binhthuan-open-anchorage",
+  "source_hash_matches_bundle": true,
+  "raw_anonymous_status": 401,
+  "raw_download_readback": "not verified in this run: browser download event timed out",
+  "local_checks": {
+    "vitest": 74,
+    "playwright_port_calls": 6,
+    "lint": true,
+    "typecheck": true,
+    "next_build": true
+  },
+  "nationwide_complete": false,
+  "remaining_source_gaps_document": "docs/port-calls-slice2.md"
+}
