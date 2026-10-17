@@ -38,7 +38,7 @@ hoặc điều kiện nghiệm thu. Bản mở rộng dùng nguồn Cảng vụ 
 2. Ưu tiên adapter Cần Thơ/Hậu Giang/Mỹ Thới và thông báo Lèn Bảng/Chân Mây; parser XLSX Nghệ An tiếp theo. Refresh có giới hạn tần suất, timeout, lưu hash, idempotent và phát hiện thay đổi nguồn. Chưa đo được chu kỳ cập nhật của từng website nên chưa cam kết real-time.
 3. Tách lịch Hải Phòng/Đà Nẵng/Quy Nhơn thành dữ liệu kế hoạch riêng. Không dùng để lấp số lượt thực tế còn thiếu.
 4. Giữ interface nguồn có thể thay thế; không triển khai nhà cung cấp trả phí theo yêu cầu người dùng. AISstream chỉ là nhánh thử nghiệm, chưa là nguồn nghiệm thu toàn quốc.
-5. Ma trận 17 nhóm cảng hiện có nằm trong manifest JSON. Bình Dương, Quảng Ngãi, Tiền Giang, Đồng Tháp còn thiếu feed địa phương được xác minh. 17 nhóm này không phải khẳng định đã bao phủ mọi bến cảng Việt Nam. Cửa Việt là connector đã chạy; các nguồn trong nghiên cứu này chưa được triển khai thêm lên staging.
+5. Ma trận 17 nhóm cảng hiện có nằm trong manifest JSON. Bình Dương, Quảng Ngãi, Tiền Giang, Đồng Tháp còn thiếu feed địa phương được xác minh. 17 nhóm này không phải khẳng định đã bao phủ mọi bến cảng Việt Nam. Đã triển khai và refresh thật 5 connector miễn phí: Cửa Việt, Lèn Bảng, Cần Thơ, Hậu Giang, Mỹ Thới. Các nguồn còn lại vẫn là nghiên cứu, chưa được coi là connector hoạt động.
 
 Trang public có thể đọc được không tự chứng minh quyền tái phân phối, độ đầy đủ hoặc độ chính xác. Lưu điều kiện truy cập/sử dụng riêng với kết quả kỹ thuật; không gán trạng thái đã cấp phép khi chưa có căn cứ.
 

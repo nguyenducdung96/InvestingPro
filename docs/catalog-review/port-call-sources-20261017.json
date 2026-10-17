@@ -9,7 +9,10 @@
       "url": "https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2073&page=NEWS",
       "semantics": "reported_arrival_departure",
       "assessment": "Connector already live; dated notices; no IMO; bounded recent history",
-      "access": "public_html"
+      "access": "public_html",
+      "connector_id": "quangtri-cua-viet",
+      "public_rows_verified": 60,
+      "implementation_status": "live_refresh_and_public_readback_verified"
     },
     {
       "id": "quangtri-len-bang",
@@ -18,7 +21,10 @@
       "url": "https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2076&page=NEWS",
       "semantics": "reported_arrival_departure",
       "assessment": "Dated arrival/departure tables found in public search; verify adapter and area separately",
-      "access": "public_html"
+      "access": "public_html",
+      "connector_id": "quangtri-len-bang",
+      "public_rows_verified": 104,
+      "implementation_status": "live_refresh_and_public_readback_verified"
     },
     {
       "id": "hue-chan-may",
@@ -99,7 +105,10 @@
       "url": "https://cangvuhanghaicantho.gov.vn/Index.aspx?kv=ct&page=vtttc",
       "semantics": "in_port_snapshot_with_arrival_dates",
       "assessment": "Live HTML vessel rows verified; full arrival dates and separate port/berth arrival columns; not departure history. Snapshot must not be counted again on refresh.",
-      "access": "public_html"
+      "access": "public_html",
+      "connector_id": "cantho-ct",
+      "public_rows_verified": 8,
+      "implementation_status": "live_refresh_and_public_readback_verified"
     },
     {
       "id": "my-thoi-positions",
@@ -108,7 +117,10 @@
       "url": "https://cangvuhanghaicantho.gov.vn/Index.aspx?kv=st&page=vtttc",
       "semantics": "in_port_snapshot_with_arrival_dates",
       "assessment": "Four live vessel rows verified with full arrival dates; two arrival-column groups, not departure history. Canonical area/berth mapping requires review.",
-      "access": "public_html"
+      "access": "public_html",
+      "connector_id": "cantho-st",
+      "public_rows_verified": 4,
+      "implementation_status": "live_refresh_and_public_readback_verified"
     },
     {
       "id": "hau-giang-positions",
@@ -117,7 +129,10 @@
       "url": "https://cangvuhanghaicantho.gov.vn/Index.aspx?kv=hg&page=vtttc",
       "semantics": "in_port_snapshot_with_arrival_dates",
       "assessment": "Live HTML vessel rows verified; full arrival dates and separate port/berth arrival columns; not departure history. Snapshot must not be counted again on refresh.",
-      "access": "public_html"
+      "access": "public_html",
+      "connector_id": "cantho-hg",
+      "public_rows_verified": 8,
+      "implementation_status": "live_refresh_and_public_readback_verified"
     },
     {
       "id": "dong-nai-index",
@@ -372,5 +387,6 @@
       ],
       "status": "no_verified_local_movement_feed"
     }
-  ]
+  ],
+  "operating_constraint": "Free public sources only; paid providers are research references, not runtime dependencies."
 }

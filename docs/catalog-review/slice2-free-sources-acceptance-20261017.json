@@ -1,0 +1,144 @@
+{
+  "checked_at": "2026-10-17T08:03:34.508311+00:00",
+  "scope": "Free-source Slice 2 functional expansion; five supported source areas, not all Vietnam ports",
+  "migration": "202610170006_free_call_sources.sql",
+  "feature_commit": "f9ac11aa879e244e5f360788d0057790a2df5644",
+  "source_cost": "No paid data service/account/API key used",
+  "staging_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/industries/ports/calls",
+  "sources": [
+    {
+      "source_area": "quangtri-cua-viet",
+      "reported_calls": 60,
+      "in_port_observations": 0,
+      "quarantined": 14,
+      "coverage_days": 16,
+      "latest_fetched_at": "2026-10-17T08:00:04.535+00:00",
+      "parser_versions": [
+        "quangtri-notices/1.0.0",
+        "quangtri-notices/1.0.1"
+      ],
+      "current_artifact_ids": [
+        "bb5b2a1d-201b-49cf-bc69-941dc47d182f",
+        "d0a79973-dca9-451b-a634-e7c368cdaddc"
+      ]
+    },
+    {
+      "source_area": "quangtri-len-bang",
+      "reported_calls": 104,
+      "in_port_observations": 0,
+      "quarantined": 4,
+      "coverage_days": 13,
+      "latest_fetched_at": "2026-10-17T08:00:02.638+00:00",
+      "parser_versions": [
+        "lenbang-notices/1.0.0"
+      ],
+      "current_artifact_ids": [
+        "9ad4a76f-8b80-4a70-967a-80eb25dd28e5"
+      ]
+    },
+    {
+      "source_area": "cantho-ct",
+      "reported_calls": 0,
+      "in_port_observations": 8,
+      "quarantined": 1,
+      "coverage_days": 1,
+      "latest_fetched_at": "2026-10-17T07:59:51.212+00:00",
+      "parser_versions": [
+        "cantho-positions/1.0.0"
+      ],
+      "current_artifact_ids": [
+        "d58e8c16-7d5a-44c5-ad7b-ff4fba082de4"
+      ]
+    },
+    {
+      "source_area": "cantho-hg",
+      "reported_calls": 0,
+      "in_port_observations": 8,
+      "quarantined": 0,
+      "coverage_days": 1,
+      "latest_fetched_at": "2026-10-17T08:00:00.212+00:00",
+      "parser_versions": [
+        "cantho-positions/1.0.0"
+      ],
+      "current_artifact_ids": [
+        "b7c8aaab-3b16-4acc-a58f-0d33cd46bcef"
+      ]
+    },
+    {
+      "source_area": "cantho-st",
+      "reported_calls": 0,
+      "in_port_observations": 4,
+      "quarantined": 0,
+      "coverage_days": 1,
+      "latest_fetched_at": "2026-10-17T08:00:00.969+00:00",
+      "parser_versions": [
+        "cantho-positions/1.0.0"
+      ],
+      "current_artifact_ids": [
+        "4e718e69-1713-40b1-8316-f8bfcd9ffe8b"
+      ]
+    }
+  ],
+  "totals": {
+    "reported_calls": 164,
+    "arrivals": 85,
+    "departures": 79,
+    "in_port_observations": 20,
+    "quarantined": 19,
+    "distinct_reported_calendar_days": 16
+  },
+  "checks": {
+    "live_refresh_all_five": true,
+    "supabase_independent_counts_match": true,
+    "rls_enabled_tables": 4,
+    "cantho_bundle_replay": "No duplicate rows; UI reported replayed",
+    "anonymous_raw_download_http": 401,
+    "public_response_excludes_raw_html_and_importer": true,
+    "local_vitest_passed": 70,
+    "local_full_playwright_passed": 28,
+    "final_ui_targeted_playwright_passed": 4,
+    "typecheck": "passed",
+    "lint": "passed",
+    "next_build": "passed",
+    "final_public_readback_counts_match": true,
+    "final_monthly_calendar_days": 16,
+    "live_snapshot_area_filter": true,
+    "live_dark_color_scheme": "dark",
+    "live_desktop_horizontal_overflow": false
+  },
+  "raw_download_hash_checks": [
+    {
+      "area": "cantho-ct",
+      "artifact_id": "d58e8c16-7d5a-44c5-ad7b-ff4fba082de4",
+      "sha256": "0d2798d6d98a65bcc4807064e0db0fea9f455ee9cbb917c25c3052cbefda56f0",
+      "verified": true
+    },
+    {
+      "area": "quangtri-len-bang",
+      "artifact_id": "9ad4a76f-8b80-4a70-967a-80eb25dd28e5",
+      "sha256": "8bf231e8537bdfbf916c893a090ce51cc348aa0eb057c1a98b9d1b6be0670b7f",
+      "verified": true
+    }
+  ],
+  "limitations": [
+    "Not nationwide coverage; unmatched source areas are not canonical port/company mappings",
+    "Snapshots are not complete arrival/departure history; missing vessel does not establish departure",
+    "No IMO or cross-source name-only vessel merge",
+    "No automatic schedule configured; manual refresh and local bundle fallback work",
+    "Quarantined records remain excluded, never silently repaired"
+  ],
+  "status": "accepted_for_five_free_public_source_slice2_scope",
+  "final_code_commit": "8dc5be91208b502311ccbb66ac9883a1a9071fb3",
+  "final_verified_at": "2026-10-17T08:04:56.226400+00:00",
+  "cloudflare": {
+    "build_id": "a7066ed9-298e-4759-b065-c5c3a3e74bd0",
+    "worker_version_prefix": "66549e26",
+    "status": "Ready",
+    "build_duration_seconds": 47
+  },
+  "screenshots": [
+    ".local/port-calls/free-sources-summary.png",
+    ".local/port-calls/free-sources-cantho-light.png",
+    ".local/port-calls/free-sources-cantho-dark.png"
+  ]
+}

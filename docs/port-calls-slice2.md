@@ -101,3 +101,23 @@ xác nhận được feed chi tiết không đăng nhập. Nguồn đã rà và 
   phiên quản trị, desktop/mobile và hai giao diện sáng/tối.
 - Nghiệm thu cloud cần xác nhận riêng migration, refresh, replay và public page;
   kết quả local không thay thế được kiểm tra đó.
+
+## Nghiệm thu bản nguồn miễn phí — 17/10/2026
+
+Đã refresh thật qua UI cho 5 nguồn; query Supabase độc lập khớp API công khai:
+Cửa Việt 60 thông báo hợp lệ, Lèn Bảng 104; Cần Thơ 8 quan sát tại cảng, Hậu Giang 8,
+Mỹ Thới 4. Nhật ký có 85 lượt đến và 79 lượt rời, 16 ngày lịch có thông báo;
+19 dòng quarantine không tính vào dữ kiện hợp lệ. Các con số là readback tại lần
+nghiệm thu, không phải cam kết độ đầy đủ toàn quốc hoặc cả tháng.
+
+Nhập lại bundle Cần Thơ báo replay, không thêm trùng. Tải raw từ UI quản trị của
+Cần Thơ và Lèn Bảng, tính lại SHA-256 đều khớp. API raw không đăng nhập trả 401;
+API public không chứa raw HTML/importer. Bộ lọc Cần Thơ hiển thị trực tiếp bảng vị
+trí, không vẽ biểu đồ lượt tàu từ snapshot. Ngày lịch có thông báo được loại trùng
+qua các nguồn, không cộng hai khu vực cùng ngày thành hai ngày lịch.
+
+70 Vitest, 28 Playwright desktop/mobile đạt ở bản mở rộng; 4 Playwright lượt tàu
+được chạy lại sau sửa UI/đếm ngày. Lint, typecheck, Next build đạt. Cloudflare Linux
+build và deployment bản cuối `8dc5be9` Ready; build `a7066ed9-298e-4759-b065-c5c3a3e74bd0`,
+Worker prefix `66549e26`. Biên nhận: `catalog-review/slice2-free-sources-acceptance-20261017.json`.
+Hoàn thành chức năng Slice 2 với 5 nguồn miễn phí; chưa nghiệm thu mọi cảng Việt Nam.
