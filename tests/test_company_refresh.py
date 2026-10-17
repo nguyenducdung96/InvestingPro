@@ -109,6 +109,14 @@ class RefreshTests(unittest.TestCase):
                 web.check(source, out)
             self.assertEqual(path.read_bytes(), before)
 
+    def test_empty_vnstock_relationships_are_explicit_not_inferred_absence(self):
+        with tempfile.TemporaryDirectory() as d:
+            receipt = m.refresh(b'[]', 'relationships', Path(d), [], provider='vnstock-vci')
+            self.assertEqual(receipt['row_count'], 0)
+            self.assertEqual(receipt['changes'], [])
+        with self.assertRaises(ValueError):
+            m.records([], [])
+
     def test_only_documented_minute_limit_retries_same_source(self):
         class ProviderError(Exception): pass
         limited = ProviderError()

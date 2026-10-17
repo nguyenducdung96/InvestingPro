@@ -8,18 +8,20 @@ const python = path.join(root, '.local/company-refresh-venv', process.platform =
 const args = process.argv.slice(2).filter(a => a !== '--');
 const scope = JSON.parse(readFileSync(path.join(root, 'docs/catalog-review/reported-catalog-manifest.json'), 'utf8')).items;
 if (args.length === 1 && args[0] === '--status') {
+ for (const dataset of ['organizations', 'relationships']) {
   const missing = [];
   const stale = [];
   let available = 0;
   for (const { ticker } of scope) {
-    const snapshot = path.join(root, '.local/company-refresh/by-ticker', ticker, 'vnstock-vci/organizations/latest.json');
+    const snapshot = path.join(root, '.local/company-refresh/by-ticker', ticker, `vnstock-vci/${dataset}/latest.json`);
     if (!existsSync(snapshot)) { missing.push(ticker); continue; }
     const value = JSON.parse(readFileSync(snapshot, 'utf8'));
     available++;
     if (Date.now() - Date.parse(value.fetched_at) >= 86400000) stale.push(ticker);
   }
-  process.stdout.write(`VCI company profile snapshots: ${available}/${scope.length}\n`);
+  process.stdout.write(`VCI ${dataset} snapshots: ${available}/${scope.length}\n`);
   process.stdout.write(`Missing: ${missing.join(', ') || 'none'}\nOlder than 24h: ${stale.join(', ') || 'none'}\n`);
+ }
   process.stdout.write('Local research snapshots; no database publication performed.\n');
   process.exit(0);
 }

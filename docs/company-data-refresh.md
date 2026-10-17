@@ -89,3 +89,11 @@ Các đoạn nói công cụ chưa nhập được Supabase ở trên mô tả l
 ## Kích hoạt Cộng đồng và kiểm tra API quan hệ — 17/10/2026
 
 Đã đăng nhập tài khoản hiện có và kích hoạt thư viện; `vnstock.status()` xác nhận tier `free`. API `Reference().company(ticker).subsidiaries(source="vci")` đã chạy thật: GMD 26 quan hệ duy nhất, PHP 14 và MVN 32. GMD có hai cặp dòng trùng hoàn toàn; giữ nguyên raw, gộp khi so sánh, vẫn từ chối duplicate mâu thuẫn. Các ghi chú guest bị chặn ở trên là lịch sử trước kích hoạt, không còn là trạng thái của môi trường local hiện tại. File tạm chứa key đã xóa; key không đưa vào Git/chat. Đây là quan hệ công ty do nhà cung cấp trả về, không tự xác minh sở hữu tài sản cảng hoặc quyền hiển thị lại. Biên nhận: `catalog-review/vnstock-community-live-receipt-20261017.json`.
+
+## Trang tra cứu hợp nhất và quan hệ API — 17/10/2026
+
+Luồng refresh mặc định lấy cả hồ sơ và quan hệ công ty. Chạy `pnpm data:refresh` (hoặc `pnpm data:refresh -- --tickers GMD,PHP,MVN --force` để gọi lại một nhóm), rồi chọn `.local/company-refresh/staging-bundle.json` tại `/admin/refresh`. Không cần dùng SQL để nhập dữ liệu. Cache 24 giờ và nhịp gọi giới hạn tải nhà cung cấp; lỗi giữ snapshot trước. Quan hệ trả về mảng rỗng được ghi rõ là không có dòng trong lần trả về, không chứng nhận không có khoản đầu tư.
+
+Sau khi nhập, phiên quản trị xem toàn bộ hồ sơ tại `/industries/ports/companies?view=all`; từng mã mở `/companies/GMD?view=research`. Trang doanh nghiệp kết hợp hồ sơ API, tỷ lệ góp vốn do VCI báo cáo và tài sản theo nguồn đối chiếu. Tỷ lệ góp vốn pháp nhân không được chuyển thành tỷ lệ sở hữu cảng. Nguồn, thời điểm lấy, hash bằng chứng và trạng thái đối chiếu được giữ riêng. RLS chỉ cho admin xem snapshots tham khảo; trang công khai tiếp tục dùng dữ liệu đã duyệt. Việc triển khai giao diện nghiên cứu không chứng nhận quyền tái phân phối công khai bộ dữ liệu API.
+
+Nghiệm thu giao diện nghiên cứu trên staging: 41 hồ sơ + 41 snapshot quan hệ (185 dòng raw, 15 phản hồi rỗng); GMD gộp dòng giống nhau còn 26 quan hệ, PHP 14, MVN 32. Nhập lại thêm 0 snapshot, 0 sai hash, RLS bật và anon không được đọc bảng tham khảo. Biên nhận mới nhất: catalog-review/slice1-company-research-acceptance-20261017.json. Chưa nghiệm thu tái phân phối API công khai cho khách ẩn danh.

@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-10-17T02:43:18.7359055Z",
+  "scope": "slice1-authenticated-company-research",
+  "status": "accepted_on_staging",
+  "release_commit": "977de2cd95c0965e668e34ec09ace94dfd3c4944",
+  "worker_build": "5c692e9c-bf1b-42ea-9ef9-cfad300b77ce",
+  "worker_version": "72df1888-7afe-48fc-ad14-027edb429952",
+  "migration": "202610170002_relationship_feed.sql",
+  "bundle_sha256": "25530a49ce0f61a27d0d0b5ef497180b59583b593d60eff4bed425bf0ddae503",
+  "counts": {
+    "hash_mismatches": 0,
+    "dossiers": 41,
+    "rls_disabled": 0,
+    "empty_relationship_responses": 15,
+    "research_paths": 22,
+    "raw_relationship_rows": 185,
+    "profiles": 41,
+    "relationship_snapshots": 41,
+    "asset_observations": 63,
+    "anonymous_read_allowed": 0
+  },
+  "checks": {
+    "refresh_command_exit_code": 0,
+    "live_horizontal_overflow": false,
+    "live_directory_companies": 41,
+    "gmd_displayed_unique_relationships": 26,
+    "gmd_reported_assets": 6,
+    "icd_separate": true,
+    "mvn_displayed_relationships": 32,
+    "cache_entries": 82,
+    "replay_new_relationship_snapshots": 0,
+    "replay_new_profiles": 0,
+    "vgr_empty_response_label_verified": true,
+    "php_displayed_relationships": 14
+  },
+  "validation": {
+    "additional_relationship_render_checks": 2,
+    "python": 17,
+    "typecheck": "passed",
+    "playwright_desktop_mobile": 20,
+    "cloudflare_build": "passed",
+    "vitest": 65,
+    "lint": "passed"
+  },
+  "public_redistribution_approved": false,
+  "factual_reviews_auto_approved": false,
+  "scheduled_refresh_configured": false,
+  "acceptance_boundary": "Authenticated research directory and detail pages with refreshable source data. Anonymous public publication remains limited to existing reviewed catalog.",
+  "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/industries/ports/companies?view=all",
+  "screenshot": ".local/catalog-research/slice1-company-research-20261017.png"
+}
