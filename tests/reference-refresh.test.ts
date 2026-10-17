@@ -28,7 +28,18 @@ it("imports references atomically, preserves history and isolates internal revie
  const imported=await db.query<{result:{relationship_inserted:number}}>("select port.import_reference_refresh($1,$2::jsonb) as result",["3".repeat(64),JSON.stringify([withRelations])]);
  expect(imported.rows[0].result.relationship_inserted).toBe(1);
  expect((await db.query("select * from port.company_relationship_snapshots")).rows).toHaveLength(1);
+ const publicBundle=JSON.parse(readFileSync('docs/catalog-review/public-catalog-facts.json','utf8'));
+ const publish=(entries:unknown)=>db.query("select port.publish_editorial_catalog($1,$2::jsonb,$3) as result",['a'.repeat(64),JSON.stringify(entries),'TEST ONLY: independently reviewed structured factual edition; no document or API redistribution.']);
+ const leaked=structuredClone(publicBundle.entries);leaked[0].profile='Must never leak private API prose';
+ await expect(publish(leaked)).rejects.toThrow('Non-editorial fields');
+ const wrong=structuredClone(publicBundle.entries);wrong.find((x:{assets:unknown[]})=>x.assets.length).assets[0].started_on='2025-12-31';
+ await expect(publish(wrong)).rejects.toThrow('Unmatched editorial fact');
+ expect((await publish(publicBundle.entries)).rows).toEqual([{result:{inserted:1,companies:41}}]);
+ expect((await publish(publicBundle.entries)).rows).toEqual([{result:{inserted:0,companies:41}}]);
+ expect((await db.query("select count(*)::int n from port.reported_asset_observations where verification_status='pending'")).rows).toEqual([{n:63}]);
  await db.exec("reset role;set role anon");
+ expect((await db.query("select entries from port.editorial_catalog_editions")).rows).toHaveLength(1);
+ await expect(publish(publicBundle.entries)).rejects.toThrow('permission denied');
  await expect(db.query("select * from port.company_reference_snapshots")).rejects.toThrow("permission denied");
  await expect(db.query("select * from port.company_relationship_snapshots")).rejects.toThrow("permission denied");
  expect((await db.query("select * from port.published_asset_observations")).rows).toHaveLength(0);

@@ -5,6 +5,7 @@ import { AdminSession } from "@/components/admin-session";
 import { SourceBadge, Unavailable } from "@/components/catalog";
 import { ReportedAssets } from "@/components/reported-assets";
 import { displayDate } from "@/lib/display";
+import {EditorialPublish} from '@/components/editorial-publish';
 export const dynamic="force-dynamic";
 
 export default async function Page({searchParams}:{searchParams:Promise<Record<string,string>>}) {
@@ -20,6 +21,7 @@ export default async function Page({searchParams}:{searchParams:Promise<Record<s
   return <>
     <p className="eyebrow">SLICE 1 / HỒ SƠ NỘI BỘ</p>
     <h1>Hồ sơ doanh nghiệp theo kỳ báo cáo</h1>
+    <details><summary>Phát hành bản dữ kiện công khai</summary><EditorialPublish/></details>
     <p className="notice">Phạm vi đối chiếu: 41 doanh nghiệp ứng viên trong bộ báo cáo 2025, không phải chứng nhận đầy đủ toàn thị trường. Hồ sơ nội bộ có thể chứa nguồn chưa được duyệt để công bố. Không đồng nhất việc rà soát tài liệu với quyền công bố hoặc tình trạng giao dịch hiện tại.</p>
     <form method="get"><label htmlFor="catalog-ticker">Mã doanh nghiệp</label><input id="catalog-ticker" name="ticker" defaultValue={search.ticker??""} maxLength={12} placeholder="Ví dụ: GMD"/><button type="submit">Tra cứu hồ sơ</button></form>
     <p><Link href="/admin/catalog">Toàn bộ phạm vi đối chiếu</Link> · <Link href="/admin/refresh">Cập nhật từ API</Link> · <Link href="/admin/publication">Duyệt nguồn và bằng chứng</Link></p>

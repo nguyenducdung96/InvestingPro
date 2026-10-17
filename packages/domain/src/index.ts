@@ -341,3 +341,10 @@ export type Proposal = Pick<
       "entity_id" | "external_id" | "external_name" | "supersedes_mapping_id"
     >
   >;
+export interface EditorialCompany {
+ ticker:string;company_id:string;name:string;market_as_reported:string;period:string;
+ source:{url:string;sha256:string;pages:number[]};
+ assets:{name:string;kind:string;role:string;via:string[];berth_scope:string[];scope_group:string;started_on:string|null;documented_date:string|null;date_basis:string|null}[];
+ research_paths:{ticker:string;asset:string}[];
+}
+export interface EditorialEdition {id:string;published_at:string;entries:EditorialCompany[];basis:string}

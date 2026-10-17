@@ -131,6 +131,7 @@ rows.published_asset_observations=[reportedFixture];
 rows.company_reference_snapshots=[];
 rows.reference_refresh_runs=[];
 rows.company_relationship_snapshots=[];
+rows.editorial_catalog_editions=[];
 const publicationSource={...source,id:id(40),owner:"Fixture issuing company",base_url:"https://example.gov.vn",rights_notes:"Fixture only: permission must be explicitly reviewed.",rights_status:"to_verify"};
 createServer(async (req, res) => {
   res.setHeader("Content-Type", "application/json");
@@ -138,6 +139,7 @@ createServer(async (req, res) => {
   const admin = req.headers.authorization === "Bearer fixture-admin";
   if (url.pathname === "/reset" && req.method === "POST") {
     rows.company_reference_snapshots=[];rows.reference_refresh_runs=[];rows.company_relationship_snapshots=[];
+    rows.editorial_catalog_editions=[];
     Object.assign(publicationState,{sources:false,evidence:false,entities:false});
     Object.assign(mapping, {
       verification_status: "pending",
@@ -159,6 +161,13 @@ createServer(async (req, res) => {
     return;
   }
   const table = url.pathname.split("/").at(-1);
+  if(table==='publish_editorial_catalog'){
+    if(!admin){res.statusCode=403;res.end('{}');return;}
+    let raw='';for await(const chunk of req)raw+=chunk;const input=JSON.parse(raw);
+    const inserted=rows.editorial_catalog_editions.some(r=>r.id===input.p_id)?0:1;
+    if(inserted)rows.editorial_catalog_editions.push({id:input.p_id,entries:input.p_entries,published_at:stamp,basis:'structured-facts-only-v1'});
+    res.end(JSON.stringify({inserted,companies:41}));return;
+  }
   if(['import_reference_refresh','review_reference_snapshot'].includes(table)) {
     if(!admin){res.statusCode=403;res.end('{}');return;}
     let raw='';for await(const chunk of req)raw+=chunk;const input=JSON.parse(raw);

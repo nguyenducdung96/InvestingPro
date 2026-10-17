@@ -29,6 +29,7 @@ export class DatabaseError extends Error {
   }
 }
 export interface Transport {
+  publishEditorial?(body:object):Promise<{inserted:number;companies:number}>;
   importReferences?(body:object):Promise<{inserted:number;received:number}>;
   reviewReference?(body:object):Promise<ReferenceSnapshot>;
   reviewReported?(body: object): Promise<ReportedAssetObservation>;
@@ -85,6 +86,7 @@ export function supabaseTransport(
     return response.json() as Promise<T[]>;
   }
   return {
+    publishEditorial: (b) => request("port","rpc/publish_editorial_catalog",new URLSearchParams(),"POST",b) as unknown as Promise<{inserted:number;companies:number}>,
     importReferences: (b) => request("port","rpc/import_reference_refresh",new URLSearchParams(),"POST",b) as unknown as Promise<{inserted:number;received:number}>,
     reviewReference: (b) => request("port","rpc/review_reference_snapshot",new URLSearchParams(),"POST",b) as unknown as Promise<ReferenceSnapshot>,
     reviewReported: (b) => request("port", "rpc/review_reported_observation", new URLSearchParams(), "POST", b) as unknown as Promise<ReportedAssetObservation>,
@@ -110,6 +112,13 @@ export class SupabaseCatalogRepository implements CatalogRepository {
     private db: Transport,
     private admin = false,
   ) {}
+  async editorialEdition() {
+    return (await this.db.read("port","editorial_catalog_editions",params({select:"id,published_at,basis,entries",order:"published_at.desc,id.desc",limit:"1"})))[0]??null;
+  }
+  async publishEditorial(id:string,entries:object[],note:string) {
+    if(!this.admin||!this.db.publishEditorial)throw new DatabaseError(403);
+    return this.db.publishEditorial({p_id:id,p_entries:entries,p_note:note});
+  }
   async referenceSnapshots(ticker?:string) {
     if(!this.admin) throw new DatabaseError(403);
     const p=params({select:"id,company_id,ticker,provider,fetched_at,raw_sha256,reference_data,review_status,reviewed_by,reviewed_at,review_note,run_id",order:"fetched_at.desc,id.desc",limit:"500"});

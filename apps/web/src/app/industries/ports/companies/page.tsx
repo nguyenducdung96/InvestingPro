@@ -7,7 +7,8 @@ import {
   Unavailable,
 } from "@/components/catalog";
 import { pageQuery } from "@invest/port";
-import {ResearchDirectory,researchDirectory} from "@/components/company-research";
+import {EditorialDirectory} from "@/components/editorial-catalog";
+import {ResearchDirectory,researchDirectory} from '@/components/company-research';
 export const dynamic = "force-dynamic";
 export default async function Page({
   searchParams,
@@ -23,8 +24,9 @@ export default async function Page({
   );
   if (search.view === "all") {
     try {
-      const research=await researchDirectory();
-      if(research?.length)return <ResearchDirectory rows={research}/>;
+      const edition=await publicRepository().editorialEdition();
+      if(edition)return <EditorialDirectory edition={edition} search={search}/>;
+      const research=await researchDirectory();if(research?.length)return <ResearchDirectory rows={research}/>;
       const result = await publicRepository().list(
         "company",
         pageQuery(new URLSearchParams(search)),
