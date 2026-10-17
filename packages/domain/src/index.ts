@@ -348,3 +348,11 @@ export interface EditorialCompany {
  research_paths:{ticker:string;asset:string}[];
 }
 export interface EditorialEdition {id:string;published_at:string;entries:EditorialCompany[];basis:string}
+export interface PortCall {
+ id:string;event_key:string;artifact_id:string;vessel_id:string;vessel_name:string;
+ source_area:string;direction:'arrival'|'departure';occurred_at:string;reported_day:string;
+ raw_time:string;dwt:number|null;row_number:number;quarantine_reason:string|null;
+ source_url:string;raw_sha256:string;fetched_at:string;parser_version:string;identity_confidence:string;
+}
+export interface CallCoverage {reported_day:string;artifact_id:string;fetched_at:string;parser_version:string;quarantined:number}
+export interface CallArtifact {id:string;source_url:string;raw_sha256:string;raw_text:string;fetched_at:string;parser_version:string;reported_days:string[]}

@@ -4,6 +4,7 @@
   "type": "module",
   "exports": "./src/index.ts",
   "dependencies": {
-    "@invest/domain": "workspace:*"
+    "@invest/domain": "workspace:*",
+    "entities": "^8.1.0"
   }
 }

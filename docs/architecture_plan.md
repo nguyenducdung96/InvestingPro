@@ -1257,6 +1257,13 @@ Charts phải có unit, source, as-of, tooltip định nghĩa metric, tùy chọ
 
 **Exit:** Từ UI truy ngược được raw artifact và parser version cho mỗi call.
 
+Implementation scope (2026-10-17): user authorized Slice 2 after accepting the
+light/dark redesign. First adapter is the public Cua Viet arrival/departure
+notices of Quang Tri Maritime Administration. Facts retain reported-event
+semantics and observation-scoped vessel identities where IMO is absent;
+they are not AIS-confirmed movements. Runbook and acceptance boundaries:
+`docs/port-calls-slice2.md`. Slice 3–5 remain outside this implementation.
+
 #### Slice 3: DWT aggregates, YoY and ranking
 
 - Daily/monthly/quarterly/yearly/YTD/rolling-30-day aggregates.

@@ -29,6 +29,7 @@ export class DatabaseError extends Error {
   }
 }
 export interface Transport {
+  importCalls?(body:object):Promise<Record<string,unknown>>;
   publishEditorial?(body:object):Promise<{inserted:number;companies:number}>;
   importReferences?(body:object):Promise<{inserted:number;received:number}>;
   reviewReference?(body:object):Promise<ReferenceSnapshot>;
@@ -86,6 +87,7 @@ export function supabaseTransport(
     return response.json() as Promise<T[]>;
   }
   return {
+    importCalls: (b) => request('port','rpc/import_port_calls',new URLSearchParams(),'POST',b) as unknown as Promise<Record<string,unknown>>,
     publishEditorial: (b) => request("port","rpc/publish_editorial_catalog",new URLSearchParams(),"POST",b) as unknown as Promise<{inserted:number;companies:number}>,
     importReferences: (b) => request("port","rpc/import_reference_refresh",new URLSearchParams(),"POST",b) as unknown as Promise<{inserted:number;received:number}>,
     reviewReference: (b) => request("port","rpc/review_reference_snapshot",new URLSearchParams(),"POST",b) as unknown as Promise<ReferenceSnapshot>,
@@ -112,6 +114,24 @@ export class SupabaseCatalogRepository implements CatalogRepository {
     private db: Transport,
     private admin = false,
   ) {}
+  async callFacts(from:string,to:string) {
+    return Promise.all([
+      this.db.read('port','published_port_calls',params({select:'*',occurred_at:`gte.${from}T00:00:00+07:00`,and:`(occurred_at.lte.${to}T23:59:59.999999+07:00)`,order:'occurred_at.desc,id.desc',limit:'1000'})),
+      this.db.read('port','call_coverage',params({select:'*',reported_day:`gte.${from}`,and:`(reported_day.lte.${to})`,order:'reported_day.asc',limit:'1000'})),
+    ]);
+  }
+  async callArtifact(id:string) {
+    if(!this.admin)throw new DatabaseError(403);
+    return (await this.db.read('port','call_artifacts',params({id:`eq.${id}`,limit:'1'})))[0]??null;
+  }
+  async quarantinedCalls() {
+    if(!this.admin)throw new DatabaseError(403);
+    return this.db.read('port','port_calls',params({quarantine_reason:'not.is.null',order:'reported_day.desc,id.desc',limit:'100'}));
+  }
+  async importCalls(bundle:object,rows:object[],days:string[],parser:string) {
+    if(!this.admin||!this.db.importCalls)throw new DatabaseError(403);
+    return this.db.importCalls({p_bundle:bundle,p_rows:rows,p_days:days,p_parser:parser});
+  }
   async editorialEdition() {
     return (await this.db.read("port","editorial_catalog_editions",params({select:"id,published_at,basis,entries",order:"published_at.desc,id.desc",limit:"1"})))[0]??null;
   }

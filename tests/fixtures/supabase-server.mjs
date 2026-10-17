@@ -132,6 +132,9 @@ rows.company_reference_snapshots=[];
 rows.reference_refresh_runs=[];
 rows.company_relationship_snapshots=[];
 rows.editorial_catalog_editions=[];
+rows.published_port_calls=[{id:id(201),event_key:'e'.repeat(64),artifact_id:id(202),vessel_id:id(203),vessel_name:'SYNTHETIC TEST SHIP',source_area:'quangtri-cua-viet',direction:'arrival',occurred_at:'2026-10-16T23:30:00+07:00',reported_day:'2026-10-16',raw_time:'23:30-16/10',dwt:null,row_number:1,quarantine_reason:null,source_url:'https://example.gov.vn/test-only',raw_sha256:'a'.repeat(64),fetched_at:stamp,parser_version:'quangtri-notices/1.0.0',identity_confidence:'source_observation'}];
+rows.call_coverage=[{reported_day:'2026-10-16',artifact_id:id(202),fetched_at:stamp,parser_version:'quangtri-notices/1.0.0',quarantined:1}];
+rows.port_calls=[];rows.call_artifacts=[];
 const publicationSource={...source,id:id(40),owner:"Fixture issuing company",base_url:"https://example.gov.vn",rights_notes:"Fixture only: permission must be explicitly reviewed.",rights_status:"to_verify"};
 createServer(async (req, res) => {
   res.setHeader("Content-Type", "application/json");
@@ -203,6 +206,7 @@ createServer(async (req, res) => {
     const value = parts.join(".");
     if (op === "eq") data = data.filter((r) => String(r[column]) === value);
     if (op === "gt") data = data.filter((r) => String(r[column]) > value);
+    if (op === "gte") data = data.filter((r) => String(r[column]) >= value);
     if (op === "lte") data = data.filter((r) => String(r[column]) <= value);
     if (op === "in")
       data = data.filter((r) =>
@@ -210,6 +214,8 @@ createServer(async (req, res) => {
       );
   }
   const or = url.searchParams.get("or");
+  const and=url.searchParams.get('and');if(and?.startsWith('(reported_day.lte.'))data=data.filter(r=>r.reported_day<=and.slice(18,-1));
+  if(and?.startsWith('(occurred_at.lte.'))data=data.filter(r=>Date.parse(r.occurred_at)<=Date.parse(and.slice(17,-1)));
   if (or?.startsWith("(valid_to")) {
     const at = or.split("valid_to.gt.")[1]?.replace(")", "");
     data = data.filter(
