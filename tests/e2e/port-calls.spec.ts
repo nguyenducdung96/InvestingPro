@@ -3,7 +3,7 @@ test('daily calls expose lineage, partial coverage, filters and readable themes'
  await page.goto('/industries/ports/calls?from=2026-10-01&to=2026-10-17');
  await expect(page.getByRole('heading',{name:'Nhật ký lượt tàu'})).toBeVisible();
  await expect(page.getByRole('cell',{name:'SYNTHETIC TEST SHIP'})).toBeVisible();
- await expect(page.getByRole('img',{name:/2026-10: 1 lượt đến/})).toBeVisible();
+ await expect(page.getByRole('img',{name:'2026-10: 1 lượt đến, 1 ngày có thông báo',exact:true})).toBeVisible();
  await expect(page.getByRole('cell',{name:'SYNTHETIC IN PORT SHIP'})).toBeVisible();
  await page.getByText('Nguồn và bản gốc',{exact:true}).click();
  await expect(page.getByText('Parser: quangtri-notices/1.0.0')).toBeVisible();
