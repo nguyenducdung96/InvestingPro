@@ -15,8 +15,9 @@ export async function POST(request:Request){
    phase='source';
    let sourceUrl=CALL_SOURCE;
    let response:Response|undefined;
+   const sourceSignal=AbortSignal.timeout(25000);
    for(let redirects=0;redirects<4;redirects++){
-    response=await fetch(sourceUrl,{cache:'no-store',signal:AbortSignal.timeout(25000),redirect:'manual'});
+    response=await fetch(sourceUrl,{cache:'no-store',signal:sourceSignal,redirect:'manual'});
     if(![301,302,303,307,308].includes(response.status))break;
     const location=response.headers.get('location');if(!location)break;
     const target=new URL(location,sourceUrl);

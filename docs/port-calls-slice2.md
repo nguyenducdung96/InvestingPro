@@ -14,7 +14,8 @@ Trang hoạt động độc lập tại `/industries/ports/calls`; không gắn 
 
 ## Sử dụng
 
-1. Áp dụng migration `202610170004_port_calls.sql` vào database đã có Slice 1.
+1. Áp dụng migrations `202610170004_port_calls.sql` và
+   `202610170005_current_call_review.sql` vào database đã có Slice 1.
 2. Mở `/admin/port-calls`, đăng nhập bằng phiên quản trị hiện có.
 3. Bấm **Lấy dữ liệu mới**. Máy chủ chỉ gọi URL cố định, giới hạn 25 giây/5 MB,
    đọc lại HTML bằng parser, kiểm hash rồi nhập atomically. Không nhận URL tùy ý.

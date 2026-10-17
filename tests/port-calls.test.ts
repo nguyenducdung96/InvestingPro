@@ -29,16 +29,22 @@ it('archives atomically, prevents duplicate replay, replaces revised notices and
  await db.exec(`select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000099","user_metadata":{"role":"admin"}}',false);set role authenticated`);
  await expect(importRaw(html())).rejects.toThrow('Admin import required');
  await db.exec(`reset role;select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000099","app_metadata":{"role":"admin"}}',false);set role authenticated`);
- expect((await importRaw(html())).rows[0].r.inserted).toBe(2);
- expect((await importRaw(html())).rows[0].r.replayed).toBe(true);
+ const duplicated=html().replace('</table>',`${tr(['TEST VESSEL','VN','100','1.234','80','3','redacted','23:30-16/10','NIL','NIL','NIL'])}</table>`);
+ expect((await importRaw(duplicated)).rows[0].r.inserted).toBe(2);
+ expect((await importRaw(duplicated)).rows[0].r.replayed).toBe(true);
  expect((await db.query('select * from port.published_port_calls')).rows).toHaveLength(2);
  await importRaw(html('TEST VESSEL','80:00-16/10'),'2026-10-17T00:01:00Z');
  expect((await db.query('select * from port.port_calls')).rows).toHaveLength(4);
  expect((await db.query('select * from port.published_port_calls')).rows).toHaveLength(1);
  expect((await db.query('select quarantined from port.call_coverage')).rows).toEqual([{quarantined:1}]);
+ expect((await db.query('select * from port.current_quarantined_calls')).rows).toHaveLength(1);
+ await db.exec(`reset role;select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000098","app_metadata":{"role":"user"}}',false);set role authenticated`);
+ expect((await db.query('select * from port.current_quarantined_calls')).rows).toHaveLength(0);
+ expect((await db.query('select * from port.call_artifacts')).rows).toHaveLength(0);
  await db.exec('reset role;set role anon');
  expect((await db.query('select * from port.published_port_calls')).rows).toHaveLength(1);
  await expect(db.query('select raw_text from port.call_artifacts')).rejects.toThrow('permission denied');
+ await expect(db.query('select * from port.current_quarantined_calls')).rejects.toThrow('permission denied');
  await expect(importRaw(html('INJECT'))).rejects.toThrow('permission denied');
  await db.exec('reset role');await expect(db.exec('delete from port.call_artifacts')).rejects.toThrow('immutable');
  }finally{await db.close();}

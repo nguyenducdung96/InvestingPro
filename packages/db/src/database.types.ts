@@ -1,7 +1,7 @@
 // Schema-aligned types. Regenerate with Supabase CLI after applying migrations;
 // keep this checked-in contract usable before a project is provisioned.
 import type {
-  PortCall, CallCoverage, CallArtifact,
+  PortCall, CallCoverage, CallArtifact, StoredPortCall,
   EditorialEdition,
   Source,
   SourceRecord,
@@ -34,7 +34,8 @@ export interface Tables {
     published_port_calls: PortCall;
     call_coverage: CallCoverage;
     call_artifacts: CallArtifact;
-    port_calls: PortCall;
+    port_calls: StoredPortCall;
+    current_quarantined_calls: StoredPortCall;
     editorial_catalog_editions: EditorialEdition;
     port_authorities: Authority;
     ports: Port;

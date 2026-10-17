@@ -126,7 +126,7 @@ export class SupabaseCatalogRepository implements CatalogRepository {
   }
   async quarantinedCalls() {
     if(!this.admin)throw new DatabaseError(403);
-    return this.db.read('port','port_calls',params({quarantine_reason:'not.is.null',order:'reported_day.desc,id.desc',limit:'100'}));
+    return this.db.read('port','current_quarantined_calls',params({order:'reported_day.desc,id.desc',limit:'100'}));
   }
   async importCalls(bundle:object,rows:object[],days:string[],parser:string) {
     if(!this.admin||!this.db.importCalls)throw new DatabaseError(403);

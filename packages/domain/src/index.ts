@@ -356,3 +356,4 @@ export interface PortCall {
 }
 export interface CallCoverage {reported_day:string;artifact_id:string;fetched_at:string;parser_version:string;quarantined:number}
 export interface CallArtifact {id:string;source_url:string;raw_sha256:string;raw_text:string;fetched_at:string;parser_version:string;reported_days:string[]}
+export type StoredPortCall=Omit<PortCall,'source_url'|'raw_sha256'|'fetched_at'|'parser_version'|'identity_confidence'|'occurred_at'>&{occurred_at:string|null};
