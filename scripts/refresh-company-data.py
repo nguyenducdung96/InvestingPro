@@ -145,7 +145,11 @@ def normalize_vnstock(rows, dataset):
                 raise ValueError('Vnstock relationship rate must be a fraction from 0 to 1')
         key = json.dumps([row['symbol']] if dataset == 'organizations' else [row['symbol'], row.get('sub_symbol'), row['name']], ensure_ascii=False)
         if key in result:
-            raise ValueError('Duplicate Vnstock identity')
+            if result[key] == clean:
+                # Provider can repeat an identical investment row. Preserve all
+                # source rows in raw evidence while comparing each fact once.
+                continue
+            raise ValueError('Conflicting duplicate Vnstock identity')
         result[key] = clean
     return result
 
@@ -167,7 +171,7 @@ def refresh(raw, dataset, output, records_path, provider='fiingroup', now=None):
     if not archive.exists():
         archive.write_bytes(raw)
     receipt = dict(provider=provider, dataset=dataset, fetched_at=now, raw_sha256=hash_,
-                   row_count=len(current), changes=updates, missing_keys=missing,
+                   row_count=len(current), raw_row_count=len(rows), changes=updates, missing_keys=missing,
                    publication_performed=False, status='review_required' if updates or missing else 'unchanged')
     # Content-addressed batches preserve previous unresolved changes on reruns.
     batch = output / provider / dataset / 'batches' / (digest(encode(receipt)) + '.json')

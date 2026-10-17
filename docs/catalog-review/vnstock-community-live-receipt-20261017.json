@@ -1,0 +1,29 @@
+{
+  "checked_at": "2026-10-17T02:29:57.757418+00:00",
+  "tier": "free",
+  "library_version": "5.0.3",
+  "temporary_key_file_deleted": true,
+  "key_committed": false,
+  "relationship_api_status": "live_verified_for_three_issuers",
+  "items": [
+    {
+      "ticker": "GMD",
+      "relationship_count": 26,
+      "raw_sha256": "e8b172628accd3250db05532045d6a613d6f72d30ed4c214c200231e36904490",
+      "fetched_at": "2026-10-17T02:29:15.888161+00:00"
+    },
+    {
+      "ticker": "PHP",
+      "relationship_count": 14,
+      "raw_sha256": "bbe53672696dcf7573cbf2399e5360c18da0e89ceedbf7005f209bb95d8f11a4",
+      "fetched_at": "2026-10-17T02:28:27.118518+00:00"
+    },
+    {
+      "ticker": "MVN",
+      "relationship_count": 32,
+      "raw_sha256": "8e6880a342bfd7033188ab41002afec947ec4ec65bd79b6b06bc7308a0747971",
+      "fetched_at": "2026-10-17T02:28:39.243393+00:00"
+    }
+  ],
+  "publication_performed": false
+}

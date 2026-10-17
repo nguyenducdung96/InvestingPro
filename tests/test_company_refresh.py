@@ -80,6 +80,9 @@ class RefreshTests(unittest.TestCase):
         self.assertEqual(result['rate'], 0.65)
         self.assertNotIn('asset_id', result)
         self.assertNotIn('relationship_started_on', result)
+        self.assertEqual(len(m.normalize_vnstock([row,row], 'relationships')),1)
+        with self.assertRaisesRegex(ValueError,'Conflicting duplicate'):
+            m.normalize_vnstock([row,{**row,'rate':0.7}], 'relationships')
         with self.assertRaises(ValueError):
             m.normalize_vnstock([{**row, 'rate': 65}], 'relationships')
 
