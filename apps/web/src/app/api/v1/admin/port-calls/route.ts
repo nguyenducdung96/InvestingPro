@@ -13,8 +13,17 @@ export async function POST(request:Request){
   let b=JSON.parse(text);
   if(b.action==='refresh'){
    phase='source';
-   const response=await fetch(CALL_SOURCE,{cache:'no-store',signal:AbortSignal.timeout(25000),redirect:'error'});
-   if(!response.ok||!response.body)throw new HttpError(502,'Nguồn chưa phản hồi. Có thể dùng lệnh refresh trên máy và nhập bundle.');
+   let sourceUrl=CALL_SOURCE;
+   let response:Response|undefined;
+   for(let redirects=0;redirects<4;redirects++){
+    response=await fetch(sourceUrl,{cache:'no-store',signal:AbortSignal.timeout(25000),redirect:'manual'});
+    if(![301,302,303,307,308].includes(response.status))break;
+    const location=response.headers.get('location');if(!location)break;
+    const target=new URL(location,sourceUrl);
+    if(target.protocol!=='https:'||target.hostname!==new URL(CALL_SOURCE).hostname||target.port)throw new HttpError(502,'Nguồn chuyển sang địa chỉ ngoài phạm vi connector. Dùng bundle để đối chiếu.');
+    sourceUrl=target.href;
+   }
+   if(!response?.ok||!response.body)throw new HttpError(502,'Nguồn chưa phản hồi. Có thể dùng lệnh refresh trên máy và nhập bundle.');
    const reader=response.body.getReader(),chunks:Uint8Array[]=[];let size=0;
    for(;;){const {value,done}=await reader.read();if(done)break;size+=value.length;if(size>5000000){await reader.cancel();throw new HttpError(413,'Nguồn vượt giới hạn 5 MB.');}chunks.push(value);}
    const bytes=new Uint8Array(size);let offset=0;for(const chunk of chunks){bytes.set(chunk,offset);offset+=chunk.length;}
