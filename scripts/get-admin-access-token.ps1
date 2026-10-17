@@ -13,7 +13,7 @@ try {
         -ContentType "application/json" -Body $body
     if (-not $session.access_token) { throw "Khong nhan duoc access token." }
     Set-Clipboard -Value $session.access_token
-    Write-Host "Da copy access token. Dan vao trang /admin/mappings tren staging."
+    Write-Host "Da copy access token. Dan vao trang quan tri staging (vi du /admin/port-calls). Khong gui token vao chat."
 } finally {
     Remove-Variable passwordInput, passwordText, body, session -ErrorAction SilentlyContinue
 }
