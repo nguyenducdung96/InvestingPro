@@ -46,3 +46,17 @@ test('large position boards paginate and preserve missing time without midnight'
  await page.getByRole('button',{name:'Lọc nhật ký'}).click();
  await expect(page.getByText('0 quan sát phù hợp · Mỗi trang tối đa 50 dòng.')).toBeVisible();
 });
+
+test('nationwide matrix retains every document target and exposes missing ports',async({page,request})=>{
+ await page.goto('/industries/ports/calls?from=2026-10-01&to=2026-10-17');
+ const section=page.getByRole('region',{name:'Độ phủ các cảng',exact:true});
+ await section.getByText('Xem từng cảng và phần dữ liệu còn thiếu',{exact:true}).click();
+ const table=section.getByRole('table');
+ await expect(table.locator('tbody tr')).toHaveCount(34);
+ await expect(table.getByRole('rowheader',{name:'Quảng Ngãi',exact:true})).toBeVisible();
+ await expect(table.getByRole('rowheader',{name:'Kiên Giang',exact:true})).toBeVisible();
+ const body=await(await request.get('/api/v1/port-calls?from=2026-10-01&to=2026-10-17')).json();
+ expect(body.nationwideCoverage.targets).toHaveLength(34);
+ expect(body.nationwideCoverage.complete).toBe(false);
+ expect(body.quality.find((q:{sourceArea:string})=>q.sourceArea==='cantho-ct').status).toBe('snapshot_only');
+});

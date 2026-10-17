@@ -3,7 +3,8 @@ export * from './calls';
 export * from './call-quality';
 export * from './call-coverage-targets';
 export * from './public-anchorage';
-export * from './nghean-reports';
+// Keep XLSX decompression/XML code off ordinary API requests and client bundles.
+export async function fetchNgheAnReports(fetcher:typeof fetch=fetch){return (await import('./nghean-reports.ts')).fetchNgheAnReports(fetcher);}
 export class InputError extends Error {}
 export const UUID =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
