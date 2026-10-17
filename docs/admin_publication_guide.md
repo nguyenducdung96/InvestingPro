@@ -89,3 +89,7 @@ Tài liệu đầu vào và khoảng trống được lưu tại `docs/catalog-r
 ## Refresh và kết hợp nguồn API
 
 Lệnh `pnpm data:refresh` cập nhật hồ sơ cơ bản qua Vnstock/VCI, lưu raw/hash, snapshot và batch thay đổi trong `.local/company-refresh`. Có cache 24 giờ và giữ bản trước khi lỗi. Xem `docs/company-data-refresh.md` để cài đặt, refresh một số mã, kiểm tra website hỗ trợ hoặc nhập JSON FiinGroup. Đây là công cụ nghiên cứu local, chưa tự ghi Supabase hoặc tự duyệt/public dữ kiện; dữ liệu trên giao diện staging không tự đổi sau khi chỉ chạy CLI.
+
+### Nhập kết quả refresh vào staging
+
+Sau `pnpm data:refresh`, mở `/admin/refresh`, chọn `.local/company-refresh/staging-bundle.json` và bấm **Nhập và đối chiếu thay đổi**. Đã nhập thử đủ 41 hồ sơ thật và kiểm tra nhập lại không trùng. Tra cứu mã để xem dữ liệu, nguồn, hash và phiên bản trước; dùng phần đối chiếu tham chiếu để ghi kết quả kiểm tra nội bộ. Không cần SQL Editor cho các lần cập nhật này. Quyền công bố và quan hệ tài sản vẫn theo luồng duyệt riêng hiện có.

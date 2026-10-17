@@ -1,0 +1,50 @@
+{
+  "checked_at": "2026-10-17T02:21:21.436796+00:00",
+  "scope": "slice1-scoped-report-catalog-and-admin-refresh-v1",
+  "internal_catalog_and_refresh_status": "accepted_on_staging",
+  "project_id": "loapslojajawgzekozfv",
+  "release_commit": "9e621f9449c33c4053ecbbb71b0b24c65bd52be3",
+  "worker_build": "6fc55ead-88c5-4732-874c-4563438aab5a",
+  "worker_version": "a92aca52-c06e-4cc1-bacc-c060ff5e0d0d",
+  "migration": "202610170001_reference_refresh.sql",
+  "migration_sha256": "9d0be53d72f2e8e58a51e5ab2c684153d39a76b011f7c2faad69fdfb2dc2dc70",
+  "bundle_sha256": "d73a4a6bd2d6a257a3784bf2c6ccddd0ab09b200f9d64968e663ffc6f64e1a30",
+  "counts": {
+    "dossiers": 41,
+    "asset_observations": 63,
+    "research_paths": 22,
+    "api_snapshots": 41,
+    "refresh_runs": 1,
+    "bundle_hash_mismatches": 0,
+    "outside_scope": 0,
+    "tables_without_rls": 0
+  },
+  "checks": {
+    "cloud_migration_applied": true,
+    "authenticated_ui_import_received": 41,
+    "authenticated_ui_import_inserted": 41,
+    "replay_inserted": 0,
+    "gmd_search_verified": true,
+    "source_and_raw_hash_displayed": true,
+    "anonymous_table_read_allowed": false,
+    "live_viewport_no_horizontal_overflow": true
+  },
+  "validation": {
+    "vitest": 65,
+    "playwright_desktop_mobile": 20,
+    "python_tests": 16,
+    "lint": "passed",
+    "typecheck": "passed",
+    "cloudflare_build": "passed"
+  },
+  "publication_performed": false,
+  "reference_review_performed": false,
+  "source_rights_approvals_performed": false,
+  "remaining_operational_conditions": [
+    "Pending source/fact reviews remain pending; internal reference acceptance does not publish ownership facts",
+    "Company relationship API requires an appropriate provider access tier; existing dossiers remain the supplementary source",
+    "No scheduled unattended refresh configured"
+  ],
+  "ui_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/admin/refresh",
+  "screenshot": ".local/catalog-research/slice1-refresh-staging-20261017.png"
+}

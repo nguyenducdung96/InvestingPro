@@ -1,5 +1,13 @@
 # Nghiệm thu Slice 1 trên staging
 
+## Hoàn thiện tích hợp refresh — 17/10/2026
+
+Bổ sung `/admin/refresh` và API nhập bundle có xác thực. Luồng vận hành: `pnpm data:refresh` → xuất `staging-bundle.json` có raw/hash → admin chọn file → kiểm tra checksum và phạm vi 41 mã trong transaction → Supabase lưu snapshot/lịch sử → giao diện đọc lại, so sánh và đối chiếu. Không dùng SQL Editor cho mỗi lần refresh. Các quan hệ cảng dùng 63 quan sát và 22 đường nghiên cứu theo kỳ, không bị thay bằng suy luận từ hồ sơ API.
+
+Migration `202610170001_reference_refresh.sql` đã được áp dụng cloud. Kiểm thử local đạt 65 Vitest, 20 Playwright desktop/mobile, 16 Python tests, lint và typecheck. Kiểm thử browser mới bao gồm nhập file, dữ liệu hiển thị từ backend, quyết định đối chiếu và từ chối file sai hash. Chấp nhận tham chiếu là quyết định nội bộ, không tự xác minh sở hữu cảng hoặc quyền công bố; RLS vẫn tách dữ liệu nội bộ với public.
+
+**Đã khép kín và nghiệm thu luồng catalog nội bộ + refresh có quản trị trên staging.** Build `6fc55ead-88c5-4732-874c-4563438aab5a`, Worker `a92aca52-c06e-4cc1-bacc-c060ff5e0d0d` của commit `9e621f9` đã thành công. Qua UI thực: nhập 41 hồ sơ, thêm 41 snapshot; nhập lại thêm 0. Query độc lập xác nhận 41 snapshot, 1 run, 0 hash sai so với bundle, 0 dòng ngoài phạm vi, 0 bảng thiếu RLS; anon không có quyền đọc bảng reference. Tra cứu GMD hoạt động, nguồn/hash hiển thị và không tràn ngang. Biên nhận tại `catalog-review/slice1-final-acceptance-20261017.json`. Không duyệt nguồn/dữ kiện hoặc công bố thêm trong đợt này. Chưa tạo lịch tự chạy; phần công ty con API cần cấp truy cập phù hợp của nguồn.
+
 ## Nghiệm thu mô hình hồ sơ theo kỳ — 16/10/2026, bản cuối
 
 **Đạt phạm vi snapshot Slice 1 đã được người dùng chấp thuận** tại `docs/slice_1_reported_catalog_scope.md`: 41 hồ sơ doanh nghiệp ứng viên của kỳ 2025, 63 quan sát tài sản và 22 đường nghiên cứu qua pháp nhân đã được nhập cloud. Chưa chứng nhận độ phủ toàn thị trường, trạng thái sở hữu/giao dịch hiện tại hoặc quyền công bố các nguồn đang chờ duyệt. Các nhận định chưa hoàn thành trong các phần lịch sử bên dưới dùng mô hình/phạm vi trước khi điều chỉnh.
