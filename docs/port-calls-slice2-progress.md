@@ -1,7 +1,10 @@
 # Tiến độ Slice 2 — tiếp tục tối 17/10/2026
 
-Người dùng tạm dừng và sẽ tiếp tục vào buổi tối. **Chưa hoàn thành phạm vi mở rộng
-“tất cả cảng”.** Chỉ dùng nguồn miễn phí, không phụ thuộc Vnstock.
+**Mục tiêu đã điều chỉnh 17/10/2026:** [dữ liệu hoạt động phục vụ đầu tư](slice2-investment-data-scope.md).
+Ưu tiên tàu vào/ra, trọng tải DWT, thời gian và lịch sử có thể tổng hợp cho phase
+sau. Không ưu tiên tọa độ, bản đồ, chi tiết vị trí hay giấy phép như sản phẩm riêng.
+**Chưa hoàn thành phạm vi mở rộng “tất cả cảng”.** Chỉ dùng nguồn miễn phí,
+không phụ thuộc Vnstock. Việc đổi mục tiêu không tự hoàn tất phần triển khai còn thiếu.
 
 ## Đã hoàn thành
 
@@ -37,17 +40,20 @@ giữ riêng, không tự diễn giải thành xác nhận tàu đã rời hoặ
 
 ## Thứ tự làm tiếp buổi tối
 
-1. Ưu tiên connector cổng giấy phép: kiểm chứng tìm kiếm/phân trang/ngày/mã Cảng vụ;
-   lấy thử Hải Phòng, TP.HCM và phạm vi Cái Mép–Thị Vải.
-2. Lưu raw/hash/parser, số giấy phép, định danh nguồn; chống trùng và tách giấy phép,
-   kế hoạch, vị trí, thông báo sự kiện. Không lấy ngày tải thay ngày sự kiện.
-3. Bổ sung lịch sử theo ngày, đo độ phủ và đối chiếu số dòng với trang nguồn.
-4. Đối chiếu danh mục từng cảng/bến; bổ sung khu vực còn thiếu và parser XLSX
-   Nghệ An đã có mẫu. Không coi 12 connector là 12 cảng hoặc toàn quốc.
-5. Hoàn thiện refresh định kỳ, trạng thái lần chạy, cảnh báo lỗi/nguồn cũ và nghiệm
-   thu tự chạy. Hiện có refresh theo thao tác, chưa nghiệm thu tự động.
-6. Chỉ chốt “tất cả cảng” sau ma trận độ phủ và đối chiếu từng khu vực; không lấp
-   ngày/khu vực thiếu bằng số 0, kế hoạch hoặc số vị trí hiện tại.
+1. Đóng khoảng trống dữ liệu tàu vào/ra, thời gian và DWT tại Hải Phòng, TP.HCM,
+   Cái Mép–Thị Vải; chọn nguồn Cảng vụ/trang cảng/API công khai hữu ích nhất.
+   Cổng giấy phép là một ứng viên nguồn, không phải dependency bắt buộc.
+2. Chuẩn hóa sự kiện, lịch sử, DWT/đơn vị và khóa chống trùng. Không suy ra lượt
+   ra từ tàu mất khỏi snapshot; giữ kế hoạch/giấy phép khác dữ kiện sự kiện.
+3. Hoàn thiện bảng ngày, tổng quan lượt tàu cơ bản, kỳ dữ liệu và tỷ lệ có DWT;
+   đưa chi tiết kỹ thuật nguồn vào phần mở khi cần, không làm nhiễu bảng đầu tư.
+4. Bàn giao API dữ liệu sự kiện cho phase tổng hợp, kiểm tra số dòng/ngày/DWT
+   với nguồn; bổ sung các cảng còn thiếu theo ma trận độ phủ.
+5. Hoàn thiện refresh định kỳ, trạng thái lần chạy và cảnh báo lỗi/nguồn cũ;
+   nghiệm thu tự chạy riêng. Hiện chưa nghiệm thu tự động.
+6. Chốt theo tiêu chí mới trong tài liệu phạm vi; không đòi tọa độ, giấy phép
+   hoặc chi tiết neo/cầu khi không phục vụ phân tích. Tất cả cảng vẫn là mục tiêu,
+   không lấp ngày/khu vực thiếu bằng số 0, kế hoạch hoặc số vị trí hiện tại.
 
 ## Điểm mở lại
 

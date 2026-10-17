@@ -1249,13 +1249,26 @@ Charts phải có unit, source, as-of, tooltip định nghĩa metric, tùy chọ
 
 **Điều chỉnh được chấp thuận 16/10/2026:** quan hệ theo kỳ báo cáo được lưu riêng với nguồn/trang/kỳ và ngày bắt đầu có thể chưa xác định. Không dùng ngày cuối kỳ thay ngày hiệu lực; không yêu cầu lấp đủ lịch sử để nghiệm thu phạm vi snapshot đã chốt. Quan hệ hiệu lực đã xác minh giữ mô hình cũ. Phạm vi, tiêu chí và giới hạn công bố tại [slice_1_reported_catalog_scope.md](slice_1_reported_catalog_scope.md).
 
-#### Slice 2: Port-call facts and daily table
+#### Slice 2: Investment-ready vessel arrival/departure data
 
-- One verified public connector with fixture coverage.
-- Vessel identity, port calls, dedup and quarantine.
-- Daily call table and basic monthly vessel-call chart.
+- Collect vessel arrivals/departures, port/source area, event time and DWT where
+  available from free public authority, terminal and API sources.
+- Persist source-backed event history with deduplication, revisions, explicit
+  missing fields and coverage metadata, ready for aggregation by later slices.
+- Deliver a daily event table and basic vessel-call overview. Coordinates,
+  detailed vessel positions and permit workflows are not required product outputs.
 
-**Exit:** Từ UI truy ngược được raw artifact và parser version cho mỗi call.
+**Exit:** Có bảng tàu vào/ra theo thời gian và API dữ liệu lịch sử phục vụ các phase
+tổng hợp; DWT thiếu được nêu rõ, nguồn/độ phủ kiểm tra được, refresh không tạo trùng.
+Không dùng số vị trí, kế hoạch hoặc giấy phép để giả lập lượt thực tế. Phạm vi tất cả
+cảng vẫn cần nghiệm thu độ phủ, không tự thu hẹp khi đổi trọng tâm sản phẩm.
+
+**User-directed objective revision (17/10/2026):** prioritize investment-relevant
+operating data, not maritime tracking or permit administration. Current scope and
+acceptance: [slice2-investment-data-scope.md](slice2-investment-data-scope.md).
+This revision supersedes earlier source-specific task priorities below, not the
+recorded implementation history. Slice 3 retains advanced DWT aggregates, YoY and
+ranking; Slice 2 prepares the event data required to compute those consistently.
 
 Implementation scope (2026-10-17): user authorized Slice 2 after accepting the
 light/dark redesign. First adapter is the public Cua Viet arrival/departure

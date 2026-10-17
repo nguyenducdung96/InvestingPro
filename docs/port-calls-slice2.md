@@ -1,4 +1,10 @@
-# Slice 2 — nhật ký lượt tàu theo thông báo
+# Slice 2 — dữ liệu tàu vào/ra phục vụ phân tích đầu tư
+
+**Mục tiêu hiện hành (điều chỉnh 17/10/2026):** [phạm vi dữ liệu đầu tư](slice2-investment-data-scope.md).
+Ưu tiên tàu vào/ra, DWT và thời gian để bàn giao dữ liệu lịch sử cho các phase
+tổng hợp. Tọa độ, vị trí chi tiết và hồ sơ giấy phép không phải đầu ra bắt buộc.
+Các mục triển khai và nghiệm thu bên dưới ghi lại trạng thái từng đợt, không thay
+thế mục tiêu/tiêu chí mới và không có nghĩa đã hoàn thành phạm vi tất cả cảng.
 
 Tiến độ và thứ tự tiếp tục tối 17/10/2026: [bàn giao Slice 2](port-calls-slice2-progress.md).
 
