@@ -120,6 +120,12 @@ export class SupabaseCatalogRepository implements CatalogRepository {
     if(!this.admin)throw new DatabaseError(403);
     return this.db.read("port","reference_refresh_runs",params({select:"*",order:"imported_at.desc",limit:"5"}));
   }
+  async relationshipSnapshots(ticker?:string) {
+    if(!this.admin)throw new DatabaseError(403);
+    const p=params({select:"id,company_id,ticker,provider,fetched_at,raw_sha256,relationship_data,run_id",order:"fetched_at.desc,id.desc",limit:"500"});
+    if(ticker)p.set("ticker",`eq.${ticker}`);
+    return this.db.read("port","company_relationship_snapshots",p);
+  }
   async importReferences(id:string,entries:object[]) {
     if(!this.admin||!this.db.importReferences)throw new DatabaseError(403);
     return this.db.importReferences({p_id:id,p_entries:entries});

@@ -44,12 +44,12 @@ def atomic_json(path, value):
     os.replace(temp, path)
 
 
-def records(payload, records_path):
+def records(payload, records_path, allow_empty=False):
     for key in records_path:
         if not isinstance(payload, dict) or key not in payload:
             raise ValueError('Configured records_path does not match provider response')
         payload = payload[key]
-    if not isinstance(payload, list) or not payload:
+    if not isinstance(payload, list) or not payload and not allow_empty:
         raise ValueError('Empty/non-array response withheld; previous snapshot retained')
     return payload
 
@@ -158,7 +158,7 @@ def refresh(raw, dataset, output, records_path, provider='fiingroup', now=None):
     if provider not in ('fiingroup', 'vnstock-vci', 'vnstock-kbs'):
         raise ValueError('Unsupported provider schema')
     now = now or datetime.now(timezone.utc).isoformat()
-    rows = records(json.loads(raw), records_path)
+    rows = records(json.loads(raw), records_path, allow_empty=provider.startswith('vnstock-') and dataset=='relationships')
     current = normalize(rows, dataset) if provider == 'fiingroup' else normalize_vnstock(rows, dataset)
     path = output / provider / dataset / 'latest.json'
     previous = json.loads(path.read_text(encoding='utf-8'))['records'] if path.exists() else {}

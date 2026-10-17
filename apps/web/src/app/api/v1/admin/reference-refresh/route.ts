@@ -17,6 +17,11 @@ export async function POST(request:Request) {
    if(entry.provider!=="vnstock-vci"||typeof entry.raw_text!=="string"||entry.raw_text.length>262144)throw new HttpError(400,"Invalid entry");
    const hash=Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(entry.raw_text)))).map(n=>n.toString(16).padStart(2,"0")).join("");
    if(hash!==entry.raw_sha256)throw new HttpError(400,"Evidence checksum mismatch");
+   if(entry.relationships) {
+    if(typeof entry.relationships.raw_text!=="string"||entry.relationships.raw_text.length>262144)throw new HttpError(400,"Invalid relationship evidence");
+    const relatedHash=Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(entry.relationships.raw_text)))).map(n=>n.toString(16).padStart(2,"0")).join("");
+    if(relatedHash!==entry.relationships.raw_sha256)throw new HttpError(400,"Relationship checksum mismatch");
+   }
   }
   const id=Array.from(new Uint8Array(await crypto.subtle.digest("SHA-256",new TextEncoder().encode(raw)))).map(n=>n.toString(16).padStart(2,"0")).join("");
   return Response.json(await repo.importReferences(id,input.entries),{headers:{"Cache-Control":"private, no-store"}});

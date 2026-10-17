@@ -5,7 +5,8 @@ test("admin imports API references with checksum validation and reviews without 
  await page.goto('/admin/refresh');await page.getByLabel('Mã truy cập (access token)').fill('fixture-admin');await page.getByRole('button',{name:'Đăng nhập quản trị'}).click();
  await expect(page.getByRole('heading',{name:'Cập nhật hồ sơ từ API',exact:true})).toBeVisible();
  const raw=JSON.stringify([{symbol:'TEST',name:'Synthetic API company',profile:'Synthetic reference profile'}]);
- const bundle={schema:'slice1-reference-refresh-v1',entries:[{ticker:'TEST',company_id:'00000000-0000-0000-0000-000000000007',provider:'vnstock-vci',fetched_at:'2026-10-16T00:00:00Z',raw_text:raw,raw_sha256:createHash('sha256').update(raw).digest('hex')}]};
+ const relationRaw=JSON.stringify([{symbol:'TEST',name:'Synthetic investment',sub_symbol:'SUB',rate:0.51}]);
+ const bundle={schema:'slice1-reference-refresh-v1',entries:[{ticker:'TEST',company_id:'00000000-0000-0000-0000-000000000007',provider:'vnstock-vci',fetched_at:'2026-10-16T00:00:00Z',raw_text:raw,raw_sha256:createHash('sha256').update(raw).digest('hex'),relationships:{fetched_at:'2026-10-16T00:00:00Z',raw_text:relationRaw,raw_sha256:createHash('sha256').update(relationRaw).digest('hex')}}]};
  await page.getByLabel('File kết quả refresh JSON (tối đa 2 MB)').setInputFiles({name:'test.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(bundle))});
  await page.getByRole('button',{name:'Nhập và đối chiếu thay đổi'}).click();
  await expect(page.getByText('Đã nhận 1 hồ sơ, thêm 1 phiên bản mới.',{exact:false})).toBeVisible();
@@ -16,6 +17,14 @@ test("admin imports API references with checksum validation and reviews without 
  bundle.entries[0].raw_sha256='0'.repeat(64);
  await page.getByLabel('File kết quả refresh JSON (tối đa 2 MB)').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(bundle))});await page.getByRole('button',{name:'Nhập và đối chiếu thay đổi'}).click();
  await expect(page.getByText('Chưa nhập được.',{exact:false})).toBeVisible();
+ await page.goto('/industries/ports/companies?view=all');
+ await expect(page.getByRole('link',{name:'TEST · Synthetic API company',exact:true})).toBeVisible();
+ await page.getByRole('link',{name:'TEST · Synthetic API company',exact:true}).click();
+ await expect(page.getByRole('heading',{name:'TEST · Synthetic API company',exact:true})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Công ty có góp vốn theo nhà cung cấp',exact:true})).toBeVisible();
+ await expect(page.getByRole('heading',{name:'Synthetic investment',exact:true})).toBeVisible();
+ await expect(page.getByText('Tỷ lệ vốn nhà cung cấp báo cáo: 51%',{exact:false})).toBeVisible();
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBeTruthy();
 });
 test("report-period observations retain unknown commencement dates and private dossiers require admin",async({page,request})=>{
   const denied=await request.get('/api/v1/admin/catalog');

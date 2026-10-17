@@ -130,13 +130,14 @@ rows.reported_asset_observations=[reportedFixture];
 rows.published_asset_observations=[reportedFixture];
 rows.company_reference_snapshots=[];
 rows.reference_refresh_runs=[];
+rows.company_relationship_snapshots=[];
 const publicationSource={...source,id:id(40),owner:"Fixture issuing company",base_url:"https://example.gov.vn",rights_notes:"Fixture only: permission must be explicitly reviewed.",rights_status:"to_verify"};
 createServer(async (req, res) => {
   res.setHeader("Content-Type", "application/json");
   const url = new URL(req.url ?? "/", "http://127.0.0.1:54329");
   const admin = req.headers.authorization === "Bearer fixture-admin";
   if (url.pathname === "/reset" && req.method === "POST") {
-    rows.company_reference_snapshots=[];rows.reference_refresh_runs=[];
+    rows.company_reference_snapshots=[];rows.reference_refresh_runs=[];rows.company_relationship_snapshots=[];
     Object.assign(publicationState,{sources:false,evidence:false,entities:false});
     Object.assign(mapping, {
       verification_status: "pending",
@@ -165,7 +166,7 @@ createServer(async (req, res) => {
       const row=rows.company_reference_snapshots.find(r=>r.id===input.p_id);
       Object.assign(row,{review_status:input.p_decision,review_note:input.p_note,reviewed_by:id(99),reviewed_at:stamp});res.end(JSON.stringify(row));return;
     }
-    let inserted=0;for(const entry of input.p_entries){if(rows.company_reference_snapshots.some(r=>r.raw_sha256===entry.raw_sha256&&r.company_id===entry.company_id))continue;rows.company_reference_snapshots.push({...entry,id:id(81+inserted),reference_data:JSON.parse(entry.raw_text)[0],review_status:'pending',review_note:null,run_id:input.p_id});inserted++;}
+    let inserted=0;for(const entry of input.p_entries){if(entry.relationships)rows.company_relationship_snapshots.push({id:id(95),company_id:entry.company_id,ticker:entry.ticker,provider:entry.provider,...entry.relationships,relationship_data:JSON.parse(entry.relationships.raw_text)});if(rows.company_reference_snapshots.some(r=>r.raw_sha256===entry.raw_sha256&&r.company_id===entry.company_id))continue;rows.company_reference_snapshots.push({...entry,id:id(81+inserted),reference_data:JSON.parse(entry.raw_text)[0],review_status:'pending',review_note:null,run_id:input.p_id});inserted++;}
     rows.reference_refresh_runs.push({id:input.p_id,imported_at:stamp,entry_count:input.p_entries.length});res.end(JSON.stringify({inserted,received:input.p_entries.length}));return;
   }
   if (["publication_queue","review_publication"].includes(table)) {

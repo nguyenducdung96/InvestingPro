@@ -16,15 +16,21 @@ it("imports references atomically, preserves history and isolates internal revie
  await db.exec(`select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000099","user_metadata":{"role":"admin"}}',false);set role authenticated`);
  await expect(call()).rejects.toThrow("Admin review required");
  await db.exec(`reset role;select set_config('request.jwt.claims','{"sub":"00000000-0000-0000-0000-000000000099","app_metadata":{"role":"admin"}}',false);set role authenticated`);
- expect((await call()).rows).toEqual([{result:{inserted:1,received:1,publication_performed:false}}]);
- expect((await call()).rows).toEqual([{result:{inserted:0,received:1,publication_performed:false}}]);
+ expect((await call()).rows).toEqual([{result:{inserted:1,received:1,publication_performed:false,relationship_inserted:0}}]);
+ expect((await call()).rows).toEqual([{result:{inserted:0,received:1,publication_performed:false,relationship_inserted:0}}]);
  const row=(await db.query<{id:string}>("select id from port.company_reference_snapshots")).rows[0];
  await db.query("select port.review_reference_snapshot($1,'accepted','TEST ONLY: checked provider identity and limited scope')",[row.id]);
  await expect(db.query("select port.review_reference_snapshot($1,'rejected','TEST ONLY: cannot overwrite reviewed history')",[row.id])).rejects.toThrow("Pending reference required");
  const invalid={...entry,ticker:"GMD"};await expect(db.query("select port.import_reference_refresh($1,$2::jsonb)",["2".repeat(64),JSON.stringify([invalid])])).rejects.toThrow("outside accepted scope");
  expect((await db.query("select * from port.reference_refresh_runs")).rows).toHaveLength(1);
+ const relatedRaw=JSON.stringify([{symbol:"PHP",name:"TEST subsidiary",rate:0.5,sub_symbol:null}]);
+ const withRelations={...entry,relationships:{raw_text:relatedRaw,raw_sha256:createHash('sha256').update(relatedRaw).digest('hex'),fetched_at:entry.fetched_at}};
+ const imported=await db.query<{result:{relationship_inserted:number}}>("select port.import_reference_refresh($1,$2::jsonb) as result",["3".repeat(64),JSON.stringify([withRelations])]);
+ expect(imported.rows[0].result.relationship_inserted).toBe(1);
+ expect((await db.query("select * from port.company_relationship_snapshots")).rows).toHaveLength(1);
  await db.exec("reset role;set role anon");
  await expect(db.query("select * from port.company_reference_snapshots")).rejects.toThrow("permission denied");
+ await expect(db.query("select * from port.company_relationship_snapshots")).rejects.toThrow("permission denied");
  expect((await db.query("select * from port.published_asset_observations")).rows).toHaveLength(0);
  await db.exec("reset role");await expect(db.query("delete from port.company_reference_snapshots")).rejects.toThrow("immutable");
  }finally{await db.close();}

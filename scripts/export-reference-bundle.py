@@ -23,6 +23,13 @@ def export(output=None):
         if len(rows)!=1 or rows[0].get('symbol')!=ticker:
             raise ValueError('Raw ticker mismatch: '+ticker)
         entries.append(dict(company_id=company['company_id'],ticker=ticker,provider='vnstock-vci',fetched_at=state['fetched_at'],raw_sha256=state['raw_sha256'],raw_text=raw.decode('utf-8')))
+        relation_path=folder/'vnstock-vci/relationships/latest.json'
+        if relation_path.exists():
+            relation=json.loads(relation_path.read_text(encoding='utf-8'))
+            relation_raw=(folder/'raw'/(relation['raw_sha256']+'.json')).read_bytes()
+            if hashlib.sha256(relation_raw).hexdigest()!=relation['raw_sha256']:
+                raise ValueError('Relationship checksum mismatch: '+ticker)
+            entries[-1]['relationships']=dict(fetched_at=relation['fetched_at'],raw_sha256=relation['raw_sha256'],raw_text=relation_raw.decode('utf-8'))
     if not entries:raise ValueError('No snapshots available')
     bundle=dict(schema='slice1-reference-refresh-v1',entries=entries)
     (base/'staging-bundle.json').write_text(json.dumps(bundle,ensure_ascii=False,separators=(',',':')),encoding='utf-8')

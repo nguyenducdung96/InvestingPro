@@ -4,6 +4,7 @@ import { publicRepository } from "@/lib/server";
 import { AssetList, Metadata, SourceBadge, Unavailable } from "./catalog";
 import { UUID, pageQuery } from "@invest/port";
 import { ReportedAssets } from "./reported-assets";
+import {CompanyResearch} from "./company-research";
 export async function CompanyPage({
   keyValue,
   query,
@@ -11,6 +12,7 @@ export async function CompanyPage({
   keyValue: string;
   query: Record<string, string>;
 }) {
+  if(query.view==="research") {const research=await CompanyResearch({keyValue});if(research)return research;}
   let company;
   let assets;
   let reported;

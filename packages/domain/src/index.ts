@@ -275,6 +275,10 @@ export interface ReferenceSnapshot {
  reference_data:Record<string,unknown>;review_status:"pending"|"accepted"|"rejected";
  reviewed_by:string|null;reviewed_at:string|null;review_note:string|null;run_id:string;
 }
+export interface RelationshipSnapshot {
+ id:string;company_id:string;ticker:string;provider:string;fetched_at:string;raw_sha256:string;run_id:string;
+ relationship_data:{symbol:string;name:string;rate:number|null;sub_symbol:string|null}[];
+}
 export interface CatalogRepository {
   reviewReported(id:string,decision:"verified"|"rejected",note:string):Promise<ReportedAssetObservation>;
   reportedAssets(companyId: string, query: PageQuery): Promise<Envelope<ReportedAssetItem[]>>;

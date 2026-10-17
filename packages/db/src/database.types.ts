@@ -16,6 +16,7 @@ import type {
   CatalogDossier, ReportedAssetObservation,
   DossierResearchPath,
   ReferenceSnapshot,
+  RelationshipSnapshot,
   AuditEvent,
   PublicationReviewEvent, PublicationItem, PublicationDecision,
 } from "@invest/domain";
@@ -40,6 +41,7 @@ export interface Tables {
     published_asset_observations: ReportedAssetObservation;
     dossier_research_paths: DossierResearchPath;
     company_reference_snapshots: ReferenceSnapshot;
+    company_relationship_snapshots: RelationshipSnapshot;
     reference_refresh_runs: {id:string;imported_at:string;imported_by:string;entry_count:number};
   };
 }
