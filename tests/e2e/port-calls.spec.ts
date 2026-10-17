@@ -34,7 +34,7 @@ test('area filter isolates snapshot data without adding it to reported arrivals'
 test('large position boards paginate and preserve missing time without midnight',async({page})=>{
  await page.goto('/industries/ports/calls?area=haiphong-in-port');
  await expect(page.getByRole('cell',{name:'PAGINATION SHIP 01'})).toBeVisible();
- await expect(page.getByRole('region',{name:'Bảng tàu tại cảng cuộn ngang'}).getByRole('columnheader',{name:'DWT theo nguồn',exact:true})).toBeVisible();
+ await expect(page.getByRole('region',{name:'Bảng tàu tại cảng cuộn ngang'}).locator('td[data-label="DWT theo nguồn"]')).toHaveCount(50);
  await expect(page.getByText('Nguồn không ghi giờ',{exact:true})).toBeVisible();
  await expect(page.getByRole('cell',{name:'PAGINATION SHIP 51'})).toHaveCount(0);
  const nav=page.getByRole('navigation',{name:'Phân trang vị trí tàu'});
