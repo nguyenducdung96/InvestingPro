@@ -1,5 +1,7 @@
 # Slice 2 — nhật ký lượt tàu theo thông báo
 
+Tiến độ và thứ tự tiếp tục tối 17/10/2026: [bàn giao Slice 2](port-calls-slice2-progress.md).
+
 ## Phạm vi
 
 Nguồn miễn phí, không cần key hoặc hợp đồng API trả phí. Connector đầu tiên: Cảng vụ Hàng hải Quảng Trị,
