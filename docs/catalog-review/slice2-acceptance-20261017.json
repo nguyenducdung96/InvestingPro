@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-17",
+  "scope": "Slice 2: one public connector, reported vessel observations, daily journal, monthly arrival chart and raw-artifact lineage",
+  "source_area": "quangtri-cua-viet",
+  "source_url": "https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2073&page=NEWS",
+  "public_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/industries/ports/calls",
+  "admin_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/admin/port-calls",
+  "parser": "quangtri-notices/1.0.0",
+  "methodology": "reported-notices-v1",
+  "migrations_applied": [
+    "202610170004_port_calls.sql",
+    "202610170005_current_call_review.sql"
+  ],
+  "local_validation": {
+    "vitest": "68 passed, including PostgreSQL constraints, duplicate rows, replay, replacement, immutable history and RLS",
+    "playwright_full_suite": "26 passed on desktop and mobile",
+    "playwright_after_current_review_view": "2 port-call checks passed on desktop and mobile",
+    "typecheck": "passed",
+    "lint": "passed",
+    "next_build": "passed",
+    "local_worker_bundle": "Windows EPERM creating symlink after successful Next build; Linux Workers Builds is the deployment path"
+  },
+  "staging_validation": {
+    "admin_bundle_import": "69 observations inserted; 14 quarantined",
+    "identical_bundle_replay": "UI confirmed: original already exists, no duplicate calls created",
+    "direct_server_refresh": "UI confirmed 69 observations and 14 quarantined; new artifact became current",
+    "after_refresh": {
+      "artifact_versions": 2,
+      "historical_observations": 138,
+      "current_public_facts": 55,
+      "current_arrivals": 32,
+      "current_departures": 23,
+      "current_quarantined": 14,
+      "reported_days": 15,
+      "reported_period": "2026-10-02/2026-10-16",
+      "as_of": "2026-10-17T07:30:21.999+00:00",
+      "current_artifact_id": "bb5b2a1d-201b-49cf-bc69-941dc47d182f",
+      "current_sha256": "70ad97470d418a70bd87c107069f689193eef8e436fa883491bfee6699b06220"
+    },
+    "raw_readback": {
+      "artifact_id": "d81a7c63-7744-4529-8cdf-a10b7d1f8978",
+      "sha256": "afd5e3737fd7585d48b6bfd7402479341a0c9ca99f35062d56a2b454655cf704",
+      "downloaded_through_authenticated_ui": true,
+      "computed_hash_matches": true
+    },
+    "public_api": "200; 55 facts; monthly 32 arrivals/23 departures; 15 covered notice days; lineage present; no raw_text field",
+    "invalid_date_api": 400,
+    "anonymous_raw_artifact_api": 401,
+    "live_theme_check": "light and dark; actual 1280x720 browser viewport; no document overflow",
+    "current_admin_queue": "14 current quarantined rows visible; older versions preserved but excluded from current queue"
+  },
+  "limitations": [
+    "Coverage is Cua Viet source area only, not all Vietnamese ports.",
+    "Records are authority notices, not AIS-confirmed movements.",
+    "No IMO is supplied; identities remain scoped to observations and are not merged by name.",
+    "Missing or invalid time remains quarantined; partial coverage is not treated as zero activity.",
+    "No canonical terminal/berth assignment is inferred for this source area.",
+    "Direct source access can fail transiently; authenticated bundle import is the tested fallback.",
+    "No recurring refresh schedule or full historical backfill is configured.",
+    "Raw source redistribution rights are not marked approved; public output contains selected structured facts only."
+  ],
+  "status": "accepted_for_the_documented_single_connector_slice2_scope",
+  "deployment": {
+    "code_commit": "f6505838682ed63a7110bd4158e20a3c962c284f",
+    "build_id": "e8df425b-1c60-47e8-aec6-95227b661d6d",
+    "worker_version": "05473556-c836-46c2-ae80-8cadafaae700",
+    "linux_worker_build": "passed; Success! Build completed",
+    "deployment": "passed; 100 percent staging traffic"
+  }
+}
