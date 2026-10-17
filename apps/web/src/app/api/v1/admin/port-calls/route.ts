@@ -1,4 +1,4 @@
-import {adminRepository,HttpError} from '@/lib/server';
+import {adminRepository,accessToken,config,HttpError} from '@/lib/server';
 import {sameOrigin} from '@/lib/origin';
 import {CALL_SOURCES,callSource,parseCallSource,fetchPublicAnchorage,PUBLIC_ANCHORAGE_SOURCES,fetchNgheAnReports,sha256,UUID} from '@invest/port';
 import {DatabaseError} from '@invest/db';
@@ -7,6 +7,15 @@ export async function POST(request:Request){
  let phase='session';
  try{
   if(!sameOrigin(request))throw new HttpError(403,'Cross-origin write forbidden');
+  if(process.env.PORT_CALL_IMPORT_MODE==='edge'){
+   const token=await accessToken(request);if(!token)throw new HttpError(401,'Đăng nhập quản trị để cập nhật.');
+   if(Number(request.headers.get('content-length'))>7000000)throw new HttpError(413,'Bundle too large');
+   const text=await request.text();if(new TextEncoder().encode(text).length>7000000)throw new HttpError(413,'Bundle too large');
+   const {url,key}=config();
+   const response=await fetch(`${url}/functions/v1/port-call-refresh`,{method:'POST',headers:{apikey:key,Authorization:`Bearer ${token}`,'Content-Type':'application/json'},body:text,signal:AbortSignal.timeout(120000)});
+   if(!response.headers.get('content-type')?.includes('application/json'))throw new HttpError(502,'Importer chưa phản hồi; dữ liệu trước được giữ nguyên.');
+   return Response.json(await response.json(),{status:response.status,headers:{'Cache-Control':'private, no-store'}});
+  }
   const repo=await adminRepository(request);
   if(Number(request.headers.get('content-length'))>7000000)throw new HttpError(413,'Bundle too large');
   const text=await request.text();if(text.length>7000000)throw new HttpError(413,'Bundle too large');

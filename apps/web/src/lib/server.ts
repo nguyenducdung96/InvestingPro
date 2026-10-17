@@ -14,12 +14,15 @@ export function publicRepository() {
   const { url, key } = config();
   return new SupabaseCatalogRepository(supabaseTransport(url, key));
 }
-export async function adminRepository(request?: Request) {
-  const { url, key } = config();
+export async function accessToken(request?: Request) {
   const header = request?.headers.get("Authorization");
-  const token = header?.startsWith("Bearer ")
+  return header?.startsWith("Bearer ")
     ? header.slice(7)
     : (await cookies()).get("catalog_access_token")?.value;
+}
+export async function adminRepository(request?: Request) {
+  const { url, key } = config();
+  const token=await accessToken(request);
   if (!token) throw new HttpError(401, "Sign in with an admin account");
   // Verify with Supabase Auth; never authorize by decoding client-provided JWT claims.
   const response = await fetch(`${url}/auth/v1/user`, {

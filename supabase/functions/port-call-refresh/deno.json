@@ -1,0 +1,7 @@
+{
+ "imports": {
+  "entities": "npm:entities@8.1.0",
+  "fflate": "npm:fflate@0.8.3",
+  "fast-xml-parser": "npm:fast-xml-parser@5.11.2"
+ }
+}

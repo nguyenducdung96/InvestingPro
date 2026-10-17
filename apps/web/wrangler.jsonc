@@ -12,6 +12,7 @@
       "name": "investing-pro-web-staging",
       "workers_dev": true,
       "preview_urls": false,
+      "vars": { "PORT_CALL_IMPORT_MODE": "edge" },
     },
   },
 }
