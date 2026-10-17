@@ -1,5 +1,14 @@
 # Nghiệm thu Slice 1 trên staging
 
+## Trạng thái mới nhất: bản công khai hoàn tất — 17/10/2026
+
+**Đã nghiệm thu bản công khai của Slice 1 trong phạm vi 41 doanh nghiệp, kỳ báo cáo 2025.** Trang danh mục và hồ sơ doanh nghiệp đọc bản dữ kiện InvestingPro biên tập từ Supabase; không yêu cầu đăng nhập hoặc Vnstock. 41 hồ sơ, 63 ghi nhận tài sản và 22 đường nghiên cứu được phát hành qua UI admin, có actor/audit và bản bất biến. Nhập lặp thêm 0. Không phát hành payload thương mại, toàn văn báo cáo hoặc chứng nhận sở hữu hiện tại.
+
+Build `9aa156ce-0475-4e18-9c95-92acb9263abf`, Worker `5e789cea-8ad9-47b2-8b94-33606eb8b402`, commit `7751927` đạt. Migration `202610170003_editorial_catalog.sql` đã áp dụng. Query bằng role anon đọc được 41/63/22 và xác nhận không có quyền đọc hai bảng snapshot API. HTTP client độc lập không gửi cookie/token nhận 200 và 41 link doanh nghiệp; GMD có nguồn và ICD riêng. UI thật tìm GMD ra 1 hồ sơ; chi tiết có 4 cảng/bến + 2 ICD, không tràn ngang.
+
+66 Vitest, 22 Playwright desktop/mobile, bài kiểm tra UI phát hành lại 2 viewport, 17 Python tests, lint/typecheck đạt. Biên nhận: `catalog-review/slice1-public-acceptance-20261017.json`; bằng chứng HTTP: `catalog-review/public-catalog-http-check-20261017.json`. Chính sách trường dữ kiện và căn cứ biên tập tại `public-catalog-editorial-policy.md`. Các mục bên dưới là lịch sử triển khai; giới hạn trước đây chỉ có nội bộ đã được thay bằng bản phát hành dữ kiện này. Phạm vi không mở rộng thành toàn thị trường hoặc Slices 2–5.
+
+
 ## Hoàn thiện tích hợp refresh — 17/10/2026
 
 Bổ sung `/admin/refresh` và API nhập bundle có xác thực. Luồng vận hành: `pnpm data:refresh` → xuất `staging-bundle.json` có raw/hash → admin chọn file → kiểm tra checksum và phạm vi 41 mã trong transaction → Supabase lưu snapshot/lịch sử → giao diện đọc lại, so sánh và đối chiếu. Không dùng SQL Editor cho mỗi lần refresh. Các quan hệ cảng dùng 63 quan sát và 22 đường nghiên cứu theo kỳ, không bị thay bằng suy luận từ hồ sơ API.

@@ -1,0 +1,22 @@
+{
+  "checked_at": "2026-10-17T02:58:46.153748+00:00",
+  "results": [
+    {
+      "path": "/industries/ports/companies?view=all",
+      "status": 200,
+      "cookies_sent": false,
+      "authorization_sent": false,
+      "api_prose_absent": true,
+      "company_links": 41
+    },
+    {
+      "path": "/companies/GMD",
+      "status": 200,
+      "cookies_sent": false,
+      "authorization_sent": false,
+      "api_prose_absent": true,
+      "source_link_present": true,
+      "icd_separate": true
+    }
+  ]
+}

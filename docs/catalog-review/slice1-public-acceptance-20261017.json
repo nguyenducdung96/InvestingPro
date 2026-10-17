@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-10-17T03:00:24.9670837Z",
+  "status": "accepted_on_staging",
+  "scope": "slice1-public-editorial-41-companies-report-2025",
+  "release_commit": "775192763a5cd5978d137ec4392004b5a128f43c",
+  "worker_build": "9aa156ce-0475-4e18-9c95-92acb9263abf",
+  "worker_version": "5e789cea-8ad9-47b2-8b94-33606eb8b402",
+  "edition_id": "2cda8f35-91dd-4f06-839c-bada981e3c70",
+  "edition_content_hash": "c9037a0016219bc508fb224958e7c3cbc1f88c53f162101abfdad03616f264c1",
+  "migration": "202610170003_editorial_catalog.sql",
+  "counts": {
+    "research_paths": 22,
+    "companies": 41,
+    "gmd_ports": 4,
+    "gmd_icds": 2,
+    "reported_asset_facts": 63
+  },
+  "checks": {
+    "replay_inserted": 0,
+    "anon_sql_read": true,
+    "raw_documents_republished": false,
+    "provider_required_for_public_reads": false,
+    "live_search_gmd_results": 1,
+    "authenticated_editorial_publish_inserted": 1,
+    "source_rights_globally_approved": false,
+    "effective_ownership_auto_verified": false,
+    "anon_can_read_api_relationships": false,
+    "unauthenticated_http_gmd_status": 200,
+    "unauthenticated_directory_company_links": 41,
+    "real_actor_recorded": true,
+    "anon_can_read_api_profiles": false,
+    "live_gmd_no_horizontal_overflow": true,
+    "unauthenticated_http_directory_status": 200
+  },
+  "validation": {
+    "typecheck": "passed",
+    "public_publish_ui_checks": 2,
+    "playwright_desktop_mobile": 22,
+    "lint": "passed",
+    "python": 17,
+    "cloudflare_build": "passed",
+    "vitest": 66
+  },
+  "policy": "docs/public-catalog-editorial-policy.md",
+  "http_receipt": "docs/catalog-review/public-catalog-http-check-20261017.json",
+  "remaining_scope_limits": [
+    "Fixed 41-company report-2025 scope, not full current market coverage",
+    "Reported facts and research paths are not certified current ownership",
+    "Commercial provider payloads and original document files remain internal"
+  ],
+  "screenshots": [
+    ".local/catalog-research/slice1-public-directory-20261017.png",
+    ".local/catalog-research/slice1-public-gmd-20261017.png"
+  ]
+}

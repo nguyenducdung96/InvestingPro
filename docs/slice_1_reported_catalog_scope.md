@@ -33,3 +33,7 @@ Nghiệm thu chức năng/bộ snapshot phải được ghi riêng với tình t
 ## Bằng chứng triển khai
 
 Các migration `202610160001_reported_catalog.sql` đến `202610160005_reported_document_dates.sql`; bộ import `reported_catalog_2025.pending.sql`. Import chạy trong transaction, có kiểm tra xung đột, chạy lại không thêm audit khi dữ liệu không đổi. Quyết định duyệt và bằng chứng gốc bất biến; review tạo/đọc evidence thay thế có cùng hash thay vì sửa raw record.
+
+## Bổ sung bản dữ kiện công khai — 17/10/2026
+
+Theo yêu cầu tiếp tục hoàn thiện bản công khai, phát hành edition dữ kiện InvestingPro tự biên tập qua `port.editorial_catalog_editions`, với quyết định admin/audit riêng. Hợp đồng chỉ cho phép trường dữ kiện đã đối chiếu, kỳ và dẫn nguồn; không có raw/API prose hoặc file tài liệu. Trang `/industries/ports/companies?view=all` và `/companies/GMD` dùng edition công khai ngay cả khi chưa đăng nhập. Điều kiện và giới hạn trong `public-catalog-editorial-policy.md`; biên nhận `catalog-review/slice1-public-acceptance-20261017.json`. Các hàng nguồn/tài liệu/quan hệ gốc giữ trạng thái review trước đó, không bị tự duyệt thành sở hữu đang hiệu lực. API nội bộ và trang nghiên cứu có xác thực vẫn hoạt động riêng.
