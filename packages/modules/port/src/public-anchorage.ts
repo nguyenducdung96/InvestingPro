@@ -4,7 +4,22 @@ export const PUBLIC_ANCHORAGE_SOURCES=[
  {id:'binhthuan-open-anchorage',base:'http://123.25.223.242/web/guest/public-kh',label:'Bình Thuận / Cà Ná · vị trí neo',region:/^(BÌNH THUẬN|NINH THUẬN)/i},
  {id:'thaibinh-open-anchorage',base:'http://123.30.27.14/web/guest/public-kh',label:'Thái Bình / Nam Định · vị trí neo',region:/^KHU VỰC HH (THÁI BÌNH|NAM ĐỊNH)$/i},
  {id:'kiengiang-open-anchorage',base:'http://203.210.235.67/web/guest/public-kh',label:'Kiên Giang / Cà Mau · vị trí neo',region:/^(KIÊN GIANG - |Năm Căn$|Dầu khí ngoài khơi mỏ Sông Đốc$|Vùng biển Cà Mau$)/i},
+ {id:'dongnai-open-anchorage',base:'http://123.25.204.166/web/guest/public-kh',label:'Đồng Nai · vị trí neo',region:/^ĐỒNG NAI - /i},
+ {id:'hatinh-open-anchorage',base:'http://116.98.104.198/web/guest/public-kh',label:'Hà Tĩnh / Quảng Bình · vị trí neo',region:/^KHU VỰC (?:HH VŨNG ÁNG-SƠN DƯƠNG|(?:HÀNG HẢI )?(?:HÒN LA|CỬA GIANH))$/i,allowUnknownRegion:true},
 ] as const;
+export function publicAnchorageData(raw:string){
+ const envelope=JSON.parse(raw);
+ if(envelope.format!=='public-anchorage-pages-v1')return envelope;
+ if(!Array.isArray(envelope.pages)||envelope.pages.length<2||envelope.pages.length>10||!envelope.pages.every((p:unknown)=>typeof p==='string'))throw new Error('Invalid public API pagination archive');
+ const pages=envelope.pages.map((p:string)=>JSON.parse(p));const total=pages[0].total;
+ if(!Number.isInteger(total)||total<=500||total>5000||pages.length!==Math.ceil(total/500))throw new Error('Incomplete public API pagination');
+ const data=[];const ids=new Set<string>();
+ for(let i=0;i<pages.length;i++){
+  const p=pages[i];if(p.total!==total||!Array.isArray(p.data)||p.data.length!==Math.min(500,total-i*500))throw new Error('Public API pagination changed');
+  for(const row of p.data){const id=String(row.vmaScheduleAnchorageId??'');if(!/^\d+$/.test(id)||ids.has(id))throw new Error('Duplicate public API page row');ids.add(id);data.push(row);}
+ }
+ return {total,data};
+}
 export async function fetchPublicAnchorage(sourceId:string,fetcher:typeof fetch=fetch):Promise<string>{
  const config=PUBLIC_ANCHORAGE_SOURCES.find(s=>s.id===sourceId);if(!config)throw new Error('Unknown public anchorage source');
  const base=config.base;
@@ -24,6 +39,14 @@ export async function fetchPublicAnchorage(sourceId:string,fetcher:typeof fetch=
  // Liferay returns either its friendly public path or /web/guest alias for the same resource.
  if(target.origin!==new URL(base).origin||!/^\/(?:web\/guest\/)?public-kh(?:;jsessionid=[A-Za-z0-9._-]+)?$/.test(target.pathname)||target.searchParams.get('p_p_resource_id')!=='vma_schedule_anchorage_port'||target.searchParams.get('p_p_id')!=='vma_WAR_TichHopGiaoThongportlet')throw new Error('Unexpected public resource destination');
  for(const [key,value] of Object.entries({flag:'true',start:'0',end:'500',shipPosition:'2',maritimeCode:'12',nameOfShip:''}))target.searchParams.set(key,value);
- return read(target.href,5000000);
+ const first=await read(target.href,5000000);const value=JSON.parse(first);
+ if(!Number.isInteger(value.total)||value.total<0||value.total>5000||!Array.isArray(value.data)||value.data.length!==Math.min(500,value.total))throw new Error('Incomplete public API page');
+ if(value.total<=500)return first;
+ const pages=[first];let size=first.length;
+ for(let start=500;start<value.total;start+=500){
+  target.searchParams.set('start',String(start));target.searchParams.set('end',String(Math.min(start+500,value.total)));
+  const page=await read(target.href,5000000);size+=page.length;if(size>4500000)throw new Error('Public API archive exceeds limit');pages.push(page);
+ }
+ const archive=JSON.stringify({format:'public-anchorage-pages-v1',pages});publicAnchorageData(archive);return archive;
 }
 export function fetchBinhThuanPositions(fetcher:typeof fetch=fetch){return fetchPublicAnchorage('binhthuan-open-anchorage',fetcher);}

@@ -1,6 +1,6 @@
 import {decodeHTML} from 'entities';
 import {sha256} from './call-hash.ts';
-import {PUBLIC_ANCHORAGE_SOURCES} from './public-anchorage.ts';
+import {PUBLIC_ANCHORAGE_SOURCES,publicAnchorageData} from './public-anchorage.ts';
 export {sha256} from './call-hash.ts';
 export const CALL_SOURCE = 'https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2073&page=NEWS';
 export const CALL_PARSER = 'quangtri-notices/1.0.1';
@@ -28,7 +28,7 @@ export function callSourceLabel(id:string){return callSource(id)?.label??id;}
 export interface CallObservation {
   key: string; vessel_name: string; identity_key: string; identity_confidence: 'source_observation';
   direction: 'arrival'|'departure'; occurred_at: string|null; reported_day: string;
-  dwt: number|null; raw_time: string; row_number: number; quarantine_reason: string|null;
+  dwt: number|null; gt?:number|null; raw_time: string; row_number: number; quarantine_reason: string|null;
 }
 const plain=(s:string)=>decodeHTML(s.replace(/<[^>]*>/g,' ')).replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(Number(n))).replace(/&nbsp;|&#160;/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
 function day(d:string,m:string,y:string) {
@@ -224,17 +224,19 @@ async function parseRegionalSnapshot(html:string,sourceId:string,fetchedAt:strin
 function parsePublicAnchoragePositions(raw:string,fetchedAt:string,sourceId:string){
  return (async()=>{
   const config=PUBLIC_ANCHORAGE_SOURCES.find(s=>s.id===sourceId);if(!config)throw new Error('Unknown public source');
-  const value=JSON.parse(raw);
-  if(!Array.isArray(value.data)||!Number.isInteger(value.total)||value.total!==value.data.length||value.total>500)throw new Error('Incomplete public API page');
+  const value=publicAnchorageData(raw);
+  if(!Array.isArray(value.data)||!Number.isInteger(value.total)||value.total!==value.data.length||value.total>5000)throw new Error('Incomplete public API page');
   const reportedDay=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'}).format(new Date(fetchedAt));
   const rows:SnapshotObservation[]=[];
   for(let i=0;i<value.data.length;i++){
    const r=value.data[i];
-   if(typeof r.nameOfShip!=='string'||typeof r.portRegionName!=='string'||!config.region.test(r.portRegionName)||!('anchoringDateFrom'in r)||!('anchoringDateTo'in r))throw new Error('Public API schema or area changed');
+   const unknownRegion=('allowUnknownRegion'in config&&config.allowUnknownRegion)&&(!r.portRegionName||r.portRegionName==='null');
+   if(typeof r.nameOfShip!=='string'||(!unknownRegion&&(typeof r.portRegionName!=='string'||!config.region.test(r.portRegionName)))||!('anchoringDateFrom'in r)||!('anchoringDateTo'in r))throw new Error('Public API schema or area changed');
    // Ended/dated anchorage stays are not current open positions or port departures.
    if(r.anchoringDateTo)continue;
    const row=await snapshotRow(sourceId,r.nameOfShip,String(r.anchoringDateFrom??''),[r.portHarbourName,r.portWharfName].filter(Boolean).join(' · '),r.dwt==null?'':String(r.dwt),reportedDay,i+1,fetchedAt);
-   rows.push({...row,time_basis:'anchorage_start'});
+   const gt=typeof r.gt==='number'&&Number.isFinite(r.gt)&&r.gt>=0&&r.gt<=600000?r.gt:null;
+   rows.push({...row,gt,time_basis:'anchorage_start',quarantine_reason:row.quarantine_reason??(unknownRegion?'unresolved_source_area':null)});
   }
   if(!rows.length&&value.total!==0)throw new Error('No open anchorage records; review before accepting empty snapshot');
   return {rows,reported_days:[reportedDay],parser_version:`${sourceId}/1.0.0`};

@@ -1,6 +1,6 @@
 import {expect,it,vi} from 'vitest';
 import {parseCallSource} from '../packages/modules/port/src/calls';
-import {fetchPublicAnchorage} from '../packages/modules/port/src/public-anchorage';
+import {fetchPublicAnchorage,publicAnchorageData} from '../packages/modules/port/src/public-anchorage';
 const tr=(cells:string[])=>`<tr>${cells.map(v=>`<td>${v}</td>`).join('')}</tr>`;
 const table=(direction:string,cells:string[],timeHeader:string)=>`<table>${tr([`THÔNG BÁO TÀU ${direction} CẢNG`])}${tr(['Tên tàu','Quốc tịch','GT','DWT',...(cells.length===11?['LOA','Mớn nước','Số thuyền viên']:[]),timeHeader,...(cells.length===11?['Cảng rời','Hàng hóa','Đại lý']:['Cảng đích','Hàng hóa','Đại lý'])])}${tr(cells)}</table>`;
 function notice(day='16/10/2026',rawTime='16/10/2026'){
@@ -30,4 +30,18 @@ it('accepts only observed public path aliases on the exact authority origin',asy
  request.mockResolvedValueOnce(new Response(JSON.stringify({user:{maritimeCode:'12'},getVmaScheduleAnchorage_Port_URL:'http://123.30.27.14/group/private?p_p_id=vma_WAR_TichHopGiaoThongportlet&p_p_resource_id=vma_schedule_anchorage_port'})));
  await expect(fetchPublicAnchorage('thaibinh-open-anchorage',request)).rejects.toThrow('destination');
  expect(request).toHaveBeenCalledTimes(1);
+});
+it('reads every bounded API page and rejects duplicate rows or changed totals',async()=>{
+ const first={total:501,data:Array.from({length:500},(_,i)=>({vmaScheduleAnchorageId:i+1}))};
+ const second={total:501,data:[{vmaScheduleAnchorageId:501}]};
+ const request=vi.fn<typeof fetch>();
+ request.mockResolvedValueOnce(Response.json({user:{maritimeCode:'12'},getVmaScheduleAnchorage_Port_URL:'http://123.25.204.166/public-kh?p_p_id=vma_WAR_TichHopGiaoThongportlet&p_p_resource_id=vma_schedule_anchorage_port'}));
+ request.mockResolvedValueOnce(Response.json(first));request.mockResolvedValueOnce(Response.json(second));
+ const raw=await fetchPublicAnchorage('dongnai-open-anchorage',request);
+ expect(publicAnchorageData(raw).data).toHaveLength(501);
+ expect(new URL(String(request.mock.calls[2][0])).searchParams.get('start')).toBe('500');
+ const duplicate=JSON.stringify({format:'public-anchorage-pages-v1',pages:[JSON.stringify(first),JSON.stringify({total:501,data:[{vmaScheduleAnchorageId:1}]})]});
+ expect(()=>publicAnchorageData(duplicate)).toThrow('Duplicate');
+ const changed=JSON.stringify({format:'public-anchorage-pages-v1',pages:[JSON.stringify(first),JSON.stringify({...second,total:502})]});
+ expect(()=>publicAnchorageData(changed)).toThrow('changed');
 });
