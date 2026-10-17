@@ -1,0 +1,44 @@
+{
+  "checked_at": "2026-10-17T03:20:23.2396883Z",
+  "status": "verified_on_staging",
+  "release_commit": "93f6ffe070bb2450bd807461fec68d1b84f0bd56",
+  "worker_build": "dcb7c084-a853-4756-b2ee-3170c1b33862",
+  "worker_version": "f3772bc6-4ed6-4c0e-a50a-ce344a9cbb0a",
+  "scope": "UI readability, responsive navigation, light/dark/system themes",
+  "validation": {
+    "lint": "passed",
+    "theme_tests_after_responsive_refinement": 2,
+    "playwright_desktop_mobile": 24,
+    "cloudflare_build": "passed",
+    "typecheck": "passed"
+  },
+  "local_checks": {
+    "widths": [
+      375,
+      768,
+      1440
+    ],
+    "both_palettes": true,
+    "preference_persisted_after_reload": true,
+    "keyboard_skip_link": true,
+    "system_preference_follows_changes": true,
+    "minimum_text_contrast": 4.5,
+    "horizontal_overflow": false
+  },
+  "live_checks": {
+    "manual_preference_persisted_after_reload": true,
+    "search_present": true,
+    "viewport_width": 845,
+    "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/companies/DVP",
+    "light_color_scheme": "light",
+    "horizontal_overflow": false,
+    "dark_color_scheme": "dark",
+    "directory_cards": 41
+  },
+  "screenshots": [
+    ".local/catalog-research/ui-dvp-light-20261017.png",
+    ".local/catalog-research/ui-dvp-dark-20261017.png",
+    ".local/catalog-research/ui-directory-light-20261017.png"
+  ],
+  "data_or_publication_state_changed": false
+}
