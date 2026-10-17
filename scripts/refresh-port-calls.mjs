@@ -29,6 +29,14 @@ for(const current of all?CALL_SOURCES:[source]){
   const bundle={source_url:current.url,fetched_at,raw_sha256,raw_text};
   await writeFile(`${archive}.bundle.json`,JSON.stringify(bundle),{flag:'wx'});
   const parsed=await parseCallSource(raw_text,current.id,fetched_at);
+  if(current.id==='nghean-reported'){
+   const envelope=JSON.parse(raw_text);await mkdir(`${sourceDir}/daily`,{recursive:true});
+   for(const report of envelope.reports){
+    const raw=JSON.stringify({...envelope,reports:[report]});
+    const daily=await parseCallSource(raw,current.id,fetched_at);
+    await writeFile(`${sourceDir}/daily/${daily.reported_days[0]}.bundle.json`,JSON.stringify({source_url:current.url,fetched_at,raw_sha256:await sha256(raw),raw_text:raw}));
+   }
+  }
   await writeFile(`${sourceDir}/staging-bundle.json`,JSON.stringify(bundle));
   await writeFile(`${sourceDir}/preview.json`,JSON.stringify(parsed,null,2));
   if(!all){

@@ -92,7 +92,8 @@ function trustedUrl(raw:string,base=NGHEAN_REPORT_URL){
 }
 function links(html:string){return [...html.matchAll(/<a\b[^>]*href=["']([^"']+)["'][^>]*>/gi)].map(m=>m[1]);}
 function reportLinks(html:string){return [...new Set(links(html).filter(l=>/index\.aspx\?/i.test(l)).map(l=>new URL(decodeHTML(l),NGHEAN_REPORT_URL)).filter(u=>u.origin===origin&&u.searchParams.get('page')==='detail'&&/^\d+$/.test(u.searchParams.get('id')??'')).map(u=>u.href))];}
-export async function fetchNgheAnReports(fetcher:typeof fetch=fetch){
+export async function fetchNgheAnReports(fetcher:typeof fetch=fetch,maxReports=15){
+ if(!Number.isInteger(maxReports)||maxReports<1||maxReports>15)throw new Error('Report limit must be 1–15');
  const signal=AbortSignal.timeout(55000);
  async function read(url:string,limit:number){
   const response=await fetcher(trustedUrl(url).href,{signal,redirect:'error',cache:'no-store'});
@@ -102,7 +103,7 @@ export async function fetchNgheAnReports(fetcher:typeof fetch=fetch){
   const bytes=new Uint8Array(size);let offset=0;for(const part of parts){bytes.set(part,offset);offset+=part.length;}return bytes;
  }
  const index_html=strFromU8(await read(NGHEAN_REPORT_URL,500000));
- const details=reportLinks(index_html).slice(0,15);
+ const details=reportLinks(index_html).slice(0,maxReports);
  if(!details.length)throw new Error('No dated report links');
  const reports=[];
  for(const detail_url of details){
