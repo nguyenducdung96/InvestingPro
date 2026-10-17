@@ -1,7 +1,16 @@
 import {decodeHTML} from 'entities';
+import {NGHEAN_REPORT_URL,parseNgheAnReports} from './nghean-reports.ts';
+import {sha256} from './call-hash.ts';
+import {PUBLIC_ANCHORAGE_SOURCES} from './public-anchorage.ts';
+export {sha256} from './call-hash.ts';
 export const CALL_SOURCE = 'https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2073&page=NEWS';
 export const CALL_PARSER = 'quangtri-notices/1.0.1';
 export const CALL_SOURCES = [
+  {id:'nghean-reported',label:'Nghệ An · báo cáo hoạt động',url:NGHEAN_REPORT_URL,kind:'reported' as const,marker:'nghean-reports-v1'},
+  {id:'quangtri-hon-la',label:'Hòn La',url:'https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2074&page=news',kind:'reported' as const,marker:'KHU VỰC HÒN LA'},
+  {id:'quangtri-cua-gianh',label:'Cửa Gianh',url:'https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2075&page=NEWS',kind:'reported' as const,marker:'KHU VỰC CỬA GIANH'},
+  {id:'quangtri-con-co',label:'Cồn Cỏ',url:'https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2077&page=NEWS',kind:'reported' as const,marker:'KHU VỰC CỒN CỎ'},
+  {id:'quangtri-my-thuy',label:'Mỹ Thủy',url:'https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2092&page=news',kind:'reported' as const,marker:'KHU VỰC MỸ THỦY'},
   {id:'quangtri-cua-viet',label:'Cửa Việt',url:CALL_SOURCE,kind:'reported' as const,marker:'KHU VỰC CỬA VIỆT'},
   {id:'quangtri-len-bang',label:'Lèn Bảng',url:'https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2076&page=NEWS',kind:'reported' as const,marker:'KHU VỰC LÈN BẢNG'},
   {id:'cantho-ct',label:'Cần Thơ',url:'https://cangvuhanghaicantho.gov.vn/Index.aspx?kv=ct&page=vtttc',kind:'in_port' as const,marker:'VỊ TRÍ TÀU TẠI CẢNG'},
@@ -12,7 +21,7 @@ export const CALL_SOURCES = [
   {id:'quangninh-in-port',label:'Quảng Ninh',url:'https://kht1.cangvuhanghaiquangninh.gov.vn/vitritau.aspx',kind:'in_port' as const,marker:'CẢNG VỤ HÀNG HẢI QUẢNG NINH'},
   {id:'hue-chanmay-in-port',label:'Chân Mây',url:'https://cangvuhanghaithuathienhue.gov.vn/index.aspx?cat=3130&page=news',kind:'in_port' as const,marker:'Khu vực hàng hải Chân Mây ngày'},
   {id:'hue-thuanan-in-port',label:'Thuận An',url:'https://cangvuhanghaithuathienhue.gov.vn/index.aspx?page=news&cat=3131',kind:'in_port' as const,marker:'Vị trí tàu tại cảng ngày'},
-  {id:'binhthuan-open-anchorage',label:'Bình Thuận / Cà Ná · vị trí neo',url:'http://123.25.223.242/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/ViTriTauTaiCang',kind:'in_port' as const,marker:'binhthuan-public-api'},
+  ...PUBLIC_ANCHORAGE_SOURCES.map(s=>({id:s.id,label:s.label,url:`${s.base}#/tra-cuu/ke_hoach/0/0/ViTriTauTaiCang`,kind:'in_port' as const,marker:'public-anchorage-api'})),
   {id:'haiphong-in-port',label:'Hải Phòng',url:'https://csdltau.cangvuhaiphong.gov.vn/pages/position.aspx',kind:'in_port' as const,marker:'VỊ TRÍ TÀU TẠI CẢNG'},
 ] as const;
 export function callSource(id:string){return CALL_SOURCES.find(s=>s.id===id);}
@@ -23,9 +32,6 @@ export interface CallObservation {
   dwt: number|null; raw_time: string; row_number: number; quarantine_reason: string|null;
 }
 const plain=(s:string)=>decodeHTML(s.replace(/<[^>]*>/g,' ')).replace(/&#(\d+);/g,(_,n)=>String.fromCodePoint(Number(n))).replace(/&nbsp;|&#160;/g,' ').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
-export async function sha256(s:string) {
-  return Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s))),b=>b.toString(16).padStart(2,'0')).join('');
-}
 function day(d:string,m:string,y:string) {
   const s=`${y}-${m.padStart(2,'0')}-${d.padStart(2,'0')}`;
   return Number.isFinite(Date.parse(s))&&new Date(s).toISOString().slice(0,10)===s?s:null;
@@ -79,8 +85,10 @@ export async function parseCallNotices(html:string,sourceId='quangtri-cua-viet')
 // Neither disappearing rows nor a second berth-arrival column establish departure.
 export async function parseCallSource(html:string,sourceId:string,fetchedAt:string){
  const source=callSource(sourceId);if(!source)throw new Error('Unknown source');
+ if(sourceId==='nghean-reported')return parseNgheAnReports(html,fetchedAt);
+ if(['quangtri-hon-la','quangtri-cua-gianh','quangtri-con-co','quangtri-my-thuy'].includes(sourceId))return parseRegionalNotices(html,sourceId,fetchedAt);
  if(source.kind==='reported')return parseCallNotices(html,sourceId);
- if(sourceId==='binhthuan-open-anchorage')return parseBinhThuanPositions(html,fetchedAt);
+ if(PUBLIC_ANCHORAGE_SOURCES.some(s=>s.id===sourceId))return parsePublicAnchoragePositions(html,fetchedAt,sourceId);
  if(sourceId==='hcm-in-port'||sourceId==='quangninh-in-port'||sourceId==='haiphong-in-port'||sourceId.startsWith('hue-'))return parseRegionalSnapshot(html,sourceId,fetchedAt);
  if(!html.includes(source.marker)||!html.includes('CẢNG VỤ HÀNG HẢI CẦN THƠ'))throw new Error('Unexpected source area');
  const action=html.match(/<form\b[^>]*action="([^"]+)"/i)?.[1];
@@ -103,6 +111,44 @@ export async function parseCallSource(html:string,sourceId:string,fetchedAt:stri
  }
  if(!rows.length&&!/rgNoRecords/.test(table))throw new Error('No rows or explicit empty snapshot');
  return {rows,reported_days:[reportDay],parser_version:'cantho-positions/1.0.0'};
+}
+
+async function parseRegionalNotices(html:string,sourceId:string,fetchedAt:string){
+ const source=callSource(sourceId);
+ if(!source||!plain(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1]??'').includes(source.marker))throw new Error('Unexpected notice area');
+ const headings=[...html.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].filter(m=>!/<table\b/i.test(m[1])&&plain(m[1]).length<200&&/\d{1,2}\/\d{1,2}\/\d{4}/.test(plain(m[1])));
+ const rows:(CallObservation&{time_day:string|null;gt:number|null})[]=[];const days=new Set<string>();
+ const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'}).format(new Date(fetchedAt));
+ for(let i=0;i<headings.length;i++){
+  const heading=plain(headings[i][1]);
+  if(!/^(?:\d+\.\s*)?Thông báo tàu đến và (?:tàu )?rời(?: cảng)? ngày/i.test(heading))continue;
+  const date=heading.match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/)!;const reportDay=day(date[1],date[2],date[3]);if(!reportDay)continue;
+  const section=html.slice(headings[i].index!+headings[i][0].length,headings[i+1]?.index??html.length);
+  const tables=[...section.matchAll(/<table\b[^>]*>([\s\S]*?)<\/table>/gi)];
+  let direction:'arrival'|'departure'|null=null,timeColumn=-1,columns=0,rowNumber=0;const directions=new Set<string>();
+  for(const tr of tables.map(t=>t[1]).join('').matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)){
+   const cells=[...tr[1].matchAll(/<t[dh]\b[^>]*>([\s\S]*?)<\/t[dh]>/gi)].map(c=>plain(c[1]));
+   if(cells.join(' ').includes('THÔNG BÁO TÀU ĐẾN CẢNG')){direction='arrival';directions.add(direction);timeColumn=-1;continue;}
+   if(cells.join(' ').includes('THÔNG BÁO TÀU RỜI CẢNG')){direction='departure';directions.add(direction);timeColumn=-1;continue;}
+   if(/Tên tàu/i.test(cells[0]??'')){
+    timeColumn=cells.findIndex(c=>/(?:Ngày|Thời gian) (?:đến|rời)/i.test(c));columns=cells.length;
+    if(cells[3]!=='DWT'||cells[2]!=='GT'||timeColumn<0||![8,11].includes(columns))throw new Error('Notice columns changed');continue;
+   }
+   if(!direction||timeColumn<0||!cells[0]||/^[/—-]+$/.test(cells[0]))continue;
+   rowNumber++;const rawTime=cells[timeColumn]??'';const occurred=noticeTime(rawTime,reportDay);
+   const dateOnly=rawTime.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+   const timeDay=dateOnly?day(dateOnly[1],dateOnly[2],dateOnly[3]):null;
+   const reason=reportDay>today?'future_report':cells.length!==columns?'unexpected_columns':cells[0].includes('+')?'multiple_vessels':!occurred&&(!timeDay||timeDay>reportDay)?'invalid_or_missing_time':null;
+   const key=await sha256([sourceId,direction,cells[0],occurred??timeDay??`${reportDay}|${rawTime}`].join('|'));
+   rows.push({key,identity_key:`observation:${key}`,identity_confidence:'source_observation',vessel_name:cells[0],direction,occurred_at:occurred,time_day:timeDay,
+    reported_day:reportDay,dwt:dwt(cells[3]??''),gt:dwt(cells[2]??''),raw_time:rawTime,row_number:rowNumber,quarantine_reason:reason});
+  }
+  if(directions.size===2&&reportDay<=today)days.add(reportDay);
+ }
+ // Future headings are retained only as quarantined rows; they do not certify historical coverage.
+ const historicalRows=rows.filter(r=>days.has(r.reported_day));
+ if(!days.size)throw new Error('No dated arrival/departure notices');
+ return {rows:historicalRows,reported_days:[...days].sort(),parser_version:'quangtri-regional-notices/1.0.0'};
 }
 
 type SnapshotObservation=CallObservation&{berth:string|null;time_day:string|null;time_precision:'minute'|'day'|'unknown';time_basis?:'port_arrival'|'anchorage_start'};
@@ -176,22 +222,23 @@ async function parseRegionalSnapshot(html:string,sourceId:string,fetchedAt:strin
  if(!rows.length)throw new Error('No snapshot rows; review source before accepting empty state');
  return {rows,reported_days:[reportedDay],parser_version:version};
 }
-function parseBinhThuanPositions(raw:string,fetchedAt:string){
+function parsePublicAnchoragePositions(raw:string,fetchedAt:string,sourceId:string){
  return (async()=>{
+  const config=PUBLIC_ANCHORAGE_SOURCES.find(s=>s.id===sourceId);if(!config)throw new Error('Unknown public source');
   const value=JSON.parse(raw);
   if(!Array.isArray(value.data)||!Number.isInteger(value.total)||value.total!==value.data.length||value.total>500)throw new Error('Incomplete public API page');
   const reportedDay=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'}).format(new Date(fetchedAt));
   const rows:SnapshotObservation[]=[];
   for(let i=0;i<value.data.length;i++){
    const r=value.data[i];
-   if(typeof r.nameOfShip!=='string'||typeof r.portRegionName!=='string'||!/^(BÌNH THUẬN|NINH THUẬN)/i.test(r.portRegionName)||!('anchoringDateFrom'in r)||!('anchoringDateTo'in r))throw new Error('Public API schema or area changed');
+   if(typeof r.nameOfShip!=='string'||typeof r.portRegionName!=='string'||!config.region.test(r.portRegionName)||!('anchoringDateFrom'in r)||!('anchoringDateTo'in r))throw new Error('Public API schema or area changed');
    // Ended/dated anchorage stays are not current open positions or port departures.
    if(r.anchoringDateTo)continue;
-   const row=await snapshotRow('binhthuan-open-anchorage',r.nameOfShip,String(r.anchoringDateFrom??''),[r.portHarbourName,r.portWharfName].filter(Boolean).join(' · '),r.dwt==null?'':String(r.dwt),reportedDay,i+1,fetchedAt);
+   const row=await snapshotRow(sourceId,r.nameOfShip,String(r.anchoringDateFrom??''),[r.portHarbourName,r.portWharfName].filter(Boolean).join(' · '),r.dwt==null?'':String(r.dwt),reportedDay,i+1,fetchedAt);
    rows.push({...row,time_basis:'anchorage_start'});
   }
   if(!rows.length&&value.total!==0)throw new Error('No open anchorage records; review before accepting empty snapshot');
-  return {rows,reported_days:[reportedDay],parser_version:'binhthuan-open-anchorage/1.0.0'};
+  return {rows,reported_days:[reportedDay],parser_version:`${sourceId}/1.0.0`};
  })();
 }
 

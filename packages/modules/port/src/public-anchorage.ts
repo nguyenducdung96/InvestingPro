@@ -1,7 +1,13 @@
 // Anonymous, read-only resource exposed by the official site's public Vue app.
 // Session URLs stay in memory and are never archived or exposed in errors.
-export async function fetchBinhThuanPositions(fetcher:typeof fetch=fetch):Promise<string>{
- const base='http://123.25.223.242/web/guest/public-kh';
+export const PUBLIC_ANCHORAGE_SOURCES=[
+ {id:'binhthuan-open-anchorage',base:'http://123.25.223.242/web/guest/public-kh',label:'Bình Thuận / Cà Ná · vị trí neo',region:/^(BÌNH THUẬN|NINH THUẬN)/i},
+ {id:'thaibinh-open-anchorage',base:'http://123.30.27.14/web/guest/public-kh',label:'Thái Bình / Nam Định · vị trí neo',region:/^KHU VỰC HH (THÁI BÌNH|NAM ĐỊNH)$/i},
+ {id:'kiengiang-open-anchorage',base:'http://203.210.235.67/web/guest/public-kh',label:'Kiên Giang / Cà Mau · vị trí neo',region:/^(KIÊN GIANG - |Năm Căn$|Dầu khí ngoài khơi mỏ Sông Đốc$|Vùng biển Cà Mau$)/i},
+] as const;
+export async function fetchPublicAnchorage(sourceId:string,fetcher:typeof fetch=fetch):Promise<string>{
+ const config=PUBLIC_ANCHORAGE_SOURCES.find(s=>s.id===sourceId);if(!config)throw new Error('Unknown public anchorage source');
+ const base=config.base;
  const signal=AbortSignal.timeout(55000);
  async function read(url:string,limit:number){
   const response=await fetcher(url,{redirect:'error',cache:'no-store',signal});
@@ -15,7 +21,9 @@ export async function fetchBinhThuanPositions(fetcher:typeof fetch=fetch):Promis
  const metadata=JSON.parse(await read(init.href,1000000));
  if(String(metadata.user?.maritimeCode)!=='12'||typeof metadata.getVmaScheduleAnchorage_Port_URL!=='string')throw new Error('Public anchorage configuration changed');
  const target=new URL(metadata.getVmaScheduleAnchorage_Port_URL);
- if(target.origin!==new URL(base).origin||!/^\/web\/guest\/public-kh(?:;jsessionid=[A-Za-z0-9._-]+)?$/.test(target.pathname)||target.searchParams.get('p_p_resource_id')!=='vma_schedule_anchorage_port'||target.searchParams.get('p_p_id')!=='vma_WAR_TichHopGiaoThongportlet')throw new Error('Unexpected public resource destination');
+ // Liferay returns either its friendly public path or /web/guest alias for the same resource.
+ if(target.origin!==new URL(base).origin||!/^\/(?:web\/guest\/)?public-kh(?:;jsessionid=[A-Za-z0-9._-]+)?$/.test(target.pathname)||target.searchParams.get('p_p_resource_id')!=='vma_schedule_anchorage_port'||target.searchParams.get('p_p_id')!=='vma_WAR_TichHopGiaoThongportlet')throw new Error('Unexpected public resource destination');
  for(const [key,value] of Object.entries({flag:'true',start:'0',end:'500',shipPosition:'2',maritimeCode:'12',nameOfShip:''}))target.searchParams.set(key,value);
  return read(target.href,5000000);
 }
+export function fetchBinhThuanPositions(fetcher:typeof fetch=fetch){return fetchPublicAnchorage('binhthuan-open-anchorage',fetcher);}

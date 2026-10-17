@@ -132,7 +132,7 @@ rows.company_reference_snapshots=[];
 rows.reference_refresh_runs=[];
 rows.company_relationship_snapshots=[];
 rows.editorial_catalog_editions=[];
-rows.published_port_calls=[{id:id(201),event_key:'e'.repeat(64),artifact_id:id(202),vessel_id:id(203),vessel_name:'SYNTHETIC TEST SHIP',source_area:'quangtri-cua-viet',event_kind:'reported',berth:null,direction:'arrival',occurred_at:'2026-10-16T23:30:00+07:00',reported_day:'2026-10-16',raw_time:'23:30-16/10',dwt:null,row_number:1,quarantine_reason:null,source_url:'https://example.gov.vn/test-only',raw_sha256:'a'.repeat(64),fetched_at:stamp,parser_version:'quangtri-notices/1.0.0',identity_confidence:'source_observation'}];
+rows.published_port_calls=[{id:id(201),event_key:'e'.repeat(64),artifact_id:id(202),vessel_id:id(203),vessel_name:'SYNTHETIC TEST SHIP',source_area:'quangtri-cua-viet',event_kind:'reported',event_day:'2026-10-16',gt:null,berth:null,direction:'arrival',occurred_at:'2026-10-16T23:30:00+07:00',reported_day:'2026-10-16',raw_time:'23:30-16/10',dwt:null,row_number:1,quarantine_reason:null,source_url:'https://example.gov.vn/test-only',raw_sha256:'a'.repeat(64),fetched_at:stamp,parser_version:'quangtri-notices/1.0.0',identity_confidence:'source_observation'}];
 rows.call_coverage=[{source_area:'quangtri-cua-viet',event_kind:'reported',reported_day:'2026-10-16',artifact_id:id(202),fetched_at:stamp,parser_version:'quangtri-notices/1.0.0',quarantined:1}];
 rows.call_coverage.push({...rows.call_coverage[0],source_area:'quangtri-len-bang'});
   rows.published_in_port_snapshots=[{...rows.published_port_calls[0],id:id(211),event_key:'f'.repeat(64),source_area:'cantho-ct',event_kind:'in_port',vessel_name:'SYNTHETIC IN PORT SHIP',berth:'TEST BERTH',occurred_at:'2025-08-02T02:00:00+07:00',parser_version:'cantho-positions/1.0.0'}];rows.published_in_port_snapshots.push(...Array.from({length:51},(_,n)=>({...rows.published_in_port_snapshots[0],id:id(400+n),source_area:'haiphong-in-port',vessel_name:`PAGINATION SHIP ${String(n+1).padStart(2,'0')}`,berth:'TEST HP BERTH',occurred_at:null,time_day:n===0?'2026-10-17':null,time_precision:n===0?'day':'unknown',raw_time:''})));rows.port_calls=[];rows.call_artifacts=[];
@@ -217,6 +217,7 @@ createServer(async (req, res) => {
   }
   const or = url.searchParams.get("or");
   const and=url.searchParams.get('and');if(and?.startsWith('(reported_day.lte.'))data=data.filter(r=>r.reported_day<=and.slice(18,-1));
+  if(and?.startsWith('(event_day.lte.'))data=data.filter(r=>r.event_day<=and.slice(15,-1));
   if(and?.startsWith('(occurred_at.lte.'))data=data.filter(r=>Date.parse(r.occurred_at)<=Date.parse(and.slice(17,-1)));
   if (or?.startsWith("(valid_to")) {
     const at = or.split("valid_to.gt.")[1]?.replace(")", "");

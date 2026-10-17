@@ -8,6 +8,36 @@ thế mục tiêu/tiêu chí mới và không có nghĩa đã hoàn thành phạ
 
 Tiến độ và thứ tự tiếp tục tối 17/10/2026: [bàn giao Slice 2](port-calls-slice2-progress.md).
 
+## Mở rộng ngày/giờ và ma trận cảng — tối 17/10/2026
+
+Migration `202610170008_day_precision_calls.sql` thêm 7 nguồn, tổng 19 connector.
+Nguồn sự kiện mới: `nghean-reported`, `quangtri-hon-la`, `quangtri-cua-gianh`,
+`quangtri-con-co`, `quangtri-my-thuy`. Quan sát neo mới: `thaibinh-open-anchorage`
+và `kiengiang-open-anchorage`. Ngày đến/rời không có giờ giữ timestamp null,
+`time_day` và `event_day` đúng ngày nguồn. API lọc `event_day` theo giờ Việt Nam.
+`gt` và `dwt` là hai trường riêng; không thay thế nhau.
+
+Nghệ An chỉ tải tối đa 15 báo cáo XLSX liên kết từ trang chính thức. Bundle giữ
+index, bài đăng và byte workbook trong base64 để máy chủ parse lại. Giới hạn
+500 KB/workbook và 10 MB XML giải nén, không đọc external links, macro hoặc chạy
+công thức. Cache ngày A2 phải khớp ngày bài đăng; các công thức ô dữ liệu không
+được sử dụng. Không dùng tên file ghi 2016 để ghi đè năm báo cáo 2026.
+
+Các nguồn Quảng Trị mới nhận thông báo ngày/giờ và ngày đơn lẻ, kiểm tra tên khu
+vực trong title, header cột và ranh giới từng thông báo. Bảng vị trí xen giữa và
+thông báo tương lai không được tính vào sự kiện lịch sử. Không nâng kế hoạch
+thành dữ kiện thực tế chỉ vì ngày dự kiến đã qua.
+
+`nationwideCoverage` trả đủ 34 nhóm cảng theo danh mục 804/2022 cùng liên kết
+nguồn khu vực có liên quan. Quan hệ này là ma trận nghiên cứu, không phải mapping
+canonical đã duyệt hay chứng nhận đủ mọi bến của cảng. UI giữ cả nơi thiếu nguồn.
+Danh mục bến đầy đủ theo 505/2026, cảng thủy nội địa và dầu khí còn phải đối chiếu.
+
+Kiểm tra bundle tải thật tại local: `node scripts/verify-port-call-bundles.mjs`.
+Lệnh chạy migrations trong PGlite, đối chiếu số dòng public, DWT/GT/ngày và replay
+từng nguồn, xác nhận raw RLS; không kết nối cloud. Kết quả tại
+`.local/port-calls/import-verification.json` không phải readback staging.
+
 ## Phạm vi
 
 Nguồn miễn phí, không cần key hoặc hợp đồng API trả phí. Connector đầu tiên: Cảng vụ Hàng hải Quảng Trị,
@@ -49,6 +79,21 @@ Trang công khai có bộ lọc khu vực và công bố nguồn chưa có dữ 
 
 Không có lịch tự động được cấu hình. Nguồn đang trả cửa sổ khoảng 15 thông báo gần
 nhất; muốn tích lũy lịch sử cần refresh thường xuyên. Không hứa backfill toàn bộ lịch sử.
+
+CLI hỗ trợ `pnpm data:refresh:calls -- --all` để tải lần lượt tất cả nguồn đã
+đăng ký. Mỗi nguồn có `.local/port-calls/<source-id>/staging-bundle.json`, preview,
+`last-run.json` và archive bất biến theo thời điểm/hash. Một nguồn lỗi vẫn tiếp
+tục nguồn tiếp theo, kết thúc với exit code 1. Bundle mới nhất chỉ cập nhật sau
+khi parse thành công; kiểm tra `last-run.json` trước khi nhập để tránh dùng bản
+cũ. Chạy một nguồn vẫn xuất đường dẫn bundle chung để tương thích quy trình cũ.
+Đây là thu thập local, không tự nhập cloud hoặc chứng minh lịch tự chạy.
+
+API bổ sung `quality` theo từng connector đã đăng ký, gồm `reportedDays`,
+`missingReportDays`, `eventWindow`, `eventCount`, `eventsWithDwt`,
+`dwtCoverageRatio` và `daily`. Tỷ lệ DWT tính trên sự kiện hợp lệ trả về trong kỳ;
+`truncated=true` nghĩa là mẫu bị giới hạn. Snapshot/quarantine không tính vào.
+Ngày không có sự kiện giữ null; báo cáo ngày không chứng minh đủ sự kiện ngày đó.
+Danh sách connector không phải mẫu số cảng/bến toàn quốc; `complete` vẫn false.
 
 ## Tính đúng và lineage
 

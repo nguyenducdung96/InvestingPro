@@ -1,0 +1,33 @@
+{
+  "completed_at": "2026-10-17T14:46:47.59Z",
+  "scope": "binhthuan-open-anchorage",
+  "results": [
+    {
+      "source_id": "binhthuan-open-anchorage",
+      "status": "success",
+      "fetched_at": "2026-10-17T14:46:47.545Z",
+      "raw_sha256": "1dbeab98d66d7fa851462105b25f7e0e3eff31effa3958d8cce0cb9d146b1ca2",
+      "rows": 58,
+      "quarantined": 3,
+      "days": [
+        "2026-10-17"
+      ],
+      "output": ".local/port-calls/binhthuan-open-anchorage/staging-bundle.json"
+    }
+  ],
+  "acceptance": "Local fetch and parse only; not database import, nationwide coverage or scheduled refresh acceptance",
+  "retry_results": [
+    {
+      "source_id": "binhthuan-open-anchorage",
+      "status": "success",
+      "fetched_at": "2026-10-17T14:46:47.545Z",
+      "raw_sha256": "1dbeab98d66d7fa851462105b25f7e0e3eff31effa3958d8cce0cb9d146b1ca2",
+      "rows": 58,
+      "quarantined": 3,
+      "days": [
+        "2026-10-17"
+      ],
+      "output": ".local/port-calls/binhthuan-open-anchorage/staging-bundle.json"
+    }
+  ]
+}

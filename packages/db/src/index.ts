@@ -117,7 +117,7 @@ export class SupabaseCatalogRepository implements CatalogRepository {
   async callFacts(from:string,to:string,area?:string) {
     const scope:Record<string,string>=area?{source_area:`eq.${area}`}:{ };
     return Promise.all([
-      this.db.read('port','published_port_calls',params({...scope,select:'*',occurred_at:`gte.${from}T00:00:00+07:00`,and:`(occurred_at.lte.${to}T23:59:59.999999+07:00)`,order:'occurred_at.desc,id.desc',limit:'1000'})),
+      this.db.read('port','published_port_calls',params({...scope,select:'*',event_day:`gte.${from}`,and:`(event_day.lte.${to})`,order:'event_day.desc,occurred_at.desc.nullslast,id.desc',limit:'1000'})),
       this.db.read('port','call_coverage',params({...scope,select:'*',reported_day:`gte.${from}`,and:`(reported_day.lte.${to})`,order:'reported_day.asc',limit:'1000'})),
     ]);
   }

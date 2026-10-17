@@ -352,6 +352,7 @@ export interface PortCall {
  id:string;event_key:string;artifact_id:string;vessel_id:string;vessel_name:string;
  source_area:string;event_kind:'reported'|'in_port';berth:string|null;direction:'arrival'|'departure';occurred_at:string|null;reported_day:string;
  time_day:string|null;time_precision:'minute'|'day'|'unknown';
+ event_day:string|null;gt:number|null;
  time_basis:'port_arrival'|'anchorage_start';
  raw_time:string;dwt:number|null;row_number:number;quarantine_reason:string|null;
  source_url:string;raw_sha256:string;fetched_at:string;parser_version:string;identity_confidence:string;

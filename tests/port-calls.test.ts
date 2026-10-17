@@ -87,6 +87,12 @@ it('keeps concurrent area notices and replaces complete snapshots without manufa
  await put(readFileSync('tests/fixtures/hcm-position-excerpt.html','utf8'),'hcm-in-port');
  expect((await db.query("select occurred_at,time_day::text,time_precision from port.published_in_port_snapshots where source_area='hcm-in-port' order by row_number limit 1")).rows).toEqual([{occurred_at:null,time_day:'2026-10-17',time_precision:'day'}]);
  expect((await db.query('select * from port.published_port_calls')).rows).toHaveLength(4);
+ const nghean=readFileSync('tests/fixtures/nghean-report-excerpt.json','utf8');
+ await put(nghean,'nghean-reported');
+ expect((await put(nghean,'nghean-reported')).rows[0].r.replayed).toBe(true);
+ const events=await db.query("select occurred_at,time_day::text,event_day::text,time_precision,dwt,gt from port.published_port_calls where source_area='nghean-reported' and vessel_name='JI HANG 15' and direction='arrival'");
+ expect(events.rows).toEqual([{occurred_at:null,time_day:'2026-10-09',event_day:'2026-10-09',time_precision:'day',dwt:'16493.7',gt:'9936'}]);
+ expect((await db.query("select * from port.published_port_calls where source_area='nghean-reported' and event_day between '2026-10-09' and '2026-10-14'")).rows).toHaveLength(5);
  await db.exec('reset role;set role anon');expect((await db.query('select * from port.published_in_port_snapshots')).rows).toHaveLength(5);
  await expect(db.query('select raw_text from port.call_artifacts')).rejects.toThrow('permission denied');
  }finally{await db.close();}
