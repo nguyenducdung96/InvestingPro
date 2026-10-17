@@ -2,6 +2,7 @@ import {test,expect} from '@playwright/test';
 test('daily calls expose lineage, partial coverage, filters and readable themes',async({page,request},info)=>{
  await page.goto('/industries/ports/calls?from=2026-10-01&to=2026-10-17');
  await expect(page.getByRole('heading',{name:'Nhật ký lượt tàu'})).toBeVisible();
+ await expect(page.getByRole('region',{name:'Dữ liệu vị trí đã có'}).getByRole('link',{name:'Hải Phòng · 51',exact:true})).toBeVisible();
  await expect(page.getByRole('cell',{name:'SYNTHETIC TEST SHIP'})).toBeVisible();
  await expect(page.getByRole('img',{name:'2026-10: 1 lượt đến, 1 ngày có thông báo',exact:true})).toBeVisible();
  await expect(page.getByRole('cell',{name:'SYNTHETIC IN PORT SHIP'})).toBeVisible();
@@ -33,6 +34,7 @@ test('area filter isolates snapshot data without adding it to reported arrivals'
 test('large position boards paginate and preserve missing time without midnight',async({page})=>{
  await page.goto('/industries/ports/calls?area=haiphong-in-port');
  await expect(page.getByRole('cell',{name:'PAGINATION SHIP 01'})).toBeVisible();
+ await expect(page.getByRole('region',{name:'Bảng tàu tại cảng cuộn ngang'}).getByRole('columnheader',{name:'DWT theo nguồn',exact:true})).toBeVisible();
  await expect(page.getByText('Nguồn không ghi giờ',{exact:true})).toBeVisible();
  await expect(page.getByRole('cell',{name:'PAGINATION SHIP 51'})).toHaveCount(0);
  const nav=page.getByRole('navigation',{name:'Phân trang vị trí tàu'});

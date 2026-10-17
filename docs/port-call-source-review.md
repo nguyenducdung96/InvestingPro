@@ -53,3 +53,30 @@ tháng 4–5/2026, chưa xác nhận độ mới. Link vị trí `https://tttb.c
 timeout ở lần mở. Hệ thống thống kê IP `http://144.79.79.16/intro.html` chưa xác minh
 được truy cập chi tiết công khai. ENC, NSO, danh mục bến/cầu và báo cáo doanh nghiệp
 có ích cho các phạm vi khác, không tự tạo call từ số liệu tổng hợp.
+
+## Sửa đối chiếu Hải Phòng / TP.HCM — 17/10/2026
+
+Không xếp Hải Phòng, TP.HCM hay Cái Mép–Thị Vải vào nhóm không có dữ liệu.
+Đã nhập bảng Hải Phòng 196 quan sát và TP.HCM/Cái Mép–Thị Vải 728 quan sát.
+Đối chiếu lại trực tiếp: HP HTTP 200, 198 dòng / 195 khóa hợp lệ khác nhau tại
+thời điểm mới hơn (nguồn thay đổi); HCM HTTP 200, 739 dòng, 9 dòng tàu ghép cần
+đối chiếu, 2 dòng trùng, còn 728 khóa hợp lệ, khớp API app. Không suy ra thiếu
+11 tàu chỉ từ chênh lệch tổng dòng 739 và 728.
+
+UI trước đặt bảng vị trí sau 50 dòng nhật ký của hai nguồn Quảng Trị nên dữ liệu
+các khu vực lớn khó tìm. Thêm phần Dữ liệu vị trí đã có trước nhật ký, đếm theo
+nguồn và dẫn thẳng vào bảng từng khu vực; bổ sung cột DWT trong bảng vị trí.
+
+Nguồn bổ sung quan trọng đã đọc trực tiếp từ liên kết trên trang Cảng vụ TP.HCM:
+https://hanghai.moc.gov.vn/tra-cuu-giay-phep
+Cổng Cục Hàng hải/Đường thủy có bộ lọc 25 Cảng vụ, tên tàu, ngày, số giấy phép,
+IMO, hô hiệu, ngày hiệu lực và cảng rời. Tra cứu UI không đăng nhập cho Hải Phòng
+ngày 17/10/2026 trả 15 kết quả tại lần kiểm tra, gồm UNI-PRUDENT, IMO 9202194,
+VIP GREEN PORT, ngày hiệu lực 17/10/2026 15:05. Cổng mặc định có hơn 534.000
+bản ghi và phân trang; chưa được nhập toàn bộ vào app. Đây là giấy phép rời cảng,
+không tự biến thành xác nhận tàu đã rời hay bổ sung lượt đến. GET tự dựng không
+trả cùng kết quả với form POST tìm kiếm: connector cần theo đúng form và kiểm tra
+phân trang/bộ lọc bằng kết quả thực, không suy đoán query.
+
+Nguồn này thay thế nhận định nghiên cứu cũ rằng chưa có tra cứu chi tiết công
+khai toàn quốc; không thay đổi trạng thái nghiệm thu toàn quốc là chưa hoàn thành.
