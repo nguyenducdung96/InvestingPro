@@ -114,15 +114,19 @@ export class SupabaseCatalogRepository implements CatalogRepository {
     private db: Transport,
     private admin = false,
   ) {}
-  async callFacts(from:string,to:string) {
+  async callFacts(from:string,to:string,area?:string) {
+    const scope:Record<string,string>=area?{source_area:`eq.${area}`}:{ };
     return Promise.all([
-      this.db.read('port','published_port_calls',params({select:'*',occurred_at:`gte.${from}T00:00:00+07:00`,and:`(occurred_at.lte.${to}T23:59:59.999999+07:00)`,order:'occurred_at.desc,id.desc',limit:'1000'})),
-      this.db.read('port','call_coverage',params({select:'*',reported_day:`gte.${from}`,and:`(reported_day.lte.${to})`,order:'reported_day.asc',limit:'1000'})),
+      this.db.read('port','published_port_calls',params({...scope,select:'*',occurred_at:`gte.${from}T00:00:00+07:00`,and:`(occurred_at.lte.${to}T23:59:59.999999+07:00)`,order:'occurred_at.desc,id.desc',limit:'1000'})),
+      this.db.read('port','call_coverage',params({...scope,select:'*',reported_day:`gte.${from}`,and:`(reported_day.lte.${to})`,order:'reported_day.asc',limit:'1000'})),
     ]);
   }
   async callArtifact(id:string) {
     if(!this.admin)throw new DatabaseError(403);
     return (await this.db.read('port','call_artifacts',params({id:`eq.${id}`,limit:'1'})))[0]??null;
+  }
+  async callSnapshots() {
+    return this.db.read('port','published_in_port_snapshots',params({select:'*',order:'source_area.asc,vessel_name.asc,id.asc',limit:'1000'}));
   }
   async quarantinedCalls() {
     if(!this.admin)throw new DatabaseError(403);

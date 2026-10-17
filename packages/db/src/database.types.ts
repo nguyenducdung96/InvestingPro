@@ -32,6 +32,7 @@ export interface Tables {
   catalog: { entities: Entity; companies: Company; company_listings: Listing };
   port: {
     published_port_calls: PortCall;
+    published_in_port_snapshots: PortCall;
     call_coverage: CallCoverage;
     call_artifacts: CallArtifact;
     port_calls: StoredPortCall;

@@ -1,0 +1,376 @@
+{
+  "checked_on": "2026-10-17",
+  "purpose": "Research inputs for nationwide expansion; not a publication or connector-acceptance decision",
+  "sources": [
+    {
+      "id": "quangtri-cua-viet",
+      "kind": "authority",
+      "area": "Cửa Việt",
+      "url": "https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2073&page=NEWS",
+      "semantics": "reported_arrival_departure",
+      "assessment": "Connector already live; dated notices; no IMO; bounded recent history",
+      "access": "public_html"
+    },
+    {
+      "id": "quangtri-len-bang",
+      "kind": "authority",
+      "area": "Lèn Bảng",
+      "url": "https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2076&page=NEWS",
+      "semantics": "reported_arrival_departure",
+      "assessment": "Dated arrival/departure tables found in public search; verify adapter and area separately",
+      "access": "public_html"
+    },
+    {
+      "id": "hue-chan-may",
+      "kind": "authority",
+      "area": "Chân Mây",
+      "url": "https://cangvuhanghaithuathienhue.gov.vn/index.aspx?cat=3128&page=news",
+      "semantics": "mixed_reported_and_future_arrival_departure_notices",
+      "assessment": "Live tables verified. Notice 17/10 includes arrivals on 18, 19, 20 and 25/10/2026. Separate future plans and reported observations; deduplicate repeated notices.",
+      "access": "public_html"
+    },
+    {
+      "id": "hue-positions",
+      "kind": "authority",
+      "area": "Chân Mây / Thuận An",
+      "url": "https://cangvuhanghaithuathienhue.gov.vn/index.aspx?cat=3126&page=news",
+      "semantics": "in_port_snapshot_index",
+      "assessment": "Official index links two areas; not itself a table of movements",
+      "access": "public_html"
+    },
+    {
+      "id": "nghe-an-positions",
+      "kind": "authority",
+      "area": "Nghệ An",
+      "url": "https://cangvuhanghainghean.gov.vn/index.aspx?cat=2017&page=news",
+      "semantics": "dated_in_port_snapshot_index",
+      "assessment": "Dated archive, latest visible item 14/10/2026 and 89 pages; snapshot rows must not be counted repeatedly as calls",
+      "access": "public_html"
+    },
+    {
+      "id": "nghe-an-position-detail",
+      "kind": "authority",
+      "area": "Nghệ An",
+      "url": "https://cangvuhanghainghean.gov.vn/index.aspx?id=6067&page=detail",
+      "semantics": "in_port_snapshot",
+      "assessment": "Public XLSX downloaded and inspected: arrival/departure columns, berth areas and current status. Filename says 2016; workbook contains 14/10/2026 and modified metadata 2026-10-14. Merged-cell/date/status parser required before event acceptance.",
+      "access": "public_html"
+    },
+    {
+      "id": "quang-ninh-positions",
+      "kind": "authority",
+      "area": "Quảng Ninh",
+      "url": "https://kht1.cangvuhanghaiquangninh.gov.vn/vitritau.aspx",
+      "semantics": "in_port_snapshot",
+      "assessment": "Vessel/DWT/LOA/GRT/berth and arrival/departure fragments available; row timestamps omit year; cannot infer historical calls from fetch year",
+      "access": "public_html"
+    },
+    {
+      "id": "hai-phong-plan",
+      "kind": "authority",
+      "area": "Hải Phòng",
+      "url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-1",
+      "semantics": "planned_movements",
+      "assessment": "Structured dated departure/shift/arrival/transit plans; never label as completed calls; transit/shift need separate semantics",
+      "access": "public_html"
+    },
+    {
+      "id": "quy-nhon-positions",
+      "kind": "authority",
+      "area": "Quy Nhơn",
+      "url": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?cat=2015&page=news",
+      "semantics": "in_port_snapshot_candidate",
+      "assessment": "Official page heading exists but returned ERROR in extracted content; no usable rows established",
+      "access": "source_error"
+    },
+    {
+      "id": "nha-trang-operations",
+      "kind": "authority",
+      "area": "Khánh Hòa",
+      "url": "https://kht.cangvuhanghainhatrang.gov.vn/",
+      "semantics": "operations_database",
+      "assessment": "Official Nha Trang homepage links here; redirects to Login.aspx; no authenticated data access attempted",
+      "access": "login_required"
+    },
+    {
+      "id": "can-tho-positions",
+      "kind": "authority",
+      "area": "Cần Thơ",
+      "url": "https://cangvuhanghaicantho.gov.vn/Index.aspx?kv=ct&page=vtttc",
+      "semantics": "in_port_snapshot_with_arrival_dates",
+      "assessment": "Live HTML vessel rows verified; full arrival dates and separate port/berth arrival columns; not departure history. Snapshot must not be counted again on refresh.",
+      "access": "public_html"
+    },
+    {
+      "id": "my-thoi-positions",
+      "kind": "authority",
+      "area": "Mỹ Thới",
+      "url": "https://cangvuhanghaicantho.gov.vn/Index.aspx?kv=st&page=vtttc",
+      "semantics": "in_port_snapshot_with_arrival_dates",
+      "assessment": "Four live vessel rows verified with full arrival dates; two arrival-column groups, not departure history. Canonical area/berth mapping requires review.",
+      "access": "public_html"
+    },
+    {
+      "id": "hau-giang-positions",
+      "kind": "authority",
+      "area": "Hậu Giang",
+      "url": "https://cangvuhanghaicantho.gov.vn/Index.aspx?kv=hg&page=vtttc",
+      "semantics": "in_port_snapshot_with_arrival_dates",
+      "assessment": "Live HTML vessel rows verified; full arrival dates and separate port/berth arrival columns; not departure history. Snapshot must not be counted again on refresh.",
+      "access": "public_html"
+    },
+    {
+      "id": "dong-nai-index",
+      "kind": "authority",
+      "area": "Đồng Nai",
+      "url": "https://www.cangvuhanghaidongnai.gov.vn/index.aspx?cat=1&page=index",
+      "semantics": "source_index",
+      "assessment": "Plans/positions labels visible but no usable hyperlinks or rows established in extraction",
+      "access": "navigation_only"
+    },
+    {
+      "id": "vung-tau-positions",
+      "kind": "authority",
+      "area": "Vũng Tàu / Cái Mép",
+      "url": "https://cangvuhanghaivungtau.gov.vn/Index.aspx?d=1&page=schedule&tab=vtttc",
+      "semantics": "in_port_snapshot_candidate",
+      "assessment": "Search-index candidate; cached example is old and current web access failed; do not claim current coverage",
+      "access": "unverified_current_access"
+    },
+    {
+      "id": "da-nang-working",
+      "kind": "operator",
+      "area": "Cảng Đà Nẵng",
+      "url": "https://danangport.com/tau-dang-lam-hang/",
+      "semantics": "working_vessels_snapshot",
+      "assessment": "Official working-vessel page; supplementary current-operation evidence, not complete arrival/departure history",
+      "access": "public_html"
+    },
+    {
+      "id": "da-nang-container-plan",
+      "kind": "operator",
+      "area": "Cảng Đà Nẵng",
+      "url": "https://danangport.com/dich-vu-khach-hang/lich-tau-container/",
+      "semantics": "expected_berthing_schedule",
+      "assessment": "October 2026 table explicitly EXPECTED / ETB; suitable for separate schedule view only",
+      "access": "public_html"
+    },
+    {
+      "id": "quy-nhon-operator-plan",
+      "kind": "operator",
+      "area": "Cảng Quy Nhơn",
+      "url": "https://quynhonport.vn/chuyen-muc/ke-hoach-khai-thac-tau/",
+      "semantics": "operations_plan_archive",
+      "assessment": "Official operating-plan archive found; inspect each dated plan and actual-time fields before admitting calls",
+      "access": "public_html"
+    },
+    {
+      "id": "cmit-export",
+      "kind": "operator",
+      "area": "CMIT",
+      "url": "https://cap.cmit.com.vn/ArgoService/ExportVesselToPdf",
+      "semantics": "vessel_schedule_with_actual_columns",
+      "assessment": "Public PDF export has ETA/ETD and ATA/ATD columns; inspected export has no data rows; fields alone do not establish availability",
+      "access": "public_pdf_empty_sample"
+    },
+    {
+      "id": "vict-schedule",
+      "kind": "operator",
+      "area": "VICT / TP.HCM",
+      "url": "https://eport.vict.com.vn/homepage/search-vessel-schedule",
+      "semantics": "vessel_schedule_candidate",
+      "assessment": "Official ePort route indexed; live extraction unsuccessful; inspect public UI and actual-time fields",
+      "access": "unverified_current_access"
+    },
+    {
+      "id": "snp-index",
+      "kind": "operator",
+      "area": "Tân Cảng network",
+      "url": "https://saigonnewport.com.vn/",
+      "semantics": "source_index",
+      "assessment": "Official network homepage reachable; no public port-call API or complete movement feed established in this review",
+      "access": "navigation_only"
+    },
+    {
+      "id": "vesselfinder",
+      "kind": "commercial_api",
+      "area": "Provider port coverage, Vietnam must be tested",
+      "url": "https://api.vesselfinder.com/docs/portcalls.html",
+      "semantics": "ais_port_call_events",
+      "assessment": "PortCalls filters LOCODE, arrival/departure, time range and last_id; requires key; live Vietnam coverage not tested",
+      "access": "paid_key_required",
+      "pricing_url": "https://api.vesselfinder.com/docs/",
+      "price_observed": "10,000 credits / EUR 330 excluding VAT; PortCall 2 credits; credits expire in 12 months"
+    },
+    {
+      "id": "marinetraffic",
+      "kind": "commercial_api",
+      "area": "Provider coverage, Vietnam must be tested",
+      "url": "https://servicedocs.marinetraffic.com/tag/Single-Vessel-Events/",
+      "semantics": "ais_port_call_and_berth_events",
+      "assessment": "Documented port-call and berth-call services; key/contract required; verify port-oriented subscription and Vietnam samples",
+      "access": "contract_key_required"
+    },
+    {
+      "id": "datalastic",
+      "kind": "commercial_api",
+      "area": "Provider AIS coverage, Vietnam must be tested",
+      "url": "https://docs.datalastic.com/",
+      "semantics": "ais_positions_history_port_reference",
+      "assessment": "Structured vessel tracking/history/area scans and port reference; do not assume a ready-made complete port-call event feed",
+      "access": "paid_key_required",
+      "pricing_url": "https://datalastic.com/pricing/",
+      "price_observed": "Starter Data Feed EUR 199/month after trial; 20,000 monthly credits; plan/pricing can change"
+    },
+    {
+      "id": "aisstream",
+      "kind": "community_api",
+      "area": "Station-dependent; Vietnam not measured",
+      "url": "https://aisstream.io/",
+      "semantics": "raw_live_ais_stream",
+      "assessment": "Free server-side WebSocket with key and geographic filters; build/validate geofencing and dwell logic before generating inferred calls; no full Vietnam or historical coverage established",
+      "access": "account_key_required"
+    },
+    {
+      "id": "aishub",
+      "kind": "community_api",
+      "area": "Contributor-station coverage",
+      "url": "https://www.aishub.net/api",
+      "semantics": "raw_ais_positions",
+      "assessment": "JSON/XML/CSV positions; membership granted after sharing and validation of own AIS feed; not a free ready-made call-history API",
+      "access": "contributor_required",
+      "eligibility_url": "https://www.aishub.net/"
+    }
+  ],
+  "catalog_review": [
+    {
+      "port": "An Giang",
+      "candidate_sources": [
+        "my-thoi-positions"
+      ],
+      "status": "area_mapping_and_rows_unverified"
+    },
+    {
+      "port": "Bà Rịa - Vũng Tàu",
+      "candidate_sources": [
+        "vung-tau-positions",
+        "cmit-export"
+      ],
+      "status": "current_rows_unverified"
+    },
+    {
+      "port": "Bình Dương",
+      "candidate_sources": [
+        "snp-index",
+        "vesselfinder"
+      ],
+      "status": "no_verified_local_movement_feed"
+    },
+    {
+      "port": "Bình Định",
+      "candidate_sources": [
+        "quy-nhon-positions",
+        "quy-nhon-operator-plan"
+      ],
+      "status": "authority_error_operator_plan_only"
+    },
+    {
+      "port": "Cần Thơ",
+      "candidate_sources": [
+        "can-tho-positions"
+      ],
+      "status": "snapshot_arrival_dates_verified_not_complete_call_history"
+    },
+    {
+      "port": "Hải Phòng",
+      "candidate_sources": [
+        "hai-phong-plan"
+      ],
+      "status": "planned_movements_verified_not_actual_calls"
+    },
+    {
+      "port": "Hậu Giang",
+      "candidate_sources": [
+        "hau-giang-positions"
+      ],
+      "status": "snapshot_arrival_dates_verified_not_complete_call_history"
+    },
+    {
+      "port": "Khánh Hoà",
+      "candidate_sources": [
+        "nha-trang-operations"
+      ],
+      "status": "official_operations_login_required"
+    },
+    {
+      "port": "Nghệ An",
+      "candidate_sources": [
+        "nghe-an-positions",
+        "nghe-an-position-detail"
+      ],
+      "status": "dated_snapshot_archive_found"
+    },
+    {
+      "port": "Quảng Ngãi",
+      "candidate_sources": [
+        "vesselfinder",
+        "marinetraffic"
+      ],
+      "status": "no_verified_local_movement_feed"
+    },
+    {
+      "port": "Quảng Ninh",
+      "candidate_sources": [
+        "quang-ninh-positions"
+      ],
+      "status": "snapshot_verified_year_missing_in_row_times"
+    },
+    {
+      "port": "Thành phố Hồ Chí Minh",
+      "candidate_sources": [
+        "vict-schedule",
+        "snp-index"
+      ],
+      "status": "operator_sources_found_movement_rows_unverified"
+    },
+    {
+      "port": "Thừa Thiên Huế",
+      "candidate_sources": [
+        "hue-chan-may",
+        "hue-positions"
+      ],
+      "status": "mixed_reported_and_future_notices_verified"
+    },
+    {
+      "port": "Tiền Giang",
+      "candidate_sources": [
+        "vesselfinder",
+        "marinetraffic"
+      ],
+      "status": "no_verified_local_movement_feed"
+    },
+    {
+      "port": "Đà Nẵng",
+      "candidate_sources": [
+        "da-nang-working",
+        "da-nang-container-plan"
+      ],
+      "status": "operator_snapshot_and_expected_schedule_found"
+    },
+    {
+      "port": "Đồng Nai",
+      "candidate_sources": [
+        "dong-nai-index"
+      ],
+      "status": "navigation_labels_only"
+    },
+    {
+      "port": "Đồng Tháp",
+      "candidate_sources": [
+        "vesselfinder",
+        "marinetraffic"
+      ],
+      "status": "no_verified_local_movement_feed"
+    }
+  ]
+}
