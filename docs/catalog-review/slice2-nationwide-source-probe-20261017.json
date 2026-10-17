@@ -1,0 +1,145 @@
+{
+  "recorded_at": "2026-10-17T15:33:40.384965+00:00",
+  "scope": "Source discovery and HTTP checks only; not all-port event acceptance",
+  "records": [
+    {
+      "id": "dongnai-public",
+      "url": "http://123.25.204.166/web/guest/public-kh",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 1901,
+      "sha256": "c51ae42a06f9dd10fd54c5d7ce5705dae4689bf982ea01ce8d950ff4e17ae838"
+    },
+    {
+      "id": "thanhhoa-new",
+      "url": "https://www.cangvuhanghaithanhhoa.gov.vn/index.aspx",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 50864,
+      "sha256": "8f36cd7f3ccbf2c21e4801231f99326e605de6adb410f81559033a46507664af"
+    },
+    {
+      "id": "thaibinh-home",
+      "url": "https://cangvuhanghaithaibinh.gov.vn/",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 49734,
+      "sha256": "0ada5a65ce3780409d82d0d4ab50882036c4b3f8bc13789ef32a3029f6695dd6"
+    },
+    {
+      "id": "kiengiang-home",
+      "url": "https://cangvuhanghaikiengiang.gov.vn/",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 48930,
+      "sha256": "d5555b7ce282acf1462a9d50e9f61e77e404f3fe2a4fd184fea1d0609f4a2598"
+    },
+    {
+      "id": "hatinh-home",
+      "url": "https://cangvuhanghaihatinh.gov.vn/",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 60758,
+      "sha256": "34b4c9d381f13f98e25e8767d24a0be0e1ff2a2d0d9f9f1fdcf391a6639ad9d4"
+    },
+    {
+      "id": "quangngai-home",
+      "url": "https://cangvuhanghaiquangngai.gov.vn/",
+      "http_status": "000",
+      "curl_exit": 6,
+      "error": "curl: (6) Could not resolve host: cangvuhanghaiquangngai.gov.vn"
+    },
+    {
+      "id": "danang-public-retry",
+      "url": "https://tttb.cangvuhanghaidanang.gov.vn/public-kh",
+      "http_status": "000",
+      "curl_exit": 28,
+      "error": "curl: (28) Failed to connect to tttb.cangvuhanghaidanang.gov.vn:443 after 21154 ms: Could not connect to server"
+    },
+    {
+      "id": "quangngai-official",
+      "url": "http://cangvuhanghaiqni.gov.vn/",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 171508,
+      "sha256": "a674387b572980915e34a0a51c207e8f584540877a4c74ac0699d9b5a8a818fb"
+    },
+    {
+      "id": "mytho-home",
+      "url": "https://cangvuhanghaimytho.gov.vn/",
+      "http_status": "000",
+      "curl_exit": 6,
+      "error": "curl: (6) Could not resolve host: cangvuhanghaimytho.gov.vn"
+    },
+    {
+      "id": "dongthap-home",
+      "url": "https://cangvuhanghaidongthap.gov.vn/",
+      "http_status": "000",
+      "curl_exit": 60,
+      "error": "curl: (60) schannel: SEC_E_UNTRUSTED_ROOT (0x80090325) - The certificate chain was issued by an authority that is not trusted.\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and the"
+    },
+    {
+      "id": "quangnam-public",
+      "url": "https://cangvuhanghaiquangnam.gov.vn/",
+      "http_status": "000",
+      "curl_exit": 60,
+      "error": "curl: (60) schannel: SEC_E_UNTRUSTED_ROOT (0x80090325) - The certificate chain was issued by an authority that is not trusted.\nMore details here: https://curl.se/docs/sslcerts.html\n\ncurl failed to verify the legitimacy of the server and the"
+    },
+    {
+      "id": "quynhon-retry",
+      "url": "https://cangvuhanghaiquynhon.gov.vn/",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 40639,
+      "sha256": "50039cc4a878634269cc036dfc91260d534f09b818540080e2af69b17f357dfe"
+    },
+    {
+      "id": "quangtri-honla",
+      "url": "https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2074&page=news",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 715021,
+      "sha256": "8ec8cbf15157d53c3434403c57787ae52997229f24cebb3b393e4d439554749b"
+    },
+    {
+      "id": "quangtri-cuagianh",
+      "url": "https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2075&page=NEWS",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 589985,
+      "sha256": "ec82775b7c499d47b1e470eb695713685b95afc38279b9cdac99650ea42731c1"
+    },
+    {
+      "id": "quangtri-conco",
+      "url": "https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2077&page=NEWS",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 792678,
+      "sha256": "48227571274d6760494ba61a63ea40608f55cd5f4fcd8be9ba11f95cd9c1ad25"
+    },
+    {
+      "id": "quangtri-mythuy",
+      "url": "https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2092&page=news",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 730413,
+      "sha256": "61f541e76e03e4c72327613519ec43767cef4e0712a6702345bee0d3033638c4"
+    },
+    {
+      "id": "dongnai-init-retry",
+      "url": "http://123.25.204.166/web/guest/public-kh?p_p_id=vma_WAR_TichHopGiaoThongportlet&p_p_lifecycle=2&p_p_resource_id=getURLInit",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 65777,
+      "sha256": "d1b7f328460f080758ab18cb16119c889347a392d7b02fc5582426ae4314b72a"
+    },
+    {
+      "id": "hatinh-init-retry",
+      "url": "http://116.98.104.198/web/guest/public-kh?p_p_id=vma_WAR_TichHopGiaoThongportlet&p_p_lifecycle=2&p_p_resource_id=getURLInit",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 68197,
+      "sha256": "0ea0dae609526805b642cf2505a85a7da32d1d7c9e87739f280bc41eaff2ac2e"
+    }
+  ]
+}

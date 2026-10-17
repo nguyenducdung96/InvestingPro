@@ -1,5 +1,6 @@
 import type {CallCoverage, PortCall} from '@invest/domain';
 import {CALL_SOURCES} from './calls';
+const vietnamDay=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'});
 
 // Notice coverage is evidence of a report, not evidence that every event was captured.
 export function callQuality(from:string,to:string,rows:PortCall[],coverage:CallCoverage[],area?:string,truncated=false){
@@ -10,7 +11,7 @@ export function callQuality(from:string,to:string,rows:PortCall[],coverage:CallC
   const notices=coverage.filter(c=>c.source_area===source.id&&c.event_kind==='reported');
   const reported=new Set(notices.map(c=>c.reported_day));
   const events=rows.filter(r=>r.source_area===source.id&&r.event_kind==='reported'&&!r.quarantine_reason);
-  const eventDay=(r:PortCall)=>r.occurred_at?new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'}).format(new Date(r.occurred_at)):r.time_day;
+  const eventDay=(r:PortCall)=>r.occurred_at?vietnamDay.format(new Date(r.occurred_at)):r.time_day;
   const dated=events.map(r=>({row:r,day:eventDay(r)}));
   const withDwt=events.filter(r=>r.dwt!==null).length;
   return {sourceArea:source.id,label:source.label,dataKind:source.kind,

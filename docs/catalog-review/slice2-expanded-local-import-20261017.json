@@ -1,17 +1,17 @@
 {
-  "checked_at": "2026-10-17T15:06:57.607Z",
+  "checked_at": "2026-10-17T15:40:22.334Z",
   "environment": "local_pglite",
   "cloud_imported": false,
   "nationwide_complete": false,
   "event_count": 467,
-  "snapshot_count": 1173,
+  "snapshot_count": 1305,
   "raw_access_denied_to_anon": true,
   "results": [
     {
       "source_id": "nghean-reported",
       "kind": "reported",
-      "raw_sha256": "d5f2ef8ca16ea6e4577c92f88c156a878a588b796567041308dfc1244719b90a",
-      "fetched_at": "2026-10-17T15:03:20.387Z",
+      "raw_sha256": "198d61a5417382ebe1713c9849cfe72ff55ec74b3458b0ef8500b2a6d2647b36",
+      "fetched_at": "2026-10-17T15:16:44.013Z",
       "parser_version": "nghean-reports/1.0.0",
       "parsed_rows": 495,
       "distinct_published_rows": 222,
@@ -331,7 +331,7 @@
       "kind": "in_port",
       "raw_sha256": "61a32262f9e5e72520fb901b830610ce337fca0c2fe51803095f9f1ca5ed9f3a",
       "fetched_at": "2026-10-17T15:03:42.247Z",
-      "parser_version": "binhthuan-open-anchorage/1.0.0",
+      "parser_version": "binhthuan-open-anchorage/1.1.0",
       "parsed_rows": 58,
       "distinct_published_rows": 55,
       "quarantined_rows": 3,
@@ -346,7 +346,7 @@
       "kind": "in_port",
       "raw_sha256": "f573dfee7f92ac50aeda826784f382bbd4c7f460ed4a6f07960bf724c9804502",
       "fetched_at": "2026-10-17T15:03:42.902Z",
-      "parser_version": "thaibinh-open-anchorage/1.0.0",
+      "parser_version": "thaibinh-open-anchorage/1.1.0",
       "parsed_rows": 4,
       "distinct_published_rows": 4,
       "quarantined_rows": 0,
@@ -361,10 +361,40 @@
       "kind": "in_port",
       "raw_sha256": "a9817a0a7d265f99c4febedab9d1cfb84955dadfe9002f923c69ab6797692ab4",
       "fetched_at": "2026-10-17T15:03:43.572Z",
-      "parser_version": "kiengiang-open-anchorage/1.0.0",
+      "parser_version": "kiengiang-open-anchorage/1.1.0",
       "parsed_rows": 56,
       "distinct_published_rows": 53,
       "quarantined_rows": 3,
+      "reported_days": [
+        "2026-10-17"
+      ],
+      "replay_verified": true,
+      "dwt_gt_precision_verified": true
+    },
+    {
+      "source_id": "dongnai-open-anchorage",
+      "kind": "in_port",
+      "raw_sha256": "b67853462b8a91542b54bc38344b704b795d49befd05958445c5497d06b3e5a4",
+      "fetched_at": "2026-10-17T15:29:30.039Z",
+      "parser_version": "dongnai-open-anchorage/1.0.0",
+      "parsed_rows": 75,
+      "distinct_published_rows": 63,
+      "quarantined_rows": 12,
+      "reported_days": [
+        "2026-10-17"
+      ],
+      "replay_verified": true,
+      "dwt_gt_precision_verified": true
+    },
+    {
+      "source_id": "hatinh-open-anchorage",
+      "kind": "in_port",
+      "raw_sha256": "a951947b8ca8fde07a270b0512230534abddc8d793a28793c07a7763028fd8a4",
+      "fetched_at": "2026-10-17T15:28:56.830Z",
+      "parser_version": "hatinh-open-anchorage/1.0.0",
+      "parsed_rows": 69,
+      "distinct_published_rows": 69,
+      "quarantined_rows": 0,
       "reported_days": [
         "2026-10-17"
       ],

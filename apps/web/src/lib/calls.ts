@@ -1,5 +1,6 @@
 import {date,InputError,callSource,callQuality,nationwideCallCoverage} from '@invest/port';
 import {publicRepository} from './server';
+const vietnamMonth=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit'});
 export function callRange(p:Record<string,string|undefined>){
  const today=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'}).format(new Date());
  const to=date(p.to??today),from=date(p.from??`${to.slice(0,7)}-01`);
@@ -13,6 +14,6 @@ export async function callReport(from:string,to:string,area?:string){
  const months=new Map<string,{month:string;arrivals:number;departures:number;reportedDays:number;quarantined:number}>();
  const calendarDays=new Set<string>();
  for(const d of coverage.filter(d=>d.event_kind!=='in_port')){const m=d.reported_day.slice(0,7);const bucket=months.get(m)??{month:m,arrivals:0,departures:0,reportedDays:0,quarantined:0};if(!calendarDays.has(d.reported_day))bucket.reportedDays++;calendarDays.add(d.reported_day);bucket.quarantined+=d.quarantined;months.set(m,bucket);}
- for(const r of rows){const m=r.occurred_at?new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit'}).format(new Date(r.occurred_at)):(r.time_day??r.reported_day).slice(0,7);const b=months.get(m)??{month:m,arrivals:0,departures:0,reportedDays:0,quarantined:0};b[r.direction==='arrival'?'arrivals':'departures']++;months.set(m,b);}
+ for(const r of rows){const m=r.occurred_at?vietnamMonth.format(new Date(r.occurred_at)):(r.time_day??r.reported_day).slice(0,7);const b=months.get(m)??{month:m,arrivals:0,departures:0,reportedDays:0,quarantined:0};b[r.direction==='arrival'?'arrivals':'departures']++;months.set(m,b);}
  return {data:rows,quality,nationwideCoverage:nationwideCallCoverage(rows,coverage,snapshots),snapshots:snapshots.filter(r=>!area||r.source_area===area),monthly:[...months.values()].sort((a,b)=>a.month.localeCompare(b.month)),coverage,meta:{from,to,asOf:coverage.map(d=>d.fetched_at).sort().at(-1)??null,unit:'reported_vessel_arrival',methodologyVersion:'free-public-sources-v3',sourceArea:area||'multiple',complete:false,truncated:rows.length>=1000||coverage.length>=1000||snapshots.length>=5000,warnings:['Nhật ký đếm thông báo đến/rời; bảng vị trí là dữ liệu nguồn mới nhất, không phải xác nhận AIS và không cộng vào số lượt. Chưa bao phủ tất cả cảng Việt Nam.','Không có IMO: nhận dạng theo từng quan sát; không gộp tàu chỉ theo tên.','Ngày không có thông báo là thiếu dữ liệu, không phải 0 lượt.']}};
 }

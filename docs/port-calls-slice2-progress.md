@@ -8,6 +8,58 @@ không phụ thuộc Vnstock. Việc đổi mục tiêu không tự hoàn tất 
 
 ## Đã hoàn thành
 
+### Readback staging lúc 22:38 ngày 17/10/2026
+
+- Đã nhập đủ 21 nguồn, gồm Đồng Nai và Hà Tĩnh bằng bundle khi live source chậm/lỗi.
+- API 01/09–17/10: **459 sự kiện đến/rời, 1.300 snapshot**, 21 source areas có
+  evidence, không chạm giới hạn. Database public giữ 471 sự kiện trên toàn bộ
+  ngày đã thu thập; riêng Nghệ An 222 sự kiện, 210 nằm trong kỳ API nêu trên.
+- Đối chiếu từng event key/hash/DWT/GT của 5 nguồn neo với bundle thật đều khớp.
+  Nghệ An giữ `occurred_at=null`, `event_day=time_day` và GT riêng. Raw API trả
+  401 nếu không đăng nhập; public không xuất raw hay người nhập.
+- Replay bundle Nghệ An/Hà Tĩnh được UI xác nhận, không tạo lượt trùng.
+- Migration `202610170010_snapshot_parser_precedence.sql` sửa trường hợp cùng
+  raw hash được parse bằng phiên bản mới nhưng fetch cũ hơn. Chỉ ưu tiên parser
+  mới trên cùng nội dung; nội dung khác tải mới hơn vẫn giữ ưu tiên. Có kiểm thử.
+- Ma trận vẫn còn **14 nhóm chưa có dữ liệu hoạt động đã tích hợp**: Thanh Hóa,
+  Đà Nẵng, Quảng Nam, Quảng Ngãi, Bình Định, Phú Yên, Khánh Hòa, Bình Dương,
+  Long An, Tiền Giang, Bến Tre, Đồng Tháp, Sóc Trăng, Vĩnh Long. 20 nhóm còn lại
+  chỉ có dữ liệu khu vực một phần; không coi là đã đầy đủ bến hoặc lịch sử vào/ra.
+- Biên nhận: `catalog-review/slice2-expanded-staging-acceptance-20261017.json`;
+  khảo sát bổ sung: `catalog-review/slice2-nationwide-source-probe-20261017.json`.
+
+**Chưa nghiệm thu full tất cả cảng.** Không dùng ma trận 34 tên, 21 connector,
+giấy phép hoặc snapshot để thay cho nhật ký đến/rời còn thiếu ở từng cảng/bến.
+
+### Cập nhật vận hành lúc 22:30 ngày 17/10/2026
+
+- Thêm nguồn neo Đồng Nai và Hà Tĩnh/Quảng Bình, tổng 21 nguồn. Đồng Nai trả
+  695 dòng tài nguyên trên hai trang; collector kiểm total, số dòng mỗi trang
+  và ID không lặp, không dừng ở trang 500. Kết quả 75 dòng neo đang mở, 12 dòng
+  quarantine; Hà Tĩnh 69 dòng đang mở hợp lệ. Không tính bản ghi neo đã kết thúc
+  thành vị trí hiện tại hay sự kiện rời cảng.
+- Tải lại API timeout trước đó thành công; không giữ kết luận “chưa tải được”
+  cho Đồng Nai/Hà Tĩnh ở thời điểm mới. Dòng nguồn không rõ khu vực giữ quarantine.
+- Parser neo cũ lên 1.1.0 để lưu GT riêng; dữ liệu/bản gốc phiên bản trước bất biến.
+- Worker gói hiện tại đã thực sự trả `exceededCpu` khi nhập. Đã triển khai
+  `port-call-refresh` trên Supabase Edge Functions, vẫn xác minh admin qua Auth,
+  parse lại raw/checksum và gọi importer bằng JWT người dùng, không dùng service-role.
+  Worker kiểm cùng origin và chuyển tiếp phiên được bảo vệ, không đưa token ra UI.
+- Báo cáo Nghệ An được nhập theo từng ngày để giới hạn tải CPU. CLI giữ archive
+  15 báo cáo và xuất thêm `nghean-reported/daily/<day>.bundle.json`; refresh từ
+  server lấy báo cáo mới nhất. Không tự hứa đã backfill 89 trang archive.
+- Staging đã nhập 7 nguồn mới đầu tiên và 15 báo cáo Nghệ An. Readback API kỳ
+  01/09–17/10 có 459 sự kiện, 1.173 snapshot, đủ 19 source areas ở lần đọc này,
+  `truncated=false`. Hai nguồn Đồng Nai/Hà Tĩnh được nghiệm thu riêng tiếp theo.
+- Local nhập đủ 21 nguồn vào PGlite: 467 sự kiện trên toàn bộ ngày nguồn,
+  1.305 snapshot; replay, GT/DWT/ngày và raw RLS đạt. Con số khác kỳ API do cửa sổ
+  sự kiện và nguồn live thay đổi, không lấy số local làm số cloud.
+- 89 Vitest đạt; bộ Playwright mở rộng kiểm cả ma trận 34 nhóm, desktop/mobile.
+
+Phạm vi tất cả cảng vẫn chưa hoàn thành. Còn thiếu nhật ký đến/rời cho nhiều
+nhóm, danh mục bến/đường thủy/dầu khí đầy đủ và ánh xạ canonical. Ma trận không
+biến nguồn vị trí hay địa giới mới thành nghiệm thu mọi bến cảng.
+
 ### Mở rộng tiếp lúc 22:00 ngày 17/10/2026
 
 - Bổ sung 7 connector: báo cáo hoạt động Nghệ An; thông báo đến/rời Hòn La,

@@ -93,7 +93,22 @@ it('keeps concurrent area notices and replaces complete snapshots without manufa
  const events=await db.query("select occurred_at,time_day::text,event_day::text,time_precision,dwt,gt from port.published_port_calls where source_area='nghean-reported' and vessel_name='JI HANG 15' and direction='arrival'");
  expect(events.rows).toEqual([{occurred_at:null,time_day:'2026-10-09',event_day:'2026-10-09',time_precision:'day',dwt:'16493.7',gt:'9936'}]);
  expect((await db.query("select * from port.published_port_calls where source_area='nghean-reported' and event_day between '2026-10-09' and '2026-10-14'")).rows).toHaveLength(5);
- await db.exec('reset role;set role anon');expect((await db.query('select * from port.published_in_port_snapshots')).rows).toHaveLength(5);
+ // A newer parser for identical bytes wins even if that local retrieval was older.
+ const neo=JSON.parse(readFileSync('tests/fixtures/binhthuan-anchorage-excerpt.json','utf8'));neo.data[0].gt=717;
+ const neoRaw=JSON.stringify(neo);const neoParsed=await parseCallSource(neoRaw,'binhthuan-open-anchorage','2026-10-17T08:00:00Z');
+ await db.exec("reset role;update port.call_source_registry set parser='binhthuan-open-anchorage/1.0.0' where source_area='binhthuan-open-anchorage';set role authenticated");
+ await db.query('select port.import_port_calls($1,$2,$3,$4)',[JSON.stringify({source_url:callSource('binhthuan-open-anchorage')!.url,raw_text:neoRaw,raw_sha256:await sha256(neoRaw),fetched_at:'2026-10-17T08:01:00Z'}),JSON.stringify(neoParsed.rows.map(r=>({...r,gt:null}))),JSON.stringify(neoParsed.reported_days),'binhthuan-open-anchorage/1.0.0']);
+ await db.exec("reset role;update port.call_source_registry set parser='binhthuan-open-anchorage/1.1.0' where source_area='binhthuan-open-anchorage';set role authenticated");
+ await put(neoRaw,'binhthuan-open-anchorage','2026-10-17T08:00:00Z');
+ expect((await db.query("select gt from port.published_in_port_snapshots where source_area='binhthuan-open-anchorage'")).rows).toEqual([{gt:'717'}]);
+ const newer=JSON.parse(neoRaw);newer.data[0].nameOfShip='DIFFERENT LATEST VESSEL';const newerContent=JSON.stringify(newer);
+ // Distinct, newer content still takes precedence over an older response/parser upgrade.
+ const newerParsed=await parseCallSource(newerContent,'binhthuan-open-anchorage','2026-10-17T08:02:00Z');
+ await db.exec("reset role;update port.call_source_registry set parser='binhthuan-open-anchorage/1.0.0' where source_area='binhthuan-open-anchorage';set role authenticated");
+ await db.query('select port.import_port_calls($1,$2,$3,$4)',[JSON.stringify({source_url:callSource('binhthuan-open-anchorage')!.url,raw_text:newerContent,raw_sha256:await sha256(newerContent),fetched_at:'2026-10-17T08:02:00Z'}),JSON.stringify(newerParsed.rows.map(r=>({...r,gt:null}))),JSON.stringify(newerParsed.reported_days),'binhthuan-open-anchorage/1.0.0']);
+ await db.exec("reset role;update port.call_source_registry set parser='binhthuan-open-anchorage/1.1.0' where source_area='binhthuan-open-anchorage';set role authenticated");
+ expect((await db.query<{raw_sha256:string}>("select raw_sha256 from port.published_in_port_snapshots where source_area='binhthuan-open-anchorage'")).rows[0].raw_sha256).toBe(await sha256(newerContent));
+ await db.exec('reset role;set role anon');expect((await db.query('select * from port.published_in_port_snapshots')).rows).toHaveLength(6);
  await expect(db.query('select raw_text from port.call_artifacts')).rejects.toThrow('permission denied');
  }finally{await db.close();}
 });

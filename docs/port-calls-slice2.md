@@ -10,6 +10,35 @@ Tiến độ và thứ tự tiếp tục tối 17/10/2026: [bàn giao Slice 2](p
 
 ## Mở rộng ngày/giờ và ma trận cảng — tối 17/10/2026
 
+**Vận hành mới nhất:** 21 connector sau migration `202610170009_additional_public_anchorages.sql`.
+Thêm `dongnai-open-anchorage`, `hatinh-open-anchorage`; collector neo tải đủ các
+trang 500 dòng đến tối đa 5.000, từ chối total thay đổi, trang thiếu hoặc ID lặp.
+Dòng không xác định khu vực giữ quarantine. Parser ba nguồn neo trước lên 1.1.0
+để lưu GT, giữ nguyên các bản 1.0.0 đã nhập.
+
+Migration `202610170010_snapshot_parser_precedence.sql` chọn parser hiện hành cho
+cùng raw hash đã có bằng chứng fetch mới hơn, tránh bản 1.0.0 che GT đã parse ở
+1.1.0 chỉ vì bundle local có timestamp cũ. Không cho nội dung cũ khác hash đè
+nguồn tải mới hơn. Replay vẫn không sửa artifact bất biến.
+
+Readback staging 22:38 ngày 17/10: API 01/09–17/10 có 459 sự kiện và 1.300
+snapshot từ 21 source areas, không truncated. Database public có 471 sự kiện
+trên mọi ngày đã thu thập, gồm 222 sự kiện Nghệ An. Kiểm tra read-only bằng
+`node scripts/check-port-call-staging.mjs`; cần `.env.local` server hiện có,
+không đọc cookie hoặc dùng quyền quản trị. Biên nhận tại
+`catalog-review/slice2-expanded-staging-acceptance-20261017.json`.
+
+Trên staging, `PORT_CALL_IMPORT_MODE=edge` chuyển POST quản trị sang
+`/functions/v1/port-call-refresh` trong cùng project Supabase. Function xác minh
+người dùng qua Auth và `app_metadata.role=admin`, parse lại evidence rồi gọi
+`port.import_port_calls` bằng JWT người dùng, không dùng service role hay sửa RLS.
+Mã entrypoint pin commit đã triển khai; cập nhật pin và deploy lại khi đổi parser.
+Không đưa token, session URL hoặc service credentials vào Git/chat.
+
+Refresh server Nghệ An lấy một báo cáo mới nhất. CLI lấy tối đa 15 báo cáo và
+chia bundle `nghean-reported/daily/<day>.bundle.json` để nhập lịch sử từng ngày.
+Nhập lại từng bundle là replay, không cộng trùng lịch sử. Chưa cấu hình tự chạy.
+
 Migration `202610170008_day_precision_calls.sql` thêm 7 nguồn, tổng 19 connector.
 Nguồn sự kiện mới: `nghean-reported`, `quangtri-hon-la`, `quangtri-cua-gianh`,
 `quangtri-con-co`, `quangtri-my-thuy`. Quan sát neo mới: `thaibinh-open-anchorage`
