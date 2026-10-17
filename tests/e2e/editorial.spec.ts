@@ -18,7 +18,7 @@ test('public catalog works without a session or provider and keeps reported fact
  await page.getByRole('link',{name:'GMD · Công ty Cổ phần Tập đoàn Gemadept',exact:true}).click();
  await expect(page.getByRole('region',{name:'ICD và cảng cạn',exact:true})).toBeVisible();
  await expect(page.getByRole('region',{name:'Cảng biển và cảng sông',exact:true})).toBeVisible();
- await expect(page.getByText('Ngày bắt đầu quan hệ: Chưa xác định',{exact:true})).toHaveCount(6);
+ await expect(page.getByText('Chưa xác định',{exact:true})).toHaveCount(6);
  await expect(page.getByRole('heading',{name:'Công ty có góp vốn theo nhà cung cấp',exact:true})).toHaveCount(0);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await request.post('http://127.0.0.1:54329/reset');

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import {AppShell} from '@/components/app-shell';
 import "./globals.css";
 export const metadata = {
   title: "Thông tin cảng biển | InvestingPro",
@@ -6,24 +6,13 @@ export const metadata = {
 };
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="vi">
+    <html lang="vi" suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{__html:"try{var t=localStorage.getItem('investingpro-theme');document.documentElement.dataset.theme=t==='light'||t==='dark'?t:'system'}catch(e){}"}}/></head>
       <body>
         <a className="skip" href="#main">
           Chuyển đến nội dung
         </a>
-        <header>
-          <Link className="brand" href="/industries/ports">
-            InvestingPro <span>THÔNG TIN CẢNG BIỂN</span>
-          </Link>
-          <nav aria-label="Điều hướng chính">
-            <Link href="/industries/ports">Danh mục cảng</Link>
-            <Link href="/industries/ports/companies?view=all">Doanh nghiệp</Link>
-            <Link href="/admin/mappings">Duyệt quan hệ</Link>
-            <Link href="/admin/publication">Duyệt nguồn</Link>
-            <Link href="/admin/catalog">Hồ sơ theo kỳ</Link>
-            <Link href="/admin/refresh">Cập nhật API</Link>
-          </nav>
-        </header>
+        <AppShell/>
         <main id="main">{children}</main>
         <footer>
           Nguồn chính thức. Hiệu lực rõ ràng. Phạm vi dữ liệu minh bạch.
