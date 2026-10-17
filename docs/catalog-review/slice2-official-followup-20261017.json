@@ -1,0 +1,222 @@
+{
+  "checked_at": "2026-10-17T15:50:24.137149+00:00",
+  "scope": "Discovery only, not event acceptance",
+  "records": [
+    {
+      "id": "kv4-position",
+      "url": "https://cangvuduongthuynoidiakv4.gov.vn/index.aspx?cat=2017&page=news",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 18347,
+      "sha256": "b8295abef9367ff30fdf755ccc101e007daef158f0f847165d2852d2084ce783",
+      "activity_links": [
+        [
+          "index.aspx?page=news&cat=2016",
+          "Kế hoạch điều động tàu"
+        ],
+        [
+          "index.aspx?page=news&cat=2017",
+          "Vị trí tàu tại cảng"
+        ],
+        [
+          "index.aspx?page=news&cat=2017",
+          "Vị trí tàu tại cảng"
+        ]
+      ]
+    },
+    {
+      "id": "quangnam-http",
+      "url": "http://cangvuhanghaiquangnam.gov.vn/",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 1686,
+      "sha256": "f05c0f95f4a69333e8b0c1fa84982feab45dcef6791b104f88065645de3b4744",
+      "activity_links": []
+    },
+    {
+      "id": "nhatrang-home",
+      "url": "https://cangvuhanghainhatrang.gov.vn/",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 52075,
+      "sha256": "8abc97d7d5806dc47eeed203325d05e5ffaa59f441433c5ce3d272981e629c4c",
+      "activity_links": [
+        [
+          "http://kht.cangvuhanghainhatrang.gov.vn",
+          "Quản lý hoạt động tàu thuyền"
+        ],
+        [
+          "https://tttb.cangvuhanghainhatrang.gov.vn/web/guest/login",
+          "Cổng Thông tin MCQG - Thủ tục tàu biển"
+        ],
+        [
+          "http://dktb.dichvucong.vinamarine.gov.vn/login.aspx?returnurl=http%3a%2f%2fdktb.dichvucong.vinamarine.gov.vn%2fHoso.aspx",
+          "Tra cứu tàu biển, lệ phí IMO"
+        ],
+        [
+          "http://123.25.108.5:8001/#/login",
+          "Cổng chia sẻ dữ liệu Thủ tục tàu biển - Quản lý KCHTGT"
+        ],
+        [
+          "https://docs.google.com/spreadsheets/d/1Dm7n4oBt6Sgoz6sCSPveIoxHewaIKctW/edit?usp=sharing&ouid=110007193279675066917&rtpof=true&sd=true",
+          "Truy tìm tàu biển, thuyền viên"
+        ],
+        [
+          "https://docs.google.com/spreadsheets/d/1K_DfawHybbXCjTFmp_2yhXSBkqz1f8tyW8LSVgdPwGc/edit?gid=1907231782#gid=1907231782",
+          "Dữ liệu Hồ sơ tàu lai"
+        ],
+        [
+          "https://cangvuhanghainhatrang.gov.vn/showtv/",
+          "Kế hoạch điều động"
+        ],
+        [
+          "http://intranet-hn.vinamarine.gov.vn/KTTB/SignIn.aspx?ReturnUrl=%2fkttb%2fDefault.aspx",
+          "Quản lý kiểm tra tàu biển"
+        ],
+        [
+          "https://docs.google.com/spreadsheets/d/134qlvAbC_dAkVYu1Osxq-JUyc0SjLqlc/edit?usp=sharing&ouid=106155078937449702860&rtpof=true&sd=true",
+          "Dữ liệu kiểm tra tàu thuyền"
+        ],
+        [
+          "javascript:void(0)",
+          "Tra cứu dữ liệu tàu EQUASIS http://www.equasis.org/EquasisWeb/public/HomePage"
+        ],
+        [
+          "index.aspx?page=shipschedule&cat=2015",
+          "Kế hoạch điều động tàu"
+        ],
+        [
+          "index.aspx?page=detail&id=1837",
+          "THÔNG BÁO HÀNG HẢI về thông số kỹ thuật của luồng vào cảng, vũng quay tàu và khu nước trước bến cảng Nhà máy đóng bao, trạm phân phối xi măng Xuân Thành"
+        ],
+        [
+          "index.aspx?page=detail&id=1833",
+          "THÔNG BÁO HÀNG HẢI V/v Tổ chức huấn luyện, diễn tập quân sự và diễu binh tàu  của Quân chủng Hải quân trên vùng biển tỉnh Khánh Hòa"
+        ],
+        [
+          "index.aspx?page=detail&id=1846",
+          "PHỐI HỢP TÌM KIẾM, LAI DẮT AN TOÀN TÀU VP-1087 BỊ SỰ CỐ THẢ TRÔI TẠI VÙNG BIỂN TỈNH KHÁNH HÒA"
+        ],
+        [
+          "index.aspx?page=detail&id=1846",
+          "Công tác phối hợp tìm kiếm, lai dắt tàu VP-1087 bị sự cố mất khả năng điều động, thả trôi trên vùng biển tỉnh Khánh Hòa đã thành công, tàu bị sự cố cùng 03 thuyền viên trên tàu đã được hỗ trợ đưa về neo đậu an toàn, hiện tại sức khỏe ổn định, bình thường."
+        ],
+        [
+          "index.aspx?page=detail&id=1844",
+          "Cấp phát áo phao cứu sinh và phao tròn cứu sinh chuyên dụng, cho các thuyền viên phương tiện tàu du lịch, thuyền viên tàu cá và ngư dân tại các khu vực Nha Trang, Cam Ranh và Vân Phong"
+        ]
+      ]
+    },
+    {
+      "id": "danang-home-followup",
+      "url": "https://cangvuhanghaidanang.gov.vn/",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 75698,
+      "sha256": "01d682628930bcdbb29756bbeafb4e09c3c4afea9c66d5ff8c1c01c14519bf6f",
+      "activity_links": [
+        [
+          "https://docs.google.com/spreadsheets/u/1/d/1F4cQljqrExfn9JlnLGAZQ4pSbFORhOGRFhpO5ZltHjU/edit?usp=sharing",
+          "Thông báo tàu đến cảng"
+        ],
+        [
+          "http://tttb.cangvuhanghaidanang.gov.vn/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+          "Kế hoạch điều động tàu"
+        ],
+        [
+          "http://tttb.cangvuhanghaidanang.gov.vn/public-kh#/tra-cuu/ke_hoach/0/0/ViTriTauTaiCang",
+          "Vị trí tàu tại cảng"
+        ],
+        [
+          "/vi/chuyen-muc/gia-dich-vu-lai-dat-tau-thuyen",
+          "GIÁ DỊCH VỤ LAI DẮT TÀU THUYỀN"
+        ],
+        [
+          "/vi/loai-doanh-nghiep/doanh-nghiep-chu-tau-thuyen-dang-ky-tai-da-nang",
+          "DOANH NGHIỆP CHỦ TÀU THUYỀN ĐĂNG KÝ TẠI ĐÀ NẴNG"
+        ],
+        [
+          "/vi/loai-doanh-nghiep/doanh-nghiep-khai-thac-tau-thuyen",
+          "DOANH NGHIỆP KHAI THÁC TÀU THUYỀN"
+        ],
+        [
+          "/vi/loai-doanh-nghiep/doanh-nghiep-cung-cap-dich-vu-lai-dat-tau-thuyen",
+          "DOANH NGHIỆP CUNG CẤP DỊCH VỤ LAI DẮT TÀU THUYỀN"
+        ],
+        [
+          "/vi/loai-doanh-nghiep/doanh-nghiep-cung-cap-dich-vu-cung-ung-tau-bien",
+          "DOANH NGHIỆP CUNG CẤP DỊCH VỤ CUNG  ỨNG TÀU BIỂN"
+        ],
+        [
+          "/vi/loai-doanh-nghiep/doanh-nghiep-thu-gom-va-xu-ly-chat-thai-tu-tau-thuyen",
+          "DOANH NGHIỆP THU GOM VÀ XỬ LÝ CHẤT  THẢI TỪ TÀU THUYỀN"
+        ],
+        [
+          "/vi/tbhh-cham-dut-hoat-dong-4-bao-hieu-hang-hai-gioi-han-tau-san-bay-hoa-ky",
+          "■  TBHH chấm dứt hoạt động 4 báo hiệu hàng hải giới hạn tàu sân bay Hoa Kỳ"
+        ],
+        [
+          "/vi/tbhh-thiet-lap-moi-4-bao-hieu-hang-hai-gioi-han-tau-san-bay-hoa-ky",
+          "■  TBHH thiết lập mới 4 báo hiệu hàng hải giới hạn tàu sân bay Hoa Kỳ"
+        ],
+        [
+          "/vi/van-ban-moi-ban-hanh/tthc-thu-tuc-dang-ky-tau",
+          "■  TTHC - Thủ tục đăng ký tàu"
+        ],
+        [
+          "/vi/van-ban-moi-ban-hanh/tthc-thu-tuc-tau-thuyen",
+          "■  TTHC - Thủ tục tàu thuyền"
+        ],
+        [
+          "/vi/van-ban-moi-ban-hanh/thong-tu-352026tt-bxd-quy-dinh-ve-dang-kiem-vien-tau-bien-va-nhan-vien-nghiep",
+          "■  Thông tư 35/2026/TT-BXD Quy định về đăng kiểm viên tàu biển và nhân viên nghiệp vụ kiểm định tàu biển"
+        ]
+      ]
+    },
+    {
+      "id": "cv3-www",
+      "url": "https://www.cv3.gov.vn/",
+      "http_status": "522",
+      "curl_exit": 0,
+      "bytes": 16,
+      "sha256": "c8b9f348c8635d7ffcd5d16ad4b9c65289302dc6c4fe2e0210346b23013fb280",
+      "activity_links": []
+    },
+    {
+      "id": "danang-public-http",
+      "url": "http://tttb.cangvuhanghaidanang.gov.vn/public-kh",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 1901,
+      "sha256": "d1ffdd638ba4808d694b85446493a74f054861df2a5588a9f353b5780422c308",
+      "error": null
+    },
+    {
+      "id": "nhatrang-history",
+      "url": "http://cvhhnhatrang.vishipel.net/",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 1686,
+      "sha256": "f05c0f95f4a69333e8b0c1fa84982feab45dcef6791b104f88065645de3b4744",
+      "error": null
+    },
+    {
+      "id": "nhatrang-public",
+      "url": "https://tttb.cangvuhanghainhatrang.gov.vn/public-kh",
+      "http_status": "404",
+      "curl_exit": 0,
+      "bytes": 824,
+      "sha256": "b064867119b5705ce8283cfbd58f6217e35f118cef47b26dfe9f48439f1238b5",
+      "error": null
+    },
+    {
+      "id": "statistics-intro",
+      "url": "http://144.79.79.16/intro.html",
+      "http_status": "200",
+      "curl_exit": 0,
+      "bytes": 132348,
+      "sha256": "945cea5690d2064163fa24c94d5a3b59beadcd96e17a1875b9b18cde676e80a8",
+      "error": null
+    }
+  ]
+}

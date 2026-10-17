@@ -20,28 +20,43 @@ export const SEAPORT_COVERAGE_TARGETS:[string,string[]][]=[
  ['Quảng Bình',['quangtri-hon-la','quangtri-cua-gianh','quangtri-len-bang','hatinh-open-anchorage']],
  ['Quảng Trị',['quangtri-cua-viet','quangtri-con-co','quangtri-my-thuy']],
  ['Thừa Thiên Huế',['hue-chanmay-in-port','hue-thuanan-in-port']],
- ['Đà Nẵng',[]],['Quảng Nam',[]],['Quảng Ngãi',[]],['Bình Định',[]],['Phú Yên',[]],['Khánh Hòa',[]],
+ ['Đà Nẵng',['danang-open-anchorage']],['Quảng Nam',['danang-open-anchorage']],['Quảng Ngãi',[]],['Bình Định',[]],['Phú Yên',[]],['Khánh Hòa',[]],
  ['Ninh Thuận',['binhthuan-open-anchorage']],['Bình Thuận',['binhthuan-open-anchorage']],
  ['TP. Hồ Chí Minh',['hcm-in-port']],['Bà Rịa - Vũng Tàu',['hcm-in-port']],
- ['Đồng Nai',['dongnai-open-anchorage']],['Bình Dương',[]],['Long An',[]],['Tiền Giang',[]],['Bến Tre',[]],['Đồng Tháp',[]],['Sóc Trăng',[]],
+ ['Đồng Nai',['dongnai-open-anchorage']],['Bình Dương',[]],['Long An',['hcm-in-port']],['Tiền Giang',['hcm-in-port']],['Bến Tre',[]],['Đồng Tháp',[]],['Sóc Trăng',[]],
  ['Hậu Giang',['cantho-hg']],['Cần Thơ',['cantho-ct']],['An Giang',['cantho-st']],['Vĩnh Long',[]],
  ['Cà Mau',['kiengiang-open-anchorage']],['Kiên Giang',['kiengiang-open-anchorage']],['Trà Vinh',['cantho-tv']],
 ];
+
+// Explicit labels observed in the authority's table. These only establish partial
+// source coverage, never a canonical port/asset mapping. Other HCM rows must not
+// make either of these targets appear populated.
+const TARGET_BERTH_LABELS:Record<string,string[]>={
+ 'Long An':['BẾN CẢNG QUỐC TẾ LONG AN'],
+ 'Tiền Giang':['KHU VUC BIEN TIEN GIANG'],
+ 'Đà Nẵng':['Khu neo Vịnh Đà Nẵng','Bến cảng Tiên Sa','Bến cảng Sơn Trà','Bến cảng Hải Sơn (X50)','Vùng đón trả hoa tiêu, Vùng kiểm dịch tại Vịnh Đà Nẵng'],
+ 'Quảng Nam':['BẾN CẢNG KỲ HÀ','BẾN CẢNG CHU LAI','KHU NEO ĐẦU LUỒNG KỲ HÀ'],
+};
+function inTarget(name:string,row:PortCall){
+ const labels=TARGET_BERTH_LABELS[name];
+ return !labels||labels.some(label=>row.berth?.split(' · ')[0].trim()===label);
+}
 
 export function nationwideCallCoverage(rows:PortCall[],coverage:CallCoverage[],snapshots:PortCall[]){
  return {basis:SEAPORT_COVERAGE_BASIS,complete:false,targets:SEAPORT_COVERAGE_TARGETS.map(([name,candidateSources],i)=>{
   const sources=candidateSources.map(id=>{
    const source=CALL_SOURCES.find(s=>s.id===id)!;
-   const events=rows.filter(r=>r.source_area===id);
+   const events=rows.filter(r=>r.source_area===id&&inTarget(name,r));
    const notices=coverage.filter(r=>r.source_area===id);
+   const targetSnapshots=snapshots.filter(r=>r.source_area===id&&inTarget(name,r));
    return {id,label:source.label,kind:source.kind,
-    hasEventsInRange:events.length>0,hasSnapshot:snapshots.some(r=>r.source_area===id),
-    asOf:[...notices.map(r=>r.fetched_at),...events.map(r=>r.fetched_at),...snapshots.filter(r=>r.source_area===id).map(r=>r.fetched_at)].sort().at(-1)??null};
+    hasEventsInRange:events.length>0,hasSnapshot:targetSnapshots.length>0,
+    asOf:[...(!TARGET_BERTH_LABELS[name]?notices.map(r=>r.fetched_at):[]),...events.map(r=>r.fetched_at),...targetSnapshots.map(r=>r.fetched_at)].sort().at(-1)??null};
   });
   return {id:`seaport-804-${String(i+1).padStart(2,'0')}`,name,candidateSources:sources,
    status:sources.some(s=>s.hasEventsInRange)?'partial_reported':sources.some(s=>s.hasSnapshot)?'snapshot_only':'missing',
    complete:false,canonicalMappingVerified:false,
-   note:name==='Hà Tĩnh'?'Báo cáo Nghệ An có bến Xuân Giang/Xuân Hải; chưa đại diện Sơn Dương/Vũng Áng.':candidateSources.length?'Nguồn có thể bao gồm nhiều cảng/bến; chưa nghiệm thu toàn bộ phạm vi cảng.':'Chưa có connector dữ liệu hoạt động đã kiểm thử.',
+   note:TARGET_BERTH_LABELS[name]?`Chỉ các dòng nguồn ghi rõ ${TARGET_BERTH_LABELS[name].join(', ')}; chưa có lịch sử vào/ra đầy đủ.`:name==='Hà Tĩnh'?'Báo cáo Nghệ An có bến Xuân Giang/Xuân Hải; chưa đại diện Sơn Dương/Vũng Áng.':candidateSources.length?'Nguồn có thể bao gồm nhiều cảng/bến; chưa nghiệm thu toàn bộ phạm vi cảng.':'Chưa có connector dữ liệu hoạt động đã kiểm thử.',
   };
  })};
 }

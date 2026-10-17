@@ -10,7 +10,7 @@ assert.equal(response.status,200);const report=await response.json();
 assert.equal(report.nationwideCoverage.targets.length,34);assert.equal(report.meta.truncated,false);
 assert.ok(!JSON.stringify(report).includes('raw_text'));assert.ok(!JSON.stringify(report).includes('imported_by'));
 const snapshots=report.snapshots,comparisons=[];
-for(const id of ['dongnai-open-anchorage','hatinh-open-anchorage','binhthuan-open-anchorage','thaibinh-open-anchorage','kiengiang-open-anchorage']){
+for(const id of ['dongnai-open-anchorage','hatinh-open-anchorage','binhthuan-open-anchorage','thaibinh-open-anchorage','kiengiang-open-anchorage','danang-open-anchorage']){
  const bundle=JSON.parse(await readFile(`.local/port-calls/${id}/staging-bundle.json`,'utf8'));
  assert.equal(await sha256(bundle.raw_text),bundle.raw_sha256);
  const parsed=await parseCallSource(bundle.raw_text,id,bundle.fetched_at);
@@ -27,11 +27,12 @@ assert.equal(dayOnly.length,222);assert.ok(dayOnly.every(r=>r.occurred_at===null
 assert.ok(dayOnly.some(r=>Number(r.dwt)===16493.7&&Number(r.gt)===9936));
 const raw=await fetch(`${site}/api/v1/admin/port-calls?artifact=${comparisons[0].artifact_id}`);assert.equal(raw.status,401);
 const countBySource={};for(const r of report.data){const value=countBySource[r.source_area]??={events:0,with_dwt:0,day_precision:0};value.events++;if(r.dwt!==null)value.with_dwt++;if(r.occurred_at===null&&r.time_day)value.day_precision++;}
-const receipt={checked_at:new Date().toISOString(),site,from,to,app_commit:'651d2c997c34562ea0b7f0bfd1b651b63dfb0c30',importer_pin:'651d2c997c34562ea0b7f0bfd1b651b63dfb0c30',source_registry_count:CALL_SOURCES.length,
+const importerSource=await readFile('supabase/functions/port-call-refresh/index.ts','utf8');
+const receipt={checked_at:new Date().toISOString(),site,from,to,app_commit:process.env.PORT_CALL_APP_COMMIT??null,local_importer_pin:importerSource.match(/InvestingPro\/([a-f0-9]{40})\//)?.[1]??null,source_registry_count:CALL_SOURCES.length,
  source_areas_with_evidence:new Set(report.coverage.map(r=>r.source_area)).size,events_in_api_range:report.data.length,events_all_collected_dates:allEvents.length,snapshots:snapshots.length,
  nationwide_target_count:34,nationwide_complete:false,terminal_inventory_complete:false,scheduled_refresh_verified:false,truncated:false,
  api_counts_by_source:countBySource,snapshot_comparisons:comparisons,nghean_all_dates_day_only_events:dayOnly.length,raw_unauthenticated_status:raw.status,
  missing_event_or_snapshot_targets:report.nationwideCoverage.targets.filter(t=>t.status==='missing').map(t=>t.name),
- validation:{vitest:89,playwright:8,typecheck:true,lint:true,next_build:true,cloudflare_linux_build:true}};
+ validation:{live_api_readback:true,snapshot_bundle_comparison:true,raw_unauthenticated_denied:true}};
 await mkdir('.local/port-calls',{recursive:true});await writeFile('.local/port-calls/staging-acceptance.json',JSON.stringify(receipt,null,2));
 console.log(JSON.stringify(receipt,null,2));

@@ -6,6 +6,7 @@ export const PUBLIC_ANCHORAGE_SOURCES=[
  {id:'kiengiang-open-anchorage',base:'http://203.210.235.67/web/guest/public-kh',label:'Kiên Giang / Cà Mau · vị trí neo',region:/^(KIÊN GIANG - |Năm Căn$|Dầu khí ngoài khơi mỏ Sông Đốc$|Vùng biển Cà Mau$)/i},
  {id:'dongnai-open-anchorage',base:'http://123.25.204.166/web/guest/public-kh',label:'Đồng Nai · vị trí neo',region:/^ĐỒNG NAI - /i,allowUnknownRegion:true},
  {id:'hatinh-open-anchorage',base:'http://116.98.104.198/web/guest/public-kh',label:'Hà Tĩnh / Quảng Bình · vị trí neo',region:/^KHU VỰC (?:HH VŨNG ÁNG-SƠN DƯƠNG|(?:HÀNG HẢI )?(?:HÒN LA|CỬA GIANH))$/i,allowUnknownRegion:true},
+ {id:'danang-open-anchorage',base:'http://tttb.cangvuhanghaidanang.gov.vn/public-kh',label:'Đà Nẵng / Kỳ Hà–Cù Lao Chàm · vị trí neo',region:/^KHU VỰC (?:HH {2}ĐÀ NẴNG|HÀNG HẢI KỲ HÀ - CÙ LAO CHÀM)$/i},
 ] as const;
 export function publicAnchorageData(raw:string){
  const envelope=JSON.parse(raw);

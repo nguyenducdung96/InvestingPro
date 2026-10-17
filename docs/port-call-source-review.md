@@ -80,3 +80,54 @@ phân trang/bộ lọc bằng kết quả thực, không suy đoán query.
 
 Nguồn này thay thế nhận định nghiên cứu cũ rằng chưa có tra cứu chi tiết công
 khai toàn quốc; không thay đổi trạng thái nghiệm thu toàn quốc là chưa hoàn thành.
+
+## Rà lại docs và website chính thức lúc 22:55 ngày 17/10/2026
+
+Đã theo lại liên kết trong `vietnam_port_official_public_data_sources.md`,
+menu trang Cục và menu từng Cảng vụ; không kết luận không có feed từ một tên
+miền tự đoán hoặc chỉ từ việc HTTPS timeout. Biên nhận HTTP/hash mới:
+`catalog-review/slice2-official-followup-20261017.json`.
+
+- **Đà Nẵng / Quảng Nam:** homepage Cảng vụ Đà Nẵng thực sự liên kết
+  `http://tttb.cangvuhanghaidanang.gov.vn/public-kh` (HTTP). HTTP hoạt động,
+  HTTPS không tải được. Tài nguyên công khai trả 54 dòng: 39 vùng Đà Nẵng,
+  15 vùng Kỳ Hà–Cù Lao Chàm. Sau loại neo đã kết thúc còn 41 dòng, 3 dòng tên
+  nhiều tàu giữ quarantine (`multiple_vessels`), **38 khóa hợp lệ**. Trước đó
+  nhận định timeout đã bỏ sót nguồn này. Connector `danang-open-anchorage`
+  giữ DWT/GT, hash, ngày và chỉ là snapshot neo; không tạo lượt vào/ra.
+- **Long An / Tiền Giang:** bảng TP.HCM đã thu thập ghi rõ
+  `BẾN CẢNG QUỐC TẾ LONG AN` và `KHU VUC BIEN TIEN GIANG`. Bổ sung nguồn ứng
+  viên vào ma trận nhưng chỉ cho các dòng khớp nhãn khu vực; dòng Cát Lái không
+  làm hai khu vực này có dữ liệu. Chưa phải lịch sử đủ hoặc mapping canonical.
+- **Đồng Tháp / Bến Tre / Vĩnh Long:** tìm được trang chính thức mới
+  https://cangvuduongthuynoidiakv4.gov.vn/; mục vị trí
+  https://cangvuduongthuynoidiakv4.gov.vn/index.aspx?cat=2017&page=news
+  HTTP 200 nhưng nội dung “Dữ liệu đang được cập nhật”. Không dùng lỗi chứng
+  thư của domain Cảng vụ cũ để kết luận không có đầu mối. Trang công bố quyết
+  định 351/QĐ-BXD (13/03/2026), liên kết từ homepage, là đầu mối kiểm tra việc
+  giao quản lý cho khu vực III/IV; không tự biến thay đổi quản lý thành dữ liệu tàu.
+- **Mỹ Tho / Tiền Giang:** website chính thức `cv3.gov.vn` có tin tiếp nhận
+  nhiệm vụ vùng nước sông Tiền (bài 115), danh mục cảng/bến và thủ tục. Lần tải
+  www trả 522; tìm kiếm thấy nội dung công khai nhưng chưa chứng minh nhật ký
+  từng tàu. Không còn dùng domain Mỹ Tho đoán bị DNS lỗi làm bằng chứng thiếu nguồn.
+- **Khánh Hòa:** homepage Nha Trang có `kht` và `tttb` yêu cầu đăng nhập;
+  trang `showtv` là kế hoạch. Liên kết “Tra cứu dữ liệu lịch sử” do web index
+  đọc được trỏ `cvhhnhatrang.vishipel.net`; HTTP hiện trả trang Plesk mặc định,
+  không có bảng lịch sử. Public-kh trên tttb trả 404. Không nhập dữ liệu kiểm tra
+  tàu, hồ sơ tàu lai hoặc truy tìm thuyền viên thành lượt tàu.
+- **Quy Nhơn / Phú Yên:** mục vị trí chính thức vẫn trả `ERROR` trong nội dung
+  HTTP 200; homepage ghi dữ liệu đang cập nhật. Nội quy hiện hành có vùng Vũng Rô,
+  nhưng đó là phạm vi quản lý, không phải feed sự kiện hoạt động.
+- **Quảng Ngãi:** domain chính thức `http://cangvuhanghaiqni.gov.vn/`, có link
+  `tivi.aspx`; bảng có dòng tháng 6/2026, trộn ETA và giờ sai như 24:45. Chưa
+  nhập như nhật ký hiện tại. Không sử dụng domain Quảng Ngãi tự đoán bị DNS lỗi.
+- **Quảng Nam:** HTTP domain Cảng vụ cũ trả trang Plesk mặc định; nguồn neo
+  Kỳ Hà–Cù Lao Chàm được tìm thấy ở hệ thống Đà Nẵng nêu trên.
+- **Cần Thơ:** rà tất cả menu homepage, chỉ thấy bốn mã ct/tv/st/hg đã tích hợp.
+  Không đoán thêm mã khu vực. Mã `st` có Mỹ Thới nên không tự gán là Sóc Trăng.
+- **Thống kê ngành trong docs:** `http://144.79.79.16/intro.html` tải được
+  (132.348 byte). Đây là giới thiệu biểu chỉ tiêu; chưa chứng minh có quyền đọc
+  công khai dữ liệu chi tiết từng tàu. Biểu mẫu hoặc số lượt tổng hợp không thay
+  nhật ký vào/ra.
+
+Sau các phát hiện này, vẫn chưa đủ điều kiện nghiệm thu Slice 2 cho tất cả cảng.

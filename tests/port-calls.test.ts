@@ -43,6 +43,15 @@ it('preserves day-only and missing-year precision and excludes ended anchorage w
  const broken=JSON.parse(raw);broken.total++;
  await expect(parseCallSource(JSON.stringify(broken),'binhthuan-open-anchorage','2026-10-17T08:00:00Z')).rejects.toThrow('Incomplete');
 });
+it('accepts the two official Da Nang resource regions without turning ended stays into departures',async()=>{
+ const row={nameOfShip:'TEST VESSEL',portRegionName:'KHU VỰC HH  ĐÀ NẴNG',anchoringDateFrom:'2026-10-16T08:30:00',anchoringDateTo:null,portHarbourName:'TEST BERTH',dwt:1200,gt:800};
+ const raw={total:3,data:[row,{...row,nameOfShip:'TEST TWO',portRegionName:'KHU VỰC HÀNG HẢI KỲ HÀ - CÙ LAO CHÀM'},{...row,nameOfShip:'ENDED',anchoringDateTo:'2026-10-16T12:00:00'}]};
+ const result=await parseCallSource(JSON.stringify(raw),'danang-open-anchorage','2026-10-17T08:00:00Z');
+ expect(result.rows).toHaveLength(2);for(const r of result.rows)expect(r).toMatchObject({time_basis:'anchorage_start'});
+ expect(result.rows[0]).toMatchObject({dwt:1200,gt:800,quarantine_reason:null});
+ raw.data[0].portRegionName='OTHER AREA';
+ await expect(parseCallSource(JSON.stringify(raw),'danang-open-anchorage','2026-10-17T08:00:00Z')).rejects.toThrow('schema or area changed');
+});
 it('reads visible Hai Phong berth labels and only the latest dated Hue snapshot',async()=>{
  const hp=await parseCallSource(readFileSync('tests/fixtures/haiphong-position-excerpt.html','utf8'),'haiphong-in-port','2026-10-17T08:00:00Z');
  expect(hp.rows).toHaveLength(1);expect(hp.rows[0]).toMatchObject({occurred_at:null,time_day:null,time_precision:'unknown',quarantine_reason:null});
