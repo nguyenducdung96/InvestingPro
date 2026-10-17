@@ -239,7 +239,8 @@ function parsePublicAnchoragePositions(raw:string,fetchedAt:string,sourceId:stri
    rows.push({...row,gt,time_basis:'anchorage_start',quarantine_reason:row.quarantine_reason??(unknownRegion?'unresolved_source_area':null)});
   }
   if(!rows.length&&value.total!==0)throw new Error('No open anchorage records; review before accepting empty snapshot');
-  return {rows,reported_days:[reportedDay],parser_version:`${sourceId}/1.0.0`};
+  const version=['binhthuan-open-anchorage','thaibinh-open-anchorage','kiengiang-open-anchorage'].includes(sourceId)?'1.1.0':'1.0.0';
+  return {rows,reported_days:[reportedDay],parser_version:`${sourceId}/${version}`};
  })();
 }
 

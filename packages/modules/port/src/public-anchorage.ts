@@ -4,7 +4,7 @@ export const PUBLIC_ANCHORAGE_SOURCES=[
  {id:'binhthuan-open-anchorage',base:'http://123.25.223.242/web/guest/public-kh',label:'Bình Thuận / Cà Ná · vị trí neo',region:/^(BÌNH THUẬN|NINH THUẬN)/i},
  {id:'thaibinh-open-anchorage',base:'http://123.30.27.14/web/guest/public-kh',label:'Thái Bình / Nam Định · vị trí neo',region:/^KHU VỰC HH (THÁI BÌNH|NAM ĐỊNH)$/i},
  {id:'kiengiang-open-anchorage',base:'http://203.210.235.67/web/guest/public-kh',label:'Kiên Giang / Cà Mau · vị trí neo',region:/^(KIÊN GIANG - |Năm Căn$|Dầu khí ngoài khơi mỏ Sông Đốc$|Vùng biển Cà Mau$)/i},
- {id:'dongnai-open-anchorage',base:'http://123.25.204.166/web/guest/public-kh',label:'Đồng Nai · vị trí neo',region:/^ĐỒNG NAI - /i},
+ {id:'dongnai-open-anchorage',base:'http://123.25.204.166/web/guest/public-kh',label:'Đồng Nai · vị trí neo',region:/^ĐỒNG NAI - /i,allowUnknownRegion:true},
  {id:'hatinh-open-anchorage',base:'http://116.98.104.198/web/guest/public-kh',label:'Hà Tĩnh / Quảng Bình · vị trí neo',region:/^KHU VỰC (?:HH VŨNG ÁNG-SƠN DƯƠNG|(?:HÀNG HẢI )?(?:HÒN LA|CỬA GIANH))$/i,allowUnknownRegion:true},
 ] as const;
 export function publicAnchorageData(raw:string){
