@@ -26,7 +26,7 @@ const berthBundle=JSON.parse(await readFile('.local/port-calls/danang-berth-repo
 const parsedBerths=await parseCallSource(berthBundle.raw_text,'danang-berth-reported',berthBundle.fetched_at);
 const expectedBerths=parsedBerths.rows.filter(r=>!r.quarantine_reason&&r.occurred_at.slice(0,10)>=from&&r.occurred_at.slice(0,10)<=to);
 assert.equal(report.berthMovements.length,expectedBerths.length);
-for(const r of report.berthMovements){const original=expectedBerths.find(o=>o.key===r.event_key);assert.ok(original);assert.equal(r.raw_sha256,berthBundle.raw_sha256);assert.equal(r.dwt,null);assert.equal(r.gt,null);}
+for(const r of report.berthMovements){const original=expectedBerths.find(o=>o.key===r.event_key);assert.ok(original);assert.equal(r.raw_sha256,berthBundle.raw_sha256);assert.equal(Date.parse(r.occurred_at),Date.parse(original.occurred_at));assert.equal(r.direction,original.direction);assert.equal(r.event_day,original.occurred_at.slice(0,10));assert.equal(r.dwt,null);assert.equal(r.gt,null);}
 const facts=await fetch(`${process.env.SUPABASE_URL}/rest/v1/published_port_calls?select=source_area,event_day,time_day,occurred_at,dwt,gt,movement_scope&limit=2000`,{headers});
 assert.equal(facts.status,200);const allEvents=await facts.json();assert.ok(allEvents.length<2000);
 const dayOnly=allEvents.filter(r=>r.source_area==='nghean-reported');

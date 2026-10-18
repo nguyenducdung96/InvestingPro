@@ -51,7 +51,7 @@ không lấp khoảng trống bằng snapshot hay mốc cầu bến. Chưa nghi�
   vùng nước cảng. UI có bảng hoạt động cầu bến, lọc và phân trang riêng.
 - Archive tháng lưu đủ phạm vi ngày quá khứ của tháng rời bến để bản sửa/xóa
   một dòng không giữ lại sự kiện cũ. `reported_day` là ngày rời trong bảng tháng,
-  `event_day` vẫn là ngày ATB/ATD thực tế. Không coi đó là 80 báo cáo hàng ngày.
+  `event_day` vẫn là ngày ATB/ATD thực tế. Không coi đó là các báo cáo hàng ngày.
 - Local PGlite 23 nguồn: **467 sự kiện cảng, 524 mốc cầu bến, 1.342 snapshot**;
   mỗi nguồn replay không trùng, DWT/GT/ngày/scope khớp raw, raw RLS đạt.
 - 96 Vitest đạt; kiểm thử desktop/mobile xác nhận hoạt động cầu bến không làm
