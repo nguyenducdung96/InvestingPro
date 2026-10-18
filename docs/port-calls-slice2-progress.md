@@ -9,6 +9,31 @@ không phụ thuộc Vnstock. Việc đổi mục tiêu không tự hoàn tất 
 ## Đã hoàn thành
 
 
+### Readback staging lúc 10:26 ngày 18/10/2026
+
+- Đã nhập đủ **23 nguồn**. API kỳ 01/09–17/10 có **459 sự kiện cảng**, tách
+  **314 mốc cầu bến**, và **1.337 snapshot**; không truncated. Database giữ
+  471 sự kiện cảng và 524 mốc cầu bến trên toàn bộ ngày đã thu thập.
+- Đối chiếu từng khóa/hash, scope và DWT/GT với bundle thật đạt. Sáu nguồn neo
+  đã nhập khớp raw; nguồn Đà Nẵng mới có 37 dòng công bố, 4 quarantine. Nguồn
+  cầu bến không có DWT/GT và không làm tăng 459 sự kiện cảng trong kỳ.
+- UI xác nhận nhập 524 quan sát, 0 quarantine; nhập lại báo “Bản gốc đã có;
+  không tạo lượt trùng”. Raw API không đăng nhập vẫn 401. Edge pin và web
+  `48c9129fde78e7fc0bc7812387a1c4ddc98d80ec` đã triển khai thành công.
+- 96 Vitest, 10 Playwright desktop/mobile, typecheck/lint/Next build đạt;
+  Cloudflare Linux build Ready. Biên nhận:
+  `catalog-review/slice2-danang-staging-acceptance-20261018.json`.
+- Còn **10 nhóm chưa có cả snapshot hoặc sự kiện đã tích hợp**: Thanh Hóa,
+  Quảng Ngãi, Bình Định, Phú Yên, Khánh Hòa, Bình Dương, Bến Tre, Đồng Tháp,
+  Sóc Trăng, Vĩnh Long. 24 nhóm khác chỉ có nguồn một phần; nhiều nhóm vẫn
+  thiếu lịch sử vào/rời. Không diễn giải 24 nhóm thành 24 cảng hoàn thành.
+
+**Slice 2 toàn quốc chưa hoàn thành** do thiếu dữ liệu sự kiện cần thiết ở từng
+cảng/bến. Các trang trống, ERROR, đăng nhập hoặc dữ liệu kế hoạch đã được ghi rõ;
+không lấp khoảng trống bằng snapshot hay mốc cầu bến. Chưa nghiệm thu tự chạy.
+
+
+
 ### Tiếp tục ngày 18/10/2026 — hoạt động cầu bến thực tế
 
 - Đã nhập nguồn neo Đà Nẵng/Kỳ Hà bằng bundle mới khi resource trực tiếp trả

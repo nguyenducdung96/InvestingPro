@@ -131,3 +131,18 @@ miền tự đoán hoặc chỉ từ việc HTTPS timeout. Biên nhận HTTP/has
   nhật ký vào/ra.
 
 Sau các phát hiện này, vẫn chưa đủ điều kiện nghiệm thu Slice 2 cho tất cả cảng.
+
+
+## Bổ sung nguồn hoạt động cầu bến thực tế — 18/10/2026
+
+Sau khi theo tiếp trang dịch vụ của operator Đà Nẵng, tìm được
+https://danangport.com/tra-cuu-tau-container/ với form POST `thang`/`nam`.
+Bảng “Danh sách tàu đã rời bến tháng … năm …” có ATB/ATD. Link chi tiết công khai
+của EVER ONWARD (`nam=2026&seq=1128&vsl=EVON`) xác nhận cập cầu 17/10 08:15,
+rời cầu 17/10 13:45, nhãn ATB/ATD rõ ràng. Không dùng các con số kế hoạch.
+
+Đã triển khai `danang-berth-reported` với 262 chuyến đã hoàn thành, 524 mốc
+ATB/ATD từ ba tháng rời bến 08–10/2026. Đây là hoạt động cầu bến container,
+không chứng minh tàu vào/rời vùng nước cảng và không đại diện mọi bến. DWT/GT
+không có, giữ null; số container/TEU/năng suất không thay thế trọng tải tàu.
+API/UI/SQL view giữ scope riêng; đã nhập staging và replay đối chiếu thành công.

@@ -1,0 +1,127 @@
+{
+  "checked_at": "2026-10-18T03:26:17.153Z",
+  "site": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "from": "2026-09-01",
+  "to": "2026-10-17",
+  "app_commit": "48c9129fde78e7fc0bc7812387a1c4ddc98d80ec",
+  "local_importer_pin": "48c9129fde78e7fc0bc7812387a1c4ddc98d80ec",
+  "source_registry_count": 23,
+  "source_areas_with_evidence": 23,
+  "events_in_api_range": 459,
+  "events_all_collected_dates": 471,
+  "berth_events_in_api_range": 314,
+  "berth_events_all_collected_dates": 524,
+  "berth_hash_and_scope_verified": true,
+  "snapshots": 1337,
+  "nationwide_target_count": 34,
+  "nationwide_complete": false,
+  "terminal_inventory_complete": false,
+  "scheduled_refresh_verified": false,
+  "truncated": false,
+  "api_counts_by_source": {
+    "quangtri-my-thuy": {
+      "events": 25,
+      "with_dwt": 25,
+      "day_precision": 0
+    },
+    "quangtri-cua-viet": {
+      "events": 62,
+      "with_dwt": 62,
+      "day_precision": 0
+    },
+    "quangtri-hon-la": {
+      "events": 39,
+      "with_dwt": 39,
+      "day_precision": 9
+    },
+    "quangtri-cua-gianh": {
+      "events": 16,
+      "with_dwt": 16,
+      "day_precision": 16
+    },
+    "quangtri-len-bang": {
+      "events": 104,
+      "with_dwt": 104,
+      "day_precision": 0
+    },
+    "quangtri-con-co": {
+      "events": 3,
+      "with_dwt": 3,
+      "day_precision": 0
+    },
+    "nghean-reported": {
+      "events": 210,
+      "with_dwt": 210,
+      "day_precision": 210
+    }
+  },
+  "snapshot_comparisons": [
+    {
+      "source_id": "dongnai-open-anchorage",
+      "published_rows": 63,
+      "raw_sha256": "b67853462b8a91542b54bc38344b704b795d49befd05958445c5497d06b3e5a4",
+      "artifact_id": "07ef0cc1-f6f5-47b1-b2d8-bc7ae2d7b063",
+      "parser_version": "dongnai-open-anchorage/1.0.0",
+      "dwt_gt_and_keys_match": true
+    },
+    {
+      "source_id": "hatinh-open-anchorage",
+      "published_rows": 69,
+      "raw_sha256": "a951947b8ca8fde07a270b0512230534abddc8d793a28793c07a7763028fd8a4",
+      "artifact_id": "5df47e86-b251-4e4c-8092-559bd5bbcac3",
+      "parser_version": "hatinh-open-anchorage/1.0.0",
+      "dwt_gt_and_keys_match": true
+    },
+    {
+      "source_id": "binhthuan-open-anchorage",
+      "published_rows": 55,
+      "raw_sha256": "61a32262f9e5e72520fb901b830610ce337fca0c2fe51803095f9f1ca5ed9f3a",
+      "artifact_id": "7d23292f-6df4-481f-9c5d-b9dd572826c1",
+      "parser_version": "binhthuan-open-anchorage/1.1.0",
+      "dwt_gt_and_keys_match": true
+    },
+    {
+      "source_id": "thaibinh-open-anchorage",
+      "published_rows": 4,
+      "raw_sha256": "f573dfee7f92ac50aeda826784f382bbd4c7f460ed4a6f07960bf724c9804502",
+      "artifact_id": "30c2e573-89cf-4d2e-a2f6-5b4a9ca1dfae",
+      "parser_version": "thaibinh-open-anchorage/1.1.0",
+      "dwt_gt_and_keys_match": true
+    },
+    {
+      "source_id": "kiengiang-open-anchorage",
+      "published_rows": 53,
+      "raw_sha256": "a9817a0a7d265f99c4febedab9d1cfb84955dadfe9002f923c69ab6797692ab4",
+      "artifact_id": "90bb33b9-2412-40bf-bfb5-2068bde5eae1",
+      "parser_version": "kiengiang-open-anchorage/1.1.0",
+      "dwt_gt_and_keys_match": true
+    },
+    {
+      "source_id": "danang-open-anchorage",
+      "published_rows": 37,
+      "raw_sha256": "aac093bea0fa8643f897fdc7cc9b5b79d8a1e436edc67572cc71601e71e280a4",
+      "artifact_id": "4d11bc57-b1ae-42c9-b1b8-6392f8eeba46",
+      "parser_version": "danang-open-anchorage/1.0.0",
+      "dwt_gt_and_keys_match": true
+    }
+  ],
+  "nghean_all_dates_day_only_events": 222,
+  "raw_unauthenticated_status": 401,
+  "missing_event_or_snapshot_targets": [
+    "Thanh Hóa",
+    "Quảng Ngãi",
+    "Bình Định",
+    "Phú Yên",
+    "Khánh Hòa",
+    "Bình Dương",
+    "Bến Tre",
+    "Đồng Tháp",
+    "Sóc Trăng",
+    "Vĩnh Long"
+  ],
+  "validation": {
+    "live_api_readback": true,
+    "snapshot_bundle_comparison": true,
+    "raw_unauthenticated_denied": true
+  }
+}
