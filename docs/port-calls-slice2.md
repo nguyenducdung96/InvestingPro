@@ -10,7 +10,9 @@ Tiến độ và thứ tự tiếp tục tối 17/10/2026: [bàn giao Slice 2](p
 
 ## Mở rộng ngày/giờ và ma trận cảng — tối 17/10/2026
 
-**Vận hành mới nhất:** 21 connector sau migration `202610170009_additional_public_anchorages.sql`.
+**Vận hành mới nhất:** 23 connector sau migration `202610180001_berth_movements.sql`.
+Nguồn Đà Nẵng/Kỳ Hà dùng HTTP đúng từ trang Cảng vụ; Long An/Tiền Giang đối chiếu
+nhãn bến từ nguồn TP.HCM. Xem mục mới nhất trong `port-calls-slice2-progress.md`.
 Thêm `dongnai-open-anchorage`, `hatinh-open-anchorage`; collector neo tải đủ các
 trang 500 dòng đến tối đa 5.000, từ chối total thay đổi, trang thiếu hoặc ID lặp.
 Dòng không xác định khu vực giữ quarantine. Parser ba nguồn neo trước lên 1.1.0
@@ -272,3 +274,21 @@ khác mẫu nghiên cứu trước đó là bình thường; không dùng số f
 Kiểm thử thêm bảng 51 dòng, chuyển trang, ngày không có giờ, ngày chưa rõ và lọc bến.
 Biên nhận `catalog-review/slice2-regional-expansion-acceptance-20261017.json` giữ
 ranh giới nghiệm thu nguồn khu vực và yêu cầu tất cả cảng vẫn chưa hoàn thành.
+
+
+## Hoạt động cầu bến container — 18/10/2026
+
+Nguồn `danang-berth-reported` lấy form POST công khai trên trang Cảng Đà Nẵng.
+CLI lấy tháng hiện tại và hai tháng trước; refresh từ admin chỉ lấy tháng hiện
+hành để giới hạn tải. Lọc bảng tháng theo **ngày rời bến**, không theo ngày ATB.
+Các chuyến còn làm hàng chưa thuộc bảng hoàn thành; không hứa đầy đủ mọi tàu.
+
+Database view `port.published_port_calls` có `movement_scope='port'|'berth'`;
+consumer SQL phải giữ scope khi đếm. API `/api/v1/port-calls` giữ `data` và
+`monthly` riêng cho scope cảng, thêm `berthMovements` cho ATB/ATD. Không cộng
+hai tập này thành số lượt vào cảng; không ghép theo tên tàu. ID chuyến trong
+link chi tiết, năm và vsl được đưa vào khóa quan sát. DWT/GT thiếu giữ null.
+
+Bản tháng sửa/xóa thay thế phạm vi ngày đã qua của tháng rời bến; bản gốc cũ
+vẫn giữ. Ngày có trong archive tháng không tự chứng minh nguồn công bố báo cáo
+hàng ngày hoặc không thiếu chuyến. Phạm vi toàn quốc vẫn chưa hoàn thành.

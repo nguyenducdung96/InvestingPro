@@ -1,6 +1,7 @@
 import {CALL_SOURCES,callSource,parseCallSource,sha256} from './calls.ts';
 import {PUBLIC_ANCHORAGE_SOURCES,fetchPublicAnchorage} from './public-anchorage.ts';
 import {fetchNgheAnReports} from './nghean-reports.ts';
+import {fetchDaNangBerthReports} from './danang-berth-reports.ts';
 
 class ImportError extends Error{constructor(public status:number,message:string){super(message);}}
 async function limitedText(response:Response,limit:number){
@@ -26,6 +27,7 @@ export function createCallIngestionHandler(config:{url:string;anonKey:string;fet
     const source=callSource(bundle.source_id??'quangtri-cua-viet');if(!source)throw new ImportError(400,'Nguồn chưa được hỗ trợ.');
     let raw_text:string;
     if(source.id==='nghean-reported')raw_text=await fetchNgheAnReports(request,1);
+    else if(source.id==='danang-berth-reported')raw_text=await fetchDaNangBerthReports(request);
     else if(PUBLIC_ANCHORAGE_SOURCES.some(s=>s.id===source.id))raw_text=await fetchPublicAnchorage(source.id,request);
     else{
      let next=source.url;let response:Response|undefined;const signal=AbortSignal.timeout(25000);

@@ -3,6 +3,7 @@ import {execFileSync} from 'node:child_process';
 import {CALL_SOURCES,callSource,parseCallSource,sha256} from '../packages/modules/port/src/calls.ts';
 import {fetchPublicAnchorage,PUBLIC_ANCHORAGE_SOURCES} from '../packages/modules/port/src/public-anchorage.ts';
 import {fetchNgheAnReports} from '../packages/modules/port/src/nghean-reports.ts';
+import {fetchDaNangBerthReports} from '../packages/modules/port/src/danang-berth-reports.ts';
 const args=process.argv.slice(2).filter(a=>a!=='--');
 const all=args.includes('--all');
 const sourceIndex=args.indexOf('--source');
@@ -18,6 +19,7 @@ for(const current of all?CALL_SOURCES:[source]){
   let raw_text;
   if(PUBLIC_ANCHORAGE_SOURCES.some(s=>s.id===current.id))raw_text=await fetchPublicAnchorage(current.id);
   else if(current.id==='nghean-reported')raw_text=await fetchNgheAnReports();
+  else if(current.id==='danang-berth-reported')raw_text=await fetchDaNangBerthReports(fetch,3);
   else{
    // OS trust store on Windows; TLS verification stays enabled.
    execFileSync(process.platform==='win32'?'curl.exe':'curl',['--fail','--location','--max-time','60','--max-filesize','5000000',current.url,'-o',`${sourceDir}/latest.html`],{stdio:'inherit'});

@@ -1,5 +1,6 @@
 import type {CallCoverage, PortCall} from '@invest/domain';
 import {CALL_SOURCES} from './calls';
+import {isBerthCallSource} from './call-movements';
 const vietnamDay=new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Ho_Chi_Minh'});
 
 // Notice coverage is evidence of a report, not evidence that every event was captured.
@@ -14,7 +15,7 @@ export function callQuality(from:string,to:string,rows:PortCall[],coverage:CallC
   const eventDay=(r:PortCall)=>r.occurred_at?vietnamDay.format(new Date(r.occurred_at)):r.time_day;
   const dated=events.map(r=>({row:r,day:eventDay(r)}));
   const withDwt=events.filter(r=>r.dwt!==null).length;
-  return {sourceArea:source.id,label:source.label,dataKind:source.kind,
+  return {sourceArea:source.id,label:source.label,dataKind:source.kind,movementScope:isBerthCallSource(source.id)?'berth':'port',
    status:source.kind==='in_port'?'snapshot_only':notices.length?'partial':'missing',
    reportedDays:days.filter(d=>reported.has(d)),missingReportDays:days.filter(d=>!reported.has(d)),
    eventWindow:events.length?{from:dated.map(r=>r.day).filter((d):d is string=>!!d).sort().at(0)??null,to:dated.map(r=>r.day).filter((d):d is string=>!!d).sort().at(-1)??null}:null,

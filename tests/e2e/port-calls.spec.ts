@@ -31,6 +31,19 @@ test('area filter isolates snapshot data without adding it to reported arrivals'
  const body=await r.json();expect(body.data).toHaveLength(0);expect(body.snapshots).toHaveLength(1);
  expect((await request.get('/api/v1/port-calls?area=not-allowed')).status()).toBe(400);
 });
+test('actual berth movements stay separate from port arrival totals and the port journal',async({page,request})=>{
+ const params='from=2026-10-01&to=2026-10-17';
+ const body=await(await request.get(`/api/v1/port-calls?${params}`)).json();
+ expect(body.data).toHaveLength(1);expect(body.berthMovements).toHaveLength(1);
+ expect(body.monthly[0].arrivals).toBe(1);
+ expect(body.data.some((r:{source_area:string})=>r.source_area==='danang-berth-reported')).toBe(false);
+ await page.goto(`/industries/ports/calls?${params}&area=danang-berth-reported`);
+ await expect(page.getByRole('heading',{name:'Cập và rời cầu theo dữ liệu cảng',exact:true})).toBeVisible();
+ await expect(page.getByRole('region',{name:'Bảng cập và rời cầu cuộn ngang',exact:true}).getByText('SYNTHETIC BERTH SHIP',{exact:true})).toBeVisible();
+ await expect(page.getByRole('img',{name:/lượt đến/})).toHaveCount(0);
+ await expect(page.getByRole('heading',{name:'Lượt đến và rời theo ngày',exact:true})).toHaveCount(0);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
 test('large position boards paginate and preserve missing time without midnight',async({page})=>{
  await page.goto('/industries/ports/calls?area=haiphong-in-port');
  await expect(page.getByRole('cell',{name:'PAGINATION SHIP 01'})).toBeVisible();

@@ -27,15 +27,18 @@ try{
    assert.equal(row.dwt===null?null:Number(row.dwt),original.dwt,`${source.id}: DWT`);
    assert.equal(row.gt===null?null:Number(row.gt),original.gt??null,`${source.id}: GT`);
    assert.equal(row.time_day?.toISOString?.().slice(0,10)??row.time_day??null,original.time_day??null,`${source.id}: date precision`);
+   if(source.kind==='reported')assert.equal(row.movement_scope,source.id==='danang-berth-reported'?'berth':'port',`${source.id}: movement scope`);
   }
   results.push({source_id:source.id,kind:source.kind,raw_sha256:bundle.raw_sha256,fetched_at:bundle.fetched_at,parser_version:parsed.parser_version,parsed_rows:parsed.rows.length,distinct_published_rows:actual.length,quarantined_rows:parsed.rows.filter(r=>r.quarantine_reason).length,reported_days:parsed.reported_days,replay_verified:true,dwt_gt_precision_verified:true});
  }
  await db.exec('reset role;set role anon');
  const eventCount=(await db.query('select count(*)::int n from port.published_port_calls')).rows[0].n;
  const snapshotCount=(await db.query('select count(*)::int n from port.published_in_port_snapshots')).rows[0].n;
+ const portCount=(await db.query("select count(*)::int n from port.published_port_calls where movement_scope='port'")).rows[0].n;
+ const berthCount=(await db.query("select count(*)::int n from port.published_port_calls where movement_scope='berth'")).rows[0].n;
  await assert.rejects(db.query('select raw_text from port.call_artifacts'),/permission denied/);
- const receipt={checked_at:new Date().toISOString(),environment:'local_pglite',cloud_imported:false,nationwide_complete:false,event_count:eventCount,snapshot_count:snapshotCount,raw_access_denied_to_anon:true,results};
+ const receipt={checked_at:new Date().toISOString(),environment:'local_pglite',cloud_imported:false,nationwide_complete:false,event_count:eventCount,port_event_count:portCount,berth_event_count:berthCount,snapshot_count:snapshotCount,raw_access_denied_to_anon:true,results};
  await mkdir('.local/port-calls',{recursive:true});
  await writeFile('.local/port-calls/import-verification.json',JSON.stringify(receipt,null,2));
- console.log(JSON.stringify({sources:results.length,eventCount,snapshotCount,replay:'verified',rawRls:'verified',receipt:'.local/port-calls/import-verification.json'}));
+ console.log(JSON.stringify({sources:results.length,portCount,berthCount,snapshotCount,replay:'verified',rawRls:'verified',receipt:'.local/port-calls/import-verification.json'}));
 }finally{await db.close();}

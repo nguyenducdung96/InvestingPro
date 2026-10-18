@@ -8,6 +8,56 @@ không phụ thuộc Vnstock. Việc đổi mục tiêu không tự hoàn tất 
 
 ## Đã hoàn thành
 
+
+### Tiếp tục ngày 18/10/2026 — hoạt động cầu bến thực tế
+
+- Đã nhập nguồn neo Đà Nẵng/Kỳ Hà bằng bundle mới khi resource trực tiếp trả
+  URL không khớp allowlist. Giữ nguyên kiểm tra URL; lần tải lại local thành
+  công. UI xác nhận 41 quan sát, 4 quarantine, còn 37 hợp lệ ở lần lấy 18/10.
+- Trang operator `https://danangport.com/tra-cuu-tau-container/` có form POST
+  `thang`/`nam`, bảng “Danh sách tàu đã rời bến” với ATB/ATD thực tế, không phải
+  ETA/ETD. Tải ba tháng rời bến 08–10/2026 được 262 chuyến đã hoàn thành,
+  **524 mốc cập/rời cầu**. Có mốc ATB 31/07 do chuyến rời trong tháng 8.
+- Thêm nguồn thứ 23 `danang-berth-reported`. Không có DWT/GT trong bảng nên giữ
+  null; không lấy container/TEU thay cho trọng tải. Bảng tổng hợp chưa xác định
+  cầu cụ thể nên giữ berth null, không tự gắn TS04/Tiên Sa từ một chuyến khác.
+- Database công bố `movement_scope`; API tách `data` (cảng) và `berthMovements`
+  (cầu bến). Cập/rời cầu không cộng vào biểu đồ, tổng lượt hay nhật ký vào/rời
+  vùng nước cảng. UI có bảng hoạt động cầu bến, lọc và phân trang riêng.
+- Archive tháng lưu đủ phạm vi ngày quá khứ của tháng rời bến để bản sửa/xóa
+  một dòng không giữ lại sự kiện cũ. `reported_day` là ngày rời trong bảng tháng,
+  `event_day` vẫn là ngày ATB/ATD thực tế. Không coi đó là 80 báo cáo hàng ngày.
+- Local PGlite 23 nguồn: **467 sự kiện cảng, 524 mốc cầu bến, 1.342 snapshot**;
+  mỗi nguồn replay không trùng, DWT/GT/ngày/scope khớp raw, raw RLS đạt.
+- 96 Vitest đạt; kiểm thử desktop/mobile xác nhận hoạt động cầu bến không làm
+  tăng số lượt cảng. Typecheck, lint và Next build đạt. Đang nghiệm thu cloud
+  phần cầu bến riêng; không lấy số local làm số staging.
+
+**Tất cả cảng vẫn chưa hoàn thành.** Dữ liệu mới chỉ tăng phạm vi quan sát có
+bằng chứng. Không thay nhật ký vào/rời còn thiếu bằng 524 mốc cầu bến.
+
+
+
+### Rà lại nguồn chính thức lúc 22:55 ngày 17/10/2026
+
+- Đã tìm và tích hợp nguồn thứ 22: Đà Nẵng / Kỳ Hà–Cù Lao Chàm. Link HTTP
+  đúng trên homepage Cảng vụ hoạt động; kết luận timeout trước đó chỉ áp dụng
+  HTTPS. Local tải đủ 54 dòng, 41 neo đang mở, 38 hợp lệ và 3 dòng nhiều tàu
+  quarantine. Không phải 3 lỗi thời gian; không suy diễn thành sự kiện vào/ra.
+- Sửa ma trận Long An/Tiền Giang dùng các dòng TP.HCM ghi rõ địa danh. Đà Nẵng
+  và Quảng Nam cũng lọc nhãn bến cụ thể; không lấy mọi dòng của nguồn chung để
+  tuyên bố cả hai có dữ liệu. Toàn bộ nhóm vẫn chưa được đánh dấu complete.
+- Theo lại nguồn Đồng Tháp mới ở Cảng vụ ĐTNĐ IV; mục vị trí thực sự trống,
+  HTTP 200. Nha Trang lịch sử HTTP trả Plesk, public-kh trả 404; Quy Nhơn vị trí
+  trả ERROR. Đã ghi URL/hash và phân biệt lỗi truy cập với không có nội dung.
+- Local PGlite nhập thật 22 nguồn: 467 sự kiện, 1.343 snapshot; replay, DWT/GT,
+  độ chính xác ngày và raw RLS đạt. Đây chưa phải số cloud sau mở rộng.
+- 91 Vitest toàn bộ đạt, thêm 1 regression test phạm vi Kỳ Hà đạt riêng;
+  typecheck, lint và Next build đạt. Chi tiết nguồn:
+  [bản rà soát](port-call-source-review.md), biên nhận HTTP
+  `catalog-review/slice2-official-followup-20261017.json`.
+
+
 ### Readback staging lúc 22:38 ngày 17/10/2026
 
 - Đã nhập đủ 21 nguồn, gồm Đồng Nai và Hà Tĩnh bằng bundle khi live source chậm/lỗi.

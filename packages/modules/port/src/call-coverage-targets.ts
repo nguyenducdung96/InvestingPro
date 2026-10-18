@@ -20,7 +20,7 @@ export const SEAPORT_COVERAGE_TARGETS:[string,string[]][]=[
  ['Quảng Bình',['quangtri-hon-la','quangtri-cua-gianh','quangtri-len-bang','hatinh-open-anchorage']],
  ['Quảng Trị',['quangtri-cua-viet','quangtri-con-co','quangtri-my-thuy']],
  ['Thừa Thiên Huế',['hue-chanmay-in-port','hue-thuanan-in-port']],
- ['Đà Nẵng',['danang-open-anchorage']],['Quảng Nam',['danang-open-anchorage']],['Quảng Ngãi',[]],['Bình Định',[]],['Phú Yên',[]],['Khánh Hòa',[]],
+ ['Đà Nẵng',['danang-open-anchorage','danang-berth-reported']],['Quảng Nam',['danang-open-anchorage']],['Quảng Ngãi',[]],['Bình Định',[]],['Phú Yên',[]],['Khánh Hòa',[]],
  ['Ninh Thuận',['binhthuan-open-anchorage']],['Bình Thuận',['binhthuan-open-anchorage']],
  ['TP. Hồ Chí Minh',['hcm-in-port']],['Bà Rịa - Vũng Tàu',['hcm-in-port']],
  ['Đồng Nai',['dongnai-open-anchorage']],['Bình Dương',[]],['Long An',['hcm-in-port']],['Tiền Giang',['hcm-in-port']],['Bến Tre',[]],['Đồng Tháp',[]],['Sóc Trăng',[]],
@@ -42,19 +42,20 @@ function inTarget(name:string,row:PortCall){
  return !labels||labels.some(label=>row.berth?.split(' · ')[0].trim()===label);
 }
 
-export function nationwideCallCoverage(rows:PortCall[],coverage:CallCoverage[],snapshots:PortCall[]){
+export function nationwideCallCoverage(rows:PortCall[],coverage:CallCoverage[],snapshots:PortCall[],berthMovements:PortCall[]=[]){
  return {basis:SEAPORT_COVERAGE_BASIS,complete:false,targets:SEAPORT_COVERAGE_TARGETS.map(([name,candidateSources],i)=>{
   const sources=candidateSources.map(id=>{
    const source=CALL_SOURCES.find(s=>s.id===id)!;
    const events=rows.filter(r=>r.source_area===id&&inTarget(name,r));
    const notices=coverage.filter(r=>r.source_area===id);
    const targetSnapshots=snapshots.filter(r=>r.source_area===id&&inTarget(name,r));
+   const targetBerthMovements=berthMovements.filter(r=>r.source_area===id&&id==='danang-berth-reported'&&name==='Đà Nẵng');
    return {id,label:source.label,kind:source.kind,
-    hasEventsInRange:events.length>0,hasSnapshot:targetSnapshots.length>0,
-    asOf:[...(!TARGET_BERTH_LABELS[name]?notices.map(r=>r.fetched_at):[]),...events.map(r=>r.fetched_at),...targetSnapshots.map(r=>r.fetched_at)].sort().at(-1)??null};
+    hasEventsInRange:events.length>0,hasBerthMovements:targetBerthMovements.length>0,hasSnapshot:targetSnapshots.length>0,
+    asOf:[...(!TARGET_BERTH_LABELS[name]?notices.map(r=>r.fetched_at):[]),...events.map(r=>r.fetched_at),...targetSnapshots.map(r=>r.fetched_at),...targetBerthMovements.map(r=>r.fetched_at)].sort().at(-1)??null};
   });
   return {id:`seaport-804-${String(i+1).padStart(2,'0')}`,name,candidateSources:sources,
-   status:sources.some(s=>s.hasEventsInRange)?'partial_reported':sources.some(s=>s.hasSnapshot)?'snapshot_only':'missing',
+   status:sources.some(s=>s.hasEventsInRange)?'partial_reported':sources.some(s=>s.hasBerthMovements)?'partial_berth':sources.some(s=>s.hasSnapshot)?'snapshot_only':'missing',
    complete:false,canonicalMappingVerified:false,
    note:TARGET_BERTH_LABELS[name]?`Chỉ các dòng nguồn ghi rõ ${TARGET_BERTH_LABELS[name].join(', ')}; chưa có lịch sử vào/ra đầy đủ.`:name==='Hà Tĩnh'?'Báo cáo Nghệ An có bến Xuân Giang/Xuân Hải; chưa đại diện Sơn Dương/Vũng Áng.':candidateSources.length?'Nguồn có thể bao gồm nhiều cảng/bến; chưa nghiệm thu toàn bộ phạm vi cảng.':'Chưa có connector dữ liệu hoạt động đã kiểm thử.',
   };

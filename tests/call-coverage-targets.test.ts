@@ -29,3 +29,15 @@ it('requires the explicit local berth label before extending shared HCM coverage
  expect(target([row('KHU VUC BIEN TIEN GIANG KHAC · X')],'Tiền Giang').status).toBe('missing');
  expect(target([local],'Long An').complete).toBe(false);
 });
+it('does not attribute a Ky Ha snapshot to Da Nang city',()=>{
+ const row={source_area:'danang-open-anchorage',berth:'BẾN CẢNG KỲ HÀ · CẦU 1',fetched_at:'2026-10-17T15:00:00Z'} as PortCall;
+ const matrix=nationwideCallCoverage([],[],[row]);
+ expect(matrix.targets.find(t=>t.name==='Quảng Nam')?.status).toBe('snapshot_only');
+ expect(matrix.targets.find(t=>t.name==='Đà Nẵng')?.status).toBe('missing');
+});
+it('exposes berth activity without certifying reported port arrivals',()=>{
+ const row={source_area:'danang-berth-reported',time_basis:'berth_movement',fetched_at:'2026-10-18T03:00:00Z'} as PortCall;
+ const target=nationwideCallCoverage([],[],[],[row]).targets.find(t=>t.name==='Đà Nẵng')!;
+ expect(target.status).toBe('partial_berth');expect(target.complete).toBe(false);
+ expect(target.candidateSources.some(s=>s.hasEventsInRange)).toBe(false);
+});

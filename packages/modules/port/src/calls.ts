@@ -5,6 +5,7 @@ export {sha256} from './call-hash.ts';
 export const CALL_SOURCE = 'https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2073&page=NEWS';
 export const CALL_PARSER = 'quangtri-notices/1.0.1';
 export const CALL_SOURCES = [
+  {id:'danang-berth-reported',label:'Cảng Đà Nẵng · cập/rời cầu container',url:'https://danangport.com/tra-cuu-tau-container/',kind:'reported' as const,marker:'danang-berth-reports-v1'},
   {id:'nghean-reported',label:'Nghệ An · báo cáo hoạt động',url:'https://cangvuhanghainghean.gov.vn/index.aspx?cat=2017&page=news',kind:'reported' as const,marker:'nghean-reports-v1'},
   {id:'quangtri-hon-la',label:'Hòn La',url:'https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2074&page=news',kind:'reported' as const,marker:'KHU VỰC HÒN LA'},
   {id:'quangtri-cua-gianh',label:'Cửa Gianh',url:'https://cangvuhanghaiquangtri.gov.vn/index.aspx?cat=2075&page=NEWS',kind:'reported' as const,marker:'KHU VỰC CỬA GIANH'},
@@ -85,6 +86,7 @@ export async function parseCallNotices(html:string,sourceId='quangtri-cua-viet')
 export async function parseCallSource(html:string,sourceId:string,fetchedAt:string){
  const source=callSource(sourceId);if(!source)throw new Error('Unknown source');
  if(sourceId==='nghean-reported')return (await import('./nghean-reports.ts')).parseNgheAnReports(html,fetchedAt);
+ if(sourceId==='danang-berth-reported')return (await import('./danang-berth-reports.ts')).parseDaNangBerthReports(html,fetchedAt);
  if(['quangtri-hon-la','quangtri-cua-gianh','quangtri-con-co','quangtri-my-thuy'].includes(sourceId))return parseRegionalNotices(html,sourceId,fetchedAt);
  if(source.kind==='reported')return parseCallNotices(html,sourceId);
  if(PUBLIC_ANCHORAGE_SOURCES.some(s=>s.id===sourceId))return parsePublicAnchoragePositions(html,fetchedAt,sourceId);
