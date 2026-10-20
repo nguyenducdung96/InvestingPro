@@ -1,0 +1,88 @@
+name: PHP newsletter intake
+on:
+  workflow_dispatch:
+  schedule:
+    # Daily 06:20 Asia/Ho_Chi_Minh; source publishes by month, not by day.
+    - cron: '20 23 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: php-newsletters-staging
+  cancel-in-progress: false
+jobs:
+  intake:
+    runs-on: ubuntu-latest
+    environment: staging
+    timeout-minutes: 25
+    env:
+      CLOUDFLARE_ACCOUNT_ID: '5e84958e47290692c6ec2817fa1d9af6'
+      CLOUDFLARE_API_TOKEN: ${{ secrets.PHP_NEWSLETTERS_R2_TOKEN }}
+      SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # The app's staging deployment branch carries the reviewed collector.
+          ref: codex/cloudflare-next-compat
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check scheduler configuration without displaying credentials
+        shell: bash
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN" || { echo 'Missing staging secret PHP_NEWSLETTERS_R2_TOKEN'; exit 1; }
+          test -n "$SUPABASE_SERVICE_ROLE_KEY" || { echo 'Missing staging secret SUPABASE_SERVICE_ROLE_KEY'; exit 1; }
+          test -n "$SUPABASE_URL" || { echo 'Missing staging variable SUPABASE_URL'; exit 1; }
+      - run: pnpm install --frozen-lockfile
+      - run: python -m pip install -r config/requirements-php-newsletters.txt
+      - name: Discover official PDFs and keep failure status
+        id: discovery
+        continue-on-error: true
+        run: python scripts/php_newsletters.py refresh
+      - name: Retry transient source failures
+        id: retry
+        continue-on-error: true
+        run: python scripts/php_newsletters.py retry
+      - name: Extract new candidates without auto-approval
+        id: extraction
+        continue-on-error: true
+        run: python scripts/php_newsletters.py extract --ocr
+      - run: python scripts/apply-current-newsletter-reviews.py
+      - run: python scripts/archive-php-newsletters.py --execute
+      - run: python scripts/php_newsletters.py export
+      - run: python scripts/export-newsletter-db.py
+      - run: node scripts/sync-php-newsletters.mjs
+      - name: Publish compact review metadata only
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: php-newsletter-run-${{ github.run_id }}
+          retention-days: 14
+          path: |
+            .local/php-newsletters/last-refresh.json
+            .local/php-newsletters/last-retry.json
+            .local/php-newsletters/last-extraction.json
+            .local/php-newsletters/last-intake.json
+            .local/php-newsletters/tanvu-series.json
+            .local/php-newsletters/r2-newsletters-readback.json
+            .local/php-newsletters/pending-proposals.json
+      - name: Report unresolved collection errors
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, sqlite3
+          from pathlib import Path
+          p=Path('.local/php-newsletters')
+          refresh=json.loads((p/'last-refresh.json').read_text())
+          extraction=json.loads((p/'last-extraction.json').read_text())
+          with sqlite3.connect(p/'newsletters.sqlite') as db:
+              failures=db.execute('select count(*) from documents where error is not null').fetchone()[0]
+          indexes=[r for r in refresh['failures'] if not r.get('url','').lower().endswith('.pdf')]
+          if failures or indexes or extraction['failures']:
+              raise SystemExit('Unresolved source/index/OCR failures; previous published facts were not overwritten.')
+          PY
