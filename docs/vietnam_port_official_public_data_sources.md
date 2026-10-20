@@ -525,3 +525,7 @@ Yêu cầu:
 ### Bổ sung PHP Slice 2A — 21/10/2026
 
 [Hồ sơ kiểm chứng](php-slice2a-pilot.md) và [biên nhận nguồn](catalog-review/php-slice2a-source-receipt-20261021.json) phân biệt vị trí tàu, kế hoạch điều động, lịch dự kiến của cảng và sản lượng công bố qua newsletter. Chưa xác nhận nguồn actual DWT lịch sử đủ YoY. Không dùng quyền truy cập public thay giấy phép tái sử dụng dữ liệu.
+
+### Rà tiếp reference PHP ngày 21/10/2026
+
+[Hồ sơ nguồn bổ sung](php-official-data-sources-followup.md) xác nhận archive newsletter 2024–2026 có sản lượng hàng/TEU theo tháng; cổng toàn quốc có lịch sử giấy phép Hải Phòng với ngày giờ đầy đủ; hệ thống thống kê có danh mục báo cáo sát nhu cầu nhưng ứng dụng yêu cầu đăng nhập. Không gộp sản lượng hàng, DWT, giấy phép và actual thành một chỉ tiêu.

@@ -31,6 +31,8 @@ export interface Tables {
   };
   catalog: { entities: Entity; companies: Company; company_listings: Listing };
   port: {
+    published_monthly_throughput: import('../../modules/port/src/throughput').ThroughputFact;
+    monthly_throughput: {id:string;period:string;cargo_tonnes:number|null;container_teu:number|null;source_record_id:string;extraction_note:string;verification_status:string};
     published_port_calls: PortCall;
     published_in_port_snapshots: PortCall;
     call_coverage: CallCoverage;

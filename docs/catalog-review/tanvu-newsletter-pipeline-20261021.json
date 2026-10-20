@@ -1,0 +1,202 @@
+{
+  "recorded_at": "2026-10-20T18:03:11.930872+00:00",
+  "scope": "local source-backed newsletter pipeline",
+  "source_revisions": [
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/12-08-2025-Newsletterthang8-tienganh.pdf",
+      "sha256": "7cd1fb841942378001ab044e747a88c3d10b189d4f6a78ffb57807263e50959f",
+      "bytes": 3844207,
+      "captured_at": "2026-10-20T17:50:02.772063+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2002.2024%20(E).pdf",
+      "sha256": "81514df05b227efa6755102da0122392ad21155ac24eedb0b6728a0d1ab690a3",
+      "bytes": 1360518,
+      "captured_at": "2026-10-20T17:50:02.928116+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2004.2024%20(E).pdf",
+      "sha256": "9ef89b47fe3bf32ef97fd97c46f66b50205c5072f0d58490c4a154be1882048c",
+      "bytes": 1270229,
+      "captured_at": "2026-10-20T17:50:02.933132+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2006.2024%20(E)1.pdf",
+      "sha256": "612f5fcdf0ea3cc21521322392da2d02d098496fcf1a1f10be348a1c83ad93ce",
+      "bytes": 1614923,
+      "captured_at": "2026-10-20T17:50:03.410035+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2007.2024%20(E).pdf",
+      "sha256": "8a212f63ed2f01852777fa35409bbd5a7ae92ed5a0f77d1cd60897cd291df6f6",
+      "bytes": 788516,
+      "captured_at": "2026-10-20T17:50:03.415237+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2010.2024%20(E).pdf",
+      "sha256": "0ad67e80dea93ac88c090b9a423c05f6fa27c3e0d0df8deba3db750773ca64ba",
+      "bytes": 778844,
+      "captured_at": "2026-10-20T17:50:03.644979+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%209.2024.3%20(Eng)2.pdf",
+      "sha256": "6a8756fe2d8df7f0e414a6445baa8a6e22493ef57369b10f6455c3c780157f28",
+      "bytes": 957822,
+      "captured_at": "2026-10-20T17:50:03.955821+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/CHP%20Newsletter%2005.2024%20(E).pdf",
+      "sha256": "0f6ef5b4a8feb9630d70e7752564bdec23691f8285084762ea13036c04185043",
+      "bytes": 1574960,
+      "captured_at": "2026-10-20T17:50:04.742296+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/Newsletter%2001.2024%20(E).pdf",
+      "sha256": "3ce2a67eb01b41f8315106c7dfbd202d67b949e8d038088b174961290098b3ba",
+      "bytes": 1666930,
+      "captured_at": "2026-10-20T17:50:05.289812+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/Newsletter%20Nov%202024.pdf",
+      "sha256": "fa98fe90148c0f3ad8aa13f556cf0e70c918fe6539163e6bfa9365f8c2fa2d38",
+      "bytes": 772928,
+      "captured_at": "2026-10-20T17:50:05.294138+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/POH%20Newsletter12.2024.pdf",
+      "sha256": "6e5b40f7ea7542472de773877db6bda8734fe139dbe30ed2c120b32707e682e1",
+      "bytes": 776055,
+      "captured_at": "2026-10-20T17:50:05.715979+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/10-09-2025-Newsletterthang8-tienganh.pdf",
+      "sha256": "2ba0fb111df011e2c8e9e88e4b9f57f6f942e060defe1b7d22736fcdac21993e",
+      "bytes": 5270202,
+      "captured_at": "2026-10-20T17:50:08.492333+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/17-07-2025-Newsletterthang7-tienganh.pdf",
+      "sha256": "c94c764f826298ce680fb528c9df492fb7919e28a3d39e8cc9cd29b692f133f7",
+      "bytes": 3674138,
+      "captured_at": "2026-10-20T17:50:08.502675+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/2025-Newsletterthang10-tienganh.pdf",
+      "sha256": "547696a692889d17b79c39411fd8628330adb96a70db42072d91de61e1355b98",
+      "bytes": 2126531,
+      "captured_at": "2026-10-20T17:50:08.509557+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/English-12-12-2025-Newsletter-thang-12.pdf",
+      "sha256": "099277af8028765cb84ef5af1a88f2e84a5e98b3b45732c0e3a507836c2ca882",
+      "bytes": 2177620,
+      "captured_at": "2026-10-20T17:50:09.566854+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/Newsletter_CHP_thang5-tienganh%203mb.pdf",
+      "sha256": "b6b63831da436d82c3371d27fb40bb047277fba79fc43c7bc5523a7f821629d8",
+      "bytes": 3686181,
+      "captured_at": "2026-10-20T17:50:10.328072+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/Newsletter_thang6_CHP_tienganh%20(1).pdf",
+      "sha256": "5b6b9b4149b5492c72cc0afda1e9a885c174c784c13ccb9f2187fa3879b63355",
+      "bytes": 751711,
+      "captured_at": "2026-10-20T17:50:10.338845+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/tienganh-11-11-2025-Newsletterthang11.pdf",
+      "sha256": "d822d94ee8145b8960227ad7f5ebe9293e64e7f16f5b7c20e3c59336dab4471f",
+      "bytes": 2164560,
+      "captured_at": "2026-10-20T17:50:11.310463+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-06-2026.pdf",
+      "sha256": "bbaecc72bf83f19d8fa57810c455f6bec861156e9b8cc759d1a1202b86dc3f15",
+      "bytes": 459179,
+      "captured_at": "2026-10-20T17:50:55.054096+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-07-2026.pdf",
+      "sha256": "9d03fb962d4d8dca0f7f756d83d8747ffebefd471c9e045c55986010aab029e2",
+      "bytes": 11926518,
+      "captured_at": "2026-10-20T17:50:55.063287+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-08-2026.pdf",
+      "sha256": "da4eb39a6a62ef852eae0c98a4d13b3c6c570af56bcf2264679fa340e0620f92",
+      "bytes": 3493436,
+      "captured_at": "2026-10-20T17:50:55.077812+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-09-2026.pdf",
+      "sha256": "b1958ee0a51a7c33763274ac44c70cae2b2a14761e603502709aeb3be9bdb11b",
+      "bytes": 4062586,
+      "captured_at": "2026-10-20T17:50:55.084397+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-thang03-2026.pdf",
+      "sha256": "23bc000ce4771c846428a69d0d8f3ae9873744e0a44d7f0e4fa52693e045d493",
+      "bytes": 3361306,
+      "captured_at": "2026-10-20T17:50:55.093052+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-thang04-2026.pdf",
+      "sha256": "0fbf48bd4ef4ce4caf44c653838413ebaa6111933b7d27e03a8f84b1716a612c",
+      "bytes": 9054557,
+      "captured_at": "2026-10-20T17:51:00.333647+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/English-Newsletter-thang01-2026.pdf",
+      "sha256": "9eac2e8792736ba5e5d7e3ce0ae9bf3ed8e3f4c3779c565bb777abe40b507d2d",
+      "bytes": 2752785,
+      "captured_at": "2026-10-20T17:51:00.377729+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/English-Newsletter-thang02-2026.pdf",
+      "sha256": "36e56e51f8cfae26842806ba857217634781f4e5f13c420f6fd9d9e64660cae7",
+      "bytes": 5865274,
+      "captured_at": "2026-10-20T17:51:00.734204+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-05-2026.pdf",
+      "sha256": "cb5631a7fd051f5b5c4d313c9193701371eb63fa2f2cbfe491dc4a3c9e944fe6",
+      "bytes": 13612041,
+      "captured_at": "2026-10-20T17:52:35.900803+00:00"
+    }
+  ],
+  "documents": 27,
+  "rendered_and_ocr_extracted": 27,
+  "reviewed_months": 16,
+  "pending_documents": 11,
+  "reported_window": {
+    "first_reviewed_month": "2025-05",
+    "latest_reviewed_month": "2026-08",
+    "missing_between_reviewed_months": [],
+    "full_24_months_verified": false
+  },
+  "complete_quarters": [
+    "2025-Q3",
+    "2025-Q4",
+    "2026-Q1",
+    "2026-Q2"
+  ],
+  "months_with_both_yoy_metrics": [
+    "2026-05",
+    "2026-06",
+    "2026-07",
+    "2026-08"
+  ],
+  "initial_download_failures": 1,
+  "retry_remaining_failures": 0,
+  "review_rows_after_replay": 16,
+  "unit_tests_passed": 8,
+  "production_scheduler_verified": false,
+  "production_publication": false,
+  "dwt_available": false,
+  "collector_refresh_runs": 2,
+  "second_refresh_timeouts": 5,
+  "final_retry_remaining_failures": 0,
+  "review_application_runs": 3,
+  "verified_revision_count": 27
+}

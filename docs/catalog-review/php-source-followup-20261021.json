@@ -1,0 +1,137 @@
+{
+  "review_date_local": "2026-10-21",
+  "recorded_at_utc": "2026-10-20T17:36:45.667225+00:00",
+  "scope": "PHP official-source followup; read-only; not a production ingestion receipt",
+  "captures": [
+    {
+      "url": "http://144.79.79.16/intro.html",
+      "local_raw": ".local\\php-source-followup\\statistics-intro.html",
+      "bytes": 132348,
+      "sha256": "945cea5690d2064163fa24c94d5a3b59beadcd96e17a1875b9b18cde676e80a8"
+    },
+    {
+      "url": "http://144.79.79.16/webtkhh",
+      "local_raw": ".local\\php-source-followup\\statistics-app.html",
+      "bytes": 15521,
+      "sha256": "a79282dba6dc463be6854077f3697e7d69316217564def5ed553a67a89ea57b0"
+    },
+    {
+      "url": "http://tttb.cangvuhaiphong.gov.vn/",
+      "local_raw": ".local\\php-source-followup\\tttb-http.html",
+      "bytes": 13704,
+      "sha256": "96753b6cbe7f8b9d26c50bfb0bdbcc596199c3f7f65074db2856bc883c3885dc"
+    },
+    {
+      "url": "https://hanghai.moc.gov.vn/documents/10180/42165052/giao_thong13830319913371855.pdf?version=1.0",
+      "local_raw": ".local\\php-source-followup\\chua-ve-clearance.pdf",
+      "bytes": 571869,
+      "sha256": "8bdd32929f7d6b5048a608009531123203fb5fa498e00c54fc9012184e468106"
+    },
+    {
+      "url": "https://vimawa.gov.vn/f/Th%C3%A1ng%209%202026.docx",
+      "local_raw": ".local\\php-source-followup\\vimawa-2026-09.docx",
+      "bytes": 16358,
+      "sha256": "829b81b12e787843692313580413137b8bdae32f13da0f4fc9d1fd6404c92eb6"
+    },
+    {
+      "url": "https://haiphongport.com.vn/en/port-of-hai-phong-monthly-newsletters-50/port-of-hai-phong-monthly-newsletter-2026.html",
+      "local_raw": ".local\\php-source-followup\\newsletter-2026-index.html",
+      "bytes": 75361,
+      "sha256": "e20e8007938f854e0e157876f5a86db3097004ca8b25cd2994ba03a896f38cce"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-09-2026.pdf",
+      "local_raw": ".local\\php-source-followup\\newsletter-2026-09-en.pdf",
+      "bytes": 4062586,
+      "sha256": "b1958ee0a51a7c33763274ac44c70cae2b2a14761e603502709aeb3be9bdb11b"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/10-09-2025-Newsletterthang8-tienganh.pdf",
+      "local_raw": ".local\\php-source-followup\\newsletter-2025-09-en.pdf",
+      "bytes": 5270202,
+      "sha256": "2ba0fb111df011e2c8e9e88e4b9f57f6f942e060defe1b7d22736fcdac21993e"
+    }
+  ],
+  "portal_browser_observations": {
+    "canonical_url": "https://hanghai.moc.gov.vn/tra-cuu-giay-phep",
+    "authority": "HẢI PHÒNG",
+    "required_date_format": "dd/MM/yyyy HH:mm",
+    "date_only_query_returned_zero_even_for_known_day": true,
+    "periods": [
+      {
+        "from": "01/09/2026 00:00",
+        "to": "30/09/2026 23:59",
+        "displayed_results": 704,
+        "pages_displayed": 36,
+        "first_page_observed": true
+      },
+      {
+        "from": "01/09/2025 00:00",
+        "to": "30/09/2025 23:59",
+        "displayed_results": 690,
+        "pages_displayed": 35,
+        "first_page_observed": true,
+        "second_page_observed": true,
+        "second_page_first_certificate": "25134548/HPG"
+      }
+    ],
+    "sample": {
+      "certificate": "26149911/HPG",
+      "vessel": "ATLANTIC OCEAN",
+      "imo": "9131008",
+      "listed_departure_port": "CANG CHUA VE (HP)",
+      "listed_time": "20/10/2026 16:30",
+      "document_date": "2026-10-20",
+      "departure_written_in_permit": "2026-10-21T02:00:00+07:00",
+      "valid_until": "2026-10-22T02:00:00+07:00",
+      "gross_tonnage": 4813,
+      "declared_cargo_tonnes": 4398,
+      "dwt": null
+    },
+    "mapping_warning": "TAN CANG HAI PHONG and CTY CANG HAI PHONG are not automatically mapped to TAN VU or HTIT",
+    "semantics": "clearance records, not confirmed actual calls; complete history not downloaded"
+  },
+  "newsletter_2026_discovered_pdf_links": [
+    "https://haiphongport.com.vn/FileUpload/Documents/BAN TIN THANG/2026/Eng-Newsletter-05-2026.pdf",
+    "https://haiphongport.com.vn/FileUpload/Documents/BAN TIN THANG/2026/Eng-Newsletter-06-2026.pdf",
+    "https://haiphongport.com.vn/FileUpload/Documents/BAN TIN THANG/2026/Eng-Newsletter-07-2026.pdf",
+    "https://haiphongport.com.vn/FileUpload/Documents/BAN TIN THANG/2026/Eng-Newsletter-08-2026.pdf",
+    "https://haiphongport.com.vn/FileUpload/Documents/BAN TIN THANG/2026/Eng-Newsletter-09-2026.pdf",
+    "https://haiphongport.com.vn/FileUpload/Documents/BAN TIN THANG/2026/Eng-Newsletter-thang03-2026.pdf",
+    "https://haiphongport.com.vn/FileUpload/Documents/BAN TIN THANG/2026/Eng-Newsletter-thang04-2026.pdf",
+    "https://haiphongport.com.vn/FileUpload/Documents/BAN TIN THANG/2026/English-Newsletter-thang01-2026.pdf",
+    "https://haiphongport.com.vn/FileUpload/Documents/BAN TIN THANG/2026/English-Newsletter-thang02-2026.pdf"
+  ],
+  "visually_reviewed_newsletter_facts": [
+    {
+      "publication_month": "2025-09",
+      "reporting_month": "2025-08",
+      "pdf_page": 1,
+      "tan_vu_cargo_tonnes": 1773423,
+      "tan_vu_container_teu": 95700,
+      "hoang_dieu_chua_ve_combined_cargo_tonnes": 782570,
+      "hoang_dieu_chua_ve_combined_container_teu": 26027
+    },
+    {
+      "publication_month": "2026-09",
+      "reporting_month": "2026-08",
+      "pdf_page": 1,
+      "tan_vu_cargo_tonnes": 1770647,
+      "tan_vu_container_teu": 93754,
+      "hoang_dieu_chua_ve_combined_cargo_tonnes": 909908,
+      "hoang_dieu_chua_ve_combined_container_teu": 25205
+    }
+  ],
+  "actual_dwt_yoy_gate_passed": false,
+  "production_refresh_verified": false,
+  "failures": [
+    {
+      "url": "https://tttb.cangvuhaiphong.gov.vn/",
+      "result": "TLS port connection failed; official linked HTTP endpoint was reachable"
+    },
+    {
+      "url": "https://cangvuhanghaidanang.gov.vn/vi/chuyen-muc/thong-tin-khac",
+      "result": "web fetch timeout; historical docs reference retained, no claim of current availability"
+    }
+  ]
+}

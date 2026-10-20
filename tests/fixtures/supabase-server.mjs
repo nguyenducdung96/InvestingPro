@@ -140,6 +140,13 @@ rows.call_coverage.push({...rows.call_coverage[0],source_area:'quangtri-len-bang
 rows.current_quarantined_calls=[];
 const publicationSource={...source,id:id(40),owner:"Fixture issuing company",base_url:"https://example.gov.vn",rights_notes:"Fixture only: permission must be explicitly reviewed.",rights_status:"to_verify"};
 createServer(async (req, res) => {
+  // Test-only mutable throughput store: proves request-time reads, never imported by the app.
+  if(req.url==='/__throughput'&&req.method==='POST') {
+    let raw='';for await(const chunk of req)raw+=chunk;
+    rows.published_monthly_throughput=JSON.parse(raw);
+    rows.editorial_catalog_editions=[{id:id(900),published_at:stamp,basis:'test-only',entries:[{ticker:'PHP',company_id:id(7),name:'TEST ONLY · PHP',market_as_reported:'UPCoM',period:'2025-12-31',assets:[],research_paths:[],source:{url:'https://example.gov.vn/test-only',sha256:'a'.repeat(64),pages:[1]}}]}];
+    res.end('{}');return;
+  }
   res.setHeader("Content-Type", "application/json");
   const url = new URL(req.url ?? "/", "http://127.0.0.1:54329");
   const admin = req.headers.authorization === "Bearer fixture-admin";

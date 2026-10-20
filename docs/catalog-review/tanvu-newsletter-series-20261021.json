@@ -1,0 +1,743 @@
+{
+  "asset": "tan_vu",
+  "metric_units": {
+    "cargo_tonnes": "tonnes",
+    "container_teu": "TEU"
+  },
+  "months": [
+    {
+      "period": "2025-05",
+      "cargo_tonnes": 1813206,
+      "container_teu": 100269,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/Newsletter_thang6_CHP_tienganh%20(1).pdf",
+          "sha": "5b6b9b4149b5492c72cc0afda1e9a885c174c784c13ccb9f2187fa3879b63355",
+          "period": "2025-05",
+          "publication_month": "2025-06",
+          "cargo_tonnes": 1813206,
+          "container_teu": 100269,
+          "reviewed_at": "2026-10-20T17:57:50.359552+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    {
+      "period": "2025-06",
+      "cargo_tonnes": 1597348,
+      "container_teu": 86379,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/17-07-2025-Newsletterthang7-tienganh.pdf",
+          "sha": "c94c764f826298ce680fb528c9df492fb7919e28a3d39e8cc9cd29b692f133f7",
+          "period": "2025-06",
+          "publication_month": "2025-07",
+          "cargo_tonnes": 1597348,
+          "container_teu": 86379,
+          "reviewed_at": "2026-10-20T17:57:50.363550+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    {
+      "period": "2025-07",
+      "cargo_tonnes": 1612169,
+      "container_teu": 87328,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/12-08-2025-Newsletterthang8-tienganh.pdf",
+          "sha": "7cd1fb841942378001ab044e747a88c3d10b189d4f6a78ffb57807263e50959f",
+          "period": "2025-07",
+          "publication_month": "2025-08",
+          "cargo_tonnes": 1612169,
+          "container_teu": 87328,
+          "reviewed_at": "2026-10-20T17:57:50.367334+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    {
+      "period": "2025-08",
+      "cargo_tonnes": 1773423,
+      "container_teu": 95700,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/10-09-2025-Newsletterthang8-tienganh.pdf",
+          "sha": "2ba0fb111df011e2c8e9e88e4b9f57f6f942e060defe1b7d22736fcdac21993e",
+          "period": "2025-08",
+          "publication_month": "2025-09",
+          "cargo_tonnes": 1773423,
+          "container_teu": 95700,
+          "reviewed_at": "2026-10-20T17:57:50.371332+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    {
+      "period": "2025-09",
+      "cargo_tonnes": 1546836,
+      "container_teu": 84025,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/2025-Newsletterthang10-tienganh.pdf",
+          "sha": "547696a692889d17b79c39411fd8628330adb96a70db42072d91de61e1355b98",
+          "period": "2025-09",
+          "publication_month": "2025-10",
+          "cargo_tonnes": 1546836,
+          "container_teu": 84025,
+          "reviewed_at": "2026-10-20T17:57:50.373457+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    {
+      "period": "2025-10",
+      "cargo_tonnes": 1878317,
+      "container_teu": 100990,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/tienganh-11-11-2025-Newsletterthang11.pdf",
+          "sha": "d822d94ee8145b8960227ad7f5ebe9293e64e7f16f5b7c20e3c59336dab4471f",
+          "period": "2025-10",
+          "publication_month": "2025-11",
+          "cargo_tonnes": 1878317,
+          "container_teu": 100990,
+          "reviewed_at": "2026-10-20T17:57:50.375638+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    {
+      "period": "2025-11",
+      "cargo_tonnes": 1853764,
+      "container_teu": 98661,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/English-12-12-2025-Newsletter-thang-12.pdf",
+          "sha": "099277af8028765cb84ef5af1a88f2e84a5e98b3b45732c0e3a507836c2ca882",
+          "period": "2025-11",
+          "publication_month": "2025-12",
+          "cargo_tonnes": 1853764,
+          "container_teu": 98661,
+          "reviewed_at": "2026-10-20T17:57:50.377639+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    {
+      "period": "2025-12",
+      "cargo_tonnes": 1877374,
+      "container_teu": 100167,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/English-Newsletter-thang01-2026.pdf",
+          "sha": "9eac2e8792736ba5e5d7e3ce0ae9bf3ed8e3f4c3779c565bb777abe40b507d2d",
+          "period": "2025-12",
+          "publication_month": "2026-01",
+          "cargo_tonnes": 1877374,
+          "container_teu": 100167,
+          "reviewed_at": "2026-10-20T17:57:50.380335+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    {
+      "period": "2026-01",
+      "cargo_tonnes": 1827722,
+      "container_teu": 98976,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/English-Newsletter-thang02-2026.pdf",
+          "sha": "36e56e51f8cfae26842806ba857217634781f4e5f13c420f6fd9d9e64660cae7",
+          "period": "2026-01",
+          "publication_month": "2026-02",
+          "cargo_tonnes": 1827722,
+          "container_teu": 98976,
+          "reviewed_at": "2026-10-20T17:57:50.385546+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    {
+      "period": "2026-02",
+      "cargo_tonnes": 1339641,
+      "container_teu": 73940,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-thang03-2026.pdf",
+          "sha": "23bc000ce4771c846428a69d0d8f3ae9873744e0a44d7f0e4fa52693e045d493",
+          "period": "2026-02",
+          "publication_month": "2026-03",
+          "cargo_tonnes": 1339641,
+          "container_teu": 73940,
+          "reviewed_at": "2026-10-20T17:57:50.388374+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    {
+      "period": "2026-03",
+      "cargo_tonnes": 1527025,
+      "container_teu": 82032,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-thang04-2026.pdf",
+          "sha": "0fbf48bd4ef4ce4caf44c653838413ebaa6111933b7d27e03a8f84b1716a612c",
+          "period": "2026-03",
+          "publication_month": "2026-04",
+          "cargo_tonnes": 1527025,
+          "container_teu": 82032,
+          "reviewed_at": "2026-10-20T17:57:50.396252+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    {
+      "period": "2026-04",
+      "cargo_tonnes": 1940943,
+      "container_teu": 106159,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-05-2026.pdf",
+          "sha": "cb5631a7fd051f5b5c4d313c9193701371eb63fa2f2cbfe491dc4a3c9e944fe6",
+          "period": "2026-04",
+          "publication_month": "2026-05",
+          "cargo_tonnes": 1940943,
+          "container_teu": 106159,
+          "reviewed_at": "2026-10-20T17:57:50.407249+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    {
+      "period": "2026-05",
+      "cargo_tonnes": 1721582,
+      "container_teu": 93011,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-06-2026.pdf",
+          "sha": "bbaecc72bf83f19d8fa57810c455f6bec861156e9b8cc759d1a1202b86dc3f15",
+          "period": "2026-05",
+          "publication_month": "2026-06",
+          "cargo_tonnes": 1721582,
+          "container_teu": 93011,
+          "reviewed_at": "2026-10-20T17:57:50.407734+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": -5.053148952738962,
+        "container_teu": -7.238528358715057
+      }
+    },
+    {
+      "period": "2026-06",
+      "cargo_tonnes": 1715426,
+      "container_teu": 93998,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-07-2026.pdf",
+          "sha": "9d03fb962d4d8dca0f7f756d83d8747ffebefd471c9e045c55986010aab029e2",
+          "period": "2026-06",
+          "publication_month": "2026-07",
+          "cargo_tonnes": 1715426,
+          "container_teu": 93998,
+          "reviewed_at": "2026-10-20T17:57:50.417178+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": 7.392127451250441,
+        "container_teu": 8.820430891767671
+      }
+    },
+    {
+      "period": "2026-07",
+      "cargo_tonnes": 1592055,
+      "container_teu": 83696,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-08-2026.pdf",
+          "sha": "da4eb39a6a62ef852eae0c98a4d13b3c6c570af56bcf2264679fa340e0620f92",
+          "period": "2026-07",
+          "publication_month": "2026-08",
+          "cargo_tonnes": 1592055,
+          "container_teu": 83696,
+          "reviewed_at": "2026-10-20T17:57:50.421178+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": -1.247635948836634,
+        "container_teu": -4.1590326126786366
+      }
+    },
+    {
+      "period": "2026-08",
+      "cargo_tonnes": 1770647,
+      "container_teu": 93754,
+      "status": "reported_month",
+      "sources": [
+        {
+          "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-09-2026.pdf",
+          "sha": "b1958ee0a51a7c33763274ac44c70cae2b2a14761e603502709aeb3be9bdb11b",
+          "period": "2026-08",
+          "publication_month": "2026-09",
+          "cargo_tonnes": 1770647,
+          "container_teu": 93754,
+          "reviewed_at": "2026-10-20T17:57:50.424841+00:00",
+          "reviewer": "codex_visual_source_review",
+          "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+        }
+      ],
+      "yoy_pct": {
+        "cargo_tonnes": -0.15653343844079792,
+        "container_teu": -2.0334378265412734
+      }
+    }
+  ],
+  "quarters": [
+    {
+      "period": "2025-Q2",
+      "complete": false,
+      "missing_months": [
+        "2025-04"
+      ],
+      "missing_metric_months": {
+        "cargo_tonnes": [
+          "2025-04"
+        ],
+        "container_teu": [
+          "2025-04"
+        ]
+      },
+      "cargo_tonnes": null,
+      "container_teu": null
+    },
+    {
+      "period": "2025-Q3",
+      "complete": true,
+      "missing_months": [],
+      "missing_metric_months": {
+        "cargo_tonnes": [],
+        "container_teu": []
+      },
+      "cargo_tonnes": 4932428,
+      "container_teu": 267053
+    },
+    {
+      "period": "2025-Q4",
+      "complete": true,
+      "missing_months": [],
+      "missing_metric_months": {
+        "cargo_tonnes": [],
+        "container_teu": []
+      },
+      "cargo_tonnes": 5609455,
+      "container_teu": 299818
+    },
+    {
+      "period": "2026-Q1",
+      "complete": true,
+      "missing_months": [],
+      "missing_metric_months": {
+        "cargo_tonnes": [],
+        "container_teu": []
+      },
+      "cargo_tonnes": 4694388,
+      "container_teu": 254948
+    },
+    {
+      "period": "2026-Q2",
+      "complete": true,
+      "missing_months": [],
+      "missing_metric_months": {
+        "cargo_tonnes": [],
+        "container_teu": []
+      },
+      "cargo_tonnes": 5377951,
+      "container_teu": 293168
+    },
+    {
+      "period": "2026-Q3",
+      "complete": false,
+      "missing_months": [
+        "2026-09"
+      ],
+      "missing_metric_months": {
+        "cargo_tonnes": [
+          "2026-09"
+        ],
+        "container_teu": [
+          "2026-09"
+        ]
+      },
+      "cargo_tonnes": null,
+      "container_teu": null
+    }
+  ],
+  "conflicts": [],
+  "ytd": [],
+  "dwt_available": false,
+  "production_publication": false,
+  "coverage": {
+    "first_reviewed_month": "2025-05",
+    "latest_reviewed_month": "2026-08",
+    "missing_between_reviewed_months": [],
+    "full_24_months_verified": false
+  },
+  "generated_at": "2026-10-20T18:09:27.000193+00:00",
+  "documents": [
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/12-08-2025-Newsletterthang8-tienganh.pdf",
+      "latest_sha": "7cd1fb841942378001ab044e747a88c3d10b189d4f6a78ffb57807263e50959f",
+      "last_success": "2026-10-20T18:04:31.508449+00:00",
+      "last_attempt": "2026-10-20T18:04:31.508449+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2002.2024%20(E).pdf",
+      "latest_sha": "81514df05b227efa6755102da0122392ad21155ac24eedb0b6728a0d1ab690a3",
+      "last_success": "2026-10-20T18:04:31.673789+00:00",
+      "last_attempt": "2026-10-20T18:04:31.673789+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2004.2024%20(E).pdf",
+      "latest_sha": "9ef89b47fe3bf32ef97fd97c46f66b50205c5072f0d58490c4a154be1882048c",
+      "last_success": "2026-10-20T18:04:31.679815+00:00",
+      "last_attempt": "2026-10-20T18:04:31.679815+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2006.2024%20(E)1.pdf",
+      "latest_sha": "612f5fcdf0ea3cc21521322392da2d02d098496fcf1a1f10be348a1c83ad93ce",
+      "last_success": "2026-10-20T18:04:32.595790+00:00",
+      "last_attempt": "2026-10-20T18:04:32.595790+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2007.2024%20(E).pdf",
+      "latest_sha": "8a212f63ed2f01852777fa35409bbd5a7ae92ed5a0f77d1cd60897cd291df6f6",
+      "last_success": "2026-10-20T18:04:32.603204+00:00",
+      "last_attempt": "2026-10-20T18:04:32.603204+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2010.2024%20(E).pdf",
+      "latest_sha": "0ad67e80dea93ac88c090b9a423c05f6fa27c3e0d0df8deba3db750773ca64ba",
+      "last_success": "2026-10-20T18:04:33.191084+00:00",
+      "last_attempt": "2026-10-20T18:04:33.191084+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%209.2024.3%20(Eng)2.pdf",
+      "latest_sha": "6a8756fe2d8df7f0e414a6445baa8a6e22493ef57369b10f6455c3c780157f28",
+      "last_success": "2026-10-20T18:04:33.838033+00:00",
+      "last_attempt": "2026-10-20T18:04:33.838033+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/CHP%20Newsletter%2005.2024%20(E).pdf",
+      "latest_sha": "0f6ef5b4a8feb9630d70e7752564bdec23691f8285084762ea13036c04185043",
+      "last_success": "2026-10-20T18:04:34.197417+00:00",
+      "last_attempt": "2026-10-20T18:04:34.197417+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/Newsletter%2001.2024%20(E).pdf",
+      "latest_sha": "3ce2a67eb01b41f8315106c7dfbd202d67b949e8d038088b174961290098b3ba",
+      "last_success": "2026-10-20T18:04:34.918085+00:00",
+      "last_attempt": "2026-10-20T18:04:34.918085+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/Newsletter%20Nov%202024.pdf",
+      "latest_sha": "fa98fe90148c0f3ad8aa13f556cf0e70c918fe6539163e6bfa9365f8c2fa2d38",
+      "last_success": "2026-10-20T18:04:35.141682+00:00",
+      "last_attempt": "2026-10-20T18:04:35.141682+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/POH%20Newsletter12.2024.pdf",
+      "latest_sha": "6e5b40f7ea7542472de773877db6bda8734fe139dbe30ed2c120b32707e682e1",
+      "last_success": "2026-10-20T18:04:35.563231+00:00",
+      "last_attempt": "2026-10-20T18:04:35.563231+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/10-09-2025-Newsletterthang8-tienganh.pdf",
+      "latest_sha": "2ba0fb111df011e2c8e9e88e4b9f57f6f942e060defe1b7d22736fcdac21993e",
+      "last_success": "2026-10-20T18:04:38.110321+00:00",
+      "last_attempt": "2026-10-20T18:04:38.110321+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/17-07-2025-Newsletterthang7-tienganh.pdf",
+      "latest_sha": "c94c764f826298ce680fb528c9df492fb7919e28a3d39e8cc9cd29b692f133f7",
+      "last_success": "2026-10-20T18:04:39.146864+00:00",
+      "last_attempt": "2026-10-20T18:04:39.146864+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/2025-Newsletterthang10-tienganh.pdf",
+      "latest_sha": "547696a692889d17b79c39411fd8628330adb96a70db42072d91de61e1355b98",
+      "last_success": "2026-10-20T18:04:39.156301+00:00",
+      "last_attempt": "2026-10-20T18:04:39.156301+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/English-12-12-2025-Newsletter-thang-12.pdf",
+      "latest_sha": "099277af8028765cb84ef5af1a88f2e84a5e98b3b45732c0e3a507836c2ca882",
+      "last_success": "2026-10-20T18:08:01.414901+00:00",
+      "last_attempt": "2026-10-20T18:08:01.414901+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/Newsletter_CHP_thang5-tienganh%203mb.pdf",
+      "latest_sha": "b6b63831da436d82c3371d27fb40bb047277fba79fc43c7bc5523a7f821629d8",
+      "last_success": "2026-10-20T18:08:02.928774+00:00",
+      "last_attempt": "2026-10-20T18:08:02.928774+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/Newsletter_thang6_CHP_tienganh%20(1).pdf",
+      "latest_sha": "5b6b9b4149b5492c72cc0afda1e9a885c174c784c13ccb9f2187fa3879b63355",
+      "last_success": "2026-10-20T18:05:23.559095+00:00",
+      "last_attempt": "2026-10-20T18:05:23.559095+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/tienganh-11-11-2025-Newsletterthang11.pdf",
+      "latest_sha": "d822d94ee8145b8960227ad7f5ebe9293e64e7f16f5b7c20e3c59336dab4471f",
+      "last_success": "2026-10-20T18:05:23.569100+00:00",
+      "last_attempt": "2026-10-20T18:05:23.569100+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-05-2026.pdf",
+      "latest_sha": "cb5631a7fd051f5b5c4d313c9193701371eb63fa2f2cbfe491dc4a3c9e944fe6",
+      "last_success": "2026-10-20T18:08:00.283366+00:00",
+      "last_attempt": "2026-10-20T18:08:00.283366+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-06-2026.pdf",
+      "latest_sha": "bbaecc72bf83f19d8fa57810c455f6bec861156e9b8cc759d1a1202b86dc3f15",
+      "last_success": "2026-10-20T18:07:54.870116+00:00",
+      "last_attempt": "2026-10-20T18:07:54.870116+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-07-2026.pdf",
+      "latest_sha": "9d03fb962d4d8dca0f7f756d83d8747ffebefd471c9e045c55986010aab029e2",
+      "last_success": "2026-10-20T18:07:54.098900+00:00",
+      "last_attempt": "2026-10-20T18:07:54.098900+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-08-2026.pdf",
+      "latest_sha": "da4eb39a6a62ef852eae0c98a4d13b3c6c570af56bcf2264679fa340e0620f92",
+      "last_success": "2026-10-20T18:06:08.593679+00:00",
+      "last_attempt": "2026-10-20T18:06:08.593679+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-09-2026.pdf",
+      "latest_sha": "b1958ee0a51a7c33763274ac44c70cae2b2a14761e603502709aeb3be9bdb11b",
+      "last_success": "2026-10-20T18:06:23.162092+00:00",
+      "last_attempt": "2026-10-20T18:06:23.162092+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-thang03-2026.pdf",
+      "latest_sha": "23bc000ce4771c846428a69d0d8f3ae9873744e0a44d7f0e4fa52693e045d493",
+      "last_success": "2026-10-20T18:06:23.170335+00:00",
+      "last_attempt": "2026-10-20T18:06:23.170335+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-thang04-2026.pdf",
+      "latest_sha": "0fbf48bd4ef4ce4caf44c653838413ebaa6111933b7d27e03a8f84b1716a612c",
+      "last_success": "2026-10-20T18:06:23.181890+00:00",
+      "last_attempt": "2026-10-20T18:06:23.181890+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/English-Newsletter-thang01-2026.pdf",
+      "latest_sha": "9eac2e8792736ba5e5d7e3ce0ae9bf3ed8e3f4c3779c565bb777abe40b507d2d",
+      "last_success": "2026-10-20T18:06:23.227531+00:00",
+      "last_attempt": "2026-10-20T18:06:23.227531+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/English-Newsletter-thang02-2026.pdf",
+      "latest_sha": "36e56e51f8cfae26842806ba857217634781f4e5f13c420f6fd9d9e64660cae7",
+      "last_success": "2026-10-20T18:06:23.236532+00:00",
+      "last_attempt": "2026-10-20T18:06:23.236532+00:00",
+      "error": null,
+      "seen_at": "2026-10-20T18:04:28.058294+00:00"
+    }
+  ],
+  "pending_reviews": [
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2002.2024%20(E).pdf",
+      "latest_sha": "81514df05b227efa6755102da0122392ad21155ac24eedb0b6728a0d1ab690a3",
+      "extraction_path": ".local\\php-newsletters\\extracted\\81514df05b227efa6755102da0122392ad21155ac24eedb0b6728a0d1ab690a3\\page-1.json"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2004.2024%20(E).pdf",
+      "latest_sha": "9ef89b47fe3bf32ef97fd97c46f66b50205c5072f0d58490c4a154be1882048c",
+      "extraction_path": ".local\\php-newsletters\\extracted\\9ef89b47fe3bf32ef97fd97c46f66b50205c5072f0d58490c4a154be1882048c\\page-1.json"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2006.2024%20(E)1.pdf",
+      "latest_sha": "612f5fcdf0ea3cc21521322392da2d02d098496fcf1a1f10be348a1c83ad93ce",
+      "extraction_path": ".local\\php-newsletters\\extracted\\612f5fcdf0ea3cc21521322392da2d02d098496fcf1a1f10be348a1c83ad93ce\\page-1.json"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2007.2024%20(E).pdf",
+      "latest_sha": "8a212f63ed2f01852777fa35409bbd5a7ae92ed5a0f77d1cd60897cd291df6f6",
+      "extraction_path": ".local\\php-newsletters\\extracted\\8a212f63ed2f01852777fa35409bbd5a7ae92ed5a0f77d1cd60897cd291df6f6\\page-1.json"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%2010.2024%20(E).pdf",
+      "latest_sha": "0ad67e80dea93ac88c090b9a423c05f6fa27c3e0d0df8deba3db750773ca64ba",
+      "extraction_path": ".local\\php-newsletters\\extracted\\0ad67e80dea93ac88c090b9a423c05f6fa27c3e0d0df8deba3db750773ca64ba\\page-1.json"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/B%E1%BA%A3n%20tin%20th%C3%A1ng%209.2024.3%20(Eng)2.pdf",
+      "latest_sha": "6a8756fe2d8df7f0e414a6445baa8a6e22493ef57369b10f6455c3c780157f28",
+      "extraction_path": ".local\\php-newsletters\\extracted\\6a8756fe2d8df7f0e414a6445baa8a6e22493ef57369b10f6455c3c780157f28\\page-1.json"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/CHP%20Newsletter%2005.2024%20(E).pdf",
+      "latest_sha": "0f6ef5b4a8feb9630d70e7752564bdec23691f8285084762ea13036c04185043",
+      "extraction_path": ".local\\php-newsletters\\extracted\\0f6ef5b4a8feb9630d70e7752564bdec23691f8285084762ea13036c04185043\\page-1.json"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/Newsletter%2001.2024%20(E).pdf",
+      "latest_sha": "3ce2a67eb01b41f8315106c7dfbd202d67b949e8d038088b174961290098b3ba",
+      "extraction_path": ".local\\php-newsletters\\extracted\\3ce2a67eb01b41f8315106c7dfbd202d67b949e8d038088b174961290098b3ba\\page-1.json"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/Newsletter%20Nov%202024.pdf",
+      "latest_sha": "fa98fe90148c0f3ad8aa13f556cf0e70c918fe6539163e6bfa9365f8c2fa2d38",
+      "extraction_path": ".local\\php-newsletters\\extracted\\fa98fe90148c0f3ad8aa13f556cf0e70c918fe6539163e6bfa9365f8c2fa2d38\\page-1.json"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2024/POH%20Newsletter12.2024.pdf",
+      "latest_sha": "6e5b40f7ea7542472de773877db6bda8734fe139dbe30ed2c120b32707e682e1",
+      "extraction_path": ".local\\php-newsletters\\extracted\\6e5b40f7ea7542472de773877db6bda8734fe139dbe30ed2c120b32707e682e1\\page-1.json"
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/Newsletter_CHP_thang5-tienganh%203mb.pdf",
+      "latest_sha": "b6b63831da436d82c3371d27fb40bb047277fba79fc43c7bc5523a7f821629d8",
+      "extraction_path": ".local\\php-newsletters\\extracted\\b6b63831da436d82c3371d27fb40bb047277fba79fc43c7bc5523a7f821629d8\\page-1.json"
+    }
+  ]
+}

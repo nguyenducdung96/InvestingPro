@@ -1,0 +1,168 @@
+{
+  "asset": "tan_vu",
+  "status": "visually_reviewed",
+  "reviewer": "codex_visual_source_review",
+  "scope": "Local factual extraction review only; not admin publication or source-rights approval",
+  "items": [
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/Newsletter_thang6_CHP_tienganh%20(1).pdf",
+      "sha256": "5b6b9b4149b5492c72cc0afda1e9a885c174c784c13ccb9f2187fa3879b63355",
+      "period": "2025-05",
+      "publication_month": "2025-06",
+      "pdf_page": 1,
+      "cargo_tonnes": 1813206,
+      "container_teu": 100269,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/17-07-2025-Newsletterthang7-tienganh.pdf",
+      "sha256": "c94c764f826298ce680fb528c9df492fb7919e28a3d39e8cc9cd29b692f133f7",
+      "period": "2025-06",
+      "publication_month": "2025-07",
+      "pdf_page": 1,
+      "cargo_tonnes": 1597348,
+      "container_teu": 86379,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/12-08-2025-Newsletterthang8-tienganh.pdf",
+      "sha256": "7cd1fb841942378001ab044e747a88c3d10b189d4f6a78ffb57807263e50959f",
+      "period": "2025-07",
+      "publication_month": "2025-08",
+      "pdf_page": 1,
+      "cargo_tonnes": 1612169,
+      "container_teu": 87328,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/10-09-2025-Newsletterthang8-tienganh.pdf",
+      "sha256": "2ba0fb111df011e2c8e9e88e4b9f57f6f942e060defe1b7d22736fcdac21993e",
+      "period": "2025-08",
+      "publication_month": "2025-09",
+      "pdf_page": 1,
+      "cargo_tonnes": 1773423,
+      "container_teu": 95700,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/2025-Newsletterthang10-tienganh.pdf",
+      "sha256": "547696a692889d17b79c39411fd8628330adb96a70db42072d91de61e1355b98",
+      "period": "2025-09",
+      "publication_month": "2025-10",
+      "pdf_page": 1,
+      "cargo_tonnes": 1546836,
+      "container_teu": 84025,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/tienganh-11-11-2025-Newsletterthang11.pdf",
+      "sha256": "d822d94ee8145b8960227ad7f5ebe9293e64e7f16f5b7c20e3c59336dab4471f",
+      "period": "2025-10",
+      "publication_month": "2025-11",
+      "pdf_page": 1,
+      "cargo_tonnes": 1878317,
+      "container_teu": 100990,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2025/English-12-12-2025-Newsletter-thang-12.pdf",
+      "sha256": "099277af8028765cb84ef5af1a88f2e84a5e98b3b45732c0e3a507836c2ca882",
+      "period": "2025-11",
+      "publication_month": "2025-12",
+      "pdf_page": 1,
+      "cargo_tonnes": 1853764,
+      "container_teu": 98661,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/English-Newsletter-thang01-2026.pdf",
+      "sha256": "9eac2e8792736ba5e5d7e3ce0ae9bf3ed8e3f4c3779c565bb777abe40b507d2d",
+      "period": "2025-12",
+      "publication_month": "2026-01",
+      "pdf_page": 1,
+      "cargo_tonnes": 1877374,
+      "container_teu": 100167,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/English-Newsletter-thang02-2026.pdf",
+      "sha256": "36e56e51f8cfae26842806ba857217634781f4e5f13c420f6fd9d9e64660cae7",
+      "period": "2026-01",
+      "publication_month": "2026-02",
+      "pdf_page": 1,
+      "cargo_tonnes": 1827722,
+      "container_teu": 98976,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-thang03-2026.pdf",
+      "sha256": "23bc000ce4771c846428a69d0d8f3ae9873744e0a44d7f0e4fa52693e045d493",
+      "period": "2026-02",
+      "publication_month": "2026-03",
+      "pdf_page": 1,
+      "cargo_tonnes": 1339641,
+      "container_teu": 73940,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-thang04-2026.pdf",
+      "sha256": "0fbf48bd4ef4ce4caf44c653838413ebaa6111933b7d27e03a8f84b1716a612c",
+      "period": "2026-03",
+      "publication_month": "2026-04",
+      "pdf_page": 1,
+      "cargo_tonnes": 1527025,
+      "container_teu": 82032,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-05-2026.pdf",
+      "sha256": "cb5631a7fd051f5b5c4d313c9193701371eb63fa2f2cbfe491dc4a3c9e944fe6",
+      "period": "2026-04",
+      "publication_month": "2026-05",
+      "pdf_page": 1,
+      "cargo_tonnes": 1940943,
+      "container_teu": 106159,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-06-2026.pdf",
+      "sha256": "bbaecc72bf83f19d8fa57810c455f6bec861156e9b8cc759d1a1202b86dc3f15",
+      "period": "2026-05",
+      "publication_month": "2026-06",
+      "pdf_page": 1,
+      "cargo_tonnes": 1721582,
+      "container_teu": 93011,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-07-2026.pdf",
+      "sha256": "9d03fb962d4d8dca0f7f756d83d8747ffebefd471c9e045c55986010aab029e2",
+      "period": "2026-06",
+      "publication_month": "2026-07",
+      "pdf_page": 1,
+      "cargo_tonnes": 1715426,
+      "container_teu": 93998,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-08-2026.pdf",
+      "sha256": "da4eb39a6a62ef852eae0c98a4d13b3c6c570af56bcf2264679fa340e0620f92",
+      "period": "2026-07",
+      "publication_month": "2026-08",
+      "pdf_page": 1,
+      "cargo_tonnes": 1592055,
+      "container_teu": 83696,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    },
+    {
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-09-2026.pdf",
+      "sha256": "b1958ee0a51a7c33763274ac44c70cae2b2a14761e603502709aeb3be9bdb11b",
+      "period": "2026-08",
+      "publication_month": "2026-09",
+      "pdf_page": 1,
+      "cargo_tonnes": 1770647,
+      "container_teu": 93754,
+      "note": "Tan Vu row visually checked against rendered throughput and container charts. Monthly results heading checked separately from publication month; not regional totals, general cargo or vessel DWT."
+    }
+  ]
+}

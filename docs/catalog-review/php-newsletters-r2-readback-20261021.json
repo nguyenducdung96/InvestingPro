@@ -1,0 +1,119 @@
+{
+  "bucket": "investing-pro-evidence-staging",
+  "public_access_changed": false,
+  "publication_performed": false,
+  "items": [
+    {
+      "sha256": "099277af8028765cb84ef5af1a88f2e84a5e98b3b45732c0e3a507836c2ca882",
+      "raw_storage_key": "catalog-evidence/sha256/099277af8028765cb84ef5af1a88f2e84a5e98b3b45732c0e3a507836c2ca882",
+      "bytes": 2177620,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:41:04.844155+00:00"
+    },
+    {
+      "sha256": "0fbf48bd4ef4ce4caf44c653838413ebaa6111933b7d27e03a8f84b1716a612c",
+      "raw_storage_key": "catalog-evidence/sha256/0fbf48bd4ef4ce4caf44c653838413ebaa6111933b7d27e03a8f84b1716a612c",
+      "bytes": 9054557,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:41:23.898142+00:00"
+    },
+    {
+      "sha256": "23bc000ce4771c846428a69d0d8f3ae9873744e0a44d7f0e4fa52693e045d493",
+      "raw_storage_key": "catalog-evidence/sha256/23bc000ce4771c846428a69d0d8f3ae9873744e0a44d7f0e4fa52693e045d493",
+      "bytes": 3361306,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:41:36.714945+00:00"
+    },
+    {
+      "sha256": "2ba0fb111df011e2c8e9e88e4b9f57f6f942e060defe1b7d22736fcdac21993e",
+      "raw_storage_key": "catalog-evidence/sha256/2ba0fb111df011e2c8e9e88e4b9f57f6f942e060defe1b7d22736fcdac21993e",
+      "bytes": 5270202,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:42:14.073983+00:00"
+    },
+    {
+      "sha256": "36e56e51f8cfae26842806ba857217634781f4e5f13c420f6fd9d9e64660cae7",
+      "raw_storage_key": "catalog-evidence/sha256/36e56e51f8cfae26842806ba857217634781f4e5f13c420f6fd9d9e64660cae7",
+      "bytes": 5865274,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:42:31.324219+00:00"
+    },
+    {
+      "sha256": "547696a692889d17b79c39411fd8628330adb96a70db42072d91de61e1355b98",
+      "raw_storage_key": "catalog-evidence/sha256/547696a692889d17b79c39411fd8628330adb96a70db42072d91de61e1355b98",
+      "bytes": 2126531,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:42:45.534475+00:00"
+    },
+    {
+      "sha256": "5b6b9b4149b5492c72cc0afda1e9a885c174c784c13ccb9f2187fa3879b63355",
+      "raw_storage_key": "catalog-evidence/sha256/5b6b9b4149b5492c72cc0afda1e9a885c174c784c13ccb9f2187fa3879b63355",
+      "bytes": 751711,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:42:52.646637+00:00"
+    },
+    {
+      "sha256": "7cd1fb841942378001ab044e747a88c3d10b189d4f6a78ffb57807263e50959f",
+      "raw_storage_key": "catalog-evidence/sha256/7cd1fb841942378001ab044e747a88c3d10b189d4f6a78ffb57807263e50959f",
+      "bytes": 3844207,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:43:10.117332+00:00"
+    },
+    {
+      "sha256": "9d03fb962d4d8dca0f7f756d83d8747ffebefd471c9e045c55986010aab029e2",
+      "raw_storage_key": "catalog-evidence/sha256/9d03fb962d4d8dca0f7f756d83d8747ffebefd471c9e045c55986010aab029e2",
+      "bytes": 11926518,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:43:53.906017+00:00"
+    },
+    {
+      "sha256": "9eac2e8792736ba5e5d7e3ce0ae9bf3ed8e3f4c3779c565bb777abe40b507d2d",
+      "raw_storage_key": "catalog-evidence/sha256/9eac2e8792736ba5e5d7e3ce0ae9bf3ed8e3f4c3779c565bb777abe40b507d2d",
+      "bytes": 2752785,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:44:11.100429+00:00"
+    },
+    {
+      "sha256": "b1958ee0a51a7c33763274ac44c70cae2b2a14761e603502709aeb3be9bdb11b",
+      "raw_storage_key": "catalog-evidence/sha256/b1958ee0a51a7c33763274ac44c70cae2b2a14761e603502709aeb3be9bdb11b",
+      "bytes": 4062586,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:44:30.224769+00:00"
+    },
+    {
+      "sha256": "bbaecc72bf83f19d8fa57810c455f6bec861156e9b8cc759d1a1202b86dc3f15",
+      "raw_storage_key": "catalog-evidence/sha256/bbaecc72bf83f19d8fa57810c455f6bec861156e9b8cc759d1a1202b86dc3f15",
+      "bytes": 459179,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:44:44.450555+00:00"
+    },
+    {
+      "sha256": "c94c764f826298ce680fb528c9df492fb7919e28a3d39e8cc9cd29b692f133f7",
+      "raw_storage_key": "catalog-evidence/sha256/c94c764f826298ce680fb528c9df492fb7919e28a3d39e8cc9cd29b692f133f7",
+      "bytes": 3674138,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:45:16.216548+00:00"
+    },
+    {
+      "sha256": "cb5631a7fd051f5b5c4d313c9193701371eb63fa2f2cbfe491dc4a3c9e944fe6",
+      "raw_storage_key": "catalog-evidence/sha256/cb5631a7fd051f5b5c4d313c9193701371eb63fa2f2cbfe491dc4a3c9e944fe6",
+      "bytes": 13612041,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:46:22.494189+00:00"
+    },
+    {
+      "sha256": "d822d94ee8145b8960227ad7f5ebe9293e64e7f16f5b7c20e3c59336dab4471f",
+      "raw_storage_key": "catalog-evidence/sha256/d822d94ee8145b8960227ad7f5ebe9293e64e7f16f5b7c20e3c59336dab4471f",
+      "bytes": 2164560,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:46:31.555051+00:00"
+    },
+    {
+      "sha256": "da4eb39a6a62ef852eae0c98a4d13b3c6c570af56bcf2264679fa340e0620f92",
+      "raw_storage_key": "catalog-evidence/sha256/da4eb39a6a62ef852eae0c98a4d13b3c6c570af56bcf2264679fa340e0620f92",
+      "bytes": 3493436,
+      "status": "sha256_readback_verified",
+      "checked_at": "2026-10-20T18:47:00.745850+00:00"
+    }
+  ]
+}

@@ -76,3 +76,11 @@ Xác minh PDF: đã render và đọc trực quan trang PDF 8–9 BCTN và trang
 - Kiểm tra cú pháp Python và SHA-256: 15/15 raw khớp biên nhận cuối; bốn asset đều tham chiếu evidence hợp lệ.
 - `node scripts/measure-php-pilot.mjs` chạy thành công với parser thật; đầu ra phân biệt snapshot với actual null.
 - `git diff --check` đạt. Không chạy/khẳng định E2E hoặc cloud acceptance; không thay code UI, migration hay scheduler production.
+
+## 7. Bổ sung rà nguồn sau commit cfcd5fa
+
+Đã theo lại reference và kiểm tra thêm cổng giấy phép, hệ thống thống kê ngành, archive newsletter 2024–2026 và file thống kê Cục. [Kết quả chi tiết](php-official-data-sources-followup.md): có cặp số liệu sản lượng hàng/TEU Tân Vũ tháng 8/2025 và 8/2026; có lịch sử hồ sơ giấy phép tháng 9 của hai năm với bộ lọc ngày giờ. Gate actual DWT vẫn chưa đạt. Không còn hiểu phần khảo sát ban đầu là kết luận không có dữ liệu lịch sử công khai.
+
+## 8. Đã thực hiện pipeline newsletter local
+
+Theo yêu cầu tiếp tục, đã thêm [pipeline thu thập và chuỗi Tân Vũ](php-newsletter-pipeline.md): archive 27 PDF và review 16 tháng 05/2025–08/2026, có hai chỉ tiêu tấn hàng/TEU và citations. Đây là số liệu sản lượng công bố, không bổ sung/giả lập DWT. Chưa nối scheduler/API/UI production.

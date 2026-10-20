@@ -29,6 +29,7 @@ export class DatabaseError extends Error {
   }
 }
 export interface Transport {
+  reviewThroughput?(body:object):Promise<object>;
   importCalls?(body:object):Promise<Record<string,unknown>>;
   publishEditorial?(body:object):Promise<{inserted:number;companies:number}>;
   importReferences?(body:object):Promise<{inserted:number;received:number}>;
@@ -87,6 +88,7 @@ export function supabaseTransport(
     return response.json() as Promise<T[]>;
   }
   return {
+    reviewThroughput: (b) => request('port','rpc/review_monthly_throughput',new URLSearchParams(),'POST',b),
     importCalls: (b) => request('port','rpc/import_port_calls',new URLSearchParams(),'POST',b) as unknown as Promise<Record<string,unknown>>,
     publishEditorial: (b) => request("port","rpc/publish_editorial_catalog",new URLSearchParams(),"POST",b) as unknown as Promise<{inserted:number;companies:number}>,
     importReferences: (b) => request("port","rpc/import_reference_refresh",new URLSearchParams(),"POST",b) as unknown as Promise<{inserted:number;received:number}>,
@@ -114,6 +116,20 @@ export class SupabaseCatalogRepository implements CatalogRepository {
     private db: Transport,
     private admin = false,
   ) {}
+  async monthlyThroughput() {
+    return this.db.read('port','published_monthly_throughput',params({select:'*',asset_code:'eq.tan_vu',order:'period.asc,id.asc',limit:'1000'}));
+  }
+  async throughputQueue() {
+    if(!this.admin)throw new DatabaseError(403);
+    const rows=await this.db.read('port','monthly_throughput',params({select:'*',verification_status:'eq.pending',order:'period.desc,id.asc',limit:'100'}));
+    if(!rows.length)return [];
+    const records=await this.db.read('core','source_records',params({id:ids([...new Set(rows.map(r=>r.source_record_id))]),select:'*',limit:'100'}));
+    return rows.map(r=>({...r,evidence:records.find(s=>s.id===r.source_record_id)}));
+  }
+  async reviewThroughput(id:string,decision:string,note:string) {
+    if(!this.admin||!this.db.reviewThroughput)throw new DatabaseError(403);
+    return this.db.reviewThroughput({p_id:id,p_decision:decision,p_note:note});
+  }
   async callFacts(from:string,to:string,area?:string) {
     const scope:Record<string,string>=area?{source_area:`eq.${area}`}:{ };
     return Promise.all([
