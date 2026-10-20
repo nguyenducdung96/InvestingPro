@@ -13,6 +13,7 @@ import shutil
 import sqlite3
 import subprocess
 import tempfile
+from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 BUCKET = 'investing-pro-evidence-staging'
@@ -43,6 +44,23 @@ def main():
         raise ValueError('Receipt bucket mismatch')
     node = shutil.which('node')
     wrangler = ROOT / 'apps/web/node_modules/wrangler/bin/wrangler.js'
+    s3 = None
+    api_token = os.environ.get('CLOUDFLARE_API_TOKEN')
+    if api_token:
+        # Bucket-item tokens intentionally cannot use Wrangler's management API.
+        # https://developers.cloudflare.com/r2/api/tokens/#get-s3-api-credentials-from-an-api-token
+        import boto3
+        from botocore.config import Config
+        from botocore.exceptions import ClientError
+        request = Request('https://api.cloudflare.com/client/v4/accounts/5e84958e47290692c6ec2817fa1d9af6/tokens/verify', headers={'Authorization': 'Bearer ' + api_token})
+        with urlopen(request, timeout=30) as response:
+            verified = json.load(response)
+        token_id = verified.get('result', {}).get('id', '')
+        if not verified.get('success') or verified.get('result', {}).get('status') != 'active' or len(token_id) != 32:
+            raise RuntimeError('R2 account token verification failed')
+        s3 = boto3.client('s3', endpoint_url='https://5e84958e47290692c6ec2817fa1d9af6.r2.cloudflarestorage.com',
+                          aws_access_key_id=token_id, aws_secret_access_key=hashlib.sha256(api_token.encode()).hexdigest(), region_name='auto',
+                          config=Config(signature_version='s3v4',s3={'addressing_style':'path'},connect_timeout=15,read_timeout=60,retries={'max_attempts':3}))
     def run(command):
         r = subprocess.run([node, str(wrangler), *command], cwd=ROOT / 'apps/web',
                            env=dict(os.environ, CLOUDFLARE_ACCOUNT_ID='5e84958e47290692c6ec2817fa1d9af6'),
@@ -56,13 +74,26 @@ def main():
         with tempfile.TemporaryDirectory(prefix='php-r2-readback-') as temp:
             readback = Path(temp) / 'source.pdf'
             # Check the immutable key first; do not overwrite a previously archived object.
-            try:
-                run(['r2','object','get',BUCKET+'/'+row['key'],'--file',str(readback),'--remote'])
-            except RuntimeError as error:
-                if not any(t in str(error).lower() for t in ('not found', 'does not exist', '404', 'no such key')):
-                    raise
-                run(['r2','object','put',BUCKET+'/'+row['key'],'--file',str(row['path']),'--content-type','application/pdf','--remote'])
-                run(['r2','object','get',BUCKET+'/'+row['key'],'--file',str(readback),'--remote'])
+            if s3:
+                try:
+                    remote = s3.get_object(Bucket=BUCKET, Key=row['key'])
+                except ClientError as error:
+                    if error.response['Error']['Code'] not in ('404', 'NoSuchKey', 'NotFound'):
+                        raise RuntimeError('Scoped R2 S3 read failed; permission was not expanded') from None
+                    s3.put_object(Bucket=BUCKET, Key=row['key'], Body=row['path'].read_bytes(), ContentType='application/pdf')
+                    remote = s3.get_object(Bucket=BUCKET, Key=row['key'])
+                try:
+                    readback.write_bytes(remote['Body'].read(row['bytes'] + 1))
+                finally:
+                    remote['Body'].close()
+            else:
+                try:
+                    run(['r2','object','get',BUCKET+'/'+row['key'],'--file',str(readback),'--remote'])
+                except RuntimeError as error:
+                    if not any(t in str(error).lower() for t in ('not found', 'does not exist', '404', 'no such key')):
+                        raise
+                    run(['r2','object','put',BUCKET+'/'+row['key'],'--file',str(row['path']),'--content-type','application/pdf','--remote'])
+                    run(['r2','object','get',BUCKET+'/'+row['key'],'--file',str(readback),'--remote'])
             if hashlib.sha256(readback.read_bytes()).hexdigest() != row['sha256']:
                 raise ValueError('Private R2 readback hash mismatch')
         receipt['items'].append(dict(sha256=row['sha256'], raw_storage_key=row['key'], bytes=row['bytes'], status='sha256_readback_verified', checked_at=datetime.now(timezone.utc).isoformat()))
