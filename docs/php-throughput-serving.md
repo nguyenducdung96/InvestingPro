@@ -4,7 +4,7 @@ Triển khai local ngày 21/10/2026, nối tiếp [pipeline bản tin](php-newsl
 
 ## Luồng dữ liệu
 
-PDF chính thức → collector SQLite/raw theo SHA-256 → đối chiếu số → SQL **pending** → PostgreSQL `port.monthly_throughput` → duyệt bằng chứng/quyền nguồn/số liệu → view `port.published_monthly_throughput` → repository → API và màn hình.
+PDF chính thức → collector SQLite/raw theo SHA-256 → đối chiếu số → SQL **pending** → PostgreSQL `port.monthly_throughput` → quyết định công bố dữ kiện số đã đối chiếu → view `port.published_monthly_throughput` → repository → API và màn hình.
 
 - `/companies/PHP`: phần sản lượng Tân Vũ đứng trước hồ sơ tài sản; chọn tấn hàng hoặc TEU, tháng hoặc quý; bảng YoY, lũy kế đủ điều kiện, PDF/trang/hash. Các bến khác chưa có chuỗi không được cộng thành số PHP hợp nhất.
 - `/api/v1/companies/PHP/throughput`: tính aggregate từ facts PostgreSQL tại mỗi request, `no-store`. UI dùng cùng repository và hàm tính; không gọi vòng HTTP vào chính ứng dụng.
@@ -52,13 +52,24 @@ Kết quả kiểm tra local: toàn bộ 99/99 Vitest đạt; 8/8 Python collect
 
 Đã chạy lại toàn bộ E2E: **36/36 đạt** (desktop/mobile), cùng 99/99 Vitest, 8/8 Python, lint/typecheck. Migration intake chỉ nhận phạm vi PHP, ghi pending, chống replay, không duyệt quyền hay số liệu; test chặn JWT thiếu role/user_metadata giả admin và xác nhận service importer không truyền được trạng thái verified.
 
-## Lịch tự động đã chuẩn bị, chưa kích hoạt
+## Công bố dữ kiện số theo quyết định chủ dự án
 
-Workflow `.github/workflows/php-newsletters.yml` chạy dự kiến 06:20 Việt Nam mỗi ngày, có concurrency, timeout và `workflow_dispatch`. Runner tải nguồn chính thức vào đĩa tạm, retry, OCR đề xuất, chỉ replay quyết định review còn đúng hash hiện hành, archive riêng PDF dùng cho facts, rồi gọi RPC nhập pending. PDF mới/bản sửa không tự nhận số đã duyệt trước đó. GitHub chỉ giữ metadata/proposal/receipt 14 ngày, không upload PDF/cache OCR/render thành artifact.
+Chủ dự án đã yêu cầu dùng ngay số liệu từ nguồn chính thức sau đối chiếu, không yêu cầu thêm giấy tờ quyền nguồn cho bộ dữ kiện số này. Migration `202610210003_editorial_throughput.sql` tạo chính sách công bố Tân Vũ và snapshot dữ kiện số độc lập, cùng nguyên tắc với editorial catalog hiện có. Quyết định này không sửa `rights_status=to_verify`, evidence `incomplete` hoặc fact gốc `pending` thành trạng thái khác và không đăng lại PDF. Luồng duyệt nguồn nguyên bản ở trên vẫn tồn tại cho các nguồn được cấp phép riêng.
 
-Hai secrets trong environment `staging` cần được chủ tài khoản cấu hình trước khi bật:
+Publisher chỉ nhận ID fact; trigger sao chép giá trị chuẩn từ database, kiểm archive/hash hiện hành, từ chối fact rejected và nguồn blocked. Snapshot công bố bất biến, có audit. Public view đọc trực tiếp database, chính sách tắt/nguồn bị chặn/PDF đổi hash sẽ thu hồi dữ kiện liên quan. Admin queue không tiếp tục yêu cầu duyệt những fact đã có quyết định công bố này.
 
-- `PHP_NEWSLETTERS_R2_TOKEN`: token máy chủ giới hạn R2 read/write cho bucket bằng chứng hiện có; không dùng OAuth token cá nhân của Wrangler.
-- `SUPABASE_SERVICE_ROLE_KEY`: chỉ trong secret store của job, tuyệt đối không đặt vào ứng dụng web hoặc commit. Có quyền rộng; chỉ cấp cho workflow tin cậy, không truyền vào PR/fork job. Job chỉ gọi RPC pending đã kiểm thử.
+Job chỉ gửi tiếp ID trong bundle được tạo từ quyết định visual review khớp hash; OCR mới hoặc PDF sửa không có quyết định khớp vẫn chờ đối chiếu. Không có cơ chế tự duyệt OCR hoặc đổi quyền nguồn.
 
-Variable không nhạy cảm `SUPABASE_URL` phải trỏ đúng project staging. GitHub UI hiện xác nhận chưa có repository/environment secrets. Đưa workflow lên default branch là điều kiện để GitHub chạy lịch; branch hiện làm việc là `codex/cloudflare-next-compat`, default là `main`. Không tuyên bố file workflow trên branch này đã kích hoạt cron. Cần cấu hình quyền và đưa workflow lên nhánh mặc định, sau đó nghiệm thu hai chu kỳ thực với log/readback. Chưa có bằng chứng cho hai chu kỳ đó.
+## Lịch tự động đã cấu hình
+
+Workflow `.github/workflows/php-newsletters.yml` hiện có trên default branch `main`, checkout code `codex/cloudflare-next-compat`, chạy **06:20 Việt Nam mỗi ngày**, có concurrency, timeout và `workflow_dispatch`. Environment `staging` chỉ cho ref `main`, đã có hai secrets `PHP_NEWSLETTERS_R2_TOKEN`, `SUPABASE_SERVICE_ROLE_KEY` và variable `SUPABASE_URL` đúng project staging. Secrets chỉ được truyền vào step cần dùng; không vào web hoặc commit. R2 token giới hạn Object Read/Write cho bucket bằng chứng; CI dùng S3 vì token này không có quyền management API.
+
+Runner tải nguồn chính thức vào đĩa tạm, retry, OCR đề xuất, replay quyết định review đúng hash, archive riêng PDF dùng cho facts, nhập pending rồi công bố dữ kiện đã có quyết định review khi policy bật. GitHub chỉ giữ metadata/proposal/receipt 14 ngày, không upload PDF/cache OCR/render thành artifact.
+
+Run thật thủ công [39482783164](https://github.com/nguyenducdung96/InvestingPro/actions/runs/39482783164), attempt 2 thành công toàn bộ: 27 documents, không lỗi nguồn, replay không nhân facts. Attempt 1 lỗi archive do dùng management API với bucket-scoped token; đã sửa sang S3, không mở rộng quyền token. Run thủ công không tính là chu kỳ cron. **Chưa nghiệm thu hai chu kỳ daily thực tế**; cần đọc kết quả sau các lần lịch chạy, không cam kết nguồn có bản tin mới mỗi ngày. Job kiểm tra hằng ngày, số tháng/quý chỉ đổi khi nguồn công bố và đã đối chiếu.
+
+## Readback sau công bố
+
+Đã áp dụng migration 003 và bật policy trên staging. Public API thực tế trả HTTP 200, **16 tháng**, mới nhất 08/2026: **1.770.647 tấn, 93.754 TEU**, đúng PDF tháng 09/2026. Browser `/companies/PHP` hiển thị đủ chuỗi và YoY; YTD null vì thiếu đầu năm 2025. Dữ liệu từ 0 lên 16 hàng ngay sau transaction database, không cần redeploy app. Chưa có DWT/lượt tàu từ bộ bản tin này, chưa có chuỗi Chùa Vẽ/Hoàng Diệu/HTIT.
+
+Sau migration editorial: 100/100 Vitest đạt với `--maxWorkers=2` (lượt chạy song song mặc định bị timeout hook catalog 10 giây; chạy giới hạn workers đạt toàn bộ). Typecheck/lint đạt. Các kết quả E2E 36/36 nêu trên thuộc triển khai UI trước đó; thay đổi lần này chủ yếu là DB publication và CI sync.

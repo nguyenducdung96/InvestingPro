@@ -68,3 +68,37 @@ it('enforces pending/rights/RLS, hides revised PDFs and serves changed DB data w
   expect((await db.query('select * from port.published_monthly_throughput')).rows).toHaveLength(0);
  }finally{await db.close();}
 });
+it('publishes canonical numeric facts under explicit policy without approving PDF rights',async()=>{
+ const db=new PGlite();
+ try{
+  await db.exec(`create role anon;create role authenticated;create role service_role bypassrls;create schema auth;
+   create function auth.jwt() returns jsonb language sql stable as $$select coalesce(nullif(current_setting('request.jwt.claims',true),''),'{}')::jsonb$$;
+   create function auth.uid() returns uuid language sql stable as $$select (auth.jwt()->>'sub')::uuid$$;
+   grant usage on schema auth to anon,authenticated,service_role;grant execute on all functions in schema auth to anon,authenticated,service_role;`);
+  for(const file of readdirSync('supabase/migrations').sort())await db.exec(readFileSync(`supabase/migrations/${file}`,'utf8'));
+  // TEST archive address only; original evidence and rights deliberately stay unapproved.
+  const fixture=readFileSync('supabase/imports/php_monthly_throughput.pending.sql','utf8').replace(/local:[^']+/g,m=>'catalog-evidence/sha256/'+m.match(/[a-f0-9]{64}/)![0]);
+  await db.exec(fixture);
+  const ids=(await db.query<{id:string}>('select id from port.monthly_throughput')).rows.map(r=>r.id);
+  const note='TEST ONLY publisher decision to release independently composed numeric facts with official source citations.';
+  await db.exec(`select set_config('request.jwt.claims','{"role":"authenticated","user_metadata":{"role":"admin"}}',false);set role authenticated`);
+  await expect(db.query('select port.publish_throughput_facts($1,$2)',[ids,note])).rejects.toThrow('Authorized factual publisher');
+  await db.exec(`reset role;select set_config('request.jwt.claims','{"role":"service_role"}',false);set role service_role`);
+  expect((await db.query<{v:{enabled:boolean}}>('select port.publish_throughput_facts($1,$2) v',[ids,note])).rows[0].v.enabled).toBe(false);
+  await db.exec(`reset role;insert into port.throughput_publication_policy(asset_code,enabled,basis,decision_note,updated_at) values('tan_vu',true,'structured-facts-only-v1','TEST ONLY explicit publisher decision for canonical reviewed numeric facts',now());set role service_role`);
+  expect((await db.query<{v:{published:number}}>('select port.publish_throughput_facts($1,$2) v',[ids,note])).rows[0].v.published).toBe(16);
+  expect((await db.query<{v:{published:number}}>('select port.publish_throughput_facts($1,$2) v',[ids,note])).rows[0].v.published).toBe(0);
+  expect((await db.query("select rights_status from core.sources where code='php-monthly-newsletters'")).rows).toEqual([{rights_status:'to_verify'}]);
+  expect((await db.query("select distinct verification_status from port.monthly_throughput")).rows).toEqual([{verification_status:'pending'}]);
+  await db.exec('reset role;set role anon');
+  const rows=(await db.query<ThroughputFact>('select * from port.published_monthly_throughput')).rows;
+  expect(rows).toHaveLength(16);
+  await expect(db.query('select port.publish_throughput_facts($1,$2)',[ids,note])).rejects.toThrow();
+  await db.exec('reset role');
+  await expect(db.exec("update port.throughput_publications set cargo_tonnes=0")).rejects.toThrow('immutable');
+  await db.query('update port.newsletter_documents set latest_sha=$1 where source_url=$2',['b'.repeat(64),rows[0].source_url]);
+  await db.exec('set role anon');expect((await db.query('select * from port.published_monthly_throughput')).rows).toHaveLength(15);
+  await db.exec("reset role;update core.sources set rights_status='blocked' where code='php-monthly-newsletters';set role anon");
+  expect((await db.query('select * from port.published_monthly_throughput')).rows).toHaveLength(0);
+ }finally{await db.close();}
+});

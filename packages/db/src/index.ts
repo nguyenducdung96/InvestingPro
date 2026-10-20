@@ -121,7 +121,9 @@ export class SupabaseCatalogRepository implements CatalogRepository {
   }
   async throughputQueue() {
     if(!this.admin)throw new DatabaseError(403);
-    const rows=await this.db.read('port','monthly_throughput',params({select:'*',verification_status:'eq.pending',order:'period.desc,id.asc',limit:'100'}));
+    const pending=await this.db.read('port','monthly_throughput',params({select:'*',verification_status:'eq.pending',order:'period.desc,id.asc',limit:'100'}));
+    const released=pending.length?await this.db.read('port','throughput_publications',params({select:'fact_id',fact_id:ids(pending.map(r=>r.id)),limit:'100'})):[];
+    const rows=pending.filter(r=>!released.some(p=>p.fact_id===r.id));
     if(!rows.length)return [];
     const records=await this.db.read('core','source_records',params({id:ids([...new Set(rows.map(r=>r.source_record_id))]),select:'*',limit:'100'}));
     return rows.map(r=>({...r,evidence:records.find(s=>s.id===r.source_record_id)}));
