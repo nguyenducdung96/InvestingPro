@@ -16,9 +16,7 @@ jobs:
     timeout-minutes: 25
     env:
       CLOUDFLARE_ACCOUNT_ID: '5e84958e47290692c6ec2817fa1d9af6'
-      CLOUDFLARE_API_TOKEN: ${{ secrets.PHP_NEWSLETTERS_R2_TOKEN }}
       SUPABASE_URL: ${{ vars.SUPABASE_URL }}
-      SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -33,6 +31,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Check scheduler configuration without displaying credentials
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.PHP_NEWSLETTERS_R2_TOKEN }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         shell: bash
         run: |
           test -n "$CLOUDFLARE_API_TOKEN" || { echo 'Missing staging secret PHP_NEWSLETTERS_R2_TOKEN'; exit 1; }
@@ -54,9 +55,13 @@ jobs:
         run: python scripts/php_newsletters.py extract --ocr
       - run: python scripts/apply-current-newsletter-reviews.py
       - run: python scripts/archive-php-newsletters.py --execute
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.PHP_NEWSLETTERS_R2_TOKEN }}
       - run: python scripts/php_newsletters.py export
       - run: python scripts/export-newsletter-db.py
       - run: node scripts/sync-php-newsletters.mjs
+        env:
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
       - name: Publish compact review metadata only
         if: always()
         uses: actions/upload-artifact@v4
