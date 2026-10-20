@@ -160,8 +160,8 @@ Registry tối thiểu:
 
 ```yaml
 - authority: "Cảng vụ Hàng hải Hải Phòng"
-  official_url: null
-  discovery_status: "to_verify"
+  official_url: "https://cangvuhaiphong.gov.vn/"
+  discovery_status: "public_position_and_plan_observed_actual_history_unverified"
 - authority: "Cảng vụ Hàng hải Quảng Ninh"
   official_url: null
   discovery_status: "to_verify"
@@ -521,3 +521,7 @@ Yêu cầu:
 - Website của cơ quan nhà nước có thể thay đổi domain, CMS hoặc cấu trúc. Connector phải cấu hình được và có health checks.
 - Dữ liệu thị trường realtime chính thức có thể thuộc dịch vụ Data Feed; không mặc định website public cho phép thu thập hoặc phân phối lại realtime.
 
+
+### Bổ sung PHP Slice 2A — 21/10/2026
+
+[Hồ sơ kiểm chứng](php-slice2a-pilot.md) và [biên nhận nguồn](catalog-review/php-slice2a-source-receipt-20261021.json) phân biệt vị trí tàu, kế hoạch điều động, lịch dự kiến của cảng và sản lượng công bố qua newsletter. Chưa xác nhận nguồn actual DWT lịch sử đủ YoY. Không dùng quyền truy cập public thay giấy phép tái sử dụng dữ liệu.

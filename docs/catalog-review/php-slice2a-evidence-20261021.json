@@ -1,0 +1,200 @@
+{
+  "ticker": "PHP",
+  "review_date": "2026-10-21",
+  "status": "slice2a_research_handoff",
+  "decision": "prioritize_tan_vu_then_chua_ve_actual_history_gate_not_met",
+  "publication_status": "not_published",
+  "rights_status": "public_access_observed_reuse_permission_not_established",
+  "catalog_reference": "505-commercial-catalog.reviewed.json; number is document ordinal, not database UUID",
+  "assets": [
+    {
+      "catalog_505_number": 52,
+      "name": "Tân Vũ",
+      "source_alias": "TAN VU",
+      "role": "branch",
+      "via": null,
+      "evidence_source_ids": [
+        "tanvu-profile",
+        "annual-2025"
+      ],
+      "mapping_status": "official_evidence_reviewed_not_imported",
+      "effective_from": null,
+      "effective_to": null,
+      "pilot_priority": 1,
+      "operational_history_status": "not_verified",
+      "eligible_for_actual_yoy": false
+    },
+    {
+      "catalog_505_number": 38,
+      "name": "Chùa Vẽ",
+      "source_alias": "CHUA VE",
+      "role": "via_subsidiary",
+      "via": "Công ty TNHH MTV Cảng Hoàng Diệu Chùa Vẽ",
+      "evidence_source_ids": [
+        "hdcv-profile",
+        "annual-2025"
+      ],
+      "mapping_status": "official_evidence_reviewed_not_imported",
+      "effective_from": null,
+      "effective_to": null,
+      "pilot_priority": 2,
+      "operational_history_status": "not_verified",
+      "eligible_for_actual_yoy": false
+    },
+    {
+      "catalog_505_number": 28,
+      "name": "Hoàng Diệu",
+      "source_alias": "HOANG DIEU",
+      "role": "via_subsidiary",
+      "via": "Công ty TNHH MTV Cảng Hoàng Diệu Chùa Vẽ",
+      "evidence_source_ids": [
+        "hdcv-profile",
+        "annual-2025"
+      ],
+      "mapping_status": "official_evidence_reviewed_not_imported",
+      "effective_from": null,
+      "effective_to": null,
+      "pilot_priority": 4,
+      "operational_history_status": "not_verified",
+      "eligible_for_actual_yoy": false
+    },
+    {
+      "catalog_505_number": 62,
+      "name": "HTIT (Lạch Huyện 3–4)",
+      "source_alias": "HTIT",
+      "role": "joint_venture",
+      "via": "Công ty TNHH Cảng quốc tế TIL Cảng Hải Phòng",
+      "evidence_source_ids": [
+        "htit-profile",
+        "htit-home",
+        "htit-first-call",
+        "annual-2025"
+      ],
+      "mapping_status": "official_evidence_reviewed_not_imported",
+      "effective_from": null,
+      "effective_to": null,
+      "pilot_priority": 3,
+      "operational_history_status": "not_verified",
+      "eligible_for_actual_yoy": false
+    }
+  ],
+  "reported_interests": [
+    {
+      "company": "Công ty TNHH MTV Cảng Hoàng Diệu Chùa Vẽ",
+      "as_of": "2025-12-31",
+      "ownership_pct": 100,
+      "source_id": "annual-2025",
+      "pdf_page": 8
+    },
+    {
+      "company": "Công ty TNHH Cảng quốc tế TIL Cảng Hải Phòng",
+      "as_of": "2025-12-31",
+      "economic_interest_pct": 51,
+      "voting_pct": 50,
+      "source_id": "annual-2025",
+      "pdf_page": 9
+    }
+  ],
+  "temporal_notes": [
+    "The 2025 report does not certify current 2026 percentages.",
+    "Hoang Dieu/Chua Ve reorganization is reported for July 2025; exact legal effective day remains unknown.",
+    "First commercial HTIT call on 2025-04-16 and May 2025 inauguration are distinct milestones; neither is a complete history boundary."
+  ],
+  "source_evidence": [
+    {
+      "id": "authority-home",
+      "url": "https://csdltau.cangvuhaiphong.gov.vn/",
+      "sha256": "1fd619993ca6a2dad3c26de0bfe7fd26521471a31e80f7292e20c612716b7734",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\authority-home.raw"
+    },
+    {
+      "id": "authority-position",
+      "url": "https://csdltau.cangvuhaiphong.gov.vn/pages/position.aspx",
+      "sha256": "0c4f5acd8c62a25407f7cbbb023c635eeda976dcb83b1606449eab9a7cf714ad",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\authority-position.raw"
+    },
+    {
+      "id": "authority-plan",
+      "url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-1",
+      "sha256": "5c7070b430bab61a05d4cc4b37b85a6312defc04e1631f5e688f6fd32e286439",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\authority-plan.raw"
+    },
+    {
+      "id": "operator-ships",
+      "url": "https://container.haiphongport.com.vn/vi/thongtintau.ttt.html",
+      "sha256": "674f2c9382b6833600deb45956f79e489b22bea671ff925499043b82c55a0ac1",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\operator-ships.raw"
+    },
+    {
+      "id": "operator-members",
+      "url": "https://haiphongport.com.vn/vi/don-vi-thanh-vien",
+      "sha256": "d34a879d37882845d67e481920adb974978c3610a751e0418cf574452a9eb0a0",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\operator-members.raw"
+    },
+    {
+      "id": "tanvu-profile",
+      "url": "https://haiphongport.com.vn/vi/don-vi-thanh-vien/chi-nhanh-cang-tan-vu-389.html",
+      "sha256": "005ea11d2524b146cacf36e81167681a3a7f5f39a9e64d28e6070e3aed5acba2",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\tanvu-profile.raw"
+    },
+    {
+      "id": "hdcv-profile",
+      "url": "https://haiphongport.com.vn/vi/don-vi-thanh-vien/cong-ty-tnhh-mot-thanh-vien-cang-hoang-dieu-chua-ve-2423.html",
+      "sha256": "b776830e8ae13946295aa94b968d5674ab39897939521618bb0bf661560b0acd",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\hdcv-profile.raw"
+    },
+    {
+      "id": "htit-profile",
+      "url": "https://haiphongport.com.vn/vi/don-vi-thanh-vien/cong-ty-tnhh-cang-quoc-te-til-cang-hai-phong-htit-2213.html",
+      "sha256": "ff02de12edc574892b690637901cc27cc07a54b63a0f228b82ee5656c8b18f92",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\htit-profile.raw"
+    },
+    {
+      "id": "htit-first-call",
+      "url": "https://haiphongport.com.vn/vi/san-xuat-kinh-doanh/chuyen-tau-thuong-mai-dau-tien-buoc-khoi-dau-moi-cho-hoat-dong-khai-thac-cang-htit-thuoc-cong-ty-cp-cang-hai-phong.html",
+      "sha256": "389f3727fbcab3d7eba0a18762d523c753905e17439536c97648252be834fc0c",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\htit-first-call.raw"
+    },
+    {
+      "id": "operator-newsletters",
+      "url": "https://haiphongport.com.vn/vi/ban-tin-thang",
+      "sha256": "68b9466d37768f347b7658838803ad4cebc5ab4acecf73e6f6915e62f5c05d8d",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\operator-newsletters.raw"
+    },
+    {
+      "id": "newsletter-2025-index",
+      "url": "https://haiphongport.com.vn/en/support/port-of-hai-phong-monthly-newsletter-2025.html",
+      "sha256": "5df683a89cd30734d25346ec2b0ed98ae8ea29cbb178e76b654f749cfede0b3f",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\newsletter-2025-index.raw"
+    },
+    {
+      "id": "newsletter-2026-03",
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/tieng-viet-Newsletter-thang03-2026.pdf",
+      "sha256": "bc5daac57b131f1f852c736daa49133ca99bae10c0da179069160c8d2c1afe00",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\newsletter-2026-03.raw"
+    },
+    {
+      "id": "htit-home",
+      "url": "https://htit.com.vn/en.html",
+      "sha256": "6094a8007ae401769007c81b9a712754f8d8e3f16327b0c05c868c6f42132329",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\htit-home.raw"
+    },
+    {
+      "id": "htit-vessels",
+      "url": "https://eport.htit.com.vn/search?item=vessel",
+      "sha256": "0beea81b1dba94cf85a3c102f244f5dfc74fe0573aaece5f3111076123c2a8ae",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\htit-vessels.raw"
+    },
+    {
+      "id": "annual-2025",
+      "url": "https://haiphongport.com.vn/FileUpload/Documents/bao_cao_thuong_nien_nam_2025pdf.pdf",
+      "sha256": "de8eb243f3b07b5a415e0a3241953ce091029f1cd7f434920c0b6cbc5fa8a5f4",
+      "local_raw": ".local\\php-slice2a\\20261020T172426980586Z\\annual-2025.raw"
+    }
+  ],
+  "excluded_from_pilot": [
+    "DINH VU: separate DVP asset; not TAN VU",
+    "HICT and HHIT: not HTIT"
+  ],
+  "next_gate": "Obtain and verify dated actual terminal events with DWT and complete comparable periods; no snapshot/plan promotion"
+}

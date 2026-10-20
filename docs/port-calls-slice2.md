@@ -1,3 +1,5 @@
+> **Lộ trình đã được người dùng duyệt ngày 21/10/2026:** [Kế hoạch ngành cảng theo góc nhìn đầu tư](port-investment-roadmap-review.md) đưa dashboard theo mã, tháng/quý/YTD và YoY vào Slice 2, nghiệm thu pilot trước khi mở rộng ngành. Đang thực hiện [Slice 2A với PHP](php-slice2a-pilot.md); gate lịch sử actual chưa đạt. Các ranh giới slice/ưu tiên cũ bên dưới là lịch sử; runbook và biên nhận vẫn mô tả phần đã thực hiện.
+
 # Slice 2 — dữ liệu tàu vào/ra phục vụ phân tích đầu tư
 
 **Mục tiêu hiện hành (điều chỉnh 17/10/2026):** [phạm vi dữ liệu đầu tư](slice2-investment-data-scope.md).

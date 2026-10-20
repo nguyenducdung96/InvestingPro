@@ -1,0 +1,60 @@
+{
+  "scope": "PHP Slice 2A local source measurement; not production data",
+  "fetched_at": "2026-10-20T17:24:27.859408+00:00",
+  "raw_sha256": "0c4f5acd8c62a25407f7cbbb023c635eeda976dcb83b1606449eab9a7cf714ad",
+  "parser_version": "haiphong-positions/1.0.0",
+  "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/position.aspx",
+  "all_snapshot_rows": 208,
+  "terminals": [
+    {
+      "source_alias": "TAN VU",
+      "catalog_505_number": 52,
+      "observed_snapshot_rows": 7,
+      "valid_snapshot_rows": 7,
+      "rows_with_dwt": 7,
+      "actual_call_count": null,
+      "actual_monthly_dwt": null,
+      "historical_coverage": "unverified",
+      "eligible_for_actual_yoy": false
+    },
+    {
+      "source_alias": "CHUA VE",
+      "catalog_505_number": 38,
+      "observed_snapshot_rows": 3,
+      "valid_snapshot_rows": 3,
+      "rows_with_dwt": 3,
+      "actual_call_count": null,
+      "actual_monthly_dwt": null,
+      "historical_coverage": "unverified",
+      "eligible_for_actual_yoy": false
+    },
+    {
+      "source_alias": "HOANG DIEU",
+      "catalog_505_number": 28,
+      "observed_snapshot_rows": 0,
+      "valid_snapshot_rows": 0,
+      "rows_with_dwt": 0,
+      "actual_call_count": null,
+      "actual_monthly_dwt": null,
+      "historical_coverage": "unverified",
+      "eligible_for_actual_yoy": false
+    },
+    {
+      "source_alias": "HTIT",
+      "catalog_505_number": 62,
+      "observed_snapshot_rows": 2,
+      "valid_snapshot_rows": 2,
+      "rows_with_dwt": 2,
+      "actual_call_count": null,
+      "actual_monthly_dwt": null,
+      "historical_coverage": "unverified",
+      "eligible_for_actual_yoy": false
+    }
+  ],
+  "decision": "actual_history_gate_not_met",
+  "reasons": [
+    "Current positions do not establish historical calls",
+    "Authority movement page is explicitly a plan",
+    "Actual terminal event history and complete comparison periods are not verified"
+  ]
+}
