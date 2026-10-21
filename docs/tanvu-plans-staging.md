@@ -1,0 +1,31 @@
+# Tân Vũ — lịch điều động trên staging
+
+Ngày triển khai: 22/10/2026 (giờ Việt Nam). Chủ sản phẩm đã yêu cầu hoàn thiện Tân Vũ và dùng số liệu từ nguồn công khai miễn phí. Phạm vi công bố là dữ kiện lịch điều động, không tự duyệt quyền đối với toàn bộ website nguồn và không đổi nhãn thành actual.
+
+## Luồng vận hành
+
+1. `collect-tanvu-plan-months.py` hiệu chuẩn ngày nguồn, thu đến ngày đã qua gần nhất, kiểm tra ngày trong nội dung rồi parse vào/rời riêng với alias chính xác `TAN VU`. Mặc định backfill từ 01/01/2025; không có ngày kết thúc cố định. Ngày mới và bốn ngày cuối được tải lại, ngày lỗi được thử lại ở lần chạy tiếp theo.
+2. Raw HTML nén gzip theo SHA-256 và checkpoint từng ngày được cache trong GitHub Actions; không tải PDF cho nhánh này. Receipt lưu riêng mỗi lần chạy. Cache mất/hỏng có thể tải lại từ nguồn; cache không phải cam kết lưu trữ bằng chứng vĩnh viễn.
+3. `sync-tanvu-plans.mjs` dùng secret server staging hiện hữu, gửi tối đa 31 ngày/batch vào RPC. Database giữ phiên bản bất biến theo ngày/hash/parser; nhập lại không tạo phiên bản trùng. Bản cũ hơn không ghi đè head mới; lỗi nguồn giữ số đã nhập thành công và cập nhật lỗi.
+4. Table tổng ngày và trạng thái run chỉ cho public đọc. Lịch sử phiên bản không cấp public select; RPC chi tiết chỉ trả bản hiện hành của một ngày, không có tên hoa tiêu/đại lý. Chỉ `service_role` được gọi importer; anon/authenticated không có quyền ghi. Không đưa secret vào app.
+5. API `/api/v1/companies/PHP/plans` đọc database mỗi request, `Cache-Control: no-store`. `?direction=arrival` đổi chiều; `?day=YYYY-MM-DD` trả chi tiết một ngày. Trang `/companies/PHP#vessel-plans` đọc cùng repository, có năm/tháng/quý, MTD/YTD/YoY và tra cứu ngày.
+
+## Lịch chạy
+
+Workflow `.github/workflows/tanvu-plans.yml` đã đăng ký trên nhánh mặc định `main`, dùng environment `staging`, checkout `codex/cloudflare-next-compat`. Lịch **06:30 Việt Nam hằng ngày**, concurrency một job, timeout 30 phút; GitHub có thể bắt đầu trễ. Có nút **Run workflow** để chạy thủ công tại https://github.com/nguyenducdung96/InvestingPro/actions/workflows/tanvu-plans.yml.
+
+Job giữ checkpoint kể cả khi một ngày lỗi, ghi receipt gọn và trả failure nếu nguồn/DB/readback lỗi. Trang hiển thị job gần nhất, ngày nguồn mới nhất, lỗi và quá hạn; không làm mất lịch cũ chỉ vì lần lấy mới thất bại. Sau khi kết thúc tháng hoặc sang năm, API tự sinh kỳ mới từ đồng hồ và dữ liệu DB; không cần sửa mã hoặc rebuild vì tháng mới.
+
+## Quy tắc số liệu
+
+- DWT là trọng tải thiết kế, không phải tấn hàng/TEU; bảng nguồn mang nhãn kế hoạch. Không cộng vào/rời/di chuyển nội cảng thành một số lượt ghé.
+- Tháng/quý đang tích lũy và YTD so đúng khoảng ngày của năm trước. Kỳ đã kết thúc so toàn kỳ, bao gồm khác biệt năm nhuận. Ngày thiếu không thành zero; thiếu DWT không dùng GT thay thế. Không hiển thị tổng đầy đủ hoặc YoY nếu thiếu ngày/DWT hay có nhóm giờ chưa phân giải.
+- Một mục nguồn tồn tại nhưng rỗng được ghi `source_empty_sections`, khác với lỗi tải/thiếu phần tử/ngày sai. Không suy số tàu thực tế bằng 0 từ mục kế hoạch rỗng.
+- Có lịch sử bản sửa theo ngày khi raw hash hoặc parser đổi; số tổng luôn đọc head mới nhất. Chưa có thuật toán xác nhận chuyến thực tế hoặc nối hai lượt khác ngày thành một chuyến.
+
+## Kiểm tra
+
+- Local: 16 kiểm thử Python, 110 Vitest (gồm PostgreSQL RLS, replay, correction, rollback head, source failure), lint/typecheck đạt. Playwright đầy đủ **38/38** desktop/mobile, gồm thay dữ liệu fixture không rebuild, MTD, lọc chiều/quý, chi tiết ngày và không tràn màn hình.
+- Next production build đạt. OpenNext bundle local bị Windows từ chối symlink; Cloudflare Workers Builds Linux đã build/deploy được API mới (HTTP 200), không coi lỗi Windows là kiểm tra cloud thất bại.
+- Migration `202610220001_tanvu_published_plans.sql` đã chạy thành công trên project staging `loapslojajawgzekozfv` bằng SQL Editor. Không thay credentials hoặc JWT signing keys.
+- Biên nhận import/readback và nghiệm thu live sẽ ghi sau khi job lịch sử hoàn tất. Chưa chứng nhận lần cron đầu tiên trước khi nó thực sự chạy; manual run kiểm tra cùng workflow không thay thế bằng chứng event `schedule`.

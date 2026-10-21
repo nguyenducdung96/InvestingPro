@@ -241,18 +241,35 @@ def main():
     cutoff,dates=history_window(start,anchor,today,dt.date.fromisoformat(args.through) if args.through else None)
     periods=sorted({d.strftime('%Y-%m') for d in dates})
     cache={}
+    candidates={}
     if (OUT/'receipt.json').exists():
         old=json.loads((OUT/'receipt.json').read_text(encoding='utf8'))
-        for d in old['days']:
-            if d['status']!='parsed' or dt.date.fromisoformat(d['date'])>=cutoff-dt.timedelta(days=3):continue
+        candidates={d['date']:d for d in old['days']}
+    checkpoints=OUT/'day-cache'
+    checkpoints.mkdir(exist_ok=True)
+    for path in checkpoints.glob('*.json'):
+        try:
+            d=json.loads(path.read_text(encoding='utf8'));candidates[d['date']]=d
+        except (ValueError,KeyError):continue
+    for d in candidates.values():
+        if d['status']!='parsed' or dt.date.fromisoformat(d['date'])>=cutoff-dt.timedelta(days=3):continue
+        try:
             path=RAW/f'{d["sha256"]}.html.gz'
             raw=gzip.decompress(path.read_bytes()) if path.exists() else (RAW/f'{d["sha256"]}.html').read_bytes()
             if hashlib.sha256(raw).hexdigest()!=d['sha256']:raise ValueError('Cache hash mismatch')
             probe.measure(raw,dt.date.fromisoformat(d['date']),d['url_at_fetch'])
             cache[d['date']]=d
+        except (OSError,ValueError):continue  # corrupt/missing cache is fetched again, never served
     print(json.dumps({'requested_days':len(dates),'cached_days':len(cache),'through':str(cutoff)}),flush=True)
+    def get_day(day):
+        result=cache.get(str(day)) or collect(day,anchor)
+        (checkpoints/f'{day}.json').write_text(json.dumps(result,ensure_ascii=False),encoding='utf8')
+        return result
     with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
-        days = list(pool.map(lambda day: cache.get(str(day)) or collect(day, anchor), dates))
+        days=[]
+        for result in pool.map(get_day,dates):
+            days.append(result)
+            if len(days)%60==0:print(json.dumps({'processed_days':len(days),'requested_days':len(dates)}),flush=True)
     compare=comparisons(days,periods,cutoff)
     previous_cutoff=dt.date(cutoff.year-1,cutoff.month,min(cutoff.day,calendar.monthrange(cutoff.year-1,cutoff.month)[1]))
     ytd={direction:{'current':comparison(days,dt.date(cutoff.year,1,1),cutoff,direction),

@@ -140,6 +140,11 @@ rows.call_coverage.push({...rows.call_coverage[0],source_area:'quangtri-len-bang
 rows.current_quarantined_calls=[];
 const publicationSource={...source,id:id(40),owner:"Fixture issuing company",base_url:"https://example.gov.vn",rights_notes:"Fixture only: permission must be explicitly reviewed.",rights_status:"to_verify"};
 createServer(async (req, res) => {
+  if(req.url==='/__plans'&&req.method==='POST'){
+    let raw='';for await(const chunk of req)raw+=chunk;const data=JSON.parse(raw);
+    rows.tanvu_plan_days=data.days;rows.tanvu_plan_runs=data.runs??[];rows.tanvu_plan_details=data.details??[];
+    res.end('{}');return;
+  }
   // Test-only mutable throughput store: proves request-time reads, never imported by the app.
   if(req.url==='/__berths'&&req.method==='POST') {
     let raw='';for await(const chunk of req)raw+=chunk;
@@ -178,6 +183,10 @@ createServer(async (req, res) => {
     return;
   }
   const table = url.pathname.split("/").at(-1);
+  if(table==='tanvu_plan_events'){
+    let raw='';for await(const chunk of req)raw+=chunk;
+    const data=JSON.parse(raw);res.end(JSON.stringify((rows.tanvu_plan_details??[]).find(d=>d.report_day===data.p_day)??null));return;
+  }
   if(table==='publish_editorial_catalog'){
     if(!admin){res.statusCode=403;res.end('{}');return;}
     let raw='';for await(const chunk of req)raw+=chunk;const input=JSON.parse(raw);
