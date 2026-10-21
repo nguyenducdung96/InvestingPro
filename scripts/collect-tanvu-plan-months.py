@@ -22,7 +22,6 @@ spec.loader.exec_module(probe)
 OUT = ROOT / '.local/php-slice2a/tanvu-month-pilot'
 RAW = OUT / 'raw'
 RAW.mkdir(parents=True, exist_ok=True)
-PERIODS = ('2025-09', '2026-09')
 
 
 def dwt(value):
@@ -89,7 +88,7 @@ def collect(day, anchor):
 
 def summarize(days, periods=None, cutoff=None):
     result = []
-    for month in periods or PERIODS:
+    for month in periods if periods is not None else sorted({d['date'][:7] for d in days}):
         subset = [d for d in days if d['date'].startswith(month)]
         good = [d for d in subset if d['status'] == 'parsed']
         year, number = map(int, month.split('-'))
@@ -197,7 +196,8 @@ def render(receipt):
             if m['failed_days']:status+=' · thiếu ngày'
             if m['ambiguous_repeated_route_groups']:status+=' · cần đối chiếu giờ'
             parts.append('<tr'+(' class="partial"' if partial else '')+'><td><a href="#days-'+m['month']+'">'+m['month']+'</a>'+(' · 01–'+m['through'][-2:] if partial else '')+'</td><td>'+fmt(c['current']['rows'])+'</td><td>'+fmt(c['current']['dwt'])+'</td><td>'+fmt(c['previous']['dwt'])+'</td><td>'+pct(c['current']['dwt'],c['previous']['dwt'])+'</td><td>'+str(m['parsed_days'])+'/'+str(m['elapsed_days'])+'</td><td>'+status+'</td></tr>')
-        parts.append('</tbody></table></div><small>Phạm vi thu thập bắt đầu từ 2025; cùng kỳ 2024 chưa có trong bộ dữ liệu này. Dấu — là thiếu dữ liệu, không phải 0.</small></section></div>')
+        first_year=int(receipt['from'][:4])
+        parts.append(f'</tbody></table></div><small>Phạm vi thu thập bắt đầu từ {esc(receipt["from"])}; cùng kỳ {first_year-1} chưa có trong bộ dữ liệu này. Dấu — là thiếu dữ liệu, không phải 0.</small></section></div>')
     parts.append('<section><h2>Chất lượng và nhật ký nguồn</h2><p>Ngày thiếu không phải zero. Tổng chính thức của tháng để trống nếu thiếu ngày hoặc có nhóm cùng tàu/tuyến khác giờ cần đối chiếu. Bản lịch có thể được sửa; chưa nghiệm thu ghép lượt qua nhiều ngày.</p>')
     for m in receipt['months']:
         parts.append('<details id="days-'+m['month']+'"><summary>'+m['month']+' · '+str(m['parsed_days'])+'/'+str(m['elapsed_days'])+' ngày · '+str(m['ambiguous_repeated_route_groups'])+' nhóm cần đối chiếu</summary>')
@@ -218,6 +218,14 @@ def render(receipt):
     (OUT/'review.html').write_text(''.join(parts),encoding='utf8')
 
 
+def history_window(start, source_day, today, through=None):
+    cutoff=through if through is not None else min(source_day,today)-dt.timedelta(days=1)
+    if start>cutoff or cutoff>=today or cutoff>=source_day:
+        raise ValueError('Use elapsed source days only; cutoff must precede today and source day')
+    dates=[start+dt.timedelta(days=n) for n in range((cutoff-start).days+1)]
+    return cutoff, dates
+
+
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--from',dest='start',default='2025-01-01')
@@ -229,11 +237,8 @@ def main():
         raise ValueError('Cannot calibrate server day')
     anchor = dt.datetime.strptime(match[1], '%d/%m/%Y').date()
     today=dt.datetime.now(dt.timezone(dt.timedelta(hours=7))).date()
-    cutoff=dt.date.fromisoformat(args.through) if args.through else min(anchor,today)-dt.timedelta(days=1)
     start=dt.date.fromisoformat(args.start)
-    if start>cutoff or cutoff>=today or cutoff>=anchor:
-        raise ValueError('Use elapsed source days only; cutoff must precede today and source day')
-    dates=[start+dt.timedelta(days=n) for n in range((cutoff-start).days+1)]
+    cutoff,dates=history_window(start,anchor,today,dt.date.fromisoformat(args.through) if args.through else None)
     periods=sorted({d.strftime('%Y-%m') for d in dates})
     cache={}
     if (OUT/'receipt.json').exists():

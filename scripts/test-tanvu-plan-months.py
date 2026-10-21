@@ -43,12 +43,12 @@ class PilotTests(unittest.TestCase):
         later={**row(),'Thời gian':'09:30'}
         result=self.collect([row(),later],[])
         self.assertEqual(result['ambiguous_repeated_route_groups'],1)
-        summary=collector.summarize([result])[1]
+        summary=collector.summarize([result])[0]
         self.assertIsNone(summary['arrival']['monthly_dwt'])
 
     def test_missing_day_does_not_become_monthly_zero(self):
         result=self.collect([],[])
-        summary=collector.summarize([result,{'date':'2026-09-02','status':'failed'}])[1]
+        summary=collector.summarize([result,{'date':'2026-09-02','status':'failed'}])[0]
         self.assertIsNone(summary['arrival']['monthly_rows'])
         self.assertIn('2026-09-02',summary['failed_days'])
         self.assertEqual(summary['expected_days'],30)
@@ -56,7 +56,7 @@ class PilotTests(unittest.TestCase):
     def test_missing_dwt_keeps_count_but_blocks_dwt_total(self):
         result=self.collect([row(dwt='')],[])
         days=[{**result,'date':f'2026-09-{n:02}'} for n in range(1,31)]
-        summary=collector.summarize(days)[1]
+        summary=collector.summarize(days)[0]
         self.assertEqual(summary['arrival']['monthly_rows'],30)
         self.assertIsNone(summary['arrival']['monthly_dwt'])
 
@@ -113,6 +113,27 @@ class PilotTests(unittest.TestCase):
         result=collector.comparisons([],['2025-02'],dt.date(2026,10,21))[0]
         self.assertEqual(result['current']['through'],'2025-02-28')
         self.assertEqual(result['previous']['through'],'2024-02-29')
+
+    def test_new_month_is_added_without_editing_period_list(self):
+        cutoff,dates=collector.history_window(dt.date(2025,1,1),dt.date(2026,11,2),dt.date(2026,11,2))
+        self.assertEqual(cutoff,dt.date(2026,11,1))
+        months=collector.summarize([{'date':str(day),'status':'failed'} for day in dates],cutoff=cutoff)
+        self.assertEqual(months[-1]['month'],'2026-11')
+        self.assertEqual(months[-1]['elapsed_days'],1)
+        self.assertEqual(len(months),23)
+
+    def test_new_year_is_added_without_changing_collector(self):
+        cutoff,dates=collector.history_window(dt.date(2025,1,1),dt.date(2027,1,2),dt.date(2027,1,2))
+        self.assertEqual(cutoff,dt.date(2027,1,1))
+        self.assertEqual(dates[-1],dt.date(2027,1,1))
+        self.assertIn('2027-01',{d.strftime('%Y-%m') for d in dates})
+
+    def test_source_day_lag_and_explicit_cutoff_are_respected(self):
+        cutoff,_=collector.history_window(dt.date(2025,1,1),dt.date(2026,11,1),dt.date(2026,11,3))
+        self.assertEqual(cutoff,dt.date(2026,10,31))
+        cutoff,_=collector.history_window(dt.date(2025,1,1),dt.date(2026,11,3),dt.date(2026,11,3),dt.date(2026,10,21))
+        self.assertEqual(cutoff,dt.date(2026,10,21))
+        with self.assertRaises(ValueError):collector.history_window(dt.date(2025,1,1),dt.date(2026,11,3),dt.date(2026,11,3),dt.date(2026,11,3))
 
 
 if __name__=='__main__': unittest.main()

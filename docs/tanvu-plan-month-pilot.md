@@ -48,3 +48,11 @@ Ngày lỗi không thành zero; thiếu bất kỳ ngày nào không xuất tổ
 - Trang ngày **22/07/2025** có mục rời tồn tại nhưng rỗng; parser nhận diện đúng phần tử rỗng thay vì đọc nhầm bảng sau nó. Ghi `source_empty_sections: ["Roi"]`, không gọi đây là lỗi tải hoặc bằng chứng không có tàu thực tế. Thiếu phần tử, ngày sai hoặc nội dung bất thường vẫn fail closed.
 - Raw mới được nén gzip theo SHA-256 để giảm dung lượng; HTML/receipt dùng dữ liệu nguồn, không hardcode số tổng vào app. Receipt mỗi lần chạy được giữ riêng. Bộ test Python nay **13/13 pass**, gồm MTD, kỳ so sánh cùng ngày, ngày thiếu, năm nhuận và mục nguồn rỗng. Đã kiểm tra chọn chiều và giá trị tháng 10 qua UI localhost.
 - Đây vẫn là bản review local; chưa bổ sung database/API/scheduler hoặc thay dashboard staging. Nghiệm thu revision qua nhiều lần quan sát và ghép lượt qua nhiều ngày vẫn chưa hoàn tất.
+
+## Kiểm tra tính động ngày 22/10/2026
+
+- Collector không khóa ngày cuối ở tháng 10/2026: ngày chốt mặc định là ngày đã qua gần nhất theo cả đồng hồ Việt Nam và ngày server nguồn. Tháng mới được sinh từ dải ngày; `--through` chỉ khóa ngày khi người chạy chủ động truyền tham số.
+- Đã xóa fallback `PERIODS = ('2025-09', '2026-09')` còn sót từ pilot; `summarize` tự lấy các tháng có trong dữ liệu nếu không truyền danh sách. Phạm vi bắt đầu mặc định 01/01/2025 là cấu hình backfill, không phải giới hạn tháng cuối. Nội dung phạm vi HTML cũng lấy từ receipt.
+- Bộ test **16/16 pass**, thêm mô phỏng ngày 02/11/2026 tự xuất tháng 11 và ngày 02/01/2027 tự thu ngày 01/01/2027, nguồn trễ và cutoff truyền tay. Đây là test đồng hồ giả, không phải dữ liệu tương lai.
+- **Chưa tự cập nhật đầu-cuối:** localhost chỉ phục vụ file `review.html` đã sinh; trang không gọi nguồn khi mở. Workflow `.github/workflows/php-newsletters.yml` chạy newsletter tấn hàng/TEU, không gọi collector lịch điều động này. Chưa có database/API/scheduler cho series lịch điều động, nên chưa cam kết web tự xuất tháng mới nếu không chạy collector.
+- Để vận hành tự động còn cần nối collector vào lịch server, lưu dữ liệu lâu dài và cho dashboard đọc API; chạy lại collector thủ công hiện tái sinh tháng mới mà không sửa code hoặc nhập số vào HTML.
