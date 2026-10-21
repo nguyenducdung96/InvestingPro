@@ -1,0 +1,52 @@
+name: Tan Vu published schedules
+on:
+  workflow_dispatch:
+  schedule:
+    # Daily 06:30 Asia/Ho_Chi_Minh. Github may start scheduled jobs late.
+    - cron: '30 23 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: tanvu-plans-staging
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    environment: staging
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache@v4
+        with:
+          path: .local/php-slice2a/tanvu-month-pilot
+          key: tanvu-plans-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: tanvu-plans-v1-
+      - run: python scripts/test-tanvu-plan-months.py
+      - name: Fetch elapsed source days and recheck recent revisions
+        id: collect
+        continue-on-error: true
+        run: python scripts/collect-tanvu-plan-months.py
+      - name: Import versioned schedules and read back the latest day
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          COLLECTOR_OUTCOME: ${{ steps.collect.outcome }}
+        run: node scripts/sync-tanvu-plans.mjs
+      - name: Keep compact run receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tanvu-plan-run-${{ github.run_id }}
+          retention-days: 14
+          path: .local/php-slice2a/tanvu-month-pilot/last-sync.json
+      - name: Fail visibly if the source collector was incomplete
+        if: steps.collect.outcome != 'success'
+        run: exit 1
