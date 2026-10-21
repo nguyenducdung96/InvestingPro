@@ -1,5 +1,7 @@
 # Tân Vũ — nghiệm thu thử hai tháng lịch điều động
 
+> **Đã mở rộng ngày 22/10/2026:** bản review mặc định hiện có **22 tháng từ 01/2025 đến 21/10/2026, parse 659/659 trang ngày**. Nội dung hai tháng bên dưới là kết quả pilot ban đầu. Xem [biên nhận toàn dải](catalog-review/tanvu-plan-month-history-20261022.json).
+
 Ngày thực hiện: 22/10/2026, giờ Việt Nam. Phạm vi: Tân Vũ, tháng 9/2025 và 9/2026; chưa triển khai connector mới lên staging.
 
 ## Đầu ra
@@ -34,3 +36,15 @@ Ngày lỗi không thành zero; thiếu bất kỳ ngày nào không xuất tổ
 - `python scripts/test-tanvu-plan-months.py`: **7/7 pass**, gồm chiều/bến, số DWT, chống trùng/mâu thuẫn, thay giờ, ngày thiếu, DWT thiếu và ngày báo cáo sai.
 - Đã parse lại 60 raw capture với kiểm tra bộ cột chặt; tổng không thay đổi. Python compile và git diff check đạt. Bản HTML đã kiểm tra qua trình duyệt; không dùng kết quả này thay E2E app hay cloud acceptance.
 - Tiếp theo: đưa model lịch công bố riêng vào database/API/UI của PHP, dùng **chiều rời nhất quán** cho chuỗi so sánh, kèm lựa chọn chiều vào; thêm collector hằng ngày và backfill bản sửa. Nghiệm thu thay giờ/đổi ngày trước khi gọi refresh tự động hoàn chỉnh. Sau đó mới backfill đủ dải tháng để mở quý/YTD; hai tháng 9 chưa tạo được số quý hoặc YTD.
+
+## Mở rộng tất cả tháng và tháng đang tích lũy
+
+- Cùng lệnh collector nay mặc định thu từ `2025-01-01` đến ngày đã qua gần nhất của Việt Nam/nguồn; có `--from` và `--through`. Không đưa ngày hiện tại chưa hoàn tất hoặc ngày tương lai vào tổng. Chạy lại dùng raw cache đã xác minh hash, lấy mới bốn ngày cuối (ngày chốt và ba ngày trước đó) cùng những ngày lỗi.
+- Đã parse **659/659 ngày**, gồm 12 tháng năm 2025 và 10 tháng năm 2026; tháng 10/2026 chốt ở 21/10. Không có ngày tải/parse lỗi sau kiểm tra cấu trúc mục trống; không thiếu DWT trên các dòng Tân Vũ được chọn.
+- **MTD tàu rời 01–21/10/2026:** 51 dòng, **851.674 DWT**. Cùng phạm vi 01–21/10/2025: 56 dòng, **913.134 DWT**; YoY DWT **−6,73%**. Không dùng tổng cả tháng 10/2025 (1.348.837 DWT) để so với tháng đang tích lũy.
+- **YTD tàu rời 01/01–21/10/2026:** 683 dòng, **11.499.305 DWT**. Cùng kỳ 2025: 665 dòng, **11.624.744 DWT**; YoY DWT **−1,08%**.
+- MTD tàu vào: 49 dòng, **802.088 DWT**; cùng kỳ 46 dòng, **807.453 DWT**. Người xem chọn riêng chiều vào/rời; không cộng hai chiều.
+- HTML có biểu đồ toàn dải, bảng 22 tháng, MTD/YTD, trạng thái tháng đang tích lũy, ngày chốt, đối chiếu cùng phạm vi và nhật ký mở theo tháng/ngày. Tổng tháng chính thức (`monthly_*`) của tháng 10 giữ null; số tích lũy dùng `period_*` và phạm vi ngày rõ. Số cùng kỳ 2024 giữ thiếu vì chưa thu thập năm 2024.
+- Trang ngày **22/07/2025** có mục rời tồn tại nhưng rỗng; parser nhận diện đúng phần tử rỗng thay vì đọc nhầm bảng sau nó. Ghi `source_empty_sections: ["Roi"]`, không gọi đây là lỗi tải hoặc bằng chứng không có tàu thực tế. Thiếu phần tử, ngày sai hoặc nội dung bất thường vẫn fail closed.
+- Raw mới được nén gzip theo SHA-256 để giảm dung lượng; HTML/receipt dùng dữ liệu nguồn, không hardcode số tổng vào app. Receipt mỗi lần chạy được giữ riêng. Bộ test Python nay **13/13 pass**, gồm MTD, kỳ so sánh cùng ngày, ngày thiếu, năm nhuận và mục nguồn rỗng. Đã kiểm tra chọn chiều và giá trị tháng 10 qua UI localhost.
+- Đây vẫn là bản review local; chưa bổ sung database/API/scheduler hoặc thay dashboard staging. Nghiệm thu revision qua nhiều lần quan sát và ghép lượt qua nhiều ngày vẫn chưa hoàn tất.

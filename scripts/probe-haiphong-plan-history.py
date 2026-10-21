@@ -28,7 +28,16 @@ def measure(raw, day, url):
         marker = re.search(r'id=["\']TD_ShowShipPlan_' + name + r'["\']', text)
         if not marker:
             continue
+        content_start = text.find('>',marker.end())+1
+        cell_end = text.find('</td>',content_start)
         start = text.find('<table', marker.end())
+        if cell_end < 0:
+            raise ValueError('Unclosed movement section')
+        if start < 0 or start > cell_end:
+            if plain(text[content_start:cell_end]):
+                raise ValueError('Unexpected non-table movement section')
+            sections[name] = {'rows':0,'pilot_rows':[], 'source_empty':True}
+            continue
         stop = text.find('</table>', start)
         if start < 0 or stop < 0:
             raise ValueError('Missing source table')
@@ -47,7 +56,7 @@ def measure(raw, day, url):
             if len(row) != len(header):
                 raise ValueError('Unexpected column count')
             records.append(dict(zip(header, row)))
-        sections[name] = {'rows': len(records), 'pilot_rows': [r for r in records
+        sections[name] = {'rows': len(records), 'source_empty':not records, 'pilot_rows': [r for r in records
                             if r.get('Từ') in ('TAN VU', 'CHUA VE', 'HOANG DIEU', 'HTIT')
                             or r.get('Đến') in ('TAN VU', 'CHUA VE', 'HOANG DIEU', 'HTIT')]}
     if not sections:

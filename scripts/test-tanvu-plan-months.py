@@ -64,5 +64,55 @@ class PilotTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             collector.probe.measure('KẾ HOẠCH ĐIỀU ĐỘNG TÀU NGÀY 02/09/2026'.encode(),dt.date(2026,9,1),'test')
 
+    def test_partial_month_is_mtd_not_closed_month(self):
+        sample=self.collect([row()],[])
+        days=[{**sample,'date':f'2026-10-{n:02}'} for n in range(1,22)]
+        month=collector.summarize(days,['2026-10'],dt.date(2026,10,21))[0]
+        self.assertEqual(month['status'],'partial_month')
+        self.assertEqual(month['elapsed_days'],21)
+        self.assertEqual(month['failed_days'],[])
+        self.assertEqual(month['arrival']['period_rows'],21)
+        self.assertEqual(month['arrival']['period_dwt'],'259245')
+        self.assertIsNone(month['arrival']['monthly_rows'])
+        self.assertIsNone(month['arrival']['monthly_dwt'])
+
+    def test_mtd_yoy_excludes_later_days_of_previous_year(self):
+        sample=self.collect([row()],[])
+        days=[{**sample,'date':f'{year}-10-{n:02}'}
+              for year,limit in [(2025,31),(2026,21)] for n in range(1,limit+1)]
+        result=collector.comparisons(days,['2026-10'],dt.date(2026,10,21))[0]
+        self.assertEqual(result['current']['rows'],21)
+        self.assertEqual(result['previous']['rows'],21)
+        self.assertEqual(result['previous']['through'],'2025-10-21')
+        self.assertEqual(result['previous']['dwt'],result['current']['dwt'])
+
+    def test_missing_day_blocks_mtd_yoy(self):
+        sample=self.collect([row()],[])
+        days=[{**sample,'date':f'2026-10-{n:02}'} for n in range(1,21)]
+        result=collector.comparisons(days,['2026-10'],dt.date(2026,10,21))[0]
+        self.assertEqual(result['current']['parsed_days'],20)
+        self.assertIsNone(result['current']['dwt'])
+
+    def test_leap_month_counts_real_calendar_days(self):
+        month=collector.summarize([],['2024-02'])[0]
+        self.assertEqual(month['expected_days'],29)
+        self.assertEqual(len(month['failed_days']),29)
+
+    def test_explicit_empty_source_section_is_distinct_from_missing_section(self):
+        raw=('KẾ HOẠCH ĐIỀU ĐỘNG TÀU NGÀY 22/07/2025'
+             '<td id="TD_ShowShipPlan_Roi">  </td>'
+             '<table><tr><td>Different table after section</td></tr></table>').encode()
+        result=collector.probe.measure(raw,dt.date(2025,7,22),'test')
+        self.assertTrue(result['sections']['Roi']['source_empty'])
+        self.assertEqual(result['sections']['Roi']['rows'],0)
+        self.assertNotIn('Vao',result['sections'])
+        broken=raw.replace(b'>  </td>',b'>Error</td>')
+        with self.assertRaises(ValueError):collector.probe.measure(broken,dt.date(2025,7,22),'test')
+
+    def test_closed_february_compares_whole_previous_february(self):
+        result=collector.comparisons([],['2025-02'],dt.date(2026,10,21))[0]
+        self.assertEqual(result['current']['through'],'2025-02-28')
+        self.assertEqual(result['previous']['through'],'2024-02-29')
+
 
 if __name__=='__main__': unittest.main()
