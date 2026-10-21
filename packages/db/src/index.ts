@@ -116,6 +116,9 @@ export class SupabaseCatalogRepository implements CatalogRepository {
     private db: Transport,
     private admin = false,
   ) {}
+  async companyBerthScope() {
+    return (await this.db.read('port','company_berth_editions',params({select:'id,ticker,observed_on,published_at,entries',ticker:'eq.PHP',order:'observed_on.desc,published_at.desc,id.desc',limit:'1'})))[0]??null;
+  }
   async monthlyThroughput() {
     return this.db.read('port','published_monthly_throughput',params({select:'*',asset_code:'eq.tan_vu',order:'period.asc,id.asc',limit:'1000'}));
   }

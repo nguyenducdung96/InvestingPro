@@ -1,0 +1,70 @@
+{
+  "checked_at": "2026-10-21T02:09:27.436133+00:00",
+  "actual_history_ready": false,
+  "actual_period_start": null,
+  "actual_period_end": null,
+  "actual_dwt_coverage": null,
+  "sources": [
+    {
+      "name": "cv-home",
+      "url": "https://cangvuhaiphong.gov.vn/",
+      "http": "200",
+      "sha256": "603269a8d2cd4c476bc9ab1d2d100397d883a6f3f53c7a3dd7595a78b0c94627"
+    },
+    {
+      "name": "plan",
+      "url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-1",
+      "http": "200",
+      "sha256": "5b2cd205ef88b908894c8d492e203876243590925d51003d6fc192a7f6fa84f5"
+    },
+    {
+      "name": "container",
+      "url": "https://container.haiphongport.com.vn/vi/thongtintau.ttt.html",
+      "http": "200",
+      "sha256": "583555f48116c16744a46ccd131bd4129066e3cd5e373ab491e4c36b7411ba8c"
+    },
+    {
+      "name": "tanvu",
+      "url": "https://haiphongport.com.vn/vi/don-vi-thanh-vien/chi-nhanh-cang-tan-vu-389.html",
+      "http": "200",
+      "sha256": "047d7d9f41dfbca8f5a420018d88b457d6dcb627c48f0e70e687f89b6ec632f5"
+    },
+    {
+      "name": "hdcv",
+      "url": "https://haiphongport.com.vn/vi/don-vi-thanh-vien/cong-ty-tnhh-mot-thanh-vien-cang-hoang-dieu-chua-ve-2423.html",
+      "http": "200",
+      "sha256": "ebbea515752f5a3fad5ba1d68bd87efdef14181c9a2fb09b03c10bfa05a46e13"
+    },
+    {
+      "name": "htit",
+      "url": "https://haiphongport.com.vn/vi/don-vi-thanh-vien/cong-ty-tnhh-cang-quoc-te-til-cang-hai-phong-htit-2213.html",
+      "http": "200",
+      "sha256": "a3d0610cef6aae8e40ece5c8b3f3cc5cd776068e112951d53beaf0ebfd82af08"
+    },
+    {
+      "name": "arrival-notifications",
+      "url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_notification.aspx",
+      "http": "200",
+      "sha256": "62a94c83901dbd2fac19fbb51588d306d43722cde5623c73fd995e28729459cf",
+      "semantics": "ETA notification; no DWT or verified actual timestamp"
+    }
+  ],
+  "semantics": {
+    "plan": "planned movements even when date has passed",
+    "container": "Cập bến DK/Rời bến DK; no DWT; future-dated departure observed",
+    "position": "in-port snapshot, not a port call",
+    "notifications": "ETA arrivals, not actual berth calls"
+  },
+  "scheduler": {
+    "run_id": 39528471403,
+    "job_id": 118988574413,
+    "event": "schedule",
+    "conclusion": "success",
+    "finished_at": "2026-10-21T01:41:02.072Z",
+    "documents_received": 27,
+    "facts_inserted": 0,
+    "published": 0,
+    "actual_scheduled_cycles_verified": 1,
+    "required_cycles": 2
+  }
+}

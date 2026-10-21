@@ -31,6 +31,7 @@ export interface Tables {
   };
   catalog: { entities: Entity; companies: Company; company_listings: Listing };
   port: {
+    company_berth_editions: import('../../modules/port/src/company-berths').CompanyBerthEdition;
     published_monthly_throughput: import('../../modules/port/src/throughput').ThroughputFact;
     throughput_publications: {fact_id:string};
     monthly_throughput: {id:string;period:string;cargo_tonnes:number|null;container_teu:number|null;source_record_id:string;extraction_note:string;verification_status:string};

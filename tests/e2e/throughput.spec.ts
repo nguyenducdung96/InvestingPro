@@ -1,9 +1,18 @@
+import {readFileSync} from 'node:fs';
 import {test,expect} from '@playwright/test';
 const row=(period:string,value:number)=>({id:`test-${period}`,asset_code:'tan_vu',period:`${period}-01`,publication_month:'2026-09-01',cargo_tonnes:value,container_teu:100,source_url:'https://haiphongport.com.vn/FileUpload/Documents/test-only.pdf',source_sha256:'a'.repeat(64),pdf_page:1,fetched_at:'2026-10-20T00:00:00Z',source_checked_at:'2026-10-21T00:00:00Z',source_error:null});
 test('PHP reads changed database responses without rebuild; filters, nulls, sources and mobile remain usable',async({page,request},info)=>{
  const write=async(data:object[])=>request.post('http://127.0.0.1:54329/__throughput',{data});
  await write([row('2025-05',1000),row('2026-05',2000),row('2026-06',3000)]);
+ const edition=JSON.parse(readFileSync('docs/catalog-review/php-berth-scope-20261021.json','utf8'));
+ await request.post('http://127.0.0.1:54329/__berths',{data:[edition]});
  await page.goto('/companies/PHP');
+ const berthScope=page.getByRole('region',{name:'Các bến liên quan PHP',exact:true});
+ await expect(berthScope.getByRole('heading',{name:'HTIT (Lạch Huyện 3–4)',exact:true})).toBeVisible();
+ expect((await(await request.get('/api/v1/companies/PHP/berths')).json()).data.entries).toHaveLength(4);
+ await berthScope.getByText('Quan hệ và nguồn',{exact:true}).last().click();
+ await expect(berthScope.getByText('Nhãn bến Cảng vụ: HTIT')).toBeVisible();
+
  const region=page.getByRole('region',{name:'Sản lượng Tân Vũ',exact:true});
  await expect(region.getByRole('heading',{name:'Theo dõi hoạt động cảng'})).toBeVisible();
  await expect(region.getByText('3.000',{exact:true}).first()).toBeVisible();
@@ -20,6 +29,7 @@ test('PHP reads changed database responses without rebuild; filters, nulls, sour
  }
  await page.getByLabel('Kỳ',{exact:true}).selectOption('quarter');await page.getByRole('button',{name:'Xem số liệu'}).click();
  await expect(region.getByText('Chưa đủ dữ liệu',{exact:true}).first()).toBeVisible();
+ await request.post('http://127.0.0.1:54329/__berths',{data:[]});
  await write([]);await page.reload();await expect(region.getByText(/Chưa có kỳ số liệu được duyệt công bố/)).toBeVisible();
  expect((await request.patch('/api/v1/admin/throughput',{data:{id:'bad',decision:'verified',note:'Test only review note more than 20 chars'}})).status()).toBe(401);
 });

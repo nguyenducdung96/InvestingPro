@@ -139,3 +139,5 @@ export function effectiveAt(from: string, to: string | null, at: string) {
 }
 export {isBerthCallSource,splitCallMovements} from './call-movements';
 export {throughputSeries, type ThroughputFact} from './throughput';
+
+export * from './company-berths';

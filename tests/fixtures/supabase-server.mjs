@@ -141,6 +141,10 @@ rows.current_quarantined_calls=[];
 const publicationSource={...source,id:id(40),owner:"Fixture issuing company",base_url:"https://example.gov.vn",rights_notes:"Fixture only: permission must be explicitly reviewed.",rights_status:"to_verify"};
 createServer(async (req, res) => {
   // Test-only mutable throughput store: proves request-time reads, never imported by the app.
+  if(req.url==='/__berths'&&req.method==='POST') {
+    let raw='';for await(const chunk of req)raw+=chunk;
+    rows.company_berth_editions=JSON.parse(raw);res.end('{}');return;
+  }
   if(req.url==='/__throughput'&&req.method==='POST') {
     let raw='';for await(const chunk of req)raw+=chunk;
     rows.published_monthly_throughput=JSON.parse(raw);

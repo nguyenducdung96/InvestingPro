@@ -1,0 +1,55 @@
+{
+  "ticker": "PHP",
+  "observed_on": "2026-10-21",
+  "entries": [
+    {
+      "asset_code": "tan_vu",
+      "name": "Tân Vũ",
+      "relationship": "branch",
+      "operator": "CTCP Cảng Hải Phòng – Chi nhánh Cảng Tân Vũ",
+      "alias": "TAN VU",
+      "source_url": "https://haiphongport.com.vn/vi/don-vi-thanh-vien/chi-nhanh-cang-tan-vu-389.html",
+      "source_sha256": "047d7d9f41dfbca8f5a420018d88b457d6dcb627c48f0e70e687f89b6ec632f5",
+      "source_note": "Trang đơn vị thành viên ghi Tân Vũ là chi nhánh Cảng Hải Phòng. Ngày đối chiếu không phải ngày bắt đầu quan hệ.",
+      "effective_from": null,
+      "effective_to": null
+    },
+    {
+      "asset_code": "chua_ve",
+      "name": "Chùa Vẽ",
+      "relationship": "via_member_company",
+      "operator": "Công ty TNHH MTV Cảng Hoàng Diệu Chùa Vẽ",
+      "alias": "CHUA VE",
+      "source_url": "https://haiphongport.com.vn/vi/don-vi-thanh-vien/cong-ty-tnhh-mot-thanh-vien-cang-hoang-dieu-chua-ve-2423.html",
+      "source_sha256": "ebbea515752f5a3fad5ba1d68bd87efdef14181c9a2fb09b03c10bfa05a46e13",
+      "source_note": "Một khu vực xếp dỡ của đơn vị Hoàng Diệu Chùa Vẽ; giữ tách bến vật lý, không chia số liệu tổng nhóm cho từng bến.",
+      "effective_from": null,
+      "effective_to": null
+    },
+    {
+      "asset_code": "hoang_dieu",
+      "name": "Hoàng Diệu",
+      "relationship": "via_member_company",
+      "operator": "Công ty TNHH MTV Cảng Hoàng Diệu Chùa Vẽ",
+      "alias": "HOANG DIEU",
+      "source_url": "https://haiphongport.com.vn/vi/don-vi-thanh-vien/cong-ty-tnhh-mot-thanh-vien-cang-hoang-dieu-chua-ve-2423.html",
+      "source_sha256": "ebbea515752f5a3fad5ba1d68bd87efdef14181c9a2fb09b03c10bfa05a46e13",
+      "source_note": "Một khu vực xếp dỡ của đơn vị Hoàng Diệu Chùa Vẽ; chưa xác định chính xác khoảng hiệu lực và phạm vi di dời.",
+      "effective_from": null,
+      "effective_to": null
+    },
+    {
+      "asset_code": "htit",
+      "name": "HTIT (Lạch Huyện 3–4)",
+      "relationship": "joint_venture",
+      "operator": "Công ty TNHH Cảng Quốc tế TIL Cảng Hải Phòng",
+      "alias": "HTIT",
+      "source_url": "https://haiphongport.com.vn/vi/don-vi-thanh-vien/cong-ty-tnhh-cang-quoc-te-til-cang-hai-phong-htit-2213.html",
+      "source_sha256": "a3d0610cef6aae8e40ece5c8b3f3cc5cd776068e112951d53beaf0ebfd82af08",
+      "source_note": "Trang PHP xác nhận HTIT là liên doanh với MSC; không suy thành công ty con hoặc gộp HICT/HHIT vào cùng bến.",
+      "effective_from": null,
+      "effective_to": null
+    }
+  ],
+  "id": "a76d60a3-b334-55e5-901d-f7b5be5bdeba"
+}

@@ -75,3 +75,17 @@ Run thật thủ công [39482783164](https://github.com/nguyenducdung96/Investin
 Sau migration editorial: 100/100 Vitest đạt với `--maxWorkers=2` (lượt chạy song song mặc định bị timeout hook catalog 10 giây; chạy giới hạn workers đạt toàn bộ). Typecheck/lint đạt. Các kết quả E2E 36/36 nêu trên thuộc triển khai UI trước đó; thay đổi lần này chủ yếu là DB publication và CI sync.
 
 Job kiểm tra lại sau khi bật editorial policy: [39485857480](https://github.com/nguyenducdung96/InvestingPro/actions/runs/39485857480), `workflow_dispatch`, thành công 3m27s. Receipt 02:46:42 ngày 21/10/2026: `documents_received=27`, `facts_inserted=0`, `publication.enabled=true`, `publication.published=0` (16 IDs đã công bố được replay idempotent). Readback: 16 publications, 16 original pending, original rights to_verify. Metadata artifact khoảng 7 KB. Đây vẫn là run thủ công thứ hai, không phải hai chu kỳ cron.
+
+## Mapping bến và cron thực tế — tiếp tục ngày 21/10/2026
+
+Đã thêm migration `202610210004_company_berth_scope.sql`, nhập `php_company_berths.reviewed.sql` trên staging: PHP, ngày đối chiếu 21/10/2026, bốn bến. Đây là phạm vi pilot, không thay thế toàn bộ danh mục tài sản theo báo cáo. Tân Vũ là chi nhánh; Chùa Vẽ/Hoàng Diệu qua đơn vị thành viên, giữ hai bến vật lý; HTIT là liên doanh. Không công bố tỷ lệ sở hữu hiện tại, không tự tạo ngày hiệu lực. DVP/Đình Vũ không cộng vào nhóm bến pilot trực tiếp.
+
+Các bản mapping là append-only, admin hoặc operator SQL thật mới công bố, giữ audit và URL/hash nguồn. Web/API `/api/v1/companies/PHP/berths` đọc database mỗi request, không import JSON docs làm fallback. Khả năng xem chuỗi tấn/TEU phụ thuộc dữ liệu đã công bố. Alias chỉ match nhãn chính xác sau chuẩn hóa dấu/khoảng trắng; HICT, HHIT, LACH HUYEN và TV1 không được suy thành HTIT/Tân Vũ.
+
+Lần cron thật đầu tiên [39528471403](https://github.com/nguyenducdung96/InvestingPro/actions/runs/39528471403), event schedule, thành công. Receipt hoàn tất 08:41:02 ngày 21/10/2026 (UTC 01:41): 27 documents, 0 fact mới, 0 publication mới do replay; enabled=true. Đã xác minh **1/2 chu kỳ cron**. Lịch cấu hình vẫn 06:20, lần này chạy muộn nên không cam kết đúng phút. Không dùng hai run thủ công làm chu kỳ cron.
+
+Kiểm lại nguồn actual: [điều động Cảng vụ](https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-1) vẫn là kế hoạch dù có DWT; [thông báo đến cảng](https://csdltau.cangvuhaiphong.gov.vn/pages/ship_notification.aspx) dùng ETA, không DWT; [bảng cảng](https://container.haiphongport.com.vn/vi/thongtintau.ttt.html) dùng Cập/Rời bến DK, không DWT và còn có ngày rời 17/06/2027. Chưa có căn cứ chuyển các bảng này thành actual. Lịch sử nghiệp vụ phía sau đăng nhập không được truy cập bằng endpoint nội bộ. Chưa thêm connector actual hoặc biểu đồ DWT giả.
+
+Đầu vào tối thiểu còn thiếu để khép actual: bản xuất chính thức theo một tháng tại Tân Vũ, có định danh lượt/chuyến, tàu/IMO nếu có, bến, chiều hoặc ATB/ATD, thời gian thực tế, DWT theo nguồn (GT riêng, thiếu giữ null), trạng thái thực hiện và nguồn/revision. Cần một cặp kỳ tương ứng trước khi bật YoY; ưu tiên báo cáo 11-T hoặc lịch sử TOS được cấp quyền. Không cần thêm giấy tờ quyền nguồn cho bộ số newsletter đã được chủ dự án duyệt. Không gửi liên hệ bên ngoài thay chủ dự án.
+
+Bằng chứng: [mapping](catalog-review/php-berth-scope-20261021.json), [readback nguồn và cron](catalog-review/php-next-stage-readback-20261021.json). Kiểm thử local: 102/102 Vitest, PHP E2E 2/2 desktop/mobile, lint/typecheck/production build đạt. Chưa coi đây là full E2E toàn dự án hoặc hoàn tất actual DWT.
