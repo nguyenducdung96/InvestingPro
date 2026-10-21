@@ -30,10 +30,15 @@ jobs:
           key: tanvu-plans-v1-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: tanvu-plans-v1-
       - run: python scripts/test-tanvu-plan-months.py
+      - name: Read database checkpoint and select new, missing and recently revised days
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/prepare-tanvu-refresh.mjs
       - name: Fetch elapsed source days and recheck recent revisions
         id: collect
         continue-on-error: true
-        run: python scripts/collect-tanvu-plan-months.py
+        run: python scripts/collect-tanvu-plan-months.py --days-file .local/php-slice2a/tanvu-month-pilot/requested-days.json
       - name: Import versioned schedules and read back the latest day
         env:
           SUPABASE_URL: ${{ vars.SUPABASE_URL }}

@@ -39,6 +39,7 @@ it('imports idempotently, versions corrections, protects RLS and preserves succe
   await expect(db.query("insert into port.tanvu_plan_days(report_day,last_attempt) values('2025-09-01',now())")).rejects.toThrow();
   await db.exec(`reset role;set role service_role;select set_config('request.jwt.claims','{"role":"service_role"}',false);`);
   await db.query('select port.import_tanvu_plan_days($1)',[JSON.stringify([input])]);
+  expect((await db.query('select * from port.tanvu_plan_days')).rows).toHaveLength(1); // CI readback, not only definer RPC
   const replay=await db.query<{result:{versions_inserted:number}}>('select port.import_tanvu_plan_days($1) as result',[JSON.stringify([input])]);
   expect(replay.rows[0].result.versions_inserted).toBe(0);
   await db.query('select port.import_tanvu_plan_days($1)',[JSON.stringify([{...input,sha256:'b'.repeat(64),fetched_at:'2025-09-03T00:00:00Z',events:[{...input.events[0],dwt:120}]}])]);

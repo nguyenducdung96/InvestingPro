@@ -230,6 +230,7 @@ def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--from',dest='start',default='2025-01-01')
     parser.add_argument('--through',default=None,help='Default: last elapsed Vietnam/source day')
+    parser.add_argument('--days-file',type=pathlib.Path,help='Server-selected missing/new days and revision window')
     args=parser.parse_args()
     anchor_raw = fetch(probe.BASE+'?d=0')
     match = re.search(r'KẾ HOẠCH ĐIỀU ĐỘNG TÀU NGÀY\s+(\d{2}/\d{2}/\d{4})', probe.plain(anchor_raw.decode('utf8')))
@@ -239,6 +240,11 @@ def main():
     today=dt.datetime.now(dt.timezone(dt.timedelta(hours=7))).date()
     start=dt.date.fromisoformat(args.start)
     cutoff,dates=history_window(start,anchor,today,dt.date.fromisoformat(args.through) if args.through else None)
+    if args.days_file:
+        wanted=json.loads(args.days_file.read_text(encoding='utf8'))
+        if not isinstance(wanted,list) or not wanted:raise ValueError('Empty or invalid day selection')
+        dates=sorted({dt.date.fromisoformat(value) for value in wanted})
+        if any(day<start or day>cutoff for day in dates):raise ValueError('Day selection outside elapsed source range')
     periods=sorted({d.strftime('%Y-%m') for d in dates})
     cache={}
     candidates={}

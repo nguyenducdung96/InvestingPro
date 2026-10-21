@@ -29,13 +29,16 @@ try{
  run.status=run.parsed_days===run.requested_days&&process.env.COLLECTOR_OUTCOME!=='failure'?'success':'failed';
  if(run.status==='failed')run.error='One or more source days failed; successful prior versions retained';
 }catch(error){run.status='failed';run.error=error.message;}
+// Read back the published day head and its public totals, not just RPC status.
+let latest=[];
+try{
+ const readback=await fetch(new URL('/rest/v1/tanvu_plan_days?select=report_day,departure_rows,departure_dwt,source_sha256,last_success,source_error&report_day=eq.'+receipt.through,url),{headers:{...supabaseKeyHeaders(key),'Accept-Profile':'port'},signal:AbortSignal.timeout(15000)});
+ if(!readback.ok)throw new Error('Schedule public readback failed: HTTP '+readback.status);
+ latest=await readback.json();
+ if(run.status==='success'&&(!latest[0]?.source_sha256||latest[0].source_error))throw new Error('Latest schedule head not confirmed');
+}catch(error){run.status='failed';run.error=error.message;}
 run.checked_at=new Date().toISOString();
 await rpc('record_tanvu_plan_run',{p_run:run});
-// Read back the published day head and its public totals, not just RPC status.
-const readback=await fetch(new URL('/rest/v1/tanvu_plan_days?select=report_day,departure_rows,departure_dwt,source_sha256,last_success,source_error&report_day=eq.'+receipt.through,url),{headers:{...supabaseKeyHeaders(key),'Accept-Profile':'port'},signal:AbortSignal.timeout(15000)});
-if(!readback.ok)throw new Error('Schedule public readback failed: HTTP '+readback.status);
-const latest=await readback.json();
-if(run.status==='success'&&(!latest[0]?.source_sha256||latest[0].source_error))throw new Error('Latest schedule head not confirmed');
 const result={...run,credential_kind:key.startsWith('sb_secret_')?'secret':'legacy',versions_inserted:inserted,batches,latest};
 await writeFile(root+'last-sync.json',JSON.stringify(result,null,2)+'\n');
 console.log(JSON.stringify(result));
