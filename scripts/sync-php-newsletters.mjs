@@ -18,6 +18,6 @@ if(bundle.facts.length){
  if(!released.ok)throw new Error(`Factual publication failed (HTTP ${released.status}); intake succeeded.`);
  publication=await released.json();
 }
-const receipt={at:new Date().toISOString(),...intake,publication};
+const receipt={at:new Date().toISOString(),credential_kind:key.startsWith('sb_secret_')?'secret':'legacy',...intake,publication};
 await writeFile('.local/php-newsletters/last-intake.json',JSON.stringify(receipt,null,2)+'\n');
 console.log(JSON.stringify(receipt));
