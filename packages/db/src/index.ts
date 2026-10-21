@@ -1,3 +1,4 @@
+import {supabaseKeyHeaders} from './api-key-headers.mjs';
 import type {
   AssetInterest,
   CatalogItem,
@@ -68,8 +69,7 @@ export function supabaseTransport(
     const response = await fetch(new URL(`/rest/v1/${table}?${params}`, base), {
       method,
       headers: {
-        apikey: key,
-        Authorization: `Bearer ${token ?? key}`,
+        ...supabaseKeyHeaders(key,token),
         "Accept-Profile": schema,
         "Content-Profile": schema,
         "Content-Type": "application/json",
