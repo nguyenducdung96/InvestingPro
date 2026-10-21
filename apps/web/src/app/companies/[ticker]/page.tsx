@@ -1,6 +1,7 @@
 import { CompanyPage } from "@/components/company-page";
 import {PhpBerthScope} from '@/components/php-berth-scope';
 import { PhpThroughput } from '@/components/php-throughput';
+import {PhpPlans} from '@/components/php-plans';
 export const dynamic = "force-dynamic";
 export default async function Page({
   params,
@@ -14,6 +15,7 @@ export default async function Page({
   return (
     <>
     {ticker==='PHP'&&<PhpBerthScope/>}
+    {ticker==='PHP'&&<PhpPlans query={query}/>}
     {ticker==='PHP'&&<PhpThroughput query={query}/>}
     <CompanyPage
       keyValue={ticker}

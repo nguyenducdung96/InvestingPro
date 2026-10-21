@@ -30,6 +30,7 @@ export class DatabaseError extends Error {
   }
 }
 export interface Transport {
+  tanvuPlanEvents?(day:string):Promise<import('../../modules/port/src/tanvu-plans').TanVuPlanEvents|null>;
   reviewThroughput?(body:object):Promise<object>;
   importCalls?(body:object):Promise<Record<string,unknown>>;
   publishEditorial?(body:object):Promise<{inserted:number;companies:number}>;
@@ -88,6 +89,7 @@ export function supabaseTransport(
     return response.json() as Promise<T[]>;
   }
   return {
+    tanvuPlanEvents: (day) => request('port','rpc/tanvu_plan_events',new URLSearchParams(),'POST',{p_day:day}) as unknown as Promise<import('../../modules/port/src/tanvu-plans').TanVuPlanEvents|null>,
     reviewThroughput: (b) => request('port','rpc/review_monthly_throughput',new URLSearchParams(),'POST',b),
     importCalls: (b) => request('port','rpc/import_port_calls',new URLSearchParams(),'POST',b) as unknown as Promise<Record<string,unknown>>,
     publishEditorial: (b) => request("port","rpc/publish_editorial_catalog",new URLSearchParams(),"POST",b) as unknown as Promise<{inserted:number;companies:number}>,
@@ -116,6 +118,16 @@ export class SupabaseCatalogRepository implements CatalogRepository {
     private db: Transport,
     private admin = false,
   ) {}
+  async tanvuPlans(){
+    const rows=await this.db.read('port','tanvu_plan_days',params({select:'*',order:'report_day.asc',limit:'1000'}));
+    for(let offset=1000;rows.length===offset;offset+=1000){
+      const page=await this.db.read('port','tanvu_plan_days',params({select:'*',order:'report_day.asc',limit:'1000',offset:String(offset)}));
+      rows.push(...page);if(page.length<1000)break;
+    }
+    const run=(await this.db.read('port','tanvu_plan_runs',params({select:'*',order:'checked_at.desc,id.desc',limit:'1'})))[0]??null;
+    return {days:rows,run};
+  }
+  async tanvuPlanEvents(day:string){return this.db.tanvuPlanEvents?.(day)??null;}
   async companyBerthScope() {
     return (await this.db.read('port','company_berth_editions',params({select:'id,ticker,observed_on,published_at,entries',ticker:'eq.PHP',order:'observed_on.desc,published_at.desc,id.desc',limit:'1'})))[0]??null;
   }
