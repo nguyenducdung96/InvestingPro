@@ -66,5 +66,25 @@
     "published": 0,
     "actual_scheduled_cycles_verified": 1,
     "required_cycles": 2
+  },
+  "public_eport_voyages": {
+    "url": "https://eport.haiphongport.com.vn/Category/Vessel",
+    "discovered_via": "Official PHP ePort page > Tra cứu > Danh mục chuyến tàu",
+    "access": "public_without_login",
+    "ui_entries_as_observed": 108,
+    "displayed_fields": [
+      "Mã tàu",
+      "Tên tàu",
+      "Chuyến nhập",
+      "Chuyến xuất",
+      "ETA",
+      "ETB",
+      "ETW",
+      "ETD (expanded row)"
+    ],
+    "dwt_present": false,
+    "actual_timestamp_present": false,
+    "ui_capture_sha256": "2d762aea15fc742d9f3fc8ea5d1fbb8164e5a31c6804451a78132e0e75832c26",
+    "eligible_for_actual_monthly_yoy": false
   }
 }
