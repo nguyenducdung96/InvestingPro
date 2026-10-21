@@ -6,6 +6,8 @@
 
 **Bổ sung ngày 15/10/2026:** Đã rà soát thêm VSDC, FPTS EzIR, CafeF, VietstockFinance, SSI Research và FiinPro-X cho việc hoàn thiện registry doanh nghiệp/quan hệ tài sản Slice 1. Vai trò, URL đã tra cứu, giới hạn truy cập và quy tắc truy về tài liệu gốc được ghi tại [Chính sách nguồn chứng khoán cho catalog](catalog-review/securities-source-policy.md). Nguồn tổng hợp/phân tích chỉ dùng discovery và kiểm tra chéo khi chưa có quyền sử dụng phù hợp; không tự trở thành nguồn được duyệt trong database. Không dùng báo không rõ nguồn, diễn đàn hoặc mạng xã hội làm bằng chứng xác minh.
 
+**Đính chính rà nguồn ngày 21/10/2026:** Lịch điều động Hải Phòng có thể truy xuất ngày cũ qua tham số `d` (độ lệch ngày), không chỉ các ngày đang hiện trong navigation. Đã tải và kiểm tra ngày trong nội dung cho 20/10/2024, 20/10/2025 và 20/10/2026: có bảng vào/rời, tên tàu, giờ, DWT và bến. Đây là nguồn khả thi cho chuỗi **lượt/DWT theo lịch điều động công bố**; không được kết luận không có lịch sử chỉ vì UI chỉ hiện một tuần. Nguồn vẫn tự ghi “Kế hoạch”, chưa chứng nhận actual hoặc độ phủ liên tục. Xem [kết quả rà lại](php-official-data-sources-followup.md#7-rà-lại-lịch-điều-động-lịch-sử-ngày-21102026).
+
 ---
 
 ## 1. Kết luận nhanh

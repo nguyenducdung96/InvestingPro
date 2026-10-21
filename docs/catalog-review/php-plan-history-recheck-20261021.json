@@ -1,0 +1,556 @@
+{
+  "checked_at": "2026-10-21T16:59:04.275601+00:00",
+  "scope": "Three sampled days; not continuous monthly coverage or actual confirmation",
+  "sources": [
+    {
+      "url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-1",
+      "report_date": "2026-10-20",
+      "sha256": "ef24adfe3f523512454e2cf127645992dd593414c4f72355b4749fb58b9b6f93",
+      "bytes": 179276,
+      "semantics": "authority_published_plan",
+      "sections": {
+        "Roi": {
+          "rows": 24,
+          "pilot_rows": [
+            {
+              "STT": "3",
+              "Thời gian": "04:30",
+              "Tên tàu": "ZHONG GU DI ZHONG HAI",
+              "Mớn nước": "6,9",
+              "LOA": "172",
+              "DWT": "24.123",
+              "GT": "18.490",
+              "Tàu lai": "DT,44",
+              "T.Luồng": "HN",
+              "Từ": "TAN VU",
+              "Đến": "CHINA",
+              "Đại lý": "CHI NHÁNH CÔNG TY CỔ PHẦN VẬN TẢI BIỂN SÀI GÒN TẠI HẢI PHÒNG (SGS)",
+              "Hoa tiêu": "Đức B"
+            },
+            {
+              "STT": "6",
+              "Thời gian": "06:00",
+              "Tên tàu": "ZAMBALES",
+              "Mớn nước": "5,5",
+              "LOA": "119,5",
+              "DWT": "5.164",
+              "GT": "10.409",
+              "Tàu lai": "34,43",
+              "T.Luồng": "HN",
+              "Từ": "CHUA VE",
+              "Đến": "HONG KONG",
+              "Đại lý": "VOSA HẢI PHÒNG.",
+              "Hoa tiêu": "Việt B"
+            },
+            {
+              "STT": "7",
+              "Thời gian": "06:00",
+              "Tên tàu": "MINDORO",
+              "Mớn nước": "5,5",
+              "LOA": "119",
+              "DWT": "5.286",
+              "GT": "10.373",
+              "Tàu lai": "34,45",
+              "T.Luồng": "HN",
+              "Từ": "CHUA VE",
+              "Đến": "JAPAN",
+              "Đại lý": "VOSA HẢI PHÒNG.",
+              "Hoa tiêu": "Thịnh"
+            },
+            {
+              "STT": "12",
+              "Thời gian": "08:30",
+              "Tên tàu": "ZIM MOUNT OLYMPUS",
+              "Mớn nước": "12,5",
+              "LOA": "366,1",
+              "DWT": "161.070",
+              "GT": "152.204",
+              "Tàu lai": "V3,H8,TUG01,H6",
+              "T.Luồng": "HN",
+              "Từ": "HTIT",
+              "Đến": "CHINA",
+              "Đại lý": "CHI NHÁNH CÔNG TY TNHH S5 VIỆT NAM TẠI HẢI PHÒNG",
+              "Hoa tiêu": "Đông"
+            },
+            {
+              "STT": "17",
+              "Thời gian": "14:30",
+              "Tên tàu": "SUNNY ACACIA",
+              "Mớn nước": "7,5",
+              "LOA": "137,6",
+              "DWT": "12.472",
+              "GT": "9.867",
+              "Tàu lai": "36,44",
+              "T.Luồng": "HN",
+              "Từ": "TAN VU",
+              "Đến": "CHINA",
+              "Đại lý": "CHI NHÁNH CÔNG TY TNHH MTV VẬN TẢI DÒNG NƯỚC VÀNG TẠI HẢI PHÒNG",
+              "Hoa tiêu": "Tuyến B"
+            },
+            {
+              "STT": "23",
+              "Thời gian": "22:30",
+              "Tên tàu": "PULAU TIOMAN",
+              "Mớn nước": "6,6",
+              "LOA": "119,5",
+              "DWT": "5.291",
+              "GT": "10.456",
+              "Tàu lai": "36,44",
+              "T.Luồng": "HN",
+              "Từ": "TAN VU",
+              "Đến": "KOREA",
+              "Đại lý": "CÔNG TY CỔ PHẦN VẬN TẢI BIỂN BIỂN XANH HẢI PHÒNG",
+              "Hoa tiêu": "Hải D"
+            }
+          ]
+        },
+        "Vao": {
+          "rows": 29,
+          "pilot_rows": [
+            {
+              "STT": "4",
+              "Thời gian": "04:00",
+              "Tên tàu": "TONGYUN12",
+              "Mớn nước": "8",
+              "LOA": "126,4",
+              "DWT": "12.027",
+              "GT": "7.520",
+              "Tàu lai": "44,45",
+              "T.Luồng": "HN",
+              "Từ": "CHINA",
+              "Đến": "CHUA VE",
+              "Đại lý": "CÔNG TY CỔ PHẦN VẬN TẢI BIỂN BIỂN XANH HẢI PHÒNG",
+              "Hoa tiêu": "Đạt B"
+            },
+            {
+              "STT": "7",
+              "Thời gian": "07:30",
+              "Tên tàu": "PULAU TIOMAN",
+              "Mớn nước": "6,2",
+              "LOA": "119,5",
+              "DWT": "5.291",
+              "GT": "10.456",
+              "Tàu lai": "HC36,44",
+              "T.Luồng": "HN",
+              "Từ": "PHILIPPINES",
+              "Đến": "TAN VU",
+              "Đại lý": "CÔNG TY CỔ PHẦN VẬN TẢI BIỂN BIỂN XANH HẢI PHÒNG",
+              "Hoa tiêu": "Hùng B"
+            },
+            {
+              "STT": "8",
+              "Thời gian": "08:00",
+              "Tên tàu": "JIN AO",
+              "Mớn nước": "5,9",
+              "LOA": "98,2",
+              "DWT": "5.274",
+              "GT": "2.982",
+              "Tàu lai": "HC34,43",
+              "T.Luồng": "HN",
+              "Từ": "HONG KONG",
+              "Đến": "CHUA VE",
+              "Đại lý": "CÔNG TY TNHH THƯƠNG MẠI VÀ LOGISTICS THÁI BÌNH DƯƠNG",
+              "Hoa tiêu": "Định"
+            },
+            {
+              "STT": "11",
+              "Thời gian": "09:30",
+              "Tên tàu": "GUANGZHOU HIGHWAY",
+              "Mớn nước": "8,2",
+              "LOA": "180",
+              "DWT": "15.301",
+              "GT": "48.927",
+              "Tàu lai": "DT,36,920KW",
+              "T.Luồng": "HN",
+              "Từ": "SPCT (HCM)",
+              "Đến": "TAN VU",
+              "Đại lý": "CÔNG TY TNHH MTV VIETFRACHT HẢI PHÒNG",
+              "Hoa tiêu": "Hội"
+            },
+            {
+              "STT": "12",
+              "Thời gian": "13:30",
+              "Tên tàu": "MSC ELIZABETH III",
+              "Mớn nước": "9",
+              "LOA": "210,7",
+              "DWT": "38.691",
+              "GT": "26.718",
+              "Tàu lai": "K1,DT,1000KW",
+              "T.Luồng": "HN",
+              "Từ": "INDONESIA",
+              "Đến": "TAN VU",
+              "Đại lý": "CÔNG TY CỔ PHẦN CẢNG HẢI PHÒNG (HAPAGENT)",
+              "Hoa tiêu": "Việt A"
+            },
+            {
+              "STT": "17",
+              "Thời gian": "14:00",
+              "Tên tàu": "ATLANTIC OCEAN",
+              "Mớn nước": "7,2",
+              "LOA": "113",
+              "DWT": "6.866",
+              "GT": "4.813",
+              "Tàu lai": "HC34,45",
+              "T.Luồng": "HN",
+              "Từ": "QTE LONG SON",
+              "Đến": "CHUA VE",
+              "Đại lý": "CÔNG TY CỔ PHẦN VẬN TẢI BIỂN GLS",
+              "Hoa tiêu": "Hưng C"
+            },
+            {
+              "STT": "25",
+              "Thời gian": "17:30",
+              "Tên tàu": "HENG HUI",
+              "Mớn nước": "6,4",
+              "LOA": "126",
+              "DWT": "8.097",
+              "GT": "5.779",
+              "Tàu lai": "HC36,43",
+              "T.Luồng": "HN",
+              "Từ": "CHINA",
+              "Đến": "TAN VU",
+              "Đại lý": "CÔNG TY TNHH DỊCH VỤ HÀNG HẢI NHẬT THĂNG (SUNRISE MARINE)",
+              "Hoa tiêu": "Dinh"
+            }
+          ]
+        },
+        "DiChuyen": {
+          "rows": 18,
+          "pilot_rows": []
+        }
+      }
+    },
+    {
+      "url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-366",
+      "report_date": "2025-10-20",
+      "sha256": "010f6436b93f82e7fadb41468261bc97e2917c3a16c508eee83f7215cc29c194",
+      "bytes": 126864,
+      "semantics": "authority_published_plan",
+      "sections": {
+        "Roi": {
+          "rows": 24,
+          "pilot_rows": [
+            {
+              "STT": "3",
+              "Thời gian": "06:30",
+              "Tên tàu": "HENG HUI",
+              "Mớn nước": "5",
+              "LOA": "126",
+              "DWT": "8.097",
+              "GT": "5.779",
+              "Tàu lai": "HC36,44",
+              "T.Luồng": "HN",
+              "Từ": "TAN VU",
+              "Đến": "CHINA",
+              "Đại lý": "CÔNG TY TNHH DỊCH VỤ HÀNG HẢI NHẬT THĂNG (SUNRISE MARINE)",
+              "Hoa tiêu": "Ngọc"
+            },
+            {
+              "STT": "5",
+              "Thời gian": "06:30",
+              "Tên tàu": "VIMC PIONEER",
+              "Mớn nước": "7,9",
+              "LOA": "120,8",
+              "DWT": "9.088",
+              "GT": "6.875",
+              "Tàu lai": "SK,ST",
+              "T.Luồng": "HN",
+              "Từ": "TAN VU",
+              "Đến": "GEMALINK",
+              "Đại lý": "VOSA HẢI PHÒNG.",
+              "Hoa tiêu": "Dũng C"
+            },
+            {
+              "STT": "8",
+              "Thời gian": "08:00",
+              "Tên tàu": "PHUC HUNG",
+              "Mớn nước": "5,2",
+              "LOA": "112,5",
+              "DWT": "7.040",
+              "GT": "4.914",
+              "Tàu lai": "HC45,34",
+              "T.Luồng": "HN",
+              "Từ": "CHUA VE",
+              "Đến": "CUA LO",
+              "Đại lý": "CÔNG TY CỔ PHẦN VẬN TẢI BIỂN GLS",
+              "Hoa tiêu": "Quân B"
+            },
+            {
+              "STT": "14",
+              "Thời gian": "10:30",
+              "Tên tàu": "SUNNY LAUREL",
+              "Mớn nước": "6,8",
+              "LOA": "137,7",
+              "DWT": "12.484",
+              "GT": "9.870",
+              "Tàu lai": "HC36,44",
+              "T.Luồng": "HN",
+              "Từ": "TAN VU",
+              "Đến": "CHINA",
+              "Đại lý": "CHI NHÁNH CÔNG TY TNHH MTV VẬN TẢI DÒNG NƯỚC VÀNG TẠI HẢI PHÒNG",
+              "Hoa tiêu": "Long C"
+            },
+            {
+              "STT": "19",
+              "Thời gian": "14:00",
+              "Tên tàu": "VINAFCO 26",
+              "Mớn nước": "7,2",
+              "LOA": "121,4",
+              "DWT": "7.225",
+              "GT": "6.362",
+              "Tàu lai": "34,43",
+              "T.Luồng": "HN",
+              "Từ": "CHUA VE",
+              "Đến": "HO CHI MINH",
+              "Đại lý": "CÔNG TY CỔ PHẦN VẬN TẢI BIỂN VINAFCO",
+              "Hoa tiêu": "Hưng F"
+            }
+          ]
+        },
+        "Vao": {
+          "rows": 17,
+          "pilot_rows": [
+            {
+              "STT": "1",
+              "Thời gian": "00:00",
+              "Tên tàu": "VINAFCO 26",
+              "Mớn nước": "7",
+              "LOA": "121,4",
+              "DWT": "7.225",
+              "GT": "6.362",
+              "Tàu lai": "HC34,43",
+              "T.Luồng": "HN",
+              "Từ": "DA NANG",
+              "Đến": "CHUA VE",
+              "Đại lý": "CÔNG TY CỔ PHẦN VẬN TẢI BIỂN VINAFCO",
+              "Hoa tiêu": "Tuyến A"
+            },
+            {
+              "STT": "2",
+              "Thời gian": "00:00",
+              "Tên tàu": "PHUC HUNG",
+              "Mớn nước": "6,8",
+              "LOA": "112,5",
+              "DWT": "7.040",
+              "GT": "4.914",
+              "Tàu lai": "HC45,34",
+              "T.Luồng": "HN",
+              "Từ": "CANG QTE LONG SON",
+              "Đến": "CHUA VE",
+              "Đại lý": "CÔNG TY CỔ PHẦN VẬN TẢI BIỂN GLS",
+              "Hoa tiêu": "Cường D"
+            },
+            {
+              "STT": "11",
+              "Thời gian": "16:00",
+              "Tên tàu": "GLORY PIONEER",
+              "Mớn nước": "8,7",
+              "LOA": "103,6",
+              "DWT": "8.777",
+              "GT": "6.460",
+              "Tàu lai": "HC34,45",
+              "T.Luồng": "HN",
+              "Từ": "INDONESIA",
+              "Đến": "CHUA VE",
+              "Đại lý": "VOSA HẢI PHÒNG.",
+              "Hoa tiêu": "Đức B"
+            },
+            {
+              "STT": "14",
+              "Thời gian": "17:30",
+              "Tên tàu": "PEARL RIVER BRIDGE",
+              "Mớn nước": "8,3",
+              "LOA": "172",
+              "DWT": "21.976",
+              "GT": "17.211",
+              "Tàu lai": "DT,36,760KW",
+              "T.Luồng": "HN",
+              "Từ": "TAIWAN",
+              "Đến": "TAN VU",
+              "Đại lý": "NORTHFREIGHT CO., LTD",
+              "Hoa tiêu": "Khánh"
+            }
+          ]
+        },
+        "DiChuyen": {
+          "rows": 11,
+          "pilot_rows": [
+            {
+              "STT": "2",
+              "Thời gian": "03:30",
+              "Tên tàu": "MACSTAR NGHI SON (SB)",
+              "Mớn nước": "3,5",
+              "LOA": "80",
+              "DWT": "2.983",
+              "GT": "1.808",
+              "Tàu lai": "",
+              "T.Luồng": "HN",
+              "Từ": "HICT",
+              "Đến": "TAN VU",
+              "Đại lý": "CÔNG TY CỔ PHẦN VẬN TẢI CONTAINER VEN BIỂN MACSTAR",
+              "Hoa tiêu": ""
+            },
+            {
+              "STT": "6",
+              "Thời gian": "13:00",
+              "Tên tàu": "MACSTAR NGHI SON (SB)",
+              "Mớn nước": "3,5",
+              "LOA": "80",
+              "DWT": "2.983",
+              "GT": "1.808",
+              "Tàu lai": "",
+              "T.Luồng": "HN",
+              "Từ": "TAN VU",
+              "Đến": "NAM DINH VU",
+              "Đại lý": "CÔNG TY CỔ PHẦN VẬN TẢI CONTAINER VEN BIỂN MACSTAR",
+              "Hoa tiêu": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-731",
+      "report_date": "2024-10-20",
+      "sha256": "36812351cf80d360f98e3470925bed36550076efe80da991c5f42fa340441b3c",
+      "bytes": 167803,
+      "semantics": "authority_published_plan",
+      "sections": {
+        "Roi": {
+          "rows": 21,
+          "pilot_rows": [
+            {
+              "STT": "7",
+              "Thời gian": "04:30",
+              "Tên tàu": "ELA",
+              "Mớn nước": "9,6",
+              "LOA": "176,9",
+              "DWT": "23.382",
+              "GT": "18.358",
+              "Tàu lai": "K1,36,900KW",
+              "T.Luồng": "LH",
+              "Từ": "TAN VU",
+              "Đến": "SINGAPORE",
+              "Đại lý": "CÔNG TY CỔ PHẦN CẢNG HẢI PHÒNG (HAPAGENT)",
+              "Hoa tiêu": "Tuyên"
+            },
+            {
+              "STT": "13",
+              "Thời gian": "08:00",
+              "Tên tàu": "HANNARA",
+              "Mớn nước": "6,1",
+              "LOA": "133",
+              "DWT": "3.671",
+              "GT": "9.196",
+              "Tàu lai": "45,28",
+              "T.Luồng": "LH",
+              "Từ": "HOANG DIEU",
+              "Đến": "JAPAN",
+              "Đại lý": "CÔNG TY CỔ PHẦN VIỆT LONG - CHI NHÁNH HẢI PHÒNG",
+              "Hoa tiêu": "Dũng F"
+            },
+            {
+              "STT": "14",
+              "Thời gian": "08:00",
+              "Tên tàu": "O7 VEGA S",
+              "Mớn nước": "6,5",
+              "LOA": "132,2",
+              "DWT": "9.851",
+              "GT": "6.351",
+              "Tàu lai": "45,28",
+              "T.Luồng": "LH",
+              "Từ": "HOANG DIEU",
+              "Đến": "USA",
+              "Đại lý": "THORESEN-VINAMA CO.,LTD-HP BRANCH",
+              "Hoa tiêu": "Đạt A"
+            }
+          ]
+        },
+        "Vao": {
+          "rows": 35,
+          "pilot_rows": [
+            {
+              "STT": "3",
+              "Thời gian": "02:00",
+              "Tên tàu": "FORTUNE PROGRESS",
+              "Mớn nước": "6,5",
+              "LOA": "139,8",
+              "DWT": "14.200",
+              "GT": "9.655",
+              "Tàu lai": "34,43",
+              "T.Luồng": "LH",
+              "Từ": "TAIWAN",
+              "Đến": "CHUA VE",
+              "Đại lý": "CÔNG TY CỔ PHẦN VIỆT LONG - CHI NHÁNH HẢI PHÒNG",
+              "Hoa tiêu": "Nam"
+            },
+            {
+              "STT": "7",
+              "Thời gian": "03:30",
+              "Tên tàu": "CNC SATURN",
+              "Mớn nước": "8,9",
+              "LOA": "172",
+              "DWT": "22.081",
+              "GT": "18.652",
+              "Tàu lai": "K1,44,1010KW",
+              "T.Luồng": "LH",
+              "Từ": "SINGAPORE",
+              "Đến": "TAN VU",
+              "Đại lý": "CÔNG TY CỔ PHẦN CẢNG HẢI PHÒNG (HAPAGENT)",
+              "Hoa tiêu": "Tuấn B"
+            },
+            {
+              "STT": "8",
+              "Thời gian": "03:30",
+              "Tên tàu": "WAN HAI 178",
+              "Mớn nước": "9,3",
+              "LOA": "171,9",
+              "DWT": "24.488",
+              "GT": "18.848",
+              "Tàu lai": "K1,36",
+              "T.Luồng": "LH",
+              "Từ": "CHINA",
+              "Đến": "TAN VU",
+              "Đại lý": "CHI NHÁNH CÔNG TY TNHH GIAO NHẬN HÀNG HẢI CÁT TƯỜNG TẠI TP. HẢI PHÒNG",
+              "Hoa tiêu": "Thịnh"
+            },
+            {
+              "STT": "12",
+              "Thời gian": "05:30",
+              "Tên tàu": "AEGEAN EXPRESS",
+              "Mớn nước": "8,6",
+              "LOA": "168,8",
+              "DWT": "18.581",
+              "GT": "15.095",
+              "Tàu lai": "K1,44",
+              "T.Luồng": "LH",
+              "Từ": "SINGAPORE",
+              "Đến": "TAN VU",
+              "Đại lý": "CÔNG TY TNHH HỘI AN",
+              "Hoa tiêu": "Hiếu"
+            },
+            {
+              "STT": "26",
+              "Thời gian": "10:00",
+              "Tên tàu": "XIN HAI HE",
+              "Mớn nước": "6,4",
+              "LOA": "99,9",
+              "DWT": "7.446",
+              "GT": "5.188",
+              "Tàu lai": "HC28,45",
+              "T.Luồng": "LH",
+              "Từ": "INDONESIA",
+              "Đến": "HOANG DIEU",
+              "Đại lý": "CÔNG TY CỔ PHẦN THƯƠNG MẠI ĐỨC THỌ",
+              "Hoa tiêu": "Minh"
+            }
+          ]
+        },
+        "DiChuyen": {
+          "rows": 9,
+          "pilot_rows": []
+        }
+      }
+    }
+  ]
+}

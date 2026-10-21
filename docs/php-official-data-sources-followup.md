@@ -59,3 +59,23 @@ Menu [Cảng vụ Hải Phòng](https://cangvuhaiphong.gov.vn/) còn dẫn tới
 4. DWT actual vẫn cần nguồn/report có trạng thái thực hiện; ưu tiên biểu 11-T hoặc lịch sử TOS/cảng được cấp quyền. Không chuyển giấy phép/kế hoạch thành actual chỉ để đủ số.
 
 Biên nhận [php-source-followup-20261021.json](catalog-review/php-source-followup-20261021.json) lưu tám raw hash, các phép thử form không chứa session, hai mẫu newsletter đã xem trực quan và các giới hạn. Chưa nhập DB, chưa deploy, chưa nghiệm thu scheduler. Đây là phần bổ sung nghiên cứu của Slice 2A.
+
+## 7. Rà lại lịch điều động lịch sử ngày 21/10/2026
+
+**Đính chính:** lần rà trước mới đọc navigation gần hiện tại, chưa thử được archive qua độ lệch ngày. Không có căn cứ kết luận thiếu nguồn lịch sử lượt/DWT. Khả năng lấy lịch sử nay đã được chứng minh bằng ba ngày mẫu, chưa phải mọi ngày trong 24 tháng.
+
+Nguồn trực tiếp là [lịch điều động Cảng vụ Hải Phòng](https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-1). `d` là độ lệch ngày so với ngày server; phải đọc tiêu đề báo cáo để xác nhận ngày, không lưu offset cố định như permalink ngày tuyệt đối. Tại ngày kiểm tra 21/10/2026:
+
+- `d=-1`: nội dung 20/10/2026; 29 dòng vào, 24 dòng rời, 18 dòng di chuyển. PHP pilot có 7 dòng vào, 6 dòng rời.
+- `d=-366`: nội dung 20/10/2025; 17 dòng vào, 24 dòng rời, 11 dòng di chuyển. Pilot có 4 dòng vào, 5 dòng rời, 2 dòng di chuyển.
+- `d=-731`: nội dung 20/10/2024; 35 dòng vào, 21 dòng rời, 9 dòng di chuyển. Pilot có 5 dòng vào, 3 dòng rời.
+
+Các con số là số dòng bảng trước ghép chuyến/đối chiếu thực hiện; không gọi là lượt ghé cảng actual. Bảng vào/rời chứa DWT, GT, giờ, từ/đến, đại lý; không thay GT cho DWT. Qua luồng không thuộc phép đo pilot này và không cộng di chuyển nội cảng vào tổng vào/rời.
+
+Ví dụ trực tiếp ngày 20/10/2026: bảng rời ghi **ZIM MOUNT OLYMPUS, 08:30, 161.070 DWT, HTIT → CHINA**. Các trường tên/giờ/DWT/bến khớp ảnh tham khảo người dùng gửi. Đây là bằng chứng đối chiếu mạnh cho nguồn gốc loại dữ liệu, không chứng minh thuật toán nội bộ hoặc độ chính xác toàn bộ website tham khảo.
+
+[Trang nguồn của dulieucangbien.com](https://dulieucangbien.com/nguon-du-lieu), đọc qua UI công khai, tự mô tả thu lịch Cảng vụ, cập nhật 05:00, backfill ba ngày và xử lý bản sửa trong cửa sổ bảy ngày. Chỉ dùng tuyên bố này để định hướng khảo sát, không tải dữ liệu thành viên hay dùng bảng của họ làm feed. Pipeline có thể tự thu dòng ngày → chuẩn hóa bến → chống trùng/bản sửa → tổng hợp tháng/quý/YTD; không cần nguồn có sẵn chart hay API tổng hợp.
+
+**Quyết định đề xuất cho PHP:** triển khai một series ghi rõ **“Lượt và tổng DWT theo lịch điều động Cảng vụ”**, tách khỏi sản lượng tấn hàng/TEU và actual được xác nhận. Không chặn khả năng khai thác nguồn này chỉ vì chưa chứng nhận actual; đồng thời không đổi nhãn kế hoạch thành thực hiện. Trước backfill lớn, kiểm tra một tháng đầy đủ và cùng tháng năm trước, ghi missing-day/parse-error/DWT-missing, thử bản sửa và dedup khi đổi giờ. Một tàu vào rồi rời không được cộng hai lần thành một chỉ tiêu lượt ghé; chọn một chiều nhất quán. Hãng tàu không suy từ tên đại lý.
+
+Phép đo có thể chạy lại: `python scripts/probe-haiphong-plan-history.py`. Script chỉ tải ba ngày mẫu, xác minh ngày báo cáo/cấu trúc bảng và lưu HTML/hash cùng receipt ở `.local/php-slice2a/plan-history-recheck/`; không ghi DB hay thay dashboard staging. Biên nhận review: [php-plan-history-recheck-20261021.json](catalog-review/php-plan-history-recheck-20261021.json).
