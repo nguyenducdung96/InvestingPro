@@ -1,6 +1,6 @@
 # Slice 2A — PHP: hồ sơ pilot và kiểm chứng nguồn
 
-> **Trạng thái mới nhất 22/10/2026:** đã mở rộng lịch Tân Vũ từ 01/2025 đến 21/10/2026, **22 tháng / 659 ngày**, có MTD tháng 10 và YTD so đúng khoảng ngày năm trước trong bản review local. [Kết quả toàn dải](tanvu-plan-month-pilot.md#mở-rộng-tất-cả-tháng-và-tháng-đang-tích-lũy). Chưa deploy nhánh lịch công bố này lên staging.
+> **Trạng thái mới nhất 22/10/2026:** đã triển khai Tân Vũ lên staging, từ 01/2025 đến 21/10/2026, **22 tháng / 659 ngày** trong database, API và trang PHP. Có tháng/quý, MTD/YTD/YoY so đúng khoảng ngày, chi tiết ngày và lịch cập nhật 06:30. Run cập nhật thủ công đã đạt; lần cron đầu còn chờ đúng giờ chạy. [Nghiệm thu staging](tanvu-plans-staging.md). Các trạng thái local/pending bên dưới là lịch sử khảo sát.
 
 > **Cập nhật 22/10/2026:** Đã thu và parse đủ 60/60 trang ngày cho Tân Vũ, tháng 9/2025 và 9/2026. Có chuỗi lượt/DWT **theo lịch điều động công bố**, tách vào và rời; bản review HTML có biểu đồ YoY và drilldown ngày. DWT tàu rời lần lượt 1.071.163 và 968.084, khớp hai điểm trong ảnh tham khảo của người dùng. Nguồn dữ liệu vẫn là Cảng vụ, không lấy số từ ảnh. Không còn chặn nhánh lịch công bố vì “chưa tìm thấy lịch sử”; gate xác nhận actual vẫn tách riêng. Xem [kết quả hai tháng](tanvu-plan-month-pilot.md). Các đoạn “chưa triển khai” bên dưới ghi lại thời điểm khảo sát ban đầu, không thay thế trạng thái triển khai mới hơn.
 

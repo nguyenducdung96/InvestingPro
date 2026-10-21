@@ -1,5 +1,7 @@
 # Tân Vũ — nghiệm thu thử hai tháng lịch điều động
 
+> **Đã triển khai staging 22/10/2026:** database/API/UI có đủ 659 ngày / 22 tháng, MTD/YTD và lịch cập nhật 06:30. Run cập nhật thủ công đã đạt. Xem [nghiệm thu và vận hành staging](tanvu-plans-staging.md); các đoạn “chưa triển khai” bên dưới là lịch sử pilot.
+
 > **Đã mở rộng ngày 22/10/2026:** bản review mặc định hiện có **22 tháng từ 01/2025 đến 21/10/2026, parse 659/659 trang ngày**. Nội dung hai tháng bên dưới là kết quả pilot ban đầu. Xem [biên nhận toàn dải](catalog-review/tanvu-plan-month-history-20261022.json).
 
 Ngày thực hiện: 22/10/2026, giờ Việt Nam. Phạm vi: Tân Vũ, tháng 9/2025 và 9/2026; chưa triển khai connector mới lên staging.

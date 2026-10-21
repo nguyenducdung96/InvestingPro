@@ -1,0 +1,108 @@
+{
+  "checked_at": "2026-10-21T18:07:25.480Z",
+  "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/api/v1/companies/PHP/plans",
+  "months": 22,
+  "days": 659,
+  "coverage": {
+    "first_day": "2025-01-01",
+    "last_source_day": "2026-10-21",
+    "last_attempt": "2026-10-21T18:06:43.864138+00:00",
+    "stale": false,
+    "errors": 0
+  },
+  "run": {
+    "id": "39649716041-1",
+    "checked_at": "2026-10-21T18:06:46.419+00:00",
+    "through_day": "2026-10-21",
+    "status": "success",
+    "requested_days": 4,
+    "parsed_days": 4,
+    "error": null
+  },
+  "current_month": {
+    "period": "2026-10",
+    "status": "partial",
+    "current": {
+      "from": "2026-10-01",
+      "through": "2026-10-21",
+      "expected_days": 21,
+      "reported_days": 21,
+      "missing_days": [],
+      "missing_dwt": 0,
+      "ambiguous_groups": 0,
+      "error_days": [],
+      "rows": 51,
+      "dwt": 851674,
+      "known_rows": 51,
+      "known_dwt": 851674,
+      "complete": true
+    },
+    "prior": {
+      "from": "2025-10-01",
+      "through": "2025-10-21",
+      "expected_days": 21,
+      "reported_days": 21,
+      "missing_days": [],
+      "missing_dwt": 0,
+      "ambiguous_groups": 0,
+      "error_days": [],
+      "rows": 56,
+      "dwt": 913134,
+      "known_rows": 56,
+      "known_dwt": 913134,
+      "complete": true
+    },
+    "yoy": {
+      "rows": -8.92857142857143,
+      "dwt": -6.730666035872057
+    }
+  },
+  "ytd": {
+    "current": {
+      "from": "2026-01-01",
+      "through": "2026-10-21",
+      "expected_days": 294,
+      "reported_days": 294,
+      "missing_days": [],
+      "missing_dwt": 0,
+      "ambiguous_groups": 0,
+      "error_days": [],
+      "rows": 683,
+      "dwt": 11499305,
+      "known_rows": 683,
+      "known_dwt": 11499305,
+      "complete": true
+    },
+    "prior": {
+      "from": "2025-01-01",
+      "through": "2025-10-21",
+      "expected_days": 294,
+      "reported_days": 294,
+      "missing_days": [],
+      "missing_dwt": 0,
+      "ambiguous_groups": 0,
+      "error_days": [],
+      "rows": 665,
+      "dwt": 11624744,
+      "known_rows": 665,
+      "known_dwt": 11624744,
+      "complete": true
+    },
+    "yoy": {
+      "rows": 2.706766917293235,
+      "dwt": -1.0790689240124385
+    }
+  },
+  "replay": {
+    "previous_run": "39649461686-1",
+    "same_months": true,
+    "same_ytd": true
+  },
+  "detail": {
+    "status": 200,
+    "keys": [
+      "data"
+    ]
+  },
+  "invalid_date_status": 400
+}
