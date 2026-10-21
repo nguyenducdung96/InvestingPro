@@ -1,0 +1,897 @@
+{
+  "checked_at": "2026-10-21T17:07:21.821111+00:00",
+  "server_day": "2026-10-22",
+  "asset": "TAN VU",
+  "semantics": "authority_published_plan",
+  "actual_verified": false,
+  "revision_window_verified": false,
+  "months": [
+    {
+      "month": "2025-09",
+      "expected_days": 30,
+      "parsed_days": 30,
+      "failed_days": [],
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0,
+      "arrival": {
+        "observed_rows": 63,
+        "dwt_missing_rows": 0,
+        "observed_dwt_sum": "1116790",
+        "monthly_rows": 63,
+        "monthly_dwt": "1116790"
+      },
+      "departure": {
+        "observed_rows": 65,
+        "dwt_missing_rows": 0,
+        "observed_dwt_sum": "1071163",
+        "monthly_rows": 65,
+        "monthly_dwt": "1071163"
+      }
+    },
+    {
+      "month": "2026-09",
+      "expected_days": 30,
+      "parsed_days": 30,
+      "failed_days": [],
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0,
+      "arrival": {
+        "observed_rows": 63,
+        "dwt_missing_rows": 0,
+        "observed_dwt_sum": "983313",
+        "monthly_rows": 63,
+        "monthly_dwt": "983313"
+      },
+      "departure": {
+        "observed_rows": 66,
+        "dwt_missing_rows": 0,
+        "observed_dwt_sum": "968084",
+        "monthly_rows": 66,
+        "monthly_dwt": "968084"
+      }
+    }
+  ],
+  "parser_version": "haiphong-plan-pilot/1.0.0",
+  "days": [
+    {
+      "date": "2025-09-01",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-416",
+      "fetched_at": "2026-10-21T17:06:54.432283+00:00",
+      "sha256": "dab393588bbf07a52ede77dd8ef028b2ea5f51781bcc7abf313f2c91b0b0980e",
+      "source_rows": {
+        "Roi": 24,
+        "Vao": 29,
+        "DiChuyen": 15
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-02",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-415",
+      "fetched_at": "2026-10-21T17:06:54.359931+00:00",
+      "sha256": "9725e5d6d01fbbe2c649262068fd619874aaea6d3d294afea523b9778ac61811",
+      "source_rows": {
+        "Roi": 22,
+        "Vao": 36,
+        "DiChuyen": 12
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-03",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-414",
+      "fetched_at": "2026-10-21T17:06:55.100085+00:00",
+      "sha256": "322e2a2ce56dcfbc8f12fc63f202597fcaec262a789511f2bff276ef66c42e1c",
+      "source_rows": {
+        "Roi": 30,
+        "Vao": 27,
+        "DiChuyen": 14
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-04",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-413",
+      "fetched_at": "2026-10-21T17:06:55.152633+00:00",
+      "sha256": "66c2cf6c8de4898bdb0c2d5e74dd1519ca46ad6eaa8991f6b4ae9fd2e09fe471",
+      "source_rows": {
+        "Roi": 27,
+        "Vao": 25,
+        "DiChuyen": 13
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-05",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-412",
+      "fetched_at": "2026-10-21T17:06:55.872700+00:00",
+      "sha256": "a590bc0b5c8d42b844973b1e6ff4c11157addfcae21d95026687510e1b59a76c",
+      "source_rows": {
+        "Roi": 33,
+        "Vao": 42,
+        "DiChuyen": 18
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-06",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-411",
+      "fetched_at": "2026-10-21T17:06:55.872927+00:00",
+      "sha256": "9a524fddd8d4d6b7417719d2e5130299844e1028375dddfa5d347f7545e8f474",
+      "source_rows": {
+        "Roi": 36,
+        "Vao": 24,
+        "DiChuyen": 22
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-07",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-410",
+      "fetched_at": "2026-10-21T17:06:56.665328+00:00",
+      "sha256": "40714e631b2b0906d5a0318c33640af97c9b0c0f24d9822a927624e72c54f8c4",
+      "source_rows": {
+        "Roi": 22,
+        "Vao": 21,
+        "DiChuyen": 10
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-08",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-409",
+      "fetched_at": "2026-10-21T17:06:56.599727+00:00",
+      "sha256": "8a2718c235bcc075176bd851715cbd44e943607d977825aec95c85b9b133ccb6",
+      "source_rows": {
+        "Roi": 32,
+        "Vao": 28,
+        "DiChuyen": 10
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-09",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-408",
+      "fetched_at": "2026-10-21T17:06:57.293881+00:00",
+      "sha256": "0df2e8d1d3821055025f81f8c5d18c7ac309fd9b530efeafb85a7b27d3c0c33c",
+      "source_rows": {
+        "Roi": 26,
+        "Vao": 23,
+        "DiChuyen": 11
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-10",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-407",
+      "fetched_at": "2026-10-21T17:06:57.368560+00:00",
+      "sha256": "fdd2690b42257ed2e329ea10e5b081d353e902dd7a3f34d2e8cbfd7b3fe5ff0f",
+      "source_rows": {
+        "Roi": 24,
+        "Vao": 22,
+        "DiChuyen": 5
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-11",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-406",
+      "fetched_at": "2026-10-21T17:06:58.030693+00:00",
+      "sha256": "b1816c71992a039c520305cd001424c364437b418be8440a4f9747d3a9f55e15",
+      "source_rows": {
+        "Roi": 30,
+        "Vao": 30,
+        "DiChuyen": 5
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-12",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-405",
+      "fetched_at": "2026-10-21T17:06:58.375530+00:00",
+      "sha256": "9d12efd706228e7902c95e2cb3dd1346fe362d9b95d2b9341a3fa0b508e6eb58",
+      "source_rows": {
+        "Roi": 30,
+        "Vao": 32,
+        "DiChuyen": 7
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-13",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-404",
+      "fetched_at": "2026-10-21T17:06:59.494676+00:00",
+      "sha256": "8e863b50e77a18c9324b96e1b69cd209cc81a3a630aeec015430dd8f6abd0c38",
+      "source_rows": {
+        "Roi": 28,
+        "Vao": 20,
+        "DiChuyen": 8
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-14",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-403",
+      "fetched_at": "2026-10-21T17:07:00.116138+00:00",
+      "sha256": "6a1356a9d6ac7d39d2427de86abb6880d745cda23f2ed3b3a9b8d2fd9cec857a",
+      "source_rows": {
+        "Roi": 21,
+        "Vao": 36,
+        "DiChuyen": 11
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-15",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-402",
+      "fetched_at": "2026-10-21T17:07:00.628862+00:00",
+      "sha256": "69f1d62d5db471234a4a72490293878110b0f515430578cd8339e4e07747a463",
+      "source_rows": {
+        "Roi": 30,
+        "Vao": 29,
+        "DiChuyen": 16
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-16",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-401",
+      "fetched_at": "2026-10-21T17:07:01.083689+00:00",
+      "sha256": "c3b634bc6fe2abded4abef0d3530a35721f31ea0dc27dd61245373d6b9d2b5b9",
+      "source_rows": {
+        "Roi": 29,
+        "Vao": 32,
+        "DiChuyen": 11
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-17",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-400",
+      "fetched_at": "2026-10-21T17:07:01.512817+00:00",
+      "sha256": "46d5f1ade9829772fdc5b2fe2ae5e1f7a886d56ffdae8b459e2863b6cccc5c43",
+      "source_rows": {
+        "Roi": 30,
+        "Vao": 25,
+        "DiChuyen": 10
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-18",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-399",
+      "fetched_at": "2026-10-21T17:07:01.883075+00:00",
+      "sha256": "1efc1bf2231ff235a8d894c7c1af262bfeca4c0f6eacc2fdee2ccf63b96df9e3",
+      "source_rows": {
+        "Roi": 29,
+        "Vao": 28,
+        "DiChuyen": 14
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-19",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-398",
+      "fetched_at": "2026-10-21T17:07:02.212521+00:00",
+      "sha256": "14a5a65180da834a3ea29ce2cfd556bf2a5359563e7a45988512bf4e7b13a693",
+      "source_rows": {
+        "Roi": 33,
+        "Vao": 32,
+        "DiChuyen": 8
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-20",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-397",
+      "fetched_at": "2026-10-21T17:07:02.642440+00:00",
+      "sha256": "9a92cc306cbe6435a466539bc91ea1c6d5bc9eb2d71e51196c216896e7ff76b6",
+      "source_rows": {
+        "Roi": 34,
+        "Vao": 28,
+        "DiChuyen": 17
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-21",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-396",
+      "fetched_at": "2026-10-21T17:07:02.999609+00:00",
+      "sha256": "61bccf098c9dc5a5d4c0f0890c2b79ae709b2118925d83762e7bd117914293a6",
+      "source_rows": {
+        "Roi": 26,
+        "Vao": 25,
+        "DiChuyen": 6
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-22",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-395",
+      "fetched_at": "2026-10-21T17:07:03.374987+00:00",
+      "sha256": "f396caf3b645c4403580556abb50b05cb84af8e0f0b7e9e761f90eaf3fd9c084",
+      "source_rows": {
+        "Roi": 22,
+        "Vao": 34,
+        "DiChuyen": 9
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-23",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-394",
+      "fetched_at": "2026-10-21T17:07:04.064504+00:00",
+      "sha256": "d29b8eb4eeb9606146585d8952e96f607c5cbf9896e7cda75a501f21d4d1b9bb",
+      "source_rows": {
+        "Roi": 30,
+        "Vao": 31,
+        "DiChuyen": 15
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-24",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-393",
+      "fetched_at": "2026-10-21T17:07:04.149423+00:00",
+      "sha256": "7668af9be66fe30b4a5afac91a072083a804b71c264a0c24b55a4372b45905fd",
+      "source_rows": {
+        "Roi": 29,
+        "Vao": 7,
+        "DiChuyen": 26
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-25",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-392",
+      "fetched_at": "2026-10-21T17:07:04.968026+00:00",
+      "sha256": "f32bf9d11abc2b178cf994ec346a37c9dfdc1114a8ac79a78377e194c115a122",
+      "source_rows": {
+        "Roi": 8,
+        "Vao": 15,
+        "DiChuyen": 22
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-26",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-391",
+      "fetched_at": "2026-10-21T17:07:04.934227+00:00",
+      "sha256": "3a216a960d5f6c9d376c0eb75892e8cef7d7821afdde23616b727c59472c84b2",
+      "source_rows": {
+        "Roi": 19,
+        "Vao": 27,
+        "DiChuyen": 10
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-27",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-390",
+      "fetched_at": "2026-10-21T17:07:05.703204+00:00",
+      "sha256": "ef8fc2dda07ccfb08d11ea5063e25fbef72f261a1a3c63c51e61e8a4173c7d70",
+      "source_rows": {
+        "Roi": 25,
+        "Vao": 28,
+        "DiChuyen": 18
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-28",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-389",
+      "fetched_at": "2026-10-21T17:07:05.669283+00:00",
+      "sha256": "9810f38e364104ae96c3e47fc7d2c4ffd713d0dd9579d96efb93c22a8545a202",
+      "source_rows": {
+        "Roi": 7,
+        "Vao": 3,
+        "DiChuyen": 13
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-29",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-388",
+      "fetched_at": "2026-10-21T17:07:06.349228+00:00",
+      "sha256": "dafc76d003061b8d78dcf372193a56790d441a2b3fd6dc6611eead378857a06c",
+      "source_rows": {
+        "Roi": 9,
+        "Vao": 11,
+        "DiChuyen": 16
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2025-09-30",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-387",
+      "fetched_at": "2026-10-21T17:07:06.457463+00:00",
+      "sha256": "ead9ab74c3730fa3b21b0769d31a4440e51ce7290c73e5ba841c0a9f349ecb87",
+      "source_rows": {
+        "Roi": 32,
+        "Vao": 41,
+        "DiChuyen": 14
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-01",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-51",
+      "fetched_at": "2026-10-21T17:07:07.024717+00:00",
+      "sha256": "003ec8b261938417977f789d6a526fffc10d9650eeacce01ce327a36e42bb780",
+      "source_rows": {
+        "Roi": 20,
+        "Vao": 23,
+        "DiChuyen": 4
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-02",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-50",
+      "fetched_at": "2026-10-21T17:07:07.153031+00:00",
+      "sha256": "6b00ba63b6dddd7448ccc1a04412232a712a81a91764ed552395bb189ebaafeb",
+      "source_rows": {
+        "Roi": 17,
+        "Vao": 28,
+        "DiChuyen": 14
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-03",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-49",
+      "fetched_at": "2026-10-21T17:07:07.778123+00:00",
+      "sha256": "96ee0bede21f40f9404dea2a15d80d8336c00d649139e421e657d4ff792ac7b2",
+      "source_rows": {
+        "Roi": 22,
+        "Vao": 44,
+        "DiChuyen": 14
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-04",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-48",
+      "fetched_at": "2026-10-21T17:07:07.903998+00:00",
+      "sha256": "c4bda7ed5e81c83a7a44ac76d6c3fcf8354d76003292185c6d4b08f08c6782a6",
+      "source_rows": {
+        "Roi": 30,
+        "Vao": 25,
+        "DiChuyen": 17
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-05",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-47",
+      "fetched_at": "2026-10-21T17:07:08.496040+00:00",
+      "sha256": "3d257877fcc265ea4fc0a9108dfd3bc8453e4bb90b06818c939b0cb7501639f6",
+      "source_rows": {
+        "Roi": 32,
+        "Vao": 33,
+        "DiChuyen": 18
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-06",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-46",
+      "fetched_at": "2026-10-21T17:07:08.698723+00:00",
+      "sha256": "fdf0e73405f17c73a030f40be4d44cd5fc2b29d52a299bedc5142e2e871dcfd9",
+      "source_rows": {
+        "Roi": 30,
+        "Vao": 21,
+        "DiChuyen": 19
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-07",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-45",
+      "fetched_at": "2026-10-21T17:07:09.289641+00:00",
+      "sha256": "17563b4b0cbf45bfac2054eff54bb32a63c1a37da2943f87f0b8669db41af40b",
+      "source_rows": {
+        "Roi": 26,
+        "Vao": 32,
+        "DiChuyen": 18
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-08",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-44",
+      "fetched_at": "2026-10-21T17:07:09.456701+00:00",
+      "sha256": "522caa4c3e8bd7cdc3fb4a2edbfc90b2fcc97d3a20cd53007108d2e99d8d6bb2",
+      "source_rows": {
+        "Roi": 35,
+        "Vao": 31,
+        "DiChuyen": 17
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-09",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-43",
+      "fetched_at": "2026-10-21T17:07:09.997599+00:00",
+      "sha256": "6e417c9d8b77f938a40b2ce123529121cb96663f77cb26b021760ab771a52b03",
+      "source_rows": {
+        "Roi": 25,
+        "Vao": 24,
+        "DiChuyen": 20
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-10",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-42",
+      "fetched_at": "2026-10-21T17:07:10.165089+00:00",
+      "sha256": "70459bc8142afde92246b9cd97e9051b6ebeb09a00244d98bbdd71d8bfa19068",
+      "source_rows": {
+        "Roi": 32,
+        "Vao": 26,
+        "DiChuyen": 22
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-11",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-41",
+      "fetched_at": "2026-10-21T17:07:10.719577+00:00",
+      "sha256": "aacc19799ac2c98ae18601f3c62afc6068cc84640b71771110f95b074d9bb1a2",
+      "source_rows": {
+        "Roi": 27,
+        "Vao": 32,
+        "DiChuyen": 15
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-12",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-40",
+      "fetched_at": "2026-10-21T17:07:10.965785+00:00",
+      "sha256": "f3010ef2eab00244c065cdfe187db2483dd0cdee75d47939684383a7d050d683",
+      "source_rows": {
+        "Roi": 29,
+        "Vao": 22,
+        "DiChuyen": 7
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-13",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-39",
+      "fetched_at": "2026-10-21T17:07:11.429387+00:00",
+      "sha256": "385868b0c1054c3cc3eb62f3ab1f2a4902adff76c448a9b7cfd163d98534b2e9",
+      "source_rows": {
+        "Roi": 19,
+        "Vao": 19,
+        "DiChuyen": 10
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-14",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-38",
+      "fetched_at": "2026-10-21T17:07:11.671129+00:00",
+      "sha256": "238f7627b1d2d5ac9a710203204d2b5544dc293dcdcc3bc0c72afe4352927ce4",
+      "source_rows": {
+        "Roi": 23,
+        "Vao": 26,
+        "DiChuyen": 6
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-15",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-37",
+      "fetched_at": "2026-10-21T17:07:12.124086+00:00",
+      "sha256": "22130b26ebd6513496e904818e09a6619a06dbcc3b889fc8e25c49ce1056d10c",
+      "source_rows": {
+        "Roi": 39,
+        "Vao": 26,
+        "DiChuyen": 9
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-16",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-36",
+      "fetched_at": "2026-10-21T17:07:12.412902+00:00",
+      "sha256": "7c3c45191bef031995a948e4b65dea97fb1034689cdde56be083be8ebb3f6662",
+      "source_rows": {
+        "Roi": 28,
+        "Vao": 22,
+        "DiChuyen": 10
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-17",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-35",
+      "fetched_at": "2026-10-21T17:07:12.804251+00:00",
+      "sha256": "596530b439a97812c64db582908a194f9c9a4d67bbf8e5e1916791bd0d170e0c",
+      "source_rows": {
+        "Roi": 18,
+        "Vao": 25,
+        "DiChuyen": 11
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-18",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-34",
+      "fetched_at": "2026-10-21T17:07:13.123703+00:00",
+      "sha256": "d332c413a522d60e0bafc991b4b28697331b4c853224c518f4c21b8f0a22384f",
+      "source_rows": {
+        "Roi": 21,
+        "Vao": 35,
+        "DiChuyen": 16
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-19",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-33",
+      "fetched_at": "2026-10-21T17:07:13.527976+00:00",
+      "sha256": "2ba901a37479032007d712b50597cd0fd05271f26d75627fbe2a01d40b5c9d7b",
+      "source_rows": {
+        "Roi": 33,
+        "Vao": 32,
+        "DiChuyen": 12
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-20",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-32",
+      "fetched_at": "2026-10-21T17:07:13.895225+00:00",
+      "sha256": "849fe16bd2c739122a6bf357bc721f2c81b3188ca22db4b22cd376ffc74f5b26",
+      "source_rows": {
+        "Roi": 30,
+        "Vao": 25,
+        "DiChuyen": 8
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-21",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-31",
+      "fetched_at": "2026-10-21T17:07:15.663906+00:00",
+      "sha256": "d54d2dee1c20f4dd8e5244726163ea5c065666bddb73cf75ffe08b1348f166de",
+      "source_rows": {
+        "Roi": 21,
+        "Vao": 24,
+        "DiChuyen": 22
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-22",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-30",
+      "fetched_at": "2026-10-21T17:07:16.796401+00:00",
+      "sha256": "70f9ec7f128c6f8ecd5a2af0f51916f536d75875db5303a6a1623813b691c422",
+      "source_rows": {
+        "Roi": 28,
+        "Vao": 32,
+        "DiChuyen": 15
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-23",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-29",
+      "fetched_at": "2026-10-21T17:07:18.991520+00:00",
+      "sha256": "721154eb74a7282c34df06bc593a6b00e272044a7852745948c14509d056ab4d",
+      "source_rows": {
+        "Roi": 31,
+        "Vao": 27,
+        "DiChuyen": 18
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-24",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-28",
+      "fetched_at": "2026-10-21T17:07:19.121735+00:00",
+      "sha256": "5e2664f337195ae893bd2cac9bfb4f5e14a0ea35a9a20e249bc42ef23f5feffa",
+      "source_rows": {
+        "Roi": 25,
+        "Vao": 24,
+        "DiChuyen": 13
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-25",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-27",
+      "fetched_at": "2026-10-21T17:07:19.916216+00:00",
+      "sha256": "522e0b65f904fde99fcfd5a44a73cfbcc4de59eafb4ee9fdf04ea87aa7372001",
+      "source_rows": {
+        "Roi": 25,
+        "Vao": 36,
+        "DiChuyen": 11
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-26",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-26",
+      "fetched_at": "2026-10-21T17:07:19.942242+00:00",
+      "sha256": "cf5bab72211705dec30000437c5885b8fe09b5893d8f8f964983840600f5be61",
+      "source_rows": {
+        "Roi": 37,
+        "Vao": 24,
+        "DiChuyen": 16
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-27",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-25",
+      "fetched_at": "2026-10-21T17:07:20.601871+00:00",
+      "sha256": "7328f6f61fc6391940374fc716c0485689cf45d9d269e71abe7e62aa09706d28",
+      "source_rows": {
+        "Roi": 23,
+        "Vao": 23,
+        "DiChuyen": 9
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-28",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-24",
+      "fetched_at": "2026-10-21T17:07:20.662768+00:00",
+      "sha256": "e04b42f17aef67ec0ac7a2fb2cfddae7826fc97804870de511d91d586b21c382",
+      "source_rows": {
+        "Roi": 25,
+        "Vao": 26,
+        "DiChuyen": 11
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-29",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-23",
+      "fetched_at": "2026-10-21T17:07:21.370858+00:00",
+      "sha256": "b2b09e5d26f18ee332768799e603e24bd8a12dba81f343e9468d53955bade1f9",
+      "source_rows": {
+        "Roi": 28,
+        "Vao": 29,
+        "DiChuyen": 18
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    },
+    {
+      "date": "2026-09-30",
+      "status": "parsed",
+      "url_at_fetch": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-22",
+      "fetched_at": "2026-10-21T17:07:21.420119+00:00",
+      "sha256": "d7c035acd794ae2b49b87a8412cfabcff9b494a6ee7793628d0e7443dc469d98",
+      "source_rows": {
+        "Roi": 27,
+        "Vao": 26,
+        "DiChuyen": 16
+      },
+      "exact_duplicates_removed": 0,
+      "ambiguous_repeated_route_groups": 0
+    }
+  ]
+}

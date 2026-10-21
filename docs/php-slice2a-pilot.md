@@ -1,5 +1,7 @@
 # Slice 2A — PHP: hồ sơ pilot và kiểm chứng nguồn
 
+> **Cập nhật 22/10/2026:** Đã thu và parse đủ 60/60 trang ngày cho Tân Vũ, tháng 9/2025 và 9/2026. Có chuỗi lượt/DWT **theo lịch điều động công bố**, tách vào và rời; bản review HTML có biểu đồ YoY và drilldown ngày. DWT tàu rời lần lượt 1.071.163 và 968.084, khớp hai điểm trong ảnh tham khảo của người dùng. Nguồn dữ liệu vẫn là Cảng vụ, không lấy số từ ảnh. Không còn chặn nhánh lịch công bố vì “chưa tìm thấy lịch sử”; gate xác nhận actual vẫn tách riêng. Xem [kết quả hai tháng](tanvu-plan-month-pilot.md). Các đoạn “chưa triển khai” bên dưới ghi lại thời điểm khảo sát ban đầu, không thay thế trạng thái triển khai mới hơn.
+
 Ngày review: 21/10/2026 (giờ Việt Nam). Phạm vi người dùng chọn: PHP.
 **Kết luận: ưu tiên Tân Vũ, tiếp theo Chùa Vẽ; chưa đạt gate lịch sử lượt tàu/DWT thực tế để nghiệm thu dashboard YoY.**
 

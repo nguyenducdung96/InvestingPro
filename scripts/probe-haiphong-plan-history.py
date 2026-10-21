@@ -38,6 +38,10 @@ def measure(raw, day, url):
         if not rows or 'DWT' not in rows[0]:
             raise ValueError('DWT schema changed')
         header = rows[0]
+        required = {'STT', 'Thời gian', 'Tên tàu', 'Mớn nước', 'LOA', 'DWT', 'GT',
+                    'Tàu lai', 'T.Luồng', 'Từ', 'Đến', 'Đại lý', 'Hoa tiêu'}
+        if set(header) != required or len(header) != len(required):
+            raise ValueError('Movement columns changed')
         records = []
         for row in rows[1:]:
             if len(row) != len(header):
@@ -52,21 +56,26 @@ def measure(raw, day, url):
             'bytes': len(raw), 'semantics': 'authority_published_plan', 'sections': sections}
 
 
-results = []
-for day in (dt.date(2026, 10, 20), dt.date(2025, 10, 20), dt.date(2024, 10, 20)):
-    offset = (day - TODAY).days
-    url = f'{BASE}?d={offset}'
-    with urllib.request.urlopen(url, timeout=30) as response:
-        raw = response.read(2_000_001)
-        if len(raw) > 2_000_000:
-            raise ValueError('Response too large')
-    (OUT / f'{day}.html').write_bytes(raw)
-    result = measure(raw, day, url)
-    results.append(result)
-    print(json.dumps({'report_date': str(day), 'url': url,
-                      'rows': {k: v['rows'] for k, v in result['sections'].items()},
-                      'pilot_rows': {k: len(v['pilot_rows']) for k, v in result['sections'].items()}}))
-receipt = {'checked_at': dt.datetime.now(dt.timezone.utc).isoformat(),
-           'scope': 'Three sampled days; not continuous monthly coverage or actual confirmation',
-           'sources': results}
-(OUT / 'receipt.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2), encoding='utf-8')
+def main():
+    results = []
+    for day in (dt.date(2026, 10, 20), dt.date(2025, 10, 20), dt.date(2024, 10, 20)):
+        offset = (day - TODAY).days
+        url = f'{BASE}?d={offset}'
+        with urllib.request.urlopen(url, timeout=30) as response:
+            raw = response.read(2_000_001)
+            if len(raw) > 2_000_000:
+                raise ValueError('Response too large')
+        (OUT / f'{day}.html').write_bytes(raw)
+        result = measure(raw, day, url)
+        results.append(result)
+        print(json.dumps({'report_date': str(day), 'url': url,
+                          'rows': {k: v['rows'] for k, v in result['sections'].items()},
+                          'pilot_rows': {k: len(v['pilot_rows']) for k, v in result['sections'].items()}}))
+    receipt = {'checked_at': dt.datetime.now(dt.timezone.utc).isoformat(),
+               'scope': 'Three sampled days; not continuous monthly coverage or actual confirmation',
+               'sources': results}
+    (OUT / 'receipt.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2), encoding='utf-8')
+
+
+if __name__ == '__main__':
+    main()
