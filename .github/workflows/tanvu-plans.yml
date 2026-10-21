@@ -24,7 +24,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - uses: actions/cache@v4
+      - uses: actions/cache/restore@v4
         with:
           path: .local/php-slice2a/tanvu-month-pilot
           key: tanvu-plans-v1-${{ github.run_id }}-${{ github.run_attempt }}
@@ -47,6 +47,12 @@ jobs:
           name: tanvu-plan-run-${{ github.run_id }}
           retention-days: 14
           path: .local/php-slice2a/tanvu-month-pilot/last-sync.json
+      - name: Preserve validated source cache even if a source day failed
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .local/php-slice2a/tanvu-month-pilot
+          key: tanvu-plans-v1-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Fail visibly if the source collector was incomplete
         if: steps.collect.outcome != 'success'
         run: exit 1
