@@ -25,6 +25,12 @@ Job giữ checkpoint kể cả khi một ngày lỗi, ghi receipt gọn và tr�
 
 ## Kiểm tra
 
+### Cập nhật biểu đồ so sánh 22/10/2026
+
+Trang PHP bổ sung biểu đồ cột đôi cho lưu lượng DWT và so sánh theo tháng/quý của hai năm (xanh/vàng), cùng biểu đồ 90 ngày bấm đến lịch từng ngày. Chọn toàn bộ lịch sử cho biểu đồ chuỗi; phần so sánh năm dùng năm hiện tại khi chọn toàn bộ. Kỳ đang tích lũy so cùng khoảng ngày, kỳ tương lai chỉ vẽ năm trước nếu có; null không trở thành zero. Dùng dữ liệu database hiện hữu, không thêm số từ ảnh tham khảo. Chưa bổ sung hãng tàu hoặc bản đồ tuyến vì dữ liệu tên hãng và tuyến dịch vụ chưa được xác minh.
+
+Kiểm tra riêng thay đổi này: typecheck, lint và Playwright Tân Vũ desktop/mobile đạt (cột đôi có tỷ lệ đúng, đủ 12 tháng/4 quý, xem giá trị bằng bàn phím, click ngày, cập nhật dữ liệu không rebuild và không tràn trang).
+
 - Local: 16 kiểm thử Python, 110 Vitest (gồm PostgreSQL RLS, replay, correction, rollback head, source failure), lint/typecheck đạt. Playwright đầy đủ **38/38** desktop/mobile, gồm thay dữ liệu fixture không rebuild, MTD, lọc chiều/quý, chi tiết ngày và không tràn màn hình.
 - Next production build đạt. OpenNext bundle local bị Windows từ chối symlink; Cloudflare Workers Builds Linux đã build/deploy được API mới (HTTP 200), không coi lỗi Windows là kiểm tra cloud thất bại.
 - Migration `202610220001_tanvu_published_plans.sql` và `202610220002_tanvu_readback.sql` đã chạy thành công trên project staging `loapslojajawgzekozfv` bằng SQL Editor. Migration thứ hai cho importer đọc lại tổng công khai; không cấp đọc lịch sử riêng tư. Không thay credentials hoặc JWT signing keys.
