@@ -14,7 +14,8 @@ export function PlanColumnChart({title,columns,currentLabel,priorLabel,daily=fal
  const magnitude=10**Math.floor(Math.log10(maximum));
  const ceiling=Math.ceil(maximum/magnitude)*magnitude;
  const left=64,top=20,height=244,bottom=46;
- const width=Math.max(680,columns.length*(daily?12:48)+left+16),plot=width-left-16,slot=plot/Math.max(1,columns.length);
+ const spacing=daily?12:columns.some(c=>c.label.length>5)?56:40;
+ const width=Math.max(560,columns.length*spacing+left+16),plot=width-left-16,slot=plot/Math.max(1,columns.length);
  const bar=Math.min(daily?9:18,slot*(priorLabel?0.34:0.66));
  const description=(c:PlanColumn)=>`${c.key}: ${currentLabel} ${number(c.current)} DWT${priorLabel?`; ${priorLabel} ${number(c.prior)} DWT`:''}${c.partial?'; đang tích lũy':''}${c.note?`; ${c.note}`:''}`;
  return <figure className="plan-chart" aria-label={title}>
