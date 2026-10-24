@@ -10,6 +10,8 @@ test('Tan Vu plans update from DB, compare MTD, filter, drill down and fit mobil
  const region=page.getByRole('region',{name:'Lịch điều động PHP',exact:true});
  await expect(region.getByRole('heading',{name:'Lượt tàu và trọng tải theo lịch công bố'})).toBeVisible();
  await expect(region.getByText('SYNTHETIC PLAN SHIP',{exact:true})).toBeVisible();
+ await expect(region.getByText(/Thông tin nguồn|Job gần nhất|Lần lấy nguồn gần nhất|Cùng phạm vi tháng/)).toHaveCount(0);
+ await expect(region.locator('a[href^="/api/"]')).toHaveCount(0);
  const original=await(await request.get('/api/v1/companies/PHP/plans')).json();
  expect(original.months.at(-1).current.dwt).toBe(through*1000);
  expect(original.months.at(-1).prior.through).toBe(`${year-1}-${month}-${cutoff.slice(8)}`);
@@ -50,6 +52,8 @@ test('Tan Vu plans update from DB, compare MTD, filter, drill down and fit mobil
   await expect(region.getByLabel('Bến theo dõi',{exact:true})).toHaveValue(asset);
   await expect(region.getByText(`SYNTHETIC ${alias}`,{exact:true})).toBeVisible();
   const data=await(await request.get(`/api/v1/companies/PHP/plans?asset=${asset}`)).json();
+  await expect(region.getByText(/Thông tin nguồn|Job gần nhất|Lần lấy nguồn gần nhất|SHA-256/)).toHaveCount(0);
+  await expect(region.locator('a[href^="/api/"]')).toHaveCount(0);
   expect(data.asset).toBe(asset);expect(data.name).toBe(name);expect(data.months.at(-1).current.dwt).toBe(through*value);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  }

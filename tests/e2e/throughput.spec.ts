@@ -11,7 +11,8 @@ test('PHP reads changed database responses without rebuild; filters, nulls, sour
  await expect(berthScope.getByRole('heading',{name:'HTIT (Lạch Huyện 3–4)',exact:true})).toBeVisible();
  expect((await(await request.get('/api/v1/companies/PHP/berths')).json()).data.entries).toHaveLength(4);
  await berthScope.getByText('Quan hệ và nguồn',{exact:true}).last().click();
- await expect(berthScope.getByText('Nhãn bến Cảng vụ: HTIT')).toBeVisible();
+ await expect(berthScope.getByText('Nhãn bến Cảng vụ: HTIT')).toHaveCount(0);
+ await expect(berthScope.getByText(/Có lịch điều động đến|Có sản lượng riêng|Đối chiếu/)).toHaveCount(0);
 
  const region=page.getByRole('region',{name:'Sản lượng Tân Vũ',exact:true});
  await expect(region.getByRole('heading',{name:'Sản lượng hàng hóa doanh nghiệp công bố'})).toBeVisible();
@@ -25,10 +26,9 @@ test('PHP reads changed database responses without rebuild; filters, nulls, sour
  expect((await(await request.get('/api/v1/companies/PHP/throughput')).json()).months).toHaveLength(3);
  await write([row('2025-05',1000),row('2026-05',2500),row('2026-06',4000)]);
  await page.reload();await expect(region.getByText('4.000',{exact:true}).first()).toBeVisible();
- await region.getByText(/Xem bảng số liệu, YoY và nguồn/).click();
- await expect(region.getByText('+150%',{exact:true})).toBeVisible();
- await region.getByText('Bản tin · trang 1').first().click();
- await expect(region.getByRole('link',{name:'Mở PDF chính thức'}).first()).toHaveAttribute('href',/haiphongport/);
+ await expect(region.getByRole('table')).toHaveCount(0);
+ await expect(region.locator('a[href^="/api/"]')).toHaveCount(0);
+ await expect(chart.locator('svg g[role="img"]').nth(4)).toHaveAttribute('aria-label',/2026 2.500 tấn hàng; 2025 1.000 tấn hàng/);
  for(const theme of ['light','dark']){
   await page.getByLabel('Giao diện',{exact:true}).selectOption(theme);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
@@ -42,8 +42,7 @@ test('PHP reads changed database responses without rebuild; filters, nulls, sour
  await expect(chart.locator('svg g[role="img"]').nth(1).locator('.plan-bar-current')).toHaveCount(0);
  await region.getByLabel('Kỳ',{exact:true}).selectOption('quarter');await region.getByRole('button',{name:'Xem số liệu'}).click();
  await expect(chart.locator('.plan-bar-current')).toHaveCount(0); // no complete three-month quarter
- await region.getByText(/Xem bảng số liệu, YoY và nguồn/).click();
- await expect(region.getByText('Chưa đủ dữ liệu',{exact:true}).first()).toBeVisible();
+ await expect(chart.locator('.plan-bar-prior')).toHaveCount(0);
  await write([row('2026-08',4000),{...row('2026-08',9000),id:'test-group',asset_code:'hoang_dieu_chua_ve'},{...row('2025-05',300),id:'test-separate',asset_code:'chua_ve'}]);
  await page.goto('/companies/PHP?plan_asset=chua_ve#throughput');
  const group=page.getByRole('region',{name:'Sản lượng Hoàng Diệu–Chùa Vẽ (gộp)',exact:true});
@@ -53,6 +52,6 @@ test('PHP reads changed database responses without rebuild; filters, nulls, sour
  expect((await(await request.get('/api/v1/companies/PHP/throughput?asset=hoang_dieu_chua_ve')).json()).months[0].cargo_tonnes).toBe(9000);
  expect((await request.get('/api/v1/companies/PHP/throughput?asset=htit')).status()).toBe(400);
  await request.post('http://127.0.0.1:54329/__berths',{data:[]});
- await write([]);await page.goto('/companies/PHP');await expect(region.getByText(/Chưa có kỳ số liệu được duyệt công bố/)).toBeVisible();
+ await write([]);await page.goto('/companies/PHP');await expect(region.getByText(/Chưa có số liệu công bố/)).toBeVisible();
  expect((await request.patch('/api/v1/admin/throughput',{data:{id:'bad',decision:'verified',note:'Test only review note more than 20 chars'}})).status()).toBe(401);
 });

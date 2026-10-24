@@ -18,18 +18,13 @@ export function SourceBadge({ citation }: { citation: Citation }) {
         <a href={citation.sourceUrl} target="_blank" rel="noopener noreferrer">
           Nguồn chính thức
         </a>{" "}
-        · Thu thập {displayDate(citation.fetchedAt)} · Công bố{" "}
+        · Công bố{" "}
         {displayDate(citation.publishedAt)}
       </p>
       <p className="meta">
         Kỳ báo cáo: {displayDate(citation.reportingPeriod.from)} →{" "}
         {displayDate(citation.reportingPeriod.to)}
-        <br />
-        Phiên bản bộ phân tích: {citation.parserVersion}
-        <br />
-        Mã bằng chứng: {citation.sourceRecordId}
-        <br />
-        SHA-256: {citation.contentHash}
+
       </p>
     </details>
   );
@@ -40,8 +35,7 @@ export function Metadata({ meta }: { meta: Meta }) {
       <span className="badge">{label(meta.quality)}</span>
       <p className="meta">
         Dữ liệu tính đến: {displayDate(meta.asOf, "Chưa có dữ liệu")} · Phạm vi:{" "}
-        {scopeLabel(meta.coverage.scope)} · Độ bao phủ hoạt động: chưa đo lường
-        · Phương pháp: {meta.methodologyVersion}
+        {scopeLabel(meta.coverage.scope)}
       </p>
       {meta.warnings.map((w) => (
         <p className="meta" key={w}>

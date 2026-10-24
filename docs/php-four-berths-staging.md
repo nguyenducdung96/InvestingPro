@@ -43,3 +43,12 @@ Các fact mới dùng cùng pipeline newsletter hiện có, đối chiếu raw h
 - [Biên nhận API](catalog-review/php-four-berths-staging-20261024.json). Số liệu theo lịch điều động, chưa xác nhận actual; không suy đủ sự kiện thực tế chỉ từ đủ trang lịch.
 - Scheduler cũ cho Tân Vũ đã quan sát được ba event `schedule` thành công ngày 22/23/24: `39707061652`, `39885652387`, `40051357349`. Giờ đặt 06:30 nhưng GitHub thực chạy khoảng 08:40–08:47; không cam kết đúng phút. Bản mở rộng bốn bến đã qua hai manual run cùng workflow, lần cron bốn bến đầu còn chờ kỳ tiếp theo.
 - Full Playwright 38/38 đạt sau mở rộng bến; sau bổ sung sản lượng riêng/gộp và KPI bình quân, bộ kiểm tra PHP desktop/mobile chạy lại 4/4 đạt. Lint/typecheck đạt. Production chưa nằm trong nghiệm thu này.
+
+
+## Public interface cleanup — 2026-10-24
+
+Removed the requested developer-facing blocks from public rendering: PHP berth coverage/status/navigation text, reconciliation and refresh/job metadata, parser/checksum disclosures, throughput source-table disclosure, and API links. The shared company report sidebar now retains only the reporting period; PDF review pages, editorial release details, report download, admin research links and lineage disclosures are omitted for every company. Shared catalog citations and nationwide vessel journals omit parser versions, hashes, observation IDs and admin artifact links. Report-review evidence remains available in the authenticated review flow.
+
+Charts, filters, date drilldown, business relationships, missing-data warnings and the distinction between published plans, actual berth movements, DWT and cargo throughput remain. Collectors, schedules, stored provenance, API contracts and database policies are unchanged. This is a public presentation change, not an API access-control change.
+
+Validation: typecheck and lint passed; all 38 Playwright scenarios passed across desktop and mobile, including public company pages PHP/GMD/DVP, all four PHP berths, source-free throughput charts, nationwide journals and authenticated review flows.

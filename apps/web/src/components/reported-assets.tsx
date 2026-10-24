@@ -24,10 +24,10 @@ export function ReportedAssets({items,review=false}:{items:ReportedAssetItem[];r
       {o.via.length>0&&<p>Qua pháp nhân: {o.via.join(" → ")}</p>}
       {o.berth_scope.length>0&&<p>Chỉ phạm vi: {o.berth_scope.join(", ")}. Không đại diện toàn bến.</p>}
       {!o.asset_id&&<p>Chưa khớp định danh pháp lý của tài sản.</p>}
-      <p>Trang PDF đã đọc: {o.evidence_pages.join(", ")}</p>
-      <details><summary>Phạm vi bằng chứng và giới hạn</summary><p>{o.evidence_note}</p>
+      {review&&<p>Trang PDF đã đọc: {o.evidence_pages.join(", ")}</p>}
+      {review&&<details><summary>Phạm vi bằng chứng và giới hạn</summary><p>{o.evidence_note}</p>
         {o.supporting_evidence.map(s=><p key={s.content_hash}><a href={s.source_url} target="_blank" rel="noreferrer">Tài liệu đối chiếu bổ sung</a> · Trang {s.reviewed_pages.join(", ")||"HTML"}</p>)}
-      </details>
+      </details>}
       <SourceBadge citation={lineage}/>
       {review&&o.verification_status==="pending"&&<details><summary>Duyệt quan sát này</summary><ReportedReview id={o.id}/></details>}
     </article>)}</section>)}

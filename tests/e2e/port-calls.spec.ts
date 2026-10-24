@@ -6,8 +6,9 @@ test('daily calls expose lineage, partial coverage, filters and readable themes'
  await expect(page.getByRole('cell',{name:'SYNTHETIC TEST SHIP'})).toBeVisible();
  await expect(page.getByRole('img',{name:'2026-10: 1 lượt đến, 1 ngày có thông báo',exact:true})).toBeVisible();
  await expect(page.getByRole('cell',{name:'SYNTHETIC IN PORT SHIP'})).toBeVisible();
- await page.getByText('Nguồn và bản gốc',{exact:true}).click();
- await expect(page.getByText('Parser: quangtri-notices/1.0.0')).toBeVisible();
+ await expect(page.getByRole('link',{name:'Thông báo Cảng vụ',exact:true})).toBeVisible();
+ await expect(page.getByText(/Parser:|SHA-256:|Mã quan sát:/)).toHaveCount(0);
+ await expect(page.locator('main a[href^="/admin/"], main a[href^="/api/"]')).toHaveCount(0);
  for(const mode of ['light','dark']){
   await page.getByLabel('Giao diện',{exact:true}).selectOption(mode);
   await expect(page.locator('html')).toHaveCSS('color-scheme',mode);
@@ -42,6 +43,8 @@ test('actual berth movements stay separate from port arrival totals and the port
  await expect(page.getByRole('region',{name:'Bảng cập và rời cầu cuộn ngang',exact:true}).getByText('SYNTHETIC BERTH SHIP',{exact:true})).toBeVisible();
  await expect(page.getByRole('img',{name:/lượt đến/})).toHaveCount(0);
  await expect(page.getByRole('heading',{name:'Lượt đến và rời theo ngày',exact:true})).toHaveCount(0);
+ await expect(page.getByText(/SHA-256:|Parser:/)).toHaveCount(0);
+ await expect(page.getByRole('link',{name:'Cảng Đà Nẵng',exact:true})).toBeVisible();
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
 test('large position boards paginate and preserve missing time without midnight',async({page})=>{
