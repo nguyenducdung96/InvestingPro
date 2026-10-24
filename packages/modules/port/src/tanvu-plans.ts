@@ -5,7 +5,7 @@ export interface TanVuPlanDay {
  arrival_dwt_missing:number|null;departure_dwt_missing:number|null;ambiguous_groups:number|null;source_empty_sections:string[];
 }
 export interface TanVuPlanRun {id:string;checked_at:string;through_day:string;status:'running'|'success'|'failed';requested_days:number;parsed_days:number;error:string|null}
-export interface TanVuPlanEvents {report_day:string;source_url:string;source_sha256:string;fetched_at:string;parser_version:string;semantics:'authority_published_plan';events:{direction:'arrival'|'departure';vessel_name:string;planned_time:string;dwt:number|null;from_berth:string;to_berth:string}[]}
+export interface TanVuPlanEvents {report_day:string;source_url:string;source_sha256:string;fetched_at:string;parser_version:string;semantics:'authority_published_plan'|'authority_published_berth_plan';movement_scope?:'berth'|'port';events:{plan_kind?:'arrival'|'departure'|'internal';direction:'arrival'|'departure';vessel_name:string;planned_time:string;dwt:number|null;from_berth:string;to_berth:string}[]}
 export type PlanDirection='arrival'|'departure';
 const dayMs=86400000;
 const iso=(time:number)=>new Date(time).toISOString().slice(0,10);

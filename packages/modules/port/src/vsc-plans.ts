@@ -11,7 +11,9 @@ export const haiPhongBerths={
  doan_xa:{name:'Đoạn Xá',start:'2025-01-01',note:'Lịch tại Cảng Đoạn Xá theo nhãn DOAN XA. DWT thiết kế tàu không phải sản lượng hàng hoặc doanh thu DXP.'},
  ptsc_dinh_vu:{name:'PTSC Đình Vũ',start:'2025-01-01',note:'Lịch PTSC DINH VU; không gộp Đình Vũ/DVP, Nam Đình Vũ, Nam Hải Đình Vũ hoặc VIMC.'},
 } as const;
+export const cqnBerth={name:'Cái Lân · CQN',start:'2025-01-01',note:'Theo dõi cầu 1, 5, 6, 7 Cái Lân theo nhãn nguồn đã đối chiếu. Chưa xác định nhãn bến tạm nên chưa gồm bến tạm; loại cầu 2–3–4 của CICT. Chỉ tiêu cập/rời cầu theo kế hoạch, gồm điều chuyển nội cảng; không phải lượt tàu vào/rời toàn cảng.'} as const;
 export const issuerPlanScopes={
+ CQN:{cqn:{...cqnBerth,name:'Tổng quan CQN · 1 cảng · 4 cầu theo dõi'},cqn_cai_lan:cqnBerth},
  GMD:{gmd:{...haiPhongBerths.nam_dinh_vu,name:'Tổng quan GMD · Hải Phòng · 1 cảng',note:'Phạm vi Hải Phòng: chỉ Cảng Nam Đình Vũ. Chưa phải tổng hoạt động GMD toàn quốc, không gồm Gemalink, Dung Quất hoặc các ICD. Không quy đổi DWT thành hàng hóa, doanh thu hoặc nhân theo tỷ lệ sở hữu.'},nam_dinh_vu:haiPhongBerths.nam_dinh_vu},
  HAH:{hah:{...haiPhongBerths.hai_an,name:'Tổng quan HAH · 1 cảng'},hai_an:haiPhongBerths.hai_an},
  DXP:{dxp:{...haiPhongBerths.doan_xa,name:'Tổng quan DXP · 1 cảng'},doan_xa:haiPhongBerths.doan_xa},
@@ -26,10 +28,10 @@ export const isVscTicker=isIssuerPlanTicker;
 export function issuerPlanSeries(days:TanVuPlanDay[],ticker:VscTicker,asset:string,direction:PlanDirection='departure',now=new Date(),run:TanVuPlanRun|null=null){
  const scopes:Record<string,{name:string;start:string;note:string}>=issuerPlanScopes[ticker];
  const scope=scopes[asset];if(!scope)throw new Error('Unknown issuer scope');
- return {...tanvuPlanSeries(days.filter(d=>d.report_day>=scope.start),direction,now,run),asset,ticker,name:scope.name,scope_note:scope.note};
+ return {...tanvuPlanSeries(days.filter(d=>d.report_day>=scope.start),direction,now,run),asset,ticker,name:scope.name,scope_note:scope.note,semantics:ticker==='CQN'?'authority_published_berth_plan':'authority_published_plan',movement_scope:ticker==='CQN'?'berth':'port',includes_internal_transfers:ticker==='CQN'};
 }
 export function issuerPlanAssets(ticker:VscTicker,asset:string):string[]{
  if(!Object.hasOwn(issuerPlanScopes[ticker],asset))throw new Error('Unknown issuer scope');
- const members:Record<IssuerPlanTicker,string[]>={VSC:Object.keys(vscBerths),VGR:['vip_green_port'],GMD:['nam_dinh_vu'],HAH:['hai_an'],DXP:['doan_xa'],PSP:['ptsc_dinh_vu']};
+ const members:Record<IssuerPlanTicker,string[]>={CQN:['cqn_cai_lan'],VSC:Object.keys(vscBerths),VGR:['vip_green_port'],GMD:['nam_dinh_vu'],HAH:['hai_an'],DXP:['doan_xa'],PSP:['ptsc_dinh_vu']};
  return asset===ticker.toLowerCase()?members[ticker]:[asset];
 }

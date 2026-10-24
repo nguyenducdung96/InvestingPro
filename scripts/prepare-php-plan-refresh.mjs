@@ -3,8 +3,8 @@ import {supabaseKeyHeaders} from '../packages/db/src/api-key-headers.mjs';
 const base=process.env.SUPABASE_URL,key=process.env.SUPABASE_SERVICE_ROLE_KEY;
 if(!base||!key)throw new Error('Configure staging scheduler credentials');
 const url=new URL(base);if(url.protocol!=='https:'||!url.hostname.endsWith('.supabase.co'))throw new Error('Expected Supabase project URL');
-const assets=process.argv.includes('--haiphong')?['nam_dinh_vu','hai_an','doan_xa','ptsc_dinh_vu']:process.argv.includes('--vsc')?['green_port','vip_green_port','nam_hai_dinh_vu','vimc_dinh_vu']:process.argv.includes('--dvp')?['dinh_vu']:['tan_vu','chua_ve','hoang_dieu','htit'],known=new Map();
-const root=process.argv.includes('--haiphong')?'.local/haiphong-plans':process.argv.includes('--vsc')?'.local/vsc-plans':process.argv.includes('--dvp')?'.local/dvp-plans':'.local/php-plans';
+const assets=process.argv.includes('--cqn')?['cqn_cai_lan']:process.argv.includes('--haiphong')?['nam_dinh_vu','hai_an','doan_xa','ptsc_dinh_vu']:process.argv.includes('--vsc')?['green_port','vip_green_port','nam_hai_dinh_vu','vimc_dinh_vu']:process.argv.includes('--dvp')?['dinh_vu']:['tan_vu','chua_ve','hoang_dieu','htit'],known=new Map();
+const root=process.argv.includes('--cqn')?'.local/cqn-plans':process.argv.includes('--haiphong')?'.local/haiphong-plans':process.argv.includes('--vsc')?'.local/vsc-plans':process.argv.includes('--dvp')?'.local/dvp-plans':'.local/php-plans';
 for(let offset=0;;offset+=1000){
  const r=await fetch(new URL(`/rest/v1/php_plan_days?select=asset_code,report_day,version_id,source_error&order=asset_code.asc,report_day.asc&limit=1000&offset=${offset}`,url),{headers:{...supabaseKeyHeaders(key),'Accept-Profile':'port'},signal:AbortSignal.timeout(15000)});
  if(!r.ok)throw new Error(`Checkpoint read failed: HTTP ${r.status}`);

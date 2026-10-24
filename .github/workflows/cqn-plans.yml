@@ -1,0 +1,63 @@
+name: CQN Quang Ninh published berth plans
+on:
+  workflow_dispatch:
+  schedule:
+    # Daily 07:10 Asia/Ho_Chi_Minh. Github may start scheduled jobs late.
+    - cron: '10 0 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: cqn-plans-staging
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    environment: staging
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache/restore@v4
+        with:
+          path: .local/cqn-plans
+          key: cqn-plans-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: cqn-plans-v1-
+      - run: python scripts/test-cqn-plans.py
+      - name: Read database checkpoint and select new, missing and recently revised days
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/prepare-php-plan-refresh.mjs --cqn
+      - name: Fetch elapsed source days and recheck recent revisions
+        id: collect
+        continue-on-error: true
+        run: python scripts/collect-cqn-plans.py --days-file .local/cqn-plans/requested-days.json
+      - name: Import versioned schedules and read back the latest day
+        env:
+          SUPABASE_URL: ${{ vars.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          COLLECTOR_OUTCOME: ${{ steps.collect.outcome }}
+        run: node scripts/sync-php-plans.mjs --cqn
+      - name: Keep compact run receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cqn-plan-run-${{ github.run_id }}
+          retention-days: 14
+          path: .local/cqn-plans/last-sync.json
+      - name: Preserve validated source cache even if a source day failed
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .local/cqn-plans
+          key: cqn-plans-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Fail visibly if the source collector was incomplete
+        if: steps.collect.outcome != 'success'
+        run: exit 1

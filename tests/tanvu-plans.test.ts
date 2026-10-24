@@ -69,6 +69,21 @@ it('imports idempotently, versions corrections, protects RLS and preserves succe
   await expect(db.query('select port.import_php_plan_days($1,$2)',['chua_ve',JSON.stringify([input])])).rejects.toThrow('Invalid PHP berth');
   await expect(db.query('select port.import_php_plan_days($1,$2)',['hict',JSON.stringify([input])])).rejects.toThrow('Unknown schedule berth');
   expect((await db.query('select * from port.php_plan_days')).rows).toHaveLength(13);
+  const cqn={...input,source_url:'https://kht1.cangvuhanghaiquangninh.gov.vn/',parser_version:'quangninh-berth-plan/1.0.0',events:[{...input.events[0],from_berth:'Cầu 1 - Cái Lân',to_berth:'HG7-1',plan_kind:'internal'}]};
+  const importCqn=(data:unknown)=>db.query<{result:{versions_inserted:number}}>("select port.import_php_plan_days('cqn_cai_lan',$1) as result",[JSON.stringify([data])]);
+  await importCqn(cqn);expect((await importCqn(cqn)).rows[0].result.versions_inserted).toBe(0);
+  for(const data of [{...cqn,source_url:source},{...cqn,parser_version:input.parser_version},{...cqn,events:[{...cqn.events[0],from_berth:'Cầu 2 - Cái Lân'}]},{...cqn,events:[{...cqn.events[0],plan_kind:null}]},{...cqn,events:[{...cqn.events[0],plan_kind:'departure'}]}])await expect(importCqn(data)).rejects.toThrow();
+  await expect(db.query('select port.import_php_plan_days($1,$2)',['tan_vu',JSON.stringify([{...input,events:[{...input.events[0],plan_kind:'internal'}]}])])).rejects.toThrow();
+  await db.exec('reset role;set role anon');
+  const cqnDetail=(await db.query<{result:{semantics:string;movement_scope:string;events:{plan_kind:string}[]}}>("select port.php_plan_events('cqn_cai_lan','2025-09-01') as result")).rows[0].result;
+  expect(cqnDetail.semantics).toBe('authority_published_berth_plan');expect(cqnDetail.movement_scope).toBe('berth');expect(cqnDetail.events[0].plan_kind).toBe('internal');
+  await db.exec(`reset role;set role service_role;select set_config('request.jwt.claims','{"role":"service_role"}',false);`);
+  await importCqn({...cqn,sha256:'c'.repeat(64),fetched_at:'2025-09-03T00:00:00Z',events:[{...cqn.events[0],dwt:null}]});
+  await importCqn({...cqn,status:'failed',fetched_at:'2025-09-04T00:00:00Z',error:'Source failed'});
+  await importCqn(cqn);
+  const cqnHead=(await db.query<{source_error:string;departure_dwt:number|null}>("select * from port.php_plan_days where asset_code='cqn_cai_lan'")).rows[0];
+  expect(cqnHead.departure_dwt).toBeNull();expect(cqnHead.source_error).toBe('Source failed');
+
   for(const alias of ['NAM DINH VU','NAM HAI DINH VU','PTSC DINH VU','EURO DINH VU','TAN VU']){
    await expect(db.query('select port.import_php_plan_days($1,$2)',['dinh_vu',JSON.stringify([{...input,events:[{...input.events[0],from_berth:alias}]}])])).rejects.toThrow();
   }

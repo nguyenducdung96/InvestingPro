@@ -34,6 +34,11 @@ it('publishes cited immutable berth scope without promoting effective dates or a
   expect((await db.query('select * from port.company_berth_editions')).rows).toHaveLength(7);
   const hp=JSON.parse(readFileSync('docs/catalog-review/haiphong-berth-scope-20261024.json','utf8'));
   await expect(db.query("insert into port.company_berth_editions(ticker,observed_on,entries,review_note) values('GMD','2026-10-24',$1,'TEST ONLY reject cross-issuer tracked port and citation mapping')",[JSON.stringify(hp.entries.HAH)])).rejects.toThrow('Invalid Hai Phong');
+  const cqnIntake=readFileSync('supabase/imports/cqn_company_berths.reviewed.sql','utf8');
+  await db.exec(cqnIntake);await db.exec(cqnIntake);
+  expect((await db.query('select * from port.company_berth_editions')).rows).toHaveLength(8);
+  const cqn=JSON.parse(readFileSync('docs/catalog-review/cqn-berth-scope-20261024.json','utf8'));
+  await expect(db.query("insert into port.company_berth_editions(ticker,observed_on,entries,review_note) values('CQN','2026-10-24',$1,'TEST ONLY reject unsupported date or cross-terminal assignment')",[JSON.stringify([{...cqn.entries[0],effective_from:'2020-06-24'}])])).rejects.toThrow('Invalid CQN');
   await db.exec('set role anon');
   const result=(await db.query<{entries:CompanyBerthFact[]}>("select entries from port.company_berth_editions where ticker='PHP'")).rows[0];
   expect(result.entries).toHaveLength(4);expect(result.entries.every(e=>e.effective_from===null&&e.effective_to===null)).toBe(true);

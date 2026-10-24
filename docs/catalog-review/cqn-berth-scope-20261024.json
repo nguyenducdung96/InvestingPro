@@ -1,0 +1,32 @@
+{
+  "observed_on": "2026-10-24",
+  "ticker": "CQN",
+  "entries": [
+    {
+      "asset_code": "cqn_cai_lan",
+      "name": "Cái Lân · CQN",
+      "alias": "CQN_CAI_LAN",
+      "operator": "Công ty Cổ phần Cảng Quảng Ninh",
+      "relationship": "operator",
+      "source_url": "https://quangninhport.com.vn/FileUpload/Documents/2.GPKDCB.pdf",
+      "source_sha256": "aaef704b2ae7526c5626b2425b170b1e2e2762d71ad48055a01d087868e1d4ca",
+      "source_note": "Giấy chứng nhận 88/2020/GCN-CHHVN ghi cầu 1, 5, 6, 7 và bến tạm. Lịch chỉ ghép chính xác bốn cầu 1/5/6/7; chưa nhận diện bến tạm, không gồm CICT cầu 2–3–4. Giữ ngày hiệu lực quan hệ và thay đổi giấy phép hiện tại chưa xác định.",
+      "effective_from": null,
+      "effective_to": null
+    }
+  ],
+  "source_aliases": [
+    "Cầu 1 - Cái Lân",
+    "Cầu 5 - Cái Lân",
+    "Cầu 6 - Cái Lân",
+    "Cầu 7 - Cái Lân"
+  ],
+  "unresolved": [
+    "temporary berth source label"
+  ],
+  "excluded": [
+    "CICT bridges 2,3,4"
+  ],
+  "canonical_ownership_promoted": false,
+  "license_current_validity_verified": false
+}

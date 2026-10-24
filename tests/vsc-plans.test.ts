@@ -30,3 +30,13 @@ it('keeps GMD regional scope and the three other Hai Phong issuer scopes indepen
   if(ticker==='GMD'){expect(total.name).toContain('Hải Phòng');expect(total.scope_note).toContain('Chưa phải tổng hoạt động GMD toàn quốc');}
  }
 });
+
+it('keeps CQN berth plans separate from port arrival/departure series',()=>{
+ expect(issuerPlanAssets('CQN','cqn')).toEqual(['cqn_cai_lan']);
+ expect(()=>issuerPlanAssets('CQN','nam_dinh_vu')).toThrow();
+ const a=issuerPlanSeries([day(100)],'CQN','cqn','arrival',new Date('2026-10-02T01:00Z'));
+ const b=issuerPlanSeries([day(100)],'CQN','cqn_cai_lan','arrival',new Date('2026-10-02T01:00Z'));
+ expect(a.months).toEqual(b.months);expect(a.semantics).toBe('authority_published_berth_plan');
+ expect(a.movement_scope).toBe('berth');expect(a.includes_internal_transfers).toBe(true);
+ expect(a.actual_verified).toBe(false);expect(a.scope_note).toContain('Chưa xác định nhãn bến tạm');
+});
