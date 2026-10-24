@@ -19,7 +19,7 @@ Raw HTML nén theo hash được cache; không tải thêm PDF cho nhánh lịch
 
 ## Giao diện và số liệu
 
-Trang PHP có bộ chọn bến; mỗi bến có tháng/quý/MTD/YTD/YoY, chiều vào/rời, biểu đồ cột đôi, lịch 90 ngày và drilldown nguồn riêng. Card bến ghi ngày nguồn hiện có, không dùng nhãn actual. Không cộng bốn bến thành tổng doanh nghiệp vì chưa đủ căn cứ ghép sự kiện giữa bến và phạm vi hạch toán.
+Trang PHP có bộ chọn bến; mỗi bến có tháng/quý/MTD/YTD/YoY, chiều vào/rời, biểu đồ cột đôi, lịch 90 ngày và drilldown nguồn riêng. Card bến ghi ngày nguồn hiện có, không dùng nhãn actual. Từ yêu cầu bổ sung tổng quan ngày 24/10, giao diện mặc định có tổng lượt tại bốn bến theo lịch công bố; đây không phải lượt ghé duy nhất toàn vùng Cảng vụ hay tổng doanh nghiệp theo phạm vi hạch toán.
 
 Sản lượng doanh nghiệp công bố vẫn là metric độc lập. Tân Vũ có 16 tháng tấn hàng/TEU riêng. Đã đối chiếu thêm 19 fact đúng phạm vi: Chùa Vẽ riêng 05–07/2025 (3 tháng), Hoàng Diệu riêng 05–07/2025 (3 tháng, TEU không có và giữ null), Hoàng Diệu–Chùa Vẽ gộp 08/2025–08/2026 (13 tháng). Không tự cộng hai chuỗi riêng thành nhóm hoặc chia nhóm cho từng bến. [Biên bản số liệu đã nhìn đối chiếu](catalog-review/php-newsletters-scoped-reviewed-20261024.json).
 
@@ -61,3 +61,14 @@ YoY values in activity KPI cards, month/quarter comparison rows and throughput Y
 The activity comparison table now ends with a highlighted January-to-cutoff YTD row: call count, current DWT, prior DWT, YoY and explicit comparison dates. It includes the available part of the current month, rather than summing only closed months. Selecting a historical year computes January through December of that year; the all-history filter labels the latest-year YTD explicitly. Existing strict completeness and HTIT startup boundaries remain: missing baseline days never become zero or a fabricated YTD percentage.
 
 Validation: typecheck/lint passed and all six PHP Playwright scenarios passed across desktop/mobile, checking positive/negative/zero values, light/dark styles, partial-month totals, direction/quarter/year filters and missing HTIT baseline.
+
+
+## Default four-berth overview — 2026-10-24
+
+User explicitly requested a PHP overview before finalizing the pilot. `plan_asset=php` now selects “Tổng quan PHP · 4 bến”; absent/invalid public page selections default to this scope. All existing individual choices, direction, month/quarter, historical year, YoY, YTD and daily drilldown remain available. The existing API default remains Tan Vu for compatibility; `asset=php` requests the overview explicitly.
+
+The overview combines daily database heads for Tan Vu, Chua Ve, Hoang Dieu and HTIT, not a total for the entire Hai Phong maritime authority, DVP or issuer revenue. Each arrival belongs to its destination berth and each departure to its origin; the collector already excludes the separate internal movement section. These are additive berth schedule rows, not unique vessels or verified company port calls. No ownership-percentage scaling is applied. The overview uses the source's full four-berth daily reporting history; the individual HTIT comparison series still starts with its first full month, May 2025.
+
+All four daily heads must exist and share the same source hash; mixed revisions and missing berths withhold that day's total. Unknown DWT stays null. Duplicate berth/day input is rejected. Daily drilldown requires all four matching revisions and retains berth endpoints. The existing independent cargo/TEU scope selector remains explicitly labeled; this change does not synthesize a total cargo series from incomplete HTIT data or mix separate/group figures.
+
+Local validation: six Tan Vu/PHP domain and database tests passed, eight PHP Playwright scenarios passed across desktop/mobile, typecheck/lint passed. Tests cover the default, individual/total switching, direction and quarter filters, dynamic changes, replay, missing coverage, revision mismatch, null DWT and daily drilldown. No migration, new collector, or hardcoded numeric total is introduced.

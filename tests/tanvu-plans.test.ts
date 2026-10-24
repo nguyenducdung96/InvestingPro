@@ -1,7 +1,7 @@
 import {PGlite} from '@electric-sql/pglite';
 import {readFileSync,readdirSync} from 'node:fs';
 import {expect,it} from 'vitest';
-import {tanvuPlanSeries,phpPlanSeries,type TanVuPlanDay} from '@invest/port';
+import {tanvuPlanSeries,phpPlanSeries,aggregatePhpPlanDays,type TanVuPlanDay} from '@invest/port';
 function day(date:string,amount:number|null=10):TanVuPlanDay{return {report_day:date,version_id:'id',source_sha256:'a'.repeat(64),source_url:'https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-1',parser_version:'haiphong-plan-pilot/1.1.0',last_success:'2026-10-22T00:00:00Z',last_attempt:'2026-10-22T00:00:00Z',source_error:null,arrival_rows:1,departure_rows:1,arrival_dwt:amount,departure_dwt:amount,arrival_dwt_missing:amount===null?1:0,departure_dwt_missing:amount===null?1:0,ambiguous_groups:0,source_empty_sections:[]};}
 const range=(year:number,month:number,n:number,value:number|null=10)=>Array.from({length:n},(_,i)=>day(`${year}-${String(month).padStart(2,'0')}-${String(i+1).padStart(2,'0')}`,value));
 it('compares partial months and quarters to the same days, never full prior months',()=>{
@@ -75,4 +75,19 @@ it('imports idempotently, versions corrections, protects RLS and preserves succe
   await expect(db.query('select * from port.php_plan_versions')).rejects.toThrow();
   await expect(db.query('select port.import_php_plan_days($1,$2)',['chua_ve',JSON.stringify([input])])).rejects.toThrow();
  }finally{await db.close();}
+});
+
+
+it('aggregates four independent berth endpoints, rejects missing or mixed revisions and preserves null DWT',()=>{
+ const groups={tan_vu:[day('2026-10-01',10)],chua_ve:[day('2026-10-01',20)],hoang_dieu:[day('2026-10-01',30)],htit:[day('2026-10-01',40)]};
+ const combined=aggregatePhpPlanDays(groups)[0];
+ expect(combined.departure_rows).toBe(4);expect(combined.departure_dwt).toBe(100);expect(combined.arrival_dwt).toBe(100);
+ expect(aggregatePhpPlanDays({...groups,htit:[]})[0].version_id).toBeNull();
+ expect(aggregatePhpPlanDays({...groups,htit:[{...day('2026-10-01',40),source_sha256:'b'.repeat(64)}]})[0].version_id).toBeNull();
+ const missing=aggregatePhpPlanDays({...groups,htit:[day('2026-10-01',null)]})[0];
+ expect(missing.departure_rows).toBe(4);expect(missing.departure_dwt).toBeNull();expect(missing.departure_dwt_missing).toBe(1);
+ expect(aggregatePhpPlanDays({...groups,htit:[day('2026-10-01',0)]})[0].departure_dwt).toBe(60);
+ expect(()=>aggregatePhpPlanDays({...groups,htit:[day('2026-10-01'),day('2026-10-01')]})).toThrow('Duplicate PHP berth/day');
+ const series=phpPlanSeries(aggregatePhpPlanDays(groups),'php','departure',new Date('2026-10-02T01:00:00Z'));
+ expect(series.months.at(-1)?.current.dwt).toBe(100);expect(series.months.at(-1)?.prior.dwt).toBeNull();
 });

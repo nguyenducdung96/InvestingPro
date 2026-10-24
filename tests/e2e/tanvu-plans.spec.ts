@@ -6,7 +6,7 @@ test('Tan Vu plans update from DB, compare MTD, filter, drill down and fit mobil
  const details=[{report_day:cutoff,source_url:days[0].source_url,source_sha256:'a'.repeat(64),fetched_at:new Date().toISOString(),parser_version:'test-only',semantics:'authority_published_plan',events:[{direction:'departure',vessel_name:'SYNTHETIC PLAN SHIP',planned_time:'08:30',dwt:1000,from_berth:'TAN VU',to_berth:'CHINA'}]}];
  await request.post('http://127.0.0.1:54329/__throughput',{data:[]}); // synthetic PHP catalog edition
  await request.post('http://127.0.0.1:54329/__plans',{data:{days,details}});
- await page.goto('/companies/PHP#vessel-plans');
+ await page.goto('/companies/PHP?plan_asset=tan_vu#vessel-plans');
  const region=page.getByRole('region',{name:'Lịch điều động PHP',exact:true});
  await expect(region.getByRole('heading',{name:'Lượt tàu và trọng tải theo lịch công bố'})).toBeVisible();
  await expect(region.getByText('SYNTHETIC PLAN SHIP',{exact:true})).toBeVisible();
@@ -45,7 +45,7 @@ test('Tan Vu plans update from DB, compare MTD, filter, drill down and fit mobil
  expect((await request.get('/api/v1/companies/PHP/plans?asset=hict')).status()).toBe(400);
  const berths=[['chua_ve','CHUA VE','Chùa Vẽ',3000],['hoang_dieu','HOANG DIEU','Hoàng Diệu',4000],['htit','HTIT','HTIT (Lạch Huyện 3–4)',5000]] as const;
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:[...days,...berths.flatMap(([asset,,,_value])=>days.map(d=>({...d,asset_code:asset,departure_dwt:_value})))],details:[...details,...berths.map(([asset,alias])=>({...details[0],asset_code:asset,events:[{...details[0].events[0],vessel_name:`SYNTHETIC ${alias}`,from_berth:alias}]}))]}});
- await page.goto('/companies/PHP');
+ await page.goto('/companies/PHP?plan_asset=tan_vu');
  for(const [asset,alias,name,value] of berths){
   await region.getByLabel('Bến theo dõi',{exact:true}).selectOption(asset);
   await region.getByRole('button',{name:'Xem bến',exact:true}).click();
@@ -73,7 +73,7 @@ test('PHP comparison totals include the current partial month, respect year and 
   });
  });
  await request.post('http://127.0.0.1:54329/__plans',{data:{days,details:[]}});
- await page.goto('/companies/PHP#plan-yoy');
+ await page.goto('/companies/PHP?plan_asset=tan_vu#plan-yoy');
  const region=page.getByRole('region',{name:'So sánh cùng kỳ năm trước',exact:true});
  const footer=region.locator('tfoot');
  const current=days.filter(d=>d.report_day.startsWith(String(year)));
@@ -110,4 +110,46 @@ test('PHP comparison totals include the current partial month, respect year and 
  await expect(footer.getByLabel('Chưa đủ dữ liệu so sánh',{exact:true})).toHaveText('—');
  await expect(footer.getByText('Chưa đủ dữ liệu để tính tăng/giảm lũy kế.',{exact:true})).toBeVisible();
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:[]}});
+});
+
+
+test('PHP defaults to the four-berth overview, matches its drilldown and updates without double counting',async({page,request})=>{
+ const cutoff=new Date(Date.parse(new Date(Date.now()+7*3600000).toISOString().slice(0,10))-86400000).toISOString().slice(0,10);
+ const year=Number(cutoff.slice(0,4)),month=cutoff.slice(5,7),through=Number(cutoff.slice(8));
+ const assets=['tan_vu','chua_ve','hoang_dieu','htit'];
+ const aliases=['TAN VU','CHUA VE','HOANG DIEU','HTIT'];
+ const days=assets.flatMap((asset_code,index)=>[year-1,year].flatMap(y=>Array.from({length:through},(_,i)=>({asset_code,report_day:`${y}-${month}-${String(i+1).padStart(2,'0')}`,version_id:`test-${asset_code}`,source_sha256:'a'.repeat(64),last_attempt:new Date().toISOString(),source_error:null,arrival_rows:1,departure_rows:1,arrival_dwt:10*(index+1),departure_dwt:(y===year?100:50)*(index+1),arrival_dwt_missing:0,departure_dwt_missing:0,ambiguous_groups:0,source_empty_sections:[]}))));
+ const details=assets.map((asset_code,index)=>({asset_code,report_day:cutoff,source_sha256:'a'.repeat(64),events:[{direction:'departure',vessel_name:`OVERVIEW ${asset_code}`,planned_time:'08:30',dwt:100*(index+1),from_berth:aliases[index],to_berth:'CHINA'}]}));
+ const write=()=>request.post('http://127.0.0.1:54329/__plans',{data:{days,details}});
+ await write();await page.goto('/companies/PHP#vessel-plans');
+ const region=page.getByRole('region',{name:'Lịch điều động PHP',exact:true});
+ await expect(region.getByLabel('Bến theo dõi',{exact:true})).toHaveValue('php');
+ await expect(region.getByLabel('Bến theo dõi',{exact:true}).locator('option')).toHaveCount(5);
+ for(const asset of assets)await expect(region.getByText(`OVERVIEW ${asset}`,{exact:true})).toBeVisible();
+ let total=await(await request.get('/api/v1/companies/PHP/plans?asset=php')).json();
+ expect(total.asset).toBe('php');expect(total.months.at(-1).current.rows).toBe(through*4);
+ expect(total.months.at(-1).current.dwt).toBe(through*1000);expect(total.months.at(-1).yoy.dwt).toBe(100);
+ await expect(region.getByText(`${(through*1000).toLocaleString('vi-VN')} DWT`,{exact:true}).first()).toBeVisible();
+ await region.getByLabel('Kỳ',{exact:true}).selectOption('quarter');
+ await region.getByLabel('Chiều tàu',{exact:true}).selectOption('arrival');
+ await region.getByRole('button',{name:'Xem lịch',exact:true}).click();
+ await expect(region.getByLabel('Bến theo dõi',{exact:true})).toHaveValue('php');
+ expect((await(await request.get('/api/v1/companies/PHP/plans?asset=php&direction=arrival')).json()).months.at(-1).current.dwt).toBe(through*100);
+ // Returning to a berth and back must preserve an explicit total scope in links/forms.
+ await region.getByLabel('Bến theo dõi',{exact:true}).selectOption('tan_vu');await region.getByRole('button',{name:'Xem bến',exact:true}).click();
+ await expect(region.getByLabel('Bến theo dõi',{exact:true})).toHaveValue('tan_vu');
+ await region.getByLabel('Bến theo dõi',{exact:true}).selectOption('php');await region.getByRole('button',{name:'Xem bến',exact:true}).click();
+ await expect(region.getByLabel('Bến theo dõi',{exact:true})).toHaveValue('php');
+ await write(); // Replaying identical daily heads must not multiply the overview.
+ expect((await(await request.get('/api/v1/companies/PHP/plans?asset=php')).json()).months.at(-1).current.dwt).toBe(through*1000);
+ days.find(d=>d.asset_code==='htit'&&d.report_day===cutoff)!.departure_dwt+=500;
+ await write();expect((await(await request.get('/api/v1/companies/PHP/plans?asset=php')).json()).months.at(-1).current.dwt).toBe(through*1000+500);
+ // Missing one berth is not a smaller, apparently complete company total.
+ await request.post('http://127.0.0.1:54329/__plans',{data:{days:days.filter(d=>!(d.asset_code==='htit'&&d.report_day===cutoff)),details:details.slice(0,3)}});
+ total=await(await request.get('/api/v1/companies/PHP/plans?asset=php')).json();
+ expect(total.months.at(-1).current.dwt).toBeNull();expect(total.months.at(-1).current.rows).toBeNull();
+ expect((await(await request.get(`/api/v1/companies/PHP/plans?asset=php&day=${cutoff}`)).json()).data).toBeNull();
+ await page.reload();await expect(region.getByText(/Thiếu 1 ngày trong tháng/)).toBeVisible();
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ await request.post('http://127.0.0.1:54329/__plans',{data:{days:[],details:[]}});
 });
