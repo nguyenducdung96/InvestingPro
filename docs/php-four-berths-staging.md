@@ -52,3 +52,12 @@ Removed the requested developer-facing blocks from public rendering: PHP berth c
 Charts, filters, date drilldown, business relationships, missing-data warnings and the distinction between published plans, actual berth movements, DWT and cargo throughput remain. Collectors, schedules, stored provenance, API contracts and database policies are unchanged. This is a public presentation change, not an API access-control change.
 
 Validation: typecheck and lint passed; all 38 Playwright scenarios passed across desktop and mobile, including public company pages PHP/GMD/DVP, all four PHP berths, source-free throughput charts, nationwide journals and authenticated review flows.
+
+
+## PHP comparison polish — 2026-10-24
+
+YoY values in activity KPI cards, month/quarter comparison rows and throughput YTD now use green for increases, red for decreases, and neutral text for zero or unavailable comparisons. Visible direction symbols and accessible increase/decrease labels supplement color; both themes have dedicated contrast colors.
+
+The activity comparison table now ends with a highlighted January-to-cutoff YTD row: call count, current DWT, prior DWT, YoY and explicit comparison dates. It includes the available part of the current month, rather than summing only closed months. Selecting a historical year computes January through December of that year; the all-history filter labels the latest-year YTD explicitly. Existing strict completeness and HTIT startup boundaries remain: missing baseline days never become zero or a fabricated YTD percentage.
+
+Validation: typecheck/lint passed and all six PHP Playwright scenarios passed across desktop/mobile, checking positive/negative/zero values, light/dark styles, partial-month totals, direction/quarter/year filters and missing HTIT baseline.

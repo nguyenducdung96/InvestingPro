@@ -3,18 +3,21 @@
   --control-border:#8295aa; --bg:#f4f7fb; --panel:#ffffff; --panel-soft:#edf3f8; --border:#d4dee9;
   --text:#17273e; --muted:#52637a; --accent:#08745f; --accent-soft:#e2f3ee;
   --warning:#8b5b06; --warning-bg:#fff6df; --on-accent:#ffffff; --shadow:0 4px 18px rgb(23 39 62 / 4%);
+  --trend-up:#087443; --trend-down:#b42335;
   color-scheme:light;
 }
 :root[data-theme="dark"] {
   --control-border:#657e99; --bg:#0b1320; --panel:#121f31; --panel-soft:#192a40; --border:#30435b;
   --text:#edf3fb; --muted:#adbed1; --accent:#72ddc0; --accent-soft:#183e39;
   --warning:#f0c66f; --warning-bg:#342c1b; --on-accent:#0b2922; --shadow:0 4px 18px rgb(0 0 0 / 10%);
+  --trend-up:#70e0a4; --trend-down:#ff929b;
   color-scheme:dark;
 }
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]):not([data-theme="dark"]){
   --control-border:#657e99; --bg:#0b1320; --panel:#121f31; --panel-soft:#192a40; --border:#30435b;
   --text:#edf3fb; --muted:#adbed1; --accent:#72ddc0; --accent-soft:#183e39;
   --warning:#f0c66f; --warning-bg:#342c1b; --on-accent:#0b2922; --shadow:0 4px 18px rgb(0 0 0 / 10%);
+  --trend-up:#70e0a4; --trend-down:#ff929b;
   color-scheme:dark;
 }}
 *{box-sizing:border-box}html{scroll-padding-top:24px}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 "Segoe UI",system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
@@ -56,3 +59,11 @@ input,textarea,select{border-color:var(--control-border)}@media(max-width:480px)
 @media(max-width:600px){.plan-chart{padding:12px;margin-inline:-8px}.plan-chart-readout{min-height:66px}.plan-chart-legend{gap:8px 16px}}
 
 @media(min-width:1280px){.php-berth-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}@media(max-width:540px){.php-berth-grid{grid-template-columns:minmax(0,1fr)}}
+
+.yoy-change{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.yoy-change.yoy-up,.stat .yoy-change.yoy-up{color:var(--trend-up)}
+.yoy-change.yoy-down,.stat .yoy-change.yoy-down{color:var(--trend-down)}
+.yoy-change.yoy-neutral,.stat .yoy-change.yoy-neutral{color:var(--muted)}
+.yoy-change>span{color:inherit}
+.call-table tfoot .comparison-ytd{background:var(--accent-soft)}
+.call-table tfoot th,.call-table tfoot td{border-top:2px solid var(--border);font-weight:650}

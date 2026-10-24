@@ -59,3 +59,55 @@ test('Tan Vu plans update from DB, compare MTD, filter, drill down and fit mobil
  }
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:[]}});
 });
+
+
+test('PHP comparison totals include the current partial month, respect year and direction, and keep missing baselines neutral',async({page,request},info)=>{
+ const cutoff=new Date(Date.parse(new Date(Date.now()+7*3600000).toISOString().slice(0,10))-86400000).toISOString().slice(0,10);
+ const year=Number(cutoff.slice(0,4));
+ const days=[year-1,year].flatMap(y=>{
+  const end=y===year?cutoff:`${y}-12-31`;
+  return Array.from({length:Math.round((Date.parse(end)-Date.parse(`${y}-01-01`))/86400000)+1},(_,i)=>{
+   const date=new Date(Date.parse(`${y}-01-01`)+i*86400000).toISOString().slice(0,10);
+   const month=Number(date.slice(5,7));
+   return {report_day:date,version_id:'test-only',last_attempt:new Date().toISOString(),source_error:null,arrival_rows:1,departure_rows:1,arrival_dwt:y===year?4000:2000,departure_dwt:y===year?(month===1?1000:month===2?2000:3000):2000,arrival_dwt_missing:0,departure_dwt_missing:0,ambiguous_groups:0,source_empty_sections:[]};
+  });
+ });
+ await request.post('http://127.0.0.1:54329/__plans',{data:{days,details:[]}});
+ await page.goto('/companies/PHP#plan-yoy');
+ const region=page.getByRole('region',{name:'So sánh cùng kỳ năm trước',exact:true});
+ const footer=region.locator('tfoot');
+ const current=days.filter(d=>d.report_day.startsWith(String(year)));
+ const previous=days.filter(d=>d.report_day>=`${year-1}-01-01`&&d.report_day<=`${year-1}${cutoff.slice(4)}`);
+ await expect(footer.getByRole('rowheader')).toHaveText(`Lũy kế ${year} (T1–T${Number(cutoff.slice(5,7))})`);
+ await expect(footer.locator('td[data-label="DWT"]')).toHaveText(current.reduce((n,d)=>n+d.departure_dwt,0).toLocaleString('vi-VN'));
+ await expect(footer.locator('td[data-label="Cùng kỳ DWT"]')).toHaveText(previous.reduce((n,d)=>n+d.departure_dwt,0).toLocaleString('vi-VN'));
+ await expect(footer.locator('td[data-label="Phạm vi"]')).toContainText(`${year}-01-01 → ${cutoff}`);
+ const january=region.locator('tbody tr').first().getByLabel('Giảm 50%',{exact:true});
+ await expect(january).toContainText('▼ -50%');
+ if(Number(cutoff.slice(5,7))>=2)await expect(region.locator('tbody tr').nth(1).getByLabel('Không đổi',{exact:true})).toHaveText('0%');
+ if(Number(cutoff.slice(5,7))>=3)await expect(region.locator('tbody tr').nth(2).getByLabel('Tăng 50%',{exact:true})).toContainText('▲ +50%');
+ for(const theme of ['light','dark']){
+  await page.getByLabel('Giao diện',{exact:true}).selectOption(theme);
+  await expect(january).toHaveCSS('color',theme==='light'?'rgb(180, 35, 53)':'rgb(255, 146, 155)');
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+  await footer.scrollIntoViewIfNeeded();
+  await page.screenshot({path:`test-results/php-ytd-${theme}-${info.project.name}.png`});
+ }
+ const plans=page.getByRole('region',{name:'Lịch điều động PHP',exact:true});
+ await plans.getByLabel('Chiều tàu',{exact:true}).selectOption('arrival');
+ await plans.getByLabel('Kỳ',{exact:true}).selectOption('quarter');
+ await plans.getByRole('button',{name:'Xem lịch',exact:true}).click();
+ await expect(footer.getByLabel('Tăng 100%',{exact:true})).toContainText('▲ +100%');
+ await expect(footer.locator('td[data-label="DWT"]')).toHaveText((current.length*4000).toLocaleString('vi-VN'));
+ await plans.getByLabel('Năm',{exact:true}).selectOption(String(year-1));
+ await plans.getByRole('button',{name:'Xem lịch',exact:true}).click();
+ await expect(footer.getByRole('rowheader')).toHaveText(`Lũy kế ${year-1} (T1–T12)`);
+ await expect(footer.locator('td[data-label="Phạm vi"]')).toContainText(`${year-1}-01-01 → ${year-1}-12-31`);
+ await expect(footer.getByLabel('Chưa đủ dữ liệu so sánh',{exact:true})).toHaveText('—');
+ // HTIT has no comparable January-April base; a partial base cannot produce YTD growth.
+ await request.post('http://127.0.0.1:54329/__plans',{data:{days:days.map(d=>({...d,asset_code:'htit'})),details:[]}});
+ await page.goto('/companies/PHP?plan_asset=htit#plan-yoy');
+ await expect(footer.getByLabel('Chưa đủ dữ liệu so sánh',{exact:true})).toHaveText('—');
+ await expect(footer.getByText('Chưa đủ dữ liệu để tính tăng/giảm lũy kế.',{exact:true})).toBeVisible();
+ await request.post('http://127.0.0.1:54329/__plans',{data:{days:[]}});
+});

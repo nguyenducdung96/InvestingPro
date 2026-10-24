@@ -1,9 +1,9 @@
+import {YoyChange} from './yoy-change';
 import Link from 'next/link';
 import {publicRepository} from '@/lib/server';
 import {throughputSeries,phpThroughputScopes,isPhpThroughputScope} from '@invest/port';
 import {PlanColumnChart,type PlanColumn} from './plan-column-chart';
 const number=(n:number|null)=>n===null?'Chưa đủ dữ liệu':n.toLocaleString('vi-VN');
-const change=(n:number|null)=>n===null?'—':`${n>0?'+':''}${n.toLocaleString('vi-VN',{maximumFractionDigits:1})}%`;
 export async function PhpThroughput({query}:{query:Record<string,string>}) {
  const selected=query.plan_asset??'tan_vu';
  const requestedScope=query.throughput_asset??'';
@@ -40,7 +40,7 @@ export async function PhpThroughput({query}:{query:Record<string,string>}) {
    <form method="get" action="/companies/PHP#throughput" className="call-filters">{Object.entries(query).filter(([k])=>k.startsWith('plan_')).map(([k,v])=><input key={k} type="hidden" name={k} value={v}/>)}<div><label htmlFor="throughput-asset">Phạm vi sản lượng</label><select name="throughput_asset" id="throughput-asset" defaultValue={asset}>{Object.entries(phpThroughputScopes).map(([key,value])=><option key={key} value={key}>{value.name}</option>)}</select></div><div><label htmlFor="throughput-metric">Chỉ tiêu</label><select name="metric" id="throughput-metric" defaultValue={metric}><option value="cargo_tonnes">Tấn hàng</option><option value="container_teu">TEU</option></select></div><div><label htmlFor="throughput-period">Kỳ</label><select name="period" id="throughput-period" defaultValue={quarterly?'quarter':'month'}><option value="month">Tháng</option><option value="quarter">Quý</option></select></div><div><label htmlFor="throughput-year">Năm</label><select name="throughput_year" id="throughput-year" defaultValue={year}><option value="all">Toàn bộ lịch sử</option>{years.map(y=><option key={y} value={y}>{y}</option>)}</select></div><button>Xem số liệu</button></form>
    <PlanColumnChart title={`Sản lượng ${unit} theo ${quarterly?'quý':'tháng'} · ${year==='all'?'toàn bộ lịch sử':`${year} so với ${Number(year)-1}`}`} currentLabel={year==='all'?'Kỳ theo dõi':year} priorLabel={year==='all'?'Cùng kỳ năm trước':String(Number(year)-1)} unit={unit} columns={columns}/>
    <p className="meta">Hai cột so cùng {quarterly?'quý':'tháng'} của hai năm. Dấu — là chưa đủ dữ liệu công bố; quý thiếu tháng hoặc chỉ tiêu giữ trống. Không suy sản lượng hàng hóa từ DWT.</p>
-   <p>Lũy kế {latest.period.slice(0,4)} cùng kỳ: {series.ytd[metric]?`${number(series.ytd[metric]!.current)} ${unit} · đến tháng ${series.ytd[metric]!.through_month} · ${change(series.ytd[metric]!.yoy_pct)}`:'Chưa đủ dữ liệu liên tục từ tháng 1 ở cả hai năm.'}</p>
+   <p>Lũy kế {latest.period.slice(0,4)} cùng kỳ: {series.ytd[metric]?<>{number(series.ytd[metric]!.current)} {unit} · đến tháng {series.ytd[metric]!.through_month} · <YoyChange value={series.ytd[metric]!.yoy_pct}/></>:'Chưa đủ dữ liệu liên tục từ tháng 1 ở cả hai năm.'}</p>
   </>}
   {!!series.conflicts.length&&<p role="status">Các kỳ có số mâu thuẫn đang chờ đối chiếu: {series.conflicts.join(', ')}.</p>}
  </section>;
