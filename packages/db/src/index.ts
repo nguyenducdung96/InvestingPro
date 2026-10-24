@@ -141,8 +141,8 @@ export class SupabaseCatalogRepository implements CatalogRepository {
   }
   async phpPlanEvents(asset:string,day:string){return this.db.phpPlanEvents?.(asset,day)??null;}
   async phpPlanCoverage(){return this.db.read('port','php_plan_coverage',params({select:'*',order:'asset_code.asc'}));}
-  async companyBerthScope() {
-    return (await this.db.read('port','company_berth_editions',params({select:'id,ticker,observed_on,published_at,entries',ticker:'eq.PHP',order:'observed_on.desc,published_at.desc,id.desc',limit:'1'})))[0]??null;
+  async companyBerthScope(ticker='PHP') {
+    return (await this.db.read('port','company_berth_editions',params({select:'id,ticker,observed_on,published_at,entries',ticker:`eq.${ticker}`,order:'observed_on.desc,published_at.desc,id.desc',limit:'1'})))[0]??null;
   }
   async monthlyThroughput(asset='tan_vu') {
     return this.db.read('port','published_monthly_throughput',params({select:'*',...(asset==='all'?{}:{asset_code:`eq.${asset}`}),order:'period.asc,id.asc',limit:'1000'}));

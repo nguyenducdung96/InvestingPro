@@ -1,0 +1,20 @@
+import {expect,it} from 'vitest';
+import {aggregateBerthPlanDays,issuerPlanAssets,issuerPlanSeries,vscBerths,type TanVuPlanDay} from '@invest/port';
+const day=(value:number,hash='a'.repeat(64)):TanVuPlanDay=>({report_day:'2026-10-01',version_id:'id',source_sha256:hash,source_url:null,parser_version:null,last_success:null,last_attempt:'2026-10-24T00:00:00Z',source_error:null,arrival_rows:1,departure_rows:1,arrival_dwt:value,departure_dwt:value,arrival_dwt_missing:0,departure_dwt_missing:0,ambiguous_groups:0,source_empty_sections:[]});
+it('uses one physical VIP Green dataset for VGR and VSC and rejects cross-issuer scopes',()=>{
+ expect(issuerPlanAssets('VGR','vgr')).toEqual(['vip_green_port']);
+ expect(issuerPlanAssets('VGR','vip_green_port')).toEqual(['vip_green_port']);
+ expect(issuerPlanAssets('VSC','vsc')).toEqual(Object.keys(vscBerths));
+ expect(()=>issuerPlanAssets('VGR','green_port')).toThrow();
+ const a=issuerPlanSeries([day(100)],'VGR','vgr','departure',new Date('2026-10-02T01:00Z'));
+ const b=issuerPlanSeries([day(100)],'VSC','vip_green_port','departure',new Date('2026-10-02T01:00Z'));
+ expect(a.months).toEqual(b.months);
+});
+it('requires every VSC berth head on the same source revision and never duplicates VIP Green',()=>{
+ const assets=Object.keys(vscBerths),groups=Object.fromEntries(assets.map((a,i)=>[a,[day((i+1)*100)]]));
+ const total=aggregateBerthPlanDays(groups,assets,'VSC')[0];
+ expect(total.departure_rows).toBe(4);expect(total.departure_dwt).toBe(1000);
+ expect(aggregateBerthPlanDays({...groups,green_port:[]},assets,'VSC')[0].version_id).toBeNull();
+ expect(aggregateBerthPlanDays({...groups,green_port:[day(100,'b'.repeat(64))]},assets,'VSC')[0].version_id).toBeNull();
+ expect(aggregateBerthPlanDays({...groups,green_port:[{...day(100),departure_dwt:null,departure_dwt_missing:1}]},assets,'VSC')[0].departure_dwt).toBeNull();
+});

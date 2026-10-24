@@ -26,8 +26,11 @@ it('publishes cited immutable berth scope without promoting effective dates or a
   const bad=structuredClone(scope.entries);bad[0].effective_from='2025-01-01';
   await expect(db.query("insert into port.company_berth_editions(ticker,observed_on,entries,review_note) values('PHP','2026-10-21',$1,'TEST ONLY publisher note checked against official sources')",[JSON.stringify(bad)])).rejects.toThrow('Invalid PHP berth');
   await expect(db.exec("update port.company_berth_editions set observed_on='2025-01-01'")).rejects.toThrow('immutable');
+  const newIntake=readFileSync('supabase/imports/vsc_vgr_company_berths.reviewed.sql','utf8');
+  await db.exec(newIntake);await db.exec(newIntake);
+  expect((await db.query('select * from port.company_berth_editions')).rows).toHaveLength(3);
   await db.exec('set role anon');
-  const result=(await db.query<{entries:CompanyBerthFact[]}>('select entries from port.company_berth_editions')).rows[0];
+  const result=(await db.query<{entries:CompanyBerthFact[]}>("select entries from port.company_berth_editions where ticker='PHP'")).rows[0];
   expect(result.entries).toHaveLength(4);expect(result.entries.every(e=>e.effective_from===null&&e.effective_to===null)).toBe(true);
  }finally{await db.close();}
 });

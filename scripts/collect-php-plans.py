@@ -24,11 +24,13 @@ def fetch_report(url):
             time.sleep(1+attempt)
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--days-file',type=pathlib.Path);parser.add_argument('--company',choices=['PHP','DVP'],default='PHP')
+    parser=argparse.ArgumentParser();parser.add_argument('--days-file',type=pathlib.Path);parser.add_argument('--company',choices=['PHP','DVP','VSC'],default='PHP')
     args=parser.parse_args()
     global ASSETS,OUT,RAW
     if args.company=='DVP':
         ASSETS={'dinh_vu':'DINH VU'};OUT=ROOT/'.local/dvp-plans';RAW=OUT/'raw'
+    if args.company=='VSC':
+        ASSETS={'green_port':'GREEN PORT','vip_green_port':'VIP GREEN PORT','nam_hai_dinh_vu':'NAM HAI DINH VU','vimc_dinh_vu':'VIMC'};OUT=ROOT/'.local/vsc-plans';RAW=OUT/'raw'
     RAW.mkdir(parents=True,exist_ok=True)
     raw=fetch_report(pilot.probe.BASE+'?d=0')
     match=re.search(r'KẾ HOẠCH ĐIỀU ĐỘNG TÀU NGÀY\s+(\d{2}/\d{2}/\d{4})',pilot.probe.plain(raw.decode('utf8')))

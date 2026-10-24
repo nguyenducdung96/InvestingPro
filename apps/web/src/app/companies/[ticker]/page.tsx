@@ -15,7 +15,7 @@ export default async function Page({
   return (
     <>
     <CompanyPortScope ticker={ticker}/>
-    {(ticker==='PHP'||ticker==='DVP')&&<PhpPlans query={query} ticker={ticker}/>}
+    {(ticker==='PHP'||ticker==='DVP'||ticker==='VGR'||ticker==='VSC')&&<PhpPlans query={query} ticker={ticker}/>}
     {ticker==='PHP'&&<PhpThroughput query={query}/>}
     <CompanyPage
       keyValue={ticker}

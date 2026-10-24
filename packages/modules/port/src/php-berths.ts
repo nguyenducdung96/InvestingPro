@@ -14,11 +14,13 @@ export const isPhpPlanScope=(value:string):value is PhpPlanScope=>Object.hasOwn(
 // schedule rows, not unique vessels or confirmed port calls. Keep all four heads
 // on the same source revision; a missing berth must never become a silent zero.
 export function aggregatePhpPlanDays(groups:Partial<Record<PhpBerth,TanVuPlanDay[]>>):TanVuPlanDay[]{
- const assets=Object.keys(phpBerths) as PhpBerth[];
+ return aggregateBerthPlanDays(groups,Object.keys(phpBerths),'PHP');
+}
+export function aggregateBerthPlanDays(groups:Record<string,TanVuPlanDay[]|undefined>,assets:string[],scope:string):TanVuPlanDay[]{
  const maps=assets.map(asset=>{
   const entries=groups[asset]??[];
   const map=new Map(entries.map(d=>[d.report_day,d]));
-  if(map.size!==entries.length)throw new Error('Duplicate PHP berth/day');
+  if(map.size!==entries.length)throw new Error(`Duplicate ${scope} berth/day`);
   return map;
  });
  const dates=[...new Set(maps.flatMap(m=>[...m.keys()]))].sort();
@@ -30,7 +32,7 @@ export function aggregatePhpPlanDays(groups:Partial<Record<PhpBerth,TanVuPlanDay
   const sum=(key:'arrival_rows'|'departure_rows'|'arrival_dwt'|'departure_dwt'|'arrival_dwt_missing'|'departure_dwt_missing'|'ambiguous_groups')=>complete&&present.every(d=>d[key]!==null)?present.reduce((n,d)=>n+d[key]!,0):null;
   return {report_day,version_id:complete?present.map(d=>d.version_id).join(':'):null,source_sha256:complete?present[0].source_sha256:null,source_url:null,parser_version:null,
    last_attempt:present.map(d=>d.last_attempt).sort()[0],last_success:complete?present.map(d=>d.last_success).filter((s):s is string=>!!s).sort()[0]??null:null,
-   source_error:!complete?'Incomplete PHP daily coverage':present.find(d=>d.source_error)?.source_error??null,
+   source_error:!complete?`Incomplete ${scope} daily coverage`:present.find(d=>d.source_error)?.source_error??null,
    arrival_rows:sum('arrival_rows'),departure_rows:sum('departure_rows'),arrival_dwt:sum('arrival_dwt'),departure_dwt:sum('departure_dwt'),arrival_dwt_missing:sum('arrival_dwt_missing'),departure_dwt_missing:sum('departure_dwt_missing'),ambiguous_groups:sum('ambiguous_groups'),source_empty_sections:[]};
  });
 }

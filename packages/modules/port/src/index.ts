@@ -139,9 +139,11 @@ export function effectiveAt(from: string, to: string | null, at: string) {
 }
 export {isBerthCallSource,splitCallMovements} from './call-movements';
 export {throughputSeries, type ThroughputFact} from './throughput';
-export {phpBerths,phpPlanScopes,isPhpPlanScope,aggregatePhpPlanDays,type PhpPlanScope,isPhpBerth,phpPlanSeries,type PhpBerth,phpThroughputScopes,isPhpThroughputScope,type PhpThroughputScope} from './php-berths';
+export {phpBerths,phpPlanScopes,isPhpPlanScope,aggregatePhpPlanDays,aggregateBerthPlanDays,type PhpPlanScope,isPhpBerth,phpPlanSeries,type PhpBerth,phpThroughputScopes,isPhpThroughputScope,type PhpThroughputScope} from './php-berths';
 export {tanvuPlanSeries,validPlanDate,type TanVuPlanDay,type TanVuPlanRun,type TanVuPlanEvents} from './tanvu-plans';
 
 export * from './company-berths';
 
 export * from './dvp-plans';
+
+export * from './vsc-plans';

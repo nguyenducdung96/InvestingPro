@@ -1,0 +1,71 @@
+{
+  "observed_on": "2026-10-24",
+  "basis": "Current official HTML extraction snapshot plus previously reviewed 2025 annual PDF; no legal effective dates",
+  "web_evidence_path": ".local\\vsc-plans\\mapping\\web-retrieval.json",
+  "web_evidence_sha256": "685fc4fd0944574fc2d8d7e9614dba4cea48fa82665fc1aaa9e71792e006d4c2",
+  "annual_pdf_sha256": "4bd4f0da1db1c203065c5a7864d4c9d13dd5ed25639dd224f369822b3fc3bbc4",
+  "VSC": [
+    {
+      "asset_code": "green_port",
+      "name": "Greenport",
+      "alias": "GREEN PORT",
+      "relationship": "via_member_company",
+      "operator": "Công ty TNHH MTV Dịch vụ Cảng Xanh",
+      "source_url": "https://greenport.com.vn/",
+      "source_note": "Website Greenport xác nhận pháp nhân khai thác; website Viconship liệt kê đơn vị thành viên. Không suy tỷ lệ hoặc ngày hiệu lực từ tên.",
+      "source_sha256": "685fc4fd0944574fc2d8d7e9614dba4cea48fa82665fc1aaa9e71792e006d4c2",
+      "effective_from": null,
+      "effective_to": null
+    },
+    {
+      "asset_code": "vip_green_port",
+      "name": "VIP Greenport",
+      "alias": "VIP GREEN PORT",
+      "relationship": "via_member_company",
+      "operator": "Công ty Cổ phần Cảng Xanh VIP",
+      "source_url": "https://viconship.com/wp-content/uploads/2026/04/CBTT-Bao-cao-thuong-nien-nam-2025.pdf",
+      "source_note": "Quan hệ qua Cảng Xanh VIP theo báo cáo 2025; nguồn lịch chung với VGR. Không phải VSC khai thác trực tiếp và không nhân DWT theo tỷ lệ vốn.",
+      "source_sha256": "4bd4f0da1db1c203065c5a7864d4c9d13dd5ed25639dd224f369822b3fc3bbc4",
+      "effective_from": null,
+      "effective_to": null
+    },
+    {
+      "asset_code": "nam_hai_dinh_vu",
+      "name": "Nam Hải Đình Vũ",
+      "alias": "NAM HAI DINH VU",
+      "relationship": "via_member_company",
+      "operator": "Công ty TNHH Cảng Nam Hải Đình Vũ",
+      "source_url": "https://viconship.com/wp-content/uploads/2026/04/CBTT-Bao-cao-thuong-nien-nam-2025.pdf",
+      "source_note": "Quan hệ qua pháp nhân theo báo cáo 2025. Không gồm Nam Hải hoặc Nam Đình Vũ; không suy ngày hiệu lực hay tỷ lệ sở hữu bến.",
+      "source_sha256": "4bd4f0da1db1c203065c5a7864d4c9d13dd5ed25639dd224f369822b3fc3bbc4",
+      "effective_from": null,
+      "effective_to": null
+    },
+    {
+      "asset_code": "vimc_dinh_vu",
+      "name": "VIMC Đình Vũ",
+      "alias": "VIMC",
+      "relationship": "shareholder_related",
+      "operator": "Công ty Cổ phần Cảng VIMC Đình Vũ",
+      "source_url": "https://vimcdinhvu.com.vn/gioi-thieu-ve-chung-toi-a75.html",
+      "source_note": "Trang giới thiệu chính thức nêu Viconship là cổ đông lớn. Đây là quan hệ cổ đông, không xác nhận công ty con, tỷ lệ vốn hoặc hiệu lực lịch sử.",
+      "source_sha256": "685fc4fd0944574fc2d8d7e9614dba4cea48fa82665fc1aaa9e71792e006d4c2",
+      "effective_from": null,
+      "effective_to": null
+    }
+  ],
+  "VGR": [
+    {
+      "asset_code": "vip_green_port",
+      "name": "VIP Greenport",
+      "alias": "VIP GREEN PORT",
+      "relationship": "operator",
+      "operator": "Công ty Cổ phần Cảng Xanh VIP",
+      "source_url": "https://vipgreenport.com.vn/index.php/sgioi-thieu/gioi-thieu-ve-cong-ty",
+      "source_note": "Website doanh nghiệp xác nhận Công ty Cổ phần Cảng Xanh VIP khai thác VIP Greenport; dữ liệu lịch theo toàn bến, không chia giả hai cầu.",
+      "source_sha256": "685fc4fd0944574fc2d8d7e9614dba4cea48fa82665fc1aaa9e71792e006d4c2",
+      "effective_from": null,
+      "effective_to": null
+    }
+  ]
+}

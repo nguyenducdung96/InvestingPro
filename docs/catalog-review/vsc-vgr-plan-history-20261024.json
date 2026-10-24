@@ -1,0 +1,4028 @@
+{
+  "checked_at": "2026-10-24T11:05:46.124941+00:00",
+  "semantics": "authority_published_plan",
+  "actual_verified": false,
+  "through": "2026-10-23",
+  "first_day": "2025-01-01",
+  "assets": [
+    {
+      "asset": "green_port",
+      "days": 661,
+      "events": 787,
+      "by_direction": {
+        "departure": 391,
+        "arrival": 396
+      },
+      "missing_dwt": 0,
+      "ambiguous_groups": 0
+    },
+    {
+      "asset": "vip_green_port",
+      "days": 661,
+      "events": 1409,
+      "by_direction": {
+        "arrival": 702,
+        "departure": 707
+      },
+      "missing_dwt": 0,
+      "ambiguous_groups": 0
+    },
+    {
+      "asset": "nam_hai_dinh_vu",
+      "days": 661,
+      "events": 1217,
+      "by_direction": {
+        "departure": 612,
+        "arrival": 605
+      },
+      "missing_dwt": 0,
+      "ambiguous_groups": 0
+    },
+    {
+      "asset": "vimc_dinh_vu",
+      "days": 661,
+      "events": 904,
+      "by_direction": {
+        "arrival": 464,
+        "departure": 440
+      },
+      "missing_dwt": 0,
+      "ambiguous_groups": 0
+    }
+  ],
+  "physical_assets_stored": 4,
+  "issuer_views": [
+    "VGR",
+    "VSC"
+  ],
+  "VIP_shared": true,
+  "raw_archive": ".local/vsc-plans/raw/{sha256}.html.gz",
+  "days": [
+    {
+      "day": "2025-01-01",
+      "sha256": "56a3d6b03f339600496fc5b4ea0b994ea12da84fc265cde30d72bc9eeba60b4c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-661",
+      "fetched_at": "2026-10-24T07:39:25.982431+00:00"
+    },
+    {
+      "day": "2025-01-02",
+      "sha256": "b194a6f6190c870b8eb2d04951122d261ae8ac330282a639a479d3547ec0d59b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-660",
+      "fetched_at": "2026-10-24T07:39:25.982677+00:00"
+    },
+    {
+      "day": "2025-01-03",
+      "sha256": "fa0018bd55792d8ea72334a03f2e171c9d5100995fd7bd614871b6748d83e26e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-659",
+      "fetched_at": "2026-10-24T07:39:26.046866+00:00"
+    },
+    {
+      "day": "2025-01-04",
+      "sha256": "0067e439969aecf66b0b052030d81d97b9980166256cdbfa2a379b8972663eae",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-658",
+      "fetched_at": "2026-10-24T07:39:26.033806+00:00"
+    },
+    {
+      "day": "2025-01-05",
+      "sha256": "f1b28a2467bce6ed20a79985b9cc25027475948f3e056605a258dd8f8c9ab69c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-657",
+      "fetched_at": "2026-10-24T07:39:26.097461+00:00"
+    },
+    {
+      "day": "2025-01-06",
+      "sha256": "7ade7bc0f0c957524ff7b3c4e001ab673023f16f306762c394ae72bfa67110df",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-656",
+      "fetched_at": "2026-10-24T07:39:26.109186+00:00"
+    },
+    {
+      "day": "2025-01-07",
+      "sha256": "37604a43b2102e39d7524e8cb08e85e9bfe9037be4aaac322e57c76a4db4746f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-655",
+      "fetched_at": "2026-10-24T07:39:26.150561+00:00"
+    },
+    {
+      "day": "2025-01-08",
+      "sha256": "05f7118b84b8cb1763cd3f3fd7c7d4812cf707d2e12f2fcffc9ca3eaec70a538",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-654",
+      "fetched_at": "2026-10-24T07:39:26.161098+00:00"
+    },
+    {
+      "day": "2025-01-09",
+      "sha256": "a7b8d2c2407015b23109425e7642135484427445d71ffeac6bbcfae38c79abb6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-653",
+      "fetched_at": "2026-10-24T07:39:26.193924+00:00"
+    },
+    {
+      "day": "2025-01-10",
+      "sha256": "ca3e913a9bdf969597ef62be05842bbeb159c9e58a32e0bce221a4ee984e60c7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-652",
+      "fetched_at": "2026-10-24T07:39:26.200418+00:00"
+    },
+    {
+      "day": "2025-01-11",
+      "sha256": "5dacc93731ca8feac1f8301d269fc39817378676b09fcfe6deab86101dc1585e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-651",
+      "fetched_at": "2026-10-24T07:39:26.234876+00:00"
+    },
+    {
+      "day": "2025-01-12",
+      "sha256": "468b8b853beff70624e9586f1cbb8b870f69f3b4d9c06d58603c1fb0575efc31",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-650",
+      "fetched_at": "2026-10-24T07:39:26.240802+00:00"
+    },
+    {
+      "day": "2025-01-13",
+      "sha256": "ec17d8568aa7efddfc0b78cb38689ac7217a240d234a5699cc795aac4b463165",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-649",
+      "fetched_at": "2026-10-24T07:39:26.262386+00:00"
+    },
+    {
+      "day": "2025-01-14",
+      "sha256": "2722839c8432e5d5676dacc812b4beb1191945bd3fb8f7a31f509b9585476956",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-648",
+      "fetched_at": "2026-10-24T07:39:26.272751+00:00"
+    },
+    {
+      "day": "2025-01-15",
+      "sha256": "fe325b36477a81a98d00ab1093b4259d4bd99d6ec96eb51a7d2e5284ed115d57",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-647",
+      "fetched_at": "2026-10-24T07:39:26.308553+00:00"
+    },
+    {
+      "day": "2025-01-16",
+      "sha256": "0b7d3cbacac7123cb9eac556bf2c0b71b97b3b46c6f8cfd9933d2c0dd1bfdffa",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-646",
+      "fetched_at": "2026-10-24T07:39:26.315710+00:00"
+    },
+    {
+      "day": "2025-01-17",
+      "sha256": "4eebc4836a3eaf06c266fa7f62c436a29c943a920964e563edf55b0b0e11c87f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-645",
+      "fetched_at": "2026-10-24T07:39:26.353886+00:00"
+    },
+    {
+      "day": "2025-01-18",
+      "sha256": "21f81851a3214df359f879544126a65a2f880732364560d9dc93b0c6076c96b5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-644",
+      "fetched_at": "2026-10-24T07:39:26.361505+00:00"
+    },
+    {
+      "day": "2025-01-19",
+      "sha256": "5a5489502b6951194753108cb4e607f221b88541641dd242f4f78df6a108ec00",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-643",
+      "fetched_at": "2026-10-24T07:39:26.399839+00:00"
+    },
+    {
+      "day": "2025-01-20",
+      "sha256": "ed449e739d5388917123d4ed83844bacd0ddc9f93544bc5150090d6dd66b42b2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-642",
+      "fetched_at": "2026-10-24T07:39:26.409548+00:00"
+    },
+    {
+      "day": "2025-01-21",
+      "sha256": "5722aaf7f9f1fdb5c89da134ab324a3ca47f0874967175d8efc732c8366714d8",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-641",
+      "fetched_at": "2026-10-24T07:39:26.447209+00:00"
+    },
+    {
+      "day": "2025-01-22",
+      "sha256": "d8c613f40f7bbae6e850353c67a7cfa68cf40060333059f25cef4a3cc7001b39",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-640",
+      "fetched_at": "2026-10-24T07:39:26.461094+00:00"
+    },
+    {
+      "day": "2025-01-23",
+      "sha256": "246aaf360cf977b22be123f63b31226e8ecc0499a9abef9d852ed83ed0034179",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-639",
+      "fetched_at": "2026-10-24T07:39:26.495179+00:00"
+    },
+    {
+      "day": "2025-01-24",
+      "sha256": "8bb037216f0168dc181577d7f2995b3b697acf1ae32c9596b9bc70ea0616ad63",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-638",
+      "fetched_at": "2026-10-24T07:39:26.508423+00:00"
+    },
+    {
+      "day": "2025-01-25",
+      "sha256": "f881f63a71c8f6e4733616458c92ebff4ab6c26715817ecd2a793fa6e78c7fd2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-637",
+      "fetched_at": "2026-10-24T07:39:26.535622+00:00"
+    },
+    {
+      "day": "2025-01-26",
+      "sha256": "06caea039474d49262309746de1d601b4651778c8eef278c70fabf3b0c433e50",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-636",
+      "fetched_at": "2026-10-24T07:39:26.543760+00:00"
+    },
+    {
+      "day": "2025-01-27",
+      "sha256": "1cca4e1501198da15ba3ba6cb0368c1980c392ea5a661ef7347ebb086b8d60eb",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-635",
+      "fetched_at": "2026-10-24T07:39:26.566343+00:00"
+    },
+    {
+      "day": "2025-01-28",
+      "sha256": "06fe45c32680f8ca33d2ee58af814dade3afc27370106004acabff318a4ebb6c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-634",
+      "fetched_at": "2026-10-24T07:39:26.570165+00:00"
+    },
+    {
+      "day": "2025-01-29",
+      "sha256": "a9a204caa4d88750496ca229655de646d0f88fc43d970453cdbc6cb1801f4f44",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-633",
+      "fetched_at": "2026-10-24T07:39:26.589468+00:00"
+    },
+    {
+      "day": "2025-01-30",
+      "sha256": "527f625cbea47efadf1ded4650a82aa97b2edf76c792f481010e6ba69d9d0316",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-632",
+      "fetched_at": "2026-10-24T07:39:26.599954+00:00"
+    },
+    {
+      "day": "2025-01-31",
+      "sha256": "6aae17f3fc1267db498da9538b8f2470e0383962f2f4bb4f68d617afe22d3242",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-631",
+      "fetched_at": "2026-10-24T07:39:26.623614+00:00"
+    },
+    {
+      "day": "2025-02-01",
+      "sha256": "ff3da9e834232d1ef92003df860e174e10ea50b4ea2008d1247166bd2a3a76ea",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-630",
+      "fetched_at": "2026-10-24T07:39:26.632217+00:00"
+    },
+    {
+      "day": "2025-02-02",
+      "sha256": "e12b6dc052e779b9cf3e82b28335c8dfc612d3f3e684e3d0de7e7f6b27deffde",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-629",
+      "fetched_at": "2026-10-24T07:39:26.658162+00:00"
+    },
+    {
+      "day": "2025-02-03",
+      "sha256": "6f38c0404ed1c944196457d1d0df5cc8e4f01a37d0d6f6ccc4669ffb11cc79cf",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-628",
+      "fetched_at": "2026-10-24T07:39:26.670379+00:00"
+    },
+    {
+      "day": "2025-02-04",
+      "sha256": "8c69bfd6bb9db8a11f7136c38c36a48d3a4b68f47bb686f5587625cec9ac0377",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-627",
+      "fetched_at": "2026-10-24T07:39:26.699600+00:00"
+    },
+    {
+      "day": "2025-02-05",
+      "sha256": "64f7d84918e21688622a05fdebdce1c15f2d63c0d916f3536152a47fc52a0fa3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-626",
+      "fetched_at": "2026-10-24T07:39:26.712699+00:00"
+    },
+    {
+      "day": "2025-02-06",
+      "sha256": "1dec8b91300bbb6c05f82e7b588a8589e75bf098427d7581c09148bd57a52f19",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-625",
+      "fetched_at": "2026-10-24T07:39:26.738996+00:00"
+    },
+    {
+      "day": "2025-02-07",
+      "sha256": "9da11c4bd92c422f5170d8dcd2a97484514f21df56c86641bb033c56f905efd3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-624",
+      "fetched_at": "2026-10-24T07:39:26.762617+00:00"
+    },
+    {
+      "day": "2025-02-08",
+      "sha256": "67829f97767b35b6230ebd12c75424dbbf68db83058219177e68ca86f603da52",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-623",
+      "fetched_at": "2026-10-24T07:39:26.776351+00:00"
+    },
+    {
+      "day": "2025-02-09",
+      "sha256": "0379bfc8a5e35a8f4dedf959ded59ae055111d7afc4b70ca6bc4c054be26c6b3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-622",
+      "fetched_at": "2026-10-24T07:39:26.798816+00:00"
+    },
+    {
+      "day": "2025-02-10",
+      "sha256": "b913747090c75ea8bcd6fce235da3a9a8573ea49dedca30f37d080ada1de2273",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-621",
+      "fetched_at": "2026-10-24T07:39:26.816338+00:00"
+    },
+    {
+      "day": "2025-02-11",
+      "sha256": "12827459ac1a3668a867afeedfbf32d9db71d49b72b122dd92d77b90acb38ce4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-620",
+      "fetched_at": "2026-10-24T07:39:26.851119+00:00"
+    },
+    {
+      "day": "2025-02-12",
+      "sha256": "240dc96896b124116105c56552675376c3ae0bc558b0898292b859ff704667fd",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-619",
+      "fetched_at": "2026-10-24T07:39:26.875585+00:00"
+    },
+    {
+      "day": "2025-02-13",
+      "sha256": "446f1810947471d6e8ff078333f56ec519ddd3d278d1523979a6d120b3c18c65",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-618",
+      "fetched_at": "2026-10-24T07:39:26.903417+00:00"
+    },
+    {
+      "day": "2025-02-14",
+      "sha256": "89a8a91f09a4408a0fe28b408ae59de5f16c46cf8adb2a57648950f43632c179",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-617",
+      "fetched_at": "2026-10-24T07:39:26.929809+00:00"
+    },
+    {
+      "day": "2025-02-15",
+      "sha256": "62ea7a3449a468d2193bf1dd85575855a501a5b7ead3686c70ef36ea7637e2c0",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-616",
+      "fetched_at": "2026-10-24T07:39:26.953591+00:00"
+    },
+    {
+      "day": "2025-02-16",
+      "sha256": "db3fb8d82d9d5a857b4a244a119dff4502202531e427f8cdd864516344eac2c1",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-615",
+      "fetched_at": "2026-10-24T07:39:26.968217+00:00"
+    },
+    {
+      "day": "2025-02-17",
+      "sha256": "79fcb9e926fd62467bf148576d879df28b219c3123d39be89a73217f38f9eadb",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-614",
+      "fetched_at": "2026-10-24T07:39:26.987797+00:00"
+    },
+    {
+      "day": "2025-02-18",
+      "sha256": "0f08bd833de4833c80e2bbec053430e38cf8309ba9fd1c288f7d8c53aaeb6e99",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-613",
+      "fetched_at": "2026-10-24T07:39:27.007626+00:00"
+    },
+    {
+      "day": "2025-02-19",
+      "sha256": "b14752d61b90c04cd4740709c9e613ed421dc7fc471b15385638a4bf84835d2b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-612",
+      "fetched_at": "2026-10-24T07:39:27.035262+00:00"
+    },
+    {
+      "day": "2025-02-20",
+      "sha256": "8c80eea114de03b5399c22d5e9673550518cca0fff0cb93bffda4096e530fccd",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-611",
+      "fetched_at": "2026-10-24T07:39:27.058158+00:00"
+    },
+    {
+      "day": "2025-02-21",
+      "sha256": "2ecfca35522522a86b039099bf7eb3968ee11da31120b506d02e30ec84595f3b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-610",
+      "fetched_at": "2026-10-24T07:39:27.072911+00:00"
+    },
+    {
+      "day": "2025-02-22",
+      "sha256": "a8bcf1557a075e4cc9818f0d7be996b1df59d9dc85a74e0636175388855918ec",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-609",
+      "fetched_at": "2026-10-24T07:39:27.089177+00:00"
+    },
+    {
+      "day": "2025-02-23",
+      "sha256": "ea50856ae62265ef2b2e5a4ee9ab88b2026796075f790a7f9a887d7356149f16",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-608",
+      "fetched_at": "2026-10-24T07:39:27.108490+00:00"
+    },
+    {
+      "day": "2025-02-24",
+      "sha256": "2f56439f1ac57f2badbc205d9d754a9bba7e2827ef11a36cbd165396e348bd0a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-607",
+      "fetched_at": "2026-10-24T07:39:27.135262+00:00"
+    },
+    {
+      "day": "2025-02-25",
+      "sha256": "a5030d18ce598950ab5767cf6d9a819eb84ac89c81be0e6ee369cc73cd3dd8f4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-606",
+      "fetched_at": "2026-10-24T07:39:27.150634+00:00"
+    },
+    {
+      "day": "2025-02-26",
+      "sha256": "85589bd633d7d2115643e9fad0a47a3b285eeb682976e3b76fd495ebdc075cd4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-605",
+      "fetched_at": "2026-10-24T07:39:27.176343+00:00"
+    },
+    {
+      "day": "2025-02-27",
+      "sha256": "386ec7c596c06848493f6f673e94c4bb218aa4fd8134e94a7fc08abb5787a533",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-604",
+      "fetched_at": "2026-10-24T07:39:27.193230+00:00"
+    },
+    {
+      "day": "2025-02-28",
+      "sha256": "e77de0a32d6fa0ae6ea45bbe769cd40cde1144ef764c6a253509af4ff04b1cef",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-603",
+      "fetched_at": "2026-10-24T07:39:27.220135+00:00"
+    },
+    {
+      "day": "2025-03-01",
+      "sha256": "edcdad44f1a75c4235c079c0410f470a3712885a3e23b0eac0a65823f41934a6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-602",
+      "fetched_at": "2026-10-24T07:39:27.243584+00:00"
+    },
+    {
+      "day": "2025-03-02",
+      "sha256": "72d014fbb572076d79abece299a0cd0c925e606406e7f0ce017de5a9ef859d4c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-601",
+      "fetched_at": "2026-10-24T07:39:27.269072+00:00"
+    },
+    {
+      "day": "2025-03-03",
+      "sha256": "c3660740ced422a45804d553d313f26e55e621566f8bdcb9bc70653be17aadb7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-600",
+      "fetched_at": "2026-10-24T07:39:27.292983+00:00"
+    },
+    {
+      "day": "2025-03-04",
+      "sha256": "151eedbb467428abdde8f5e5413cff5e0bc2f61ec30c9f983416abb13c5bb415",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-599",
+      "fetched_at": "2026-10-24T07:39:27.320302+00:00"
+    },
+    {
+      "day": "2025-03-05",
+      "sha256": "5f8e918059cd728204d88b19a5ffec394801ee16f25aeb1ac7a0c2300ce81534",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-598",
+      "fetched_at": "2026-10-24T07:39:27.342410+00:00"
+    },
+    {
+      "day": "2025-03-06",
+      "sha256": "cb8563e2a53dac5c5a852afda4376c9a2226b8efaf23dd69833898a7ec9cf5ab",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-597",
+      "fetched_at": "2026-10-24T07:39:27.358995+00:00"
+    },
+    {
+      "day": "2025-03-07",
+      "sha256": "9e00ed44aec2a35e19e7c64c6321510cdd5357095b7ac18fc7cbcba84dc32217",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-596",
+      "fetched_at": "2026-10-24T07:39:27.377801+00:00"
+    },
+    {
+      "day": "2025-03-08",
+      "sha256": "8fc18b60f218521e1c1a527efadb6b26795eb9cdd9a67241b1054e7c89f267f3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-595",
+      "fetched_at": "2026-10-24T07:39:27.400253+00:00"
+    },
+    {
+      "day": "2025-03-09",
+      "sha256": "3d301912209a9f5602d3da7b1073c377f09849199affb9b4731bf0c1e2c935cc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-594",
+      "fetched_at": "2026-10-24T07:39:27.418255+00:00"
+    },
+    {
+      "day": "2025-03-10",
+      "sha256": "06f7f954285b72a05689500b245858fc33c8bf0b5467537ebe305a9ac4332666",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-593",
+      "fetched_at": "2026-10-24T07:39:27.445294+00:00"
+    },
+    {
+      "day": "2025-03-11",
+      "sha256": "ec9f601c997cbb766f1dc5b9b88c6801aa6acddba35efa3ace5bf4da33fc756d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-592",
+      "fetched_at": "2026-10-24T07:39:27.463720+00:00"
+    },
+    {
+      "day": "2025-03-12",
+      "sha256": "2e711a19a6584cae639e89a19ca6388bc123499b087053345ada2ac278a789ab",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-591",
+      "fetched_at": "2026-10-24T07:39:27.488203+00:00"
+    },
+    {
+      "day": "2025-03-13",
+      "sha256": "3dbad2f18a9a0e228a451099b33732129d1171fa66bee49df2de8ba49a6d28c0",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-590",
+      "fetched_at": "2026-10-24T07:39:27.518436+00:00"
+    },
+    {
+      "day": "2025-03-14",
+      "sha256": "09f8bf0a4aa7bbad8658d1e4300191b36285b573741d2adc418110d6200f4695",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-589",
+      "fetched_at": "2026-10-24T07:39:27.533568+00:00"
+    },
+    {
+      "day": "2025-03-15",
+      "sha256": "083bd7179804dddf64b872ac81cec1a899d238660303cd977eeae9e76acb0a2d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-588",
+      "fetched_at": "2026-10-24T07:39:27.558387+00:00"
+    },
+    {
+      "day": "2025-03-16",
+      "sha256": "d9e7b56945668a3f6faf4c224e68957e9cf30fcfeed846806a9c399551610cb8",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-587",
+      "fetched_at": "2026-10-24T07:39:27.579507+00:00"
+    },
+    {
+      "day": "2025-03-17",
+      "sha256": "d63131543e9719881e84361e2571e59a13020cb8160ad329ef6482be31c555e5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-586",
+      "fetched_at": "2026-10-24T07:39:27.602123+00:00"
+    },
+    {
+      "day": "2025-03-18",
+      "sha256": "f471f4d355acea034bd78b7ab3e5c1b526a908e1f4f0e1b94e8d6f8ff82afcf8",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-585",
+      "fetched_at": "2026-10-24T07:39:27.626608+00:00"
+    },
+    {
+      "day": "2025-03-19",
+      "sha256": "33b7bb931d4bc6ae388843352d5fd6535758cd304fde23d479008822b1191a1f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-584",
+      "fetched_at": "2026-10-24T07:39:27.650397+00:00"
+    },
+    {
+      "day": "2025-03-20",
+      "sha256": "45468bc4e1d59a50434ab317b25f7be38df49441118a33716f756741cb7c3626",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-583",
+      "fetched_at": "2026-10-24T07:39:27.673143+00:00"
+    },
+    {
+      "day": "2025-03-21",
+      "sha256": "ef3ef9d7156437ec10f965010659ce073a0c1cf27b07c711ac2eefd59bb6fe54",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-582",
+      "fetched_at": "2026-10-24T07:39:27.694540+00:00"
+    },
+    {
+      "day": "2025-03-22",
+      "sha256": "e94e781eb97c466ffd766830afad09f18de6051dc3ae53fb11fb72ac5ba255d3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-581",
+      "fetched_at": "2026-10-24T07:39:27.710103+00:00"
+    },
+    {
+      "day": "2025-03-23",
+      "sha256": "570fb88882c1ece5a8b77c745ba38e167e6ebaf572eef00b427cc106cff8753f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-580",
+      "fetched_at": "2026-10-24T07:39:27.734829+00:00"
+    },
+    {
+      "day": "2025-03-24",
+      "sha256": "dca74ee46e4de99c7c58fa93720db8ec17fe3efaa66d5732323703685e45b119",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-579",
+      "fetched_at": "2026-10-24T07:39:27.758375+00:00"
+    },
+    {
+      "day": "2025-03-25",
+      "sha256": "4f62699aec3b4723f793044230dc992d11f7f9050077f4b565e7ca8ac67a967b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-578",
+      "fetched_at": "2026-10-24T07:39:27.783223+00:00"
+    },
+    {
+      "day": "2025-03-26",
+      "sha256": "b73a7fabf0e60058b9c51d1d9dc14da48d20081ea92a1cdb88e8fa525ab28141",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-577",
+      "fetched_at": "2026-10-24T07:39:27.800457+00:00"
+    },
+    {
+      "day": "2025-03-27",
+      "sha256": "86311d1ad26455aa89917fef2077d32f0151b75b133bce0995d8dac1c59f31b2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-576",
+      "fetched_at": "2026-10-24T07:39:27.824064+00:00"
+    },
+    {
+      "day": "2025-03-28",
+      "sha256": "b4bb8655e386349e9a4ec58802531c5e1796401bc9a1b30f8886912967720346",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-575",
+      "fetched_at": "2026-10-24T07:39:27.846551+00:00"
+    },
+    {
+      "day": "2025-03-29",
+      "sha256": "27c67a944c673963a68d29c5effc79a7ffe8fce2a4db0bc911955706e4901811",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-574",
+      "fetched_at": "2026-10-24T07:39:27.864940+00:00"
+    },
+    {
+      "day": "2025-03-30",
+      "sha256": "b2fdc8bb3e8795176ebc8ca1fd0b76d8c84a7a4be392019678baae0b9e17811e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-573",
+      "fetched_at": "2026-10-24T07:39:27.889707+00:00"
+    },
+    {
+      "day": "2025-03-31",
+      "sha256": "e2efb06e17b22dd2a4f6fe40f7124310902d0ebe3bcfd5263dae906c33bae7da",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-572",
+      "fetched_at": "2026-10-24T07:39:27.915724+00:00"
+    },
+    {
+      "day": "2025-04-01",
+      "sha256": "a0997acd4a19dd770fbbb9526094767d8f6b20cd1e3945abd845effc52950c26",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-571",
+      "fetched_at": "2026-10-24T07:39:27.938313+00:00"
+    },
+    {
+      "day": "2025-04-02",
+      "sha256": "7f90b4f4554a06a43fc331edc075a1c76e761546e2fe9d0658e430f45d1832a8",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-570",
+      "fetched_at": "2026-10-24T07:39:27.957298+00:00"
+    },
+    {
+      "day": "2025-04-03",
+      "sha256": "1372815234601727742c82674f902d0f9321de41d6a77b408bd9055e88e220f9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-569",
+      "fetched_at": "2026-10-24T07:39:27.978493+00:00"
+    },
+    {
+      "day": "2025-04-04",
+      "sha256": "03f0915933906eba72488bebd025d0f97664f28ff050855e3d54cbf8b541112f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-568",
+      "fetched_at": "2026-10-24T07:39:28.002526+00:00"
+    },
+    {
+      "day": "2025-04-05",
+      "sha256": "b0bdc9028575a801dd341dad6602b769b23d84d4c29c875817c95365d2652bf2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-567",
+      "fetched_at": "2026-10-24T07:39:28.027375+00:00"
+    },
+    {
+      "day": "2025-04-06",
+      "sha256": "650962a3f0732d02e23f62467deb9e0a3c92c61c253fcc940fdb3d6c2bc32b6f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-566",
+      "fetched_at": "2026-10-24T07:39:28.049520+00:00"
+    },
+    {
+      "day": "2025-04-07",
+      "sha256": "e3942513fc91a1d26e542395880ef8c8dfb027f0b3a4e15fda8cfbb008740459",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-565",
+      "fetched_at": "2026-10-24T07:39:28.070533+00:00"
+    },
+    {
+      "day": "2025-04-08",
+      "sha256": "8b206ea8bc6cad1d40b3a406ca7eef95f9dc094c3343298af9e536aab8cc2ced",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-564",
+      "fetched_at": "2026-10-24T07:39:28.091455+00:00"
+    },
+    {
+      "day": "2025-04-09",
+      "sha256": "102e37a0f212f988ba47c1728c7464f86fd429e3098588ccd7ab6c4c892d54a9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-563",
+      "fetched_at": "2026-10-24T07:39:28.116850+00:00"
+    },
+    {
+      "day": "2025-04-10",
+      "sha256": "dbc250bace5022b6c12b48744622d54cdda651526ad29eb5f2376090e1440bf1",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-562",
+      "fetched_at": "2026-10-24T07:39:28.141338+00:00"
+    },
+    {
+      "day": "2025-04-11",
+      "sha256": "a0bc0d4bf100bae209fc543c95238d92a9a369bd5f262cac46bdb7a5048e287f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-561",
+      "fetched_at": "2026-10-24T07:39:28.165079+00:00"
+    },
+    {
+      "day": "2025-04-12",
+      "sha256": "ffea53fe8f924a8bcf072c498315ee6bdf8478a9761a670d35178fa9b54fa5b0",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-560",
+      "fetched_at": "2026-10-24T07:39:28.189691+00:00"
+    },
+    {
+      "day": "2025-04-13",
+      "sha256": "590e69743757a62e06f2f7871a0763f4819768903aebc49a7ef332664a4e60e9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-559",
+      "fetched_at": "2026-10-24T07:39:28.216720+00:00"
+    },
+    {
+      "day": "2025-04-14",
+      "sha256": "06c66c5e2649468e636902b893e9d8f57d77d3dcb22a4a250243a64b14c431b6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-558",
+      "fetched_at": "2026-10-24T07:39:28.248554+00:00"
+    },
+    {
+      "day": "2025-04-15",
+      "sha256": "2268f32716c9bbf2506f35af03c01d21adf453177366083fd02508bac39eb83c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-557",
+      "fetched_at": "2026-10-24T07:39:28.275864+00:00"
+    },
+    {
+      "day": "2025-04-16",
+      "sha256": "229a86230239b32e83e98a1b4899fa29db73da20cc06e6ff8dabafa52bcf8a3c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-556",
+      "fetched_at": "2026-10-24T07:39:28.298569+00:00"
+    },
+    {
+      "day": "2025-04-17",
+      "sha256": "0276477cd60613ef1a3b58917cd8df3efade1c2023690325dfdcdf18312ebf40",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-555",
+      "fetched_at": "2026-10-24T07:39:28.322080+00:00"
+    },
+    {
+      "day": "2025-04-18",
+      "sha256": "26296262ccad62604f2fbf91865a4157124c18d918e33218378ddf97362f3ddb",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-554",
+      "fetched_at": "2026-10-24T07:39:28.346340+00:00"
+    },
+    {
+      "day": "2025-04-19",
+      "sha256": "4afe19933e1d58bc018f2a755572e167c0c11ed4eb51110681d4d7a2c816e1bb",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-553",
+      "fetched_at": "2026-10-24T07:39:28.378755+00:00"
+    },
+    {
+      "day": "2025-04-20",
+      "sha256": "752e81048d187e34f93bbc2e79ada5d6eac8e9f74e6bc1a6bb3a0f20f44cb55d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-552",
+      "fetched_at": "2026-10-24T07:39:28.401839+00:00"
+    },
+    {
+      "day": "2025-04-21",
+      "sha256": "0de1587525b2921497c610149598a5ecb62c9251181b89a1b7e73a638588fbe9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-551",
+      "fetched_at": "2026-10-24T07:39:28.429733+00:00"
+    },
+    {
+      "day": "2025-04-22",
+      "sha256": "c3a128a054839fe1ce5dd9c481e7a9b31519f4c8be86d9686f15c40370fbd099",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-550",
+      "fetched_at": "2026-10-24T07:39:28.456288+00:00"
+    },
+    {
+      "day": "2025-04-23",
+      "sha256": "b028c10c3c9b18374410f0166dfe4091188a4566fcc37c4523eff5e499fc0160",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-549",
+      "fetched_at": "2026-10-24T07:39:28.483531+00:00"
+    },
+    {
+      "day": "2025-04-24",
+      "sha256": "f1439124eada641397210768af83adfae279cc0d0f9af5db86429b567bffd209",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-548",
+      "fetched_at": "2026-10-24T07:39:28.508221+00:00"
+    },
+    {
+      "day": "2025-04-25",
+      "sha256": "e68f50254ef6baf36e9ee542ade89b59aec25b6a19e98a4e9671671daba8326e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-547",
+      "fetched_at": "2026-10-24T07:39:28.524358+00:00"
+    },
+    {
+      "day": "2025-04-26",
+      "sha256": "ac8461dcda862e617b674082a8bec509ef72b06ba3949637a2d0c3aac07c64c0",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-546",
+      "fetched_at": "2026-10-24T07:39:28.557725+00:00"
+    },
+    {
+      "day": "2025-04-27",
+      "sha256": "9d2e9790e028ae79547a0c59cf7e02ae3d9dd333e44e3b210b8aeef89e062a4d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-545",
+      "fetched_at": "2026-10-24T07:39:28.579856+00:00"
+    },
+    {
+      "day": "2025-04-28",
+      "sha256": "5ce98ae6ea1ce0ccf6b434c3f2249f33220ff7cad052d454268e9f807e2bb6ef",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-544",
+      "fetched_at": "2026-10-24T07:39:28.606158+00:00"
+    },
+    {
+      "day": "2025-04-29",
+      "sha256": "dfd26503d3ba8b6e5bce8191934403e3ff1a435333591beacd494c7fb47d0809",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-543",
+      "fetched_at": "2026-10-24T07:39:28.637998+00:00"
+    },
+    {
+      "day": "2025-04-30",
+      "sha256": "10081433c02a6ac970942f1e717cc7d59e1ff65c3702c82edc99337968ddc5ba",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-542",
+      "fetched_at": "2026-10-24T07:39:28.654228+00:00"
+    },
+    {
+      "day": "2025-05-01",
+      "sha256": "fdc9d14c82c4c27cd7119317457b42212cf56beb4c997eaa40337704b5f84b01",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-541",
+      "fetched_at": "2026-10-24T07:39:28.679496+00:00"
+    },
+    {
+      "day": "2025-05-02",
+      "sha256": "584373233e91aae0e123be2ec26a6298d62dc613f2e93df6357f5a503946f230",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-540",
+      "fetched_at": "2026-10-24T07:39:28.702574+00:00"
+    },
+    {
+      "day": "2025-05-03",
+      "sha256": "6bdb2c6f668ceb39ed05856b4c149fa75e4365932eb98e6864c366974ff00000",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-539",
+      "fetched_at": "2026-10-24T07:39:28.726470+00:00"
+    },
+    {
+      "day": "2025-05-04",
+      "sha256": "efab6223f814ca59dc7b64a80ed8a23d4877d14518253603ab709dbfd1b1407b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-538",
+      "fetched_at": "2026-10-24T07:39:28.743923+00:00"
+    },
+    {
+      "day": "2025-05-05",
+      "sha256": "08aab3d6460b99e99e2ba444055e54e9c0b6dc3d11771054ae17c130f4a7bfae",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-537",
+      "fetched_at": "2026-10-24T07:39:28.771901+00:00"
+    },
+    {
+      "day": "2025-05-06",
+      "sha256": "d0e4aec68a2509e336314a4042e693eaf1b63010dc20be394963e19d10b15833",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-536",
+      "fetched_at": "2026-10-24T07:39:28.796147+00:00"
+    },
+    {
+      "day": "2025-05-07",
+      "sha256": "80d09e6020202d6d85b3b238ad709fef54daffc8755f367a5da1770a822268b6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-535",
+      "fetched_at": "2026-10-24T07:39:28.820251+00:00"
+    },
+    {
+      "day": "2025-05-08",
+      "sha256": "fc738d061f06b5288ea0f81b3d07e7a1324d26696d05e8e828abf7d936b7339b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-534",
+      "fetched_at": "2026-10-24T07:39:28.847068+00:00"
+    },
+    {
+      "day": "2025-05-09",
+      "sha256": "3de7d8a98b8713d82224da2ec2e88ae0c859acca3e78ef8b21344c8510c692e2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-533",
+      "fetched_at": "2026-10-24T07:39:28.876207+00:00"
+    },
+    {
+      "day": "2025-05-10",
+      "sha256": "eed54801149fab5f1d9da46edb4a37d9de12d0c87cb5947af6f1e8f2401cd589",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-532",
+      "fetched_at": "2026-10-24T07:39:28.898369+00:00"
+    },
+    {
+      "day": "2025-05-11",
+      "sha256": "002131ed1e8f6ecb5c0cdcad2c213417c5486713c62c39f69321a694a020f704",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-531",
+      "fetched_at": "2026-10-24T07:39:28.919370+00:00"
+    },
+    {
+      "day": "2025-05-12",
+      "sha256": "f640257f38aece8defdda9da8b377a42940a85ac31c7b00aa565e856a7574f48",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-530",
+      "fetched_at": "2026-10-24T07:39:28.945414+00:00"
+    },
+    {
+      "day": "2025-05-13",
+      "sha256": "ad003ed0dd48a6609b5f73642203eab88fe3918af0cb84fc76d9ded689ba5aca",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-529",
+      "fetched_at": "2026-10-24T07:39:28.972245+00:00"
+    },
+    {
+      "day": "2025-05-14",
+      "sha256": "dc9376ed2b0ed5e90df1b6d6f5252b7017909b1e499b705f01e41f3f20a211cc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-528",
+      "fetched_at": "2026-10-24T07:39:28.996952+00:00"
+    },
+    {
+      "day": "2025-05-15",
+      "sha256": "2aec8af81e54c964f61d595f1e2b33538d5e0b0b11be367eca9f69146b99b21b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-527",
+      "fetched_at": "2026-10-24T07:39:29.021039+00:00"
+    },
+    {
+      "day": "2025-05-16",
+      "sha256": "18dd2d3c81ce4700ce4bf9ce14f89d6caf65c48e6c8bfaf8c80764954d4f4892",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-526",
+      "fetched_at": "2026-10-24T07:39:29.048098+00:00"
+    },
+    {
+      "day": "2025-05-17",
+      "sha256": "fcfa11d3836f42a5f36aaaf7e253b860c0b5348cc30050db458b56095eab8812",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-525",
+      "fetched_at": "2026-10-24T07:39:29.073597+00:00"
+    },
+    {
+      "day": "2025-05-18",
+      "sha256": "1c2cea537bb2b071982e491bac3def1fae144003fff738a052cf8b85c31fe87f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-524",
+      "fetched_at": "2026-10-24T07:39:29.095107+00:00"
+    },
+    {
+      "day": "2025-05-19",
+      "sha256": "1ae1b0c6c275c2fcad08a4d185d08b2d7c697632f9460c6ce06f0136e20c97a9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-523",
+      "fetched_at": "2026-10-24T07:39:29.110063+00:00"
+    },
+    {
+      "day": "2025-05-20",
+      "sha256": "7ef70d50705856f9816ec47519c27a9091626c4320e00a3fffcd90e27e9aafc8",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-522",
+      "fetched_at": "2026-10-24T07:39:29.141328+00:00"
+    },
+    {
+      "day": "2025-05-21",
+      "sha256": "afa1bda3501495e838ee57e96a02f9bb29ffc9310360fefd77235b483ac08ab8",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-521",
+      "fetched_at": "2026-10-24T07:39:29.164531+00:00"
+    },
+    {
+      "day": "2025-05-22",
+      "sha256": "4198089f07ca13f08545ac981fc0ae1ca2afc84e0e3f386ac5b90d13a0270ff5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-520",
+      "fetched_at": "2026-10-24T07:39:29.184881+00:00"
+    },
+    {
+      "day": "2025-05-23",
+      "sha256": "eca7af27e27c801e5a594ae2a2171e06a6e9bf905b59f2243f462abbd8a6b4cd",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-519",
+      "fetched_at": "2026-10-24T07:39:29.217793+00:00"
+    },
+    {
+      "day": "2025-05-24",
+      "sha256": "150843e3c0dfc33b62462c9296b9c52ae2569bc9bc461fd9cfb9a129fe725892",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-518",
+      "fetched_at": "2026-10-24T07:39:29.242281+00:00"
+    },
+    {
+      "day": "2025-05-25",
+      "sha256": "578ae079bcb49949ac4cea3b83ce206a02289b57cd1129e17eb64f9d52c88e44",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-517",
+      "fetched_at": "2026-10-24T07:39:29.263802+00:00"
+    },
+    {
+      "day": "2025-05-26",
+      "sha256": "e57149d33e82d1e269de5c28b8bd872174f2612656dc925b78f877ae418e6a12",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-516",
+      "fetched_at": "2026-10-24T07:39:29.295141+00:00"
+    },
+    {
+      "day": "2025-05-27",
+      "sha256": "3d815854bdf614e635e54063af05d0f47017cff270147c355478df7815c1d175",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-515",
+      "fetched_at": "2026-10-24T07:39:29.323376+00:00"
+    },
+    {
+      "day": "2025-05-28",
+      "sha256": "f8f5754a123434b9d25205ef7ae79bf0f52543c8fd2b6e153a5d531661f05331",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-514",
+      "fetched_at": "2026-10-24T07:39:29.352343+00:00"
+    },
+    {
+      "day": "2025-05-29",
+      "sha256": "9584b897b20a21659a08fdfb30055aee943c4224c18bc8f9b671b2717f7ae577",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-513",
+      "fetched_at": "2026-10-24T07:39:29.378303+00:00"
+    },
+    {
+      "day": "2025-05-30",
+      "sha256": "6a958f0c767b6368361e6042c9543088db3d832a893a81ec0d4d225de95d7d6c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-512",
+      "fetched_at": "2026-10-24T07:39:29.404223+00:00"
+    },
+    {
+      "day": "2025-05-31",
+      "sha256": "9f58f6e0f17e03dc861ac486d627c6c38760a44f8f9fdb379e334bcabc3090ed",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-511",
+      "fetched_at": "2026-10-24T07:39:29.431851+00:00"
+    },
+    {
+      "day": "2025-06-01",
+      "sha256": "bee50a2c6800946f4cdff67134063f8b344b5698530d5909aa6f8c6108c148d4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-510",
+      "fetched_at": "2026-10-24T07:39:29.453916+00:00"
+    },
+    {
+      "day": "2025-06-02",
+      "sha256": "ebfae44134cdcea687eac26f99b50732d68d0f6f51df8ddbd7d9864bc6dfdfdb",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-509",
+      "fetched_at": "2026-10-24T07:39:29.471849+00:00"
+    },
+    {
+      "day": "2025-06-03",
+      "sha256": "6fe64df50e89f1c5ea87dec299b82f70e7a2f4507aec8e699acf9c2c179e4ac1",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-508",
+      "fetched_at": "2026-10-24T07:39:29.500471+00:00"
+    },
+    {
+      "day": "2025-06-04",
+      "sha256": "a520e00ded24bf17dd647a63eea99838cf6b540fef452d027cb070cada1f4e7b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-507",
+      "fetched_at": "2026-10-24T07:39:29.528855+00:00"
+    },
+    {
+      "day": "2025-06-05",
+      "sha256": "6c06992480ae0272e8d367942521e32444bc9ff2dbcb21c847a29c9171594522",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-506",
+      "fetched_at": "2026-10-24T07:39:29.551621+00:00"
+    },
+    {
+      "day": "2025-06-06",
+      "sha256": "f9559a93726e305e17dbec47658aa05e8b2c6ba798fcc7b565232805916b8990",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-505",
+      "fetched_at": "2026-10-24T07:39:29.574892+00:00"
+    },
+    {
+      "day": "2025-06-07",
+      "sha256": "7e822140fed7fd15699e8535ea932135be55ebe5ccaa7c2b3179581e7b9a1745",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-504",
+      "fetched_at": "2026-10-24T07:39:29.593271+00:00"
+    },
+    {
+      "day": "2025-06-08",
+      "sha256": "5905564109ee1b25cb2c6e6710e7eb86afe36fb2b93a0dcaec30fa3a5158a294",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-503",
+      "fetched_at": "2026-10-24T07:39:29.617185+00:00"
+    },
+    {
+      "day": "2025-06-09",
+      "sha256": "5688fff9590d3b93d97da091671a56104365e466454b213c96b9d8204211d1cc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-502",
+      "fetched_at": "2026-10-24T07:39:29.643834+00:00"
+    },
+    {
+      "day": "2025-06-10",
+      "sha256": "265911ddbd4ff3cb10ec7d28e17879f6bcbb29bcaa19c04478e944d82d8fed2c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-501",
+      "fetched_at": "2026-10-24T07:39:29.669284+00:00"
+    },
+    {
+      "day": "2025-06-11",
+      "sha256": "657f1a642dfa8b1b0d0719c41b64770796035a21a9676953524dc541f517f891",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-500",
+      "fetched_at": "2026-10-24T07:39:29.691324+00:00"
+    },
+    {
+      "day": "2025-06-12",
+      "sha256": "48415c06b3f114f452ddc21f748c49c7daa9c6e058527c0e70df98717e6d2cbd",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-499",
+      "fetched_at": "2026-10-24T07:39:29.707596+00:00"
+    },
+    {
+      "day": "2025-06-13",
+      "sha256": "bbb4a1d5e0c0b9d26c0fbe821c95d108869941b0ba7021cc95d51eb486371b4c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-498",
+      "fetched_at": "2026-10-24T07:39:29.730295+00:00"
+    },
+    {
+      "day": "2025-06-14",
+      "sha256": "6b55891c4a6271fcd9e6ec0c8f8778ee03262922dfc6d263457d49e47ee4e331",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-497",
+      "fetched_at": "2026-10-24T07:39:29.747917+00:00"
+    },
+    {
+      "day": "2025-06-15",
+      "sha256": "7db3d2421f063df5353a839535650b06b494c7f9afb6790c0aad82d1d62f34f9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-496",
+      "fetched_at": "2026-10-24T07:39:29.775940+00:00"
+    },
+    {
+      "day": "2025-06-16",
+      "sha256": "b6e97e6bdac95067c5ac70b8fd3f122186737453f68a1ae4e9e0583f815c8b31",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-495",
+      "fetched_at": "2026-10-24T07:39:29.804102+00:00"
+    },
+    {
+      "day": "2025-06-17",
+      "sha256": "f0453e092323df816a588385f2d583e754c0cb0a293adbc099b59d58478b86cc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-494",
+      "fetched_at": "2026-10-24T07:39:29.828954+00:00"
+    },
+    {
+      "day": "2025-06-18",
+      "sha256": "dbe8aa2d95422116b45c69705cff86f6fee4853f6d7dc88d13161145fe2144f6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-493",
+      "fetched_at": "2026-10-24T07:39:29.851029+00:00"
+    },
+    {
+      "day": "2025-06-19",
+      "sha256": "f1e9e9a1b4dd3ef02763b157640213ebd2e056aec5ad24eaa8b046887e8982a0",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-492",
+      "fetched_at": "2026-10-24T07:39:29.881117+00:00"
+    },
+    {
+      "day": "2025-06-20",
+      "sha256": "233c9f4011cfccfd00c1803fc5cc7a0db393919bcbcbb5fdc0d8d955c520583c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-491",
+      "fetched_at": "2026-10-24T07:39:29.908781+00:00"
+    },
+    {
+      "day": "2025-06-21",
+      "sha256": "0f5072ba5b76fd8e202bc8277c376cec5cf2b497ea0723b481097d40ee09d89a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-490",
+      "fetched_at": "2026-10-24T07:39:29.933685+00:00"
+    },
+    {
+      "day": "2025-06-22",
+      "sha256": "27d7211223ef3f2672ad20ba6a6920c88233ce2939257ea6d2019fdf8c98aa0f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-489",
+      "fetched_at": "2026-10-24T07:39:29.957195+00:00"
+    },
+    {
+      "day": "2025-06-23",
+      "sha256": "28526c9c7f95ff243a81868904a8baba9712ee45c4e921b8c6357e79ef208076",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-488",
+      "fetched_at": "2026-10-24T07:39:29.980046+00:00"
+    },
+    {
+      "day": "2025-06-24",
+      "sha256": "e1fc4a57922f8893bc0b9f7b62f43e824e886ce683aea517947658a5af52d6f2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-487",
+      "fetched_at": "2026-10-24T07:39:30.006779+00:00"
+    },
+    {
+      "day": "2025-06-25",
+      "sha256": "8f277d4562fa7722bf43d47e7b445b7876a2d69806cb386eb3594d279a87aae3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-486",
+      "fetched_at": "2026-10-24T07:39:30.037450+00:00"
+    },
+    {
+      "day": "2025-06-26",
+      "sha256": "61cc4e4e0fb81ef95871b4df4a26271fd81b5f8c9d188b7cdaeac7750ee27c48",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-485",
+      "fetched_at": "2026-10-24T07:39:30.065614+00:00"
+    },
+    {
+      "day": "2025-06-27",
+      "sha256": "0ca0b9982d994bb4deb755038bd58d8f1f2f7552e35a98ee745006864e01ae7c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-484",
+      "fetched_at": "2026-10-24T07:39:30.093693+00:00"
+    },
+    {
+      "day": "2025-06-28",
+      "sha256": "d4e87a3e5c8248cd52577cd90d072b959d84482396951471b4fa48525a3f2d72",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-483",
+      "fetched_at": "2026-10-24T07:39:30.120317+00:00"
+    },
+    {
+      "day": "2025-06-29",
+      "sha256": "75007e14112c174cfe2962204d70decd0c57280e21663c03f10164676e42af55",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-482",
+      "fetched_at": "2026-10-24T07:39:30.147683+00:00"
+    },
+    {
+      "day": "2025-06-30",
+      "sha256": "11acc852ae914c7066d5a9d29a1904c053a419d6816bc7dc86bb37fefe165425",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-481",
+      "fetched_at": "2026-10-24T07:39:30.165714+00:00"
+    },
+    {
+      "day": "2025-07-01",
+      "sha256": "e92f609bc2800fc5769fc75924934ea13d21328855a93d3ddda51e9173f24960",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-480",
+      "fetched_at": "2026-10-24T07:39:30.192103+00:00"
+    },
+    {
+      "day": "2025-07-02",
+      "sha256": "32c16ed8ff11a107e2b42b1cbc86a1bcec90d4c3370e384dcd60ccf1e7c16c37",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-479",
+      "fetched_at": "2026-10-24T07:39:30.222306+00:00"
+    },
+    {
+      "day": "2025-07-03",
+      "sha256": "4b7cd247672a6ad859b16776e08e1152ab42d33a71ce5a44f3318bfbd586243f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-478",
+      "fetched_at": "2026-10-24T07:39:30.260205+00:00"
+    },
+    {
+      "day": "2025-07-04",
+      "sha256": "e580aaffedbc7578be83fb2903d6e03fbb07e3e483bd2a8437b73352421e0cf6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-477",
+      "fetched_at": "2026-10-24T07:39:30.297338+00:00"
+    },
+    {
+      "day": "2025-07-05",
+      "sha256": "87fab9c4e4079ec26e0fe3c00355b394e369f9e392b74b8026be0bbfcb17ee43",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-476",
+      "fetched_at": "2026-10-24T07:39:30.338362+00:00"
+    },
+    {
+      "day": "2025-07-06",
+      "sha256": "b23b0fb5e140033fa7e9f2e7981452cbbb4b895c7a57b0fe5f99c6e3eb5925a4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-475",
+      "fetched_at": "2026-10-24T07:39:30.360074+00:00"
+    },
+    {
+      "day": "2025-07-07",
+      "sha256": "57f0668218e85a03493c81ecb2bf400293e5400eb48175bf8eec1cc86d7c6c19",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-474",
+      "fetched_at": "2026-10-24T07:39:30.382989+00:00"
+    },
+    {
+      "day": "2025-07-08",
+      "sha256": "d6c6497ab2026b54267b06d3753c9868e3c50f77b4263e9cca3cf5e879ccc3d6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-473",
+      "fetched_at": "2026-10-24T07:39:30.401829+00:00"
+    },
+    {
+      "day": "2025-07-09",
+      "sha256": "22f6bd71f48f38e52d0a8fc3d9467eb25286ee12d5b233d7320aa9b4d519d135",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-472",
+      "fetched_at": "2026-10-24T07:39:30.429608+00:00"
+    },
+    {
+      "day": "2025-07-10",
+      "sha256": "3d1006718f0fbfd24e6e1ce2b5b23da5954864a5b6f94ea6284e36ee89566947",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-471",
+      "fetched_at": "2026-10-24T07:39:30.454007+00:00"
+    },
+    {
+      "day": "2025-07-11",
+      "sha256": "9cc9eb4f1efcf9a44a6365c6bbe36d90baf6fe954ad4bddb14299160669d2d28",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-470",
+      "fetched_at": "2026-10-24T07:39:30.480848+00:00"
+    },
+    {
+      "day": "2025-07-12",
+      "sha256": "b1720e92e2ac357797ef4482f3d5001602c44116ad60fd8f93ac3b1a900e1ad6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-469",
+      "fetched_at": "2026-10-24T07:39:30.507985+00:00"
+    },
+    {
+      "day": "2025-07-13",
+      "sha256": "7663ae0c663cdff9eb0a32c8440196f471bae81ce8d1e188d2a6fdf47d40f7d9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-468",
+      "fetched_at": "2026-10-24T07:39:30.533208+00:00"
+    },
+    {
+      "day": "2025-07-14",
+      "sha256": "4596015c1a844c6d17d289d31cf1b678fb3ddac0fb94d2568f09b6355f9e90d0",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-467",
+      "fetched_at": "2026-10-24T07:39:30.556423+00:00"
+    },
+    {
+      "day": "2025-07-15",
+      "sha256": "a70171339af35afdae17b73621bf8efdf1cc598614e0ab5c4d5bdc861245f9b1",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-466",
+      "fetched_at": "2026-10-24T07:39:30.581260+00:00"
+    },
+    {
+      "day": "2025-07-16",
+      "sha256": "960b1f96204189a7b1c6c1dccd9f192c705b5cace91086f5566601cce6a98ef2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-465",
+      "fetched_at": "2026-10-24T07:39:30.604402+00:00"
+    },
+    {
+      "day": "2025-07-17",
+      "sha256": "280539f2a51a630168ae22f3a9fe465951e22f5c71e42926e07ec8bbec312c17",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-464",
+      "fetched_at": "2026-10-24T07:39:30.622635+00:00"
+    },
+    {
+      "day": "2025-07-18",
+      "sha256": "0b109c99e7a86cda742643bc524d7a0e58d1bfa194cb5cf27c622f0e77ebf4a6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-463",
+      "fetched_at": "2026-10-24T07:39:30.652396+00:00"
+    },
+    {
+      "day": "2025-07-19",
+      "sha256": "fc0fcb55c2d3182b8af26bc52c504a30770dd20eb304d4f00f27720b158e481d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-462",
+      "fetched_at": "2026-10-24T07:39:30.673630+00:00"
+    },
+    {
+      "day": "2025-07-20",
+      "sha256": "e30a4160a03ad9df3ca1872ed7f835fb6749dc72b9f4a52b44b86eb737c76ca2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-461",
+      "fetched_at": "2026-10-24T07:39:30.692778+00:00"
+    },
+    {
+      "day": "2025-07-21",
+      "sha256": "e4195945002dccfea932a7e2d0bf8ba84a4070bd6d77cca71c4892bd14822e05",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-460",
+      "fetched_at": "2026-10-24T07:39:30.700856+00:00"
+    },
+    {
+      "day": "2025-07-22",
+      "sha256": "5ee2f3b7e857f8317e0106375fbf019eb6a930785732950a2f38d26f3b3e2c1f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-459",
+      "fetched_at": "2026-10-24T07:39:30.705970+00:00"
+    },
+    {
+      "day": "2025-07-23",
+      "sha256": "59896f2d5f1282b73c495e055437a9899f112bdc932bad26e94ff8672b547bb6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-458",
+      "fetched_at": "2026-10-24T07:39:30.744888+00:00"
+    },
+    {
+      "day": "2025-07-24",
+      "sha256": "af35c1b8da0311f79c7c061a7604c8a91f5bc654db5ed37692ee8710a00b71ba",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-457",
+      "fetched_at": "2026-10-24T07:39:30.762560+00:00"
+    },
+    {
+      "day": "2025-07-25",
+      "sha256": "d8790b27741441a6a6fc82827762d2f3a3656e502eff6708948bff3baefb8d70",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-456",
+      "fetched_at": "2026-10-24T07:39:30.813205+00:00"
+    },
+    {
+      "day": "2025-07-26",
+      "sha256": "08c3b376d56132ae9f648a4d62df798f299b2f9bf1b788b67b0a629792c73f2c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-455",
+      "fetched_at": "2026-10-24T07:39:30.817427+00:00"
+    },
+    {
+      "day": "2025-07-27",
+      "sha256": "320c2f172f05deb7f89b854c670da140a0fd94248733bed0e4bb4c045027084e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-454",
+      "fetched_at": "2026-10-24T07:39:30.868712+00:00"
+    },
+    {
+      "day": "2025-07-28",
+      "sha256": "77e9de7f0780b3204be797853ee4339dfe42c2dfad7c8be66c8c25d1193bbb50",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-453",
+      "fetched_at": "2026-10-24T07:39:30.868587+00:00"
+    },
+    {
+      "day": "2025-07-29",
+      "sha256": "da45454667e5ce96985f3d50fc34431ecba3e4040934a6c189394b56e62ed04e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-452",
+      "fetched_at": "2026-10-24T07:39:30.927508+00:00"
+    },
+    {
+      "day": "2025-07-30",
+      "sha256": "fa8b357310c0a3970e5819eb26c22a03aeab56f406f7c1c091d0149f0c71aed1",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-451",
+      "fetched_at": "2026-10-24T07:39:30.911120+00:00"
+    },
+    {
+      "day": "2025-07-31",
+      "sha256": "f57bb55190c9e3fd6c568c22683b7d668b3a1b563306ba98261e78cd24015051",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-450",
+      "fetched_at": "2026-10-24T07:39:30.961937+00:00"
+    },
+    {
+      "day": "2025-08-01",
+      "sha256": "8526f94c6690c09a6f6114e00a6c74d5e018a6d26a8035f2a804ed40b4fc6d08",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-449",
+      "fetched_at": "2026-10-24T07:39:30.977092+00:00"
+    },
+    {
+      "day": "2025-08-02",
+      "sha256": "6fce7241335b3fc2926f9b0ff9fbb4cdd3ba5fbda66ccdf99e20c7d8310f0b08",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-448",
+      "fetched_at": "2026-10-24T07:39:31.012193+00:00"
+    },
+    {
+      "day": "2025-08-03",
+      "sha256": "a5f9128c151347daf6fce6aef1a0710636daba7e9d285b5ec5d202b877b2ab59",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-447",
+      "fetched_at": "2026-10-24T07:39:31.022961+00:00"
+    },
+    {
+      "day": "2025-08-04",
+      "sha256": "9ad47628a482585787efe4b69193a9fb2a59b84326e8fce6140071d47666fbc5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-446",
+      "fetched_at": "2026-10-24T07:39:31.055306+00:00"
+    },
+    {
+      "day": "2025-08-05",
+      "sha256": "da24a33564b6e74c5a1cdff769f1c9f9f3699cbd28d5dbc8850896fa735966c7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-445",
+      "fetched_at": "2026-10-24T07:39:31.069232+00:00"
+    },
+    {
+      "day": "2025-08-06",
+      "sha256": "4c8759bb271a02fd546cec1975f23c3a8b4fc65d8efc6bf743538192ac48494b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-444",
+      "fetched_at": "2026-10-24T07:39:31.107167+00:00"
+    },
+    {
+      "day": "2025-08-07",
+      "sha256": "21603cedfe557e3a0d992b1ee1b2f0cac63b91bdf1525d0813365caf9f977c66",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-443",
+      "fetched_at": "2026-10-24T07:39:31.122926+00:00"
+    },
+    {
+      "day": "2025-08-08",
+      "sha256": "172d594a6287778cbf1bd56790153dad612882d8ec558b8e710aaf9222b4a280",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-442",
+      "fetched_at": "2026-10-24T07:39:31.155779+00:00"
+    },
+    {
+      "day": "2025-08-09",
+      "sha256": "73f92391c3cbc4b1354786948430bd88653a5566aca43ca3fa8e7627594cce06",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-441",
+      "fetched_at": "2026-10-24T07:39:31.170961+00:00"
+    },
+    {
+      "day": "2025-08-10",
+      "sha256": "82922542d32dae259c9f761bf86c9aa0bc097c73887313b22e7ccd16c6339f90",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-440",
+      "fetched_at": "2026-10-24T07:39:31.208892+00:00"
+    },
+    {
+      "day": "2025-08-11",
+      "sha256": "b7874f0639f53eb668fbe29318f56c9eaec47e2bf098c693fa1bd94abdc30ac4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-439",
+      "fetched_at": "2026-10-24T07:39:31.217996+00:00"
+    },
+    {
+      "day": "2025-08-12",
+      "sha256": "2ff7d1b08b8cf0332c6707c39223e9c9a36ddc65f120e266a864631696eafc87",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-438",
+      "fetched_at": "2026-10-24T07:39:31.247568+00:00"
+    },
+    {
+      "day": "2025-08-13",
+      "sha256": "744787a51be58bc3d84486536275eafa67599f6617acf56bf35702d7040f83cc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-437",
+      "fetched_at": "2026-10-24T07:39:31.260670+00:00"
+    },
+    {
+      "day": "2025-08-14",
+      "sha256": "2c301f5f6bce0ad46253e3a1603510bfcbe53f4c574d70c416d05d15b4eab545",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-436",
+      "fetched_at": "2026-10-24T07:39:31.294226+00:00"
+    },
+    {
+      "day": "2025-08-15",
+      "sha256": "f17c50722173e9c5ea8c4f6da07ca89b77ef70878e28eb01aa825af613711040",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-435",
+      "fetched_at": "2026-10-24T07:39:31.309608+00:00"
+    },
+    {
+      "day": "2025-08-16",
+      "sha256": "6aacfec34c4ae3c744339c9220c1be577d5e9dad6f5182ee037bc53dc2a8ab11",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-434",
+      "fetched_at": "2026-10-24T07:39:31.341537+00:00"
+    },
+    {
+      "day": "2025-08-17",
+      "sha256": "1258e64e86a2811b29b429119028d8fb77e84450daa54b6b39a08d7041f9396c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-433",
+      "fetched_at": "2026-10-24T07:39:31.356256+00:00"
+    },
+    {
+      "day": "2025-08-18",
+      "sha256": "a8306dc7019a23079dd1471eaf1d6144b6c4adc6affd1b1732857f161f6384f1",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-432",
+      "fetched_at": "2026-10-24T07:39:31.382972+00:00"
+    },
+    {
+      "day": "2025-08-19",
+      "sha256": "4628061cbf4fbcfcfcaa66deac35e70cf5bc533cc6ebb5bcf98731092eb29823",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-431",
+      "fetched_at": "2026-10-24T07:39:31.400525+00:00"
+    },
+    {
+      "day": "2025-08-20",
+      "sha256": "9eb05c89da09ce94819448ac6a8a2abd28d811d4b012b4e92f984b9a892aaa5d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-430",
+      "fetched_at": "2026-10-24T07:39:31.431539+00:00"
+    },
+    {
+      "day": "2025-08-21",
+      "sha256": "8a82cc0e69ed486b86fb45c3ccd2cc5a9b49912db4450b52489b9af30dfef556",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-429",
+      "fetched_at": "2026-10-24T07:39:31.458752+00:00"
+    },
+    {
+      "day": "2025-08-22",
+      "sha256": "3c529638e0acc84fa408c7b39ae4aee4adf33c445d8b4a14bf6f5cf3d8be525e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-428",
+      "fetched_at": "2026-10-24T07:39:31.490292+00:00"
+    },
+    {
+      "day": "2025-08-23",
+      "sha256": "c5b0fdfc4069209a4cfaf33905c8d0a62188c72927cb3f964385d0951e9177b6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-427",
+      "fetched_at": "2026-10-24T07:39:31.508667+00:00"
+    },
+    {
+      "day": "2025-08-24",
+      "sha256": "2043647f7d4107572283f2320c26dc6818478d941a9218253c7b11fe3472724e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-426",
+      "fetched_at": "2026-10-24T07:39:31.539746+00:00"
+    },
+    {
+      "day": "2025-08-25",
+      "sha256": "cdd55792357338629b59bf219c3141441811fc297bece7637fe97e1b43a028aa",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-425",
+      "fetched_at": "2026-10-24T07:39:31.550313+00:00"
+    },
+    {
+      "day": "2025-08-26",
+      "sha256": "ff8b229b92fa942912229105f7dbb91bf92f361d6a336074eea2bb591f151920",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-424",
+      "fetched_at": "2026-10-24T07:39:31.589307+00:00"
+    },
+    {
+      "day": "2025-08-27",
+      "sha256": "770c8a7fb804059c817079c79812565d798926a7637e50bdb3cfddd17864d7e3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-423",
+      "fetched_at": "2026-10-24T07:39:31.598397+00:00"
+    },
+    {
+      "day": "2025-08-28",
+      "sha256": "f3262e5ba887295c81ae88c2f2aff24161452b51b851355f2cf3281fd8e0ed3f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-422",
+      "fetched_at": "2026-10-24T07:39:31.635518+00:00"
+    },
+    {
+      "day": "2025-08-29",
+      "sha256": "0087456888050590d7c3bebbaddece730d807cf626dd6638ed89305f30a16346",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-421",
+      "fetched_at": "2026-10-24T07:39:31.642397+00:00"
+    },
+    {
+      "day": "2025-08-30",
+      "sha256": "13511866c2bca71ada3667aaa01a259a8d02f46e14cd0e25fb5ddddb3fccac3f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-420",
+      "fetched_at": "2026-10-24T07:39:31.682641+00:00"
+    },
+    {
+      "day": "2025-08-31",
+      "sha256": "f3ac9082bbcde301c415bd9551a2823698148ea3379bfe86f1b5b4a24845d9f4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-419",
+      "fetched_at": "2026-10-24T07:39:31.686394+00:00"
+    },
+    {
+      "day": "2025-09-01",
+      "sha256": "a818446751970a1586fa2f2476b5cbc29c1c1357ecd4d07d87d84f2a8cbbf7f8",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-418",
+      "fetched_at": "2026-10-24T07:39:31.729035+00:00"
+    },
+    {
+      "day": "2025-09-02",
+      "sha256": "16b17009a1da12340a4f470cd7ecae9f962a217856d18ccebc5e7cdb3ad342cd",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-417",
+      "fetched_at": "2026-10-24T07:39:31.737240+00:00"
+    },
+    {
+      "day": "2025-09-03",
+      "sha256": "9c17a78cbbf8eb3991790e4c059652ab9e82539332762557392ff4fde1f09eed",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-416",
+      "fetched_at": "2026-10-24T07:39:31.775639+00:00"
+    },
+    {
+      "day": "2025-09-04",
+      "sha256": "856854e85cfff47e74107f8b493bc3c1c27bd4b7859ab5f4f83505bcdb8501e5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-415",
+      "fetched_at": "2026-10-24T07:39:31.783010+00:00"
+    },
+    {
+      "day": "2025-09-05",
+      "sha256": "8eabc1e9b82c00b19d910956fca8260dd6200b1001204630eefeec158b51d500",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-414",
+      "fetched_at": "2026-10-24T07:39:31.830475+00:00"
+    },
+    {
+      "day": "2025-09-06",
+      "sha256": "c307adebb163248007257983186e8ecfe6a6a660e84192fa840a4be4385ceea5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-413",
+      "fetched_at": "2026-10-24T07:39:31.841720+00:00"
+    },
+    {
+      "day": "2025-09-07",
+      "sha256": "6d650ecad8ade489a272dd37d270fbe0ea89bdbd8be33ae99d15db7dc0b4eda1",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-412",
+      "fetched_at": "2026-10-24T07:39:31.869496+00:00"
+    },
+    {
+      "day": "2025-09-08",
+      "sha256": "1a3e8ce549225a201378845edd9552eb909f6102ef2d892ab86efcdbeaaf9b52",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-411",
+      "fetched_at": "2026-10-24T07:39:31.888500+00:00"
+    },
+    {
+      "day": "2025-09-09",
+      "sha256": "3f892804892a9101cbfbb5a7b3d2ae3e50555d8baf95056fdb972fd0414bb375",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-410",
+      "fetched_at": "2026-10-24T07:38:35.241468+00:00"
+    },
+    {
+      "day": "2025-09-10",
+      "sha256": "761d3f7fd818ecc1dd7086b43cb3f03b92552ae789dbe970e26bd28617368505",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-409",
+      "fetched_at": "2026-10-24T07:39:31.927988+00:00"
+    },
+    {
+      "day": "2025-09-11",
+      "sha256": "425bd4fd691cfd2c272ba9dbedb35887837ff95549d9f2a6ec811f41fa4c6c06",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-408",
+      "fetched_at": "2026-10-24T07:39:31.952366+00:00"
+    },
+    {
+      "day": "2025-09-12",
+      "sha256": "be6af9c6e58e32258095622799a7619802932669b536627b4fd7fa4b2cc08d1a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-407",
+      "fetched_at": "2026-10-24T07:39:31.974643+00:00"
+    },
+    {
+      "day": "2025-09-13",
+      "sha256": "e0888c30533091d9ec9d37a55a519eccde15cb1e0c5f8bb5a4b7da6754f05b82",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-406",
+      "fetched_at": "2026-10-24T07:39:31.994457+00:00"
+    },
+    {
+      "day": "2025-09-14",
+      "sha256": "6474052967e0db0a6e61a883ea8b8a0739893cb2a9392b21ad099bb3815b299a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-405",
+      "fetched_at": "2026-10-24T07:39:32.017333+00:00"
+    },
+    {
+      "day": "2025-09-15",
+      "sha256": "1da83542155ae4e9ad20bdc7339dadb9600137190610867a3e5ffab465323dd4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-404",
+      "fetched_at": "2026-10-24T07:39:32.041457+00:00"
+    },
+    {
+      "day": "2025-09-16",
+      "sha256": "c9865661e0e6e627f53002ed5352a789371a650f5ef565bee571f1349b23e566",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-403",
+      "fetched_at": "2026-10-24T07:39:32.065435+00:00"
+    },
+    {
+      "day": "2025-09-17",
+      "sha256": "68e9ec7295dc004f6e48db8fe5d604077100e91531e2b443ed4994a908a2ef5c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-402",
+      "fetched_at": "2026-10-24T07:39:32.090175+00:00"
+    },
+    {
+      "day": "2025-09-18",
+      "sha256": "923715b54d67f97cf09f87ec53794249a2e34e35052fa3f56d74bacac9cd8c1c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-401",
+      "fetched_at": "2026-10-24T07:39:32.112025+00:00"
+    },
+    {
+      "day": "2025-09-19",
+      "sha256": "cddf1dd27c5b80920caaba806b23b4a33fac7f01a9e9f6b59db26dbfd796b1a9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-400",
+      "fetched_at": "2026-10-24T07:39:32.138855+00:00"
+    },
+    {
+      "day": "2025-09-20",
+      "sha256": "7e358dd89701f154fbc5b79fdc83d2a5eeadf8de93cb55873cd1686d93f9ba37",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-399",
+      "fetched_at": "2026-10-24T07:39:32.164222+00:00"
+    },
+    {
+      "day": "2025-09-21",
+      "sha256": "a797177292db2e828b24b877b52a077d213c0f32019b2441a677c678c9a4e1c5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-398",
+      "fetched_at": "2026-10-24T07:39:32.186865+00:00"
+    },
+    {
+      "day": "2025-09-22",
+      "sha256": "6dd8581d9a9a116b589db1985c1c57a939cef5f8b6920c6c4947d4273ce4a12f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-397",
+      "fetched_at": "2026-10-24T07:39:32.208334+00:00"
+    },
+    {
+      "day": "2025-09-23",
+      "sha256": "5cd99c1106c46a9466e8e2aafaed0d5376cfd397bf51dab0c366998893dbc10c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-396",
+      "fetched_at": "2026-10-24T07:39:32.232264+00:00"
+    },
+    {
+      "day": "2025-09-24",
+      "sha256": "a818023513e7ad7f558ce7767da1a3d874c47144561c516ffeaacbb42e0a85b9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-395",
+      "fetched_at": "2026-10-24T07:39:32.253259+00:00"
+    },
+    {
+      "day": "2025-09-25",
+      "sha256": "bfbafb54963cbf3b6caec60a276b22d38977c6b8e83060546f228395cf1a4de7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-394",
+      "fetched_at": "2026-10-24T07:39:32.266572+00:00"
+    },
+    {
+      "day": "2025-09-26",
+      "sha256": "570b554f2bfebaf5893a569754dd900d203e2f1c8af90ecb8e58cb7dbe8c2b48",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-393",
+      "fetched_at": "2026-10-24T07:39:32.292388+00:00"
+    },
+    {
+      "day": "2025-09-27",
+      "sha256": "fb65c4b71a36e5f94e7a399609dd176fe9618f373688a3c1a04d03a148f31a45",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-392",
+      "fetched_at": "2026-10-24T07:39:32.314426+00:00"
+    },
+    {
+      "day": "2025-09-28",
+      "sha256": "5048ab47017a2903e39bccb7fb8af84e6562d1a61d3c400420eb35b3e2a2c2ba",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-391",
+      "fetched_at": "2026-10-24T07:39:32.321328+00:00"
+    },
+    {
+      "day": "2025-09-29",
+      "sha256": "17d74746b11e52e7bde4704081ec246022dc73e9277552d16caf7c2ad1434ca7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-390",
+      "fetched_at": "2026-10-24T07:39:32.334073+00:00"
+    },
+    {
+      "day": "2025-09-30",
+      "sha256": "501f9d7f67312ee0c87fff11dbbf113cf054cb2b3023631ad0381a5d88cd1568",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-389",
+      "fetched_at": "2026-10-24T07:39:32.366617+00:00"
+    },
+    {
+      "day": "2025-10-01",
+      "sha256": "0aa70c88c916c14bb05b10a89088a8ee37f1fa4ded961f9b342309affeffe727",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-388",
+      "fetched_at": "2026-10-24T07:39:32.401325+00:00"
+    },
+    {
+      "day": "2025-10-02",
+      "sha256": "9244155085658a4edf2abe24034f93c92c066c2afbf29075038c87069797561d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-387",
+      "fetched_at": "2026-10-24T07:39:32.428530+00:00"
+    },
+    {
+      "day": "2025-10-03",
+      "sha256": "0750ea21c4d0148dab83ef3a91d7fa7bff7c9970f5ae75442390a8b663f1e74a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-386",
+      "fetched_at": "2026-10-24T07:39:32.454260+00:00"
+    },
+    {
+      "day": "2025-10-04",
+      "sha256": "e5e8e0d547e7db1ac00496674f693b64117d4dcd03611efdb8220cf6f8772f7a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-385",
+      "fetched_at": "2026-10-24T07:39:32.479869+00:00"
+    },
+    {
+      "day": "2025-10-05",
+      "sha256": "ed62ed39a587f6cc321c13c8aacc983ade4e8cc710f7556dfb8e216a0e1e9c12",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-384",
+      "fetched_at": "2026-10-24T07:39:32.502303+00:00"
+    },
+    {
+      "day": "2025-10-06",
+      "sha256": "0340e10ad462cb2b3d6e9b4689edbc20f2c41b49d024811d34a1df258d365684",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-383",
+      "fetched_at": "2026-10-24T07:39:32.518106+00:00"
+    },
+    {
+      "day": "2025-10-07",
+      "sha256": "a9a94410e946fed3c2a84ca34afd43d3e7548a26c9d59617c4278015b055cc30",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-382",
+      "fetched_at": "2026-10-24T07:39:32.554476+00:00"
+    },
+    {
+      "day": "2025-10-08",
+      "sha256": "fee43ee0fca2a69bd145ceb3ed75c31b031be88fda430575e8d1dfd0c013d611",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-381",
+      "fetched_at": "2026-10-24T07:39:32.585487+00:00"
+    },
+    {
+      "day": "2025-10-09",
+      "sha256": "2268f9df36d322c44e671dbc8bf1783c4dcfb4095b189b39fc5a2fb53ae05d1d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-380",
+      "fetched_at": "2026-10-24T07:39:32.615815+00:00"
+    },
+    {
+      "day": "2025-10-10",
+      "sha256": "510f413a89b2f7f17e3b51415436c6b612c98721b5ce9d172f438e0ab7320333",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-379",
+      "fetched_at": "2026-10-24T07:39:32.642367+00:00"
+    },
+    {
+      "day": "2025-10-11",
+      "sha256": "488210bb4eecefa87a4f09bd4afd938e28bab246b42fb09c25c5692f5436cc70",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-378",
+      "fetched_at": "2026-10-24T07:39:32.667133+00:00"
+    },
+    {
+      "day": "2025-10-12",
+      "sha256": "31704a21728d1fb44f2bc2acc2875188d7ce8856282547ccc2a48b38873a38f3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-377",
+      "fetched_at": "2026-10-24T07:39:32.689265+00:00"
+    },
+    {
+      "day": "2025-10-13",
+      "sha256": "d608cee2ea4fa548d38c77270edbbcf5a5f9868cd3cb7624327ae1c1f2fe14b9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-376",
+      "fetched_at": "2026-10-24T07:39:32.715205+00:00"
+    },
+    {
+      "day": "2025-10-14",
+      "sha256": "7f3a9a95e890187a05813ae72d2994118b4512ed84f51d2d67c7026cb46f50c5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-375",
+      "fetched_at": "2026-10-24T07:39:32.745265+00:00"
+    },
+    {
+      "day": "2025-10-15",
+      "sha256": "2743a84b1cbbfa68f86b208159ae6b0d7aaf9b1b136ab64b1ad706c3ee21f7f4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-374",
+      "fetched_at": "2026-10-24T07:39:32.774952+00:00"
+    },
+    {
+      "day": "2025-10-16",
+      "sha256": "c6e896b3ad7b2a66c35af97c13ff3ebeb03c069e4f0c18f5f826ecd1808c8ea3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-373",
+      "fetched_at": "2026-10-24T07:39:32.803232+00:00"
+    },
+    {
+      "day": "2025-10-17",
+      "sha256": "df29e203346bbee5601f63f682171f1de2a5fc327e55dae7131973452425d084",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-372",
+      "fetched_at": "2026-10-24T07:39:32.835048+00:00"
+    },
+    {
+      "day": "2025-10-18",
+      "sha256": "c700c99ec789456cb719b3022432f1c1a444629a165389b62af8f7f505b37fd5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-371",
+      "fetched_at": "2026-10-24T07:39:32.867095+00:00"
+    },
+    {
+      "day": "2025-10-19",
+      "sha256": "1549222f771405a46489a59307f79c0b9b18737b0618c153bf2aea131cd7bdbf",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-370",
+      "fetched_at": "2026-10-24T07:39:32.895205+00:00"
+    },
+    {
+      "day": "2025-10-20",
+      "sha256": "4e2e25d7fb30f7d436027813e24674eab90ef5bb053508e98f2b998c1ff2de04",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-369",
+      "fetched_at": "2026-10-24T07:39:32.922948+00:00"
+    },
+    {
+      "day": "2025-10-21",
+      "sha256": "d824692faf9770c704af3bafa7b73d1712beb99e093ddf521234f3570206c64e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-368",
+      "fetched_at": "2026-10-24T07:39:32.947314+00:00"
+    },
+    {
+      "day": "2025-10-22",
+      "sha256": "410e9e081bb7264338b3e6825e9a1d1544da951de7b151d1c5dfe5f5a587200e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-367",
+      "fetched_at": "2026-10-24T07:39:32.964939+00:00"
+    },
+    {
+      "day": "2025-10-23",
+      "sha256": "c52b8fcb1e4b0ecc2c95cbeb47fefc47fd610802537533027388f9f5127480bb",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-366",
+      "fetched_at": "2026-10-24T07:39:32.981923+00:00"
+    },
+    {
+      "day": "2025-10-24",
+      "sha256": "24784efe24486f0ad918dfeea8094ef403fa82f1a783aa0667c33d020fd10253",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-365",
+      "fetched_at": "2026-10-24T07:39:32.999257+00:00"
+    },
+    {
+      "day": "2025-10-25",
+      "sha256": "6e080d59dcdbdd6ca4d2f9d4cd6cd450b4f2e123e224f6a3b7dc45174d2b899a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-364",
+      "fetched_at": "2026-10-24T07:39:33.028720+00:00"
+    },
+    {
+      "day": "2025-10-26",
+      "sha256": "a300944b9a68be4c5edb6de0c54c4218cfd31f56b2c9c012fe7b799b6b47dc54",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-363",
+      "fetched_at": "2026-10-24T07:39:33.044848+00:00"
+    },
+    {
+      "day": "2025-10-27",
+      "sha256": "a983a4a40d4ec0c0e85302ec5a85d4e6431050733bb581eab75b6974dfe13864",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-362",
+      "fetched_at": "2026-10-24T07:39:33.063930+00:00"
+    },
+    {
+      "day": "2025-10-28",
+      "sha256": "5921b1d540c2b9110c6a3465a824a8d5f9c8d5d7cd74bd7b286b9258c5b7e671",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-361",
+      "fetched_at": "2026-10-24T07:39:33.092103+00:00"
+    },
+    {
+      "day": "2025-10-29",
+      "sha256": "e62f204afac4728dda213994c1175c48de070f4f342f2c8202685921630fb001",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-360",
+      "fetched_at": "2026-10-24T07:39:33.115094+00:00"
+    },
+    {
+      "day": "2025-10-30",
+      "sha256": "406c260e8040db99ff2bc2b556e893b4bb66b6d3fe22a73eb039783c73a3934d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-359",
+      "fetched_at": "2026-10-24T07:39:33.138460+00:00"
+    },
+    {
+      "day": "2025-10-31",
+      "sha256": "509c4fa067d02fd7449a7dc1f3d83f69dc56a66770250ad3a20e693deb90a656",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-358",
+      "fetched_at": "2026-10-24T07:39:33.157072+00:00"
+    },
+    {
+      "day": "2025-11-01",
+      "sha256": "79395eefd106991239825f08dfd2548f9284367a3c2abd187a4c4636a2e16cbd",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-357",
+      "fetched_at": "2026-10-24T07:39:33.186757+00:00"
+    },
+    {
+      "day": "2025-11-02",
+      "sha256": "11023a8e1b942d591e8b68962e1fe8d5d2d3b25265b6f73d7e8e79b7ed426ddc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-356",
+      "fetched_at": "2026-10-24T07:39:33.208964+00:00"
+    },
+    {
+      "day": "2025-11-03",
+      "sha256": "e470b456c2e2460f5a2a643638324599e0dbcc944a519d159b8288567ec68f70",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-355",
+      "fetched_at": "2026-10-24T07:39:33.230757+00:00"
+    },
+    {
+      "day": "2025-11-04",
+      "sha256": "66660e2a2df63242f3c7abf48a20df302038959a718c46c5d0302e58bb057f0d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-354",
+      "fetched_at": "2026-10-24T07:39:33.247136+00:00"
+    },
+    {
+      "day": "2025-11-05",
+      "sha256": "c07e346f4037b615f8913e2212170ab4c185d0389b0dc7544b815a1b7521a486",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-353",
+      "fetched_at": "2026-10-24T07:39:33.273273+00:00"
+    },
+    {
+      "day": "2025-11-06",
+      "sha256": "56bc13940fd8f63080f847ad337d1014a26d648f68d8f29a1d9a6af5142830b7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-352",
+      "fetched_at": "2026-10-24T07:39:33.301451+00:00"
+    },
+    {
+      "day": "2025-11-07",
+      "sha256": "f06185e5dd5f8c0c5d6f7f950bf4bb470fc09a99c2806aee1a575486e5910b18",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-351",
+      "fetched_at": "2026-10-24T07:39:33.320924+00:00"
+    },
+    {
+      "day": "2025-11-08",
+      "sha256": "641052253d181ee5f219a77030e2492f6ec2d70e7c15bf2338ea6b74681eaee4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-350",
+      "fetched_at": "2026-10-24T07:39:33.348798+00:00"
+    },
+    {
+      "day": "2025-11-09",
+      "sha256": "2e2df08179535bd1e62007ff032e410ab5379bbc2d3757ca7c608befaa196b41",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-349",
+      "fetched_at": "2026-10-24T07:39:33.373271+00:00"
+    },
+    {
+      "day": "2025-11-10",
+      "sha256": "c48d81a537e535edf6d2ffd710a27a7a284fc7abf82a995c715818770c0a5320",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-348",
+      "fetched_at": "2026-10-24T07:39:33.399160+00:00"
+    },
+    {
+      "day": "2025-11-11",
+      "sha256": "a306fd100d1d0506128f45bba62915f4495765fadef3abf52183b798135afecc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-347",
+      "fetched_at": "2026-10-24T07:39:33.422841+00:00"
+    },
+    {
+      "day": "2025-11-12",
+      "sha256": "516b920a45faf3efb7f0820f5bf2cc07ff84be594b5860aee6f9c2905cd995da",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-346",
+      "fetched_at": "2026-10-24T07:39:33.449703+00:00"
+    },
+    {
+      "day": "2025-11-13",
+      "sha256": "68b1844cfe532522afd9b7b7d55c49b0fdd1912ea3819fa41ed9eb6a3f643be3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-345",
+      "fetched_at": "2026-10-24T07:39:33.470492+00:00"
+    },
+    {
+      "day": "2025-11-14",
+      "sha256": "5c8affb6b6a761cabec944df93713d7de7b7e66abe03a100b63a3e25f3ab417a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-344",
+      "fetched_at": "2026-10-24T07:39:33.504056+00:00"
+    },
+    {
+      "day": "2025-11-15",
+      "sha256": "8e1eed3d3e30dd39cef1f6dddd382d098292cd457d19ee4f22b25bae771b557f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-343",
+      "fetched_at": "2026-10-24T07:39:33.526575+00:00"
+    },
+    {
+      "day": "2025-11-16",
+      "sha256": "783a0476838448517806788930a685c878c4653410c16d34f2c0d499f4a5e866",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-342",
+      "fetched_at": "2026-10-24T07:39:33.543169+00:00"
+    },
+    {
+      "day": "2025-11-17",
+      "sha256": "f1f64419fd509c8746b4a68cde96c71898e61ddb1943b490d1e66912f23661aa",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-341",
+      "fetched_at": "2026-10-24T07:39:33.566939+00:00"
+    },
+    {
+      "day": "2025-11-18",
+      "sha256": "7edbd4113ff829b053cda29d823a1efe12d9e4660c41efe4ce416316fb3d7560",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-340",
+      "fetched_at": "2026-10-24T07:39:33.590637+00:00"
+    },
+    {
+      "day": "2025-11-19",
+      "sha256": "414b57d3df22d1f0ebdde2edec7fa9d1015f37299ad09cea90970d58d4c34319",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-339",
+      "fetched_at": "2026-10-24T07:39:33.613488+00:00"
+    },
+    {
+      "day": "2025-11-20",
+      "sha256": "d74a4b7073fc3b4becc195bb62fe980398c47a4c36dc1dc949bfc1ce33137e48",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-338",
+      "fetched_at": "2026-10-24T07:39:33.630535+00:00"
+    },
+    {
+      "day": "2025-11-21",
+      "sha256": "ef99bdc29472c48f5cad9848490a8d186cfd25b5c5855057f6b66fe83cdcc0c4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-337",
+      "fetched_at": "2026-10-24T07:39:33.653120+00:00"
+    },
+    {
+      "day": "2025-11-22",
+      "sha256": "2cc83dec3b315a8e3d055f32c4a6cda203eec97430d20d044098c39f99b39d85",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-336",
+      "fetched_at": "2026-10-24T07:39:33.682548+00:00"
+    },
+    {
+      "day": "2025-11-23",
+      "sha256": "523fc994d1f2612d30db65fc02b3bfc2058b8a532e9fa163689c46f3f79c88c6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-335",
+      "fetched_at": "2026-10-24T07:39:33.710567+00:00"
+    },
+    {
+      "day": "2025-11-24",
+      "sha256": "f0c70976e860ab71dce54dfb50b31a261240ae1a87e1caefff6039810a0f9957",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-334",
+      "fetched_at": "2026-10-24T07:39:33.737228+00:00"
+    },
+    {
+      "day": "2025-11-25",
+      "sha256": "6eeaf9b6343247caf8bc1acff36698f35e2cd753371d0275e1d535388c982358",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-333",
+      "fetched_at": "2026-10-24T07:39:33.766437+00:00"
+    },
+    {
+      "day": "2025-11-26",
+      "sha256": "5c4c04161048f0049f704e09d158ce5f17f332421b5418be0b0544862fb02249",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-332",
+      "fetched_at": "2026-10-24T07:39:33.795855+00:00"
+    },
+    {
+      "day": "2025-11-27",
+      "sha256": "b8d35fe5a72999c8471ec899290339103f8e34636a75a3d99475d324c7f2dd32",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-331",
+      "fetched_at": "2026-10-24T07:39:33.819428+00:00"
+    },
+    {
+      "day": "2025-11-28",
+      "sha256": "1f98db58bcee9e38d67f3156880855275250fce2c69a92dce00f235c5e001d04",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-330",
+      "fetched_at": "2026-10-24T07:39:33.845353+00:00"
+    },
+    {
+      "day": "2025-11-29",
+      "sha256": "9e547c25a9553dca6150bbe15376874c02bac44c0cb64097121168ce635a8b0c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-329",
+      "fetched_at": "2026-10-24T07:39:33.863869+00:00"
+    },
+    {
+      "day": "2025-11-30",
+      "sha256": "720858c9dff61605d1719ddb0de9b79dbc50d2769a9741c170993897fb88342f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-328",
+      "fetched_at": "2026-10-24T07:39:33.881410+00:00"
+    },
+    {
+      "day": "2025-12-01",
+      "sha256": "10ee033a2625691a1ba94af4e28f2f0cefb7f1378ac8a0a37eab20db26b8243f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-327",
+      "fetched_at": "2026-10-24T07:39:33.896776+00:00"
+    },
+    {
+      "day": "2025-12-02",
+      "sha256": "d15acc43a680a3845f240b4815c95bdf269f59de3a232a03510400d9f4c9ffec",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-326",
+      "fetched_at": "2026-10-24T07:39:33.927807+00:00"
+    },
+    {
+      "day": "2025-12-03",
+      "sha256": "8f02d95e2000051627573cead76417e31c99eca72777ec3ea1f76d38ce6f2a15",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-325",
+      "fetched_at": "2026-10-24T07:39:33.954781+00:00"
+    },
+    {
+      "day": "2025-12-04",
+      "sha256": "17b65f6c106c78d659d448fe8871f1e3ed2171c58d1758c705c645840e57ad35",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-324",
+      "fetched_at": "2026-10-24T07:39:33.980449+00:00"
+    },
+    {
+      "day": "2025-12-05",
+      "sha256": "52a16927a19772a43e40bed20ac817d5e3065d1a4f7456cf01755e49cf799484",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-323",
+      "fetched_at": "2026-10-24T07:39:34.004708+00:00"
+    },
+    {
+      "day": "2025-12-06",
+      "sha256": "2b7435ffe52722292c69e6ad28e1be6c4d3d35ba86a77c37d24e7d1fec87c0f9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-322",
+      "fetched_at": "2026-10-24T07:39:34.026210+00:00"
+    },
+    {
+      "day": "2025-12-07",
+      "sha256": "6a583f1569ea5d882b32a9340790a17659097d3d564436248d1a3037f5db301d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-321",
+      "fetched_at": "2026-10-24T07:39:34.048961+00:00"
+    },
+    {
+      "day": "2025-12-08",
+      "sha256": "bff051755f2178bc5ee5291d2383e519430e58985f1d8f0b256f9fdee9d3e5ae",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-320",
+      "fetched_at": "2026-10-24T07:39:34.069572+00:00"
+    },
+    {
+      "day": "2025-12-09",
+      "sha256": "1be28d5deb63ddb50f4a4390582454c53a2cc6ea217d3e23dd8a2569033fb89e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-319",
+      "fetched_at": "2026-10-24T07:39:34.112271+00:00"
+    },
+    {
+      "day": "2025-12-10",
+      "sha256": "599fd490b1d55938df3f522ad6863569b18ee97a3a2f27dfb2a1b9be4e262681",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-318",
+      "fetched_at": "2026-10-24T07:39:34.145950+00:00"
+    },
+    {
+      "day": "2025-12-11",
+      "sha256": "5dc591ff7050124dbec1f5ca20e534e1b8793712009fa66998a524288a0ad9b5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-317",
+      "fetched_at": "2026-10-24T07:39:34.177040+00:00"
+    },
+    {
+      "day": "2025-12-12",
+      "sha256": "662430e93fa847df7fb695f6d9caf1b0a27d4a2c5a8699baef9dda1681ced503",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-316",
+      "fetched_at": "2026-10-24T07:39:34.200343+00:00"
+    },
+    {
+      "day": "2025-12-13",
+      "sha256": "296f2d6c0d6b59dbc0a678a2255234324bb698f6b670606f0afabd4d5e3ebba3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-315",
+      "fetched_at": "2026-10-24T07:39:34.236300+00:00"
+    },
+    {
+      "day": "2025-12-14",
+      "sha256": "8bea5317b83f6bb81ab5f9988eedcbbeca8a59333d1f0ed0c4c8eec108ea6288",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-314",
+      "fetched_at": "2026-10-24T07:39:34.258376+00:00"
+    },
+    {
+      "day": "2025-12-15",
+      "sha256": "0d4ffd99aa208fffdc0b39362b7e8e9cf89997b9698c9303759c5f489e56453f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-313",
+      "fetched_at": "2026-10-24T07:39:34.282311+00:00"
+    },
+    {
+      "day": "2025-12-16",
+      "sha256": "be2130bb1ee23f451ae8b1863d520b967a83dcadfa4b615a91cb29b4cdcdb42b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-312",
+      "fetched_at": "2026-10-24T07:39:34.308525+00:00"
+    },
+    {
+      "day": "2025-12-17",
+      "sha256": "5a7c8662dd5f778f4017eb648cbda37990c7141022a0db7a0acd133e5f162dc5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-311",
+      "fetched_at": "2026-10-24T07:39:34.380715+00:00"
+    },
+    {
+      "day": "2025-12-18",
+      "sha256": "eb228a067667b80727aca4f5a2216313798d126b35cb66a62d0fa0cde89c1835",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-310",
+      "fetched_at": "2026-10-24T07:39:34.419332+00:00"
+    },
+    {
+      "day": "2025-12-19",
+      "sha256": "f6a6caead5c34b0950c0d4317b05366780b50e0cedc63965edb106c8d6164a51",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-309",
+      "fetched_at": "2026-10-24T07:39:34.448305+00:00"
+    },
+    {
+      "day": "2025-12-20",
+      "sha256": "dc181003b4e8160d82645dd5027e843b75350c4e2f560a0e39fc5609bc28c852",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-308",
+      "fetched_at": "2026-10-24T07:39:34.481212+00:00"
+    },
+    {
+      "day": "2025-12-21",
+      "sha256": "d493b2de708f5b5baafd882585138f22385e7065112a170806f5b6d624e81eab",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-307",
+      "fetched_at": "2026-10-24T07:39:34.510523+00:00"
+    },
+    {
+      "day": "2025-12-22",
+      "sha256": "2d82ed3d0ef8fe27c6c3794cb5246b2b2bd3154127a5a1cfd9389792843ac87b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-306",
+      "fetched_at": "2026-10-24T07:39:34.544484+00:00"
+    },
+    {
+      "day": "2025-12-23",
+      "sha256": "8c4fa67bcd942efa2193824c74ca8b17331016447d9cf73aa9fab8ccb0647375",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-305",
+      "fetched_at": "2026-10-24T07:39:34.580759+00:00"
+    },
+    {
+      "day": "2025-12-24",
+      "sha256": "c14ba106e9e7cb15a997c20a79109bd63b02738d7c1d735936899dbdb42661f4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-304",
+      "fetched_at": "2026-10-24T07:39:34.608230+00:00"
+    },
+    {
+      "day": "2025-12-25",
+      "sha256": "8600af1536561d0487556f111acdc2435d9f07ee0ad2614f0000a6d34700903b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-303",
+      "fetched_at": "2026-10-24T07:39:34.637087+00:00"
+    },
+    {
+      "day": "2025-12-26",
+      "sha256": "97c6d51c00d8cbf1aa36b04327222bfd28b0544fbb0843d98fc7bd9f991bf9f7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-302",
+      "fetched_at": "2026-10-24T07:39:34.662412+00:00"
+    },
+    {
+      "day": "2025-12-27",
+      "sha256": "8413d55225ee5979c14480b4046af9f871c43a5cc5f0d54adb0ceed3caeb0902",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-301",
+      "fetched_at": "2026-10-24T07:39:34.691480+00:00"
+    },
+    {
+      "day": "2025-12-28",
+      "sha256": "c54cbc726b5b5b905844e5b1b7a1f5fc8a0cabcad9a8849cee98062bf71a6352",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-300",
+      "fetched_at": "2026-10-24T07:39:34.712154+00:00"
+    },
+    {
+      "day": "2025-12-29",
+      "sha256": "ebeaf8a7acebcea1aeccd2663e0896a34e9fcaade4f6c039dde763edb9ee38d4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-299",
+      "fetched_at": "2026-10-24T07:39:34.743023+00:00"
+    },
+    {
+      "day": "2025-12-30",
+      "sha256": "b9f8a80895dab05ab6472f215ea6b4e091bd5ebb04d1837559f88c6386462463",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-298",
+      "fetched_at": "2026-10-24T07:39:34.772579+00:00"
+    },
+    {
+      "day": "2025-12-31",
+      "sha256": "d43f4455e20df03e32fa111b585be392790926a7d66d82aab24183b3ed5e9214",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-297",
+      "fetched_at": "2026-10-24T07:39:34.805962+00:00"
+    },
+    {
+      "day": "2026-01-01",
+      "sha256": "ca6b365063f1293dc7c42b7163705790a44c80163908678a53a433cbb126dc31",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-296",
+      "fetched_at": "2026-10-24T07:39:34.844189+00:00"
+    },
+    {
+      "day": "2026-01-02",
+      "sha256": "c351f4c4dbb4dc9feee7b58b6f95a04f7b36790afb01e6844b7570ca56ffd842",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-295",
+      "fetched_at": "2026-10-24T07:39:34.861488+00:00"
+    },
+    {
+      "day": "2026-01-03",
+      "sha256": "3de3a682ccef161a1f986671f2930a2200d55adf0d2f2784320daca421c2dcea",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-294",
+      "fetched_at": "2026-10-24T07:39:34.891108+00:00"
+    },
+    {
+      "day": "2026-01-04",
+      "sha256": "c1cb89f8daeecbea5ea897cafab3f0966ea21968f59ac99640f029aeb69aa2d1",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-293",
+      "fetched_at": "2026-10-24T07:39:34.914967+00:00"
+    },
+    {
+      "day": "2026-01-05",
+      "sha256": "f15756a79695867b6cb0e3549fec9f84122f4934d6ff1a6bd62d4f1ac3ed2f6f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-292",
+      "fetched_at": "2026-10-24T07:39:34.938395+00:00"
+    },
+    {
+      "day": "2026-01-06",
+      "sha256": "edd084b147a446c4dd8d4af8c503ce7e6d487ad43f96d296e8bc8de4150ab42a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-291",
+      "fetched_at": "2026-10-24T07:39:34.959933+00:00"
+    },
+    {
+      "day": "2026-01-07",
+      "sha256": "4359a515fc776b6f0b42c8cc1c20e076aac0e02af0197d9eebbcafb3ff7b4712",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-290",
+      "fetched_at": "2026-10-24T07:39:34.982161+00:00"
+    },
+    {
+      "day": "2026-01-08",
+      "sha256": "1111d6efb72f5095c6d0acea04a178f7cb73e777c8e17136530fb5843a58cb01",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-289",
+      "fetched_at": "2026-10-24T07:39:35.001622+00:00"
+    },
+    {
+      "day": "2026-01-09",
+      "sha256": "a44fb55ab54977bfbd5120164a2444fc67b10b40ab3bf9afd63ea229f5686c3e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-288",
+      "fetched_at": "2026-10-24T07:39:35.031972+00:00"
+    },
+    {
+      "day": "2026-01-10",
+      "sha256": "8c4fa87ac3b10e0be57ac43bf82f3b9867c90529a5fff4eb9c4461df16b2df3c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-287",
+      "fetched_at": "2026-10-24T07:39:35.060242+00:00"
+    },
+    {
+      "day": "2026-01-11",
+      "sha256": "5b6a702d4c60d43e55d4808453504f2ee9ce7bdf61b756f2416f6ac7dd358e57",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-286",
+      "fetched_at": "2026-10-24T07:39:35.088889+00:00"
+    },
+    {
+      "day": "2026-01-12",
+      "sha256": "cfd1eb609e91adfac08e9328d40dd3cbeef7556a773dec97f59ee72695316ad4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-285",
+      "fetched_at": "2026-10-24T07:39:35.117340+00:00"
+    },
+    {
+      "day": "2026-01-13",
+      "sha256": "f4102cb4c25606b7050fed0fb549eefa939a494365235af49028989b2048abb3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-284",
+      "fetched_at": "2026-10-24T07:39:35.136503+00:00"
+    },
+    {
+      "day": "2026-01-14",
+      "sha256": "2491a61061e64b6691ddedeb08f97a8f2ab2401f29c1596197bf77af54c58bfb",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-283",
+      "fetched_at": "2026-10-24T07:39:35.175511+00:00"
+    },
+    {
+      "day": "2026-01-15",
+      "sha256": "d97cd8269316ad3f17b93971676862efd54f8df027dd25763afde7eaa65d9c55",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-282",
+      "fetched_at": "2026-10-24T07:39:35.199709+00:00"
+    },
+    {
+      "day": "2026-01-16",
+      "sha256": "5c99ab064602c2ae6e58eaa6fef289ec4211d9909db5effc8f1f9ada35d84f09",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-281",
+      "fetched_at": "2026-10-24T07:39:35.239184+00:00"
+    },
+    {
+      "day": "2026-01-17",
+      "sha256": "a0eeb9dc434a4b0faf85c803edef67610fb1997a470bb45b8cd3d44b827316c7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-280",
+      "fetched_at": "2026-10-24T07:39:35.277863+00:00"
+    },
+    {
+      "day": "2026-01-18",
+      "sha256": "98ce3fb3ba74e1416ea9ffc360f9543ce8ed322813f0ae0b712cf4626a88d37e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-279",
+      "fetched_at": "2026-10-24T07:39:35.311959+00:00"
+    },
+    {
+      "day": "2026-01-19",
+      "sha256": "d7ef5f47160c8b328992759e3b328f3b371be606afe320bc1b1d0122a09bfed9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-278",
+      "fetched_at": "2026-10-24T07:39:35.335052+00:00"
+    },
+    {
+      "day": "2026-01-20",
+      "sha256": "0920b2860f9ecbda574e4b24793278fc535f219fc730456fa51fb6b0f7f19cc4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-277",
+      "fetched_at": "2026-10-24T07:39:35.368512+00:00"
+    },
+    {
+      "day": "2026-01-21",
+      "sha256": "be3ba552d20b506c3a4c8001772f8612904d47bc14c2bfb90bcf1a2a55a53785",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-276",
+      "fetched_at": "2026-10-24T07:39:35.386600+00:00"
+    },
+    {
+      "day": "2026-01-22",
+      "sha256": "76e793de0a002271b6426c016d879c8526c359e8d706e31dd4659bf32bdba6cc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-275",
+      "fetched_at": "2026-10-24T07:39:35.418623+00:00"
+    },
+    {
+      "day": "2026-01-23",
+      "sha256": "c80edbfc72a6f5ff54c9f5f2122d6496cc319265c97a39d84f15ee3cafae7a87",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-274",
+      "fetched_at": "2026-10-24T07:39:35.446891+00:00"
+    },
+    {
+      "day": "2026-01-24",
+      "sha256": "692027c581280b81a53ac8161fa50fda93fa81e15f401573a8f502168d13e999",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-273",
+      "fetched_at": "2026-10-24T07:39:35.473180+00:00"
+    },
+    {
+      "day": "2026-01-25",
+      "sha256": "670e4f69bc551b712425c7080922af54a0304c5d4db3300241f8a15fcbe5a7b0",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-272",
+      "fetched_at": "2026-10-24T07:39:35.491220+00:00"
+    },
+    {
+      "day": "2026-01-26",
+      "sha256": "9ff7b4f4cb6809107dafedf62a51807c9cfc2c98b07578c4d4b8417e7d2eb9e6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-271",
+      "fetched_at": "2026-10-24T07:39:35.521420+00:00"
+    },
+    {
+      "day": "2026-01-27",
+      "sha256": "e4ba6a3035884f0097fae9a73fa319b3a698e0867496342d2f62b0915ad3d67f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-270",
+      "fetched_at": "2026-10-24T07:39:35.551914+00:00"
+    },
+    {
+      "day": "2026-01-28",
+      "sha256": "62da30afb8e59da8f7f317752361c3544bb7e02bdd10aa7f4c44547682ef8ac4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-269",
+      "fetched_at": "2026-10-24T07:39:35.580281+00:00"
+    },
+    {
+      "day": "2026-01-29",
+      "sha256": "05a6c1ae168e70835c395aa81177dac82e6767c162a08578534dddd1125195a0",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-268",
+      "fetched_at": "2026-10-24T07:39:35.608007+00:00"
+    },
+    {
+      "day": "2026-01-30",
+      "sha256": "ebbbed64ed2d60f01f22db58a48214dea5b4b4a1537d40e6e51a3e1bb2e4fba5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-267",
+      "fetched_at": "2026-10-24T07:39:35.638809+00:00"
+    },
+    {
+      "day": "2026-01-31",
+      "sha256": "afe3f8e0f10cec64ca75f3acb96a6f29f691c6f038ec1d9d34ec80590cca7184",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-266",
+      "fetched_at": "2026-10-24T07:39:35.667293+00:00"
+    },
+    {
+      "day": "2026-02-01",
+      "sha256": "ab0fc261e5c86cf5a3a405c483c0eef2d4dd667ac680db34806fda6ca464d74d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-265",
+      "fetched_at": "2026-10-24T07:39:35.693519+00:00"
+    },
+    {
+      "day": "2026-02-02",
+      "sha256": "ec913e75105fcb2871a642c1a09cae0507fa021b4b72cbac9a25819fc9148453",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-264",
+      "fetched_at": "2026-10-24T07:39:35.721207+00:00"
+    },
+    {
+      "day": "2026-02-03",
+      "sha256": "b69501d0b8162d5d1b1634ea7ac0b78b802b62275b4757d20e1efb833b6f1003",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-263",
+      "fetched_at": "2026-10-24T07:39:35.747817+00:00"
+    },
+    {
+      "day": "2026-02-04",
+      "sha256": "4be1a0a625dbcd371dd2c34eb2a68f9fc22d65125f31862146b4119c2b58dd28",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-262",
+      "fetched_at": "2026-10-24T07:39:35.785795+00:00"
+    },
+    {
+      "day": "2026-02-05",
+      "sha256": "1119b663415846d3f6c332e17f1f7bf089043c6493ca17d6059d5444d7732583",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-261",
+      "fetched_at": "2026-10-24T07:39:35.823375+00:00"
+    },
+    {
+      "day": "2026-02-06",
+      "sha256": "2a15d4fac1d65cbe163d30436e621d5f35f915d4b38cf19f0aca7ccfeae3b329",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-260",
+      "fetched_at": "2026-10-24T07:39:35.855085+00:00"
+    },
+    {
+      "day": "2026-02-07",
+      "sha256": "bb647cc39d9b8adf54f3f787433438366c522239cafdab09d3f35cbd06fbbfd3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-259",
+      "fetched_at": "2026-10-24T07:39:35.895087+00:00"
+    },
+    {
+      "day": "2026-02-08",
+      "sha256": "376d42240b67ca17907dc8e5f7542d756487a6373fde77d274083a833e19e57c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-258",
+      "fetched_at": "2026-10-24T07:39:35.928234+00:00"
+    },
+    {
+      "day": "2026-02-09",
+      "sha256": "ffce7d96fcb6772206a42d2d583e7a72ff610608cb39d46c02e8fc6f6642380a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-257",
+      "fetched_at": "2026-10-24T07:39:35.957737+00:00"
+    },
+    {
+      "day": "2026-02-10",
+      "sha256": "99ba8f54e549db99cd0e6064b10ced1e33d6a23bfac0028490cfd4d9d1a75aa6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-256",
+      "fetched_at": "2026-10-24T07:39:35.980674+00:00"
+    },
+    {
+      "day": "2026-02-11",
+      "sha256": "21f6ec5b650e3996d0173bfc405418f212cec2fa2ffcd936f0eeaf9b63e53cce",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-255",
+      "fetched_at": "2026-10-24T07:39:36.014120+00:00"
+    },
+    {
+      "day": "2026-02-12",
+      "sha256": "ebaab437266a5ddf799587a477d15ca61698cebecb9073de0ea5bd8833f4726a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-254",
+      "fetched_at": "2026-10-24T07:39:36.039643+00:00"
+    },
+    {
+      "day": "2026-02-13",
+      "sha256": "b9d9e0429a0fb467e1aae0776a1311c4dcb73364f0f2875c96eb946e54806882",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-253",
+      "fetched_at": "2026-10-24T07:39:36.058168+00:00"
+    },
+    {
+      "day": "2026-02-14",
+      "sha256": "77926de901c87554d1000de5cf0d8504066665561cd2b6f45861d2e39d9373ff",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-252",
+      "fetched_at": "2026-10-24T07:39:36.095519+00:00"
+    },
+    {
+      "day": "2026-02-15",
+      "sha256": "112de8a5843e1a15a442374456a3f4d953e49f7ce94c25e766b93d6dd96ca08d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-251",
+      "fetched_at": "2026-10-24T07:39:36.118714+00:00"
+    },
+    {
+      "day": "2026-02-16",
+      "sha256": "08a92b0e7c8dab9518afe8f768cb6349f0f97f36e9c67dbe8c8b975a1c61cd1b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-250",
+      "fetched_at": "2026-10-24T07:39:36.151757+00:00"
+    },
+    {
+      "day": "2026-02-17",
+      "sha256": "d0f7d8c55c72e3f80de649c66e5d0ebc98379a72e2bfe908310d0d023c982ef1",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-249",
+      "fetched_at": "2026-10-24T07:39:36.177991+00:00"
+    },
+    {
+      "day": "2026-02-18",
+      "sha256": "34bbc3ed3e8518628e5fbe93322a47e62220522df71a5207f256560c1343275a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-248",
+      "fetched_at": "2026-10-24T07:39:36.205613+00:00"
+    },
+    {
+      "day": "2026-02-19",
+      "sha256": "12e4ba109eeaf9c9c8f77482bd6b9ac51abff0e0639e3f84bfbe1fd7b9650046",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-247",
+      "fetched_at": "2026-10-24T07:39:36.234057+00:00"
+    },
+    {
+      "day": "2026-02-20",
+      "sha256": "b53de4e57d1d4c68565b9df4d0fae772cc275beb18f94fb8098ab703124ca1df",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-246",
+      "fetched_at": "2026-10-24T07:39:36.264800+00:00"
+    },
+    {
+      "day": "2026-02-21",
+      "sha256": "c9125a02829c09107a6acf8fe23f8b6491bcb1d6f8d5e4ad9c24105697694d10",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-245",
+      "fetched_at": "2026-10-24T07:39:36.280530+00:00"
+    },
+    {
+      "day": "2026-02-22",
+      "sha256": "529ba6ac9cff9c9790327d3c21faebf5356fc3cd84aaa4b58d5705033b4c80cc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-244",
+      "fetched_at": "2026-10-24T07:39:36.312683+00:00"
+    },
+    {
+      "day": "2026-02-23",
+      "sha256": "6f5400fdda2ae849cf279b400f66f76966ce87978ddb195fbe09985ad58eb7d2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-243",
+      "fetched_at": "2026-10-24T07:39:36.330345+00:00"
+    },
+    {
+      "day": "2026-02-24",
+      "sha256": "ed083a7d20cc1437f5d25b159da2c68c81a95710639303188c745d45d70568d1",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-242",
+      "fetched_at": "2026-10-24T07:39:36.364065+00:00"
+    },
+    {
+      "day": "2026-02-25",
+      "sha256": "837131ebaabbc702ca6385f253a5a80f405900a4dd580dbbb3d0dc3aef50e9e4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-241",
+      "fetched_at": "2026-10-24T07:39:36.383020+00:00"
+    },
+    {
+      "day": "2026-02-26",
+      "sha256": "a61eada8176f98fcf0e6dcd82146359368d6ec18372f1576ed8568abbdbea447",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-240",
+      "fetched_at": "2026-10-24T07:39:36.417668+00:00"
+    },
+    {
+      "day": "2026-02-27",
+      "sha256": "f300fecdf0b98a2b103618a7d4cc2396a2634c11afb70097b5b59c51ad00e979",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-239",
+      "fetched_at": "2026-10-24T07:39:36.442967+00:00"
+    },
+    {
+      "day": "2026-02-28",
+      "sha256": "34ac7b81a38056d1d41978cc4c7f5357440e5b2ba3826d52f1bd157b9ea7bbbf",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-238",
+      "fetched_at": "2026-10-24T07:39:36.461199+00:00"
+    },
+    {
+      "day": "2026-03-01",
+      "sha256": "9ced210f4496fbf1aa4c4d95d09e5d2ae5e0b8bf05e3bb5d17a154ac1fc9fe9e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-237",
+      "fetched_at": "2026-10-24T07:39:36.485093+00:00"
+    },
+    {
+      "day": "2026-03-02",
+      "sha256": "e3517ac215e320c494d6439c90c816bd439c86986bb82a659e8bc47e0433c356",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-236",
+      "fetched_at": "2026-10-24T07:39:36.506602+00:00"
+    },
+    {
+      "day": "2026-03-03",
+      "sha256": "a069ef2724738d6b31758c74a14132e3e8f721ddae909aa1e7dbaf5b11180767",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-235",
+      "fetched_at": "2026-10-24T07:39:36.534066+00:00"
+    },
+    {
+      "day": "2026-03-04",
+      "sha256": "45c5dfcbe71a922690bbabc15baa32b9c94e84b51eb2aab88971bdbaa06956c9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-234",
+      "fetched_at": "2026-10-24T07:39:36.559134+00:00"
+    },
+    {
+      "day": "2026-03-05",
+      "sha256": "19d17b30439cea2aea641bd5eae28dfb67fbf792755e5f1328f8779dccc82fc4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-233",
+      "fetched_at": "2026-10-24T07:39:36.585757+00:00"
+    },
+    {
+      "day": "2026-03-06",
+      "sha256": "4535571bd12c1d341c0cd5ef415ba96fd33ac0696278eb58a7bd11ec88b3bc56",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-232",
+      "fetched_at": "2026-10-24T07:39:36.617812+00:00"
+    },
+    {
+      "day": "2026-03-07",
+      "sha256": "b1359ba8f4ce8e8fbb8a97f71c148f92165402ab179da0d3f85a34fda4defdcc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-231",
+      "fetched_at": "2026-10-24T07:39:36.654454+00:00"
+    },
+    {
+      "day": "2026-03-08",
+      "sha256": "8bb54e225f94d21202fb6cbaae0126030fa2680308488f6b76e51e34e86f8e6d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-230",
+      "fetched_at": "2026-10-24T07:39:36.676580+00:00"
+    },
+    {
+      "day": "2026-03-09",
+      "sha256": "bf373c813706e8826496a771c60e5d13d2bf0b9c9c54de03803ae76e57377b3e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-229",
+      "fetched_at": "2026-10-24T07:39:36.701242+00:00"
+    },
+    {
+      "day": "2026-03-10",
+      "sha256": "e03be4d1a6cae14b3f67e2263132df9ddbcc82926e212b1c7b19378181bba0fd",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-228",
+      "fetched_at": "2026-10-24T07:39:36.719256+00:00"
+    },
+    {
+      "day": "2026-03-11",
+      "sha256": "5c8ec9cf935f4882a414f10848ccac1741339df28082274c4ff06613f230e4cb",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-227",
+      "fetched_at": "2026-10-24T07:39:36.742449+00:00"
+    },
+    {
+      "day": "2026-03-12",
+      "sha256": "34deaa0018c3e4388e2f6abb431325be0a3ef8d36bc6f5253bd605a3e70d042d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-226",
+      "fetched_at": "2026-10-24T07:39:36.775029+00:00"
+    },
+    {
+      "day": "2026-03-13",
+      "sha256": "286a934d65199a146e99a9a3d05ce40b00df0206152bc36ec917ef52ff9371a5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-225",
+      "fetched_at": "2026-10-24T07:39:36.805614+00:00"
+    },
+    {
+      "day": "2026-03-14",
+      "sha256": "508048a5d5ef062388a738aec7753398a896be8f0999d09f343621a6c2061153",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-224",
+      "fetched_at": "2026-10-24T07:39:36.830308+00:00"
+    },
+    {
+      "day": "2026-03-15",
+      "sha256": "c5a0bddf76ec479ca306d2c622e7aefe753e4c3f276dbd6cc2cbf990d0c375f3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-223",
+      "fetched_at": "2026-10-24T07:39:36.855868+00:00"
+    },
+    {
+      "day": "2026-03-16",
+      "sha256": "996f550fc5b0f67cfca0d6d8b1036d25e9022e8d82208f844969d1926be7d7af",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-222",
+      "fetched_at": "2026-10-24T07:39:36.883391+00:00"
+    },
+    {
+      "day": "2026-03-17",
+      "sha256": "280f0d861308252af7244167d13358175f901897e8287a030ab36c36e786bb34",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-221",
+      "fetched_at": "2026-10-24T07:39:36.916646+00:00"
+    },
+    {
+      "day": "2026-03-18",
+      "sha256": "9c620770888fa384b56954ec4de2002a7785270a5b8e2039bfecb5b2f961dc92",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-220",
+      "fetched_at": "2026-10-24T07:39:36.944462+00:00"
+    },
+    {
+      "day": "2026-03-19",
+      "sha256": "04e8ffe2fc19be8b396a30ab76e9f7d0bc47f41861be8da0c5af50762ac7e0c8",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-219",
+      "fetched_at": "2026-10-24T07:39:36.963741+00:00"
+    },
+    {
+      "day": "2026-03-20",
+      "sha256": "f1fcb0f2427870f9829dd256765fe98bb8e5ccbd284b65fbd727a5c7d3d9c046",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-218",
+      "fetched_at": "2026-10-24T07:39:37.000811+00:00"
+    },
+    {
+      "day": "2026-03-21",
+      "sha256": "f75392bb7409aa3da34c1eb17912467ad5ebcf74ed655a21989ad5e270e5bbfc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-217",
+      "fetched_at": "2026-10-24T07:39:37.029813+00:00"
+    },
+    {
+      "day": "2026-03-22",
+      "sha256": "597da1b182950c2f0233ec4cac0404cc51f3bca25d51ac0ef5b899d4f6f6d224",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-216",
+      "fetched_at": "2026-10-24T07:39:37.056764+00:00"
+    },
+    {
+      "day": "2026-03-23",
+      "sha256": "f8f23f1b1a28859645a8ffc1fef257ba393ea53f9999b22bd83965bcc372a07c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-215",
+      "fetched_at": "2026-10-24T07:39:37.085026+00:00"
+    },
+    {
+      "day": "2026-03-24",
+      "sha256": "d52bde0c0dcd6bb49237d8c6306ce5c5002aaf69214e8e979d0dafc5cb65a8bb",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-214",
+      "fetched_at": "2026-10-24T07:39:37.117418+00:00"
+    },
+    {
+      "day": "2026-03-25",
+      "sha256": "e3a9faab3a583b3f9492a504a77aed30d80b0134e13fddc9a2f68a474aa54f82",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-213",
+      "fetched_at": "2026-10-24T07:39:37.140611+00:00"
+    },
+    {
+      "day": "2026-03-26",
+      "sha256": "17465d7cc1bbb55393047a45e0512accb844c97e7f6e7e6bf88a72d572df593f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-212",
+      "fetched_at": "2026-10-24T07:39:37.173588+00:00"
+    },
+    {
+      "day": "2026-03-27",
+      "sha256": "e113228acc87f9167822a83436d589e27f013bbe17a1eb4698961f27a2523e07",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-211",
+      "fetched_at": "2026-10-24T07:39:37.206384+00:00"
+    },
+    {
+      "day": "2026-03-28",
+      "sha256": "356f5224644936a18882b8fecd141bdc0cfd88457daf181e1961909bd86611c5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-210",
+      "fetched_at": "2026-10-24T07:39:37.237200+00:00"
+    },
+    {
+      "day": "2026-03-29",
+      "sha256": "b687bda14ab83a53cace44468a1b25ba45e29d29a4138cc4deafe979e26a8b37",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-209",
+      "fetched_at": "2026-10-24T07:39:37.264355+00:00"
+    },
+    {
+      "day": "2026-03-30",
+      "sha256": "7311e1dd91d67981905f4f0974752413d9176f280ecf57754cbc328fb1146cb2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-208",
+      "fetched_at": "2026-10-24T07:39:37.287276+00:00"
+    },
+    {
+      "day": "2026-03-31",
+      "sha256": "0087754d1419f1bc08c7efb5391f1a41eec8f7480e425f3a5053d646074a83ee",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-207",
+      "fetched_at": "2026-10-24T07:39:37.316428+00:00"
+    },
+    {
+      "day": "2026-04-01",
+      "sha256": "863ae3473f34aae637f2193366942920dfbcbf5c8f213958d9492a78baf7d2b7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-206",
+      "fetched_at": "2026-10-24T07:39:37.345612+00:00"
+    },
+    {
+      "day": "2026-04-02",
+      "sha256": "c61e0f0cf047fc6b5f62368af75f83a3d5302e1d8535c4c83cf5c22c0dc617be",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-205",
+      "fetched_at": "2026-10-24T07:39:37.376035+00:00"
+    },
+    {
+      "day": "2026-04-03",
+      "sha256": "eca829dc5b7bf92406f3514a3ebfcbad2b62457e34fcf844d76608d869def5c6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-204",
+      "fetched_at": "2026-10-24T07:39:37.412870+00:00"
+    },
+    {
+      "day": "2026-04-04",
+      "sha256": "163d8fd7b3626c4c029b1cbc72b292e0423b27b4c7ab196fd06d6cc579f52329",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-203",
+      "fetched_at": "2026-10-24T07:39:37.446464+00:00"
+    },
+    {
+      "day": "2026-04-05",
+      "sha256": "ded23e846b39fbbc31477edaadbfd5829f1b1e9fd91d057ea5ecf4b047a5408c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-202",
+      "fetched_at": "2026-10-24T07:39:37.469235+00:00"
+    },
+    {
+      "day": "2026-04-06",
+      "sha256": "69ab0f46c9501769966c5cc380153f69f0a7c15992d85bf58a55a1f97e79de5e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-201",
+      "fetched_at": "2026-10-24T07:39:37.499699+00:00"
+    },
+    {
+      "day": "2026-04-07",
+      "sha256": "66f06a4f359740d806bfba5c0e4ba507fd3f286d35f90a392a202812ff7955d5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-200",
+      "fetched_at": "2026-10-24T07:39:37.541070+00:00"
+    },
+    {
+      "day": "2026-04-08",
+      "sha256": "9fd965bd5426ae9b8038058473a5cee57bd011cdcfde6c0805ec4b2ee4875964",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-199",
+      "fetched_at": "2026-10-24T07:39:37.570976+00:00"
+    },
+    {
+      "day": "2026-04-09",
+      "sha256": "b94b88d2442a7f9c91d2ab77c7b46c67f27e9c5a221f5e26c04551d9e2e76426",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-198",
+      "fetched_at": "2026-10-24T07:39:37.600996+00:00"
+    },
+    {
+      "day": "2026-04-10",
+      "sha256": "f0c0fec491ce03f55a949628d00e3ac5ef074d5f41c3a789045cace154972c59",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-197",
+      "fetched_at": "2026-10-24T07:39:37.636096+00:00"
+    },
+    {
+      "day": "2026-04-11",
+      "sha256": "c213ef46bc19efacfb7c12979f465e07f57d6040394ecaa2549e337c073eaf04",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-196",
+      "fetched_at": "2026-10-24T07:39:37.674442+00:00"
+    },
+    {
+      "day": "2026-04-12",
+      "sha256": "4546066f4fa9f5c58f4186d81c0c9798ea5469b4bcb84c56cdad63580e78f09b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-195",
+      "fetched_at": "2026-10-24T07:39:37.699900+00:00"
+    },
+    {
+      "day": "2026-04-13",
+      "sha256": "ba819521bd61e189f7b47f8add4b41cf4140b2a5a09a996c00c656de87902e37",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-194",
+      "fetched_at": "2026-10-24T07:39:37.725479+00:00"
+    },
+    {
+      "day": "2026-04-14",
+      "sha256": "7e400e38b055e86c1423c5e1760965f18a96825509897d82dea1b56f1fe04323",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-193",
+      "fetched_at": "2026-10-24T07:39:37.765610+00:00"
+    },
+    {
+      "day": "2026-04-15",
+      "sha256": "9535946031056a66b9ca53e3df73beabb60aa3fcfc2ab25fbc459786886b2858",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-192",
+      "fetched_at": "2026-10-24T07:39:37.824410+00:00"
+    },
+    {
+      "day": "2026-04-16",
+      "sha256": "727b5ba932e05713592c3ea6426459694e9b8ba5f5cde5bc9c02f63db95e908c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-191",
+      "fetched_at": "2026-10-24T07:39:37.980862+00:00"
+    },
+    {
+      "day": "2026-04-17",
+      "sha256": "6169633d47569af1aa2237e87da027e20faf75a4ff6752f3763c2d8b3a8e070a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-190",
+      "fetched_at": "2026-10-24T07:39:38.005472+00:00"
+    },
+    {
+      "day": "2026-04-18",
+      "sha256": "fc42c9b3f4a5fe922e580bf0336e6e7b178f92fa2968eeb31d7d94b8fd9a5b51",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-189",
+      "fetched_at": "2026-10-24T07:39:38.101714+00:00"
+    },
+    {
+      "day": "2026-04-19",
+      "sha256": "e49dbd95dadda98064ddbc4097fbe9db7640e81f5cbdd903bae30f7f7a8107bc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-188",
+      "fetched_at": "2026-10-24T07:39:38.120843+00:00"
+    },
+    {
+      "day": "2026-04-20",
+      "sha256": "07a2f3fa1e3eaf87d5920ed87659da2f32e24ea0d5e391e73c57c0445b21ff6c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-187",
+      "fetched_at": "2026-10-24T07:39:38.204813+00:00"
+    },
+    {
+      "day": "2026-04-21",
+      "sha256": "43a9c67a154aa32f19c9d1cd183703673ba6e0572fc1b1913dbcc398755e3191",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-186",
+      "fetched_at": "2026-10-24T07:39:38.222420+00:00"
+    },
+    {
+      "day": "2026-04-22",
+      "sha256": "c86a24fe09d1fc44110e574c69fa6668fb02934c389e20c2731a5eac0f890f75",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-185",
+      "fetched_at": "2026-10-24T07:39:38.333552+00:00"
+    },
+    {
+      "day": "2026-04-23",
+      "sha256": "8d83f1db86e2b89caa57f159a859f57742d0895386a726971690eafa87b6b963",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-184",
+      "fetched_at": "2026-10-24T07:39:38.352087+00:00"
+    },
+    {
+      "day": "2026-04-24",
+      "sha256": "c7c6118f4dbc5c7e33c9c2aadbe02b440dabbf7fde2a653e85bce3b546f70a4d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-183",
+      "fetched_at": "2026-10-24T07:39:38.432842+00:00"
+    },
+    {
+      "day": "2026-04-25",
+      "sha256": "aed4ac0dc34dd28f9fccccf202c59da8751fc719ac4aca0ae8d87a171904416e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-182",
+      "fetched_at": "2026-10-24T07:39:38.450253+00:00"
+    },
+    {
+      "day": "2026-04-26",
+      "sha256": "6d7c33d5daad514e2d6b92124a238ea49052570f181da7acc5c48b200616fe69",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-181",
+      "fetched_at": "2026-10-24T07:39:38.501832+00:00"
+    },
+    {
+      "day": "2026-04-27",
+      "sha256": "87531fbe124739253dd67e8b0992d1999da34355feb4ea5670bb691366c03eb4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-180",
+      "fetched_at": "2026-10-24T07:39:38.532186+00:00"
+    },
+    {
+      "day": "2026-04-28",
+      "sha256": "2af5474ec8ac3ca896f95bca7ca9535bd90a21fdfa81c895db16291fbd5c694b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-179",
+      "fetched_at": "2026-10-24T07:39:38.583735+00:00"
+    },
+    {
+      "day": "2026-04-29",
+      "sha256": "4822a7235678f4e61c22561d8c42a335fedf10f55c85cc482f845a2152249fe9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-178",
+      "fetched_at": "2026-10-24T07:39:38.613372+00:00"
+    },
+    {
+      "day": "2026-04-30",
+      "sha256": "b339c5b14c166f75dcafeae18589b907e7c80f46c07b965a00709a4c9800030c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-177",
+      "fetched_at": "2026-10-24T07:39:38.665226+00:00"
+    },
+    {
+      "day": "2026-05-01",
+      "sha256": "d50848a8076390c104dcd316535d498f9eaee1be7e0d09747f991f3ac5f9e2f3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-176",
+      "fetched_at": "2026-10-24T07:39:38.694114+00:00"
+    },
+    {
+      "day": "2026-05-02",
+      "sha256": "40e19a8587781c4d8b0913d39a8d7982236c6a837a970c5aff0dfd305e39bcf5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-175",
+      "fetched_at": "2026-10-24T07:39:38.736794+00:00"
+    },
+    {
+      "day": "2026-05-03",
+      "sha256": "6263af063c9472b785dd6d31c0de8818935896b233f9a2a6e9ec22e42a1b54e5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-174",
+      "fetched_at": "2026-10-24T07:39:38.762070+00:00"
+    },
+    {
+      "day": "2026-05-04",
+      "sha256": "a420a96cc0e60af5643a975ae42fe7226bfa7f3339b00e81173a1a7459a0f4fb",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-173",
+      "fetched_at": "2026-10-24T07:39:38.787074+00:00"
+    },
+    {
+      "day": "2026-05-05",
+      "sha256": "8f9282e433e78e3e96e8eeaaa769081c328df43fe5b6c3e8ad37f61dc5be1070",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-172",
+      "fetched_at": "2026-10-24T07:39:38.822281+00:00"
+    },
+    {
+      "day": "2026-05-06",
+      "sha256": "b3930b90b671bb298459923b459e7c7b9cc0b7c5f1dd702a017b84fc34e59c24",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-171",
+      "fetched_at": "2026-10-24T07:39:38.866772+00:00"
+    },
+    {
+      "day": "2026-05-07",
+      "sha256": "c47e879c2269ceee049e2fc7883a3c83cce9f0edacc9d047066bcdc795ed74db",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-170",
+      "fetched_at": "2026-10-24T07:39:38.909972+00:00"
+    },
+    {
+      "day": "2026-05-08",
+      "sha256": "4d29c10b9df2541786a03e3aec8e6d8167aa06db58409846ec432aa5767c1035",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-169",
+      "fetched_at": "2026-10-24T07:39:38.945770+00:00"
+    },
+    {
+      "day": "2026-05-09",
+      "sha256": "70c488a4b0a7b6f521b47dc21f6e4aff8aae2dee06faeb713a9b74c0c3575479",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-168",
+      "fetched_at": "2026-10-24T07:39:38.989529+00:00"
+    },
+    {
+      "day": "2026-05-10",
+      "sha256": "d6cb9d3d2d5c18e4b33b26ed0cfe89afe104552b1c0780306315063ff4aae311",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-167",
+      "fetched_at": "2026-10-24T07:39:39.009154+00:00"
+    },
+    {
+      "day": "2026-05-11",
+      "sha256": "7a8c323fe7d1d2fa26beb1f35f73a2dc0469ef234465e6439f81b36a3088f0ab",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-166",
+      "fetched_at": "2026-10-24T07:39:39.034837+00:00"
+    },
+    {
+      "day": "2026-05-12",
+      "sha256": "99268c9f6883b6b58c86c10edbdca6e23daa4748f7c0ee51c988aa5846b68cc3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-165",
+      "fetched_at": "2026-10-24T07:39:39.082291+00:00"
+    },
+    {
+      "day": "2026-05-13",
+      "sha256": "99f95f437811080390275723cee5e4206a1088e40302088af29dcdb8c1ad6b6f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-164",
+      "fetched_at": "2026-10-24T07:39:39.126780+00:00"
+    },
+    {
+      "day": "2026-05-14",
+      "sha256": "c0b142253eda6100a7086ddc413e1f1e9227f1c6cba634939b41839e052aa3f5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-163",
+      "fetched_at": "2026-10-24T07:39:39.153819+00:00"
+    },
+    {
+      "day": "2026-05-15",
+      "sha256": "c75db1917e822521fa1b07e49c59fe04132dd05c6dfd663b3572482a01614a03",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-162",
+      "fetched_at": "2026-10-24T07:39:39.176591+00:00"
+    },
+    {
+      "day": "2026-05-16",
+      "sha256": "910208af6f5eaf806f960a7a7f918cd362c05f47e9981ae011f49e35b323e4d9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-161",
+      "fetched_at": "2026-10-24T07:39:39.220074+00:00"
+    },
+    {
+      "day": "2026-05-17",
+      "sha256": "25d62d997c3b7e289115c48a28dadc87914482a4e8b45d7ed237ccfbb9d81fe7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-160",
+      "fetched_at": "2026-10-24T07:39:39.251380+00:00"
+    },
+    {
+      "day": "2026-05-18",
+      "sha256": "4c38b511c9a26288ca730db5f35759b2f8c63bd8acfdf5a22f603e3016852e5b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-159",
+      "fetched_at": "2026-10-24T07:39:39.285595+00:00"
+    },
+    {
+      "day": "2026-05-19",
+      "sha256": "6ce9e4e5e68b0ed0d7de4bb054eb065dab7579694ce37212e55737930853bc8e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-158",
+      "fetched_at": "2026-10-24T07:39:39.333410+00:00"
+    },
+    {
+      "day": "2026-05-20",
+      "sha256": "837ec2631d8520e103df0b26603e7729fbe9f03218e9292e6df1bc1aaa651c18",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-157",
+      "fetched_at": "2026-10-24T07:39:39.365950+00:00"
+    },
+    {
+      "day": "2026-05-21",
+      "sha256": "2990cd5b9a59f09ffeae75c566f3c8c9c2bc3a252b19d87a142079bd7d00a3ec",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-156",
+      "fetched_at": "2026-10-24T07:39:39.410467+00:00"
+    },
+    {
+      "day": "2026-05-22",
+      "sha256": "0f1cef172e3a559ff237931fda19e2c9a39c631ebe43c31ebab8caa08c7bdb3a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-155",
+      "fetched_at": "2026-10-24T07:39:39.446961+00:00"
+    },
+    {
+      "day": "2026-05-23",
+      "sha256": "5a50d1e862bc65018d42eb07e60bfdb72a646716522ce4dd0d60f51659e049e9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-154",
+      "fetched_at": "2026-10-24T07:39:39.471148+00:00"
+    },
+    {
+      "day": "2026-05-24",
+      "sha256": "369f3d2a0d6c2cf0042d1db4f9d43c752d7a8b670cf148bf0052f7eadd65e588",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-153",
+      "fetched_at": "2026-10-24T07:39:39.521598+00:00"
+    },
+    {
+      "day": "2026-05-25",
+      "sha256": "0bf3f496af1aabf259f3ccf59f52fab9c4d2983d19eac646ec7572858d0c66d5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-152",
+      "fetched_at": "2026-10-24T07:39:39.538197+00:00"
+    },
+    {
+      "day": "2026-05-26",
+      "sha256": "3a36f1b4d4e9d654137458341a8f79ff87dd8f1fb627463b63e00f535c731c4d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-151",
+      "fetched_at": "2026-10-24T07:39:39.567845+00:00"
+    },
+    {
+      "day": "2026-05-27",
+      "sha256": "be19d08466248a38c9e2ffc469526ee6458ee35a14e71fbbb3a795f6b5cdfc86",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-150",
+      "fetched_at": "2026-10-24T07:39:39.596495+00:00"
+    },
+    {
+      "day": "2026-05-28",
+      "sha256": "cbfad644161711ec2676a604ac14b5e2b39633fd1ca7119c36adcd45ad8c3388",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-149",
+      "fetched_at": "2026-10-24T07:39:39.632079+00:00"
+    },
+    {
+      "day": "2026-05-29",
+      "sha256": "ceaab538e7edf5abdc8637bf8fabc4ecfe2d5d41f8c9c97b90382cc68a73b72b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-148",
+      "fetched_at": "2026-10-24T07:39:39.663466+00:00"
+    },
+    {
+      "day": "2026-05-30",
+      "sha256": "43fd96c96ee1c202f04142400d6124207234d384a8672396a949dfb33b2a6e93",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-147",
+      "fetched_at": "2026-10-24T07:39:39.699684+00:00"
+    },
+    {
+      "day": "2026-05-31",
+      "sha256": "6dc5c6661dfed8ebbe6c36cd9b3f44bedcccd4a5e97f299d1f46f632dbcf5b39",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-146",
+      "fetched_at": "2026-10-24T07:39:39.735771+00:00"
+    },
+    {
+      "day": "2026-06-01",
+      "sha256": "63a6eb0f2a5417922aefc5d73a4bd7da7d887cdaf207cb4483f97dfa44f03fa9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-145",
+      "fetched_at": "2026-10-24T07:39:39.767997+00:00"
+    },
+    {
+      "day": "2026-06-02",
+      "sha256": "f6be365425c37ad494d5b39ae3e76fcbcd085fd141d1f5ba4334d5201ddf3323",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-144",
+      "fetched_at": "2026-10-24T07:39:39.803510+00:00"
+    },
+    {
+      "day": "2026-06-03",
+      "sha256": "ec5d64d1dcfaa4ded3078c3a384a374c1c2f69148f259696fc18e925ea314c7d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-143",
+      "fetched_at": "2026-10-24T07:39:39.841756+00:00"
+    },
+    {
+      "day": "2026-06-04",
+      "sha256": "d511412c9d3c5ce7c86d4dc42d51ceb89f554a20565bf5036cbdf340e5a1a24a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-142",
+      "fetched_at": "2026-10-24T07:39:39.880411+00:00"
+    },
+    {
+      "day": "2026-06-05",
+      "sha256": "82c0db5bc0d99596ebbad6372d866bd39dcec603876a22b6500858a06bd69b10",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-141",
+      "fetched_at": "2026-10-24T07:39:39.911101+00:00"
+    },
+    {
+      "day": "2026-06-06",
+      "sha256": "8e9ef03d61387461505f7f3db817d2a8ac32761f0345daca0b0b6f103e0be893",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-140",
+      "fetched_at": "2026-10-24T07:39:39.956962+00:00"
+    },
+    {
+      "day": "2026-06-07",
+      "sha256": "3d2c1a520dc4c59cb4d22bcaebe987e916e6e47d8804b382dc0b58131464374d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-139",
+      "fetched_at": "2026-10-24T07:39:39.994637+00:00"
+    },
+    {
+      "day": "2026-06-08",
+      "sha256": "1e7a8bb67b50717d32372392c6e7bb87defb1b0ca5fa36963413382894c149be",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-138",
+      "fetched_at": "2026-10-24T07:39:40.032502+00:00"
+    },
+    {
+      "day": "2026-06-09",
+      "sha256": "9a102420ce48e7645930530d082b0c7d4d7d19abbfe2a910e866b9015f436471",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-137",
+      "fetched_at": "2026-10-24T07:39:40.074674+00:00"
+    },
+    {
+      "day": "2026-06-10",
+      "sha256": "bb5653714ba847017fbaacd93c9f58eb618becb11121c900773b8ddec175564f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-136",
+      "fetched_at": "2026-10-24T07:39:40.114311+00:00"
+    },
+    {
+      "day": "2026-06-11",
+      "sha256": "d0f0f9cdb09fa60e40776e8380a6bf89c117df86c6580e17fb06845d4402120d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-135",
+      "fetched_at": "2026-10-24T07:39:40.151608+00:00"
+    },
+    {
+      "day": "2026-06-12",
+      "sha256": "86d83a343c305fa53dc9b2e8b2b8e5b82cd1fd53cbf0b8d5e615a35bfc7a29f7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-134",
+      "fetched_at": "2026-10-24T07:39:40.194898+00:00"
+    },
+    {
+      "day": "2026-06-13",
+      "sha256": "6613fcf932d28f0676cb1083b868cdd891e15365fa17d156a5301c945d92fec4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-133",
+      "fetched_at": "2026-10-24T07:39:40.229677+00:00"
+    },
+    {
+      "day": "2026-06-14",
+      "sha256": "e6d60c3c2957766314ef15081d32b16592ec7837201ac42ad57ab8e22f0f8061",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-132",
+      "fetched_at": "2026-10-24T07:39:40.267759+00:00"
+    },
+    {
+      "day": "2026-06-15",
+      "sha256": "a6eb68fca18a503230604c9bde4aebe807db0ca92f954dc165e39952883e1440",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-131",
+      "fetched_at": "2026-10-24T07:39:40.308831+00:00"
+    },
+    {
+      "day": "2026-06-16",
+      "sha256": "a33eeae7d4b9809da48993e322a0ed54000e5fbcc314ed663b343532285db96a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-130",
+      "fetched_at": "2026-10-24T07:39:40.340588+00:00"
+    },
+    {
+      "day": "2026-06-17",
+      "sha256": "f5c79f6e9fd2227f31f576cae35b3d14b85f5bc159256c885d43ad2ff963996f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-129",
+      "fetched_at": "2026-10-24T07:39:40.371198+00:00"
+    },
+    {
+      "day": "2026-06-18",
+      "sha256": "47a11521b535622dc017bf3114e69c1352e9972308b6ee69bc5030774d16346a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-128",
+      "fetched_at": "2026-10-24T07:39:40.400277+00:00"
+    },
+    {
+      "day": "2026-06-19",
+      "sha256": "0f9acfea2d101d62e27dafb665395e0143a4e6728cc0c1f8dd45e5180166c9a4",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-127",
+      "fetched_at": "2026-10-24T07:39:40.435429+00:00"
+    },
+    {
+      "day": "2026-06-20",
+      "sha256": "95769234636fea008c826b5faa2a80c350065b09ff1c3c5b92a2c1ffeefb857c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-126",
+      "fetched_at": "2026-10-24T07:39:40.474548+00:00"
+    },
+    {
+      "day": "2026-06-21",
+      "sha256": "feeeddb73895e797eda8a4253b1ffe4dd06095c0e096c5333c87dcc86a225339",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-125",
+      "fetched_at": "2026-10-24T07:39:40.505047+00:00"
+    },
+    {
+      "day": "2026-06-22",
+      "sha256": "8168ea7a6cf6524754bacdd73cf7f3dcd5828bcb9c4b1a81b6d4ff1392ca5a02",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-124",
+      "fetched_at": "2026-10-24T07:39:40.529019+00:00"
+    },
+    {
+      "day": "2026-06-23",
+      "sha256": "50f5e15c83066afee06c29c3dd36ff44de89a15de15c3d761e8edacda3fcc5a9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-123",
+      "fetched_at": "2026-10-24T07:39:40.568852+00:00"
+    },
+    {
+      "day": "2026-06-24",
+      "sha256": "7558feea2504cae0e18cab5b5b39f8c480950b756081e692e72e71c79af079c9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-122",
+      "fetched_at": "2026-10-24T07:39:40.591086+00:00"
+    },
+    {
+      "day": "2026-06-25",
+      "sha256": "76d1107c0811be56b1f0f042ed223ee9fb9ef07714f3c9f97a509f4dea0f0135",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-121",
+      "fetched_at": "2026-10-24T07:39:40.616152+00:00"
+    },
+    {
+      "day": "2026-06-26",
+      "sha256": "95837424b5af34d2f8a6a4f4b610490d1b786384490a308b0db20fff5afb1a44",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-120",
+      "fetched_at": "2026-10-24T07:39:40.655860+00:00"
+    },
+    {
+      "day": "2026-06-27",
+      "sha256": "21cc144f631d6d0b9157fc31fc06ea82ff0523dfc014bacbe6af32708de0eb43",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-119",
+      "fetched_at": "2026-10-24T07:39:40.677056+00:00"
+    },
+    {
+      "day": "2026-06-28",
+      "sha256": "5e40dbc4f75e1bc87abfb96f4ea5ef7b865652c4efd57bbbeda698e6bfb78647",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-118",
+      "fetched_at": "2026-10-24T07:39:40.717799+00:00"
+    },
+    {
+      "day": "2026-06-29",
+      "sha256": "1b61d1f78c321c5c49cd029aca09e8457dbb976a69516d46b8540f63560f2135",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-117",
+      "fetched_at": "2026-10-24T07:39:40.759721+00:00"
+    },
+    {
+      "day": "2026-06-30",
+      "sha256": "048801a6cbe6c8b80e2dbef40cb244443cc04a9b9f71851add1d794f10a9e59f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-116",
+      "fetched_at": "2026-10-24T07:39:40.788229+00:00"
+    },
+    {
+      "day": "2026-07-01",
+      "sha256": "a4d4da39463c23d82a5abfd27cfb4bb2f604dcdb26537db00d4188ff0ed57aee",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-115",
+      "fetched_at": "2026-10-24T07:39:40.824788+00:00"
+    },
+    {
+      "day": "2026-07-02",
+      "sha256": "274d495d53e47e368efdf8b4a6a976b932f8b072dbf77ff6be05cc93b6608412",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-114",
+      "fetched_at": "2026-10-24T07:39:40.857506+00:00"
+    },
+    {
+      "day": "2026-07-03",
+      "sha256": "ef42b1f334002cdb3eec90bd7143c96e48aedc8074edb6c43f91a216af96b898",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-113",
+      "fetched_at": "2026-10-24T07:39:40.894657+00:00"
+    },
+    {
+      "day": "2026-07-04",
+      "sha256": "7c16e1f69861ce3839aa216b648efbead6359beb515e35d450a5e70cb138dd1d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-112",
+      "fetched_at": "2026-10-24T07:39:40.924831+00:00"
+    },
+    {
+      "day": "2026-07-05",
+      "sha256": "302678af059dc99915b965189a1e7ad23103c1504ba87c51039ff7ea87eba166",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-111",
+      "fetched_at": "2026-10-24T07:39:40.947562+00:00"
+    },
+    {
+      "day": "2026-07-06",
+      "sha256": "7a79a5eb647e8b68c197e23e096957c2749c83e4b61dc6c79dbefa413f20f5c6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-110",
+      "fetched_at": "2026-10-24T07:39:40.987625+00:00"
+    },
+    {
+      "day": "2026-07-07",
+      "sha256": "000702d5b6364177d26c50af9e183051095f65dbbcb6662bc9134530a546111e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-109",
+      "fetched_at": "2026-10-24T07:39:41.010577+00:00"
+    },
+    {
+      "day": "2026-07-08",
+      "sha256": "8adaeb94d9f122fefa67a87573399d0a5b3325ac70c22c7e32d86a16b9737e30",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-108",
+      "fetched_at": "2026-10-24T07:39:41.058058+00:00"
+    },
+    {
+      "day": "2026-07-09",
+      "sha256": "6cbd20bb0b3531dc10f958bb471c9931224ace969c8f8a6d34d68b6c23ad0c7a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-107",
+      "fetched_at": "2026-10-24T07:39:41.100552+00:00"
+    },
+    {
+      "day": "2026-07-10",
+      "sha256": "90e92a2d5ec9e9a78d63af124fc45d1466d2a0343da03714f4f4f002286f3746",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-106",
+      "fetched_at": "2026-10-24T07:39:41.143946+00:00"
+    },
+    {
+      "day": "2026-07-11",
+      "sha256": "ec89175a7488fb9510b9f567396850b53b4ee0ca82675e4c06d96099c95dcb21",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-105",
+      "fetched_at": "2026-10-24T07:39:41.183284+00:00"
+    },
+    {
+      "day": "2026-07-12",
+      "sha256": "b32031461ad4a94c78a8acbb30a314f2314c3f681ab2855d242605995278474d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-104",
+      "fetched_at": "2026-10-24T07:39:41.241351+00:00"
+    },
+    {
+      "day": "2026-07-13",
+      "sha256": "938ffce4f62d1ff28baf82b16071c9e9f414c665c04648049700f5653c963e7c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-103",
+      "fetched_at": "2026-10-24T07:39:41.269117+00:00"
+    },
+    {
+      "day": "2026-07-14",
+      "sha256": "41ace4e6e0ad0b38658a095fc4101ee235f986b6c90c78fa8c87fccc3b499a00",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-102",
+      "fetched_at": "2026-10-24T07:39:41.321851+00:00"
+    },
+    {
+      "day": "2026-07-15",
+      "sha256": "b2e8796ac1e3b5c9c2d0e797dff976d475435560478ea6e03afb9f9dadf502a7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-101",
+      "fetched_at": "2026-10-24T07:39:41.360158+00:00"
+    },
+    {
+      "day": "2026-07-16",
+      "sha256": "d4bee6428ce1df8d5f3ac21adfa7cf277662b87d49283429b3909be49f8064c8",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-100",
+      "fetched_at": "2026-10-24T07:39:41.432169+00:00"
+    },
+    {
+      "day": "2026-07-17",
+      "sha256": "e0f900c3d4a19aeda60abe86e3e6061c1f208b2dcf4181c0be789923b69ee4be",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-99",
+      "fetched_at": "2026-10-24T07:39:41.504841+00:00"
+    },
+    {
+      "day": "2026-07-18",
+      "sha256": "8dbe0f628574c6848103722fb192addd3b7457057a3dd3bf2f9ad5ef7fb80268",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-98",
+      "fetched_at": "2026-10-24T07:39:41.591761+00:00"
+    },
+    {
+      "day": "2026-07-19",
+      "sha256": "11cf3c72177a5b2b77e6d46b4c4674fc6b0d0bfee7a3a6861f992e4ff22cb107",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-97",
+      "fetched_at": "2026-10-24T07:39:41.643454+00:00"
+    },
+    {
+      "day": "2026-07-20",
+      "sha256": "fe492eb312543699cdf995488d9ffdd6a9e947c1941eecb3d84c5c901cafda71",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-96",
+      "fetched_at": "2026-10-24T07:39:41.677944+00:00"
+    },
+    {
+      "day": "2026-07-21",
+      "sha256": "efea0acc02af91b65e4a0a7d881ab85d627fe0bf4679d0bd743b52d8271cd6dc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-95",
+      "fetched_at": "2026-10-24T07:39:41.713381+00:00"
+    },
+    {
+      "day": "2026-07-22",
+      "sha256": "ab14c6191a009f9c0c12ae520b45c769e895a20e0c90c88616d1ec173ee16356",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-94",
+      "fetched_at": "2026-10-24T07:39:41.751087+00:00"
+    },
+    {
+      "day": "2026-07-23",
+      "sha256": "d6259f077235250c71ca903ab898f32e1e3d204109fe819242cb78faaa134790",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-93",
+      "fetched_at": "2026-10-24T07:39:41.793689+00:00"
+    },
+    {
+      "day": "2026-07-24",
+      "sha256": "ce084c9d6ade67d58375a84451d6019f534880d14372547ef90578a7fbe7a9b6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-92",
+      "fetched_at": "2026-10-24T07:39:41.824270+00:00"
+    },
+    {
+      "day": "2026-07-25",
+      "sha256": "b67d6c293b7ffaa9c00e82a3be94653cfb84ac40d1a40663c5295e725879e18f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-91",
+      "fetched_at": "2026-10-24T07:39:41.856226+00:00"
+    },
+    {
+      "day": "2026-07-26",
+      "sha256": "a417da128b790275295f5f21ecb760b5ee04d956d4682a48b26ae60d3b81464d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-90",
+      "fetched_at": "2026-10-24T07:39:41.889232+00:00"
+    },
+    {
+      "day": "2026-07-27",
+      "sha256": "b6eee5a7aa8374a54ef33e59553735ede8646b845b06a58ba7799211f21d572e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-89",
+      "fetched_at": "2026-10-24T07:39:41.922158+00:00"
+    },
+    {
+      "day": "2026-07-28",
+      "sha256": "41a90e8be2c0bca4a785b2d16f2a737a93062372f14734a62ac137dc5105637f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-88",
+      "fetched_at": "2026-10-24T07:39:41.942725+00:00"
+    },
+    {
+      "day": "2026-07-29",
+      "sha256": "4e0d8f5dc6368e8f6ab856c7261d55a78af84f850b45df48c3c978a15e6b8029",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-87",
+      "fetched_at": "2026-10-24T07:39:41.970819+00:00"
+    },
+    {
+      "day": "2026-07-30",
+      "sha256": "b6a0b9f40309a68066c5cd55d0912e208e21dfecb2a2279104e708ff5aee825d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-86",
+      "fetched_at": "2026-10-24T07:39:41.991619+00:00"
+    },
+    {
+      "day": "2026-07-31",
+      "sha256": "3e72e447b9ade97cd960aa21e9b9a8e7fab810645468a40ce4fb48567144c8b3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-85",
+      "fetched_at": "2026-10-24T07:39:42.022728+00:00"
+    },
+    {
+      "day": "2026-08-01",
+      "sha256": "91c9e525cff5256f38184381c4055db7798f3082de354d5287f466ae4d6119d0",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-84",
+      "fetched_at": "2026-10-24T07:39:42.051537+00:00"
+    },
+    {
+      "day": "2026-08-02",
+      "sha256": "170f83f5048b79818ccece95ebd162788e172bdaf99c426082af4cf4a1c9d403",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-83",
+      "fetched_at": "2026-10-24T07:39:42.076492+00:00"
+    },
+    {
+      "day": "2026-08-03",
+      "sha256": "7662c8b053fa9a0b7811ea9ba5f3c1e7e77981d898ce7046411b4084cfb752dc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-82",
+      "fetched_at": "2026-10-24T07:39:42.109287+00:00"
+    },
+    {
+      "day": "2026-08-04",
+      "sha256": "6da255aa892cb727bf5c95b9d13190263ea46fa67404f92a55bf5f0e15c2add0",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-81",
+      "fetched_at": "2026-10-24T07:39:42.140018+00:00"
+    },
+    {
+      "day": "2026-08-05",
+      "sha256": "3b8b8322e2b61e15eeb41bca8e7030a06a60670fd55aee6e520f3de5e35dc6e2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-80",
+      "fetched_at": "2026-10-24T07:39:42.173507+00:00"
+    },
+    {
+      "day": "2026-08-06",
+      "sha256": "36ea4ee4ee5d7c0f3e82fff97bf768395de4a9c590ae0ce8f08f2a5ddb84d048",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-79",
+      "fetched_at": "2026-10-24T07:39:42.197721+00:00"
+    },
+    {
+      "day": "2026-08-07",
+      "sha256": "90ce2af1b85ebfea61d8b7f665933a28da76d93b11df255888cb19bc4946676d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-78",
+      "fetched_at": "2026-10-24T07:39:42.215578+00:00"
+    },
+    {
+      "day": "2026-08-08",
+      "sha256": "878969e6f788822f143a260df07d3bdf33fdd80b32b7cc15cd1463b2c335dce7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-77",
+      "fetched_at": "2026-10-24T07:39:42.242183+00:00"
+    },
+    {
+      "day": "2026-08-09",
+      "sha256": "74a52c11f5920e30d8751b95cc80c48b2bf4eafd331af3e3d2642e573f2a8a1e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-76",
+      "fetched_at": "2026-10-24T07:39:42.275774+00:00"
+    },
+    {
+      "day": "2026-08-10",
+      "sha256": "1e10e5a544518716613f7236184287e40d755e94a60ee90460ff70197db8c9f3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-75",
+      "fetched_at": "2026-10-24T07:39:42.299706+00:00"
+    },
+    {
+      "day": "2026-08-11",
+      "sha256": "7523009d4fe5470d3db09fbcba21c262a0a66d010a6e4df15857e30fdd3e332c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-74",
+      "fetched_at": "2026-10-24T07:39:42.339076+00:00"
+    },
+    {
+      "day": "2026-08-12",
+      "sha256": "9dee4668fcb3b4d15d2ff781efb909fd3cee152ab910aa6e76716bb62725925f",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-73",
+      "fetched_at": "2026-10-24T07:39:42.361055+00:00"
+    },
+    {
+      "day": "2026-08-13",
+      "sha256": "d2e26a455c2014506a660aa62f07d0c1fd39d2db349165b405f9c6777dc25371",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-72",
+      "fetched_at": "2026-10-24T07:39:42.387844+00:00"
+    },
+    {
+      "day": "2026-08-14",
+      "sha256": "eeff533f46e3bb97c227e7b29269281fc783aa8de0784198b38df0852d38b46a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-71",
+      "fetched_at": "2026-10-24T07:39:42.409242+00:00"
+    },
+    {
+      "day": "2026-08-15",
+      "sha256": "7af6a1df3ef91924b4edb4fadad9cfd0d79516676f0b2e1e5de6a7045cd1412d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-70",
+      "fetched_at": "2026-10-24T07:39:42.447302+00:00"
+    },
+    {
+      "day": "2026-08-16",
+      "sha256": "b7cd72256ca2574b3898fb55e09aeb68e71d25f5008259e67b38d9e6703b8427",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-69",
+      "fetched_at": "2026-10-24T07:39:42.471235+00:00"
+    },
+    {
+      "day": "2026-08-17",
+      "sha256": "48b7ccd76238934f59fb2c2d9874715a3464faf6bc04c237f7aa234c32560096",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-68",
+      "fetched_at": "2026-10-24T07:39:42.488244+00:00"
+    },
+    {
+      "day": "2026-08-18",
+      "sha256": "c66f7341bce31047e540acab1c1bc89f22d01678cb7f9d66e80f3ac4f9acaf98",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-67",
+      "fetched_at": "2026-10-24T07:39:42.561641+00:00"
+    },
+    {
+      "day": "2026-08-19",
+      "sha256": "e66f34daf8c99611cb933c95be7eb470611333cdb06d7a56ac2f5a7f2cc28bf9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-66",
+      "fetched_at": "2026-10-24T07:39:42.583318+00:00"
+    },
+    {
+      "day": "2026-08-20",
+      "sha256": "e87d03d630cc1465eb25216ee54ca4d55876dfb96ece464e0c4b6da791525f9c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-65",
+      "fetched_at": "2026-10-24T07:39:42.620994+00:00"
+    },
+    {
+      "day": "2026-08-21",
+      "sha256": "689a2e6a29c5c994068d12af2127f740dbd936a7f1e91e23b2b9ff21bc9a61ca",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-64",
+      "fetched_at": "2026-10-24T07:39:42.631845+00:00"
+    },
+    {
+      "day": "2026-08-22",
+      "sha256": "bc3b9b6015ad7ceba33aa5d2c590788a0e2997c5cb0d400586115086c4fd4f42",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-63",
+      "fetched_at": "2026-10-24T07:39:42.672275+00:00"
+    },
+    {
+      "day": "2026-08-23",
+      "sha256": "a4e20c2f4b8169c295a7ecdc6c08856874e3bbabe659eef11a1c998c78ab528c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-62",
+      "fetched_at": "2026-10-24T07:39:42.672443+00:00"
+    },
+    {
+      "day": "2026-08-24",
+      "sha256": "5d28b659d6e5fb6042d178d8619cdc22b95fdf1a71b275e787645a54f5d729fa",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-61",
+      "fetched_at": "2026-10-24T07:39:42.715076+00:00"
+    },
+    {
+      "day": "2026-08-25",
+      "sha256": "5aa5afd5f36eeae2e45e063072727feb5b90493f409c47c3999e40873d2bbae5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-60",
+      "fetched_at": "2026-10-24T07:39:42.706764+00:00"
+    },
+    {
+      "day": "2026-08-26",
+      "sha256": "d7ebea41f1e712c94b433a67ddd623840c039d4f02e7656a4c458b1fe482eee2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-59",
+      "fetched_at": "2026-10-24T07:39:42.769945+00:00"
+    },
+    {
+      "day": "2026-08-27",
+      "sha256": "56b1f92650f2b01ade263442abf22bfbe3abca5f2ad192861854f8b3beae5198",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-58",
+      "fetched_at": "2026-10-24T07:39:42.783564+00:00"
+    },
+    {
+      "day": "2026-08-28",
+      "sha256": "e5b6311d82d91ac6536f88f2bcdd42a38cf13103b3fa391e9cf12d1c943b2b6d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-57",
+      "fetched_at": "2026-10-24T07:39:42.868373+00:00"
+    },
+    {
+      "day": "2026-08-29",
+      "sha256": "b492c60b9ed5e90ab2d798aec3c3495de843b4ef9ae6ee2ae523032bc1fafce5",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-56",
+      "fetched_at": "2026-10-24T07:39:42.842415+00:00"
+    },
+    {
+      "day": "2026-08-30",
+      "sha256": "8a30cc5d83159b4bb30adbbdb48f58572760463bfac37f63b25a039910104dd0",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-55",
+      "fetched_at": "2026-10-24T07:39:42.908421+00:00"
+    },
+    {
+      "day": "2026-08-31",
+      "sha256": "e20c0c0d3829311222e7c8e04aa8f652918c443641926b7806e351e9fc1518d6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-54",
+      "fetched_at": "2026-10-24T07:39:42.926847+00:00"
+    },
+    {
+      "day": "2026-09-01",
+      "sha256": "dbf3019e533b5a9eda3c7d431cc0a6a3a2ed780fc0b417c6b0ae15fab48fcb3a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-53",
+      "fetched_at": "2026-10-24T07:39:42.954565+00:00"
+    },
+    {
+      "day": "2026-09-02",
+      "sha256": "3a1ade67c2c469a5ee4728997810a32933efaa8840e3db84802d62e59402f635",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-52",
+      "fetched_at": "2026-10-24T07:39:42.984469+00:00"
+    },
+    {
+      "day": "2026-09-03",
+      "sha256": "b070d2c31c27b1d078b6ceeb52dbad62c978b350bd6678298fd4ad676a9287d2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-51",
+      "fetched_at": "2026-10-24T07:39:43.021785+00:00"
+    },
+    {
+      "day": "2026-09-04",
+      "sha256": "6accf3ee86f0dd66fd577f8290ab0614eb483c7491583eb26bd1ece5323c1882",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-50",
+      "fetched_at": "2026-10-24T07:39:43.048582+00:00"
+    },
+    {
+      "day": "2026-09-05",
+      "sha256": "2337654fac591440f65e717e087d674df99405ce7c65e59ff3961fc841f9e92b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-49",
+      "fetched_at": "2026-10-24T07:39:43.080247+00:00"
+    },
+    {
+      "day": "2026-09-06",
+      "sha256": "02b438ca54e8b717f8e0dfe0190487f08258d29026cf42d4f7ab2f80ecdd7742",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-48",
+      "fetched_at": "2026-10-24T07:39:43.107473+00:00"
+    },
+    {
+      "day": "2026-09-07",
+      "sha256": "6033269b9923486c9738f3e7abcfaab36932ed640ca2ec46af28a669b9cf79d1",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-47",
+      "fetched_at": "2026-10-24T07:39:43.136502+00:00"
+    },
+    {
+      "day": "2026-09-08",
+      "sha256": "a34870a4014779c18921dca3dcd298c606e875189b81085dd3639d789339a0b1",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-46",
+      "fetched_at": "2026-10-24T07:39:43.167849+00:00"
+    },
+    {
+      "day": "2026-09-09",
+      "sha256": "7ffe262add87ca6d121e61aaf894479a13abc2e04aad178da6d539d600225f72",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-45",
+      "fetched_at": "2026-10-24T07:39:43.201837+00:00"
+    },
+    {
+      "day": "2026-09-10",
+      "sha256": "10d088450a05653c6015e28abf52f19143c678c3df06e64335ac738ba500320c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-44",
+      "fetched_at": "2026-10-24T07:39:43.230287+00:00"
+    },
+    {
+      "day": "2026-09-11",
+      "sha256": "8d0b63cad6d623b8bf7a9ecc528a1c9c9d584f04142c92f9d2315c18726c3409",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-43",
+      "fetched_at": "2026-10-24T07:39:43.260600+00:00"
+    },
+    {
+      "day": "2026-09-12",
+      "sha256": "5ed2bb551e012c9f1cf3cc5c099d5a757399f0bc0c9f7b8ba648f504e0390e75",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-42",
+      "fetched_at": "2026-10-24T07:39:43.288116+00:00"
+    },
+    {
+      "day": "2026-09-13",
+      "sha256": "d522bbc84a0d10e91981a5ec3d4bc7ee05c984d98c1dd9f0de8eff8a0fdfaf62",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-41",
+      "fetched_at": "2026-10-24T07:39:43.309524+00:00"
+    },
+    {
+      "day": "2026-09-14",
+      "sha256": "46ae91b14cc939b134f0fbf34930af12a2e44dba8c6ef2c2a6f9a98d1cd4550d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-40",
+      "fetched_at": "2026-10-24T07:39:43.336507+00:00"
+    },
+    {
+      "day": "2026-09-15",
+      "sha256": "c0015c9b4a9a93d43c973b50914ea3b44cf46efe548d3f56b7764ca307d60b21",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-39",
+      "fetched_at": "2026-10-24T07:39:43.380190+00:00"
+    },
+    {
+      "day": "2026-09-16",
+      "sha256": "b8bfd661f0609ffb451c8cb03ae281f2e8508b70327f3041fd7474a0fbb51bf9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-38",
+      "fetched_at": "2026-10-24T07:39:43.403612+00:00"
+    },
+    {
+      "day": "2026-09-17",
+      "sha256": "1aaa1fd51ed5653a04803fede15169c85f3c1abe5f705f28a97ca4be126fce79",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-37",
+      "fetched_at": "2026-10-24T07:39:43.425693+00:00"
+    },
+    {
+      "day": "2026-09-18",
+      "sha256": "f301a6c7713c74783c710d9fba1571579f13ccda6d03871be8c71b0eeb50d2fd",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-36",
+      "fetched_at": "2026-10-24T07:39:43.452874+00:00"
+    },
+    {
+      "day": "2026-09-19",
+      "sha256": "b529c8fd5beb05d9f2108fe3bc64b804dbc1b627c7daaf2efcf8bb1c1c403faa",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-35",
+      "fetched_at": "2026-10-24T07:39:43.487552+00:00"
+    },
+    {
+      "day": "2026-09-20",
+      "sha256": "287bb5522a18a40768bbd45f4a9cb333dc2021721315c930c8579b030301156a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-34",
+      "fetched_at": "2026-10-24T07:39:43.515140+00:00"
+    },
+    {
+      "day": "2026-09-21",
+      "sha256": "84b26d4f9d4dd2d86ba5ed3fae93de490a4423f59a8e174fdeae3a1940eb00e2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-33",
+      "fetched_at": "2026-10-24T07:39:43.551607+00:00"
+    },
+    {
+      "day": "2026-09-22",
+      "sha256": "5bb9979d2bb67b942af666ed918844453f8383bdca8ac90f2c4f04c4984a7f9e",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-32",
+      "fetched_at": "2026-10-24T07:39:43.593482+00:00"
+    },
+    {
+      "day": "2026-09-23",
+      "sha256": "2d43e2d924c5b92bb4a6eff514cb04c5825a04353c8291e27b22e89e18adda5d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-31",
+      "fetched_at": "2026-10-24T07:39:43.632226+00:00"
+    },
+    {
+      "day": "2026-09-24",
+      "sha256": "887bc09c84f5435f1a776b3856b1bc4d325eb8651bd6bae045cab37c7744d23a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-30",
+      "fetched_at": "2026-10-24T07:39:43.672621+00:00"
+    },
+    {
+      "day": "2026-09-25",
+      "sha256": "06ec9f095cb6d9efe2e56b93e96daa794d364bbab46629b2ee8440ec77d5cbc2",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-29",
+      "fetched_at": "2026-10-24T07:39:43.702801+00:00"
+    },
+    {
+      "day": "2026-09-26",
+      "sha256": "a094ae9d5e233822eb6722b4a17f74937cca134fc8e1b455ca0cf30831d85b92",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-28",
+      "fetched_at": "2026-10-24T07:39:43.743660+00:00"
+    },
+    {
+      "day": "2026-09-27",
+      "sha256": "e2d1069bfd22a8906afc313ec4db92455a7d9a9a58a904f4993dde4028a5c625",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-27",
+      "fetched_at": "2026-10-24T07:39:43.771121+00:00"
+    },
+    {
+      "day": "2026-09-28",
+      "sha256": "ec720b6c2d284b8d023a51ea452cfb2cff928235d77aa883a85776eb6d8a23dc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-26",
+      "fetched_at": "2026-10-24T07:39:43.836512+00:00"
+    },
+    {
+      "day": "2026-09-29",
+      "sha256": "d130d1848cafa9cc63f6eab1922306bef0e44cd68f6ec4b0963b95e9c0cfb309",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-25",
+      "fetched_at": "2026-10-24T07:39:43.935273+00:00"
+    },
+    {
+      "day": "2026-09-30",
+      "sha256": "6a28ae95b4453732790ab8e3ad18275bfb2d745798312b0b1797935b4cd3eaa3",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-24",
+      "fetched_at": "2026-10-24T07:39:44.079105+00:00"
+    },
+    {
+      "day": "2026-10-01",
+      "sha256": "0ebc4da5b8ba9da0fdc73975a0fce2c5fcfdf0aed172f5bb1d0756aab2de699d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-23",
+      "fetched_at": "2026-10-24T07:39:44.078660+00:00"
+    },
+    {
+      "day": "2026-10-02",
+      "sha256": "4a7b6d4e95d6492edab86bd7e34ed4219c27101a93a81b904a530018f1031dc6",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-22",
+      "fetched_at": "2026-10-24T07:39:44.150213+00:00"
+    },
+    {
+      "day": "2026-10-03",
+      "sha256": "a5c46bc5535b5f411160b6c498f74efaa9be85c3da8af3bb2158a51eee9e3579",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-21",
+      "fetched_at": "2026-10-24T07:39:44.168979+00:00"
+    },
+    {
+      "day": "2026-10-04",
+      "sha256": "014f9ba9316eda0f88c845891cbbd0aa13a45c35c9273fe19f1e81030bd64539",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-20",
+      "fetched_at": "2026-10-24T07:39:44.222937+00:00"
+    },
+    {
+      "day": "2026-10-05",
+      "sha256": "49deb466a401b515ee9af2e404a8cadfa7c61d44af4ad4a613fb4b7400e73b5c",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-19",
+      "fetched_at": "2026-10-24T07:39:44.246458+00:00"
+    },
+    {
+      "day": "2026-10-06",
+      "sha256": "976d3e23cf2f0bf9954213667c603cd8b17589dfe7b6e66a07634f4be729500b",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-18",
+      "fetched_at": "2026-10-24T07:39:44.280833+00:00"
+    },
+    {
+      "day": "2026-10-07",
+      "sha256": "0b70d495d147ad6f42d3bf565c5c08b71cc199587db427f2b1813ce5bc8dc7e8",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-17",
+      "fetched_at": "2026-10-24T07:39:44.312066+00:00"
+    },
+    {
+      "day": "2026-10-08",
+      "sha256": "4663a131aff2aad36b5b9fb6b0ba54623d500cdb19bae0f06beb18d95d9cd185",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-16",
+      "fetched_at": "2026-10-24T07:39:44.350143+00:00"
+    },
+    {
+      "day": "2026-10-09",
+      "sha256": "b2dd810bf764d69e6a0f66c33271f5956e633c11529c4ce03f6a4567bffeb365",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-15",
+      "fetched_at": "2026-10-24T07:39:44.375294+00:00"
+    },
+    {
+      "day": "2026-10-10",
+      "sha256": "5c257f3d9f2c6a94990fa442304d78b191d171ad8818049b7ce4847061cfde1d",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-14",
+      "fetched_at": "2026-10-24T07:39:44.409060+00:00"
+    },
+    {
+      "day": "2026-10-11",
+      "sha256": "3a42a902c58e9f1f8f8d8b528bf767ab5eae049897ae8b1dd01ead2ccea52fcc",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-13",
+      "fetched_at": "2026-10-24T07:39:44.440384+00:00"
+    },
+    {
+      "day": "2026-10-12",
+      "sha256": "a7590a9979da7b4a782cb767b4ed55490651b7b26003dbd85b576137f68708c9",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-12",
+      "fetched_at": "2026-10-24T07:39:44.466328+00:00"
+    },
+    {
+      "day": "2026-10-13",
+      "sha256": "bf9103d638deb5a526d87a9d3079d02892bca5ea8ee1ea10ba36fe05ae723777",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-11",
+      "fetched_at": "2026-10-24T07:39:44.494948+00:00"
+    },
+    {
+      "day": "2026-10-14",
+      "sha256": "d08989c0b31ead6cdf4805e7920ccca1eae29459c334b4ae2cf4ed6eb3b8df89",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-10",
+      "fetched_at": "2026-10-24T07:39:44.522228+00:00"
+    },
+    {
+      "day": "2026-10-15",
+      "sha256": "1db1816bf36a83fecfae2edb4d966b63e23e2c96bfc6ee3c46efc32259ff2c5a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-9",
+      "fetched_at": "2026-10-24T07:39:44.553064+00:00"
+    },
+    {
+      "day": "2026-10-16",
+      "sha256": "75fcf9b3c096c8a2abf0b6c58dfa8f49866a8b60530ce74d7d916f35a2f1e8c7",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-8",
+      "fetched_at": "2026-10-24T07:39:44.582743+00:00"
+    },
+    {
+      "day": "2026-10-17",
+      "sha256": "85f9ee681723f949d6762e543fc96b556153c29105f6be1c3390d8021cd68199",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-7",
+      "fetched_at": "2026-10-24T07:39:44.617211+00:00"
+    },
+    {
+      "day": "2026-10-18",
+      "sha256": "14f2e796a897076c32de10b046146c32ce8238bcfd2ec89b16730077ea9226ce",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-6",
+      "fetched_at": "2026-10-24T07:39:44.640261+00:00"
+    },
+    {
+      "day": "2026-10-19",
+      "sha256": "7f5af016a04129d9e182e3d7dfdf151bfcc7a5c9b4e77863cf20333db5583c12",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-5",
+      "fetched_at": "2026-10-24T07:39:44.670639+00:00"
+    },
+    {
+      "day": "2026-10-20",
+      "sha256": "26f8aa9f567e2048edaa88d64dc3ca097839366a0adf6317f37a9c4b40098efa",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-4",
+      "fetched_at": "2026-10-24T11:05:44.681002+00:00"
+    },
+    {
+      "day": "2026-10-21",
+      "sha256": "f35712111995509d9bbb9f059b1c9e55cf2f78dfb2c391e18d550eda71c0acce",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-3",
+      "fetched_at": "2026-10-24T11:05:44.762959+00:00"
+    },
+    {
+      "day": "2026-10-22",
+      "sha256": "7c87f4a3f286923afaaa74005d3cd9d3e9fd993d5d256f800a783f4a21c3556a",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-2",
+      "fetched_at": "2026-10-24T11:05:45.611852+00:00"
+    },
+    {
+      "day": "2026-10-23",
+      "sha256": "fc43293cce4e0aca5c754f425f52e5a99ca5ba9694b185a0dba5d0685123bdb0",
+      "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-1",
+      "fetched_at": "2026-10-24T11:05:45.711056+00:00"
+    }
+  ]
+}

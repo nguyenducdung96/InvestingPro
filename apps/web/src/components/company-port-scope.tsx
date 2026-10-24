@@ -3,7 +3,7 @@ import {PhpBerthScope} from './php-berth-scope';
 const roles:Record<string,string>={operator:'Khai thác theo báo cáo',owner:'Sở hữu theo báo cáo',indirect:'Quan hệ qua pháp nhân',group_portfolio:'Mạng lưới theo báo cáo',business_cooperation:'Hợp tác kinh doanh',cargo_handling_service:'Dịch vụ xếp dỡ'};
 // Every issuer uses the same top-of-page scope. Only published, cited assets enter it.
 export async function CompanyPortScope({ticker}:{ticker:string}){
- if(ticker==='PHP')return <PhpBerthScope/>;
+ if(['PHP','VGR','VSC'].includes(ticker))return <PhpBerthScope ticker={ticker}/>;
  let company;
  try{company=(await publicRepository().editorialEdition())?.entries.find(c=>c.ticker===ticker);}catch{return <section className="panel" aria-label={`Các cảng liên quan ${ticker}`}><h2>{ticker} và các cảng liên quan</h2><p role="status">Chưa tải được danh sách cảng. Thử tải lại trang.</p></section>;}
  if(!company)return null;
