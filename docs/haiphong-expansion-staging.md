@@ -30,3 +30,15 @@ Chưa bổ sung chuỗi sản lượng công bố tấn/TEU hoặc tài chính. 
 116/116 tests TypeScript/database, 17/17 Python parser, typecheck/lint đạt. 12/12 Playwright dashboard PHP/DVP/VGR/VSC và bốn mã mới desktop/mobile đạt. Tests gồm alias chính xác, chống nhập lặp, phân quyền, không nhận scope của mã khác, bản công bố bến không thêm ngày hiệu lực giả, Tổng quan bằng bến riêng và bảo toàn bộ lọc.
 
 Rà toàn bộ nhãn Từ/Đến ở các mục vào/rời trong raw lịch sử: số nhãn chính xác khớp các dòng đã nhập. `XANG DAU NAM DINH VU` xuất hiện một lần nhưng không khớp alias đã duyệt nên bị loại, không cộng theo chuỗi con. UI bổ sung ghi rõ khi nền cùng kỳ thiếu DWT, gồm dòng lũy kế, để phân biệt thiếu DWT với thiếu ngày nguồn.
+
+## Readback staging — 24/10/2026
+
+[Biên nhận staging](catalog-review/haiphong-plans-staging-20261024.json). Migration lịch và edition bốn mã đã áp dụng riêng qua Supabase Management API; backfill dùng RPC importer theo batch, không ghi thẳng bảng. Readback database xác nhận 661 ngày mỗi bến, không có ngày lỗi/nhóm mơ hồ; Nam Đình Vũ thiếu đúng sáu DWT nguồn, các bến khác bằng 0.
+
+Commits `0757b2a` và `03012f0` được Workers Builds Linux deploy thành công. Bốn API và trang mã live HTTP 200. Tàu rời tháng 10 đến 23/10 theo lịch: GMD–Nam Đình Vũ 78 dòng / 1.500.303 DWT; HAH–Hải An 15 / 261.349; DXP–Đoạn Xá 9 / 104.981; PSP–PTSC Đình Vũ 19 / 244.530. GMD YTD DWT 2026 là 18.569.220, nhưng YoY giữ null vì nền tàu rời 2025 thiếu bốn DWT (hai DWT nguồn còn lại thiếu ở chiều vào). Không thay bằng GT hoặc giả 0.
+
+Workflow `haiphong-plans.yml` đã đăng ký trên main ở `b0f2195`, lịch 07:00 Việt Nam. [Manual run 40094682947](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40094682947) thành công qua checkpoint, tải nguồn, import/readback và giữ cache. Bốn API sau run cùng xác nhận run status success. Hai event cron thực vẫn chưa nghiệm thu; không dùng manual run thay thế.
+
+Hồi quy 48/48 Playwright đạt. Sau bổ sung giải thích nền thiếu DWT, đã chạy lại typecheck/lint và 2/2 checks desktop/mobile của bốn mã đạt. Kiểm tra live ở 1440px/375px cho cả bốn mã đạt: card nguồn đầu trang, Tổng quan mặc định, bằng số bến riêng, chuyển scope giữ chiều/quý, không tràn ngang. Riêng GMD kiểm tra scope Hải Phòng và phần giải thích nền thiếu DWT. Ảnh `.local/haiphong-plans/top-{GMD,HAH,DXP,PSP}-{desktop,mobile}.png` và `staging-{GMD,HAH,DXP,PSP}-{desktop,mobile}.png`; đã đọc ảnh desktop GMD. Chờ người dùng review bốn dashboard mới; chưa nghiệm thu production.
+
+GitHub CI của commit cuối có thay đổi chức năng `03012f0` đã thành công, gồm lint/typecheck/tests/Playwright/Next build/OpenNext Cloudflare bundle trên Linux.

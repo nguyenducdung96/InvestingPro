@@ -1,0 +1,497 @@
+{
+  "checked_on": "2026-10-24",
+  "environment": "staging",
+  "implementation_commits": [
+    "0757b2a",
+    "03012f0"
+  ],
+  "workflow_registration_commit": "b0f21957362403c596715853fbe641d23987ef4b",
+  "workflow_run": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40094682947",
+  "workflow_event": "workflow_dispatch",
+  "workflow_status": "success",
+  "schedule_vietnam": "07:00 daily",
+  "cloudflare_builds": [
+    "1ca3f087-b475-477a-96ba-1e54019f49b6",
+    "16af8751-4ba3-4162-b1ad-e9c8f4196f79"
+  ],
+  "cloudflare_build_status": "success",
+  "scheduled_cycles_verified": 0,
+  "scheduled_refresh_verified": false,
+  "production_accepted": false,
+  "user_review_accepted": false,
+  "actual_verified": false,
+  "local_validation": {
+    "typescript_database_tests": 116,
+    "python_parser_tests": 17,
+    "full_playwright_tests": 48,
+    "after_missing_baseline_explanation_focused_tests": 2,
+    "typecheck": "passed",
+    "lint": "passed"
+  },
+  "ui_validation": [
+    {
+      "ticker": "GMD",
+      "viewport": "desktop",
+      "status": 200,
+      "cards": 1,
+      "default_overview": true,
+      "same_totals": true,
+      "filters_preserved": true,
+      "overflow": false
+    },
+    {
+      "ticker": "HAH",
+      "viewport": "desktop",
+      "status": 200,
+      "cards": 1,
+      "default_overview": true,
+      "same_totals": true,
+      "filters_preserved": true,
+      "overflow": false
+    },
+    {
+      "ticker": "DXP",
+      "viewport": "desktop",
+      "status": 200,
+      "cards": 1,
+      "default_overview": true,
+      "same_totals": true,
+      "filters_preserved": true,
+      "overflow": false
+    },
+    {
+      "ticker": "PSP",
+      "viewport": "desktop",
+      "status": 200,
+      "cards": 1,
+      "default_overview": true,
+      "same_totals": true,
+      "filters_preserved": true,
+      "overflow": false
+    },
+    {
+      "ticker": "GMD",
+      "viewport": "mobile",
+      "status": 200,
+      "cards": 1,
+      "default_overview": true,
+      "same_totals": true,
+      "filters_preserved": true,
+      "overflow": false
+    },
+    {
+      "ticker": "HAH",
+      "viewport": "mobile",
+      "status": 200,
+      "cards": 1,
+      "default_overview": true,
+      "same_totals": true,
+      "filters_preserved": true,
+      "overflow": false
+    },
+    {
+      "ticker": "DXP",
+      "viewport": "mobile",
+      "status": 200,
+      "cards": 1,
+      "default_overview": true,
+      "same_totals": true,
+      "filters_preserved": true,
+      "overflow": false
+    },
+    {
+      "ticker": "PSP",
+      "viewport": "mobile",
+      "status": 200,
+      "cards": 1,
+      "default_overview": true,
+      "same_totals": true,
+      "filters_preserved": true,
+      "overflow": false
+    }
+  ],
+  "api": {
+    "GMD": {
+      "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/api/v1/companies/GMD/plans",
+      "scope": "Tổng quan GMD · Hải Phòng · 1 cảng",
+      "coverage": {
+        "first_day": "2025-01-01",
+        "last_source_day": "2026-10-23",
+        "last_attempt": "2026-10-24T19:37:38.67508+07:00",
+        "stale": false,
+        "errors": 0
+      },
+      "run": {
+        "asset_code": "nam_dinh_vu",
+        "id": "40094682947-1",
+        "checked_at": "2026-10-24T19:37:41.41+07:00",
+        "through_day": "2026-10-23",
+        "status": "success",
+        "requested_days": 4,
+        "parsed_days": 4,
+        "error": null
+      },
+      "latest_departure_month": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 78,
+          "dwt": 1500303,
+          "known_rows": 78,
+          "known_dwt": 1500303,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 81,
+          "dwt": 1591845,
+          "known_rows": 81,
+          "known_dwt": 1591845,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -3.703703703703709,
+          "dwt": -5.750685525286691
+        }
+      },
+      "departure_ytd": {
+        "current": {
+          "from": "2026-01-01",
+          "through": "2026-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 955,
+          "dwt": 18569220,
+          "known_rows": 955,
+          "known_dwt": 18569220,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-01-01",
+          "through": "2025-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 4,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 948,
+          "dwt": null,
+          "known_rows": 948,
+          "known_dwt": 19059553,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 0.7383966244725704,
+          "dwt": null
+        }
+      }
+    },
+    "HAH": {
+      "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/api/v1/companies/HAH/plans",
+      "scope": "Tổng quan HAH · 1 cảng",
+      "coverage": {
+        "first_day": "2025-01-01",
+        "last_source_day": "2026-10-23",
+        "last_attempt": "2026-10-24T19:37:38.677827+07:00",
+        "stale": false,
+        "errors": 0
+      },
+      "run": {
+        "asset_code": "hai_an",
+        "id": "40094682947-1",
+        "checked_at": "2026-10-24T19:37:43.221+07:00",
+        "through_day": "2026-10-23",
+        "status": "success",
+        "requested_days": 4,
+        "parsed_days": 4,
+        "error": null
+      },
+      "latest_departure_month": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 15,
+          "dwt": 261349,
+          "known_rows": 15,
+          "known_dwt": 261349,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 13,
+          "dwt": 225474,
+          "known_rows": 13,
+          "known_dwt": 225474,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 15.384615384615374,
+          "dwt": 15.910925428209023
+        }
+      },
+      "departure_ytd": {
+        "current": {
+          "from": "2026-01-01",
+          "through": "2026-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 190,
+          "dwt": 3249673,
+          "known_rows": 190,
+          "known_dwt": 3249673,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-01-01",
+          "through": "2025-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 240,
+          "dwt": 4425544,
+          "known_rows": 240,
+          "known_dwt": 4425544,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -20.833333333333336,
+          "dwt": -26.57008946244801
+        }
+      }
+    },
+    "DXP": {
+      "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/api/v1/companies/DXP/plans",
+      "scope": "Tổng quan DXP · 1 cảng",
+      "coverage": {
+        "first_day": "2025-01-01",
+        "last_source_day": "2026-10-23",
+        "last_attempt": "2026-10-24T19:37:38.680566+07:00",
+        "stale": false,
+        "errors": 0
+      },
+      "run": {
+        "asset_code": "doan_xa",
+        "id": "40094682947-1",
+        "checked_at": "2026-10-24T19:37:44.47+07:00",
+        "through_day": "2026-10-23",
+        "status": "success",
+        "requested_days": 4,
+        "parsed_days": 4,
+        "error": null
+      },
+      "latest_departure_month": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 9,
+          "dwt": 104981,
+          "known_rows": 9,
+          "known_dwt": 104981,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 6,
+          "dwt": 97519,
+          "known_rows": 6,
+          "known_dwt": 97519,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 50,
+          "dwt": 7.65184220510875
+        }
+      },
+      "departure_ytd": {
+        "current": {
+          "from": "2026-01-01",
+          "through": "2026-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 110,
+          "dwt": 1740947,
+          "known_rows": 110,
+          "known_dwt": 1740947,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-01-01",
+          "through": "2025-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 130,
+          "dwt": 1756170,
+          "known_rows": 130,
+          "known_dwt": 1756170,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -15.384615384615385,
+          "dwt": -0.8668295210600307
+        }
+      }
+    },
+    "PSP": {
+      "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/api/v1/companies/PSP/plans",
+      "scope": "Tổng quan PSP · 1 cảng",
+      "coverage": {
+        "first_day": "2025-01-01",
+        "last_source_day": "2026-10-23",
+        "last_attempt": "2026-10-24T19:37:38.68326+07:00",
+        "stale": false,
+        "errors": 0
+      },
+      "run": {
+        "asset_code": "ptsc_dinh_vu",
+        "id": "40094682947-1",
+        "checked_at": "2026-10-24T19:37:46.229+07:00",
+        "through_day": "2026-10-23",
+        "status": "success",
+        "requested_days": 4,
+        "parsed_days": 4,
+        "error": null
+      },
+      "latest_departure_month": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 19,
+          "dwt": 244530,
+          "known_rows": 19,
+          "known_dwt": 244530,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 33,
+          "dwt": 285119,
+          "known_rows": 33,
+          "known_dwt": 285119,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -42.42424242424242,
+          "dwt": -14.235810310782515
+        }
+      },
+      "departure_ytd": {
+        "current": {
+          "from": "2026-01-01",
+          "through": "2026-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 269,
+          "dwt": 2705330,
+          "known_rows": 269,
+          "known_dwt": 2705330,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-01-01",
+          "through": "2025-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 372,
+          "dwt": 2863763,
+          "known_rows": 372,
+          "known_dwt": 2863763,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -27.688172043010752,
+          "dwt": -5.532336300175677
+        }
+      }
+    }
+  },
+  "github_ci": "success",
+  "github_ci_run": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40094583707"
+}

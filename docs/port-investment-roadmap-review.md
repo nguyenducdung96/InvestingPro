@@ -186,3 +186,11 @@ Trạng thái DVP: **dashboard lịch công bố đủ so sánh trong phạm vi 
 Người dùng chấp nhận DVP và chuyển ưu tiên sang hoàn thiện Hải Phòng trước CDN. Đã yêu cầu làm ngay VGR/VSC. [Hồ sơ triển khai](vsc-vgr-plans-staging.md): VGR dùng VIP Greenport; VSC dùng phạm vi bốn cảng đã đối chiếu Greenport / VIP Greenport / Nam Hải Đình Vũ / VIMC Đình Vũ. Một kho VIP dùng chung hai góc nhìn mã; không cộng trùng khi mở rộng thống kê khu vực. VIMC được ghi quan hệ cổ đông, không tự coi công ty con.
 
 Luồng giao diện giữ chuẩn: header danh sách cảng, Tổng quan mặc định kể cả một cảng, chọn từng cảng, tháng/quý/YTD/YoY và drilldown. Phạm vi hiện tại được áp lên lịch sử hoạt động bến, không xác nhận lịch sử sở hữu hay tổng doanh thu hợp nhất. Cron hai chu kỳ và nguồn sản lượng riêng vẫn cần nghiệm thu riêng. Các mã HAH/DXP/PSP và GMD tại Hải Phòng là ứng viên kế tiếp, chưa tự triển khai trong yêu cầu VGR/VSC.
+
+## 14. Đợt Hải Phòng tiếp theo — GMD / HAH / DXP / PSP
+
+Ngày 24/10/2026, sau khi chấp nhận VSC/VGR, người dùng yêu cầu thực hiện tiếp kế hoạch Hải Phòng. [Hồ sơ triển khai](haiphong-expansion-staging.md): GMD chỉ phạm vi Nam Đình Vũ tại Hải Phòng; HAH–Hải An; DXP–Đoạn Xá; PSP–PTSC Đình Vũ. Giữ Tổng quan mặc định kể cả một cảng, danh sách cảng và nguồn ở đầu trang, chart kỳ và drilldown động. Chưa mở GMD toàn quốc hoặc coi miền Bắc hoàn thành.
+
+Nguồn mỗi cảng có 661 ngày từ 01/01/2025 đến 23/10/2026. Riêng Nam Đình Vũ có sáu dòng thiếu DWT năm 2025, giữ null và không tính YoY kỳ có nền thiếu; các cảng khác trong đợt chưa thấy thiếu DWT. Các cảnh báo là độ đầy đủ của nguồn đã quan sát, không xác nhận đủ tàu thực tế.
+
+PHP/DVP/VGR/VSC đã được người dùng chấp nhận trên staging. Bốn dashboard mới chờ review sau readback staging; nghiệm thu hai chu kỳ cron, production, actual, hãng tàu/tuyến và tài chính vẫn là các trạng thái riêng. Không dùng một job chạy tay để khép nghiệm thu cron.
