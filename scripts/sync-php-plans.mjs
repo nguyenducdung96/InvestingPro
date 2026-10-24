@@ -25,10 +25,10 @@ try{
  for(let offset=0;offset<receipt.days.length;offset+=31){
   const days=receipt.days.slice(offset,offset+31).map(d=>({date:d.date,status:d.status==='unavailable'?'failed':d.status,source_url:d.url_at_fetch,
    fetched_at:d.fetched_at??receipt.checked_at,sha256:d.sha256,parser_version:receipt.parser_version,
-   source_empty_sections:d.source_empty_sections??[],error:d.status==='unavailable'?(company==='CDN'?'Official report unavailable or inconsistent; no certified total':'Official report unavailable; not a certified zero'):d.status==='failed'?'Official source fetch or schema validation failed':null,
+   source_empty_sections:d.source_empty_sections??[],...(company==='CDN'?{unresolved_schedule_keys:d.unresolved_schedule_keys??{arrival:0,departure:0}}:{}),error:d.status==='unavailable'?(company==='CDN'?'Official report unavailable or inconsistent; no certified total':'Official report unavailable; not a certified zero'):d.status==='failed'?'Official source fetch or schema validation failed':null,
    events:(d.events??[]).map(e=>({...(company==='CQN'?{plan_kind:e.plan_kind}:{}),direction:e.direction,vessel_name:e.source_row['Tên tàu'],planned_time:e.source_row['Thời gian'],
     dwt:e.dwt===null?null:Number(e.dwt),from_berth:e.source_row['Từ'],to_berth:e.source_row['Đến']}))}));
-  const result=await rpc('import_php_plan_days',{p_asset:asset,p_days:days});
+  const result=company==='CDN'?await rpc('import_cdn_plan_days',{p_days:days}):await rpc('import_php_plan_days',{p_asset:asset,p_days:days});
   inserted+=result.versions_inserted;batches++;
  }
  run.status=receipt.days.every(d=>d.status==='parsed'||(company==='CQN'||company==='CDN')&&d.status==='unavailable')&&process.env.COLLECTOR_OUTCOME!=='failure'?'success':'failed';

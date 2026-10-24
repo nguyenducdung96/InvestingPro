@@ -21,7 +21,7 @@ Migration `202610250001_cdn_observed_dwt.sql` bổ sung hai subtotal CDN ở đ�
 
 `known_dwt` kỳ CDN nay cộng phần DWT từng dòng đã biết, kể cả các ngày thiếu trọng tải ở dòng khác. `observed_dwt` chỉ có số nếu có dòng với DWT hoặc bản lịch chứng minh không có dòng trong phạm vi; kỳ không có báo cáo hoặc toàn bộ dòng đều thiếu DWT không bị biến thành số 0.
 
-Trang CDN có thêm lựa chọn **DWT đã ghi nhận** (`plan_metric=observed_dwt`) cho biểu đồ tháng/quý/cùng kỳ/90 ngày và bảng. Nhãn và cảnh báo nêu đây là phần đã biết, có thể thấp hơn tổng đầy đủ; cột cùng kỳ có cùng nghĩa. Chỉ tiêu **DWT đủ dữ liệu** (`plan_metric=dwt`) và YoY vẫn kiểm tra độ phủ chặt. Mặc định lượt được giữ. Không tự điền DWT thiếu, lấy GT thay DWT, đổi kế hoạch thành actual hoặc thêm Sơn Trà vào CDN.
+Trang CDN có thêm lựa chọn **DWT đã ghi nhận** (`plan_metric=observed_dwt`) cho biểu đồ tháng/quý/cùng kỳ/90 ngày và bảng. Nhãn và cảnh báo nêu đây là phần đã biết, có thể thấp hơn tổng đầy đủ; cột cùng kỳ có cùng nghĩa. Chỉ tiêu **DWT đủ dữ liệu** (`plan_metric=dwt`) và YoY vẫn kiểm tra độ phủ chặt. Bản chốt mặc định DWT đã ghi nhận; vẫn có lựa chọn lượt. Không tự điền DWT thiếu, lấy GT thay DWT, đổi kế hoạch thành actual hoặc thêm Sơn Trà vào CDN.
 
 Ví dụ readback database sau sửa: 01/2026 = 2.830.014,96; 04/2026 = 2.803.136,32; 04/2025 = 2.408.819,96; 05/2025 = 2.616.963,94. Các tháng vẫn có DWT thiếu nên tổng đủ điều kiện tương ứng giữ null. Phần đã ghi nhận hiển thị được mà không giả định phần thiếu bằng 0.
 
@@ -32,3 +32,13 @@ Ba ngày chưa có head đủ điều kiện: 20/06/2025 và 03/08/2026 có hai 
 Raw và head còn khác ở một số nhóm trùng bị khử theo khóa chuẩn; chưa đối chiếu xong mọi điểm với ảnh. Không tuyên bố mọi tháng sẽ bằng website tham khảo. Cùng kỳ 2024 chưa backfill, không suy YoY 2025 từ 0. Ngày chốt đổi sang 24/10 theo giờ Việt Nam khi sang 25/10; cần tác vụ thu ngày 24 trước khi coi MTD mới đủ ngày.
 
 Phạm vi sở hữu Sơn Trà được rà trong [hồ sơ nguồn](cdn-official-sources-recheck.md), độc lập với sửa tổng hợp này. Không dùng số giống ảnh làm bằng chứng sở hữu.
+
+## Chốt bản CDN
+
+Parser 1.1.0 đã tách xung đột theo chiều. Với hai dòng trùng khóa nhưng DWT khác, giữ khóa chuẩn với DWT chưa xác định và chất lượng riêng; không chọn tùy ý một trọng tải. Các dòng không xung đột, đặc biệt chiều rời cùng ngày, vẫn được giữ. Metadata chất lượng gắn bất biến với đúng version nguồn, private RLS; replay cùng bằng chứng/parser mà đổi chất lượng bị từ chối. Cả importer cũ và các guard nguồn/alias/ngày vẫn được tái sử dụng qua RPC CDN riêng.
+
+Đã tải lại và nhập 20/06/2025, 03/08/2026: lần lượt 15 và 9 sự kiện chuẩn hóa; mỗi ngày có một nhóm xung đột chiều vào, chiều rời không có nhóm xung đột. Đầu ngày và chuỗi tổng hợp đánh giá nhóm cần đối chiếu theo đúng chiều, nên lỗi chiều vào không làm mất tổng hợp chiều rời. Chỉ còn 22/10/2025 nguồn cả hai mục rỗng, vẫn giữ thiếu. Các nhóm trùng chuẩn hóa khác vẫn cần đối chiếu, không mặc định bằng mọi con số trong ảnh tham khảo.
+
+CDN mặc định mở **DWT đã ghi nhận**, với lựa chọn lượt và DWT đủ dữ liệu riêng; Tổng quan một cảng và từng Tiên Sa được giữ. Bảng và hai cột cùng kỳ đổi cùng chỉ tiêu. MTD đến 24/10/2026 có 1.981.502,67 DWT đã ghi nhận, khớp phần nguyên 1.981.502 trong ảnh. Tháng 08/2026 được khôi phục phần chiều rời hợp lệ, không cần thêm Sơn Trà. API nguồn được đọc tuần tự mặc định và thử lại có giới hạn khi trang trả thiếu cấu trúc; lỗi bền vững vẫn thất bại, không chuyển thành số 0.
+
+Kiểm chứng local: 126/126 Vitest chạy tuần tự, 16/16 Python, 8/8 Playwright CDN/PHP desktop/mobile trước đổi mặc định, chạy lại CDN desktop/mobile sau đổi mặc định; typecheck/lint đạt. Lần chạy Vitest đồng thời ban đầu có ba hook timeout do tải local; chạy toàn suite tuần tự đạt, không tăng timeout hoặc bỏ test. Kiểm chứng staging và tác vụ cập nhật được lưu trong biên nhận riêng.

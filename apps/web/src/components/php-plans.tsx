@@ -14,7 +14,7 @@ export async function PhpPlans({query,ticker='PHP'}:{query:Record<string,string>
  const seriesFor=(days:Parameters<typeof phpPlanSeries>[0],direction:Parameters<typeof phpPlanSeries>[2],now=new Date(),run:Parameters<typeof phpPlanSeries>[4]=null)=>isIssuerPlanTicker(ticker)?issuerPlanSeries(days,ticker,asset,direction,now,run):isDvpPlanScope(asset)?dvpPlanSeries(days,asset,direction,now,run):phpPlanSeries(days,asset as keyof typeof phpPlanScopes,direction,now,run);
  const direction=query.plan_direction==='arrival'?'arrival':'departure';
  const quarterly=query.plan_period==='quarter';
- const byObserved=ticker==='CDN'&&query.plan_metric==='observed_dwt';
+ const byObserved=ticker==='CDN'&&query.plan_metric!=='rows'&&query.plan_metric!=='dwt';
  const byRows=ticker==='CDN'&&!byObserved&&query.plan_metric!=='dwt';const metricKey=byRows?'rows':byObserved?'observed_dwt':'dwt';const metricLabel=byRows?'Lượt theo lịch':byObserved?'DWT đã ghi nhận':'DWT';
  const repo=publicRepository();
  let stored;
@@ -43,7 +43,7 @@ export async function PhpPlans({query,ticker='PHP'}:{query:Record<string,string>
  const dayMap=new Map(stored.days.map(d=>[d.report_day,d]));
  const daily:PlanColumn[]=Array.from({length:90},(_,i)=>{
   const date=new Date(Date.parse(series.cutoff)-(89-i)*86400000).toISOString().slice(0,10),d=dayMap.get(date);
-  const value=d?.version_id?(byObserved?((d[`${direction}_rows`]===0||(d[`${direction}_rows`]??0)>(d[`${direction}_dwt_missing`]??0))?d[`${direction}_known_dwt`]??d[`${direction}_dwt`]:null):!d.ambiguous_groups&&(byRows||d[`${direction}_dwt_missing`]===0)?d[`${direction}_${byRows?'rows':'dwt'}`]:null):null;
+  const value=d?.version_id?(byObserved?((d[`${direction}_rows`]===0||(d[`${direction}_rows`]??0)>(d[`${direction}_dwt_missing`]??0))?d[`${direction}_known_dwt`]??d[`${direction}_dwt`]:null):!(d[`${direction}_ambiguous_groups`]??d.ambiguous_groups)&&(byRows||d[`${direction}_dwt_missing`]===0)?d[`${direction}_${byRows?'rows':'dwt'}`]:null):null;
   const params=new URLSearchParams({plan_asset:asset,plan_direction:direction,plan_period:quarterly?'quarter':'month',plan_year:year,plan_day:date,...(ticker==='CDN'?{plan_metric:metricKey}:{})});
   return {key:date,label:`${date.slice(8)}/${date.slice(5,7)}`,current:value??null,note:d?.version_id?`${d[`${direction}_rows`]??'—'} lượt theo lịch${value===null?'; thiếu DWT hoặc cần đối chiếu':''}`:'Chưa có bản lịch ngày',href:`/companies/${ticker}?${params}#plan-days`};
  });

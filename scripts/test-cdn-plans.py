@@ -1,5 +1,6 @@
 """CDN public read-only source contracts; no live network in tests."""
 import importlib.util,pathlib,json,datetime as dt,unittest
+from unittest.mock import patch
 spec=importlib.util.spec_from_file_location('collector',pathlib.Path(__file__).with_name('collect-cdn-plans.py'));c=importlib.util.module_from_spec(spec);spec.loader.exec_module(c)
 DAY=dt.date(2026,10,23)
 def row(**changes):
@@ -8,6 +9,15 @@ def report(arrival=None,departure=None):
  a=[row()] if arrival is None else arrival;d=[] if departure is None else departure
  return json.dumps({'format':'danang-public-plan-v1','date':str(DAY),'arrival':{'total':len(a),'data':a},'departure':{'total':len(d),'data':d}}).encode()
 class Contract(unittest.TestCase):
+ def test_transient_invalid_public_page_retries_without_losing_rows(self):
+  endpoints={'arrival':c.BASE,'departure':c.BASE}
+  with patch.object(c,'request',side_effect=[{'errorCode':'TEMPORARY'},{'total':1,'data':[row()]},{'total':0,'data':[]}]) as request,patch.object(c.time,'sleep'):
+   result=c.parse_day(c.fetch_day(endpoints,DAY),DAY)
+   self.assertEqual(len(result['events']),1);self.assertEqual(result['events'][0]['dwt'],'1234.5');self.assertEqual(request.call_count,3)
+ def test_persistent_invalid_page_still_fails_instead_of_certifying_zero(self):
+  with patch.object(c,'request',return_value={'errorCode':'PERSISTENT'}) as request,patch.object(c.time,'sleep'):
+   with self.assertRaisesRegex(ValueError,'Invalid public schedule page'):c.fetch_day({'arrival':c.BASE,'departure':c.BASE},DAY)
+   self.assertEqual(request.call_count,2)
  def test_exact_harbour_mapping(self):
   result=c.parse_day(report([row(),row(vmaItineraryScheduleId=2,portHarbourCode='BC88',anchoringPortWharfName='Chu Lai')]),DAY)
   self.assertEqual(len(result['events']),1);self.assertEqual(result['events'][0]['source_row']['Đến'],'TIEN SA')
@@ -29,8 +39,11 @@ class Contract(unittest.TestCase):
   with self.assertRaises(ValueError):c.parse_day(report([row(),row()]),DAY)
  def test_same_normalized_event_only_once(self):
   result=c.parse_day(report([row(),row(vmaItineraryScheduleId=2)]),DAY);self.assertEqual(len(result['events']),1);self.assertEqual(result['exact_duplicates_removed'],1)
- def test_conflicting_normalized_event_fails(self):
-  with self.assertRaises(ValueError):c.parse_day(report([row(),row(vmaItineraryScheduleId=2,dwt=123)]),DAY)
+ def test_conflicting_arrival_preserves_departure_and_explicit_direction_quality(self):
+  departure=row(vmaItineraryScheduleId=3,noticeShipType=2,timeOfDeparture='23/10/2026 13:00',dwt=200)
+  result=c.parse_day(report([row(),row(vmaItineraryScheduleId=2,dwt=123)],[departure]),DAY)
+  self.assertEqual(result['unresolved_schedule_keys'],{'arrival':1,'departure':0});self.assertEqual(len(result['events']),2)
+  self.assertIsNone(result['events'][0]['dwt']);self.assertEqual(result['events'][1]['dwt'],'200')
  def test_departure_endpoint(self):
   d=row(noticeShipType=2,timeOfDeparture='23/10/2026 13:00')
   self.assertEqual(c.parse_day(report([], [d]),DAY)['events'][0]['source_row']['Từ'],'TIEN SA')

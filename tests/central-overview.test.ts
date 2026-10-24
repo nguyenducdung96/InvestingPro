@@ -20,3 +20,10 @@ it('sums known row weights on incomplete days without certifying totals or inven
  const unknown=rows.map(d=>({...d,departure_dwt:null,departure_dwt_missing:1,departure_known_dwt:0}));
  expect(centralOverview(unknown,{},now).rows[0].metric?.current.observed_dwt).toBeNull();
 });
+it('CDN arrival conflicts do not suppress the independently valid departure series',()=>{
+ const days=rows.map(d=>({...d,ambiguous_groups:1,arrival_ambiguous_groups:1,departure_ambiguous_groups:0}));
+ const departure=centralOverview(days,{},now).rows[0].metric!;
+ expect(departure.current.rows).toBe(23);expect(departure.current.dwt).toBe(2300);
+ const arrival=centralOverview(days,{direction:'arrival'},now).rows[0].metric!;
+ expect(arrival.current.rows).toBeNull();expect(arrival.current.dwt).toBeNull();expect(arrival.current.observed_dwt).toBe(4600);
+});

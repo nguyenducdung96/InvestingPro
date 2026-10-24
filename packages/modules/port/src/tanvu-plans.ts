@@ -4,6 +4,7 @@ export interface TanVuPlanDay {
  arrival_rows:number|null;departure_rows:number|null;arrival_dwt:number|null;departure_dwt:number|null;
  arrival_dwt_missing:number|null;departure_dwt_missing:number|null;ambiguous_groups:number|null;source_empty_sections:string[];
  arrival_known_dwt?:number|null;departure_known_dwt?:number|null;
+ arrival_ambiguous_groups?:number|null;departure_ambiguous_groups?:number|null;
 }
 export interface TanVuPlanRun {id:string;checked_at:string;through_day:string;status:'running'|'success'|'failed';requested_days:number;parsed_days:number;error:string|null}
 export interface TanVuPlanEvents {report_day:string;source_url:string;source_sha256:string;fetched_at:string;parser_version:string;semantics:'authority_published_plan'|'authority_published_berth_plan';movement_scope?:'berth'|'port';events:{plan_kind?:'arrival'|'departure'|'internal';direction:'arrival'|'departure';vessel_name:string;planned_time:string;dwt:number|null;from_berth:string;to_berth:string}[]}
@@ -23,7 +24,7 @@ export function tanvuPlanSeries(input:TanVuPlanDay[],direction:PlanDirection='de
   const present=expected.flatMap(key=>{const d=map.get(key);return d?.version_id?[d]:[];});
   const missing_days=expected.filter(key=>!map.get(key)?.version_id);
   const missing_dwt=present.reduce((s,d)=>s+(d[`${direction}_dwt_missing`]??0),0);
-  const ambiguous_groups=present.reduce((s,d)=>s+(d.ambiguous_groups??0),0);
+  const ambiguous_groups=present.reduce((s,d)=>s+(d[`${direction}_ambiguous_groups`]??d.ambiguous_groups??0),0);
   const known_rows=present.reduce((s,d)=>s+Number(d[`${direction}_rows`]??0),0);
   const known_dwt=present.reduce((s,d)=>s+Number(d[`${direction}_known_dwt`]??d[`${direction}_dwt`]??0),0);
   const observed_dwt=present.length>0&&present.every(d=>d[`${direction}_known_dwt`]!=null||d[`${direction}_dwt`]!=null)&&(known_rows===0||known_rows>missing_dwt)?known_dwt:null;

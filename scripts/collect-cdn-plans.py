@@ -3,7 +3,7 @@ import argparse, math, collections, concurrent.futures, datetime as dt, decimal,
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 OUT=ROOT/'.local/cdn-plans'
 BASE='http://tttb.cangvuhanghaidanang.gov.vn/public-kh'
-VERSION='danang-public-plan/1.0.1'
+VERSION='danang-public-plan/1.1.0'
 class UnavailableReport(ValueError):pass
 
 def request(url):
@@ -40,6 +40,15 @@ def initialize():
  return endpoints
 
 def fetch_day(endpoints,day):
+ # The public session occasionally returns an incomplete page. Retry a bounded
+ # full report; persistent schema/shape failures remain failures, never zeros.
+ for attempt in range(2):
+  try:return fetch_day_once(endpoints,day)
+  except ValueError as e:
+   if attempt or str(e) not in ['Invalid public schedule page','Incomplete public schedule pagination','Schedule total differs']:raise
+   time.sleep(1)
+
+def fetch_day_once(endpoints,day):
  result={'date':str(day),'format':'danang-public-plan-v1'}
  for direction in ['arrival','departure']:
   rows=[];total=None
@@ -58,7 +67,7 @@ def fetch_day(endpoints,day):
 def parse_day(raw,day,fetched_at=None):
  value=json.loads(raw)
  if value.get('format')!='danang-public-plan-v1' or value.get('date')!=str(day):raise ValueError('Source report date mismatch')
- events=[];seen={};duplicates=0;invalid_dwt=0;source_rows={};labels=collections.Counter()
+ events=[];seen={};conflicts=set();duplicates=0;invalid_dwt=0;source_rows={};labels=collections.Counter()
  for direction in ['arrival','departure']:
   page=value[direction];rows=page['data'];source_rows[direction]=len(rows)
   if page['total']!=len(rows):raise ValueError('Incomplete source rows')
@@ -89,15 +98,19 @@ def parse_day(raw,day,fetched_at=None):
    planned_time=parsed.strftime('%H:%M');key=(str(day),direction,vessel,planned_time,origin,destination)
    event={'key':list(key),'direction':direction,'dwt':dwt,'source_row':{'Tên tàu':vessel,'Thời gian':planned_time,'Từ':origin,'Đến':destination}}
    if key in seen:
-    if seen[key]!=event:raise UnavailableReport('Source has conflicting DWT for the same schedule key')
+    if seen[key]!=event:
+     # Keep the safe canonical identity without selecting one of two weights.
+     # Direction-specific quality withholds its totals, retaining the other
+     # direction and all unambiguous rows in this same source report.
+     seen[key]['dwt']=None;conflicts.add(key);continue
     duplicates+=1;continue
    seen[key]=event;events.append(event)
  if not any(source_rows.values()):raise UnavailableReport('No public source rows; cannot certify zero')
  groups=collections.Counter((e['direction'],e['source_row']['Tên tàu'],e['source_row']['Từ'],e['source_row']['Đến']) for e in events)
- return {'date':str(day),'status':'parsed','url_at_fetch':BASE,'fetched_at':fetched_at or dt.datetime.now(dt.timezone.utc).isoformat(),'sha256':hashlib.sha256(raw).hexdigest(),'source_request':{'method':'GET','resource':'public arrival/departure schedule','report_day':str(day),'maritimeCode':'18','harbourCode':'BC78'},'source_rows':source_rows,'source_empty_sections':[label for direction,label in [('arrival','Vao'),('departure','Roi')] if source_rows[direction]==0],'semantics':'authority_published_plan','movement_scope':'port','exact_duplicates_removed':duplicates,'invalid_source_dwt_kept_null':invalid_dwt,'ambiguous_repeated_route_groups':sum(n>1 for n in groups.values()),'observed_labels':dict(labels),'events':events}
+ return {'date':str(day),'status':'parsed','url_at_fetch':BASE,'fetched_at':fetched_at or dt.datetime.now(dt.timezone.utc).isoformat(),'sha256':hashlib.sha256(raw).hexdigest(),'source_request':{'method':'GET','resource':'public arrival/departure schedule','report_day':str(day),'maritimeCode':'18','harbourCode':'BC78'},'source_rows':source_rows,'source_empty_sections':[label for direction,label in [('arrival','Vao'),('departure','Roi')] if source_rows[direction]==0],'unresolved_schedule_keys':{direction:sum(k[1]==direction for k in conflicts) for direction in ['arrival','departure']},'semantics':'authority_published_plan','movement_scope':'port','exact_duplicates_removed':duplicates,'invalid_source_dwt_kept_null':invalid_dwt,'ambiguous_repeated_route_groups':sum(n>1 for n in groups.values()),'observed_labels':dict(labels),'events':events}
 
 def main():
- p=argparse.ArgumentParser();p.add_argument('--days-file',type=pathlib.Path);p.add_argument('--workers',type=int,choices=[1,2,3,4],default=2);args=p.parse_args();raw_dir=OUT/'raw';cache=OUT/'day-cache'
+ p=argparse.ArgumentParser();p.add_argument('--days-file',type=pathlib.Path);p.add_argument('--workers',type=int,choices=[1,2,3,4],default=1);args=p.parse_args();raw_dir=OUT/'raw';cache=OUT/'day-cache'
  raw_dir.mkdir(parents=True,exist_ok=True);cache.mkdir(exist_ok=True)
  fields=initialize();server_day=dt.datetime.now(dt.timezone(dt.timedelta(hours=7))).date()
  cutoff=min(server_day,dt.datetime.now(dt.timezone(dt.timedelta(hours=7))).date())-dt.timedelta(days=1)

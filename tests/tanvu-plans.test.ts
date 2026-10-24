@@ -76,6 +76,11 @@ it('imports idempotently, versions corrections, protects RLS and preserves succe
   expect(await cdnKnown()).toMatchObject({departure_dwt:null,departure_rows:2,departure_dwt_missing:1});expect(Number((await cdnKnown()).departure_known_dwt)).toBe(155179.38);
   await db.query("select port.import_php_plan_days('tien_sa',$1)",[JSON.stringify([{...cdnMixed,status:'failed',fetched_at:'2025-09-04T00:00:00Z',error:'Source unavailable'}])]);
   await cdnReplay();expect(Number((await cdnKnown()).departure_known_dwt)).toBe(155179.38);
+  const cdnQuality={...cdnMixed,sha256:'e'.repeat(64),parser_version:'danang-public-plan/1.1.0',fetched_at:'2025-09-05T00:00:00Z',events:[{...cdnMixed.events[0],direction:'arrival',from_berth:'P/S',to_berth:'TIEN SA'},cdnMixed.events[1]],unresolved_schedule_keys:{arrival:1,departure:0}};
+  await db.query('select port.import_cdn_plan_days($1)',[JSON.stringify([cdnQuality])]);
+  const quality=(await db.query<{arrival_ambiguous_groups:number;departure_ambiguous_groups:number;departure_known_dwt:string}>("select * from port.php_plan_days where asset_code='tien_sa'")).rows[0];
+  expect(quality.arrival_ambiguous_groups).toBe(1);expect(quality.departure_ambiguous_groups).toBe(0);expect(Number(quality.departure_known_dwt)).toBe(155179.38);
+  await expect(db.query('select port.import_cdn_plan_days($1)',[JSON.stringify([{...cdnQuality,unresolved_schedule_keys:{arrival:0,departure:0}}])])).rejects.toThrow('changed quality');
   await expect(db.query("select port.import_php_plan_days('tien_sa',$1)",[JSON.stringify([{...cdn,source_url:source}])])).rejects.toThrow();
   await expect(db.query("select port.import_php_plan_days('tien_sa',$1)",[JSON.stringify([{...cdn,events:[{...cdn.events[0],from_berth:'CHU LAI'}]}])])).rejects.toThrow();
   await expect(db.query('select port.import_php_plan_days($1,$2)',['chua_ve',JSON.stringify([input])])).rejects.toThrow('Invalid PHP berth');
@@ -107,6 +112,8 @@ it('imports idempotently, versions corrections, protects RLS and preserves succe
   const chua=await db.query<{result:{events:{from_berth:string}[]}}>("select port.php_plan_events('chua_ve','2025-09-01') as result");
   expect(chua.rows[0].result.events[0].from_berth).toBe('CHUA VE');
   await expect(db.query('select * from port.php_plan_versions')).rejects.toThrow();
+  await expect(db.query('select * from port.cdn_plan_quality')).rejects.toThrow();
+  await expect(db.query('select port.import_cdn_plan_days($1)',[JSON.stringify([cdnQuality])])).rejects.toThrow();
   await expect(db.query('select port.import_php_plan_days($1,$2)',['chua_ve',JSON.stringify([input])])).rejects.toThrow();
  }finally{await db.close();}
 });
