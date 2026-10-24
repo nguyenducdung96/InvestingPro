@@ -1,3 +1,4 @@
+import {cdnCompletedComparison,observedGrowth} from '../apps/web/src/lib/cdn-comparison';
 import {expect,it} from 'vitest';
 import {centralOverview,issuerPlanAssets,issuerPlanSeries,type TanVuPlanDay} from '@invest/port';
 const now=new Date('2026-10-24T00:00:00Z');
@@ -36,4 +37,13 @@ it('CDN recorded YTD equals monthly subtotals even when weights or prior report 
  expect(series.ytd.current.observed_dwt).toBe(months.reduce((n,m)=>n+(m.current.observed_dwt??0),0));
  expect(series.ytd.current.missing_days).toHaveLength(0);expect(series.ytd.current.missing_dwt).toBe(10);
  expect(series.ytd.current.dwt).toBeNull();expect(series.ytd.prior.missing_days).toEqual(['2025-10-22']);expect(series.ytd.yoy.dwt).toBeNull();
+});
+
+it('CDN investment comparison uses recorded weights in finished paired months and excludes the updating month',()=>{
+ const seed=issuerPlanSeries(rows,'CDN','cdn','departure',now).months.at(-1)!;
+ const month=(period:string,current:number|null,prior:number|null,partial=false)=>({...seed,period,status:partial?'partial' as const:'closed' as const,current:{...seed.current,observed_dwt:current,known_rows:10},prior:{...seed.prior,observed_dwt:prior,known_rows:8}});
+ const result=cdnCompletedComparison([month('2026-01',120,100),month('2026-02',180,100),month('2026-03',null,90),month('2026-04',90,null),month('2026-10',1000,100,true)],'2026');
+ expect(result.months).toEqual([1,2]);expect(result.current).toBe(300);expect(result.prior).toBe(200);expect(result.growth).toBe(50);
+ expect(cdnCompletedComparison([month('2026-01',100,90,true)],'2026').current).toBeNull();
+ expect(observedGrowth(0,100)).toBe(-100);expect(observedGrowth(100,0)).toBeNull();expect(observedGrowth(null,100)).toBeNull();
 });

@@ -48,3 +48,9 @@ Kiểm chứng local: 126/126 Vitest chạy tuần tự, 16/16 Python, 8/8 Playw
 Readback chiều rời đến 24/10/2026: lũy kế đã ghi nhận 25.470.389,13 DWT bằng tổng các tháng; cùng kỳ 23.947.819,65 DWT. Năm 2026 đủ 297/297 ngày lịch nhưng còn 10 lượt chưa có DWT. Cùng kỳ 2025 có 296/297 ngày (thiếu 22/10/2025) và 6 lượt chưa có DWT. Có số ở mọi tháng không đồng nghĩa mọi dòng có trọng tải.
 
 Giao diện thay nhãn chung “Độ phủ chưa đủ” bằng từng lý do: ngày lịch thiếu, lượt chưa có DWT, nhóm cần đối chiếu. Cột YoY được ghi rõ là YoY DWT đầy đủ; phần chân bảng xác nhận lũy kế đã ghi nhận vẫn được cộng từ những dòng có DWT. Không đổi số liệu, điền trọng tải thiếu hay bật YoY đầy đủ khi chưa đủ điều kiện. Kiểm thử bổ sung đối chiếu tổng tháng với lũy kế khi thiếu trọng tải và ngày cùng kỳ; kiểm tra giao diện desktop/mobile.
+
+## Điều chỉnh giao diện theo mục tiêu quan sát đầu tư
+
+Theo yêu cầu tiếp theo của người dùng, mặc định CDN hiển thị DWT đã ghi nhận và YoY tính trực tiếp từ hai giá trị đã ghi nhận, kể cả còn thiếu một số ngày/dòng trọng tải. Các ghi chú chất lượng được thu vào mục mở rộng; bảng chính không chèn cảnh báo từng ô hoặc chặn tỷ lệ tăng trưởng theo tiêu chuẩn tổng đầy đủ. Chú thích ngắn nêu cơ sở số liệu đã ghi nhận. Không điền ngày/DWT thiếu bằng 0, sửa nguồn, hoặc thay đổi điều kiện tổng đầy đủ trên API/chế độ DWT đủ dữ liệu.
+
+Dòng lũy kế cùng kỳ trong bảng mặc định chỉ cộng những tháng đã kết thúc và có giá trị ở cả hai năm; tỷ lệ tính từ hai tổng trên đúng tập tháng này. Tháng hiện tại vẫn hiển thị số và YoY đến ngày chốt, ghi đang tích lũy. KPI lũy kế đầu trang vẫn tính đến ngày chốt được ghi rõ. Không thay cách đọc của PHP và các mã khác.
