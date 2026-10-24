@@ -25,7 +25,7 @@ class HiddenInputs(HTMLParser):
 
 
 def main():
-    OUT.mkdir(exist_ok=True)
+    OUT.mkdir(parents=True, exist_ok=True)
     found = {}; pages = []
     body = None
     for page in range(1, 185):

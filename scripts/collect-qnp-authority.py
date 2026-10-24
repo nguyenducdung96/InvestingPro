@@ -163,6 +163,34 @@ def init_worker():
     OCR = RapidOCR(intra_op_num_threads=2, inter_op_num_threads=1, rec_batch_num=6)
 
 
+SCOPE_READER = 'qnp-footer/1'
+def scope_footer(image):
+    """Locate a positively named next port below the QNP grid, including a split header."""
+    import cv2
+    import numpy as np
+    im=cv2.imread(image['path'])
+    gray=cv2.cvtColor(im,cv2.COLOR_BGR2GRAY)
+    binary=cv2.adaptiveThreshold(gray,255,cv2.ADAPTIVE_THRESH_MEAN_C,cv2.THRESH_BINARY_INV,15,10)
+    horizontal=cv2.morphologyEx(binary,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_RECT,(im.shape[1]//3,1)))
+    vertical=cv2.morphologyEx(binary,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_RECT,(1,20)))
+    contours,_=cv2.findContours(horizontal|vertical,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
+    tables=sorted((cv2.boundingRect(c) for c in contours if cv2.boundingRect(c)[2]>im.shape[1]*.7 and cv2.boundingRect(c)[3]>60),key=lambda r:r[1])
+    if not tables:return {'reader':SCOPE_READER,'closed':False,'labels':[]}
+    x,y,w,h=tables[0];start=y+h+2;end=tables[1][1]-2 if len(tables)>1 else im.shape[0]
+    if end<=start:return {'reader':SCOPE_READER,'closed':False,'labels':[]}
+    ink=(binary[start:end,x+3:x+w-3]>0).sum(axis=1);spans=[]
+    for i in np.where(ink>max(1,w*.003))[0]:
+        if not spans or i-spans[-1][-1]>2:spans.append([int(i)])
+        else:spans[-1].append(int(i))
+    boxes=[(start+v[0],start+v[-1]+1) for v in spans if v[-1]-v[0]>=3]
+    crops=[cv2.resize(im[max(0,a-1):b+1,x+3:x+w-3],None,fx=3,fy=3) for a,b in boxes]
+    reads,_=OCR.text_rec(crops) if crops else ([],0)
+    labels=[{'text':str(r[0]),'confidence':float(r[1]),'box':[x+3,a,x+w-3,b]} for (a,b),r in zip(boxes,reads)]
+    allowed={'CANGTHINAI','CANGTANCANGMIENTRUNG','TANCANGMIENTRUNG'}
+    closed=any(normal(r['text']) in allowed and r['confidence']>=.85 for r in labels)
+    return {'reader':SCOPE_READER,'closed':closed,'labels':labels,'image_sha256':image['sha256']}
+
+
 def parse_image(image, title_day, first=False):
     """Read bounded table cells directly; do not run a text detector over unrelated ports."""
     import cv2
@@ -257,6 +285,7 @@ def parse_image(image, title_day, first=False):
     if len(tables)>1:
         for a,b in text_lines(left+3,bottom+2,left+width-3,tables[1][1]-2):next_caption.append(recognize(left+2,a-1,left+width-2,b+1)[0])
     complete=any((normal(s).startswith('CANG') or normal(s).startswith('TANCANG')) and normal(s)!='CANGQUYNHON' for s in next_caption)
+    if not complete:complete=scope_footer(image)['closed']
     return {'status':'parsed','from':start,'through':end,'rows':rows,'rejected':rejected,'table_scope':'CANG QUY NHON','page_scope_complete':complete}
 
 
@@ -266,6 +295,13 @@ def extract(item):
         try:prior = json.loads(cache.read_text(encoding='utf-8'))
         except json.JSONDecodeError:prior={}
         if prior.get('parser_version') == VERSION and prior.get('ocr_config')=='grid-cells-upright' and prior.get('images') == item['images'] and prior.get('from') and not prior.get('errors'):
+            if prior.get('pages') and not prior['pages'][0].get('page_scope_complete') and prior.get('scope_audit',{}).get('reader')!=SCOPE_READER:
+                prior['scope_audit']=scope_footer(item['images'][0])
+                if prior['scope_audit']['closed']:
+                    prior['pages'][0]['page_scope_complete']=True
+                    prior['pages']=prior['pages'][:1]
+                prior['parsed_at']=dt.datetime.now(dt.timezone.utc).isoformat()
+                temp=cache.with_suffix('.tmp');temp.write_text(json.dumps(prior,ensure_ascii=False,indent=2),encoding='utf-8');temp.replace(cache)
             return prior
     pages = []; errors = []
     for i,image in enumerate(item['images']):
