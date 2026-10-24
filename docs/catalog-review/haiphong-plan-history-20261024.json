@@ -4037,5 +4037,15 @@
       "source_url": "https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-1",
       "fetched_at": "2026-10-24T12:28:24.076744+00:00"
     }
+  ],
+  "alias_audit": {
+    "PTSC DINH VU": 1491,
+    "NAM DINH VU": 4232,
+    "HAI AN": 946,
+    "DOAN XA": 503,
+    "XANG DAU NAM DINH VU": 1
+  },
+  "similar_labels_excluded": [
+    "XANG DAU NAM DINH VU"
   ]
 }

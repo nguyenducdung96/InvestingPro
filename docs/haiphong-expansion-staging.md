@@ -28,3 +28,5 @@ Chưa bổ sung chuỗi sản lượng công bố tấn/TEU hoặc tài chính. 
 ## Kiểm tra local
 
 116/116 tests TypeScript/database, 17/17 Python parser, typecheck/lint đạt. 12/12 Playwright dashboard PHP/DVP/VGR/VSC và bốn mã mới desktop/mobile đạt. Tests gồm alias chính xác, chống nhập lặp, phân quyền, không nhận scope của mã khác, bản công bố bến không thêm ngày hiệu lực giả, Tổng quan bằng bến riêng và bảo toàn bộ lọc.
+
+Rà toàn bộ nhãn Từ/Đến ở các mục vào/rời trong raw lịch sử: số nhãn chính xác khớp các dòng đã nhập. `XANG DAU NAM DINH VU` xuất hiện một lần nhưng không khớp alias đã duyệt nên bị loại, không cộng theo chuỗi con. UI bổ sung ghi rõ khi nền cùng kỳ thiếu DWT, gồm dòng lũy kế, để phân biệt thiếu DWT với thiếu ngày nguồn.

@@ -8,7 +8,8 @@ test('four Hai Phong issuers show cited ports, regional overview and unchanged s
  const cutoff=new Date(Date.parse(new Date(Date.now()+7*3600000).toISOString().slice(0,10))-86400000).toISOString().slice(0,10),month=cutoff.slice(0,7),through=Number(cutoff.slice(8));
  const days=tickers.flatMap((t,i)=>Array.from({length:through},(_,n)=>({asset_code:manifest.entries[t][0].asset_code,report_day:`${month}-${String(n+1).padStart(2,'0')}`,version_id:t,source_sha256:'a'.repeat(64),source_url:'https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-1',parser_version:'test-only',last_success:new Date().toISOString(),last_attempt:new Date().toISOString(),source_error:null,arrival_rows:1,departure_rows:1,arrival_dwt:(i+1)*100,departure_dwt:(i+1)*100,arrival_dwt_missing:0,departure_dwt_missing:0,ambiguous_groups:0,source_empty_sections:[]})));
  const details=tickers.map((t,i)=>({asset_code:manifest.entries[t][0].asset_code,report_day:cutoff,source_sha256:'a'.repeat(64),events:[{direction:'departure',vessel_name:'TEST '+t,planned_time:'08:30',dwt:(i+1)*100,from_berth:manifest.entries[t][0].alias,to_berth:'CHINA'}]}));
- await request.post('http://127.0.0.1:54329/__plans',{data:{days,details}});
+ const prior=days.filter(d=>d.asset_code==='nam_dinh_vu').map((d,i)=>({...d,report_day:`${Number(month.slice(0,4))-1}${d.report_day.slice(4)}`,departure_dwt:i===0?null:d.departure_dwt,departure_dwt_missing:i===0?1:0}));
+ await request.post('http://127.0.0.1:54329/__plans',{data:{days:[...days,...prior],details}});
  for(const [i,ticker] of tickers.entries()){
   const asset=manifest.entries[ticker][0].asset_code;
   await page.goto('/companies/'+ticker);
@@ -16,7 +17,7 @@ test('four Hai Phong issuers show cited ports, regional overview and unchanged s
   await expect(scope.locator('article')).toHaveCount(1);await expect(select).toHaveValue(ticker.toLowerCase());
   await expect(region.getByText('TEST '+ticker,{exact:true})).toBeVisible();
   const total=await(await request.get(`/api/v1/companies/${ticker}/plans`)).json();expect(total.months.at(-1).current.dwt).toBe(through*(i+1)*100);
-  if(ticker==='GMD')expect(total.name).toContain('Hải Phòng');
+  if(ticker==='GMD'){expect(total.name).toContain('Hải Phòng');expect(total.months.at(-1).prior.dwt).toBeNull();expect(total.months.at(-1).yoy.dwt).toBeNull();await expect(region.getByText('Nền cùng kỳ thiếu DWT ở 1 lượt theo lịch.',{exact:true})).toBeVisible();}
   await select.selectOption(asset);await region.getByRole('button',{name:'Xem bến',exact:true}).click();
   await expect(select).toHaveValue(asset);
   const single=await(await request.get(`/api/v1/companies/${ticker}/plans?asset=${asset}`)).json();expect(single.months).toEqual(total.months);expect(single.ytd).toEqual(total.ytd);
