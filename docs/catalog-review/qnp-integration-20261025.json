@@ -1,0 +1,84 @@
+{
+  "fetched_at": "2026-10-24T18:45:23.409609+00:00",
+  "source": "https://quynhonport.vn/chuyen-muc/ke-hoach-khai-thac-tau/",
+  "from_date": "2025-01-01",
+  "pages": 4,
+  "candidate_bulletins": 344,
+  "automatic_promotion": false,
+  "history_complete": false,
+  "reviewed_bulletins": 5,
+  "reviewed_raw_rows": 53,
+  "pending_candidate_posts": 339,
+  "source_status_counts": {
+    "pending_image_review": 342,
+    "source_no_images": 2
+  },
+  "unique_candidate_images": 335,
+  "index_evidence": [
+    {
+      "path": ".local\\qnp-plans\\archive\\index-1.json",
+      "sha256": "58639c428ef6da64d81f3a678d7199145f872e10d8c9ca5f14cc65dc05afec72"
+    },
+    {
+      "path": ".local\\qnp-plans\\archive\\index-2.json",
+      "sha256": "a6730cda8625ce642d2378cf80ea173ecd076eb6f52a4d0af0154afb6df7bbd6"
+    },
+    {
+      "path": ".local\\qnp-plans\\archive\\index-3.json",
+      "sha256": "eb918989cb218b1b9e4e51ca228bb0cc2981a8d59c4b89616f5bc92b2a9d0b9c"
+    },
+    {
+      "path": ".local\\qnp-plans\\archive\\index-4.json",
+      "sha256": "7aecb30829d4d2050f3a3b7b9c23ec5c7e0f84639a9e4f41600edc12c8436c47"
+    }
+  ],
+  "reviewed_evidence": [
+    {
+      "id": 9764,
+      "url": "https://quynhonport.vn/thong-bao-ke-hoach-bo-tri-cau-ben-16h00-05-10-2026-16h-07-10-2026/",
+      "image": "https://quynhonport.vn/wp-content/uploads/2026/10/05-10-2026.png",
+      "sha256": "fe95d83822dcd648265e203508508d839c12dace4a643840483c0fe8b91c2933",
+      "issued_on": "2026-10-05",
+      "published_at": "2026-10-05T16:00:48+07:00",
+      "reviewed_on": "2026-10-25"
+    },
+    {
+      "id": 9774,
+      "url": "https://quynhonport.vn/thong-bao-ke-hoach-bo-tri-cau-ben-16h00-07-10-2026-16h-09-10-2026/",
+      "image": "https://quynhonport.vn/wp-content/uploads/2026/10/07-10-2026.png",
+      "sha256": "77dd567fb02dc2f12df6f6690f50dfedb3c17d0bc84c13c9a60900a7fc814284",
+      "issued_on": "2026-10-07",
+      "published_at": "2026-10-12T16:00:52+07:00",
+      "reviewed_on": "2026-10-25"
+    },
+    {
+      "id": 9771,
+      "url": "https://quynhonport.vn/thong-bao-ke-hoach-bo-tri-cau-ben-16h00-11-10-2026-16h-13-10-2026/",
+      "image": "https://quynhonport.vn/wp-content/uploads/2026/10/11-10-2026.png",
+      "sha256": "440363ab5527971a2c66115d2f17a2ce1cd742bc02c4b165548b3b384e3f6ec0",
+      "issued_on": "2026-10-11",
+      "published_at": "2026-10-11T10:58:59+07:00",
+      "reviewed_on": "2026-10-25"
+    },
+    {
+      "id": 4396,
+      "url": "https://quynhonport.vn/thong-bao-ke-hoach-bo-tri-cau-ben-16h-23102025-16h-25102025-1050/",
+      "image": "https://quynhonport.vn/wp-content/uploads/2026/05/23-10-2025.png",
+      "sha256": "a3d662066645c492f279e3a5a6ac37ded1cc278ea2ab2555365c6247c702c241",
+      "issued_on": "2025-10-23",
+      "published_at": "2025-10-23T00:00:00+07:00",
+      "reviewed_on": "2026-10-25"
+    },
+    {
+      "id": 4393,
+      "url": "https://quynhonport.vn/thong-bao-ke-hoach-bo-tri-cau-ben-16h-24102025-16h-26102025-1051/",
+      "image": "https://quynhonport.vn/wp-content/uploads/2026/05/24-10-2025.png",
+      "sha256": "93f0e0f3be54629959595c96a138494f3488f3134ab63811580fb639d9004363",
+      "issued_on": "2025-10-24",
+      "published_at": "2025-10-24T00:00:00+07:00",
+      "reviewed_on": "2026-10-25"
+    }
+  ],
+  "cloud_deployed": false,
+  "scheduled_refresh_verified": false
+}

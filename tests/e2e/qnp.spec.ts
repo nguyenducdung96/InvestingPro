@@ -1,0 +1,25 @@
+import {test,expect} from '@playwright/test';
+test('QNP reviewed plans retain provenance, partial history and central selection',async({page})=>{
+ await page.request.post('http://127.0.0.1:54329/__throughput',{data:[]});
+ await page.goto('/companies/QNP?plan_year=2026');
+ const plans=page.locator('#vessel-plans');
+ await expect(plans.getByRole('heading',{name:'Lịch bố trí cầu bến Quy Nhơn'})).toBeVisible();
+ await expect(plans.getByText('88.452',{exact:true}).first()).toBeVisible();
+ await expect(plans.getByText(/Phạm vi hiện mới gồm 5 bản tin/)).toBeVisible();
+ await plans.getByLabel('Chiều tàu').selectOption('arrival');await plans.getByRole('button',{name:'Xem dữ liệu'}).click();
+ await expect(page).toHaveURL(/plan_direction=arrival/);
+ await plans.getByLabel('Kỳ theo dõi').selectOption('quarter');await plans.getByRole('button',{name:'Xem dữ liệu'}).click();
+ await expect(plans.getByRole('cell',{name:'2026-Q4',exact:false}).first()).toBeVisible();
+ await plans.getByText('Phạm vi, bản cập nhật và độ phủ nguồn',{exact:true}).click();
+ await expect(plans.getByText(/chưa hoàn thành lịch sử QNP/)).toBeVisible();
+ await page.goto('/industries/ports/central?period=2026-10&direction=departure');
+ const row=page.locator('tr[data-ticker="QNP"]');
+ await expect(row.locator('[data-label="DWT đã ghi nhận"]')).toContainText('88.452');
+ await expect(row.getByText('Đã có một phần bản tin',{exact:true})).toBeVisible();
+ await row.getByRole('link',{name:'QNP',exact:true}).click();await expect(page).toHaveURL(/companies\/QNP\?.*plan_year=2026/);
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ const response=await page.request.get('/api/v1/companies/QNP/plans?direction=departure');expect(response.ok()).toBe(true);
+ const body=await response.json();expect(body.data.actual_verified).toBe(false);expect(body.data.history_complete).toBe(false);expect(body.sources).toHaveLength(5);
+ expect((await page.request.get('/api/v1/companies/QNP/plans?direction=internal')).status()).toBe(400);
+ expect((await page.request.get('/api/v1/companies/QNP/plans?asset=TCQN')).status()).toBe(400);
+});

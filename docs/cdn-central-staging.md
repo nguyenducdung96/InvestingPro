@@ -1,5 +1,7 @@
 # CDN và tổng quan miền Trung
 
+> **Tiếp tục QNP ngày 25/10/2026:** [Tiến độ QNP](qnp-integration.md): local đã có trang mã, API và dòng miền Trung với 5 bản tin cầu bến/53 dòng nguồn đã đối chiếu. Chưa hoàn tất lịch sử QNP, chưa có refresh tự động hoặc deploy cloud; các nhận định QNP pending bên dưới mô tả thời điểm trước thay đổi này.
+
 > **Sửa phép cộng DWT ngày 25/10/2026:** [Kết quả đối chiếu lại](cdn-aggregation-correction-20261025.md): `known_dwt` đã bỏ mất DWT hợp lệ ở những ngày còn một dòng thiếu trọng tải. Bổ sung DWT đã ghi nhận theo dòng và lựa chọn chart riêng; không gọi các tháng trống ở chỉ tiêu nghiêm ngặt là tháng không có lịch.
 
 > **Đính chính độ phủ sau phản hồi người dùng 24/10/2026:** [Rà lại nguồn CDN và Sơn Trà](cdn-official-sources-recheck.md) xác nhận nguồn chính thức nhưng chưa có chuỗi tổng DWT liên tục như Hải Phòng: 22 kỳ tháng có 18 kỳ đủ lượt, 12 kỳ đủ DWT chiều rời và 0 kỳ đủ DWT chiều vào. 658 ngày đọc được không đồng nghĩa đủ trọng tải để vẽ mọi tháng. Sơn Trà không được cộng vào CDN; nguồn PTSC và báo cáo CDN 2025 được đối chiếu riêng. Kết quả UI/refresh bên dưới là kiểm chứng kỹ thuật, chưa phải người dùng chấp nhận chất lượng chuỗi DWT.

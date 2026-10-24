@@ -151,3 +151,5 @@ export * from './vsc-plans';
 export * from './north-overview';
 
 export * from './central-overview';
+export * from './qnp-plans';
+export * from './qnp-reviewed';

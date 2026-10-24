@@ -4,6 +4,7 @@ import { PhpThroughput } from '@/components/php-throughput';
 import {PhpPlans} from '@/components/php-plans';
 import {CentralPendingScope} from '@/components/central-pending-scope';
 import {isIssuerPlanTicker} from '@invest/port';
+import {QnpPlans} from '@/components/qnp-plans';
 export const dynamic = "force-dynamic";
 export default async function Page({
   params,
@@ -19,6 +20,7 @@ export default async function Page({
     {ticker==='GMD'&&query.central_asset==='gemadept_dung_quat'?<CentralPendingScope/>:<CompanyPortScope ticker={ticker}/>}
     {!(ticker==='GMD'&&query.central_asset==='gemadept_dung_quat')&&(ticker==='PHP'||ticker==='DVP'||isIssuerPlanTicker(ticker))&&<PhpPlans query={query} ticker={ticker}/>}
     {ticker==='PHP'&&<PhpThroughput query={query}/>}
+    {ticker==='QNP'&&<QnpPlans query={query}/>}
     <CompanyPage
       keyValue={ticker}
       query={query}
