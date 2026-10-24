@@ -39,6 +39,15 @@ class PilotTests(unittest.TestCase):
         result=self.collect([row(),row(dwt='15.000')],[])
         self.assertEqual(result['status'],'failed')
 
+    def test_four_berths_never_mix_events_or_accept_nearby_aliases(self):
+        for alias in ('TAN VU','CHUA VE','HOANG DIEU','HTIT'):
+            rows=[row('CHINA',name) for name in ('TAN VU','CHUA VE','HOANG DIEU','HTIT','HICT','HHIT')]
+            measured={'sections':{'Vao':{'rows':len(rows),'pilot_rows':rows},'Roi':{'rows':0,'pilot_rows':[]},'DiChuyen':{'rows':0,'pilot_rows':[]}}}
+            with patch.object(collector.probe,'measure',return_value=measured):
+                result=collector.parse_day(b'fixture',dt.date(2026,9,1),'fixture',alias)
+            self.assertEqual(len(result['events']),1)
+            self.assertEqual(result['events'][0]['source_row']['Đến'],alias)
+
     def test_changed_time_is_flagged_not_silently_merged(self):
         later={**row(),'Thời gian':'09:30'}
         result=self.collect([row(),later],[])

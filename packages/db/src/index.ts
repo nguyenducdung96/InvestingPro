@@ -30,6 +30,7 @@ export class DatabaseError extends Error {
   }
 }
 export interface Transport {
+  phpPlanEvents?(asset:string,day:string):Promise<import('../../modules/port/src/tanvu-plans').TanVuPlanEvents|null>;
   tanvuPlanEvents?(day:string):Promise<import('../../modules/port/src/tanvu-plans').TanVuPlanEvents|null>;
   reviewThroughput?(body:object):Promise<object>;
   importCalls?(body:object):Promise<Record<string,unknown>>;
@@ -89,6 +90,7 @@ export function supabaseTransport(
     return response.json() as Promise<T[]>;
   }
   return {
+    phpPlanEvents: (asset,day) => request('port','rpc/php_plan_events',new URLSearchParams(),'POST',{p_asset:asset,p_day:day}) as unknown as Promise<import('../../modules/port/src/tanvu-plans').TanVuPlanEvents|null>,
     tanvuPlanEvents: (day) => request('port','rpc/tanvu_plan_events',new URLSearchParams(),'POST',{p_day:day}) as unknown as Promise<import('../../modules/port/src/tanvu-plans').TanVuPlanEvents|null>,
     reviewThroughput: (b) => request('port','rpc/review_monthly_throughput',new URLSearchParams(),'POST',b),
     importCalls: (b) => request('port','rpc/import_port_calls',new URLSearchParams(),'POST',b) as unknown as Promise<Record<string,unknown>>,
@@ -128,6 +130,17 @@ export class SupabaseCatalogRepository implements CatalogRepository {
     return {days:rows,run};
   }
   async tanvuPlanEvents(day:string){return this.db.tanvuPlanEvents?.(day)??null;}
+  async phpPlans(asset:string){
+    const rows:Tables['port']['php_plan_days'][]=[];
+    for(let offset=0;;offset+=1000){
+      const page=await this.db.read('port','php_plan_days',params({select:'*',asset_code:`eq.${asset}`,order:'report_day.asc',limit:'1000',offset:String(offset)}));
+      rows.push(...page);if(page.length<1000)break;
+    }
+    const run=(await this.db.read('port','php_plan_runs',params({select:'*',asset_code:`eq.${asset}`,order:'checked_at.desc,id.desc',limit:'1'})))[0]??null;
+    return {days:rows,run};
+  }
+  async phpPlanEvents(asset:string,day:string){return this.db.phpPlanEvents?.(asset,day)??null;}
+  async phpPlanCoverage(){return this.db.read('port','php_plan_coverage',params({select:'*',order:'asset_code.asc'}));}
   async companyBerthScope() {
     return (await this.db.read('port','company_berth_editions',params({select:'id,ticker,observed_on,published_at,entries',ticker:'eq.PHP',order:'observed_on.desc,published_at.desc,id.desc',limit:'1'})))[0]??null;
   }

@@ -1,0 +1,41 @@
+{
+  "checked_at": "2026-10-24T07:39:46.848139+00:00",
+  "through": "2026-10-23",
+  "semantics": "authority_published_plan",
+  "actual_verified": false,
+  "parser_version": "haiphong-plan-pilot/1.2.0",
+  "assets": {
+    "tan_vu": {
+      "report_days": 661,
+      "failed_days": [],
+      "events": 3035,
+      "ambiguous_days": [],
+      "zero_event_days": 14,
+      "latest_day": "2026-10-23"
+    },
+    "chua_ve": {
+      "report_days": 661,
+      "failed_days": [],
+      "events": 2062,
+      "ambiguous_days": [],
+      "zero_event_days": 30,
+      "latest_day": "2026-10-23"
+    },
+    "hoang_dieu": {
+      "report_days": 661,
+      "failed_days": [],
+      "events": 725,
+      "ambiguous_days": [],
+      "zero_event_days": 269,
+      "latest_day": "2026-10-23"
+    },
+    "htit": {
+      "report_days": 661,
+      "failed_days": [],
+      "events": 628,
+      "ambiguous_days": [],
+      "zero_event_days": 291,
+      "latest_day": "2026-10-23"
+    }
+  }
+}

@@ -143,6 +143,8 @@ createServer(async (req, res) => {
   if(req.url==='/__plans'&&req.method==='POST'){
     let raw='';for await(const chunk of req)raw+=chunk;const data=JSON.parse(raw);
     rows.tanvu_plan_days=data.days;rows.tanvu_plan_runs=data.runs??[];rows.tanvu_plan_details=data.details??[];
+    rows.php_plan_days=data.days.map(d=>({asset_code:'tan_vu',...d}));rows.php_plan_runs=(data.runs??[]).map(d=>({asset_code:'tan_vu',...d}));rows.php_plan_details=(data.details??[]).map(d=>({asset_code:'tan_vu',...d}));
+    rows.php_plan_coverage=[...new Set(rows.php_plan_days.map(d=>d.asset_code))].map(asset_code=>({asset_code,source_days:rows.php_plan_days.filter(d=>d.asset_code===asset_code).length,last_source_day:rows.php_plan_days.filter(d=>d.asset_code===asset_code).at(-1)?.report_day}));
     res.end('{}');return;
   }
   // Test-only mutable throughput store: proves request-time reads, never imported by the app.
@@ -183,6 +185,9 @@ createServer(async (req, res) => {
     return;
   }
   const table = url.pathname.split("/").at(-1);
+  if(table==='php_plan_events'){
+    let raw='';for await(const chunk of req)raw+=chunk;const data=JSON.parse(raw);res.end(JSON.stringify((rows.php_plan_details??[]).find(d=>d.asset_code===data.p_asset&&d.report_day===data.p_day)??null));return;
+  }
   if(table==='tanvu_plan_events'){
     let raw='';for await(const chunk of req)raw+=chunk;
     const data=JSON.parse(raw);res.end(JSON.stringify((rows.tanvu_plan_details??[]).find(d=>d.report_day===data.p_day)??null));return;

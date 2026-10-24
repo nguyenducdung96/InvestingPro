@@ -1,7 +1,7 @@
 import {PGlite} from '@electric-sql/pglite';
 import {readFileSync,readdirSync} from 'node:fs';
 import {expect,it} from 'vitest';
-import {tanvuPlanSeries,type TanVuPlanDay} from '@invest/port';
+import {tanvuPlanSeries,phpPlanSeries,type TanVuPlanDay} from '@invest/port';
 function day(date:string,amount:number|null=10):TanVuPlanDay{return {report_day:date,version_id:'id',source_sha256:'a'.repeat(64),source_url:'https://csdltau.cangvuhaiphong.gov.vn/pages/ship_plan.aspx?d=-1',parser_version:'haiphong-plan-pilot/1.1.0',last_success:'2026-10-22T00:00:00Z',last_attempt:'2026-10-22T00:00:00Z',source_error:null,arrival_rows:1,departure_rows:1,arrival_dwt:amount,departure_dwt:amount,arrival_dwt_missing:amount===null?1:0,departure_dwt_missing:amount===null?1:0,ambiguous_groups:0,source_empty_sections:[]};}
 const range=(year:number,month:number,n:number,value:number|null=10)=>Array.from({length:n},(_,i)=>day(`${year}-${String(month).padStart(2,'0')}-${String(i+1).padStart(2,'0')}`,value));
 it('compares partial months and quarters to the same days, never full prior months',()=>{
@@ -22,6 +22,11 @@ it('uses full leap February for closed months and preserves zero vs missing',()=
  const s=tanvuPlanSeries([...range(2024,2,29,0),...range(2025,2,28,10)],'departure',new Date('2025-03-01T01:00:00Z'));
  expect(s.months.at(-1)?.prior.expected_days).toBe(29);expect(s.months.at(-1)?.prior.dwt).toBe(0);
  expect(s.months.at(-1)?.yoy.dwt).toBeNull();
+});
+it('keeps the HTIT startup base out of comparable periods',()=>{
+ const s=phpPlanSeries([...range(2025,1,31,0),...range(2025,5,31),...range(2026,1,31)],'htit','departure',new Date('2026-02-01T01:00:00Z'));
+ expect(s.asset).toBe('htit');expect(s.months[0].period).toBe('2025-05');
+ expect(s.months.at(-1)?.prior.dwt).toBeNull();expect(s.ytd.yoy.dwt).toBeNull();
 });
 it('imports idempotently, versions corrections, protects RLS and preserves success on source failure',async()=>{
  const db=new PGlite();
@@ -54,5 +59,20 @@ it('imports idempotently, versions corrections, protects RLS and preserves succe
   await db.exec('reset role');
   expect((await db.query('select * from port.tanvu_plan_versions')).rows).toHaveLength(2);
   await expect(db.exec('update port.tanvu_plan_versions set events=\'[]\'')).rejects.toThrow('immutable');
+  await db.exec(`set role service_role;select set_config('request.jwt.claims','{"role":"service_role"}',false);`);
+  for(const [asset,alias] of Object.entries({tan_vu:'TAN VU',chua_ve:'CHUA VE',hoang_dieu:'HOANG DIEU',htit:'HTIT'})){
+   const data={...input,events:[{...input.events[0],from_berth:alias}]};
+   await db.query('select port.import_php_plan_days($1,$2)',[asset,JSON.stringify([data])]);
+   const replay=await db.query<{result:{versions_inserted:number}}>('select port.import_php_plan_days($1,$2) as result',[asset,JSON.stringify([data])]);
+   expect(replay.rows[0].result.versions_inserted).toBe(0);
+  }
+  await expect(db.query('select port.import_php_plan_days($1,$2)',['chua_ve',JSON.stringify([input])])).rejects.toThrow('Invalid PHP berth');
+  await expect(db.query('select port.import_php_plan_days($1,$2)',['hict',JSON.stringify([input])])).rejects.toThrow('Unknown PHP berth');
+  expect((await db.query('select * from port.php_plan_days')).rows).toHaveLength(4);
+  await db.exec(`reset role;select set_config('request.jwt.claims','{}',false);set role anon`);
+  const chua=await db.query<{result:{events:{from_berth:string}[]}}>("select port.php_plan_events('chua_ve','2025-09-01') as result");
+  expect(chua.rows[0].result.events[0].from_berth).toBe('CHUA VE');
+  await expect(db.query('select * from port.php_plan_versions')).rejects.toThrow();
+  await expect(db.query('select port.import_php_plan_days($1,$2)',['chua_ve',JSON.stringify([input])])).rejects.toThrow();
  }finally{await db.close();}
 });

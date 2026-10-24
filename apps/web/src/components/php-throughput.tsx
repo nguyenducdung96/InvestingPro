@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import {publicRepository} from '@/lib/server';
-import {throughputSeries} from '@invest/port';
+import {throughputSeries,phpBerths,isPhpBerth} from '@invest/port';
 import {PlanColumnChart,type PlanColumn} from './plan-column-chart';
 const number=(n:number|null)=>n===null?'Chưa đủ dữ liệu':n.toLocaleString('vi-VN');
 const change=(n:number|null)=>n===null?'—':`${n>0?'+':''}${n.toLocaleString('vi-VN',{maximumFractionDigits:1})}%`;
 export async function PhpThroughput({query}:{query:Record<string,string>}) {
+ const selected=query.plan_asset??'tan_vu';
+ if(isPhpBerth(selected)&&selected!=='tan_vu')return <section id="throughput" aria-label="Sản lượng doanh nghiệp công bố" className="panel throughput-panel"><p className="eyebrow">PHP · {phpBerths[selected].name.toLocaleUpperCase('vi-VN')} · SẢN LƯỢNG CÔNG BỐ</p><h2>Sản lượng hàng hóa doanh nghiệp công bố</h2><p>{selected==='htit'?'Chưa có chuỗi tấn hàng/TEU theo tháng của HTIT trong database. Không thay bằng số liệu Tân Vũ hoặc suy từ DWT.':'Bản tin PHP có số liệu gộp Hoàng Diệu–Chùa Vẽ. Chưa có chuỗi sản lượng riêng của bến được xác minh; không chia số liệu nhóm cho từng bến.'}</p><Link href="/companies/PHP?plan_asset=tan_vu#throughput">Xem chuỗi sản lượng Tân Vũ đã công bố</Link></section>;
  let series;
  try {series=throughputSeries(await publicRepository().monthlyThroughput());}
  catch {return <section className="panel" aria-label="Sản lượng Tân Vũ"><h2>Sản lượng Tân Vũ</h2><p role="status">Chưa kết nối được dữ liệu sản lượng. Vui lòng thử lại.</p></section>;}

@@ -32,6 +32,9 @@ export interface Tables {
   catalog: { entities: Entity; companies: Company; company_listings: Listing };
   port: {
     tanvu_plan_days: import('../../modules/port/src/tanvu-plans').TanVuPlanDay;
+    php_plan_days: import('../../modules/port/src/tanvu-plans').TanVuPlanDay & {asset_code:string};
+    php_plan_runs: import('../../modules/port/src/tanvu-plans').TanVuPlanRun & {asset_code:string};
+    php_plan_coverage: {asset_code:string;source_days:number;first_source_day:string|null;last_source_day:string|null;error_days:number};
     tanvu_plan_runs: import('../../modules/port/src/tanvu-plans').TanVuPlanRun;
     company_berth_editions: import('../../modules/port/src/company-berths').CompanyBerthEdition;
     published_monthly_throughput: import('../../modules/port/src/throughput').ThroughputFact;

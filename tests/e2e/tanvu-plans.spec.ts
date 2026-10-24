@@ -7,7 +7,7 @@ test('Tan Vu plans update from DB, compare MTD, filter, drill down and fit mobil
  await request.post('http://127.0.0.1:54329/__throughput',{data:[]}); // synthetic PHP catalog edition
  await request.post('http://127.0.0.1:54329/__plans',{data:{days,details}});
  await page.goto('/companies/PHP#vessel-plans');
- const region=page.getByRole('region',{name:'Lịch điều động Tân Vũ',exact:true});
+ const region=page.getByRole('region',{name:'Lịch điều động PHP',exact:true});
  await expect(region.getByRole('heading',{name:'Lượt tàu và trọng tải theo lịch công bố'})).toBeVisible();
  await expect(region.getByText('SYNTHETIC PLAN SHIP',{exact:true})).toBeVisible();
  const original=await(await request.get('/api/v1/companies/PHP/plans')).json();
@@ -40,5 +40,18 @@ test('Tan Vu plans update from DB, compare MTD, filter, drill down and fit mobil
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.screenshot({path:`test-results/tanvu-plans-${info.project.name}.png`,fullPage:true});
  expect((await request.get('/api/v1/companies/PHP/plans?day=2026-02-31')).status()).toBe(400);
+ expect((await request.get('/api/v1/companies/PHP/plans?asset=hict')).status()).toBe(400);
+ const berths=[['chua_ve','CHUA VE','Chùa Vẽ',3000],['hoang_dieu','HOANG DIEU','Hoàng Diệu',4000],['htit','HTIT','HTIT (Lạch Huyện 3–4)',5000]] as const;
+ await request.post('http://127.0.0.1:54329/__plans',{data:{days:[...days,...berths.flatMap(([asset,,,_value])=>days.map(d=>({...d,asset_code:asset,departure_dwt:_value})))],details:[...details,...berths.map(([asset,alias])=>({...details[0],asset_code:asset,events:[{...details[0].events[0],vessel_name:`SYNTHETIC ${alias}`,from_berth:alias}]}))]}});
+ await page.goto('/companies/PHP');
+ for(const [asset,alias,name,value] of berths){
+  await region.getByLabel('Bến theo dõi',{exact:true}).selectOption(asset);
+  await region.getByRole('button',{name:'Xem bến',exact:true}).click();
+  await expect(region.getByLabel('Bến theo dõi',{exact:true})).toHaveValue(asset);
+  await expect(region.getByText(`SYNTHETIC ${alias}`,{exact:true})).toBeVisible();
+  const data=await(await request.get(`/api/v1/companies/PHP/plans?asset=${asset}`)).json();
+  expect(data.asset).toBe(asset);expect(data.name).toBe(name);expect(data.months.at(-1).current.dwt).toBe(through*value);
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ }
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:[]}});
 });

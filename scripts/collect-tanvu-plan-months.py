@@ -42,44 +42,48 @@ def fetch(url):
         return raw
 
 
+def parse_day(raw, day, url, berth_alias='TAN VU'):
+    digest = hashlib.sha256(raw).hexdigest()
+    result = probe.measure(raw, day, url)
+    if not all(k in result['sections'] for k in ('Vao', 'Roi', 'DiChuyen')):
+        raise ValueError('Missing expected movement section')
+    events, duplicates, seen = [], 0, set()
+    for section, berth_col, direction in (('Vao', 'Đến', 'arrival'), ('Roi', 'Từ', 'departure')):
+        for row in result['sections'][section]['pilot_rows']:
+            if not all(k in row for k in ('Tên tàu', 'Thời gian', 'DWT', 'GT', 'Từ', 'Đến', 'Đại lý')):
+                raise ValueError('Required columns changed')
+            if row[berth_col] != berth_alias:
+                continue
+            if not re.fullmatch(r'\d{2}:\d{2}', row['Thời gian']):
+                raise ValueError('Invalid plan time')
+            dt.time.fromisoformat(row['Thời gian'])
+            key = (str(day), direction, row['Tên tàu'], row['Thời gian'], row['Từ'], row['Đến'])
+            if key in seen:
+                duplicates += 1
+                prior = next(e for e in events if tuple(e['key']) == key)
+                if prior['source_row'] != row:
+                    raise ValueError('Conflicting rows share an event key')
+                continue
+            seen.add(key)
+            events.append({'key': list(key), 'date': str(day), 'direction': direction,
+                           'dwt': dwt(row['DWT']), 'source_row': row, 'source_sha256': digest,
+                           'semantics': 'authority_published_plan'})
+    groups = collections.Counter((e['direction'], e['source_row']['Tên tàu'],
+                                  e['source_row']['Từ'], e['source_row']['Đến']) for e in events)
+    return {'date': str(day), 'status': 'parsed', 'url_at_fetch': url,
+            'fetched_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'sha256': digest,
+            'source_rows': {k: v['rows'] for k, v in result['sections'].items()},
+            'source_empty_sections':[k for k,v in result['sections'].items() if v.get('source_empty')],
+            'exact_duplicates_removed': duplicates,
+            'ambiguous_repeated_route_groups': sum(n > 1 for n in groups.values()), 'events': events}
+
 def collect(day, anchor):
     url = f'{probe.BASE}?d={(day-anchor).days}'
     try:
         raw = fetch(url)
         digest = hashlib.sha256(raw).hexdigest()
         (RAW / f'{digest}.html.gz').write_bytes(gzip.compress(raw,mtime=0))
-        result = probe.measure(raw, day, url)
-        if not all(k in result['sections'] for k in ('Vao', 'Roi', 'DiChuyen')):
-            raise ValueError('Missing expected movement section')
-        events, duplicates, seen = [], 0, set()
-        for section, berth_col, direction in (('Vao', 'Đến', 'arrival'), ('Roi', 'Từ', 'departure')):
-            for row in result['sections'][section]['pilot_rows']:
-                if not all(k in row for k in ('Tên tàu', 'Thời gian', 'DWT', 'GT', 'Từ', 'Đến', 'Đại lý')):
-                    raise ValueError('Required columns changed')
-                if row[berth_col] != 'TAN VU':
-                    continue
-                if not re.fullmatch(r'\d{2}:\d{2}', row['Thời gian']):
-                    raise ValueError('Invalid plan time')
-                dt.time.fromisoformat(row['Thời gian'])
-                key = (str(day), direction, row['Tên tàu'], row['Thời gian'], row['Từ'], row['Đến'])
-                if key in seen:
-                    duplicates += 1
-                    prior = next(e for e in events if tuple(e['key']) == key)
-                    if prior['source_row'] != row:
-                        raise ValueError('Conflicting rows share an event key')
-                    continue
-                seen.add(key)
-                events.append({'key': list(key), 'date': str(day), 'direction': direction,
-                               'dwt': dwt(row['DWT']), 'source_row': row, 'source_sha256': digest,
-                               'semantics': 'authority_published_plan'})
-        groups = collections.Counter((e['direction'], e['source_row']['Tên tàu'],
-                                      e['source_row']['Từ'], e['source_row']['Đến']) for e in events)
-        return {'date': str(day), 'status': 'parsed', 'url_at_fetch': url,
-                'fetched_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'sha256': digest,
-                'source_rows': {k: v['rows'] for k, v in result['sections'].items()},
-                'source_empty_sections':[k for k,v in result['sections'].items() if v.get('source_empty')],
-                'exact_duplicates_removed': duplicates,
-                'ambiguous_repeated_route_groups': sum(n > 1 for n in groups.values()), 'events': events}
+        return parse_day(raw,day,url)
     except Exception as exc:
         return {'date': str(day), 'status': 'failed', 'url_at_fetch': url, 'error': str(exc)}
     finally:
