@@ -59,9 +59,12 @@ def main():
         if not item.get('from') or (not item['rows'] and not explicit_empty):
             failures.append({'id':item['id'],'title_day':item['title_day'],'errors':item['errors'],'page_status':[p['status'] for p in pages]})
             continue
-        html=(OUT/f'detail-{item["id"]}.html').read_text(encoding='utf-8-sig')
-        published=re.search(r'class="dateNews">[^<]*?(\d{2})/(\d{2})/(\d{4}),\s*(\d{2}):(\d{2})',html)
-        published_at=dt.datetime(*map(int,[published[3],published[2],published[1],published[4],published[5]])).isoformat()+'+07:00' if published else None
+        if item.get('retained_without_remote_recheck'):
+            published_at=item.get('published_at')  # Preserve the versioned source timestamp, including unknown.
+        else:
+            html=(OUT/f'detail-{item["id"]}.html').read_text(encoding='utf-8-sig')
+            published=re.search(r'class="dateNews">[^<]*?(\d{2})/(\d{2})/(\d{4}),\s*(\d{2}):(\d{2})',html)
+            published_at=dt.datetime(*map(int,[published[3],published[2],published[1],published[4],published[5]])).isoformat()+'+07:00' if published else None
         rows=[];keys={};conflicted=set();source_duplicates=0;conflict_rows=0
         for r in item['rows']:
             key=(r['time'],re.sub(r'\s+','',r['vessel']).upper(),r['from'],r['to'])

@@ -349,7 +349,7 @@ def published_seed(item):
                       'seed_rejected_rows':quality.get('rejected_rows',0) if i==0 else 0,
                       'seed_duplicate_rows':quality.get('duplicate_rows',0) if i==0 else 0,
                       'seed_conflicting_groups':quality.get('conflicting_groups',0) if i==0 else 0})
-    return {**item,'parser_version':VERSION,'ocr_config':'grid-cells-upright','parsed_at':source['parsed_at'],
+    return {**item,'parser_version':VERSION,'ocr_config':'grid-cells-upright','parsed_at':source['parsed_at'],'published_at':source['published_at'],
             'from':source['from'],'through':source['through'],'rows':source['rows'],'pages':pages,'continuation_reader':source.get('continuation_reader'),
             'errors':[] if not source.get('source_error') else [{'error':source['source_error']}],
             'seeded_from_versioned_hashes':True,**({'checked_at':source['last_checked_at']} if source.get('last_checked_at') else {}),'history_complete':False,'automatic_promotion':False}

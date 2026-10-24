@@ -24,10 +24,11 @@ class SourceContracts(unittest.TestCase):
 
     def test_versioned_cells_are_reused_only_for_identical_archived_source_hashes(self):
         image={'url':m.BASE+'images/uploads/images/test.jpg','sha256':'a'*64}
-        source={'id':1,'parser_version':m.VERSION,'images':[image],'from':'2026-10-23T16:00:00+07:00','through':'2026-10-24T16:00:00+07:00','parsed_at':'2026-10-25T00:00:00+07:00','rows':[{'image_sha256':'a'*64,'dwt':None}],'quality':{'page_scope_complete':True}}
+        source={'id':1,'parser_version':m.VERSION,'images':[image],'from':'2026-10-23T16:00:00+07:00','through':'2026-10-24T16:00:00+07:00','parsed_at':'2026-10-25T00:00:00+07:00','published_at':None,'rows':[{'image_sha256':'a'*64,'dwt':None}],'quality':{'page_scope_complete':True}}
         with patch.object(m,'PUBLISHED',{1:source}):
             seed=m.published_seed({'id':1,'images':[image]})
             self.assertIsNone(seed['rows'][0]['dwt'])
+            self.assertIsNone(seed['published_at'])
             self.assertFalse(seed['history_complete'])
             self.assertEqual(m.published_seed({'id':1,'images':[{**image,'sha256':'b'*64}]}),{})
 
