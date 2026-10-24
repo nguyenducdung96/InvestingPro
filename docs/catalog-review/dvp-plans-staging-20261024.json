@@ -1,0 +1,140 @@
+{
+  "checked_on": "2026-10-24",
+  "environment": "staging",
+  "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/companies/DVP",
+  "api_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/api/v1/companies/DVP/plans",
+  "implementation_commit": "2ac7ba8",
+  "workflow_registration_commit": "e8c2993757326df0a9f267c7ba5e2415284adafd",
+  "cloudflare_build": "bb954b2f-3d92-4493-be60-b3a015da370d",
+  "cloudflare_build_status": "success",
+  "coverage": {
+    "first_day": "2025-01-01",
+    "last_source_day": "2026-10-23",
+    "last_attempt": "2026-10-24T17:46:17.883408+07:00",
+    "stale": false,
+    "errors": 0
+  },
+  "latest_departure_month": {
+    "period": "2026-10",
+    "status": "partial",
+    "current": {
+      "from": "2026-10-01",
+      "through": "2026-10-23",
+      "expected_days": 23,
+      "reported_days": 23,
+      "missing_days": [],
+      "missing_dwt": 0,
+      "ambiguous_groups": 0,
+      "error_days": [],
+      "rows": 22,
+      "dwt": 313297,
+      "known_rows": 22,
+      "known_dwt": 313297,
+      "complete": true
+    },
+    "prior": {
+      "from": "2025-10-01",
+      "through": "2025-10-23",
+      "expected_days": 23,
+      "reported_days": 23,
+      "missing_days": [],
+      "missing_dwt": 0,
+      "ambiguous_groups": 0,
+      "error_days": [],
+      "rows": 23,
+      "dwt": 319300,
+      "known_rows": 23,
+      "known_dwt": 319300,
+      "complete": true
+    },
+    "yoy": {
+      "rows": -4.347826086956519,
+      "dwt": -1.8800501096147837
+    }
+  },
+  "departure_ytd": {
+    "current": {
+      "from": "2026-01-01",
+      "through": "2026-10-23",
+      "expected_days": 296,
+      "reported_days": 296,
+      "missing_days": [],
+      "missing_dwt": 0,
+      "ambiguous_groups": 0,
+      "error_days": [],
+      "rows": 355,
+      "dwt": 4625520,
+      "known_rows": 355,
+      "known_dwt": 4625520,
+      "complete": true
+    },
+    "prior": {
+      "from": "2025-01-01",
+      "through": "2025-10-23",
+      "expected_days": 296,
+      "reported_days": 296,
+      "missing_days": [],
+      "missing_dwt": 0,
+      "ambiguous_groups": 0,
+      "error_days": [],
+      "rows": 318,
+      "dwt": 4166535,
+      "known_rows": 318,
+      "known_dwt": 4166535,
+      "complete": true
+    },
+    "yoy": {
+      "rows": 11.635220125786173,
+      "dwt": 11.015988105224128
+    }
+  },
+  "refresh_run": {
+    "asset_code": "dinh_vu",
+    "id": "40087198699-1",
+    "checked_at": "2026-10-24T17:46:20.073+07:00",
+    "through_day": "2026-10-23",
+    "status": "success",
+    "requested_days": 4,
+    "parsed_days": 4,
+    "error": null
+  },
+  "workflow_run": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40087198699",
+  "workflow_event": "workflow_dispatch",
+  "workflow_status": "success",
+  "scheduled_cycles_verified": 0,
+  "scheduled_refresh_verified": false,
+  "production_accepted": false,
+  "db_readback": {
+    "days": 661,
+    "arrivals": 729,
+    "departures": 737,
+    "missing_dwt": 0,
+    "ambiguous_groups": 0,
+    "error_days": 0
+  },
+  "live_ui": {
+    "desktop": {
+      "width": 1440,
+      "overflow": false,
+      "direction_and_quarter_filter": "passed"
+    },
+    "mobile": {
+      "width": 375,
+      "overflow": false,
+      "direction_and_quarter_filter": "passed"
+    },
+    "screenshots": ".local/dvp-plans/staging-{desktop,mobile}.png"
+  },
+  "github_ci": "success",
+  "github_ci_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40087123280",
+  "validation": {
+    "typescript_database_tests": 113,
+    "python_parser_tests": 17,
+    "playwright_tests": 44,
+    "typecheck": "passed",
+    "lint": "passed",
+    "next_build": "passed",
+    "cloudflare_linux_build": "passed",
+    "windows_opennext_bundle": "EPERM symlink; deployed through Linux Workers Builds"
+  }
+}

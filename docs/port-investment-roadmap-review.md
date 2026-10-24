@@ -1,6 +1,6 @@
 # Đề xuất đổi lộ trình ngành cảng: từ mã cổ phiếu đến tín hiệu hoạt động
 
-> **Trạng thái 24/10/2026 — PHP đã được người dùng review và chấp nhận trên staging.** Đã hoàn thành phạm vi sản phẩm pilot Slice 2A/2B: dashboard tổng quan mặc định bốn bến, chọn từng bến, lượt/DWT theo lịch công bố, tháng/quý/YoY/YTD, drilldown ngày, sản lượng riêng/gộp và giao diện công khai đã rút gọn. [Nghiệm thu PHP](php-four-berths-staging.md). Slice 2C: backfill, chạy lặp và kiểm chứng live đạt; còn xác nhận đủ hai chu kỳ cron của phiên bản bốn bến. Production chưa nghiệm thu. Bước tiếp theo là Slice 3: khảo sát DVP trước, sau đó CDN/GMD theo chất lượng nguồn miễn phí; không coi toàn ngành đã hoàn thành.
+> **Trạng thái 24/10/2026 — PHP đã được người dùng review và chấp nhận trên staging.** Đã hoàn thành phạm vi sản phẩm pilot Slice 2A/2B: dashboard tổng quan mặc định bốn bến, chọn từng bến, lượt/DWT theo lịch công bố, tháng/quý/YoY/YTD, drilldown ngày, sản lượng riêng/gộp và giao diện công khai đã rút gọn. [Nghiệm thu PHP](php-four-berths-staging.md). Slice 2C: backfill, chạy lặp và kiểm chứng live đạt; còn xác nhận đủ hai chu kỳ cron của phiên bản bốn bến. Production chưa nghiệm thu. Slice 3 đã triển khai dashboard lịch DVP trên staging ngày 24/10: 661 ngày, API/UI live và manual refresh đạt; xem [DVP](dvp-plans-staging.md). Còn hai chu kỳ cron DVP và sản lượng DVP; các mã CDN/GMD chưa triển khai dashboard tương đương. Không coi toàn ngành đã hoàn thành.
 
 Ngày: 21/10/2026. Trạng thái: **ĐÃ ĐƯỢC NGƯỜI DÙNG REVIEW VÀ ĐỒNG Ý**. Bắt đầu thực hiện Slice 2A với PHP theo yêu cầu ngày 21/10/2026; các bước 2B/2C theo gate dữ liệu, không suy ra đã nghiệm thu hoặc đã deploy.
 
@@ -174,3 +174,9 @@ Bước tiếp theo được đề xuất là Slice 3, đợt mở rộng đầu
 4. Bổ sung lối vào/bảng tổng quan ngành để mở từng mã và thấy kỳ mới nhất; chỉ so sánh/xếp hạng những mã/bến có cùng định nghĩa, kỳ và độ phủ phù hợp.
 
 Hãng tàu/tuyến và tài chính vẫn thuộc Slice 4/5, sau đợt mở rộng dashboard; không thêm bản đồ/3D như điều kiện hoàn thành PHP.
+
+## 12. DVP — đợt mở rộng đầu tiên, 24/10/2026
+
+Theo yêu cầu người dùng, đã triển khai [DVP trên staging](dvp-plans-staging.md), dùng alias chính xác DINH VU, toàn bến hai cầu, không chia giả số từng cầu. Lịch sử 01/01/2025–23/10/2026 đủ 661 ngày; database/API/UI live và manual workflow đã qua kiểm tra. Có tháng/quý/MTD/YTD/YoY, DWT bình quân, hai chiều riêng và drilldown động. PHP giữ phạm vi bốn bến.
+
+Trạng thái DVP: **dashboard lịch công bố đủ so sánh trong phạm vi quan sát trên staging**; actual, sản lượng công bố, hai chu kỳ cron và production chưa nghiệm thu. Không tự nâng quyền nguồn/mapping nghiên cứu hay số lịch thành actual. Các mã còn lại vẫn theo danh sách và gate nguồn đã duyệt; CDN/GMD là ứng viên kế tiếp, chưa được coi hoàn thành.

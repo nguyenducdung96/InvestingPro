@@ -21,3 +21,15 @@ Collector: `python scripts/collect-php-plans.py --company DVP`. Checkpoint/recei
 ## Kiểm tra local
 
 113 tests TypeScript/database đạt; 17 tests Python parser đạt; typecheck/lint đạt. DVP desktop/mobile 2/2 đạt; PHP regression 6/6 đạt. Next production build đạt. Bundle OpenNext local dừng ở EPERM symlink Windows; đường deploy hiện có là Workers Builds Linux. Bằng chứng cloud và scheduler được ghi bổ sung sau readback.
+
+## Readback staging — 24/10/2026
+
+[Biên nhận staging](catalog-review/dvp-plans-staging-20261024.json). Migration DVP đã áp dụng riêng qua CLI Management API, không chạy lại các migration lịch sử chưa có receipt tracking. Host local không kết nối được REST Supabase; backfill tay dùng đúng RPC importer theo từng nhóm trong transaction, không ghi thẳng bảng. Database readback xác nhận 661 ngày, 729 lượt vào, 737 lượt rời, không thiếu DWT/nhóm mơ hồ/ngày lỗi. Lần nhập tay không được coi là scheduler.
+
+Commit `2ac7ba8` đã được Workers Builds Linux build/deploy thành công. Trang DVP và API live HTTP 200; default chiều rời tháng 10 đến 23/10 trả 22 dòng, 313.297 DWT; cùng kỳ 23 dòng / 319.300 DWT, -1,88%. YTD 355 dòng / 4.625.520 DWT; cùng kỳ 318 dòng / 4.166.535 DWT, +11,02%. Đây là DWT theo lịch, không phải hàng bốc xếp hay tàu thực tế đã xác nhận.
+
+Workflow DVP đã đăng ký trên `main` ở commit `e8c2993`, chạy 06:40 Việt Nam. [Manual run 40087198699](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40087198699) thành công: đọc checkpoint, tải ngày mới/gần nhất, nhập phiên bản, readback và giữ cache. Job trên GitHub kết nối REST bình thường. API sau run xác nhận trạng thái success; hai event cron thực vẫn chưa được nghiệm thu.
+
+Kiểm tra live bằng Playwright ở desktop 1440px và mobile 375px: hiển thị đúng KPI, đổi vào/rời và tháng/quý, không tràn ngang; đã đọc ảnh mobile. Ảnh tại `.local/dvp-plans/staging-desktop.png` và `staging-mobile.png`. Chưa có nghiệm thu production, chuỗi actual hoặc sản lượng TEU DVP.
+
+Hồi quy cuối: toàn bộ 44/44 Playwright desktop/mobile đạt sau khi thêm DVP; 113/113 tests TypeScript/database, 17/17 Python parser, typecheck/lint và GitHub CI đều đạt.
