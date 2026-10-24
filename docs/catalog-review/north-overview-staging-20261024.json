@@ -1,0 +1,653 @@
+{
+  "checked_at": "2026-10-24T13:43:09.236Z",
+  "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/industries/ports/north",
+  "api_ms": 1300,
+  "all_nine_company_apis_match": [
+    "CQN",
+    "DVP",
+    "DXP",
+    "GMD",
+    "HAH",
+    "PHP",
+    "PSP",
+    "VGR",
+    "VSC"
+  ],
+  "historical_quarter_pagination_checked": [
+    "PHP",
+    "VSC",
+    "CQN"
+  ],
+  "selection": {
+    "frequency": "month",
+    "period": "2026-10",
+    "periods": [
+      "2026-10",
+      "2026-09",
+      "2026-08",
+      "2026-07",
+      "2026-06",
+      "2026-05",
+      "2026-04",
+      "2026-03",
+      "2026-02",
+      "2026-01",
+      "2025-12",
+      "2025-11",
+      "2025-10",
+      "2025-09",
+      "2025-08",
+      "2025-07",
+      "2025-06",
+      "2025-05",
+      "2025-04",
+      "2025-03",
+      "2025-02",
+      "2025-01"
+    ],
+    "direction": "departure",
+    "sort": "ticker",
+    "cutoff": "2026-10-23",
+    "from": "2026-10-01",
+    "through": "2026-10-23",
+    "priorFrom": "2025-10-01",
+    "priorThrough": "2025-10-23",
+    "partial": true,
+    "prior_expected_days": 23,
+    "expected_days": 23
+  },
+  "scope": {
+    "tickers": 9,
+    "unique_assets": 14,
+    "shared_assets": [
+      {
+        "asset": "vip_green_port",
+        "tickers": [
+          "VGR",
+          "VSC"
+        ]
+      }
+    ],
+    "regional_total": null,
+    "nationwide_complete": false
+  },
+  "ready_rows": 9,
+  "rows": [
+    {
+      "ticker": "PHP",
+      "scope": "Tân Vũ, Chùa Vẽ, Hoàng Diệu, HTIT",
+      "scope_note": "Bốn bến theo dõi; HTIT có hiệu ứng nền bến mới. Không gồm Đình Vũ/DVP.",
+      "assets": [
+        "tan_vu",
+        "chua_ve",
+        "hoang_dieu",
+        "htit"
+      ],
+      "group": "hai_phong",
+      "semantics": "authority_published_plan",
+      "includes_internal_transfers": false,
+      "actual_verified": false,
+      "metric": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 115,
+          "dwt": 2824844,
+          "known_rows": 115,
+          "known_dwt": 2824844,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 136,
+          "dwt": 2198041,
+          "known_rows": 136,
+          "known_dwt": 2198041,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -15.441176470588236,
+          "dwt": 28.516438046424074
+        }
+      },
+      "updated_at": "2026-10-24T07:55:05.034072+00:00",
+      "refresh_error": false,
+      "latest_source_day": "2026-10-23",
+      "stale": false,
+      "flags": [],
+      "href": "/companies/PHP?plan_asset=php&plan_direction=departure&plan_period=month&plan_year=2026#vessel-plans"
+    },
+    {
+      "ticker": "DVP",
+      "scope": "Đình Vũ",
+      "scope_note": "Phạm vi hai cầu Đình Vũ; nguồn chưa tách từng cầu.",
+      "assets": [
+        "dinh_vu"
+      ],
+      "group": "hai_phong",
+      "semantics": "authority_published_plan",
+      "includes_internal_transfers": false,
+      "actual_verified": false,
+      "metric": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 22,
+          "dwt": 313297,
+          "known_rows": 22,
+          "known_dwt": 313297,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 23,
+          "dwt": 319300,
+          "known_rows": 23,
+          "known_dwt": 319300,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -4.347826086956519,
+          "dwt": -1.8800501096147837
+        }
+      },
+      "updated_at": "2026-10-24T10:46:13.968046+00:00",
+      "refresh_error": false,
+      "latest_source_day": "2026-10-23",
+      "stale": false,
+      "flags": [],
+      "href": "/companies/DVP?plan_asset=dvp&plan_direction=departure&plan_period=month&plan_year=2026#vessel-plans"
+    },
+    {
+      "ticker": "VGR",
+      "scope": "VIP Greenport",
+      "scope_note": "Dùng chung dữ liệu bến VIP Greenport với VSC; không cộng hai dòng mã.",
+      "assets": [
+        "vip_green_port"
+      ],
+      "group": "hai_phong",
+      "semantics": "authority_published_plan",
+      "includes_internal_transfers": false,
+      "actual_verified": false,
+      "metric": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 26,
+          "dwt": 567762,
+          "known_rows": 26,
+          "known_dwt": 567762,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 25,
+          "dwt": 570666,
+          "known_rows": 25,
+          "known_dwt": 570666,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 4.0000000000000036,
+          "dwt": -0.5088790991578218
+        }
+      },
+      "updated_at": "2026-10-24T11:13:31.095494+00:00",
+      "refresh_error": false,
+      "latest_source_day": "2026-10-23",
+      "stale": false,
+      "flags": [],
+      "href": "/companies/VGR?plan_asset=vgr&plan_direction=departure&plan_period=month&plan_year=2026#vessel-plans"
+    },
+    {
+      "ticker": "VSC",
+      "scope": "Greenport, VIP Greenport, Nam Hải Đình Vũ, VIMC Đình Vũ",
+      "scope_note": "Phạm vi quan hệ đã đối chiếu, không phải doanh thu hợp nhất hoặc điều chỉnh theo tỷ lệ vốn. VIP Greenport dùng chung với VGR.",
+      "assets": [
+        "green_port",
+        "vip_green_port",
+        "nam_hai_dinh_vu",
+        "vimc_dinh_vu"
+      ],
+      "group": "hai_phong",
+      "semantics": "authority_published_plan",
+      "includes_internal_transfers": false,
+      "actual_verified": false,
+      "metric": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 77,
+          "dwt": 1231822,
+          "known_rows": 77,
+          "known_dwt": 1231822,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 72,
+          "dwt": 1189764,
+          "known_rows": 72,
+          "known_dwt": 1189764,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 6.944444444444442,
+          "dwt": 3.534986770485582
+        }
+      },
+      "updated_at": "2026-10-24T11:13:31.090039+00:00",
+      "refresh_error": false,
+      "latest_source_day": "2026-10-23",
+      "stale": false,
+      "flags": [],
+      "href": "/companies/VSC?plan_asset=vsc&plan_direction=departure&plan_period=month&plan_year=2026#vessel-plans"
+    },
+    {
+      "ticker": "GMD",
+      "scope": "Nam Đình Vũ · Hải Phòng",
+      "scope_note": "Chỉ Nam Đình Vũ tại Hải Phòng, chưa phải tổng hoạt động GMD toàn quốc.",
+      "assets": [
+        "nam_dinh_vu"
+      ],
+      "group": "hai_phong",
+      "semantics": "authority_published_plan",
+      "includes_internal_transfers": false,
+      "actual_verified": false,
+      "metric": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 78,
+          "dwt": 1500303,
+          "known_rows": 78,
+          "known_dwt": 1500303,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 81,
+          "dwt": 1591845,
+          "known_rows": 81,
+          "known_dwt": 1591845,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -3.703703703703709,
+          "dwt": -5.750685525286691
+        }
+      },
+      "updated_at": "2026-10-24T12:37:38.67508+00:00",
+      "refresh_error": false,
+      "latest_source_day": "2026-10-23",
+      "stale": false,
+      "flags": [],
+      "href": "/companies/GMD?plan_asset=gmd&plan_direction=departure&plan_period=month&plan_year=2026#vessel-plans"
+    },
+    {
+      "ticker": "HAH",
+      "scope": "Hải An",
+      "scope_note": "Lịch tại cảng, không gồm hoạt động đội tàu HAH.",
+      "assets": [
+        "hai_an"
+      ],
+      "group": "hai_phong",
+      "semantics": "authority_published_plan",
+      "includes_internal_transfers": false,
+      "actual_verified": false,
+      "metric": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 15,
+          "dwt": 261349,
+          "known_rows": 15,
+          "known_dwt": 261349,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 13,
+          "dwt": 225474,
+          "known_rows": 13,
+          "known_dwt": 225474,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 15.384615384615374,
+          "dwt": 15.910925428209023
+        }
+      },
+      "updated_at": "2026-10-24T12:37:38.677827+00:00",
+      "refresh_error": false,
+      "latest_source_day": "2026-10-23",
+      "stale": false,
+      "flags": [],
+      "href": "/companies/HAH?plan_asset=hah&plan_direction=departure&plan_period=month&plan_year=2026#vessel-plans"
+    },
+    {
+      "ticker": "DXP",
+      "scope": "Đoạn Xá",
+      "scope_note": "Lịch tại cảng Đoạn Xá.",
+      "assets": [
+        "doan_xa"
+      ],
+      "group": "hai_phong",
+      "semantics": "authority_published_plan",
+      "includes_internal_transfers": false,
+      "actual_verified": false,
+      "metric": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 9,
+          "dwt": 104981,
+          "known_rows": 9,
+          "known_dwt": 104981,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 6,
+          "dwt": 97519,
+          "known_rows": 6,
+          "known_dwt": 97519,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 50,
+          "dwt": 7.65184220510875
+        }
+      },
+      "updated_at": "2026-10-24T12:37:38.680566+00:00",
+      "refresh_error": false,
+      "latest_source_day": "2026-10-23",
+      "stale": false,
+      "flags": [],
+      "href": "/companies/DXP?plan_asset=dxp&plan_direction=departure&plan_period=month&plan_year=2026#vessel-plans"
+    },
+    {
+      "ticker": "PSP",
+      "scope": "PTSC Đình Vũ",
+      "scope_note": "Không gộp với Đình Vũ/DVP hoặc các cảng có tên gần giống.",
+      "assets": [
+        "ptsc_dinh_vu"
+      ],
+      "group": "hai_phong",
+      "semantics": "authority_published_plan",
+      "includes_internal_transfers": false,
+      "actual_verified": false,
+      "metric": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 19,
+          "dwt": 244530,
+          "known_rows": 19,
+          "known_dwt": 244530,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 33,
+          "dwt": 285119,
+          "known_rows": 33,
+          "known_dwt": 285119,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -42.42424242424242,
+          "dwt": -14.235810310782515
+        }
+      },
+      "updated_at": "2026-10-24T12:37:38.68326+00:00",
+      "refresh_error": false,
+      "latest_source_day": "2026-10-23",
+      "stale": false,
+      "flags": [],
+      "href": "/companies/PSP?plan_asset=psp&plan_direction=departure&plan_period=month&plan_year=2026#vessel-plans"
+    },
+    {
+      "ticker": "CQN",
+      "scope": "Cái Lân · cầu 1, 5, 6, 7",
+      "scope_note": "Kế hoạch cập/rời cầu, gồm điều chuyển nội cảng. Chưa gồm bến tạm/khu neo; loại CICT cầu 2–3–4.",
+      "assets": [
+        "cqn_cai_lan"
+      ],
+      "group": "quang_ninh",
+      "semantics": "authority_published_berth_plan",
+      "includes_internal_transfers": true,
+      "actual_verified": false,
+      "metric": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 33,
+          "dwt": 1136982.45,
+          "known_rows": 33,
+          "known_dwt": 1136982.45,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 31,
+          "dwt": 927085.29,
+          "known_rows": 31,
+          "known_dwt": 927085.29,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 6.451612903225801,
+          "dwt": 22.64054475505699
+        }
+      },
+      "updated_at": "2026-10-24T13:21:54.995268+00:00",
+      "refresh_error": false,
+      "latest_source_day": "2026-10-23",
+      "stale": false,
+      "flags": [],
+      "href": "/companies/CQN?plan_asset=cqn&plan_direction=departure&plan_period=month&plan_year=2026#vessel-plans"
+    }
+  ],
+  "ui": [
+    {
+      "viewport": "desktop",
+      "width": 1440,
+      "rows": 9,
+      "hp_rows": 8,
+      "cqn_rows": 1,
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "no_overflow": true,
+      "filters_and_company_link_retained": true
+    },
+    {
+      "viewport": "mobile",
+      "width": 375,
+      "rows": 9,
+      "hp_rows": 8,
+      "cqn_rows": 1,
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "no_overflow": true,
+      "filters_and_company_link_retained": true
+    }
+  ],
+  "user_review_accepted": false,
+  "production_accepted": false,
+  "implementation_commit": "547a1fe",
+  "checks": [
+    {
+      "name": "Workers Builds: investing-pro-web-staging",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/28c0759c-7166-4386-8032-ff44eea1e51c"
+    },
+    {
+      "name": "check",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40099211866/job/120887698450"
+    }
+  ],
+  "local_validation": {
+    "typescript_database_tests": 122,
+    "playwright_full_suite": 54,
+    "north_overview_final_recheck": 4,
+    "typecheck": true,
+    "lint": true,
+    "next_build": true
+  },
+  "mobile_followup": "Two-column compact filters and text-only four-item mobile navigation; local desktop/mobile E2E rechecked.",
+  "screenshots": [
+    ".local/north-overview/top-desktop-light.png",
+    ".local/north-overview/top-desktop-dark.png",
+    ".local/north-overview/top-mobile-light.png",
+    ".local/north-overview/top-mobile-dark.png",
+    ".local/north-overview/page-desktop-light.png",
+    ".local/north-overview/page-desktop-dark.png",
+    ".local/north-overview/page-mobile-light.png",
+    ".local/north-overview/page-mobile-dark.png"
+  ],
+  "scheduled_cycles_newly_verified": 0,
+  "source_ingestion_changed": false
+}
