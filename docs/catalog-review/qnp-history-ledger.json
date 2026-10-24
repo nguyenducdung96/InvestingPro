@@ -1,0 +1,308 @@
+{
+  "cutoff": "2026-10-24",
+  "directions": {
+    "arrival": {
+      "months": {
+        "2025-01": {
+          "rows": 58,
+          "dwt": 705205.0,
+          "missing_dwt": 4
+        },
+        "2025-02": {
+          "rows": 59,
+          "dwt": 643118.0,
+          "missing_dwt": 4
+        },
+        "2025-03": {
+          "rows": 74,
+          "dwt": 923297.0,
+          "missing_dwt": 2
+        },
+        "2025-04": {
+          "rows": 72,
+          "dwt": 854597.0,
+          "missing_dwt": 2
+        },
+        "2025-05": {
+          "rows": 64,
+          "dwt": 808166.0,
+          "missing_dwt": 3
+        },
+        "2025-06": {
+          "rows": 66,
+          "dwt": 851550.0,
+          "missing_dwt": 4
+        },
+        "2025-07": {
+          "rows": 57,
+          "dwt": 808424.0,
+          "missing_dwt": 1
+        },
+        "2025-08": {
+          "rows": 64,
+          "dwt": 848252.0,
+          "missing_dwt": 3
+        },
+        "2025-09": {
+          "rows": 60,
+          "dwt": 734923.0,
+          "missing_dwt": 3
+        },
+        "2025-10": {
+          "rows": 64,
+          "dwt": 799619.0,
+          "missing_dwt": 4
+        },
+        "2025-11": {
+          "rows": 45,
+          "dwt": 677745.0,
+          "missing_dwt": 1
+        },
+        "2025-12": {
+          "rows": 54,
+          "dwt": 815174.0,
+          "missing_dwt": 2
+        },
+        "2026-01": {
+          "rows": 73,
+          "dwt": 935401.0,
+          "missing_dwt": 5
+        },
+        "2026-02": {
+          "rows": 52,
+          "dwt": 770653.0,
+          "missing_dwt": 3
+        },
+        "2026-03": {
+          "rows": 72,
+          "dwt": 966414.0,
+          "missing_dwt": 5
+        },
+        "2026-04": {
+          "rows": 58,
+          "dwt": 763953.0,
+          "missing_dwt": 3
+        },
+        "2026-05": {
+          "rows": 78,
+          "dwt": 909666.0,
+          "missing_dwt": 3
+        },
+        "2026-06": {
+          "rows": 56,
+          "dwt": 819540.0,
+          "missing_dwt": 2
+        },
+        "2026-07": {
+          "rows": 70,
+          "dwt": 860986.0,
+          "missing_dwt": 3
+        },
+        "2026-08": {
+          "rows": 52,
+          "dwt": 788111.0,
+          "missing_dwt": 2
+        },
+        "2026-09": {
+          "rows": 54,
+          "dwt": 536930.0,
+          "missing_dwt": 1
+        },
+        "2026-10": {
+          "rows": 47,
+          "dwt": 586822.0,
+          "missing_dwt": 9
+        }
+      },
+      "ytd": {
+        "rows": 612,
+        "dwt": 7938476.0,
+        "missing_dwt": 36
+      },
+      "prior_ytd": {
+        "rows": 623,
+        "dwt": 7699929.0,
+        "missing_dwt": 30
+      },
+      "scopes": {
+        "qnp_cau1": {
+          "rows": 688,
+          "dwt": 9086777.0,
+          "missing_dwt": 35
+        },
+        "qnp_cau2": {
+          "rows": 214,
+          "dwt": 1757805.0,
+          "missing_dwt": 11
+        },
+        "qnp_cau3": {
+          "rows": 265,
+          "dwt": 1052260.0,
+          "missing_dwt": 16
+        },
+        "qnp_cau4": {
+          "rows": 182,
+          "dwt": 5511704.0,
+          "missing_dwt": 7
+        },
+        "qnp_tc1": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "departure": {
+      "months": {
+        "2025-01": {
+          "rows": 86,
+          "dwt": 712150.0,
+          "missing_dwt": 11
+        },
+        "2025-02": {
+          "rows": 68,
+          "dwt": 645473.0,
+          "missing_dwt": 2
+        },
+        "2025-03": {
+          "rows": 89,
+          "dwt": 1060070.0,
+          "missing_dwt": 0
+        },
+        "2025-04": {
+          "rows": 91,
+          "dwt": 926899.0,
+          "missing_dwt": 4
+        },
+        "2025-05": {
+          "rows": 67,
+          "dwt": 651833.0,
+          "missing_dwt": 4
+        },
+        "2025-06": {
+          "rows": 75,
+          "dwt": 850982.0,
+          "missing_dwt": 3
+        },
+        "2025-07": {
+          "rows": 73,
+          "dwt": 869344.0,
+          "missing_dwt": 7
+        },
+        "2025-08": {
+          "rows": 87,
+          "dwt": 927058.0,
+          "missing_dwt": 7
+        },
+        "2025-09": {
+          "rows": 66,
+          "dwt": 774518.0,
+          "missing_dwt": 2
+        },
+        "2025-10": {
+          "rows": 76,
+          "dwt": 784339.0,
+          "missing_dwt": 5
+        },
+        "2025-11": {
+          "rows": 43,
+          "dwt": 753438.0,
+          "missing_dwt": 2
+        },
+        "2025-12": {
+          "rows": 73,
+          "dwt": 819774.0,
+          "missing_dwt": 4
+        },
+        "2026-01": {
+          "rows": 84,
+          "dwt": 948249.0,
+          "missing_dwt": 3
+        },
+        "2026-02": {
+          "rows": 59,
+          "dwt": 755671.0,
+          "missing_dwt": 4
+        },
+        "2026-03": {
+          "rows": 81,
+          "dwt": 1023064.0,
+          "missing_dwt": 7
+        },
+        "2026-04": {
+          "rows": 84,
+          "dwt": 867934.0,
+          "missing_dwt": 6
+        },
+        "2026-05": {
+          "rows": 79,
+          "dwt": 827370.0,
+          "missing_dwt": 4
+        },
+        "2026-06": {
+          "rows": 61,
+          "dwt": 850431.0,
+          "missing_dwt": 2
+        },
+        "2026-07": {
+          "rows": 86,
+          "dwt": 986756.0,
+          "missing_dwt": 4
+        },
+        "2026-08": {
+          "rows": 69,
+          "dwt": 842357.0,
+          "missing_dwt": 5
+        },
+        "2026-09": {
+          "rows": 70,
+          "dwt": 647692.0,
+          "missing_dwt": 4
+        },
+        "2026-10": {
+          "rows": 63,
+          "dwt": 748320.0,
+          "missing_dwt": 3
+        }
+      },
+      "ytd": {
+        "rows": 736,
+        "dwt": 8497844.0,
+        "missing_dwt": 42
+      },
+      "prior_ytd": {
+        "rows": 764,
+        "dwt": 8038192.0,
+        "missing_dwt": 43
+      },
+      "scopes": {
+        "qnp_cau1": {
+          "rows": 804,
+          "dwt": 9298621.0,
+          "missing_dwt": 43
+        },
+        "qnp_cau2": {
+          "rows": 269,
+          "dwt": 1928509.0,
+          "missing_dwt": 20
+        },
+        "qnp_cau3": {
+          "rows": 340,
+          "dwt": 1239756.0,
+          "missing_dwt": 24
+        },
+        "qnp_cau4": {
+          "rows": 217,
+          "dwt": 5806836.0,
+          "missing_dwt": 6
+        },
+        "qnp_tc1": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      }
+    }
+  },
+  "source_events": 6004
+}

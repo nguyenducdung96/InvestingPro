@@ -1,0 +1,62 @@
+name: QNP official berth plan history
+on:
+  workflow_dispatch:
+  schedule:
+    # 07:35 Asia/Ho_Chi_Minh. The scheduler can start late.
+    - cron: '35 0 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: qnp-plans-staging
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements-qnp.txt
+      - run: python -m pip install -r scripts/requirements-qnp.txt
+      - uses: actions/cache@v4
+        with:
+          path: .local/qnp-authority
+          key: qnp-authority-grid-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: qnp-authority-grid-v1-
+      - name: Validate source contracts
+        run: python scripts/test-qnp-authority.py
+      - name: Discover official daily editions
+        run: python scripts/discover-qnp-authority.py
+      - name: Read new and revised source images
+        run: python scripts/collect-qnp-authority.py --workers 2 --refresh-recent 4
+      - name: Validate the month matrix and export recorded observations
+        run: |
+          python scripts/verify-qnp-source-samples.py
+          python scripts/export-qnp-history.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test -- tests/qnp-plans.test.ts tests/qnp-history.test.ts tests/central-overview.test.ts
+      - name: Publish the versioned server dataset to the staging branch
+        run: |
+          git add packages/modules/port/src/qnp-history-data.ts docs/catalog-review/qnp-history-ledger.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'data(ports): refresh official QNP recorded berth plans'
+          git push origin HEAD:codex/cloudflare-next-compat
+      - name: Keep the compact extraction receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qnp-history-receipt
+          path: .local/qnp-authority/export-receipt.json
+          retention-days: 7
+          if-no-files-found: ignore
