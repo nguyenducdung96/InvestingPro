@@ -33,3 +33,9 @@ Workflow DVP đã đăng ký trên `main` ở commit `e8c2993`, chạy 06:40 Vi�
 Kiểm tra live bằng Playwright ở desktop 1440px và mobile 375px: hiển thị đúng KPI, đổi vào/rời và tháng/quý, không tràn ngang; đã đọc ảnh mobile. Ảnh tại `.local/dvp-plans/staging-desktop.png` và `staging-mobile.png`. Chưa có nghiệm thu production, chuỗi actual hoặc sản lượng TEU DVP.
 
 Hồi quy cuối: toàn bộ 44/44 Playwright desktop/mobile đạt sau khi thêm DVP; 113/113 tests TypeScript/database, 17/17 Python parser, typecheck/lint và GitHub CI đều đạt.
+
+## Thống nhất phạm vi trang mã — 24/10/2026
+
+Theo review người dùng: đầu trang mã dùng khối danh sách cảng liên quan, kể cả chỉ có một cảng. `CompanyPortScope` dùng edition PHP đã duyệt cho PHP và danh sách tài sản trong hồ sơ công bố cho các mã khác; không suy quan hệ sở hữu từ tên cảng. DVP hiển thị Bến cảng Đình Vũ, vai trò khai thác theo báo cáo và nguồn chính thức.
+
+Bộ chọn DVP mặc định `plan_asset=dvp` — “Tổng quan DVP · 1 cảng”, bên cạnh `dinh_vu` — “Đình Vũ”. Cả hai đọc cùng endpoint database của bến, không cộng hoặc nhân đôi sự kiện. Ngày, chiều, năm và quý giữ theo lựa chọn khi đổi phạm vi. API mặc định trả scope `dvp`, vẫn nhận `asset=dinh_vu`; asset ngoài DVP trả 400. Đây là quy ước giao diện chung cho các dashboard mã được triển khai tiếp theo: luôn có tổng quan, kể cả phạm vi một cảng.

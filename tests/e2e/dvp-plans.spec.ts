@@ -6,12 +6,16 @@ test('DVP plans update from DB, compare MTD, filter, drill down and fit mobile',
  const details=[{report_day:cutoff,source_url:days[0].source_url,source_sha256:'a'.repeat(64),fetched_at:new Date().toISOString(),parser_version:'test-only',semantics:'authority_published_plan',events:[{direction:'departure',vessel_name:'SYNTHETIC PLAN SHIP',planned_time:'08:30',dwt:1000,from_berth:'DINH VU',to_berth:'CHINA'}]}];
  await request.post('http://127.0.0.1:54329/__throughput',{data:[]}); // synthetic PHP catalog edition
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:days.map(d=>({...d,asset_code:'dinh_vu'})),details:details.map(d=>({...d,asset_code:'dinh_vu'}))}});
- await page.goto('/companies/DVP?plan_asset=dinh_vu#vessel-plans');
+ await page.goto('/companies/DVP#vessel-plans');
  const region=page.getByRole('region',{name:'Lịch điều động DVP',exact:true});
  await expect(region.getByRole('heading',{name:'Lượt tàu và trọng tải theo lịch công bố'})).toBeVisible();
  await expect(region.getByText('SYNTHETIC PLAN SHIP',{exact:true})).toBeVisible();
  await expect(region.getByText(/Thông tin nguồn|Job gần nhất|Lần lấy nguồn gần nhất|Cùng phạm vi tháng/)).toHaveCount(0);
  await expect(region.locator('a[href^="/api/"]')).toHaveCount(0);
+ const scope=page.getByRole('region',{name:'Các cảng liên quan DVP',exact:true});
+ await expect(scope.getByRole('heading',{name:'Bến cảng Đình Vũ',exact:true})).toBeVisible();
+ await expect(scope.getByRole('link',{name:'Nguồn chính thức'})).toHaveAttribute('href','https://example.gov.vn/test-only');
+ await expect(region.getByLabel('Bến theo dõi',{exact:true})).toHaveValue('dvp');
  const original=await(await request.get('/api/v1/companies/DVP/plans')).json();
  expect(original.months.at(-1).current.dwt).toBe(through*1000);
  expect(original.months.at(-1).prior.through).toBe(`${year-1}-${month}-${cutoff.slice(8)}`);
@@ -44,7 +48,17 @@ test('DVP plans update from DB, compare MTD, filter, drill down and fit mobile',
  expect((await request.get('/api/v1/companies/DVP/plans?day=2026-02-31')).status()).toBe(400);
  expect((await request.get('/api/v1/companies/DVP/plans?asset=hict')).status()).toBe(400);
  await page.goto('/companies/DVP?plan_asset=tan_vu');
+ await expect(region.getByLabel('Bến theo dõi',{exact:true})).toHaveValue('dvp');
+ await region.getByLabel('Bến theo dõi',{exact:true}).selectOption('dinh_vu');
+ await region.getByRole('button',{name:'Xem bến',exact:true}).click();
  await expect(region.getByLabel('Bến theo dõi',{exact:true})).toHaveValue('dinh_vu');
+ const individual=await(await request.get('/api/v1/companies/DVP/plans?asset=dinh_vu')).json();
+ const overview=await(await request.get('/api/v1/companies/DVP/plans?asset=dvp')).json();
+ expect(overview.months).toEqual(individual.months);
+ expect(overview.ytd).toEqual(individual.ytd);
+ await region.getByLabel('Bến theo dõi',{exact:true}).selectOption('dvp');
+ await region.getByRole('button',{name:'Xem bến',exact:true}).click();
+ await expect(region.getByLabel('Bến theo dõi',{exact:true})).toHaveValue('dvp');
  expect((await request.get('/api/v1/companies/PHP/plans?asset=dinh_vu')).status()).toBe(400);
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:[]}});
 });

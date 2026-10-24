@@ -1,19 +1,19 @@
 import {loadPhpPlans,loadPhpPlanEvents} from '@/lib/php-plans';
 import {YoyChange} from './yoy-change';
 import {publicRepository} from '@/lib/server';
-import {phpPlanSeries,phpPlanScopes,isPhpPlanScope,dvpPlanSeries,dvpPlanScopes,validPlanDate} from '@invest/port';
+import {phpPlanSeries,phpPlanScopes,isPhpPlanScope,dvpPlanSeries,dvpPlanScopes,isDvpPlanScope,validPlanDate} from '@invest/port';
 import {PlanColumnChart,type PlanColumn} from './plan-column-chart';
 const number=(n:number|null)=>n===null?'Chưa đủ dữ liệu':n.toLocaleString('vi-VN',{maximumFractionDigits:2});
 export async function PhpPlans({query,ticker='PHP'}:{query:Record<string,string>;ticker?:'PHP'|'DVP'}){
  const requestedAsset=query.plan_asset??'';
- const asset=ticker==='DVP'?'dinh_vu':isPhpPlanScope(requestedAsset)?requestedAsset:'php';
- const berth=asset==='dinh_vu'?dvpPlanScopes.dinh_vu:phpPlanScopes[asset];
- const seriesFor=(days:Parameters<typeof phpPlanSeries>[0],direction:Parameters<typeof phpPlanSeries>[2],now=new Date(),run:Parameters<typeof phpPlanSeries>[4]=null)=>asset==='dinh_vu'?dvpPlanSeries(days,asset,direction,now,run):phpPlanSeries(days,asset,direction,now,run);
+ const asset=ticker==='DVP'?(isDvpPlanScope(requestedAsset)?requestedAsset:'dvp'):isPhpPlanScope(requestedAsset)?requestedAsset:'php';
+ const berth=isDvpPlanScope(asset)?dvpPlanScopes[asset]:phpPlanScopes[asset];
+ const seriesFor=(days:Parameters<typeof phpPlanSeries>[0],direction:Parameters<typeof phpPlanSeries>[2],now=new Date(),run:Parameters<typeof phpPlanSeries>[4]=null)=>isDvpPlanScope(asset)?dvpPlanSeries(days,asset,direction,now,run):phpPlanSeries(days,asset,direction,now,run);
  const direction=query.plan_direction==='arrival'?'arrival':'departure';
  const quarterly=query.plan_period==='quarter';
  const repo=publicRepository();
  let stored;
- try{stored=await (asset==='dinh_vu'?repo.phpPlans(asset):loadPhpPlans(repo,asset));}catch{return <section id="vessel-plans" className="panel"><h2>Lịch điều động {ticker}</h2><p role="status">Chưa kết nối được dữ liệu lịch điều động. Vui lòng thử lại.</p></section>;}
+ try{stored=await (isDvpPlanScope(asset)?repo.phpPlans('dinh_vu'):loadPhpPlans(repo,asset));}catch{return <section id="vessel-plans" className="panel"><h2>Lịch điều động {ticker}</h2><p role="status">Chưa kết nối được dữ liệu lịch điều động. Vui lòng thử lại.</p></section>;}
  const series=seriesFor(stored.days,direction,new Date(),stored.run);
  const latest=series.months.at(-1);
  const average=latest?.current.rows&&latest.current.dwt!==null?latest.current.dwt/latest.current.rows:null;
@@ -32,7 +32,7 @@ export async function PhpPlans({query,ticker='PHP'}:{query:Record<string,string>
  });
  const selectedDay=validPlanDate(query.plan_day??'')?query.plan_day:series.cutoff;
  let detail=null;let detailError=false;
- if(latest)try{detail=await (asset==='dinh_vu'?repo.phpPlanEvents(asset,selectedDay):loadPhpPlanEvents(repo,asset,selectedDay));}catch{detailError=true;}
+ if(latest)try{detail=await (isDvpPlanScope(asset)?repo.phpPlanEvents('dinh_vu',selectedDay):loadPhpPlanEvents(repo,asset,selectedDay));}catch{detailError=true;}
  const label=direction==='arrival'?'Tàu vào':'Tàu rời';
  const dayMap=new Map(stored.days.map(d=>[d.report_day,d]));
  const daily:PlanColumn[]=Array.from({length:90},(_,i)=>{

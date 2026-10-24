@@ -1,5 +1,5 @@
 import { CompanyPage } from "@/components/company-page";
-import {PhpBerthScope} from '@/components/php-berth-scope';
+import {CompanyPortScope} from '@/components/company-port-scope';
 import { PhpThroughput } from '@/components/php-throughput';
 import {PhpPlans} from '@/components/php-plans';
 export const dynamic = "force-dynamic";
@@ -14,7 +14,7 @@ export default async function Page({
   const query=await searchParams;
   return (
     <>
-    {ticker==='PHP'&&<PhpBerthScope/>}
+    <CompanyPortScope ticker={ticker}/>
     {(ticker==='PHP'||ticker==='DVP')&&<PhpPlans query={query} ticker={ticker}/>}
     {ticker==='PHP'&&<PhpThroughput query={query}/>}
     <CompanyPage
