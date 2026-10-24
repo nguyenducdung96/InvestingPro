@@ -4,24 +4,24 @@
     "arrival": {
       "months": {
         "2025-01": {
-          "rows": 58,
-          "dwt": 705205.0,
+          "rows": 62,
+          "dwt": 718603.0,
           "missing_dwt": 4
         },
         "2025-02": {
-          "rows": 59,
-          "dwt": 643118.0,
+          "rows": 62,
+          "dwt": 699092.0,
           "missing_dwt": 4
         },
         "2025-03": {
-          "rows": 74,
-          "dwt": 923297.0,
+          "rows": 79,
+          "dwt": 960957.0,
           "missing_dwt": 2
         },
         "2025-04": {
-          "rows": 72,
-          "dwt": 854597.0,
-          "missing_dwt": 2
+          "rows": 77,
+          "dwt": 873226.0,
+          "missing_dwt": 3
         },
         "2025-05": {
           "rows": 64,
@@ -29,18 +29,18 @@
           "missing_dwt": 3
         },
         "2025-06": {
-          "rows": 66,
-          "dwt": 851550.0,
+          "rows": 67,
+          "dwt": 865204.0,
           "missing_dwt": 4
         },
         "2025-07": {
-          "rows": 57,
-          "dwt": 808424.0,
+          "rows": 58,
+          "dwt": 825974.0,
           "missing_dwt": 1
         },
         "2025-08": {
-          "rows": 64,
-          "dwt": 848252.0,
+          "rows": 65,
+          "dwt": 856249.0,
           "missing_dwt": 3
         },
         "2025-09": {
@@ -54,44 +54,44 @@
           "missing_dwt": 4
         },
         "2025-11": {
-          "rows": 45,
-          "dwt": 677745.0,
+          "rows": 48,
+          "dwt": 689568.0,
           "missing_dwt": 1
         },
         "2025-12": {
-          "rows": 54,
-          "dwt": 815174.0,
+          "rows": 66,
+          "dwt": 976921.0,
           "missing_dwt": 2
         },
         "2026-01": {
-          "rows": 73,
-          "dwt": 935401.0,
+          "rows": 78,
+          "dwt": 1006079.0,
           "missing_dwt": 5
         },
         "2026-02": {
-          "rows": 52,
-          "dwt": 770653.0,
+          "rows": 56,
+          "dwt": 848021.0,
           "missing_dwt": 3
         },
         "2026-03": {
-          "rows": 72,
-          "dwt": 966414.0,
+          "rows": 75,
+          "dwt": 988057.0,
           "missing_dwt": 5
         },
         "2026-04": {
-          "rows": 58,
-          "dwt": 763953.0,
+          "rows": 59,
+          "dwt": 767676.0,
           "missing_dwt": 3
         },
         "2026-05": {
-          "rows": 78,
-          "dwt": 909666.0,
-          "missing_dwt": 3
+          "rows": 82,
+          "dwt": 954027.0,
+          "missing_dwt": 4
         },
         "2026-06": {
           "rows": 56,
-          "dwt": 819540.0,
-          "missing_dwt": 2
+          "dwt": 810493.0,
+          "missing_dwt": 3
         },
         "2026-07": {
           "rows": 70,
@@ -104,45 +104,45 @@
           "missing_dwt": 2
         },
         "2026-09": {
-          "rows": 54,
-          "dwt": 536930.0,
+          "rows": 56,
+          "dwt": 547725.0,
           "missing_dwt": 1
         },
         "2026-10": {
-          "rows": 47,
-          "dwt": 586822.0,
+          "rows": 51,
+          "dwt": 610955.0,
           "missing_dwt": 9
         }
       },
       "ytd": {
-        "rows": 612,
-        "dwt": 7938476.0,
-        "missing_dwt": 36
+        "rows": 635,
+        "dwt": 8182130.0,
+        "missing_dwt": 38
       },
       "prior_ytd": {
-        "rows": 623,
-        "dwt": 7699929.0,
-        "missing_dwt": 30
+        "rows": 643,
+        "dwt": 7864791.0,
+        "missing_dwt": 31
       },
       "scopes": {
         "qnp_cau1": {
-          "rows": 688,
-          "dwt": 9086777.0,
-          "missing_dwt": 35
+          "rows": 723,
+          "dwt": 9378659.0,
+          "missing_dwt": 36
         },
         "qnp_cau2": {
-          "rows": 214,
-          "dwt": 1757805.0,
-          "missing_dwt": 11
+          "rows": 221,
+          "dwt": 1828258.0,
+          "missing_dwt": 12
         },
         "qnp_cau3": {
-          "rows": 265,
-          "dwt": 1052260.0,
-          "missing_dwt": 16
+          "rows": 272,
+          "dwt": 1078152.0,
+          "missing_dwt": 17
         },
         "qnp_cau4": {
-          "rows": 182,
-          "dwt": 5511704.0,
+          "rows": 191,
+          "dwt": 5705563.0,
           "missing_dwt": 7
         },
         "qnp_tc1": {
@@ -155,24 +155,24 @@
     "departure": {
       "months": {
         "2025-01": {
-          "rows": 86,
-          "dwt": 712150.0,
+          "rows": 89,
+          "dwt": 764530.0,
           "missing_dwt": 11
         },
         "2025-02": {
-          "rows": 68,
-          "dwt": 645473.0,
+          "rows": 71,
+          "dwt": 711432.0,
           "missing_dwt": 2
         },
         "2025-03": {
-          "rows": 89,
-          "dwt": 1060070.0,
-          "missing_dwt": 0
+          "rows": 96,
+          "dwt": 1076543.0,
+          "missing_dwt": 2
         },
         "2025-04": {
-          "rows": 91,
-          "dwt": 926899.0,
-          "missing_dwt": 4
+          "rows": 98,
+          "dwt": 977078.0,
+          "missing_dwt": 5
         },
         "2025-05": {
           "rows": 67,
@@ -180,19 +180,19 @@
           "missing_dwt": 4
         },
         "2025-06": {
-          "rows": 75,
-          "dwt": 850982.0,
+          "rows": 77,
+          "dwt": 871508.0,
           "missing_dwt": 3
         },
         "2025-07": {
-          "rows": 73,
-          "dwt": 869344.0,
+          "rows": 75,
+          "dwt": 900963.0,
           "missing_dwt": 7
         },
         "2025-08": {
-          "rows": 87,
-          "dwt": 927058.0,
-          "missing_dwt": 7
+          "rows": 92,
+          "dwt": 950014.0,
+          "missing_dwt": 8
         },
         "2025-09": {
           "rows": 66,
@@ -205,39 +205,39 @@
           "missing_dwt": 5
         },
         "2025-11": {
-          "rows": 43,
-          "dwt": 753438.0,
+          "rows": 45,
+          "dwt": 761791.0,
           "missing_dwt": 2
         },
         "2025-12": {
-          "rows": 73,
-          "dwt": 819774.0,
-          "missing_dwt": 4
+          "rows": 91,
+          "dwt": 1053030.0,
+          "missing_dwt": 5
         },
         "2026-01": {
-          "rows": 84,
-          "dwt": 948249.0,
+          "rows": 87,
+          "dwt": 1003412.0,
           "missing_dwt": 3
         },
         "2026-02": {
-          "rows": 59,
-          "dwt": 755671.0,
+          "rows": 61,
+          "dwt": 834093.0,
           "missing_dwt": 4
         },
         "2026-03": {
-          "rows": 81,
-          "dwt": 1023064.0,
-          "missing_dwt": 7
+          "rows": 85,
+          "dwt": 1030618.0,
+          "missing_dwt": 8
         },
         "2026-04": {
-          "rows": 84,
-          "dwt": 867934.0,
-          "missing_dwt": 6
+          "rows": 89,
+          "dwt": 914505.0,
+          "missing_dwt": 7
         },
         "2026-05": {
-          "rows": 79,
-          "dwt": 827370.0,
-          "missing_dwt": 4
+          "rows": 87,
+          "dwt": 890711.0,
+          "missing_dwt": 7
         },
         "2026-06": {
           "rows": 61,
@@ -255,46 +255,46 @@
           "missing_dwt": 5
         },
         "2026-09": {
-          "rows": 70,
-          "dwt": 647692.0,
+          "rows": 74,
+          "dwt": 663776.0,
           "missing_dwt": 4
         },
         "2026-10": {
-          "rows": 63,
-          "dwt": 748320.0,
-          "missing_dwt": 3
+          "rows": 69,
+          "dwt": 821256.0,
+          "missing_dwt": 4
         }
       },
       "ytd": {
-        "rows": 736,
-        "dwt": 8497844.0,
-        "missing_dwt": 42
+        "rows": 768,
+        "dwt": 8837915.0,
+        "missing_dwt": 48
       },
       "prior_ytd": {
-        "rows": 764,
-        "dwt": 8038192.0,
-        "missing_dwt": 43
+        "rows": 793,
+        "dwt": 8298284.0,
+        "missing_dwt": 47
       },
       "scopes": {
         "qnp_cau1": {
-          "rows": 804,
-          "dwt": 9298621.0,
-          "missing_dwt": 43
+          "rows": 844,
+          "dwt": 9746215.0,
+          "missing_dwt": 50
         },
         "qnp_cau2": {
-          "rows": 269,
-          "dwt": 1928509.0,
+          "rows": 287,
+          "dwt": 2010236.0,
           "missing_dwt": 20
         },
         "qnp_cau3": {
-          "rows": 340,
-          "dwt": 1239756.0,
-          "missing_dwt": 24
+          "rows": 353,
+          "dwt": 1270774.0,
+          "missing_dwt": 27
         },
         "qnp_cau4": {
-          "rows": 217,
-          "dwt": 5806836.0,
-          "missing_dwt": 6
+          "rows": 227,
+          "dwt": 6088269.0,
+          "missing_dwt": 7
         },
         "qnp_tc1": {
           "rows": null,
@@ -304,5 +304,5 @@
       }
     }
   },
-  "source_events": 6004
+  "source_events": 6312
 }

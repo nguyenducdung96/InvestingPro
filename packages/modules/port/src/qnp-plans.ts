@@ -4,7 +4,7 @@ export interface QnpPlanRow {time:string;vessel:string;dwt:number|null;from:stri
 export interface QnpBulletin {
  id:number;url:string;image:string;sha256:string;issued_on:string;published_at:string|null;
  from:string;through:string;reviewed_on?:string;rows:QnpPlanRow[];
- source_kind?:'authority';parser_version?:string;continuation_reader?:string|null;parsed_at?:string;
+ source_kind?:'authority';parser_version?:string;continuation_reader?:string|null;parsed_at?:string;last_checked_at?:string|null;
  images?:{url:string;sha256:string}[];quality?:{rejected_rows:number;missing_dwt:number;continuation_pages:number;page_scope_complete:boolean;explicit_no_plan?:boolean;duplicate_rows?:number;conflicting_groups?:number};
  source_error?:string;
 }
@@ -60,7 +60,7 @@ function daysFromEvents(input:ReturnType<typeof qnpReviewedEvents>,asset:QnpScop
   const source=rows.at(-1)!.source;
   const metric=(direction:PlanDirection)=>{const items=rows.filter(e=>e.kind===direction);return {count:items.length,missing:items.filter(e=>e.dwt===null).length,weight:items.some(e=>e.dwt!==null)?items.reduce((n,e)=>n+(e.dwt??0),0):null};};
   const a=metric('arrival'),d=metric('departure');
-  return {report_day,version_id:null,source_sha256:source.sha256,source_url:source.url,parser_version:source.parser_version??'qnp-reviewed-bulletin/1',last_success:null,last_attempt:source.parsed_at??source.reviewed_on+'T00:00:00+07:00',source_error:source.source_error??null,
+  return {report_day,version_id:null,source_sha256:source.sha256,source_url:source.url,parser_version:source.parser_version??'qnp-reviewed-bulletin/1',last_success:null,last_attempt:source.last_checked_at??source.parsed_at??source.reviewed_on+'T00:00:00+07:00',source_error:source.source_error??null,
    observed_available:true,arrival_rows:null,departure_rows:null,arrival_dwt:null,departure_dwt:null,arrival_dwt_missing:a.missing,departure_dwt_missing:d.missing,ambiguous_groups:0,source_empty_sections:[],
    arrival_known_rows:a.count||null,departure_known_rows:d.count||null,arrival_known_dwt:a.weight,departure_known_dwt:d.weight};
  });

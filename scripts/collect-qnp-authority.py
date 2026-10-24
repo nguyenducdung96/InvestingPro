@@ -118,6 +118,7 @@ def preserve(raw,suffix):
 def archive(item,refresh=False):
     ident = re.search(r'id=(\d+)', item['url'])[1]
     detail = OUT / f'detail-{ident}.html'
+    fetched_detail=refresh or not detail.exists()
     if detail.exists() and refresh:preserve(detail.read_bytes(),'.html')
     if not detail.exists() or refresh:
         detail.write_bytes(fetch(item['url']))
@@ -138,7 +139,7 @@ def archive(item,refresh=False):
             path.write_bytes(fetch(BASE+rel))
         evidence.append({'url': BASE+rel, 'path': str(path), 'sha256': preserve(path.read_bytes(),path.suffix)})
     preserve(raw,'.html')
-    return {**item, 'id': int(ident), 'html_sha256': hashlib.sha256(raw).hexdigest(), 'images': evidence}
+    return {**item, 'id': int(ident), 'html_sha256': hashlib.sha256(raw).hexdigest(), 'images': evidence,**({'checked_at':dt.datetime.now(dt.timezone.utc).isoformat()} if fetched_detail else {})}
 
 
 def centers(box):
@@ -192,7 +193,7 @@ def scope_footer(image):
         crops.append(cv2.resize(im[max(0,a-1):b+1,max(x+3,x+3+cx-2):min(x+w-3,x+3+cx+cw+2)],None,fx=3,fy=3))
     reads,_=OCR.text_rec(crops) if crops else ([],0)
     labels=[{'text':str(r[0]),'confidence':float(r[1]),'box':[x+3,a,x+w-3,b]} for (a,b),r in zip(boxes,reads)]
-    allowed={'CANGTHINAI','CANGTANCANGMIENTRUNG','TANCANGMIENTRUNG','BENPHAOXANGDAUBINHDINH','PHAOXANGDAU'}
+    allowed={'CANGTHINAI','CANGTANCANGMIENTRUNG','TANCANGMIENTRUNG','BENPHAOXANGDAUBINHDINH','BENPHAOXANGDAU','BENPHAOBINHDINH','PHAOXANGDAU'}
     closed=any(normal(r['text']) in allowed and r['confidence']>=.85 for r in labels)
     return {'reader':SCOPE_READER,'closed':closed,'labels':labels,'image_sha256':image['sha256']}
 
@@ -253,7 +254,7 @@ def parse_image(image, title_day, first=False, context=None, previous=None):
         start,end=previous['from'],previous['through']
     else:
         captions=[recognize(left+2,a-1,left+width-2,b+1)[0] for a,b in text_lines(left+3,0,left+width-3,max(1,top-2))]
-        if any(normal(t) in ('CANGTHINAI','CANGTANCANGMIENTRUNG','TANCANGMIENTRUNG','BENPHAOXANGDAUBINHDINH','PHAOXANGDAU') for t in captions):
+        if any(normal(t) in ('CANGTHINAI','CANGTANCANGMIENTRUNG','TANCANGMIENTRUNG','BENPHAOXANGDAUBINHDINH','BENPHAOXANGDAU','BENPHAOBINHDINH','PHAOXANGDAU') for t in captions):
             return {'status':'outside_qnp_scope','from':context['from'],'through':context['through'],'rows':[],'rejected':[],'page_scope_complete':True,'scope_heading':captions}
         if top>70:raise ValueError('Continuation is not an unlabeled carry-over grid')
         start,end=context['from'],context['through']
@@ -283,7 +284,8 @@ def parse_image(image, title_day, first=False, context=None, previous=None):
         return {**previous,'page_scope_complete':scope_footer(image)['closed'],'column_count':len(xs),'dwt_col':dwt_col,'last_index':max(int(index),count)}
     crops=[]
     def queue_cell(a,b,col,scale=3):
-        x1,x2=xs[col]+3,xs[col+1]-3;y1,y2=a+3,b-2
+        margin=1 if col==0 else 3
+        x1,x2=xs[col]+margin,xs[col+1]-margin;y1,y2=a+margin,b-(1 if col==0 else 2)
         lines=text_lines(x1,y1,x2,y2)
         refs=[]
         for c,d in lines:
@@ -303,7 +305,7 @@ def parse_image(image, title_day, first=False, context=None, previous=None):
     for a,b,refs in plans:
         (index,ic),(raw_time,tc),(vessel,vc),(origin,oc),(destination,dc),(raw_dwt,wc),check=[resolved(r) for r in refs]
         if not first:
-            if not index and not raw_time and not vessel:continue  # A clipped tail of the preceding page row has no new identity.
+            if not index and not raw_time:continue  # A clipped tail of the preceding page row has no new identity.
             if normal(index) in ('ST','STT','T') and normal(vessel)=='TENTAU':continue
             if not index.isdigit() or int(index)!=last_index+1 or ic<.85:raise ValueError(f'Continuation row numbers do not follow QNP page: expected {last_index+1}, read {index!r}, confidence {ic:.3f}')
         if index.isdigit():last_index=int(index)
@@ -360,9 +362,11 @@ def extract(item):
     else:prior=published_seed(item)
     if prior:
         if prior.get('parser_version') == VERSION and prior.get('ocr_config')=='grid-cells-upright' and prior.get('images') == item['images'] and prior.get('from') and not prior.get('errors'):
+            checked_changed=bool(item.get('checked_at') and item['checked_at']!=prior.get('checked_at'))
+            if item.get('checked_at'):prior['checked_at']=item['checked_at']
             incomplete=bool(prior.get('pages') and not prior['pages'][-1].get('page_scope_complete'))
-            if not incomplete or prior.get('continuation_reader')=='qnp-continuation/5':
-                if not cache.exists():
+            if not incomplete or prior.get('continuation_reader')=='qnp-continuation/7':
+                if not cache.exists() or checked_changed:
                     temp=cache.with_suffix('.tmp');temp.write_text(json.dumps(prior,ensure_ascii=False,indent=2),encoding='utf-8');temp.replace(cache)
                 return prior
     pages = []; errors = []
@@ -375,7 +379,7 @@ def extract(item):
             errors.append({'image':image['url'],'error':str(e)})
     first = pages[0] if pages else {}
     combined=[r for page in pages for r in page.get('rows',[])]
-    result = {**item,'parser_version':VERSION,'ocr_config':'grid-cells-upright','continuation_reader':'qnp-continuation/5','parsed_at':dt.datetime.now(dt.timezone.utc).isoformat(),'pages':pages,'errors':errors,'rows':combined,'from':first.get('from'),'through':first.get('through'),'history_complete':False,'automatic_promotion':False}
+    result = {**item,'parser_version':VERSION,'ocr_config':'grid-cells-upright','continuation_reader':'qnp-continuation/7','parsed_at':dt.datetime.now(dt.timezone.utc).isoformat(),'pages':pages,'errors':errors,'rows':combined,'from':first.get('from'),'through':first.get('through'),'history_complete':False,'automatic_promotion':False}
     temp=cache.with_suffix('.tmp');temp.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8');temp.replace(cache)
     return result
 

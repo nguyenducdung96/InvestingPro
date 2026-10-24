@@ -117,5 +117,15 @@
     "operator_scope": "https://quynhonport.vn/nang-luc-hieu-suat/luong-vao-cang/",
     "authority_distinct_ports": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?id=1054&page=detail",
     "reviewed_on": "2026-10-25"
+  },
+  "page_glyph_review": {
+    "source_id": 7551,
+    "image_sha256": "e4148ebdbf7723de59119785e6d5a58ba08acc2ab57c7cb7dd7e867fd7b3904a",
+    "reviewed_on": "2026-10-25",
+    "field": "first continuation row STT",
+    "raw_ocr": "1",
+    "visually_read": "15",
+    "reason": "Top-clipped row index; subsequent rows 16-18 follow. No vessel/time/DWT/route values changed.",
+    "resolution": "Use a one-pixel inset for STT crops; OCR now reads 15-18 directly. No manual numeric substitution."
   }
 }

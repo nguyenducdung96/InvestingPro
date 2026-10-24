@@ -83,7 +83,7 @@ def main():
                         'continuation_reader':item.get('continuation_reader'),'url':item['url'],'image':item['images'][0]['url'],'sha256':item['images'][0]['sha256'],
                         'images':[{k:i[k] for k in ('url','sha256')} for i in item['images']],
                         'issued_on':item['from'][:10],'published_at':published_at,'parsed_at':item['parsed_at'],
-                        'from':item['from'],'through':item['through'],'quality':{
+                        'last_checked_at':item.get('checked_at'),'from':item['from'],'through':item['through'],'quality':{
                             'rejected_rows':sum(len(p.get('rejected',[]))+p.get('seed_rejected_rows',0) for p in pages)+conflict_rows,
                             'missing_dwt':sum(r['dwt'] is None for r in rows),
                             'continuation_pages':sum(p['status']=='continuation_requires_review' for p in pages)+len(item.get('errors',[])),
@@ -103,7 +103,7 @@ def main():
     if any(not expected.issubset(totals['directions'][direction]['months']) for direction in ('arrival','departure')):
         raise ValueError('Owned-berth month matrix incomplete; preserve the published dataset')
     metadata={'source_url':'https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=news&cat=2014',
-              'parser_version':bundle['parser_version'],'continuation_reader':'qnp-continuation/5','collected_at':dt.datetime.now(dt.timezone.utc).isoformat(),
+              'parser_version':bundle['parser_version'],'continuation_reader':'qnp-continuation/7','collected_at':dt.datetime.now(dt.timezone.utc).isoformat(),
               'candidate_documents':len(bundle['schedules'])+len(bundle['failures']),
               'parsed_documents':len(sources),'failed_documents':len(failures)+len(bundle['failures']),
               'rejected_rows':sum(s['quality']['rejected_rows'] for s in sources),
