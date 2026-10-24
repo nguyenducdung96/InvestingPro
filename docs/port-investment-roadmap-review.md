@@ -180,3 +180,9 @@ Hãng tàu/tuyến và tài chính vẫn thuộc Slice 4/5, sau đợt mở rộ
 Theo yêu cầu người dùng, đã triển khai [DVP trên staging](dvp-plans-staging.md), dùng alias chính xác DINH VU, toàn bến hai cầu, không chia giả số từng cầu. Lịch sử 01/01/2025–23/10/2026 đủ 661 ngày; database/API/UI live và manual workflow đã qua kiểm tra. Có tháng/quý/MTD/YTD/YoY, DWT bình quân, hai chiều riêng và drilldown động. PHP giữ phạm vi bốn bến.
 
 Trạng thái DVP: **dashboard lịch công bố đủ so sánh trong phạm vi quan sát trên staging**; actual, sản lượng công bố, hai chu kỳ cron và production chưa nghiệm thu. Không tự nâng quyền nguồn/mapping nghiên cứu hay số lịch thành actual. Các mã còn lại vẫn theo danh sách và gate nguồn đã duyệt; CDN/GMD là ứng viên kế tiếp, chưa được coi hoàn thành.
+
+## 13. Ưu tiên Hải Phòng: VGR / VSC — 24/10/2026
+
+Người dùng chấp nhận DVP và chuyển ưu tiên sang hoàn thiện Hải Phòng trước CDN. Đã yêu cầu làm ngay VGR/VSC. [Hồ sơ triển khai](vsc-vgr-plans-staging.md): VGR dùng VIP Greenport; VSC dùng phạm vi bốn cảng đã đối chiếu Greenport / VIP Greenport / Nam Hải Đình Vũ / VIMC Đình Vũ. Một kho VIP dùng chung hai góc nhìn mã; không cộng trùng khi mở rộng thống kê khu vực. VIMC được ghi quan hệ cổ đông, không tự coi công ty con.
+
+Luồng giao diện giữ chuẩn: header danh sách cảng, Tổng quan mặc định kể cả một cảng, chọn từng cảng, tháng/quý/YTD/YoY và drilldown. Phạm vi hiện tại được áp lên lịch sử hoạt động bến, không xác nhận lịch sử sở hữu hay tổng doanh thu hợp nhất. Cron hai chu kỳ và nguồn sản lượng riêng vẫn cần nghiệm thu riêng. Các mã HAH/DXP/PSP và GMD tại Hải Phòng là ứng viên kế tiếp, chưa tự triển khai trong yêu cầu VGR/VSC.

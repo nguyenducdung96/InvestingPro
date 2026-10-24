@@ -28,3 +28,15 @@ Workflow `vsc-plans.yml` thiết kế 06:50 Việt Nam hằng ngày, environment
 ## Validation local
 
 115/115 tests TypeScript/database, 17/17 Python parser, typecheck/lint đạt. 10/10 Playwright DVP/PHP/VGR/VSC desktop/mobile đạt. Tests gồm identity dữ liệu VIP giữa VGR/VSC, đủ bốn bến, thiếu bến, revision lệch, alias chính xác, nhập lặp, quyền đọc/ghi, default Tổng quan và đổi từng cảng. Chưa bổ sung chuỗi sản lượng công bố TEU/tấn, hãng tàu hoặc tài chính; không suy từ DWT.
+
+## Readback staging — 24/10/2026
+
+[Biên nhận staging](catalog-review/vsc-vgr-plans-staging-20261024.json). Hai migration và edition VGR/VSC đã áp dụng riêng qua Management API. Backfill dùng đúng RPC importer theo batch, không ghi thẳng bảng. Database xác nhận mỗi bến 661 ngày, không có ngày lỗi/DWT thiếu/nhóm mơ hồ. Raw và metadata lấy nguồn vẫn giữ riêng theo hash.
+
+Commit `b651474` được Workers Builds Linux deploy thành công; GitHub CI cũng thành công. API VGR/VSC live HTTP 200, chuỗi VIP Green giữa hai mã giống nhau; tổng tháng VSC bằng tổng bốn bến. Trong lúc job tuần tự đổi head, tổng có thể tạm null vì revision chưa đồng nhất; đây là giữ thiếu dữ liệu có chủ ý, không trộn các bản nguồn khác nhau.
+
+Tàu rời theo lịch đến 23/10: VGR tháng 10 có 26 dòng, 567.762 DWT, -0,51% YoY; YTD 6.870.287 DWT, -13,45%. VSC bốn cảng tháng 10 có 77 dòng, 1.231.822 DWT, +3,53%; YTD 15.942.836 DWT, -4,26%. Đây là số lịch đã quan sát, không phải sản lượng thực tế hoặc phạm vi hạch toán.
+
+Workflow đã đăng ký trên `main` ở commit `de043d7`; [manual run 40089005452](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40089005452) thành công từ checkpoint đến tải nguồn, nhập và readback. API sau run có trạng thái success. Chưa nghiệm thu hai event cron thực, không lấy manual run thay điều kiện đó.
+
+Toàn bộ 46/46 Playwright hồi quy đạt. Kiểm tra live bằng Playwright ở desktop 1440px/mobile 375px cho cả VGR/VSC đạt header 1/4 cards, Tổng quan mặc định, chọn VIP riêng rồi về tổng giữ chiều/quý, không tràn ngang. Ảnh `.local/vsc-plans/top-{VGR,VSC}-{desktop,mobile}.png` và `staging-{VGR,VSC}-{desktop,mobile}.png`; đã đọc ảnh desktop VSC. Hai mã sẵn sàng cho người dùng review trên staging; chưa coi là đã được người dùng chấp nhận hoặc nghiệm thu production.

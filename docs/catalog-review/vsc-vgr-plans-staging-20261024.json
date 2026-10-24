@@ -1,0 +1,230 @@
+{
+  "checked_on": "2026-10-24",
+  "environment": "staging",
+  "implementation_commit": "b651474",
+  "workflow_registration_commit": "de043d7c8845bed65766d6c81f06a377ad5b553f",
+  "workflow_run": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40089005452",
+  "workflow_event": "workflow_dispatch",
+  "workflow_status": "success",
+  "cloudflare_build": "b5320254-7654-4dc0-846b-21eb39f9d5d4",
+  "cloudflare_build_status": "success",
+  "github_ci": "success",
+  "scheduled_cycles_verified": 0,
+  "scheduled_refresh_verified": false,
+  "production_accepted": false,
+  "actual_verified": false,
+  "local_validation": {
+    "unit_database": 115,
+    "python_parser": 17,
+    "playwright": 46,
+    "typecheck": "passed",
+    "lint": "passed"
+  },
+  "api_reconciliation": {
+    "shared_vip_series": "identical",
+    "VSC_overview_equals_sum_of_four_berths": true
+  },
+  "ui_validation": {
+    "desktop_width": 1440,
+    "mobile_width": 375,
+    "status": "passed",
+    "header_cards": {
+      "VGR": 1,
+      "VSC": 4
+    },
+    "default_overview": true,
+    "scope_switch_and_direction_quarter_preserved": true,
+    "overflow": false,
+    "screenshots": ".local/vsc-plans/staging-{VGR,VSC}-{desktop,mobile}.png"
+  },
+  "api": {
+    "VGR": {
+      "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/api/v1/companies/VGR/plans",
+      "coverage": {
+        "first_day": "2025-01-01",
+        "last_source_day": "2026-10-23",
+        "last_attempt": "2026-10-24T18:13:31.121488+07:00",
+        "stale": false,
+        "errors": 0
+      },
+      "run": {
+        "asset_code": "vip_green_port",
+        "id": "40089005452-1",
+        "checked_at": "2026-10-24T18:13:36.037+07:00",
+        "through_day": "2026-10-23",
+        "status": "success",
+        "requested_days": 4,
+        "parsed_days": 4,
+        "error": null
+      },
+      "latest_departure_month": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 26,
+          "dwt": 567762,
+          "known_rows": 26,
+          "known_dwt": 567762,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 25,
+          "dwt": 570666,
+          "known_rows": 25,
+          "known_dwt": 570666,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 4.0000000000000036,
+          "dwt": -0.5088790991578218
+        }
+      },
+      "departure_ytd": {
+        "current": {
+          "from": "2026-01-01",
+          "through": "2026-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 303,
+          "dwt": 6870287,
+          "known_rows": 303,
+          "known_dwt": 6870287,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-01-01",
+          "through": "2025-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 340,
+          "dwt": 7937691,
+          "known_rows": 340,
+          "known_dwt": 7937691,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -10.882352941176466,
+          "dwt": -13.447285866884961
+        }
+      }
+    },
+    "VSC": {
+      "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/api/v1/companies/VSC/plans",
+      "coverage": {
+        "first_day": "2025-01-01",
+        "last_source_day": "2026-10-23",
+        "last_attempt": "2026-10-24T18:13:31.115977+07:00",
+        "stale": false,
+        "errors": 0
+      },
+      "run": {
+        "asset_code": "green_port",
+        "id": "40089005452-1",
+        "checked_at": "2026-10-24T18:13:33.775+07:00",
+        "through_day": "2026-10-23",
+        "status": "success",
+        "requested_days": 4,
+        "parsed_days": 4,
+        "error": null
+      },
+      "latest_departure_month": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 77,
+          "dwt": 1231822,
+          "known_rows": 77,
+          "known_dwt": 1231822,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 72,
+          "dwt": 1189764,
+          "known_rows": 72,
+          "known_dwt": 1189764,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 6.944444444444442,
+          "dwt": 3.534986770485582
+        }
+      },
+      "departure_ytd": {
+        "current": {
+          "from": "2026-01-01",
+          "through": "2026-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 986,
+          "dwt": 15942836,
+          "known_rows": 986,
+          "known_dwt": 15942836,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-01-01",
+          "through": "2025-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 939,
+          "dwt": 16652564,
+          "known_rows": 939,
+          "known_dwt": 16652564,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 5.005324813631518,
+          "dwt": -4.261974312184003
+        }
+      }
+    }
+  }
+}
