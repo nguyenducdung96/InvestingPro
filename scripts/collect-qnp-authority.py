@@ -346,11 +346,13 @@ def published_seed(item):
         pages.append({'status':'explicit_no_plan' if quality.get('explicit_no_plan') else 'parsed',
                       'from':source['from'],'through':source['through'],'rows':rows,'rejected':[],
                       'page_scope_complete':bool(quality.get('page_scope_complete')),
-                      'seed_rejected_rows':quality.get('rejected_rows',0) if i==0 else 0})
+                      'seed_rejected_rows':quality.get('rejected_rows',0) if i==0 else 0,
+                      'seed_duplicate_rows':quality.get('duplicate_rows',0) if i==0 else 0,
+                      'seed_conflicting_groups':quality.get('conflicting_groups',0) if i==0 else 0})
     return {**item,'parser_version':VERSION,'ocr_config':'grid-cells-upright','parsed_at':source['parsed_at'],
-            'from':source['from'],'through':source['through'],'rows':source['rows'],'pages':pages,
+            'from':source['from'],'through':source['through'],'rows':source['rows'],'pages':pages,'continuation_reader':source.get('continuation_reader'),
             'errors':[] if not source.get('source_error') else [{'error':source['source_error']}],
-            'seeded_from_versioned_hashes':True,'history_complete':False,'automatic_promotion':False}
+            'seeded_from_versioned_hashes':True,**({'checked_at':source['last_checked_at']} if source.get('last_checked_at') else {}),'history_complete':False,'automatic_promotion':False}
 
 
 def extract(item):
@@ -391,22 +393,38 @@ def main():
     items=json.loads((OUT/'candidates.json').read_text(encoding='utf-8'))['schedules']
     if args.limit:
         items=items[:args.limit]
-    archived=[];failures=[]
+    archived=[];failures=[];retained=[]
+    recent=dt.datetime.now(dt.timezone(dt.timedelta(hours=7))).date()-dt.timedelta(days=args.refresh_recent)
+    active=[]
+    for item in items:
+        if args.refresh_recent>0 and dt.date.fromisoformat(item['title_day'])<recent:
+            ident=int(re.search(r'id=(\d+)',item['url'])[1])
+            # Load the versioned catalogue, then retain old facts without claiming a new source check.
+            published_seed({'id':ident,'images':[]})
+            source=PUBLISHED.get(ident)
+            if source and not source.get('source_error'):
+                images=[{**image,'path':str(OUT/'evidence'/image['sha256'])} for image in source['images']]
+                seed=published_seed({**item,'id':ident,'images':images})
+                if seed:
+                    seed['retained_without_remote_recheck']=True
+                    target=OUT/'parsed'/f'{ident}.json';temp=target.with_suffix('.tmp')
+                    temp.write_text(json.dumps(seed,ensure_ascii=False,indent=2),encoding='utf-8');temp.replace(target)
+                    retained.append(seed);continue
+        active.append(item)
     with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
-        recent=dt.datetime.now(dt.timezone(dt.timedelta(hours=7))).date()-dt.timedelta(days=args.refresh_recent)
-        futures={pool.submit(archive,item,args.refresh_recent>0 and dt.date.fromisoformat(item['title_day'])>=recent):item for item in items}
+        futures={pool.submit(archive,item,args.refresh_recent>0):item for item in active}
         for future in concurrent.futures.as_completed(futures):
             try:archived.append(future.result())
             except Exception as e:failures.append({'url':futures[future]['url'],'error':str(e)})
-    print(f'Archived {len(archived)} schedules; {len(failures)} fetch failures',flush=True)
-    results=[]
+    print(f'Retained {len(retained)} versioned historical schedules without a new remote check; archived {len(archived)} current/new schedules; {len(failures)} fetch failures',flush=True)
+    results=retained.copy()
     with concurrent.futures.ProcessPoolExecutor(max_workers=args.workers,initializer=init_worker) as pool:
         futures={pool.submit(extract,item):item for item in archived}
         for future in concurrent.futures.as_completed(futures):
             try:results.append(future.result())
             except Exception as e:failures.append({'url':futures[future]['url'],'error':str(e)})
             if len(results)%20==0:print(f'Extracted {len(results)} schedules, {sum(len(r["rows"]) for r in results)} source rows',flush=True)
-    result={'parser_version':VERSION,'schedules':results,'failures':failures,'automatic_promotion':False,'history_complete':False}
+    result={'parser_version':VERSION,'refresh_window_days':args.refresh_recent,'retained_historical_documents':len(retained),'current_documents_archived':len(archived),'schedules':results,'failures':failures,'automatic_promotion':False,'history_complete':False}
     (OUT/'extracted.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8')
     print(json.dumps({'schedules':len(results),'rows':sum(len(r['rows']) for r in results),'failures':len(failures)}))
 

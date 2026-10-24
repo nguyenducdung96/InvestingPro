@@ -70,6 +70,7 @@ def main():
                 if keys[key]['dwt']!=r['dwt']:conflicted.add(key)
                 continue
             keys[key]=r
+        source_duplicates+=sum(p.get('seed_duplicate_rows',0) for p in pages)
         duplicate_rows+=source_duplicates
         for key,r in keys.items():
             if key in conflicted:
@@ -87,7 +88,7 @@ def main():
                             'rejected_rows':sum(len(p.get('rejected',[]))+p.get('seed_rejected_rows',0) for p in pages)+conflict_rows,
                             'missing_dwt':sum(r['dwt'] is None for r in rows),
                             'continuation_pages':sum(p['status']=='continuation_requires_review' for p in pages)+len(item.get('errors',[])),
-                            'page_scope_complete':bool(pages and pages[-1].get('page_scope_complete',False) and not item.get('errors')),'explicit_no_plan':explicit_empty,'duplicate_rows':source_duplicates,'conflicting_groups':conflict_rows},'rows':rows,**({'source_error':'One or more source pages did not pass validation; available QNP rows retained'} if item.get('errors') else {})})
+                            'page_scope_complete':bool(pages and pages[-1].get('page_scope_complete',False) and not item.get('errors')),'explicit_no_plan':explicit_empty,'duplicate_rows':source_duplicates,'conflicting_groups':conflict_rows+sum(p.get('seed_conflicting_groups',0) for p in pages)},'rows':rows,**({'source_error':'One or more source pages did not pass validation; available QNP rows retained'} if item.get('errors') else {})})
     present={s['id'] for s in sources}
     failed_ids={f['id'] for f in failures}|{int(re.search(r'id=(\d+)',f['url'])[1]) for f in bundle['failures']}
     for source in previous:
@@ -104,6 +105,7 @@ def main():
         raise ValueError('Owned-berth month matrix incomplete; preserve the published dataset')
     metadata={'source_url':'https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=news&cat=2014',
               'parser_version':bundle['parser_version'],'continuation_reader':'qnp-continuation/7','collected_at':dt.datetime.now(dt.timezone.utc).isoformat(),
+              'refresh_window_days':bundle.get('refresh_window_days',0),'retained_historical_documents':bundle.get('retained_historical_documents',0),'current_documents_archived':bundle.get('current_documents_archived',0),
               'candidate_documents':len(bundle['schedules'])+len(bundle['failures']),
               'parsed_documents':len(sources),'failed_documents':len(failures)+len(bundle['failures']),
               'rejected_rows':sum(s['quality']['rejected_rows'] for s in sources),
