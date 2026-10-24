@@ -1,19 +1,20 @@
 import {loadPhpPlans,loadPhpPlanEvents} from '@/lib/php-plans';
 import {YoyChange} from './yoy-change';
 import {publicRepository} from '@/lib/server';
-import {phpPlanSeries,phpPlanScopes,isPhpPlanScope,validPlanDate} from '@invest/port';
+import {phpPlanSeries,phpPlanScopes,isPhpPlanScope,dvpPlanSeries,dvpPlanScopes,validPlanDate} from '@invest/port';
 import {PlanColumnChart,type PlanColumn} from './plan-column-chart';
 const number=(n:number|null)=>n===null?'Chưa đủ dữ liệu':n.toLocaleString('vi-VN',{maximumFractionDigits:2});
-export async function PhpPlans({query}:{query:Record<string,string>}){
+export async function PhpPlans({query,ticker='PHP'}:{query:Record<string,string>;ticker?:'PHP'|'DVP'}){
  const requestedAsset=query.plan_asset??'';
- const asset=isPhpPlanScope(requestedAsset)?requestedAsset:'php';
- const berth=phpPlanScopes[asset];
+ const asset=ticker==='DVP'?'dinh_vu':isPhpPlanScope(requestedAsset)?requestedAsset:'php';
+ const berth=asset==='dinh_vu'?dvpPlanScopes.dinh_vu:phpPlanScopes[asset];
+ const seriesFor=(days:Parameters<typeof phpPlanSeries>[0],direction:Parameters<typeof phpPlanSeries>[2],now=new Date(),run:Parameters<typeof phpPlanSeries>[4]=null)=>asset==='dinh_vu'?dvpPlanSeries(days,asset,direction,now,run):phpPlanSeries(days,asset,direction,now,run);
  const direction=query.plan_direction==='arrival'?'arrival':'departure';
  const quarterly=query.plan_period==='quarter';
  const repo=publicRepository();
  let stored;
- try{stored=await loadPhpPlans(repo,asset);}catch{return <section id="vessel-plans" className="panel"><h2>Lịch điều động PHP</h2><p role="status">Chưa kết nối được dữ liệu lịch điều động. Vui lòng thử lại.</p></section>;}
- const series=phpPlanSeries(stored.days,asset,direction,new Date(),stored.run);
+ try{stored=await (asset==='dinh_vu'?repo.phpPlans(asset):loadPhpPlans(repo,asset));}catch{return <section id="vessel-plans" className="panel"><h2>Lịch điều động {ticker}</h2><p role="status">Chưa kết nối được dữ liệu lịch điều động. Vui lòng thử lại.</p></section>;}
+ const series=seriesFor(stored.days,direction,new Date(),stored.run);
  const latest=series.months.at(-1);
  const average=latest?.current.rows&&latest.current.dwt!==null?latest.current.dwt/latest.current.rows:null;
  const priorAverage=latest?.prior.rows&&latest.prior.dwt!==null?latest.prior.dwt/latest.prior.rows:null;
@@ -21,7 +22,7 @@ export async function PhpPlans({query}:{query:Record<string,string>}){
  const year=availableYears.includes(query.plan_year)?query.plan_year:query.plan_year==='all'?'all':series.cutoff.slice(0,4);
  const rows=(quarterly?series.quarters:series.months).filter(r=>year==='all'||r.period.startsWith(year));
  const comparisonYear=year==='all'?series.cutoff.slice(0,4):year;
- const comparisonYtd=comparisonYear===series.cutoff.slice(0,4)?series.ytd:phpPlanSeries(stored.days,asset,direction,new Date(`${Number(comparisonYear)+1}-01-01T00:00:00+07:00`)).ytd;
+ const comparisonYtd=comparisonYear===series.cutoff.slice(0,4)?series.ytd:seriesFor(stored.days,direction,new Date(`${Number(comparisonYear)+1}-01-01T00:00:00+07:00`)).ytd;
  const periods=quarterly?series.quarters:series.months;
  const calendar:PlanColumn[]=Array.from({length:quarterly?4:12},(_,i)=>{
   const suffix=quarterly?`Q${i+1}`:String(i+1).padStart(2,'0');
@@ -31,26 +32,26 @@ export async function PhpPlans({query}:{query:Record<string,string>}){
  });
  const selectedDay=validPlanDate(query.plan_day??'')?query.plan_day:series.cutoff;
  let detail=null;let detailError=false;
- if(latest)try{detail=await loadPhpPlanEvents(repo,asset,selectedDay);}catch{detailError=true;}
+ if(latest)try{detail=await (asset==='dinh_vu'?repo.phpPlanEvents(asset,selectedDay):loadPhpPlanEvents(repo,asset,selectedDay));}catch{detailError=true;}
  const label=direction==='arrival'?'Tàu vào':'Tàu rời';
  const dayMap=new Map(stored.days.map(d=>[d.report_day,d]));
  const daily:PlanColumn[]=Array.from({length:90},(_,i)=>{
   const date=new Date(Date.parse(series.cutoff)-(89-i)*86400000).toISOString().slice(0,10),d=dayMap.get(date);
   const value=d?.version_id&&!d.ambiguous_groups&&d[`${direction}_dwt_missing`]===0?d[`${direction}_dwt`]:null;
   const params=new URLSearchParams({plan_asset:asset,plan_direction:direction,plan_period:quarterly?'quarter':'month',plan_year:year,plan_day:date});
-  return {key:date,label:`${date.slice(8)}/${date.slice(5,7)}`,current:value??null,note:d?.version_id?`${d[`${direction}_rows`]??'—'} lượt theo lịch${value===null?'; thiếu DWT hoặc cần đối chiếu':''}`:'Chưa có bản lịch ngày',href:`/companies/PHP?${params}#plan-days`};
+  return {key:date,label:`${date.slice(8)}/${date.slice(5,7)}`,current:value??null,note:d?.version_id?`${d[`${direction}_rows`]??'—'} lượt theo lịch${value===null?'; thiếu DWT hoặc cần đối chiếu':''}`:'Chưa có bản lịch ngày',href:`/companies/${ticker}?${params}#plan-days`};
  });
- return <section id="vessel-plans" aria-label="Lịch điều động PHP" className="panel throughput-panel">
-  <p className="eyebrow">PHP · {berth.name.toLocaleUpperCase('vi-VN')} · LỊCH ĐIỀU ĐỘNG CẢNG VỤ</p><h2>Lượt tàu và trọng tải theo lịch công bố</h2><p className="notice">{berth.note}</p>
+ return <section id="vessel-plans" aria-label={`Lịch điều động ${ticker}`} className="panel throughput-panel">
+  <p className="eyebrow">{ticker} · {berth.name.toLocaleUpperCase('vi-VN')} · LỊCH ĐIỀU ĐỘNG CẢNG VỤ</p><h2>Lượt tàu và trọng tải theo lịch công bố</h2><p className="notice">{berth.note}</p>
   <p>DWT là trọng tải thiết kế tàu, không phải tấn hàng bốc xếp. Lịch điều động chưa xác nhận đã thực hiện; vào/rời được tính riêng, không cộng thành lượt ghé.</p>
-  <form method="get" action="/companies/PHP#vessel-plans" className="call-filters"><div><label htmlFor="plan-asset">Bến theo dõi</label><select id="plan-asset" name="plan_asset" defaultValue={asset}>{Object.entries(phpPlanScopes).map(([key,value])=><option key={key} value={key}>{value.name}</option>)}</select></div>{Object.entries(query).filter(([k])=>k.startsWith("plan_")&&k!=="plan_asset"&&k!=="plan_day").map(([k,v])=><input key={k} type="hidden" name={k} value={v}/>)}<button>Xem bến</button></form>
+  <form method="get" action={`/companies/${ticker}#vessel-plans`} className="call-filters"><div><label htmlFor="plan-asset">Bến theo dõi</label><select id="plan-asset" name="plan_asset" defaultValue={asset}>{Object.entries(ticker==='DVP'?dvpPlanScopes:phpPlanScopes).map(([key,value])=><option key={key} value={key}>{value.name}</option>)}</select></div>{Object.entries(query).filter(([k])=>k.startsWith("plan_")&&k!=="plan_asset"&&k!=="plan_day").map(([k,v])=><input key={k} type="hidden" name={k} value={v}/>)}<button>Xem bến</button></form>
   {!latest?<p role="status">Chưa có lịch được thu thập. Không coi ngày chưa có dữ liệu là 0.</p>:<>
    <div className="stats-strip"><div className="stat"><span>{label} · {latest.period} · 01–{series.cutoff.slice(8)} · {latest.status==='partial'?'đang tích lũy':'tháng đã qua'}</span><strong>{number(latest.current.dwt)} DWT</strong><span>{number(latest.current.rows)} lượt theo lịch · <YoyChange value={latest.yoy.dwt}/> YoY</span></div>
     <div className="stat"><span>Lũy kế {series.cutoff.slice(0,4)} đến {series.cutoff}</span><strong>{number(series.ytd.current.dwt)} DWT</strong><span>{number(series.ytd.current.rows)} lượt · <YoyChange value={series.ytd.yoy.dwt}/> YoY</span></div><div className="stat"><span>DWT bình quân / lượt · {latest.period}</span><strong>{number(average)}</strong><span>DWT/lượt theo lịch · <YoyChange value={average!==null&&priorAverage!==null&&priorAverage>0?(average/priorAverage-1)*100:null}/> YoY</span></div></div>
    {(series.coverage.stale||series.coverage.errors>0||series.run?.status==='failed')&&<p className="notice" role="status">{series.coverage.stale?'Dữ liệu chưa theo kịp ngày chốt hoặc quá hạn cập nhật. ':''}{series.coverage.errors>0||series.run?.status==='failed'?'Một phần dữ liệu chưa được cập nhật.':''}</p>}
    {latest.current.missing_days.length>0&&<p className="notice">Thiếu {latest.current.missing_days.length} ngày trong tháng. Đã quan sát {number(latest.current.known_rows)} dòng / {number(latest.current.known_dwt)} DWT; chưa dùng làm tổng kỳ đầy đủ.</p>}
-   <form method="get" action="/companies/PHP#vessel-plans" className="call-filters"><input type="hidden" name="plan_asset" value={asset}/><div><label htmlFor="plan-direction">Chiều tàu</label><select id="plan-direction" name="plan_direction" defaultValue={direction}><option value="departure">Tàu rời</option><option value="arrival">Tàu vào</option></select></div><div><label htmlFor="plan-period">Kỳ</label><select id="plan-period" name="plan_period" defaultValue={quarterly?'quarter':'month'}><option value="month">Tháng</option><option value="quarter">Quý</option></select></div><div><label htmlFor="plan-year">Năm</label><select id="plan-year" name="plan_year" defaultValue={year}><option value="all">Toàn bộ lịch sử</option>{availableYears.map(y=><option key={y} value={y}>{y}</option>)}</select></div><button>Xem lịch</button></form>
-   <nav className="section-tabs" aria-label="Biểu đồ bến PHP"><a href="#plan-history">Lưu lượng DWT</a><a href="#plan-yoy">So sánh cùng kỳ</a><a href="#plan-days">Lịch 90 ngày</a></nav>
+   <form method="get" action={`/companies/${ticker}#vessel-plans`} className="call-filters"><input type="hidden" name="plan_asset" value={asset}/><div><label htmlFor="plan-direction">Chiều tàu</label><select id="plan-direction" name="plan_direction" defaultValue={direction}><option value="departure">Tàu rời</option><option value="arrival">Tàu vào</option></select></div><div><label htmlFor="plan-period">Kỳ</label><select id="plan-period" name="plan_period" defaultValue={quarterly?'quarter':'month'}><option value="month">Tháng</option><option value="quarter">Quý</option></select></div><div><label htmlFor="plan-year">Năm</label><select id="plan-year" name="plan_year" defaultValue={year}><option value="all">Toàn bộ lịch sử</option>{availableYears.map(y=><option key={y} value={y}>{y}</option>)}</select></div><button>Xem lịch</button></form>
+   <nav className="section-tabs" aria-label={`Biểu đồ bến ${ticker}`}><a href="#plan-history">Lưu lượng DWT</a><a href="#plan-yoy">So sánh cùng kỳ</a><a href="#plan-days">Lịch 90 ngày</a></nav>
    <section id="plan-history" aria-label="Lưu lượng DWT theo kỳ">
     <PlanColumnChart title={`Lưu lượng DWT ${label.toLowerCase()} theo ${quarterly?'quý':'tháng'}`} currentLabel="Kỳ theo dõi" priorLabel="Cùng kỳ năm trước" columns={rows.map(r=>({key:r.period,label:r.period,current:r.current.dwt,prior:r.prior.dwt,partial:r.status==='partial',note:`${r.current.from} → ${r.current.through}; ${r.current.reported_days}/${r.current.expected_days} ngày nguồn`}))}/>
    </section>
@@ -61,7 +62,7 @@ export async function PhpPlans({query}:{query:Record<string,string>}){
    </section>
    <div id="plan-days"><h3>Đối chiếu lịch từng ngày</h3>
     <PlanColumnChart title={`DWT ${label.toLowerCase()} · 90 ngày gần nhất`} currentLabel={label} columns={daily} daily/>
-    <form method="get" action="/companies/PHP#plan-days" className="call-filters"><input type="hidden" name="plan_asset" value={asset}/><input type="hidden" name="plan_direction" value={direction}/><input type="hidden" name="plan_period" value={quarterly?'quarter':'month'}/><input type="hidden" name="plan_year" value={year}/><div><label htmlFor="plan-day">Ngày lịch nguồn</label><input id="plan-day" name="plan_day" type="date" min={series.coverage.first_day??undefined} max={series.cutoff} defaultValue={selectedDay}/></div><button>Tra cứu ngày</button></form>
+    <form method="get" action={`/companies/${ticker}#plan-days`} className="call-filters"><input type="hidden" name="plan_asset" value={asset}/><input type="hidden" name="plan_direction" value={direction}/><input type="hidden" name="plan_period" value={quarterly?'quarter':'month'}/><input type="hidden" name="plan_year" value={year}/><div><label htmlFor="plan-day">Ngày lịch nguồn</label><input id="plan-day" name="plan_day" type="date" min={series.coverage.first_day??undefined} max={series.cutoff} defaultValue={selectedDay}/></div><button>Tra cứu ngày</button></form>
     {detail?<><p>Ngày {detail.report_day} · Lịch điều động công bố</p><div className="call-table-wrap"><table className="call-table"><caption>{label} ngày {detail.report_day} · kế hoạch công bố</caption><thead><tr><th>Giờ dự kiến</th><th>Tàu</th><th>DWT</th><th>Từ</th><th>Đến</th></tr></thead><tbody>{detail.events.filter(e=>e.direction===direction).map((e,i)=><tr key={i}><td data-label="Giờ dự kiến">{e.planned_time}</td><td data-label="Tàu">{e.vessel_name}</td><td data-label="DWT">{number(e.dwt)}</td><td data-label="Từ">{e.from_berth}</td><td data-label="Đến">{e.to_berth}</td></tr>)}</tbody></table></div>{!detail.events.some(e=>e.direction===direction)&&<p>Không có dòng {label.toLowerCase()} {berth.name} trong lịch nguồn đã lấy; không xác nhận số tàu thực tế bằng 0.</p>}</>:<p role="status">{detailError?'Chưa tải được chi tiết ngày.':'Chưa có bản lịch ngày này.'}</p>}
    </div>
   </>}

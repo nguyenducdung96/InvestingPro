@@ -15,7 +15,7 @@ export default async function Page({
   return (
     <>
     {ticker==='PHP'&&<PhpBerthScope/>}
-    {ticker==='PHP'&&<PhpPlans query={query}/>}
+    {(ticker==='PHP'||ticker==='DVP')&&<PhpPlans query={query} ticker={ticker}/>}
     {ticker==='PHP'&&<PhpThroughput query={query}/>}
     <CompanyPage
       keyValue={ticker}

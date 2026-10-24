@@ -57,8 +57,8 @@ def measure(raw, day, url):
                 raise ValueError('Unexpected column count')
             records.append(dict(zip(header, row)))
         sections[name] = {'rows': len(records), 'source_empty':not records, 'pilot_rows': [r for r in records
-                            if r.get('Từ') in ('TAN VU', 'CHUA VE', 'HOANG DIEU', 'HTIT')
-                            or r.get('Đến') in ('TAN VU', 'CHUA VE', 'HOANG DIEU', 'HTIT')]}
+                            if r.get('Từ') in ('TAN VU', 'CHUA VE', 'HOANG DIEU', 'HTIT', 'DINH VU')
+                            or r.get('Đến') in ('TAN VU', 'CHUA VE', 'HOANG DIEU', 'HTIT', 'DINH VU')]}
     if not sections:
         raise ValueError('No movement tables')
     return {'url': url, 'report_date': str(day), 'sha256': hashlib.sha256(raw).hexdigest(),

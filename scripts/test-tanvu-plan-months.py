@@ -40,8 +40,8 @@ class PilotTests(unittest.TestCase):
         self.assertEqual(result['status'],'failed')
 
     def test_four_berths_never_mix_events_or_accept_nearby_aliases(self):
-        for alias in ('TAN VU','CHUA VE','HOANG DIEU','HTIT'):
-            rows=[row('CHINA',name) for name in ('TAN VU','CHUA VE','HOANG DIEU','HTIT','HICT','HHIT')]
+        for alias in ('TAN VU','CHUA VE','HOANG DIEU','HTIT','DINH VU'):
+            rows=[row('CHINA',name) for name in ('TAN VU','CHUA VE','HOANG DIEU','HTIT','HICT','HHIT','DINH VU','NAM DINH VU','NAM HAI DINH VU','PTSC DINH VU','EURO DINH VU')]
             measured={'sections':{'Vao':{'rows':len(rows),'pilot_rows':rows},'Roi':{'rows':0,'pilot_rows':[]},'DiChuyen':{'rows':0,'pilot_rows':[]}}}
             with patch.object(collector.probe,'measure',return_value=measured):
                 result=collector.parse_day(b'fixture',dt.date(2026,9,1),'fixture',alias)

@@ -143,3 +143,5 @@ export {phpBerths,phpPlanScopes,isPhpPlanScope,aggregatePhpPlanDays,type PhpPlan
 export {tanvuPlanSeries,validPlanDate,type TanVuPlanDay,type TanVuPlanRun,type TanVuPlanEvents} from './tanvu-plans';
 
 export * from './company-berths';
+
+export * from './dvp-plans';

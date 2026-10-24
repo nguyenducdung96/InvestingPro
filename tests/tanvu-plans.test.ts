@@ -60,16 +60,22 @@ it('imports idempotently, versions corrections, protects RLS and preserves succe
   expect((await db.query('select * from port.tanvu_plan_versions')).rows).toHaveLength(2);
   await expect(db.exec('update port.tanvu_plan_versions set events=\'[]\'')).rejects.toThrow('immutable');
   await db.exec(`set role service_role;select set_config('request.jwt.claims','{"role":"service_role"}',false);`);
-  for(const [asset,alias] of Object.entries({tan_vu:'TAN VU',chua_ve:'CHUA VE',hoang_dieu:'HOANG DIEU',htit:'HTIT'})){
+  for(const [asset,alias] of Object.entries({tan_vu:'TAN VU',chua_ve:'CHUA VE',hoang_dieu:'HOANG DIEU',htit:'HTIT',dinh_vu:'DINH VU'})){
    const data={...input,events:[{...input.events[0],from_berth:alias}]};
    await db.query('select port.import_php_plan_days($1,$2)',[asset,JSON.stringify([data])]);
    const replay=await db.query<{result:{versions_inserted:number}}>('select port.import_php_plan_days($1,$2) as result',[asset,JSON.stringify([data])]);
    expect(replay.rows[0].result.versions_inserted).toBe(0);
   }
   await expect(db.query('select port.import_php_plan_days($1,$2)',['chua_ve',JSON.stringify([input])])).rejects.toThrow('Invalid PHP berth');
-  await expect(db.query('select port.import_php_plan_days($1,$2)',['hict',JSON.stringify([input])])).rejects.toThrow('Unknown PHP berth');
-  expect((await db.query('select * from port.php_plan_days')).rows).toHaveLength(4);
+  await expect(db.query('select port.import_php_plan_days($1,$2)',['hict',JSON.stringify([input])])).rejects.toThrow('Unknown schedule berth');
+  expect((await db.query('select * from port.php_plan_days')).rows).toHaveLength(5);
+  for(const alias of ['NAM DINH VU','NAM HAI DINH VU','PTSC DINH VU','EURO DINH VU','TAN VU']){
+   await expect(db.query('select port.import_php_plan_days($1,$2)',['dinh_vu',JSON.stringify([{...input,events:[{...input.events[0],from_berth:alias}]}])])).rejects.toThrow();
+  }
   await db.exec(`reset role;select set_config('request.jwt.claims','{}',false);set role anon`);
+  const dvp=await db.query<{result:{events:{from_berth:string}[]}}>("select port.php_plan_events('dinh_vu','2025-09-01') as result");
+  expect(dvp.rows[0].result.events[0].from_berth).toBe('DINH VU');
+  await expect(db.query('select port.import_php_plan_days($1,$2)',['dinh_vu',JSON.stringify([input])])).rejects.toThrow();
   const chua=await db.query<{result:{events:{from_berth:string}[]}}>("select port.php_plan_events('chua_ve','2025-09-01') as result");
   expect(chua.rows[0].result.events[0].from_berth).toBe('CHUA VE');
   await expect(db.query('select * from port.php_plan_versions')).rejects.toThrow();

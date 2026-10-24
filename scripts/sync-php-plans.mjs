@@ -1,12 +1,13 @@
 import {readFile,writeFile} from 'node:fs/promises';
 import {supabaseKeyHeaders} from '../packages/db/src/api-key-headers.mjs';
-const root='.local/php-plans/';
+const company=process.argv.includes('--dvp')?'DVP':'PHP';
+const root=company==='DVP'?'.local/dvp-plans/':'.local/php-plans/';
 const receipt=JSON.parse(await readFile(root+'receipt.json','utf8'));
 const base=process.env.SUPABASE_URL,key=process.env.SUPABASE_SERVICE_ROLE_KEY;
 if(!base||!key)throw new Error('Configure staging scheduler credentials.');
 const url=new URL(base);
 if(url.protocol!=='https:'||!url.hostname.endsWith('.supabase.co'))throw new Error('Expected Supabase project URL');
-const assets=['tan_vu','chua_ve','hoang_dieu','htit'];
+const assets=company==='DVP'?['dinh_vu']:['tan_vu','chua_ve','hoang_dieu','htit'];
 if(receipt.semantics!=='authority_published_plan'||assets.some(a=>!Array.isArray(receipt.assets?.[a])||!receipt.assets[a].length))throw new Error('Invalid schedule receipt');
 async function rpc(name,body){
  const r=await fetch(new URL('/rest/v1/rpc/'+name,url),{method:'POST',headers:{...supabaseKeyHeaders(key),'Content-Type':'application/json','Content-Profile':'port'},body:JSON.stringify(body),signal:AbortSignal.timeout(45000)});

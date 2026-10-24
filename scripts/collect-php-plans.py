@@ -1,4 +1,4 @@
-"""One official report fetch feeds four strictly separate physical berths."""
+"""Official report collection for separate PHP and DVP berth scopes."""
 import argparse
 import concurrent.futures
 import datetime as dt
@@ -24,8 +24,12 @@ def fetch_report(url):
             time.sleep(1+attempt)
 
 def main():
-    parser=argparse.ArgumentParser();parser.add_argument('--days-file',type=pathlib.Path)
-    args=parser.parse_args();RAW.mkdir(parents=True,exist_ok=True)
+    parser=argparse.ArgumentParser();parser.add_argument('--days-file',type=pathlib.Path);parser.add_argument('--company',choices=['PHP','DVP'],default='PHP')
+    args=parser.parse_args()
+    global ASSETS,OUT,RAW
+    if args.company=='DVP':
+        ASSETS={'dinh_vu':'DINH VU'};OUT=ROOT/'.local/dvp-plans';RAW=OUT/'raw'
+    RAW.mkdir(parents=True,exist_ok=True)
     raw=fetch_report(pilot.probe.BASE+'?d=0')
     match=re.search(r'KẾ HOẠCH ĐIỀU ĐỘNG TÀU NGÀY\s+(\d{2}/\d{2}/\d{4})',pilot.probe.plain(raw.decode('utf8')))
     if not match:raise ValueError('Cannot calibrate server day')
@@ -39,7 +43,7 @@ def main():
         if any(d<dt.date(2025,1,1) or d>cutoff for d in dates):raise ValueError('Day outside elapsed source range')
     # Validated raw archives can be reparsed for new berths without refetching history.
     cached={}
-    for folder,raw_folder in [(pilot.OUT/'day-cache',pilot.RAW),(OUT/'day-cache',RAW)]:
+    for folder,raw_folder in [(pilot.OUT/'day-cache',pilot.RAW),(ROOT/'.local/php-plans/day-cache',ROOT/'.local/php-plans/raw'),(OUT/'day-cache',RAW)]:
         for path in folder.glob('*.json'):
             try:
                 d=json.loads(path.read_text(encoding='utf8'))
