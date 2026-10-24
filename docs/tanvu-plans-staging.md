@@ -25,6 +25,12 @@ Job giữ checkpoint kể cả khi một ngày lỗi, ghi receipt gọn và tr�
 
 ## Kiểm tra
 
+### Biểu đồ sản lượng doanh nghiệp công bố — 24/10/2026
+
+Phần sản lượng tấn hàng/TEU dùng cùng biểu đồ cột đôi với hoạt động tàu, nhưng đơn vị và dữ liệu độc lập. Có bộ chọn chỉ tiêu, tháng/quý, năm hoặc toàn bộ lịch sử; bảng số, YoY và nguồn đặt trong phần mở rộng mặc định thu gọn. Giữ toàn bộ lịch sử trong database. Khoảng lịch sử có tháng thiếu được vẽ khoảng trống, không nối bỏ tháng. Quý chỉ cộng khi đủ ba tháng và đủ chỉ tiêu; lũy kế cùng kỳ tiếp tục theo chuỗi liên tục có ở cả hai năm. Bộ chọn năm sinh từ kỳ trong database; không đặt cố định năm cuối hoặc số liệu trên chart. Form sản lượng giữ các bộ lọc `plan_` hiện có và trở về đúng phần `#throughput`.
+
+Kiểm tra: lint/typecheck đạt; 4 Playwright desktop/mobile cho sản lượng và lịch điều động đạt. Bao gồm số thay đổi không rebuild, đơn vị tấn hàng/TEU đúng cả nhãn giá trị, cặp cột đúng, 12 tháng, lịch sử giữ khoảng thiếu, quý không đủ để trống, bảng/nguồn thu gọn, hai theme và không tràn trang.
+
 ### Cập nhật biểu đồ so sánh 22/10/2026
 
 Trang PHP bổ sung biểu đồ cột đôi cho lưu lượng DWT và so sánh theo tháng/quý của hai năm (xanh/vàng), cùng biểu đồ 90 ngày bấm đến lịch từng ngày. Chọn toàn bộ lịch sử cho biểu đồ chuỗi; phần so sánh năm dùng năm hiện tại khi chọn toàn bộ. Kỳ đang tích lũy so cùng khoảng ngày, kỳ tương lai chỉ vẽ năm trước nếu có; null không trở thành zero. Dùng dữ liệu database hiện hữu, không thêm số từ ảnh tham khảo. Chưa bổ sung hãng tàu hoặc bản đồ tuyến vì dữ liệu tên hãng và tuyến dịch vụ chưa được xác minh.

@@ -7,7 +7,7 @@ const number=(n:number|null|undefined)=>n==null?'Chưa có đủ dữ liệu':n.
 const tick=(n:number)=>n>=1000000?`${(n/1000000).toLocaleString('vi-VN',{maximumFractionDigits:2})}tr`:n>=1000?`${(n/1000).toLocaleString('vi-VN',{maximumFractionDigits:1})}k`:String(n);
 
 /** Only presentation state lives here; values and comparison windows come from the server. */
-export function PlanColumnChart({title,columns,currentLabel,priorLabel,daily=false}:{title:string;columns:PlanColumn[];currentLabel:string;priorLabel?:string;daily?:boolean}){
+export function PlanColumnChart({title,columns,currentLabel,priorLabel,daily=false,unit='DWT'}:{title:string;columns:PlanColumn[];currentLabel:string;priorLabel?:string;daily?:boolean;unit?:string}){
  const [active,setActive]=useState<string|null>(null);
  const selected=columns.find(c=>c.key===active);
  const maximum=Math.max(1,...columns.flatMap(c=>[c.current??0,c.prior??0]));
@@ -17,9 +17,9 @@ export function PlanColumnChart({title,columns,currentLabel,priorLabel,daily=fal
  const spacing=daily?12:columns.some(c=>c.label.length>5)?56:40;
  const width=Math.max(560,columns.length*spacing+left+16),plot=width-left-16,slot=plot/Math.max(1,columns.length);
  const bar=Math.min(daily?9:18,slot*(priorLabel?0.34:0.66));
- const description=(c:PlanColumn)=>`${c.key}: ${currentLabel} ${number(c.current)} DWT${priorLabel?`; ${priorLabel} ${number(c.prior)} DWT`:''}${c.partial?'; đang tích lũy':''}${c.note?`; ${c.note}`:''}`;
+ const description=(c:PlanColumn)=>`${c.key}: ${currentLabel} ${number(c.current)} ${unit}${priorLabel?`; ${priorLabel} ${number(c.prior)} ${unit}`:''}${c.partial?'; đang tích lũy':''}${c.note?`; ${c.note}`:''}`;
  return <figure className="plan-chart" aria-label={title}>
-  <figcaption><h3>{title}</h3><div className="plan-chart-legend"><span><i className="plan-swatch-current"/>{currentLabel}</span>{priorLabel&&<span><i className="plan-swatch-prior"/>{priorLabel}</span>}<span className="meta">Đơn vị: DWT</span></div></figcaption>
+  <figcaption><h3>{title}</h3><div className="plan-chart-legend"><span><i className="plan-swatch-current"/>{currentLabel}</span>{priorLabel&&<span><i className="plan-swatch-prior"/>{priorLabel}</span>}<span className="meta">Đơn vị: {unit}</span></div></figcaption>
   <p className="plan-chart-readout" aria-live="polite">{selected?description(selected):daily?'Bấm cột để xem lịch tàu ngày đó. Ngày thiếu giữ trống.':'Di chuột, chạm hoặc dùng Tab để xem giá trị. Cột viền nét đứt: kỳ đang tích lũy; dấu —: chưa có đủ dữ liệu.'}</p>
   <div className="plan-chart-scroll" tabIndex={0} role="region" aria-label={`${title} · cuộn ngang để xem hết`}>
    <svg viewBox={`0 0 ${width} ${top+height+bottom}`} style={{minWidth:width}} aria-label={title}>

@@ -14,11 +14,18 @@ test('PHP reads changed database responses without rebuild; filters, nulls, sour
  await expect(berthScope.getByText('Nhãn bến Cảng vụ: HTIT')).toBeVisible();
 
  const region=page.getByRole('region',{name:'Sản lượng Tân Vũ',exact:true});
- await expect(region.getByRole('heading',{name:'Theo dõi hoạt động cảng'})).toBeVisible();
+ await expect(region.getByRole('heading',{name:'Sản lượng hàng hóa doanh nghiệp công bố'})).toBeVisible();
+ const chart=region.getByRole('figure');
+ await expect(chart.getByText('Đơn vị: tấn hàng',{exact:true})).toBeVisible();
+ await expect(chart.locator('svg g[role="img"]')).toHaveCount(12);
+ expect(await chart.locator('svg g[role="img"]').nth(4).locator('.plan-bar-current').getAttribute('height')).not.toBeNull();
+ await expect(chart.locator('svg g[role="img"]').nth(4)).toHaveAttribute('aria-label',/2026 2.000 tấn hàng; 2025 1.000 tấn hàng/);
+ await expect(region.getByRole('table')).not.toBeVisible();
  await expect(region.getByText('3.000',{exact:true}).first()).toBeVisible();
  expect((await(await request.get('/api/v1/companies/PHP/throughput')).json()).months).toHaveLength(3);
  await write([row('2025-05',1000),row('2026-05',2500),row('2026-06',4000)]);
  await page.reload();await expect(region.getByText('4.000',{exact:true}).first()).toBeVisible();
+ await region.getByText(/Xem bảng số liệu, YoY và nguồn/).click();
  await expect(region.getByText('+150%',{exact:true})).toBeVisible();
  await region.getByText('Bản tin · trang 1').first().click();
  await expect(region.getByRole('link',{name:'Mở PDF chính thức'}).first()).toHaveAttribute('href',/haiphongport/);
@@ -27,7 +34,15 @@ test('PHP reads changed database responses without rebuild; filters, nulls, sour
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.screenshot({path:`test-results/php-throughput-${theme}-${info.project.name}.png`,fullPage:true});
  }
- await page.getByLabel('Kỳ',{exact:true}).selectOption('quarter');await page.getByRole('button',{name:'Xem số liệu'}).click();
+ await region.getByLabel('Chỉ tiêu',{exact:true}).selectOption('container_teu');await region.getByRole('button',{name:'Xem số liệu'}).click();
+ await expect(chart.getByText('Đơn vị: TEU',{exact:true})).toBeVisible();
+ await expect(chart.locator('svg g[role="img"]').nth(4)).toHaveAttribute('aria-label',/2026 100 TEU; 2025 100 TEU/);
+ await region.getByLabel('Năm',{exact:true}).selectOption('all');await region.getByRole('button',{name:'Xem số liệu'}).click();
+ await expect(chart.locator('svg g[role="img"]')).toHaveCount(14); // May 2025 to June 2026, including missing months
+ await expect(chart.locator('svg g[role="img"]').nth(1).locator('.plan-bar-current')).toHaveCount(0);
+ await region.getByLabel('Kỳ',{exact:true}).selectOption('quarter');await region.getByRole('button',{name:'Xem số liệu'}).click();
+ await expect(chart.locator('.plan-bar-current')).toHaveCount(0); // no complete three-month quarter
+ await region.getByText(/Xem bảng số liệu, YoY và nguồn/).click();
  await expect(region.getByText('Chưa đủ dữ liệu',{exact:true}).first()).toBeVisible();
  await request.post('http://127.0.0.1:54329/__berths',{data:[]});
  await write([]);await page.reload();await expect(region.getByText(/Chưa có kỳ số liệu được duyệt công bố/)).toBeVisible();
