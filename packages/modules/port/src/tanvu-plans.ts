@@ -3,6 +3,7 @@ export interface TanVuPlanDay {
  last_success:string|null;last_attempt:string;source_error:string|null;
  arrival_rows:number|null;departure_rows:number|null;arrival_dwt:number|null;departure_dwt:number|null;
  arrival_dwt_missing:number|null;departure_dwt_missing:number|null;ambiguous_groups:number|null;source_empty_sections:string[];
+ observed_available?:boolean;arrival_known_rows?:number|null;departure_known_rows?:number|null;
  arrival_known_dwt?:number|null;departure_known_dwt?:number|null;
  arrival_ambiguous_groups?:number|null;departure_ambiguous_groups?:number|null;
 }
@@ -25,13 +26,14 @@ export function tanvuPlanSeries(input:TanVuPlanDay[],direction:PlanDirection='de
   const missing_days=expected.filter(key=>!map.get(key)?.version_id);
   const missing_dwt=present.reduce((s,d)=>s+(d[`${direction}_dwt_missing`]??0),0);
   const ambiguous_groups=present.reduce((s,d)=>s+(d[`${direction}_ambiguous_groups`]??d.ambiguous_groups??0),0);
-  const known_rows=present.reduce((s,d)=>s+Number(d[`${direction}_rows`]??0),0);
-  const known_dwt=present.reduce((s,d)=>s+Number(d[`${direction}_known_dwt`]??d[`${direction}_dwt`]??0),0);
-  const observed_dwt=present.length>0&&present.every(d=>d[`${direction}_known_dwt`]!=null||d[`${direction}_dwt`]!=null)&&(known_rows===0||known_rows>missing_dwt)?known_dwt:null;
+  const observed=expected.flatMap(key=>{const d=map.get(key);return d&&(d.version_id||d.observed_available)?[d]:[];});
+  const known_rows=observed.reduce((s,d)=>s+Number(d[`${direction}_known_rows`]??d[`${direction}_rows`]??0),0);
+  const known_dwt=observed.reduce((s,d)=>s+Number(d[`${direction}_known_dwt`]??d[`${direction}_dwt`]??0),0);
+  const observed_dwt=observed.some(d=>(d[`${direction}_known_rows`]??d[`${direction}_rows`])===0||((d[`${direction}_known_rows`]??d[`${direction}_rows`]??0)>(d[`${direction}_dwt_missing`]??0)&&(d[`${direction}_known_dwt`]!=null||d[`${direction}_dwt`]!=null)))?known_dwt:null;
   const complete=expected.length>0&&!missing_days.length&&!ambiguous_groups;
   return {from,through,expected_days:expected.length,reported_days:present.length,missing_days,missing_dwt,ambiguous_groups,
    error_days:expected.filter(key=>map.get(key)?.source_error),
-   rows:complete?known_rows:null,dwt:complete&&!missing_dwt&&present.every(d=>d[`${direction}_dwt`]!==null)?known_dwt:null,known_rows,known_dwt,observed_dwt,complete};
+   rows:complete?known_rows:null,dwt:complete&&!missing_dwt&&present.every(d=>d[`${direction}_dwt`]!==null)?known_dwt:null,known_rows,known_dwt,observed_dwt,observed_days:observed.length,complete};
  }
  function period(key:string,from:string,end:string){
   const through=end<cutoff?end:cutoff;

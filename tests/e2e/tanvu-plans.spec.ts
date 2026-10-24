@@ -104,11 +104,10 @@ test('PHP comparison totals include the current partial month, respect year and 
  await expect(footer.getByRole('rowheader')).toHaveText(`Lũy kế ${year-1} (T1–T12)`);
  await expect(footer.locator('td[data-label="Phạm vi"]')).toContainText(`${year-1}-01-01 → ${year-1}-12-31`);
  await expect(footer.getByLabel('Chưa đủ dữ liệu so sánh',{exact:true})).toHaveText('—');
- // HTIT has no comparable January-April base; a partial base cannot produce YTD growth.
+ // HTIT recorded totals remain comparable even though the series starts in May.
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:days.map(d=>({...d,asset_code:'htit'})),details:[]}});
  await page.goto('/companies/PHP?plan_asset=htit#plan-yoy');
- await expect(footer.getByLabel('Chưa đủ dữ liệu so sánh',{exact:true})).toHaveText('—');
- await expect(footer.getByText('Chưa đủ dữ liệu để tính tăng/giảm lũy kế.',{exact:true})).toBeVisible();
+ const htit=await(await request.get('/api/v1/companies/PHP/plans?asset=htit')).json();await expect(footer.locator('[data-label="YoY DWT"]')).toContainText(((htit.ytd.current.observed_dwt/htit.ytd.prior.observed_dwt-1)*100).toLocaleString('vi-VN',{maximumFractionDigits:2})+'%');
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:[]}});
 });
 
@@ -149,7 +148,7 @@ test('PHP defaults to the four-berth overview, matches its drilldown and updates
  total=await(await request.get('/api/v1/companies/PHP/plans?asset=php')).json();
  expect(total.months.at(-1).current.dwt).toBeNull();expect(total.months.at(-1).current.rows).toBeNull();
  expect((await(await request.get(`/api/v1/companies/PHP/plans?asset=php&day=${cutoff}`)).json()).data).toBeNull();
- await page.reload();await expect(region.getByText(/Thiếu 1 ngày trong tháng/)).toBeVisible();
+ await page.reload();await expect(region.locator('tfoot [data-label="DWT"]')).toHaveText((await(await request.get('/api/v1/companies/PHP/plans?asset=php&direction=arrival')).json()).ytd.current.observed_dwt.toLocaleString('vi-VN'));await expect(region.locator('tfoot [data-label="YoY DWT"]')).toContainText('%');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:[],details:[]}});
 });

@@ -22,7 +22,7 @@ test('CQN shows a cited port, overview, honest berth semantics and internal move
   await expect(region.getByRole('heading',{name:'Lượt cập/rời cầu và trọng tải theo kế hoạch'})).toBeVisible();
   await expect(region.getByText('Điều chuyển nội cảng',{exact:true})).toBeVisible();
   await expect(region.locator('.notice').filter({hasText:'Chưa xác định nhãn bến tạm'})).toBeVisible();
-  await expect(region.getByText('Nền cùng kỳ thiếu DWT ở 1 lượt theo lịch.',{exact:true})).toBeVisible();
+  await expect(region.locator('tfoot [data-label="YoY DWT"]')).toContainText('%');
   expect((await request.get('/api/v1/companies/CQN/plans?day=2026-02-30')).status()).toBe(400);
 
   await select.selectOption(asset);await region.getByRole('button',{name:'Xem bến',exact:true}).click();

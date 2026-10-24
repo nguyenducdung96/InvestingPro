@@ -56,7 +56,7 @@ export function northOverview(groups:Record<string,TanVuPlanDay[]|undefined>,que
  rows.sort((a,b)=>{
   if(a.group!==b.group)return a.group==='hai_phong'?-1:1;
   if(selection.sort==='ticker')return northTickers.indexOf(a.ticker)-northTickers.indexOf(b.ticker);
-  const value=(r:typeof a)=>selection.sort==='dwt'?r.metric?.current.dwt:r.metric?.yoy.dwt;
+  const value=(r:typeof a)=>selection.sort==='dwt'?r.metric?.current.observed_dwt:(r.metric?.current.observed_dwt!=null&&r.metric.prior.observed_dwt!=null&&r.metric.prior.observed_dwt>0?(r.metric.current.observed_dwt/r.metric.prior.observed_dwt-1)*100:null);
   const av=value(a),bv=value(b);return av==null?(bv==null?0:1):bv==null?-1:bv-av;
  });
  return {selection,rows,scope:{tickers:northTickers.length,unique_assets:northAssets.length,shared_assets:[{asset:'vip_green_port',tickers:['VGR','VSC']}],regional_total:null,nationwide_complete:false},ready_rows:rows.filter(r=>r.metric?.current.dwt!=null).length};

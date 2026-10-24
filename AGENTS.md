@@ -1,0 +1,7 @@
+# Port investment dashboards
+
+User-confirmed display policy (2026-10-25): the purpose is observing investment trends. For every integrated port issuer and regional overview, display recorded vessel rows, recorded DWT, cumulative sums and YoY even if some source days or individual DWT values are missing. Do not blank an entire month, quarter or YTD because coverage is incomplete. Compute displayed YoY from the two displayed recorded values when the prior value is positive.
+
+Keep coverage, source errors and missing weights in collapsed details. Do not add prominent per-cell completeness warnings for small gaps. Keep the current partial month visible and label its update window. The ordinary issuer YTD includes data through the stated cutoff; the CDN completed-month comparison footer uses finished months available in both years.
+
+Preserve missing raw values, source provenance, full-coverage API fields and quality metadata separately. Never fabricate a missing day or weight as zero, and never present planned movements as confirmed actuals. A period with no observations remains unavailable. For multi-berth scopes, retain recorded contributions from available berths without certifying the entire scope as complete. Keep CQN berth movements separate from port arrivals/departures and do not add overlapping issuer scopes into regional totals.

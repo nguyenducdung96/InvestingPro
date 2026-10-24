@@ -1,3 +1,4 @@
+import {cdnPeriodDisplay} from '../apps/web/src/lib/cdn-comparison';
 import {expect,it} from 'vitest';
 import {northAssets,northSelection,northOverview,type TanVuPlanDay} from '@invest/port';
 const now=new Date('2026-10-24T01:00:00Z');
@@ -33,4 +34,16 @@ it('keeps unavailable issuers visible, isolates late refresh and sorts unknowns 
  const arrival=northOverview(groups(),{direction:'arrival'},now).rows.find(r=>r.ticker==='DVP')!;
  const departure=northOverview(groups(),{},now).rows.find(r=>r.ticker==='DVP')!;
  expect(arrival.metric!.current.dwt).toBe(departure.metric!.current.dwt!*2);expect(arrival.href).toContain('plan_direction=arrival');
+});
+
+it('all nine northern issuers retain recorded period and YTD values when the last day is missing',()=>{
+ const g=groups();for(const asset of northAssets)g[asset]=g[asset].filter(d=>d.report_day!=='2026-10-23');
+ const result=northOverview(g,{},now);
+ for(const row of result.rows){
+  const display=cdnPeriodDisplay(row.metric);expect(display.rows).toBeGreaterThan(0);expect(display.dwt).toBeGreaterThan(0);expect(display.yoyDwt).not.toBeNull();expect(row.metric?.current.dwt).toBeNull();
+ }
+ // A missing member must not erase the other berths' contributions on that day.
+ const partial=groups();partial.chua_ve=partial.chua_ve.filter(d=>d.report_day!=='2026-10-23');
+ const php=northOverview(partial,{},now).rows.find(r=>r.ticker==='PHP')!.metric!;
+ expect(php.current.known_rows).toBe(23*4-1);expect(php.current.observed_days).toBe(23);expect(php.current.observed_dwt).toBeGreaterThan(0);expect(php.current.dwt).toBeNull();
 });

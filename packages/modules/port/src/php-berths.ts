@@ -30,7 +30,10 @@ export function aggregateBerthPlanDays(groups:Record<string,TanVuPlanDay[]|undef
   const hashes=new Set(present.map(d=>d.source_sha256));
   const complete=members.every(d=>d?.version_id)&&hashes.size===1&&!!present[0]?.source_sha256;
   const sum=(key:'arrival_rows'|'departure_rows'|'arrival_dwt'|'departure_dwt'|'arrival_dwt_missing'|'departure_dwt_missing'|'ambiguous_groups')=>complete&&present.every(d=>d[key]!==null)?present.reduce((n,d)=>n+d[key]!,0):null;
-  return {report_day,version_id:complete?present.map(d=>d.version_id).join(':'):null,source_sha256:complete?present[0].source_sha256:null,source_url:null,parser_version:null,
+  const observed=present.filter(d=>d.version_id||d.observed_available);
+  const knownRows=(direction:'arrival'|'departure')=>observed.reduce((n,d)=>n+(d[`${direction}_known_rows`]??d[`${direction}_rows`]??0),0);
+  const knownDwt=(direction:'arrival'|'departure')=>observed.some(d=>d[`${direction}_known_dwt`]!=null||d[`${direction}_dwt`]!=null)?observed.reduce((n,d)=>n+(d[`${direction}_known_dwt`]??d[`${direction}_dwt`]??0),0):null;
+  return {observed_available:observed.length>0,arrival_known_rows:knownRows('arrival'),departure_known_rows:knownRows('departure'),arrival_known_dwt:knownDwt('arrival'),departure_known_dwt:knownDwt('departure'),report_day,version_id:complete?present.map(d=>d.version_id).join(':'):null,source_sha256:complete?present[0].source_sha256:null,source_url:null,parser_version:null,
    last_attempt:present.map(d=>d.last_attempt).sort()[0],last_success:complete?present.map(d=>d.last_success).filter((s):s is string=>!!s).sort()[0]??null:null,
    source_error:!complete?`Incomplete ${scope} daily coverage`:present.find(d=>d.source_error)?.source_error??null,
    arrival_rows:sum('arrival_rows'),departure_rows:sum('departure_rows'),arrival_dwt:sum('arrival_dwt'),departure_dwt:sum('departure_dwt'),arrival_dwt_missing:sum('arrival_dwt_missing'),departure_dwt_missing:sum('departure_dwt_missing'),ambiguous_groups:sum('ambiguous_groups'),source_empty_sections:[]};

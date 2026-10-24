@@ -1,3 +1,4 @@
+import {readFileSync} from 'node:fs';
 import {test,expect} from '@playwright/test';
 const assets=['tan_vu','chua_ve','hoang_dieu','htit','dinh_vu','vip_green_port','green_port','nam_hai_dinh_vu','vimc_dinh_vu','nam_dinh_vu','hai_an','doan_xa','ptsc_dinh_vu','cqn_cai_lan'];
 function fixture(){
@@ -25,14 +26,30 @@ test('overview preserves filters, marks incomplete periods and updates without a
  const f=fixture(),d=f.days.find(d=>d.asset_code==='doan_xa'&&d.report_day===f.cutoff)!;Object.assign(d,{departure_dwt:null,departure_dwt_missing:1,source_error:'TEST ONLY source failure; prior successful version retained'});
  const hah=f.days.find(d=>d.asset_code==='hai_an'&&d.report_day===f.cutoff)!;hah.last_success='2025-01-01T00:00:00Z';
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:f.days}});await page.goto('/industries/ports/north');
- const dxp=page.locator('[data-ticker="DXP"]');await expect(dxp.getByText('Kỳ chưa đủ DWT',{exact:true})).toBeVisible();await expect(dxp.getByText('Cập nhật cần kiểm tra',{exact:true})).toBeVisible();await expect(page.locator('[data-ticker="HAH"]').getByText('Chậm / thiếu cập nhật',{exact:true})).toBeVisible();
+ const dxp=page.locator('[data-ticker="DXP"]');await expect(dxp.locator('[data-label="DWT"] strong')).toHaveText(((f.count-1)*1200).toLocaleString('vi-VN'));await expect(dxp.getByText('Cập nhật cần kiểm tra',{exact:true})).toBeVisible();await expect(page.locator('[data-ticker="HAH"]').getByText('Chậm / thiếu cập nhật',{exact:true})).toBeVisible();
  await dxp.getByText('Độ phủ và lưu ý',{exact:true}).click();await expect(dxp.getByText('Thiếu DWT',{exact:true})).toBeVisible();
  for(const theme of ['dark','light']){await page.getByLabel('Giao diện',{exact:true}).selectOption(theme);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}
  await page.getByLabel('Chiều tàu',{exact:true}).selectOption('arrival');await page.getByLabel('Kỳ theo dõi',{exact:true}).selectOption('quarter');await page.getByRole('button',{name:'Xem tổng quan',exact:true}).click();
  await expect(page.getByLabel('Chiều tàu',{exact:true})).toHaveValue('arrival');await expect(page.getByLabel('Kỳ theo dõi',{exact:true})).toHaveValue('quarter');
  const link=await page.locator('[data-ticker="VGR"] .north-ticker').getAttribute('href');expect(link).toContain('plan_direction=arrival');expect(link).toContain('plan_period=quarter');
  await page.screenshot({path:`test-results/north-${info.project.name}.png`,fullPage:true});
- await request.post('http://127.0.0.1:54329/__plans',{data:{days:[]}});await page.reload();await expect(page.locator('tbody tr')).toHaveCount(9);await expect(page.getByText('Kỳ chưa đủ DWT',{exact:true})).toHaveCount(9);
+ await request.post('http://127.0.0.1:54329/__plans',{data:{days:[]}});await page.reload();await expect(page.locator('tbody tr')).toHaveCount(9);await expect(page.locator('tbody [data-label="DWT"] strong').filter({hasText:'—'})).toHaveCount(9);
  const empty=await(await request.get('/api/v1/industries/ports/north')).json();expect(empty.rows.every((r:{metric:unknown})=>r.metric===null)).toBe(true);expect(empty.ready_rows).toBe(0);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
+test('all northern issuer pages and the overview keep month and YTD visible with a missing source day',async({page,request})=>{
+ const hp=JSON.parse(readFileSync('docs/catalog-review/haiphong-berth-scope-20261024.json','utf8')).entries,vsc=JSON.parse(readFileSync('docs/catalog-review/vsc-vgr-berth-scope-20261024.json','utf8')),cqn=JSON.parse(readFileSync('docs/catalog-review/cqn-berth-scope-20261024.json','utf8')).entries;
+ await request.post('http://127.0.0.1:54329/__throughput',{data:[]});await request.post('http://127.0.0.1:54329/__berths',{data:Object.entries({...hp,...vsc,CQN:cqn}).map(([ticker,entries])=>({id:ticker,ticker,observed_on:'2026-10-24',published_at:new Date().toISOString(),entries}))});
+ const f=fixture();await request.post('http://127.0.0.1:54329/__plans',{data:{days:f.days.filter(d=>d.report_day!==f.cutoff)}});
+ await page.goto('/industries/ports/north');
+ for(const ticker of ['PHP','DVP','VGR','VSC','GMD','HAH','DXP','PSP','CQN']){
+  const row=page.locator(`[data-ticker="${ticker}"]`);await expect(row.locator('[data-label="DWT"] strong')).not.toHaveText('—');await expect(row.locator('[data-label="YoY DWT"]')).toContainText('%');
+ }
+ for(const ticker of ['PHP','DVP','VGR','VSC','GMD','HAH','DXP','PSP','CQN']){
+  await page.goto(`/companies/${ticker}#plan-yoy`);const table=page.locator('#plan-yoy');
+  await expect(table.locator('tbody tr').last().locator('[data-label="DWT"]')).not.toHaveText('Chưa đủ dữ liệu');
+  await expect(table.locator('tfoot [data-label="DWT"]')).not.toHaveText('Chưa đủ dữ liệu');await expect(table.locator('tfoot [data-label="YoY DWT"]')).toContainText('%');
+ }
+ await request.post('http://127.0.0.1:54329/__plans',{data:{days:[]}});
 });

@@ -17,7 +17,7 @@ test('four Hai Phong issuers show cited ports, regional overview and unchanged s
   await expect(scope.locator('article')).toHaveCount(1);await expect(select).toHaveValue(ticker.toLowerCase());
   await expect(region.getByText('TEST '+ticker,{exact:true})).toBeVisible();
   const total=await(await request.get(`/api/v1/companies/${ticker}/plans`)).json();expect(total.months.at(-1).current.dwt).toBe(through*(i+1)*100);
-  if(ticker==='GMD'){expect(total.name).toContain('Hải Phòng');expect(total.months.at(-1).prior.dwt).toBeNull();expect(total.months.at(-1).yoy.dwt).toBeNull();await expect(region.getByText('Nền cùng kỳ thiếu DWT ở 1 lượt theo lịch.',{exact:true})).toBeVisible();}
+  if(ticker==='GMD'){expect(total.name).toContain('Hải Phòng');expect(total.months.at(-1).prior.dwt).toBeNull();expect(total.months.at(-1).yoy.dwt).toBeNull();await expect(region.locator('tfoot [data-label="DWT"]')).not.toHaveText('Chưa đủ dữ liệu');}
   await select.selectOption(asset);await region.getByRole('button',{name:'Xem bến',exact:true}).click();
   await expect(select).toHaveValue(asset);
   const single=await(await request.get(`/api/v1/companies/${ticker}/plans?asset=${asset}`)).json();expect(single.months).toEqual(total.months);expect(single.ytd).toEqual(total.ytd);
