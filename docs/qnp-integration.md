@@ -22,7 +22,7 @@ Workflow qnp-plans.yml cấu hình 07:35 Việt Nam, kiểm tra lại bốn bả
 
 ## Kiểm chứng
 
-139/139 Vitest đạt với một worker; typecheck, lint, production build, diff-check đạt. QNP/CDN Playwright desktop/mobile: 4 luồng đạt (locator mobile sửa để không phụ thuộc nhãn CSS). Python7 hợp đồng parser đạt;5 bộ ảnh nguồn đối chiếu trực quan,19 dòng tham chiếu/18DWT chắc chắn khớp; một ô chưa chắc giữ null. Chưa chạy lại toàn bộ E2E dự án.
+139/139 Vitest đạt với một worker; typecheck, lint, production build, diff-check đạt. QNP/CDN Playwright desktop/mobile: 4 luồng đạt (locator mobile sửa để không phụ thuộc nhãn CSS). Python8 hợp đồng parser đạt;5 bộ ảnh nguồn đối chiếu trực quan,19 dòng tham chiếu/18DWT chắc chắn khớp; một ô chưa chắc giữ null. Chưa chạy lại toàn bộ E2E dự án.
 
 Miền Trung hiện tích hợp CDN và QNP; CMP/NAP/GMD–Dung Quất vẫn pending. Staging readback được ghi riêng sau deployment.
 

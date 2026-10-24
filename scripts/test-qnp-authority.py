@@ -3,6 +3,8 @@ import pathlib
 import unittest
 from unittest.mock import patch
 import tempfile
+import json
+import shutil
 
 spec=importlib.util.spec_from_file_location('authority',pathlib.Path(__file__).with_name('collect-qnp-authority.py'))
 m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
@@ -31,6 +33,27 @@ class SourceContracts(unittest.TestCase):
             self.assertIsNone(seed['published_at'])
             self.assertFalse(seed['history_complete'])
             self.assertEqual(m.published_seed({'id':1,'images':[{**image,'sha256':'b'*64}]}),{})
+
+    def test_cold_export_retains_historical_publication_dates_without_downloaded_html(self):
+        # The scheduled runner starts without the private local archive.
+        m.published_seed({'id':-1,'images':[]})
+        sources=list(m.PUBLISHED.values())
+        spec=importlib.util.spec_from_file_location('exporter',pathlib.Path(__file__).with_name('export-qnp-history.py'))
+        exporter=importlib.util.module_from_spec(spec);spec.loader.exec_module(exporter)
+        with tempfile.TemporaryDirectory() as folder:
+            root=pathlib.Path(folder);out=root/'.local/qnp-authority';out.mkdir(parents=True)
+            (root/'scripts').mkdir();(root/'docs/catalog-review').mkdir(parents=True)
+            shutil.copyfile(pathlib.Path(__file__).with_name('collect-qnp-authority.py'),root/'scripts/collect-qnp-authority.py')
+            retained=[]
+            for source in sources:
+                seed=m.published_seed({'id':source['id'],'url':source['url'],'title_day':source['through'][:10],'images':source['images']})
+                seed['retained_without_remote_recheck']=True;retained.append(seed)
+            (out/'extracted.json').write_text(json.dumps({'parser_version':m.VERSION,'schedules':retained,'failures':[]}),encoding='utf-8')
+            target=root/'generated.ts'
+            with patch.object(exporter,'ROOT',root),patch.object(exporter,'OUT',out),patch.object(exporter,'TARGET',target):exporter.main()
+            self.assertTrue(target.exists())
+            self.assertFalse(list(out.glob('detail-*.html')))
+            self.assertIn('"published_at":'+json.dumps(sources[0]['published_at']),target.read_text(encoding='utf-8'))
 
     def test_source_weight_formats_and_unknowns(self):
         self.assertEqual(m.weight('28,378'),28378)
