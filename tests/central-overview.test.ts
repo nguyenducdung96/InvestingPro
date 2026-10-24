@@ -27,3 +27,13 @@ it('CDN arrival conflicts do not suppress the independently valid departure seri
  const arrival=centralOverview(days,{direction:'arrival'},now).rows[0].metric!;
  expect(arrival.current.rows).toBeNull();expect(arrival.current.dwt).toBeNull();expect(arrival.current.observed_dwt).toBe(4600);
 });
+it('CDN recorded YTD equals monthly subtotals even when weights or prior report days are missing',()=>{
+ const cutoff='2026-10-23',start=Date.parse('2026-01-01'),end=Date.parse(cutoff);
+ const current=Array.from({length:(end-start)/86400000+1},(_,i)=>({...rows[0],report_day:new Date(start+i*86400000).toISOString().slice(0,10),departure_rows:2,departure_dwt:i<10?null:100,departure_dwt_missing:i<10?1:0,departure_known_dwt:100}));
+ const prior=current.filter(d=>!d.report_day.endsWith('10-22')).map(d=>({...d,report_day:'2025'+d.report_day.slice(4),departure_dwt_missing:0,departure_dwt:100}));
+ const series=issuerPlanSeries([...prior,...current],'CDN','cdn','departure',now);
+ const months=series.months.filter(m=>m.period.startsWith('2026'));
+ expect(series.ytd.current.observed_dwt).toBe(months.reduce((n,m)=>n+(m.current.observed_dwt??0),0));
+ expect(series.ytd.current.missing_days).toHaveLength(0);expect(series.ytd.current.missing_dwt).toBe(10);
+ expect(series.ytd.current.dwt).toBeNull();expect(series.ytd.prior.missing_days).toEqual(['2025-10-22']);expect(series.ytd.yoy.dwt).toBeNull();
+});

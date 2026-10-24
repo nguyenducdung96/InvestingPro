@@ -42,3 +42,9 @@ Parser 1.1.0 đã tách xung đột theo chiều. Với hai dòng trùng khóa n
 CDN mặc định mở **DWT đã ghi nhận**, với lựa chọn lượt và DWT đủ dữ liệu riêng; Tổng quan một cảng và từng Tiên Sa được giữ. Bảng và hai cột cùng kỳ đổi cùng chỉ tiêu. MTD đến 24/10/2026 có 1.981.502,67 DWT đã ghi nhận, khớp phần nguyên 1.981.502 trong ảnh. Tháng 08/2026 được khôi phục phần chiều rời hợp lệ, không cần thêm Sơn Trà. API nguồn được đọc tuần tự mặc định và thử lại có giới hạn khi trang trả thiếu cấu trúc; lỗi bền vững vẫn thất bại, không chuyển thành số 0.
 
 Kiểm chứng local: 126/126 Vitest chạy tuần tự, 16/16 Python, 8/8 Playwright CDN/PHP desktop/mobile trước đổi mặc định, chạy lại CDN desktop/mobile sau đổi mặc định; typecheck/lint đạt. Lần chạy Vitest đồng thời ban đầu có ba hook timeout do tải local; chạy toàn suite tuần tự đạt, không tăng timeout hoặc bỏ test. Kiểm chứng staging và tác vụ cập nhật được lưu trong biên nhận riêng.
+
+## Nhãn chất lượng và đối chiếu lũy kế
+
+Readback chiều rời đến 24/10/2026: lũy kế đã ghi nhận 25.470.389,13 DWT bằng tổng các tháng; cùng kỳ 23.947.819,65 DWT. Năm 2026 đủ 297/297 ngày lịch nhưng còn 10 lượt chưa có DWT. Cùng kỳ 2025 có 296/297 ngày (thiếu 22/10/2025) và 6 lượt chưa có DWT. Có số ở mọi tháng không đồng nghĩa mọi dòng có trọng tải.
+
+Giao diện thay nhãn chung “Độ phủ chưa đủ” bằng từng lý do: ngày lịch thiếu, lượt chưa có DWT, nhóm cần đối chiếu. Cột YoY được ghi rõ là YoY DWT đầy đủ; phần chân bảng xác nhận lũy kế đã ghi nhận vẫn được cộng từ những dòng có DWT. Không đổi số liệu, điền trọng tải thiếu hay bật YoY đầy đủ khi chưa đủ điều kiện. Kiểm thử bổ sung đối chiếu tổng tháng với lũy kế khi thiếu trọng tải và ngày cùng kỳ; kiểm tra giao diện desktop/mobile.
