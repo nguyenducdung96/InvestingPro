@@ -25,3 +25,11 @@ Migration `202610240008` và `202610240009` bổ sung allowlist CQN riêng, gi�
 Workflow `cqn-plans.yml`: 07:10 Việt Nam hằng ngày; checkpoint chọn ngày mới/thiếu và bốn ngày gần nhất, đối chiếu lại bản sửa, cache raw đã xác minh hash. Ngày nguồn không có bản lịch được ghi thiếu; run lấy/nhập có thể thành công với parsed_days < requested_days, không chứng nhận đủ độ phủ. Lỗi fetch/schema/import hoặc không đọc lại được ngày chốt làm run thất bại. Không dùng một lần chạy thủ công thay nghiệm thu hai chu kỳ cron.
 
 Local: 14/14 kiểm thử parser CQN, 17/17 parser Hải Phòng, 117/117 TypeScript/database, 50/50 Playwright desktop/mobile, typecheck/lint/Next build đạt. Một lần chạy Vitest đồng thời với E2E bị timeout hook do tải máy; chạy lại hai workers đạt toàn bộ. Staging/API/UI và manual refresh được ghi riêng sau triển khai trong biên nhận staging.
+
+## Staging live — 24/10/2026
+
+[Biên nhận staging](catalog-review/cqn-plans-staging-20261024.json). Readback database khớp 661 ngày đầu mục/584 ngày lịch hợp lệ/77 ngày nguồn thiếu, 813 dấu cập, 810 dấu rời, thiếu DWT bằng 0 và ba nhóm khác giờ. API hai scope bằng nhau, `actual_verified=false`, `movement_scope=berth`. Đến 23/10: tháng 10 có 33 dấu rời / 1.136.982,45 DWT, cùng kỳ 31 / 927.085,29 DWT, YoY DWT +22,64%; chiều cập 33 / 1.167.222,35 DWT, YoY +27,06%. Lũy kế giữ null vì ba nhóm cần đối chiếu; YoY lũy kế giữ null với 77 ngày nền nguồn thiếu.
+
+Workers Builds và CI Linux của `4609e98` thành công, gồm OpenNext bundle. UI/API live ở 1440px và 375px đạt: card cảng có nguồn, Tổng quan mặc định, số khớp cảng riêng, giữ bộ lọc chiều/quý khi đổi scope, có loại điều chuyển và không tràn ngang. Đã đọc ảnh desktop/mobile. Phần giải thích đầu trang được rút gọn, quy tắc đếm/nguồn đưa vào mục mở rộng; hiển thị lý do lũy kế thiếu ngay cạnh thống kê, kiểm tra lại 2/2 Playwright và typecheck/lint đạt.
+
+Workflow đăng ký trên main tại `6c384601`, [manual run 40097703534](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40097703534) thành công. API readback run `40097703534-1` status success: 81 ngày được kiểm tra, 4 bản lịch hợp lệ, 77 ngày nguồn không có bản lịch. Đây là kiểm chứng vận hành có ghi thiếu, không chứng nhận đủ lịch sử. Hai chu kỳ event cron thực vẫn chưa nghiệm thu; CQN chờ người dùng review.

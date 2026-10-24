@@ -11,7 +11,7 @@ export const haiPhongBerths={
  doan_xa:{name:'Đoạn Xá',start:'2025-01-01',note:'Lịch tại Cảng Đoạn Xá theo nhãn DOAN XA. DWT thiết kế tàu không phải sản lượng hàng hoặc doanh thu DXP.'},
  ptsc_dinh_vu:{name:'PTSC Đình Vũ',start:'2025-01-01',note:'Lịch PTSC DINH VU; không gộp Đình Vũ/DVP, Nam Đình Vũ, Nam Hải Đình Vũ hoặc VIMC.'},
 } as const;
-export const cqnBerth={name:'Cái Lân · CQN',start:'2025-01-01',note:'Theo dõi cầu 1, 5, 6, 7 Cái Lân theo nhãn nguồn đã đối chiếu. Chưa xác định nhãn bến tạm nên chưa gồm bến tạm; loại cầu 2–3–4 của CICT. Chỉ tiêu cập/rời cầu theo kế hoạch, gồm điều chuyển nội cảng; không phải lượt tàu vào/rời toàn cảng.'} as const;
+export const cqnBerth={name:'Cái Lân · CQN',start:'2025-01-01',note:'Theo dõi cầu 1, 5, 6, 7 Cái Lân. Chưa xác định nhãn bến tạm; chưa gồm bến tạm và khu neo. Không gồm CICT (cầu 2–3–4).'} as const;
 export const issuerPlanScopes={
  CQN:{cqn:{...cqnBerth,name:'Tổng quan CQN · 1 cảng · 4 cầu theo dõi'},cqn_cai_lan:cqnBerth},
  GMD:{gmd:{...haiPhongBerths.nam_dinh_vu,name:'Tổng quan GMD · Hải Phòng · 1 cảng',note:'Phạm vi Hải Phòng: chỉ Cảng Nam Đình Vũ. Chưa phải tổng hoạt động GMD toàn quốc, không gồm Gemalink, Dung Quất hoặc các ICD. Không quy đổi DWT thành hàng hóa, doanh thu hoặc nhân theo tỷ lệ sở hữu.'},nam_dinh_vu:haiPhongBerths.nam_dinh_vu},

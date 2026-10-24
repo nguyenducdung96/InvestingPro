@@ -1,0 +1,544 @@
+{
+  "checked_at": "2026-10-24T13:23:11.633730+00:00",
+  "scope": "CQN Cai Lan bridges 1,5,6,7 only",
+  "staging_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/companies/CQN",
+  "database": {
+    "counts": {
+      "ambiguous_groups": 3,
+      "arrivals": 813,
+      "departures": 810,
+      "first_day": "2025-01-01",
+      "last_day": "2026-10-23",
+      "missing_dwt": 0,
+      "parsed_days": 584,
+      "requested_days": 661,
+      "unavailable_days": 77
+    },
+    "edition": {
+      "entries": [
+        {
+          "alias": "CQN_CAI_LAN",
+          "asset_code": "cqn_cai_lan",
+          "effective_from": null,
+          "effective_to": null,
+          "name": "Cái Lân · CQN",
+          "operator": "Công ty Cổ phần Cảng Quảng Ninh",
+          "relationship": "operator",
+          "source_note": "Giấy chứng nhận 88/2020/GCN-CHHVN ghi cầu 1, 5, 6, 7 và bến tạm. Lịch chỉ ghép chính xác bốn cầu 1/5/6/7; chưa nhận diện bến tạm, không gồm CICT cầu 2–3–4. Giữ ngày hiệu lực quan hệ và thay đổi giấy phép hiện tại chưa xác định.",
+          "source_sha256": "aaef704b2ae7526c5626b2425b170b1e2e2762d71ad48055a01d087868e1d4ca",
+          "source_url": "https://quangninhport.com.vn/FileUpload/Documents/2.GPKDCB.pdf"
+        }
+      ],
+      "observed_on": "2026-10-24",
+      "ticker": "CQN"
+    },
+    "latest": {
+      "ambiguous_groups": 0,
+      "arrival_dwt": 5098.6,
+      "arrival_dwt_missing": 0,
+      "arrival_rows": 1,
+      "asset_code": "cqn_cai_lan",
+      "departure_dwt": 3829,
+      "departure_dwt_missing": 0,
+      "departure_rows": 1,
+      "last_attempt": "2026-10-24T13:15:40.552026+00:00",
+      "last_success": "2026-10-24T13:15:40.552026+00:00",
+      "parser_version": "quangninh-berth-plan/1.0.0",
+      "report_day": "2026-10-23",
+      "source_empty_sections": [],
+      "source_error": null,
+      "source_sha256": "95949376ad3e4aad05c8a029b891a1d94612ea13293022f549b671408e92ba10",
+      "source_url": "https://kht1.cangvuhanghaiquangninh.gov.vn/",
+      "version_id": "884fec05-d6be-4092-8495-2e8ae0c4b337"
+    }
+  },
+  "live_api": {
+    "semantics": "authority_published_berth_plan",
+    "cutoff": "2026-10-23",
+    "month_departure": {
+      "period": "2026-10",
+      "status": "partial",
+      "current": {
+        "from": "2026-10-01",
+        "through": "2026-10-23",
+        "expected_days": 23,
+        "reported_days": 23,
+        "missing_days": [],
+        "missing_dwt": 0,
+        "ambiguous_groups": 0,
+        "error_days": [],
+        "rows": 33,
+        "dwt": 1136982.45,
+        "known_rows": 33,
+        "known_dwt": 1136982.45,
+        "complete": true
+      },
+      "prior": {
+        "from": "2025-10-01",
+        "through": "2025-10-23",
+        "expected_days": 23,
+        "reported_days": 23,
+        "missing_days": [],
+        "missing_dwt": 0,
+        "ambiguous_groups": 0,
+        "error_days": [],
+        "rows": 31,
+        "dwt": 927085.29,
+        "known_rows": 31,
+        "known_dwt": 927085.29,
+        "complete": true
+      },
+      "yoy": {
+        "rows": 6.451612903225801,
+        "dwt": 22.64054475505699
+      }
+    },
+    "month_arrival": {
+      "period": "2026-10",
+      "status": "partial",
+      "current": {
+        "from": "2026-10-01",
+        "through": "2026-10-23",
+        "expected_days": 23,
+        "reported_days": 23,
+        "missing_days": [],
+        "missing_dwt": 0,
+        "ambiguous_groups": 0,
+        "error_days": [],
+        "rows": 33,
+        "dwt": 1167222.35,
+        "known_rows": 33,
+        "known_dwt": 1167222.35,
+        "complete": true
+      },
+      "prior": {
+        "from": "2025-10-01",
+        "through": "2025-10-23",
+        "expected_days": 23,
+        "reported_days": 23,
+        "missing_days": [],
+        "missing_dwt": 0,
+        "ambiguous_groups": 0,
+        "error_days": [],
+        "rows": 31,
+        "dwt": 918640.3,
+        "known_rows": 31,
+        "known_dwt": 918640.3,
+        "complete": true
+      },
+      "yoy": {
+        "rows": 6.451612903225801,
+        "dwt": 27.05978063448773
+      }
+    },
+    "ytd": {
+      "current": {
+        "from": "2026-01-01",
+        "through": "2026-10-23",
+        "expected_days": 296,
+        "reported_days": 296,
+        "missing_days": [],
+        "missing_dwt": 0,
+        "ambiguous_groups": 3,
+        "error_days": [],
+        "rows": null,
+        "dwt": null,
+        "known_rows": 507,
+        "known_dwt": 12705250.139999997,
+        "complete": false
+      },
+      "prior": {
+        "from": "2025-01-01",
+        "through": "2025-10-23",
+        "expected_days": 296,
+        "reported_days": 219,
+        "missing_days": [
+          "2025-01-01",
+          "2025-01-02",
+          "2025-01-04",
+          "2025-01-05",
+          "2025-01-06",
+          "2025-01-07",
+          "2025-01-08",
+          "2025-01-09",
+          "2025-01-10",
+          "2025-01-11",
+          "2025-01-13",
+          "2025-01-14",
+          "2025-01-16",
+          "2025-01-17",
+          "2025-01-18",
+          "2025-01-19",
+          "2025-01-20",
+          "2025-01-22",
+          "2025-01-24",
+          "2025-01-26",
+          "2025-01-27",
+          "2025-01-28",
+          "2025-01-29",
+          "2025-01-30",
+          "2025-01-31",
+          "2025-02-01",
+          "2025-02-02",
+          "2025-02-03",
+          "2025-02-04",
+          "2025-02-05",
+          "2025-02-06",
+          "2025-02-07",
+          "2025-02-08",
+          "2025-02-09",
+          "2025-02-10",
+          "2025-02-11",
+          "2025-02-13",
+          "2025-02-14",
+          "2025-02-15",
+          "2025-02-16",
+          "2025-02-17",
+          "2025-02-18",
+          "2025-02-20",
+          "2025-02-21",
+          "2025-02-22",
+          "2025-02-23",
+          "2025-02-25",
+          "2025-02-26",
+          "2025-02-28",
+          "2025-03-01",
+          "2025-03-03",
+          "2025-03-04",
+          "2025-03-05",
+          "2025-03-06",
+          "2025-03-07",
+          "2025-03-09",
+          "2025-03-10",
+          "2025-03-11",
+          "2025-03-12",
+          "2025-03-13",
+          "2025-03-14",
+          "2025-03-15",
+          "2025-03-16",
+          "2025-03-17",
+          "2025-03-18",
+          "2025-03-19",
+          "2025-03-20",
+          "2025-03-21",
+          "2025-03-22",
+          "2025-03-23",
+          "2025-03-24",
+          "2025-03-25",
+          "2025-03-26",
+          "2025-03-28",
+          "2025-03-29",
+          "2025-07-22",
+          "2025-08-25"
+        ],
+        "missing_dwt": 0,
+        "ambiguous_groups": 0,
+        "error_days": [
+          "2025-01-01",
+          "2025-01-02",
+          "2025-01-04",
+          "2025-01-05",
+          "2025-01-06",
+          "2025-01-07",
+          "2025-01-08",
+          "2025-01-09",
+          "2025-01-10",
+          "2025-01-11",
+          "2025-01-13",
+          "2025-01-14",
+          "2025-01-16",
+          "2025-01-17",
+          "2025-01-18",
+          "2025-01-19",
+          "2025-01-20",
+          "2025-01-22",
+          "2025-01-24",
+          "2025-01-26",
+          "2025-01-27",
+          "2025-01-28",
+          "2025-01-29",
+          "2025-01-30",
+          "2025-01-31",
+          "2025-02-01",
+          "2025-02-02",
+          "2025-02-03",
+          "2025-02-04",
+          "2025-02-05",
+          "2025-02-06",
+          "2025-02-07",
+          "2025-02-08",
+          "2025-02-09",
+          "2025-02-10",
+          "2025-02-11",
+          "2025-02-13",
+          "2025-02-14",
+          "2025-02-15",
+          "2025-02-16",
+          "2025-02-17",
+          "2025-02-18",
+          "2025-02-20",
+          "2025-02-21",
+          "2025-02-22",
+          "2025-02-23",
+          "2025-02-25",
+          "2025-02-26",
+          "2025-02-28",
+          "2025-03-01",
+          "2025-03-03",
+          "2025-03-04",
+          "2025-03-05",
+          "2025-03-06",
+          "2025-03-07",
+          "2025-03-09",
+          "2025-03-10",
+          "2025-03-11",
+          "2025-03-12",
+          "2025-03-13",
+          "2025-03-14",
+          "2025-03-15",
+          "2025-03-16",
+          "2025-03-17",
+          "2025-03-18",
+          "2025-03-19",
+          "2025-03-20",
+          "2025-03-21",
+          "2025-03-22",
+          "2025-03-23",
+          "2025-03-24",
+          "2025-03-25",
+          "2025-03-26",
+          "2025-03-28",
+          "2025-03-29",
+          "2025-07-22",
+          "2025-08-25"
+        ],
+        "rows": null,
+        "dwt": null,
+        "known_rows": 215,
+        "known_dwt": 6907225.9899999965,
+        "complete": false
+      },
+      "yoy": {
+        "rows": null,
+        "dwt": null
+      }
+    },
+    "coverage": {
+      "first_day": "2025-01-01",
+      "last_source_day": "2026-10-23",
+      "last_attempt": "2026-10-24T13:15:40.552026+00:00",
+      "stale": false,
+      "errors": 77
+    },
+    "run": {
+      "asset_code": "cqn_cai_lan",
+      "id": "40097703534-1",
+      "checked_at": "2026-10-24T13:21:58.922+00:00",
+      "through_day": "2026-10-23",
+      "status": "success",
+      "requested_days": 81,
+      "parsed_days": 4,
+      "error": null
+    },
+    "latest_detail": {
+      "events": [
+        {
+          "dwt": 3829,
+          "to_berth": "Khu neo Bến Đoan",
+          "direction": "departure",
+          "plan_kind": "internal",
+          "from_berth": "Cầu 1 - Cái Lân",
+          "vessel_name": "TRUONG SON 16",
+          "planned_time": "06:00"
+        },
+        {
+          "dwt": 5098.6,
+          "to_berth": "Cầu 1 - Cái Lân",
+          "direction": "arrival",
+          "plan_kind": "internal",
+          "from_berth": "HG7-1",
+          "vessel_name": "LONG TAN 03",
+          "planned_time": "07:00"
+        }
+      ],
+      "semantics": "authority_published_berth_plan",
+      "asset_code": "cqn",
+      "fetched_at": "2026-10-24T13:15:40.552026+00:00",
+      "report_day": "2026-10-23",
+      "source_url": "https://kht1.cangvuhanghaiquangninh.gov.vn/",
+      "source_sha256": "95949376ad3e4aad05c8a029b891a1d94612ea13293022f549b671408e92ba10",
+      "movement_scope": "berth",
+      "parser_version": "quangninh-berth-plan/1.0.0",
+      "includes_internal_transfers": true
+    },
+    "overview_equals_single": true
+  },
+  "ui": [
+    {
+      "viewport": "desktop",
+      "width": 1440,
+      "port_cards": 1,
+      "overview_default": true,
+      "filters_retained": true,
+      "no_overflow": true,
+      "internal_kind_visible": true
+    },
+    {
+      "viewport": "mobile",
+      "width": 375,
+      "port_cards": 1,
+      "overview_default": true,
+      "filters_retained": true,
+      "no_overflow": true,
+      "internal_kind_visible": true
+    }
+  ],
+  "screenshots": [
+    ".local/cqn-plans/top-CQN-desktop.png",
+    ".local/cqn-plans/top-CQN-mobile.png",
+    ".local/cqn-plans/staging-CQN-desktop.png",
+    ".local/cqn-plans/staging-CQN-mobile.png"
+  ],
+  "validated_implementation_commit": "4609e98",
+  "checks": [
+    {
+      "name": "Workers Builds: investing-pro-web-staging",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/09b8cb1a-7628-4bf8-8b77-b318caf46e83"
+    },
+    {
+      "name": "check",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40097539953/job/120882830094"
+    }
+  ],
+  "workflow_registration_commit": "6c38460108ef8748008439d633623c725c7ce536",
+  "manual_refresh": {
+    "id": 40097703534,
+    "status": "completed",
+    "conclusion": "success",
+    "url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40097703534",
+    "jobs": [
+      {
+        "id": 120883318186,
+        "status": "completed",
+        "conclusion": "success",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run actions/cache/restore@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Run python scripts/test-cqn-plans.py",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Read database checkpoint and select new, missing and recently revised days",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Fetch elapsed source days and recheck recent revisions",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Import versioned schedules and read back the latest day",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Keep compact run receipt",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Preserve validated source cache even if a source day failed",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Fail visibly if the source collector was incomplete",
+            "status": "completed",
+            "conclusion": "skipped"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success"
+          }
+        ]
+      }
+    ]
+  },
+  "schedule": "07:10 Asia/Ho_Chi_Minh daily; GitHub scheduling may be delayed",
+  "scheduled_cycles_verified": 0,
+  "local_validation": {
+    "typescript_tests": 117,
+    "python_cqn_tests": 14,
+    "python_haiphong_tests": 17,
+    "playwright_full_suite": 50,
+    "final_cqn_copy_desktop_mobile_recheck": 2,
+    "typecheck": true,
+    "lint": true,
+    "next_build": true,
+    "cloudflare_bundle_linux_ci": true
+  },
+  "user_review_accepted": false,
+  "production_accepted": false,
+  "actual_verified": false,
+  "coverage_complete": false,
+  "excluded": [
+    "CICT bridges 2,3,4"
+  ],
+  "unresolved": [
+    "temporary berth source label",
+    "CQN anchorage activity outside tracked bridges",
+    "77 unavailable report days",
+    "3 repeated route groups at different times on 2026-02-02/03/05"
+  ],
+  "notes": [
+    "Successful refresh is operational success, not complete historical data: requested 81, parsed 4, source-unavailable 77.",
+    "DWT and two directional berth markers must not become actual cargo/unique port-call totals.",
+    "Last UI copy change condenses explanations into expandable source details and explains incomplete YTD; rechecked locally on both viewports."
+  ]
+}
