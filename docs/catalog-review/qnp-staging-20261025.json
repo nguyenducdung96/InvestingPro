@@ -1,0 +1,26 @@
+{
+  "verified_at": "2026-10-24T20:15:43.426297+00:00",
+  "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "commit": "e8fb95034554d424616627f5dbbda8e5de86aec0",
+  "cloudflare_build": "683c6a2a-efb9-40c9-b6dd-7018b4529d84",
+  "parsed_documents": 652,
+  "months": 22,
+  "cutoff": "2026-10-24",
+  "both_direction_month_ledgers_match": true,
+  "central_matches": true,
+  "october_departure": {
+    "rows": 63,
+    "observed_dwt": 748320,
+    "prior_observed_dwt": 619865
+  },
+  "ytd_departure": {
+    "rows": 736,
+    "observed_dwt": 8497844,
+    "prior_observed_dwt": 8038192
+  },
+  "actual_verified": false,
+  "full_coverage_verified": false,
+  "scheduler_default_branch_commit": "8af5429",
+  "scheduled_refresh_verified": false,
+  "browser_screenshot": ".local/qnp-authority/staging-qnp.png"
+}

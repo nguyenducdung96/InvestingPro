@@ -25,3 +25,7 @@ Workflow qnp-plans.yml cấu hình 07:35 Việt Nam, kiểm tra lại bốn bả
 139/139 Vitest đạt với một worker; typecheck, lint, production build, diff-check đạt. QNP/CDN Playwright desktop/mobile: 4 luồng đạt (locator mobile sửa để không phụ thuộc nhãn CSS). Python5 hợp đồng parser đạt;3 ảnh nguồn đối chiếu trực quan,12 dòng tham chiếu/11DWT chắc chắn khớp; một ô chưa chắc giữ null. Chưa chạy lại toàn bộ E2E dự án.
 
 Miền Trung hiện tích hợp CDN và QNP; CMP/NAP/GMD–Dung Quất vẫn pending. Staging readback được ghi riêng sau deployment.
+
+## Staging đã xác nhận
+
+Commit e8fb950 đã deploy qua Cloudflare build 683c6a2a-efb9-40c9-b6dd-7018b4529d84. API live cả hai chiều khớp ledger 22 tháng; QNP trong API miền Trung khớp 63 lượt/748.320 DWT tháng 10. Lũy kế rời 736 lượt/8.497.844 DWT đến 24/10. Đã xem trực tiếp giao diện và lưu ảnh .local/qnp-authority/staging-qnp.png. Biên nhận: catalog-review/qnp-staging-20261025.json. Workflow đã đăng ký trên default main bằng commit 8af5429; cron chưa chạy để nghiệm thu.
