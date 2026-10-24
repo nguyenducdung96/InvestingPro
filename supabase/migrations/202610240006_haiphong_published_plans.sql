@@ -1,0 +1,98 @@
+begin;
+-- Legacy php_plan_* storage is shared by explicitly allowlisted issuer scopes.
+-- PHP membership and its four-berth aggregate remain unchanged.
+alter table port.php_plan_versions drop constraint php_plan_versions_asset_code_check;
+alter table port.php_plan_versions add constraint php_plan_versions_asset_code_check check(asset_code in ('tan_vu','chua_ve','hoang_dieu','htit','dinh_vu','green_port','vip_green_port','nam_hai_dinh_vu','vimc_dinh_vu','nam_dinh_vu','hai_an','doan_xa','ptsc_dinh_vu'));
+alter table port.php_plan_days drop constraint php_plan_days_asset_code_check;
+alter table port.php_plan_days add constraint php_plan_days_asset_code_check check(asset_code in ('tan_vu','chua_ve','hoang_dieu','htit','dinh_vu','green_port','vip_green_port','nam_hai_dinh_vu','vimc_dinh_vu','nam_dinh_vu','hai_an','doan_xa','ptsc_dinh_vu'));
+alter table port.php_plan_runs drop constraint php_plan_runs_asset_code_check;
+alter table port.php_plan_runs add constraint php_plan_runs_asset_code_check check(asset_code in ('tan_vu','chua_ve','hoang_dieu','htit','dinh_vu','green_port','vip_green_port','nam_hai_dinh_vu','vimc_dinh_vu','nam_dinh_vu','hai_an','doan_xa','ptsc_dinh_vu'));
+create or replace function port.record_php_plan_run(p_asset text,p_run jsonb) returns void
+language plpgsql security definer set search_path='' as $$
+begin
+ if p_asset is null or p_asset not in ('tan_vu','chua_ve','hoang_dieu','htit','dinh_vu','green_port','vip_green_port','nam_hai_dinh_vu','vimc_dinh_vu','nam_dinh_vu','hai_an','doan_xa','ptsc_dinh_vu') then raise exception 'Unknown schedule berth'; end if;
+ if coalesce(auth.jwt()->>'role','')<>'service_role' then raise exception 'Schedule importer required'; end if;
+ if length(coalesce(p_run->>'id','')) not between 1 and 120
+  or coalesce(p_run->>'status','') not in ('running','success','failed')
+  or (p_run->>'requested_days')::int not between 1 and 20000
+  or (p_run->>'parsed_days')::int not between 0 and (p_run->>'requested_days')::int
+  or p_run->>'checked_at' is null or p_run->>'through_day' is null
+  then raise exception 'Invalid schedule run'; end if;
+ insert into port.php_plan_runs(asset_code,id,checked_at,through_day,status,requested_days,parsed_days,error)
+ values(p_asset,p_run->>'id',(p_run->>'checked_at')::timestamptz,(p_run->>'through_day')::date,p_run->>'status',
+ (p_run->>'requested_days')::int,(p_run->>'parsed_days')::int,left(p_run->>'error',300))
+ on conflict(asset_code,id) do update set checked_at=excluded.checked_at,status=excluded.status,error=excluded.error
+ where excluded.checked_at>=port.php_plan_runs.checked_at;
+end $$;
+
+create or replace function port.import_php_plan_days(p_asset text,p_days jsonb) returns jsonb
+language plpgsql security definer set search_path='' as $$
+declare d jsonb; e jsonb; v_id uuid; v_day date; v_fetched timestamptz; n int:=0; a int; r int;
+ ad numeric; rd numeric; am int; rm int; ambiguous int; old_events jsonb;
+begin
+ if p_asset is null or p_asset not in ('tan_vu','chua_ve','hoang_dieu','htit','dinh_vu','green_port','vip_green_port','nam_hai_dinh_vu','vimc_dinh_vu','nam_dinh_vu','hai_an','doan_xa','ptsc_dinh_vu') then raise exception 'Unknown schedule berth'; end if;
+ if coalesce(auth.jwt()->>'role','')<>'service_role' then raise exception 'Schedule importer required'; end if;
+ if p_days is null or jsonb_typeof(p_days)<>'array' or jsonb_array_length(p_days) not between 1 and 31 then raise exception 'Invalid schedule batch'; end if;
+ for d in select * from jsonb_array_elements(p_days) loop
+  v_day:=(d->>'date')::date;v_fetched:=(d->>'fetched_at')::timestamptz;
+  if v_day is null or v_day<'2025-01-01' or v_day>=(now() at time zone 'Asia/Ho_Chi_Minh')::date
+    or v_fetched is null or v_fetched>now()+interval '5 minutes'
+    or coalesce(d->>'source_url','') !~ '^https://csdltau[.]cangvuhaiphong[.]gov[.]vn/pages/ship_plan[.]aspx[?]d=-?[0-9]+$'
+    or coalesce(d->>'status','') not in ('parsed','failed') then raise exception 'Invalid schedule source or day'; end if;
+  if d->>'status'='failed' then
+   insert into port.php_plan_days(asset_code,report_day,last_attempt,source_error)
+   values(p_asset,v_day,v_fetched,left(coalesce(d->>'error','Source failed'),300))
+   on conflict(asset_code,report_day) do update set last_attempt=excluded.last_attempt,source_error=excluded.source_error
+   where excluded.last_attempt>=port.php_plan_days.last_attempt;
+   continue;
+  end if;
+  if coalesce(d->>'sha256','') !~ '^[a-f0-9]{64}$'
+   or coalesce(d->>'parser_version','') !~ '^haiphong-plan-pilot/[0-9]+[.][0-9]+[.][0-9]+$'
+   or jsonb_typeof(d->'events') is distinct from 'array' or jsonb_array_length(d->'events')>500
+   or jsonb_typeof(d->'source_empty_sections') is distinct from 'array'
+   or exists(select 1 from jsonb_array_elements_text(d->'source_empty_sections') x where x not in ('Vao','Roi','DiChuyen'))
+   then raise exception 'Invalid schedule evidence'; end if;
+  for e in select * from jsonb_array_elements(d->'events') loop
+   if exists(select 1 from jsonb_object_keys(e) k where k not in ('direction','vessel_name','planned_time','dwt','from_berth','to_berth'))
+    or coalesce(e->>'direction','') not in ('arrival','departure')
+    or length(trim(coalesce(e->>'vessel_name',''))) not between 1 and 200
+    or length(coalesce(e->>'from_berth','')) not between 1 and 300
+    or length(coalesce(e->>'to_berth','')) not between 1 and 300
+    or coalesce(e->>'planned_time','') !~ '^([01][0-9]|2[0-3]):[0-5][0-9]$'
+    or (case e->>'direction' when 'arrival' then e->>'to_berth' else e->>'from_berth' end) is distinct from (case p_asset when 'tan_vu' then 'TAN VU' when 'chua_ve' then 'CHUA VE' when 'hoang_dieu' then 'HOANG DIEU' when 'htit' then 'HTIT' when 'dinh_vu' then 'DINH VU' when 'green_port' then 'GREEN PORT' when 'vip_green_port' then 'VIP GREEN PORT' when 'nam_hai_dinh_vu' then 'NAM HAI DINH VU' when 'vimc_dinh_vu' then 'VIMC' when 'nam_dinh_vu' then 'NAM DINH VU' when 'hai_an' then 'HAI AN' when 'doan_xa' then 'DOAN XA' when 'ptsc_dinh_vu' then 'PTSC DINH VU' end)
+    or jsonb_typeof(e->'dwt') is null or jsonb_typeof(e->'dwt') not in ('number','null')
+    or (e->>'dwt')::numeric<0 or (e->>'dwt')::numeric>1000000
+    then raise exception 'Invalid PHP berth schedule row'; end if;
+  end loop;
+  if (select count(*) from jsonb_array_elements(d->'events'))<>(select count(distinct jsonb_build_array(x->>'direction',x->>'vessel_name',x->>'planned_time',x->>'from_berth',x->>'to_berth')) from jsonb_array_elements(d->'events') x)
+   then raise exception 'Duplicate schedule key'; end if;
+  select count(*) into ambiguous from (select x->>'direction',x->>'vessel_name',x->>'from_berth',x->>'to_berth' from jsonb_array_elements(d->'events') x group by 1,2,3,4 having count(*)>1) g;
+  insert into port.php_plan_versions(asset_code,report_day,source_sha256,source_url,fetched_at,parser_version,events,source_empty_sections)
+  values(p_asset,v_day,d->>'sha256',d->>'source_url',v_fetched,d->>'parser_version',d->'events',d->'source_empty_sections')
+  on conflict(asset_code,report_day,source_sha256,parser_version) do nothing returning id into v_id;
+  if v_id is null then
+   select id,events into v_id,old_events from port.php_plan_versions where asset_code=p_asset and report_day=v_day and source_sha256=d->>'sha256' and parser_version=d->>'parser_version';
+   if old_events is distinct from d->'events' then raise exception 'Same evidence/parser has changed rows'; end if;
+  else n:=n+1; end if;
+  select count(*) filter(where x->>'direction'='arrival'), count(*) filter(where x->>'direction'='departure'),
+   coalesce(sum((x->>'dwt')::numeric) filter(where x->>'direction'='arrival'),0),
+   coalesce(sum((x->>'dwt')::numeric) filter(where x->>'direction'='departure'),0),
+   count(*) filter(where x->>'direction'='arrival' and x->>'dwt' is null),
+   count(*) filter(where x->>'direction'='departure' and x->>'dwt' is null)
+  into a,r,ad,rd,am,rm from jsonb_array_elements(d->'events') x;
+  insert into port.php_plan_days(asset_code,report_day,version_id,source_sha256,source_url,parser_version,last_success,last_attempt,
+    arrival_rows,departure_rows,arrival_dwt,departure_dwt,arrival_dwt_missing,departure_dwt_missing,ambiguous_groups,source_empty_sections)
+  values(p_asset,v_day,v_id,d->>'sha256',d->>'source_url',d->>'parser_version',v_fetched,v_fetched,
+    a,r,case when am=0 then ad end,case when rm=0 then rd end,am,rm,ambiguous,d->'source_empty_sections')
+  on conflict(asset_code,report_day) do update set version_id=excluded.version_id,source_sha256=excluded.source_sha256,
+   source_url=excluded.source_url,parser_version=excluded.parser_version,last_success=excluded.last_success,
+   last_attempt=excluded.last_attempt,source_error=null,arrival_rows=excluded.arrival_rows,departure_rows=excluded.departure_rows,
+   arrival_dwt=excluded.arrival_dwt,departure_dwt=excluded.departure_dwt,arrival_dwt_missing=excluded.arrival_dwt_missing,
+   departure_dwt_missing=excluded.departure_dwt_missing,ambiguous_groups=excluded.ambiguous_groups,source_empty_sections=excluded.source_empty_sections
+  where excluded.last_attempt>=port.php_plan_days.last_attempt;
+ end loop;
+ return jsonb_build_object('versions_inserted',n,'days_received',jsonb_array_length(p_days),'semantics','authority_published_plan');
+end $$;
+
+notify pgrst,'reload schema';
+commit;

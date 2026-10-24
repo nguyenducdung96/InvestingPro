@@ -29,6 +29,11 @@ it('publishes cited immutable berth scope without promoting effective dates or a
   const newIntake=readFileSync('supabase/imports/vsc_vgr_company_berths.reviewed.sql','utf8');
   await db.exec(newIntake);await db.exec(newIntake);
   expect((await db.query('select * from port.company_berth_editions')).rows).toHaveLength(3);
+  const hpIntake=readFileSync('supabase/imports/haiphong_company_berths.reviewed.sql','utf8');
+  await db.exec(hpIntake);await db.exec(hpIntake);
+  expect((await db.query('select * from port.company_berth_editions')).rows).toHaveLength(7);
+  const hp=JSON.parse(readFileSync('docs/catalog-review/haiphong-berth-scope-20261024.json','utf8'));
+  await expect(db.query("insert into port.company_berth_editions(ticker,observed_on,entries,review_note) values('GMD','2026-10-24',$1,'TEST ONLY reject cross-issuer tracked port and citation mapping')",[JSON.stringify(hp.entries.HAH)])).rejects.toThrow('Invalid Hai Phong');
   await db.exec('set role anon');
   const result=(await db.query<{entries:CompanyBerthFact[]}>("select entries from port.company_berth_editions where ticker='PHP'")).rows[0];
   expect(result.entries).toHaveLength(4);expect(result.entries.every(e=>e.effective_from===null&&e.effective_to===null)).toBe(true);

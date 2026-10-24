@@ -18,3 +18,15 @@ it('requires every VSC berth head on the same source revision and never duplicat
  expect(aggregateBerthPlanDays({...groups,green_port:[day(100,'b'.repeat(64))]},assets,'VSC')[0].version_id).toBeNull();
  expect(aggregateBerthPlanDays({...groups,green_port:[{...day(100),departure_dwt:null,departure_dwt_missing:1}]},assets,'VSC')[0].departure_dwt).toBeNull();
 });
+
+it('keeps GMD regional scope and the three other Hai Phong issuer scopes independent',()=>{
+ for(const [ticker,asset] of [['GMD','nam_dinh_vu'],['HAH','hai_an'],['DXP','doan_xa'],['PSP','ptsc_dinh_vu']] as const){
+  expect(issuerPlanAssets(ticker,ticker.toLowerCase())).toEqual([asset]);
+  expect(issuerPlanAssets(ticker,asset)).toEqual([asset]);
+  expect(()=>issuerPlanAssets(ticker,'vip_green_port')).toThrow();
+  const total=issuerPlanSeries([day(100)],ticker,ticker.toLowerCase(),'departure',new Date('2026-10-02T01:00Z'));
+  const single=issuerPlanSeries([day(100)],ticker,asset,'departure',new Date('2026-10-02T01:00Z'));
+  expect(total.months).toEqual(single.months);
+  if(ticker==='GMD'){expect(total.name).toContain('Hải Phòng');expect(total.scope_note).toContain('Chưa phải tổng hoạt động GMD toàn quốc');}
+ }
+});
