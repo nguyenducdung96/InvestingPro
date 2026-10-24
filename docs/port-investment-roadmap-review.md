@@ -1,5 +1,7 @@
 # Đề xuất đổi lộ trình ngành cảng: từ mã cổ phiếu đến tín hiệu hoạt động
 
+> **Trạng thái 24/10/2026:** PHP đã có dashboard staging cho Tân Vũ, Chùa Vẽ, Hoàng Diệu và HTIT theo lịch Cảng vụ, cùng chuỗi sản lượng công bố giữ đúng phạm vi riêng/gộp. Đã qua backfill, cập nhật lặp và kiểm tra live. [Nghiệm thu PHP](php-four-berths-staging.md). Luồng pilot của Slice 2A/2B đã có đầu ra; vận hành bốn bến đã qua manual workflow, lịch cron tiếp tục theo dõi. Không đổi dữ liệu kế hoạch thành actual. Bước sản phẩm tiếp theo là Slice 3 mở rộng mã; hãng tàu/tài chính theo Slice 4/5.
+
 Ngày: 21/10/2026. Trạng thái: **ĐÃ ĐƯỢC NGƯỜI DÙNG REVIEW VÀ ĐỒNG Ý**. Bắt đầu thực hiện Slice 2A với PHP theo yêu cầu ngày 21/10/2026; các bước 2B/2C theo gate dữ liệu, không suy ra đã nghiệm thu hoặc đã deploy.
 
 ## 1. Quyết định sản phẩm cần review

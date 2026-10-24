@@ -9,7 +9,7 @@ export async function PhpThroughput({query}:{query:Record<string,string>}) {
  const requestedScope=query.throughput_asset??'';
  const asset=isPhpThroughputScope(requestedScope)?requestedScope:selected==='chua_ve'||selected==='hoang_dieu'?'hoang_dieu_chua_ve':'tan_vu';
  const scope=phpThroughputScopes[asset];
- if(selected==='htit'&&!requestedScope)return <section id="throughput" aria-label="Sản lượng HTIT" className="panel throughput-panel"><h2>Sản lượng hàng hóa HTIT công bố</h2><p>Chưa có chuỗi tấn hàng/TEU theo tháng của HTIT trong database. Không thay bằng số liệu bến khác hoặc suy từ DWT.</p><Link href="/companies/PHP?plan_asset=htit&throughput_asset=hoang_dieu_chua_ve#throughput">Xem sản lượng nhóm Hoàng Diệu–Chùa Vẽ</Link></section>;
+ if(selected==='htit'&&!isPhpThroughputScope(requestedScope))return <section id="throughput" aria-label="Sản lượng HTIT" className="panel throughput-panel"><h2>Sản lượng hàng hóa HTIT công bố</h2><p>Chưa có chuỗi tấn hàng/TEU theo tháng của HTIT trong database. Không thay bằng số liệu bến khác hoặc suy từ DWT.</p><Link href="/companies/PHP?plan_asset=htit&throughput_asset=hoang_dieu_chua_ve#throughput">Xem sản lượng nhóm Hoàng Diệu–Chùa Vẽ</Link></section>;
  let series;
  try {series=throughputSeries(await publicRepository().monthlyThroughput(asset));}
  catch {return <section className="panel" aria-label={`Sản lượng ${scope.name}`}><h2>Sản lượng Tân Vũ</h2><p role="status">Chưa kết nối được dữ liệu sản lượng. Vui lòng thử lại.</p></section>;}

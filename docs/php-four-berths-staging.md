@@ -30,6 +30,16 @@ Các fact mới dùng cùng pipeline newsletter hiện có, đối chiếu raw h
 ## Kiểm tra
 
 - Local: [biên nhận 661 ngày mỗi bến](catalog-review/php-four-berths-local-20261024.json); raw được xác nhận ngày/schema/hash và tách alias riêng.
-- 17 Python, 111 Vitest đạt; PostgreSQL kiểm tra cross-berth isolation, alias sai, quyền public/service, replay, lịch sử bất biến và HTIT không có nền so sánh trước 05/2025.
+- 17 Python, 112 Vitest đạt; PostgreSQL kiểm tra cross-berth isolation, alias sai, quyền public/service, replay, lịch sử bất biến, phạm vi sản lượng riêng/gộp và HTIT không có nền so sánh trước 05/2025.
 - Playwright desktop/mobile kiểm tra ba lần đổi bến, API trả đúng chuỗi/bến, chi tiết tàu không lẫn và không tràn trang; kiểm tra sản lượng Tân Vũ hiện hữu cũng đạt. Lint/typecheck đạt.
-- Migration `202610240001_php_berth_plans.sql` đã chạy thành công trên staging. Import và kiểm chứng live sẽ được ghi sau khi workflow hoàn tất.
+- Migration `202610240001_php_berth_plans.sql` và `202610240002_php_scoped_throughput.sql` đã chạy thành công trên staging.
+
+## Nghiệm thu live 24/10/2026
+
+- [Backfill `40075205094`](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40075205094) đạt: 661 báo cáo ngày được tải một lần/ngày rồi tách bốn bến, 2.644 head bến/ngày. Không lỗi nguồn. Tân Vũ, Chùa Vẽ, Hoàng Diệu có 22 tháng; HTIT có 18 tháng hiển thị từ 05/2025. Các chuỗi cập nhật đến 23/10/2026.
+- [Cập nhật lặp `40075982129`](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40075982129) đạt trong 38 giây: checkpoint 2.644 head, chỉ tải 4 báo cáo ngày gần nhất, nhập/readback cả bốn bến đều thành công. MTD/YTD trước và sau trùng khớp. Hash HTML mới tạo phiên bản mới, không cộng trùng head hoặc tổng.
+- [Bản tin `40075843585`](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40075843585) đạt: nhập và công bố 19 fact bổ sung; API trả Tân Vũ 16 tháng, Chùa Vẽ riêng 3 tháng, Hoàng Diệu riêng 3 tháng, Hoàng Diệu–Chùa Vẽ gộp 13 tháng. TEU Hoàng Diệu riêng vẫn null. Nguồn dùng 27 tài liệu đã discovery; không đưa tổng lượt tàu của bản tin vào riêng bến.
+- Kiểm chứng UI live: chọn Chùa Vẽ/HTIT trả đúng alias, chart, MTD/YTD và DWT bình quân; bộ lọc nguồn/ngày theo bến; sản lượng mặc định cho Chùa Vẽ/Hoàng Diệu ghi rõ tổng nhóm. HTIT không hiển thị chuỗi sản lượng của bến khác khi chưa có dữ liệu riêng.
+- [Biên nhận API](catalog-review/php-four-berths-staging-20261024.json). Số liệu theo lịch điều động, chưa xác nhận actual; không suy đủ sự kiện thực tế chỉ từ đủ trang lịch.
+- Scheduler cũ cho Tân Vũ đã quan sát được ba event `schedule` thành công ngày 22/23/24: `39707061652`, `39885652387`, `40051357349`. Giờ đặt 06:30 nhưng GitHub thực chạy khoảng 08:40–08:47; không cam kết đúng phút. Bản mở rộng bốn bến đã qua hai manual run cùng workflow, lần cron bốn bến đầu còn chờ kỳ tiếp theo.
+- Full Playwright 38/38 đạt sau mở rộng bến; sau bổ sung sản lượng riêng/gộp và KPI bình quân, bộ kiểm tra PHP desktop/mobile chạy lại 4/4 đạt. Lint/typecheck đạt. Production chưa nằm trong nghiệm thu này.

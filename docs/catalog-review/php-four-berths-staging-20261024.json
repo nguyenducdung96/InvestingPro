@@ -1,0 +1,684 @@
+{
+  "checked_at": "2026-10-24T07:56:30.649Z",
+  "environment": "staging",
+  "backfill_run": "40075205094",
+  "replay_run": "40075982129",
+  "assets": {
+    "tan_vu": {
+      "months": 22,
+      "coverage": {
+        "first_day": "2025-01-01",
+        "last_source_day": "2026-10-23",
+        "last_attempt": "2026-10-24T07:55:05.034072+00:00",
+        "stale": false,
+        "errors": 0
+      },
+      "run": {
+        "asset_code": "tan_vu",
+        "id": "40075982129-1",
+        "checked_at": "2026-10-24T07:55:07.327+00:00",
+        "through_day": "2026-10-23",
+        "status": "success",
+        "requested_days": 4,
+        "parsed_days": 4,
+        "error": null
+      },
+      "current_month": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 54,
+          "dwt": 897296,
+          "known_rows": 54,
+          "known_dwt": 897296,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 60,
+          "dwt": 997351,
+          "known_rows": 60,
+          "known_dwt": 997351,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -9.999999999999998,
+          "dwt": -10.03207496658649
+        }
+      },
+      "ytd": {
+        "current": {
+          "from": "2026-01-01",
+          "through": "2026-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 686,
+          "dwt": 11544927,
+          "known_rows": 686,
+          "known_dwt": 11544927,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-01-01",
+          "through": "2025-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 669,
+          "dwt": 11708961,
+          "known_rows": 669,
+          "known_dwt": 11708961,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 2.5411061285500747,
+          "dwt": -1.400927033577104
+        }
+      },
+      "replay_same_latest_month": true,
+      "replay_same_ytd": true
+    },
+    "chua_ve": {
+      "months": 22,
+      "coverage": {
+        "first_day": "2025-01-01",
+        "last_source_day": "2026-10-23",
+        "last_attempt": "2026-10-24T07:55:05.038479+00:00",
+        "stale": false,
+        "errors": 0
+      },
+      "run": {
+        "asset_code": "chua_ve",
+        "id": "40075982129-1",
+        "checked_at": "2026-10-24T07:55:09.06+00:00",
+        "through_day": "2026-10-23",
+        "status": "success",
+        "requested_days": 4,
+        "parsed_days": 4,
+        "error": null
+      },
+      "current_month": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 38,
+          "dwt": 334817,
+          "known_rows": 38,
+          "known_dwt": 334817,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 45,
+          "dwt": 404278,
+          "known_rows": 45,
+          "known_dwt": 404278,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -15.555555555555555,
+          "dwt": -17.18149392249887
+        }
+      },
+      "ytd": {
+        "current": {
+          "from": "2026-01-01",
+          "through": "2026-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 458,
+          "dwt": 4127521,
+          "known_rows": 458,
+          "known_dwt": 4127521,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-01-01",
+          "through": "2025-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 450,
+          "dwt": 3927214,
+          "known_rows": 450,
+          "known_dwt": 3927214,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 1.777777777777767,
+          "dwt": 5.100485993378512
+        }
+      },
+      "replay_same_latest_month": true,
+      "replay_same_ytd": true
+    },
+    "hoang_dieu": {
+      "months": 22,
+      "coverage": {
+        "first_day": "2025-01-01",
+        "last_source_day": "2026-10-23",
+        "last_attempt": "2026-10-24T07:55:05.042971+00:00",
+        "stale": false,
+        "errors": 0
+      },
+      "run": {
+        "asset_code": "hoang_dieu",
+        "id": "40075982129-1",
+        "checked_at": "2026-10-24T07:55:10.54+00:00",
+        "through_day": "2026-10-23",
+        "status": "success",
+        "requested_days": 4,
+        "parsed_days": 4,
+        "error": null
+      },
+      "current_month": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 5,
+          "dwt": 26704,
+          "known_rows": 5,
+          "known_dwt": 26704,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 22,
+          "dwt": 161744,
+          "known_rows": 22,
+          "known_dwt": 161744,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -77.27272727272727,
+          "dwt": -83.4899594420813
+        }
+      },
+      "ytd": {
+        "current": {
+          "from": "2026-01-01",
+          "through": "2026-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 61,
+          "dwt": 500722,
+          "known_rows": 61,
+          "known_dwt": 500722,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-01-01",
+          "through": "2025-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 237,
+          "dwt": 1619623,
+          "known_rows": 237,
+          "known_dwt": 1619623,
+          "complete": true
+        },
+        "yoy": {
+          "rows": -74.26160337552743,
+          "dwt": -69.08403992781035
+        }
+      },
+      "replay_same_latest_month": true,
+      "replay_same_ytd": true
+    },
+    "htit": {
+      "months": 18,
+      "coverage": {
+        "first_day": "2025-05-01",
+        "last_source_day": "2026-10-23",
+        "last_attempt": "2026-10-24T07:55:05.047349+00:00",
+        "stale": false,
+        "errors": 0
+      },
+      "run": {
+        "asset_code": "htit",
+        "id": "40075982129-1",
+        "checked_at": "2026-10-24T07:55:11.642+00:00",
+        "through_day": "2026-10-23",
+        "status": "success",
+        "requested_days": 4,
+        "parsed_days": 4,
+        "error": null
+      },
+      "current_month": {
+        "period": "2026-10",
+        "status": "partial",
+        "current": {
+          "from": "2026-10-01",
+          "through": "2026-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 18,
+          "dwt": 1566027,
+          "known_rows": 18,
+          "known_dwt": 1566027,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-10-01",
+          "through": "2025-10-23",
+          "expected_days": 23,
+          "reported_days": 23,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 9,
+          "dwt": 634668,
+          "known_rows": 9,
+          "known_dwt": 634668,
+          "complete": true
+        },
+        "yoy": {
+          "rows": 100,
+          "dwt": 146.74743330371155
+        }
+      },
+      "ytd": {
+        "current": {
+          "from": "2026-01-01",
+          "through": "2026-10-23",
+          "expected_days": 296,
+          "reported_days": 296,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": 221,
+          "dwt": 19580566,
+          "known_rows": 221,
+          "known_dwt": 19580566,
+          "complete": true
+        },
+        "prior": {
+          "from": "2025-01-01",
+          "through": "2025-10-23",
+          "expected_days": 296,
+          "reported_days": 176,
+          "missing_days": [
+            "2025-01-01",
+            "2025-01-02",
+            "2025-01-03",
+            "2025-01-04",
+            "2025-01-05",
+            "2025-01-06",
+            "2025-01-07",
+            "2025-01-08",
+            "2025-01-09",
+            "2025-01-10",
+            "2025-01-11",
+            "2025-01-12",
+            "2025-01-13",
+            "2025-01-14",
+            "2025-01-15",
+            "2025-01-16",
+            "2025-01-17",
+            "2025-01-18",
+            "2025-01-19",
+            "2025-01-20",
+            "2025-01-21",
+            "2025-01-22",
+            "2025-01-23",
+            "2025-01-24",
+            "2025-01-25",
+            "2025-01-26",
+            "2025-01-27",
+            "2025-01-28",
+            "2025-01-29",
+            "2025-01-30",
+            "2025-01-31",
+            "2025-02-01",
+            "2025-02-02",
+            "2025-02-03",
+            "2025-02-04",
+            "2025-02-05",
+            "2025-02-06",
+            "2025-02-07",
+            "2025-02-08",
+            "2025-02-09",
+            "2025-02-10",
+            "2025-02-11",
+            "2025-02-12",
+            "2025-02-13",
+            "2025-02-14",
+            "2025-02-15",
+            "2025-02-16",
+            "2025-02-17",
+            "2025-02-18",
+            "2025-02-19",
+            "2025-02-20",
+            "2025-02-21",
+            "2025-02-22",
+            "2025-02-23",
+            "2025-02-24",
+            "2025-02-25",
+            "2025-02-26",
+            "2025-02-27",
+            "2025-02-28",
+            "2025-03-01",
+            "2025-03-02",
+            "2025-03-03",
+            "2025-03-04",
+            "2025-03-05",
+            "2025-03-06",
+            "2025-03-07",
+            "2025-03-08",
+            "2025-03-09",
+            "2025-03-10",
+            "2025-03-11",
+            "2025-03-12",
+            "2025-03-13",
+            "2025-03-14",
+            "2025-03-15",
+            "2025-03-16",
+            "2025-03-17",
+            "2025-03-18",
+            "2025-03-19",
+            "2025-03-20",
+            "2025-03-21",
+            "2025-03-22",
+            "2025-03-23",
+            "2025-03-24",
+            "2025-03-25",
+            "2025-03-26",
+            "2025-03-27",
+            "2025-03-28",
+            "2025-03-29",
+            "2025-03-30",
+            "2025-03-31",
+            "2025-04-01",
+            "2025-04-02",
+            "2025-04-03",
+            "2025-04-04",
+            "2025-04-05",
+            "2025-04-06",
+            "2025-04-07",
+            "2025-04-08",
+            "2025-04-09",
+            "2025-04-10",
+            "2025-04-11",
+            "2025-04-12",
+            "2025-04-13",
+            "2025-04-14",
+            "2025-04-15",
+            "2025-04-16",
+            "2025-04-17",
+            "2025-04-18",
+            "2025-04-19",
+            "2025-04-20",
+            "2025-04-21",
+            "2025-04-22",
+            "2025-04-23",
+            "2025-04-24",
+            "2025-04-25",
+            "2025-04-26",
+            "2025-04-27",
+            "2025-04-28",
+            "2025-04-29",
+            "2025-04-30"
+          ],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0,
+          "error_days": [],
+          "rows": null,
+          "dwt": null,
+          "known_rows": 53,
+          "known_dwt": 3650346,
+          "complete": false
+        },
+        "yoy": {
+          "rows": null,
+          "dwt": null
+        }
+      },
+      "replay_same_latest_month": true,
+      "replay_same_ytd": true
+    }
+  },
+  "newsletter_run": "40075843585",
+  "throughput": {
+    "tan_vu": {
+      "http": 200,
+      "months": 16,
+      "latest": "2026-08",
+      "first": "2025-05",
+      "latest_values": {
+        "period": "2026-08",
+        "cargo_tonnes": 1770647,
+        "container_teu": 93754,
+        "sources": [
+          {
+            "id": "d7f78c9e-b446-5c3e-8054-5472d615803f",
+            "asset_code": "tan_vu",
+            "period": "2026-08-01",
+            "publication_month": "2026-09-01",
+            "cargo_tonnes": 1770647,
+            "container_teu": 93754,
+            "source_record_id": null,
+            "pdf_page": 1,
+            "extraction_note": "Independently composed numeric facts",
+            "verification_status": "editorial_published",
+            "reviewed_by": null,
+            "reviewed_at": "2026-10-20T19:41:02.320071+00:00",
+            "review_note": "Numeric facts with source citations; no PDF redistribution",
+            "supersedes_id": null,
+            "source_url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-09-2026.pdf",
+            "source_sha256": "b1958ee0a51a7c33763274ac44c70cae2b2a14761e603502709aeb3be9bdb11b",
+            "fetched_at": "2026-10-20T17:50:55.084397+00:00",
+            "source_checked_at": "2026-10-24T07:54:25.138108+00:00",
+            "source_error": null
+          }
+        ],
+        "yoy_pct": {
+          "cargo_tonnes": -0.15653343844079792,
+          "container_teu": -2.0334378265412734
+        }
+      },
+      "ytd": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    "chua_ve": {
+      "http": 200,
+      "months": 3,
+      "latest": "2025-07",
+      "first": "2025-05",
+      "latest_values": {
+        "period": "2025-07",
+        "cargo_tonnes": 553444,
+        "container_teu": 26437,
+        "sources": [
+          {
+            "id": "3dcbe9bf-8641-5adf-bf5a-0f992377eefa",
+            "asset_code": "chua_ve",
+            "period": "2025-07-01",
+            "publication_month": "2025-08-01",
+            "cargo_tonnes": 553444,
+            "container_teu": 26437,
+            "source_record_id": null,
+            "pdf_page": 1,
+            "extraction_note": "Independently composed numeric facts",
+            "verification_status": "editorial_published",
+            "reviewed_by": null,
+            "reviewed_at": "2026-10-24T07:56:27.677166+00:00",
+            "review_note": "Numeric facts with source citations; no PDF redistribution",
+            "supersedes_id": null,
+            "source_url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/12-08-2025-Newsletterthang8-tienganh.pdf",
+            "source_sha256": "7cd1fb841942378001ab044e747a88c3d10b189d4f6a78ffb57807263e50959f",
+            "fetched_at": "2026-10-20T17:50:02.772063+00:00",
+            "source_checked_at": "2026-10-24T07:54:00.707994+00:00",
+            "source_error": null
+          }
+        ],
+        "yoy_pct": {
+          "cargo_tonnes": null,
+          "container_teu": null
+        }
+      },
+      "ytd": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    "hoang_dieu": {
+      "http": 200,
+      "months": 3,
+      "latest": "2025-07",
+      "first": "2025-05",
+      "latest_values": {
+        "period": "2025-07",
+        "cargo_tonnes": 245064,
+        "container_teu": null,
+        "sources": [
+          {
+            "id": "fd1a0575-5d2a-52a7-8ec5-4382de81032e",
+            "asset_code": "hoang_dieu",
+            "period": "2025-07-01",
+            "publication_month": "2025-08-01",
+            "cargo_tonnes": 245064,
+            "container_teu": null,
+            "source_record_id": null,
+            "pdf_page": 1,
+            "extraction_note": "Independently composed numeric facts",
+            "verification_status": "editorial_published",
+            "reviewed_by": null,
+            "reviewed_at": "2026-10-24T07:56:27.677166+00:00",
+            "review_note": "Numeric facts with source citations; no PDF redistribution",
+            "supersedes_id": null,
+            "source_url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/12-08-2025-Newsletterthang8-tienganh.pdf",
+            "source_sha256": "7cd1fb841942378001ab044e747a88c3d10b189d4f6a78ffb57807263e50959f",
+            "fetched_at": "2026-10-20T17:50:02.772063+00:00",
+            "source_checked_at": "2026-10-24T07:54:00.707994+00:00",
+            "source_error": null
+          }
+        ],
+        "yoy_pct": {
+          "cargo_tonnes": null,
+          "container_teu": null
+        }
+      },
+      "ytd": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    },
+    "hoang_dieu_chua_ve": {
+      "http": 200,
+      "months": 13,
+      "latest": "2026-08",
+      "first": "2025-08",
+      "latest_values": {
+        "period": "2026-08",
+        "cargo_tonnes": 909908,
+        "container_teu": 25205,
+        "sources": [
+          {
+            "id": "d2c8dd0e-868e-56de-9706-b0213222150e",
+            "asset_code": "hoang_dieu_chua_ve",
+            "period": "2026-08-01",
+            "publication_month": "2026-09-01",
+            "cargo_tonnes": 909908,
+            "container_teu": 25205,
+            "source_record_id": null,
+            "pdf_page": 1,
+            "extraction_note": "Independently composed numeric facts",
+            "verification_status": "editorial_published",
+            "reviewed_by": null,
+            "reviewed_at": "2026-10-24T07:56:27.677166+00:00",
+            "review_note": "Numeric facts with source citations; no PDF redistribution",
+            "supersedes_id": null,
+            "source_url": "https://haiphongport.com.vn/FileUpload/Documents/BAN%20TIN%20THANG/2026/Eng-Newsletter-09-2026.pdf",
+            "source_sha256": "b1958ee0a51a7c33763274ac44c70cae2b2a14761e603502709aeb3be9bdb11b",
+            "fetched_at": "2026-10-20T17:50:55.084397+00:00",
+            "source_checked_at": "2026-10-24T07:54:25.138108+00:00",
+            "source_error": null
+          }
+        ],
+        "yoy_pct": {
+          "cargo_tonnes": 16.271771215354548,
+          "container_teu": -3.158258731317476
+        }
+      },
+      "ytd": {
+        "cargo_tonnes": null,
+        "container_teu": null
+      }
+    }
+  }
+}

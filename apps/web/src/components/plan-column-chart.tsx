@@ -12,7 +12,7 @@ export function PlanColumnChart({title,columns,currentLabel,priorLabel,daily=fal
  const selected=columns.find(c=>c.key===active);
  const maximum=Math.max(1,...columns.flatMap(c=>[c.current??0,c.prior??0]));
  const magnitude=10**Math.floor(Math.log10(maximum));
- const ceiling=Math.ceil(maximum/magnitude)*magnitude;
+ const ceiling=([1,1.2,1.5,2,2.5,3,4,5,6,8,10].find(n=>n>=maximum/magnitude)??10)*magnitude;
  const left=64,top=20,height=244,bottom=46;
  const spacing=daily?12:columns.some(c=>c.label.length>5)?56:40;
  const width=Math.max(560,columns.length*spacing+left+16),plot=width-left-16,slot=plot/Math.max(1,columns.length);
