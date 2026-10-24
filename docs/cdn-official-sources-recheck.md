@@ -1,5 +1,7 @@
 # CDN: rà lại nguồn, phạm vi Sơn Trà và các cột tháng trống
 
+> **Đính chính tiếp ngày 25/10/2026:** [Đối chiếu trực tiếp và sửa tổng hợp](cdn-aggregation-correction-20261025.md) tìm được lỗi `known_dwt` bỏ DWT hợp lệ của cả ngày khi một dòng thiếu trọng tải. Lịch vẫn có dữ liệu ở cả 22 kỳ tháng; các con số đủ điều kiện 18/12/0 dưới đây là trạng thái chỉ tiêu nghiêm ngặt của lần kiểm tra cũ, không phải số tháng có/không có dữ liệu để vẽ. Đã bổ sung chỉ tiêu DWT đã ghi nhận, giữ cảnh báo độ phủ và tổng đủ điều kiện riêng.
+
 Ngày 24/10/2026, theo yêu cầu người dùng sau khi xem CDN và ảnh website tham khảo. [Biên nhận nguồn/độ phủ](catalog-review/cdn-source-recheck-20261024.json). Kết quả rà soát này thay thế cách diễn giải rằng kiểm thử giao diện hoặc đủ nhiều báo cáo ngày đồng nghĩa CDN đã có chuỗi DWT đủ như Hải Phòng.
 
 ## Kết luận

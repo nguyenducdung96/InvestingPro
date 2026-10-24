@@ -70,6 +70,12 @@ it('imports idempotently, versions corrections, protects RLS and preserves succe
   const cdnReplay=()=>db.query<{result:{versions_inserted:number}}>("select port.import_php_plan_days('tien_sa',$1) as result",[JSON.stringify([cdn])]);
   await cdnReplay();expect((await cdnReplay()).rows[0].result.versions_inserted).toBe(0);
   expect((await db.query<{departure_dwt:number|null}>("select departure_dwt from port.php_plan_days where asset_code='tien_sa'")).rows[0].departure_dwt).toBeNull();
+  const cdnMixed={...cdn,sha256:'d'.repeat(64),fetched_at:'2025-09-03T00:00:00Z',events:[...cdn.events,{...cdn.events[0],vessel_name:'KNOWN DWT',planned_time:'09:00',dwt:155179.38}]};
+  await db.query("select port.import_php_plan_days('tien_sa',$1)",[JSON.stringify([cdnMixed])]);
+  const cdnKnown=async()=>(await db.query<{departure_dwt:null;departure_known_dwt:string;departure_rows:number;departure_dwt_missing:number}>("select departure_dwt,departure_known_dwt,departure_rows,departure_dwt_missing from port.php_plan_days where asset_code='tien_sa'")).rows[0];
+  expect(await cdnKnown()).toMatchObject({departure_dwt:null,departure_rows:2,departure_dwt_missing:1});expect(Number((await cdnKnown()).departure_known_dwt)).toBe(155179.38);
+  await db.query("select port.import_php_plan_days('tien_sa',$1)",[JSON.stringify([{...cdnMixed,status:'failed',fetched_at:'2025-09-04T00:00:00Z',error:'Source unavailable'}])]);
+  await cdnReplay();expect(Number((await cdnKnown()).departure_known_dwt)).toBe(155179.38);
   await expect(db.query("select port.import_php_plan_days('tien_sa',$1)",[JSON.stringify([{...cdn,source_url:source}])])).rejects.toThrow();
   await expect(db.query("select port.import_php_plan_days('tien_sa',$1)",[JSON.stringify([{...cdn,events:[{...cdn.events[0],from_berth:'CHU LAI'}]}])])).rejects.toThrow();
   await expect(db.query('select port.import_php_plan_days($1,$2)',['chua_ve',JSON.stringify([input])])).rejects.toThrow('Invalid PHP berth');

@@ -12,3 +12,11 @@ it('missing DWT preserves observed counts and count YoY without turning plans in
  expect(data.rows[0].metric?.current.rows).toBe(23);expect(data.rows[0].metric?.current.dwt).toBeNull();expect(data.rows[0].metric?.yoy.rows).toBe(0);expect(data.actual_verified).toBe(false);
  expect(centralOverview([],{},now).rows.every(r=>r.metric===null)).toBe(true);
 });
+it('sums known row weights on incomplete days without certifying totals or inventing DWT for unknown rows',()=>{
+ const days=rows.map(d=>({...d,departure_rows:2,departure_dwt:null,departure_dwt_missing:1,departure_known_dwt:100}));
+ const period=centralOverview(days,{},now).rows[0].metric!;
+ expect(period.current.known_dwt).toBe(2300);expect(period.current.observed_dwt).toBe(2300);
+ expect(period.current.dwt).toBeNull();expect(period.yoy.dwt).toBeNull();expect(period.current.rows).toBe(46);
+ const unknown=rows.map(d=>({...d,departure_dwt:null,departure_dwt_missing:1,departure_known_dwt:0}));
+ expect(centralOverview(unknown,{},now).rows[0].metric?.current.observed_dwt).toBeNull();
+});
