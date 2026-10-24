@@ -163,7 +163,7 @@ def init_worker():
     OCR = RapidOCR(intra_op_num_threads=2, inter_op_num_threads=1, rec_batch_num=6)
 
 
-SCOPE_READER = 'qnp-footer/1'
+SCOPE_READER = 'qnp-footer/3'
 def scope_footer(image):
     """Locate a positively named next port below the QNP grid, including a split header."""
     import cv2
@@ -176,26 +176,32 @@ def scope_footer(image):
     contours,_=cv2.findContours(horizontal|vertical,cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
     tables=sorted((cv2.boundingRect(c) for c in contours if cv2.boundingRect(c)[2]>im.shape[1]*.7 and cv2.boundingRect(c)[3]>60),key=lambda r:r[1])
     if not tables:return {'reader':SCOPE_READER,'closed':False,'labels':[]}
-    x,y,w,h=tables[0];start=y+h+2;end=tables[1][1]-2 if len(tables)>1 else im.shape[0]
+    x,y,w,h=tables[0];start=y+h+2
+    lines=np.where((horizontal>0).sum(axis=1)>im.shape[1]*.7)[0]
+    following=lines[lines>start+3]
+    end=int(following[0])-1 if len(following) else im.shape[0]
     if end<=start:return {'reader':SCOPE_READER,'closed':False,'labels':[]}
     ink=(binary[start:end,x+3:x+w-3]>0).sum(axis=1);spans=[]
     for i in np.where(ink>max(1,w*.003))[0]:
         if not spans or i-spans[-1][-1]>2:spans.append([int(i)])
         else:spans[-1].append(int(i))
     boxes=[(start+v[0],start+v[-1]+1) for v in spans if v[-1]-v[0]>=3]
-    crops=[cv2.resize(im[max(0,a-1):b+1,x+3:x+w-3],None,fx=3,fy=3) for a,b in boxes]
+    crops=[]
+    for a,b in boxes:
+        pts=cv2.findNonZero(binary[a:b,x+3:x+w-3]);cx,cy,cw,ch=cv2.boundingRect(pts)
+        crops.append(cv2.resize(im[max(0,a-1):b+1,max(x+3,x+3+cx-2):min(x+w-3,x+3+cx+cw+2)],None,fx=3,fy=3))
     reads,_=OCR.text_rec(crops) if crops else ([],0)
     labels=[{'text':str(r[0]),'confidence':float(r[1]),'box':[x+3,a,x+w-3,b]} for (a,b),r in zip(boxes,reads)]
-    allowed={'CANGTHINAI','CANGTANCANGMIENTRUNG','TANCANGMIENTRUNG'}
+    allowed={'CANGTHINAI','CANGTANCANGMIENTRUNG','TANCANGMIENTRUNG','BENPHAOXANGDAUBINHDINH','PHAOXANGDAU'}
     closed=any(normal(r['text']) in allowed and r['confidence']>=.85 for r in labels)
     return {'reader':SCOPE_READER,'closed':closed,'labels':labels,'image_sha256':image['sha256']}
 
 
-def parse_image(image, title_day, first=False):
+def parse_image(image, title_day, first=False, context=None, previous=None):
     """Read bounded table cells directly; do not run a text detector over unrelated ports."""
     import cv2
     import numpy as np
-    if not first:
+    if not first and (not context or not context.get('from')):
         return {'status':'continuation_requires_review','rows':[],'rejected':[]}
     im=cv2.imread(image['path'])
     if im is None:raise ValueError('Image cannot be decoded')
@@ -230,29 +236,51 @@ def parse_image(image, title_day, first=False):
     if not tables:
         bands=text_lines(20,0,im.shape[1]-20,int(im.shape[0]*.42))
         texts=[recognize(20,a-1,im.shape[1]-20,b+1)[0] for a,b in bands]
-        if any(normal(t)=='KHONGCOKEHOACHTAU' for t in texts):
+        if not first and context and sum(any(marker in normal(t) for t in texts) for marker in ('LAPKEHOACH','GIAMDOC'))==2:
+            return {'status':'signature_page','from':context['from'],'through':context['through'],'rows':[],'rejected':[],'page_scope_complete':True}
+        if any(normal(t) in ('KHONGCOKEHOACHTAU','KHONGCOKEHOACH') for t in texts):
             start,end=window(' '.join(texts),title_day)
             return {'status':'explicit_no_plan','from':start,'through':end,'rows':[],'rejected':[],'table_scope':'regional_explicit_no_plan','page_scope_complete':True}
         raise ValueError('No source table grid')
     left,top,width,height=tables[0];bottom=top+height
-    header_bands=text_lines(left+3,0,left+width-3,max(1,top-2))[-5:]
-    header_text=[recognize(left+2,a-1,left+width-2,b+1)[0] for a,b in header_bands]
-    if not any(normal(s)=='CANGQUYNHON' for s in header_text):
-        raise ValueError('First source table is not labeled Cang Quy Nhon')
-    start,end=window(' '.join(header_text),title_day)
+    if first and not previous:
+        header_bands=text_lines(left+3,0,left+width-3,max(1,top-2))[-5:]
+        header_text=[recognize(left+2,a-1,left+width-2,b+1)[0] for a,b in header_bands]
+        if not any(normal(s)=='CANGQUYNHON' for s in header_text):
+            raise ValueError('First source table is not labeled Cang Quy Nhon')
+        start,end=window(' '.join(header_text),title_day)
+    elif first:
+        start,end=previous['from'],previous['through']
+    else:
+        captions=[recognize(left+2,a-1,left+width-2,b+1)[0] for a,b in text_lines(left+3,0,left+width-3,max(1,top-2))]
+        if any(normal(t) in ('CANGTHINAI','CANGTANCANGMIENTRUNG','TANCANGMIENTRUNG','BENPHAOXANGDAUBINHDINH','PHAOXANGDAU') for t in captions):
+            return {'status':'outside_qnp_scope','from':context['from'],'through':context['through'],'rows':[],'rejected':[],'page_scope_complete':True,'scope_heading':captions}
+        if top>70:raise ValueError('Continuation is not an unlabeled carry-over grid')
+        start,end=context['from'],context['through']
     ys=groups(np.where((horizontal[top:bottom]>0).sum(axis=1)>im.shape[1]*.7)[0])
     ys=[top+y for y in ys]
-    if len(ys)<3:raise ValueError('QNP row grid not recognized')
-    header_bottom=next((y for y in ys if y>top+20),None)
+    if len(ys)<2:raise ValueError('QNP row grid not recognized')
+    header_bottom=next((y for y in ys if y>top+20),None) if first else ys[0]
     if header_bottom is None:raise ValueError('QNP header grid missing')
     grid=binary[top:bottom]
     v=cv2.morphologyEx(grid,cv2.MORPH_OPEN,cv2.getStructuringElement(cv2.MORPH_RECT,(1,max(15,int(height*.7)))))
     xs=groups(np.where((v>0).sum(axis=0)>height*.65)[0])
     if not 11<=len(xs)<=14:raise ValueError('Unexpected QNP column grid')
-    labels={col:normal(recognize(xs[col]+2,header_bottom-22,xs[col+1]-2,header_bottom-1)[0]) for col in (5,6)}
-    candidates=[c for c,label in labels.items() if label=='DWT']
-    if len(candidates)!=1:raise ValueError('Missing or ambiguous QNP DWT header')
-    dwt_col=candidates[0]
+    if first:
+        labels={col:normal(recognize(xs[col]+2,header_bottom-22,xs[col+1]-2,header_bottom-1)[0]) for col in (5,6)}
+        candidates=[c for c,label in labels.items() if label=='DWT']
+        if len(candidates)!=1:raise ValueError('Missing or ambiguous QNP DWT header')
+        dwt_col=candidates[0]
+    else:
+        if len(xs)!=context['column_count']:raise ValueError('Continuation column grid differs from QNP')
+        dwt_col=context['dwt_col']
+    if first and previous:
+        index,confidence=recognize(xs[0]+3,ys[-2]+3,xs[1]-3,ys[-1]-2)
+        if not index.isdigit() or confidence<.85:raise ValueError('Cannot read last QNP row number')
+        count=sum(b-a>=12 for a,b in zip(ys,ys[1:]) if a>=header_bottom)
+        first_index,first_confidence=recognize(xs[0]+3,header_bottom+3,xs[1]-3,next(y for y in ys if y>header_bottom)-2)
+        if first_index!='1' or first_confidence<.85:raise ValueError('QNP first row number is not anchored')
+        return {**previous,'page_scope_complete':scope_footer(image)['closed'],'column_count':len(xs),'dwt_col':dwt_col,'last_index':max(int(index),count)}
     crops=[]
     def queue_cell(a,b,col,scale=3):
         x1,x2=xs[col]+3,xs[col+1]-3;y1,y2=a+3,b-2
@@ -267,12 +295,18 @@ def parse_image(image, title_day, first=False):
     plans=[]
     for a,b in zip(data_y,data_y[1:]):
         if b-a<12:continue
-        plans.append((a,b,[queue_cell(a,b,c,scale) for c,scale in [(1,3),(2,3),(len(xs)-4,3),(len(xs)-3,3),(dwt_col,2),(dwt_col,3)]]))
+        plans.append((a,b,[queue_cell(a,b,c,scale) for c,scale in [(0,3),(1,3),(2,3),(len(xs)-4,3),(len(xs)-3,3),(dwt_col,2),(dwt_col,3)]]))
     batch,_=OCR.text_rec(crops) if crops else ([],0)
     def resolved(refs):
         return ' '.join(str(batch[i][0]).strip() for i in refs),min((float(batch[i][1]) for i in refs),default=0)
+    last_index=0 if first else context['last_index']
     for a,b,refs in plans:
-        (raw_time,tc),(vessel,vc),(origin,oc),(destination,dc),(raw_dwt,wc),check=[resolved(r) for r in refs]
+        (index,ic),(raw_time,tc),(vessel,vc),(origin,oc),(destination,dc),(raw_dwt,wc),check=[resolved(r) for r in refs]
+        if not first:
+            if not index and not raw_time and not vessel:continue  # A clipped tail of the preceding page row has no new identity.
+            if normal(index) in ('ST','STT','T') and normal(vessel)=='TENTAU':continue
+            if not index.isdigit() or int(index)!=last_index+1 or ic<.85:raise ValueError(f'Continuation row numbers do not follow QNP page: expected {last_index+1}, read {index!r}, confidence {ic:.3f}')
+        if index.isdigit():last_index=int(index)
         raw_row={'time':raw_time,'vessel':vessel,'dwt':raw_dwt,'from':origin,'to':destination,'confidence':{'time':tc,'vessel':vc,'from':oc,'to':dc,'dwt':wc},'box':[xs[0],a,xs[-1],b]}
         try:
             timestamp=event_time(raw_time,start,end)
@@ -286,33 +320,62 @@ def parse_image(image, title_day, first=False):
         for a,b in text_lines(left+3,bottom+2,left+width-3,tables[1][1]-2):next_caption.append(recognize(left+2,a-1,left+width-2,b+1)[0])
     complete=any((normal(s).startswith('CANG') or normal(s).startswith('TANCANG')) and normal(s)!='CANGQUYNHON' for s in next_caption)
     if not complete:complete=scope_footer(image)['closed']
-    return {'status':'parsed','from':start,'through':end,'rows':rows,'rejected':rejected,'table_scope':'CANG QUY NHON','page_scope_complete':complete}
+    return {'status':'parsed','from':start,'through':end,'rows':rows,'rejected':rejected,'table_scope':'CANG QUY NHON','page_scope_complete':complete,'column_count':len(xs),'dwt_col':dwt_col,'last_index':last_index}
+
+
+PUBLISHED=None
+def published_seed(item):
+    """Reuse versioned cells only after newly archived source image hashes match exactly."""
+    global PUBLISHED
+    if PUBLISHED is None:
+        target=ROOT/'packages/modules/port/src/qnp-history-data.ts'
+        text=target.read_text(encoding='utf-8') if target.exists() else ''
+        match=re.search(r'export const qnpAuthorityBulletins:QnpBulletin\[\]=(\[.*\]);',text,re.S)
+        PUBLISHED={s['id']:s for s in json.loads(match[1])} if match else {}
+    source=PUBLISHED.get(item['id'])
+    if not source or source.get('parser_version')!=VERSION:return {}
+    expected=[{k:image[k] for k in ('url','sha256')} for image in item['images']]
+    if source.get('images')!=expected:return {}
+    quality=source.get('quality',{})
+    pages=[]
+    for i,image in enumerate(item['images']):
+        rows=[r for r in source['rows'] if r.get('image_sha256')==image['sha256']]
+        if i and not rows:continue
+        pages.append({'status':'explicit_no_plan' if quality.get('explicit_no_plan') else 'parsed',
+                      'from':source['from'],'through':source['through'],'rows':rows,'rejected':[],
+                      'page_scope_complete':bool(quality.get('page_scope_complete')),
+                      'seed_rejected_rows':quality.get('rejected_rows',0) if i==0 else 0})
+    return {**item,'parser_version':VERSION,'ocr_config':'grid-cells-upright','parsed_at':source['parsed_at'],
+            'from':source['from'],'through':source['through'],'rows':source['rows'],'pages':pages,
+            'errors':[] if not source.get('source_error') else [{'error':source['source_error']}],
+            'seeded_from_versioned_hashes':True,'history_complete':False,'automatic_promotion':False}
 
 
 def extract(item):
+    prior={}
     ident = str(item['id']); cache = OUT/'parsed'/(ident+'.json')
     if cache.exists():
         try:prior = json.loads(cache.read_text(encoding='utf-8'))
         except json.JSONDecodeError:prior={}
+    else:prior=published_seed(item)
+    if prior:
         if prior.get('parser_version') == VERSION and prior.get('ocr_config')=='grid-cells-upright' and prior.get('images') == item['images'] and prior.get('from') and not prior.get('errors'):
-            if prior.get('pages') and not prior['pages'][0].get('page_scope_complete') and prior.get('scope_audit',{}).get('reader')!=SCOPE_READER:
-                prior['scope_audit']=scope_footer(item['images'][0])
-                if prior['scope_audit']['closed']:
-                    prior['pages'][0]['page_scope_complete']=True
-                    prior['pages']=prior['pages'][:1]
-                prior['parsed_at']=dt.datetime.now(dt.timezone.utc).isoformat()
-                temp=cache.with_suffix('.tmp');temp.write_text(json.dumps(prior,ensure_ascii=False,indent=2),encoding='utf-8');temp.replace(cache)
-            return prior
+            incomplete=bool(prior.get('pages') and not prior['pages'][-1].get('page_scope_complete'))
+            if not incomplete or prior.get('continuation_reader')=='qnp-continuation/5':
+                if not cache.exists():
+                    temp=cache.with_suffix('.tmp');temp.write_text(json.dumps(prior,ensure_ascii=False,indent=2),encoding='utf-8');temp.replace(cache)
+                return prior
     pages = []; errors = []
     for i,image in enumerate(item['images']):
-        if i and pages and pages[0].get('page_scope_complete'):
+        if i and pages and pages[-1].get('page_scope_complete'):
             break  # The next port heading already closes the QNP table on page one.
         try:
-            pages.append(parse_image(image,item['title_day'],i==0))
+            pages.append(parse_image(image,item['title_day'],i==0,pages[-1] if i and pages else None,prior['pages'][0] if i==0 and prior.get('from') and prior.get('images')==item['images'] and prior.get('pages') else None))
         except Exception as e:
             errors.append({'image':image['url'],'error':str(e)})
     first = pages[0] if pages else {}
-    result = {**item,'parser_version':VERSION,'ocr_config':'grid-cells-upright','parsed_at':dt.datetime.now(dt.timezone.utc).isoformat(),'pages':pages,'errors':errors,'rows':first.get('rows',[]),'from':first.get('from'),'through':first.get('through'),'history_complete':False,'automatic_promotion':False}
+    combined=[r for page in pages for r in page.get('rows',[])]
+    result = {**item,'parser_version':VERSION,'ocr_config':'grid-cells-upright','continuation_reader':'qnp-continuation/5','parsed_at':dt.datetime.now(dt.timezone.utc).isoformat(),'pages':pages,'errors':errors,'rows':combined,'from':first.get('from'),'through':first.get('through'),'history_complete':False,'automatic_promotion':False}
     temp=cache.with_suffix('.tmp');temp.write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8');temp.replace(cache)
     return result
 

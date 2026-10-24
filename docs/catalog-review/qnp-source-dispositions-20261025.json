@@ -1,0 +1,121 @@
+{
+  "source_exceptions": [
+    {
+      "id": 6106,
+      "title_day": "2025-05-04",
+      "url": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=detail&id=6106",
+      "image": "https://cangvuhanghaiquynhon.gov.vn/images/uploads/images/ad30a1059128e2a0aa4339d0d0d72b69-0.jpg",
+      "sha256": "bea907655f7ffc058d08aacf348f2e54f97f9f87b8217b6b4d6ef082dd6b7d8d",
+      "reviewed_on": "2026-10-25",
+      "status": "date_window_conflict",
+      "note": "Header 03/04/2025 to 04/05/2025 spans a month; rows use 03-04/05; excluded without correcting source",
+      "zero_certified": false
+    },
+    {
+      "id": 6107,
+      "title_day": "2025-05-05",
+      "url": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=detail&id=6107",
+      "image": "https://cangvuhanghaiquynhon.gov.vn/images/uploads/images/aaaa5062a98e03745950fe88b75cb854-0.jpg",
+      "sha256": "383a72910269d66e3344cd9c942241d6ada8520e911888a987eb15820aba1367",
+      "reviewed_on": "2026-10-25",
+      "status": "date_window_conflict",
+      "note": "Header 04/04/2025 to 05/05/2025 spans a month; rows use 04-05/05; excluded",
+      "zero_certified": false
+    },
+    {
+      "id": 7371,
+      "title_day": "2025-11-19",
+      "url": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=detail&id=7371",
+      "image": "https://cangvuhanghaiquynhon.gov.vn/images/uploads/images/KHDD-18-19-11-2025-AN.jpg",
+      "sha256": "76e927d9099808141cb393e1fe7ef50ff76acf9c89e8567f834d568fc8e5bf53",
+      "reviewed_on": "2026-10-25",
+      "status": "outside_qnp_scope",
+      "note": "Only PHAO XANG DAU table; no QNP berth observations",
+      "zero_certified": false
+    },
+    {
+      "id": 7372,
+      "title_day": "2025-11-20",
+      "url": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=detail&id=7372",
+      "image": "https://cangvuhanghaiquynhon.gov.vn/images/uploads/images/KHDD-19-20-11-2025-AN.jpg",
+      "sha256": "d35f9e0eddf6b585eadfae2a947bba7d3488083f36787fe28a168d41561563e3",
+      "reviewed_on": "2026-10-25",
+      "status": "signed_blank_edition",
+      "note": "Window 19-20/11/2025 and signatures only; no explicit zero declaration",
+      "zero_certified": false
+    },
+    {
+      "id": 7380,
+      "title_day": "2025-11-27",
+      "url": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=detail&id=7380",
+      "image": "https://cangvuhanghaiquynhon.gov.vn/images/uploads/images/KHDD-26-27-11-2025-THANH-.jpg",
+      "sha256": "a96cb811fcb686de2e4d6c915d65528a94293ad454d4c17c4446610ba4cf57ae",
+      "reviewed_on": "2026-10-25",
+      "status": "explicit_no_plan",
+      "note": "Source explicitly states KHONG CO KE HOACH; no fabricated observed zero",
+      "zero_certified": false
+    },
+    {
+      "id": 7407,
+      "title_day": "2025-12-20",
+      "url": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=detail&id=7407",
+      "image": "https://cangvuhanghaiquynhon.gov.vn/images/uploads/images/760ecce44bddd8401dc8405b2df5966c-0.jpg",
+      "sha256": "2fd91ba277251be1f74464eb7eede93a01944bb843ce64f2f95c360b17a36390",
+      "reviewed_on": "2026-10-25",
+      "status": "title_image_date_conflict",
+      "note": "Title 20/12/2025; image window 20-21/12/2025; excluded",
+      "zero_certified": false
+    },
+    {
+      "id": 7594,
+      "title_day": "2026-06-02",
+      "url": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=detail&id=7594",
+      "image": "https://cangvuhanghaiquynhon.gov.vn/images/uploads/images/c8af49f120e8583fe1137d3787f920d6-0.jpg",
+      "sha256": "cf5953f847ef78bcfe8cef5cbdc153f9e2b32b86d68af102a724e162560879f0",
+      "reviewed_on": "2026-10-25",
+      "status": "date_window_conflict",
+      "note": "Header 01/05/2026 to 02/06/2026; rows use 01-02/06; excluded",
+      "zero_certified": false
+    },
+    {
+      "id": 7596,
+      "title_day": "2026-06-03",
+      "url": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=detail&id=7596",
+      "image": "https://cangvuhanghaiquynhon.gov.vn/images/uploads/images/KHDD%2002-03%20%2006%202026%20DAT-1(5).jpg",
+      "sha256": "210060df67800c2efc3d02fa1432d7c1838c5b6d93da95d6a0ec6650bb8e947e",
+      "reviewed_on": "2026-10-25",
+      "status": "date_window_conflict",
+      "note": "Header 02/05/2026 to 03/06/2026; rows use 02-03/06; excluded",
+      "zero_certified": false
+    },
+    {
+      "id": 7612,
+      "title_day": "2026-06-18",
+      "url": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=detail&id=7612",
+      "image": "https://cangvuhanghaiquynhon.gov.vn/images/uploads/images/af07b5d0798a37fd30067cad65fd7321-0.jpg",
+      "sha256": "47c577a1d05c6d384705841026dbebed4f9785e94edd5ae0cb7088b8ed662ab4",
+      "reviewed_on": "2026-10-25",
+      "status": "row_window_conflict",
+      "note": "Header 16-17/06/2026; rows use 17-18/06; excluded",
+      "zero_certified": false
+    },
+    {
+      "id": 7713,
+      "title_day": "2026-09-13",
+      "url": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=detail&id=7713",
+      "image": "https://cangvuhanghaiquynhon.gov.vn/images/uploads/images/43d372222ac44acdc6c89c96e14b925d-0.jpg",
+      "sha256": "3d643aba317e96516ee1787e9c546928fbeb46edea285f245ac23a1cfd49e8d9",
+      "reviewed_on": "2026-10-25",
+      "status": "row_window_conflict",
+      "note": "Header 11-12/09/2026; rows use 12-13/09; excluded",
+      "zero_certified": false
+    }
+  ],
+  "tc1": {
+    "status": "no_verified_source_alias",
+    "decision": "Retain TC1 unavailable; do not alias TCQN or TC TL/HL by matching dimensions or corporate similarity",
+    "operator_scope": "https://quynhonport.vn/nang-luc-hieu-suat/luong-vao-cang/",
+    "authority_distinct_ports": "https://cangvuhanghaiquynhon.gov.vn/index.aspx?id=1054&page=detail",
+    "reviewed_on": "2026-10-25"
+  }
+}

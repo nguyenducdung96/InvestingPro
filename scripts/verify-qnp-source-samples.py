@@ -4,6 +4,7 @@ import pathlib
 
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 CASES={
+    7796:{'2026-10-14T09:00:00+07:00':39981,'2026-10-14T11:30:00+07:00':3347,'2026-10-14T11:45:00+07:00':2985},
     7924:{'2026-10-23T18:00:00+07:00':28378,'2026-10-23T18:30:00+07:00':4559,'2026-10-24T11:00:00+07:00':24500,'2026-10-24T12:00:00+07:00':1931},
     7554:{'2026-04-26T17:30:00+07:00':28710,'2026-04-26T18:00:00+07:00':32926,'2026-04-26T19:00:00+07:00':18581,'2026-04-26T19:30:00+07:00':19542},
     6158:{'2025-06-10T18:00:00+07:00':8040,'2025-06-10T18:15:00+07:00':13530,'2025-06-11T06:00:00+07:00':28663,'2025-06-11T15:00:00+07:00':28663},
@@ -24,6 +25,9 @@ def main():
                 known+=1
         if matched<3 or known<2:raise ValueError(f'Official sample is not sufficiently readable: {ident}')
         checked.append({'id':ident,'url':source['url'],'image_sha256':source['images'][0]['sha256'],'matched_rows':matched,'known_weights':known})
+    continuation=json.loads((ROOT/'.local/qnp-authority/parsed/7796.json').read_text(encoding='utf-8'))
+    if len(continuation['pages'])<2 or not continuation['pages'][1].get('page_scope_complete'):raise ValueError('The multi-page official sample is not closed by the next port heading')
+    if not any(r['time']=='2026-10-14T11:30:00+07:00' and r['image_sha256']==continuation['images'][1]['sha256'] for r in continuation['rows']):raise ValueError('Continuation row did not retain its own source image')
     (ROOT/'.local/qnp-authority/sample-verification.json').write_text(json.dumps(checked,indent=2),encoding='utf-8')
     print(json.dumps({'official_samples':len(checked),'visually_checked_reference_rows':sum(r['matched_rows'] for r in checked),'matching_known_weights':sum(r['known_weights'] for r in checked)}))
 

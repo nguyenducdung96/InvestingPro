@@ -23,7 +23,7 @@ jobs:
           cache: pip
           cache-dependency-path: scripts/requirements-qnp.txt
       - run: python -m pip install -r scripts/requirements-qnp.txt
-      - uses: actions/cache@v4
+      - uses: actions/cache/restore@v4
         with:
           path: .local/qnp-authority
           key: qnp-authority-grid-v1-${{ github.run_id }}-${{ github.run_attempt }}
@@ -60,3 +60,10 @@ jobs:
           path: .local/qnp-authority/export-receipt.json
           retention-days: 7
           if-no-files-found: ignore
+          include-hidden-files: true
+      - name: Preserve validated source cache after partial failures
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .local/qnp-authority
+          key: qnp-authority-grid-v1-${{ github.run_id }}-${{ github.run_attempt }}

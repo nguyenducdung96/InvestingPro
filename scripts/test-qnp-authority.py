@@ -1,12 +1,36 @@
 import importlib.util
 import pathlib
 import unittest
+from unittest.mock import patch
+import tempfile
 
 spec=importlib.util.spec_from_file_location('authority',pathlib.Path(__file__).with_name('collect-qnp-authority.py'))
 m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 
 
 class SourceContracts(unittest.TestCase):
+    def test_discovery_initializes_a_cold_nested_workspace(self):
+        spec=importlib.util.spec_from_file_location('discovery',pathlib.Path(__file__).with_name('discover-qnp-authority.py'))
+        discovery=importlib.util.module_from_spec(spec);spec.loader.exec_module(discovery)
+        class Response:
+            def __enter__(self):return self
+            def __exit__(self,*args):pass
+            def geturl(self):return discovery.INDEX
+            def read(self,*args):return b'<span id="ctl22_LabelCurrentPage">1</span><a href="index.aspx?page=detail&amp;id=1" class="titleNewsNormal">NG\xc3\x80Y 01/01/2025</a><a href="index.aspx?page=detail&amp;id=2" class="titleNewsNormal">NG\xc3\x80Y 31/12/2024</a>'
+        with tempfile.TemporaryDirectory() as folder:
+            target=pathlib.Path(folder)/'not-created'/'qnp'
+            with patch.object(discovery,'OUT',target),patch.object(discovery.urllib.request,'urlopen',return_value=Response()):discovery.main()
+            self.assertTrue((target/'candidates.json').exists())
+
+    def test_versioned_cells_are_reused_only_for_identical_archived_source_hashes(self):
+        image={'url':m.BASE+'images/uploads/images/test.jpg','sha256':'a'*64}
+        source={'id':1,'parser_version':m.VERSION,'images':[image],'from':'2026-10-23T16:00:00+07:00','through':'2026-10-24T16:00:00+07:00','parsed_at':'2026-10-25T00:00:00+07:00','rows':[{'image_sha256':'a'*64,'dwt':None}],'quality':{'page_scope_complete':True}}
+        with patch.object(m,'PUBLISHED',{1:source}):
+            seed=m.published_seed({'id':1,'images':[image]})
+            self.assertIsNone(seed['rows'][0]['dwt'])
+            self.assertFalse(seed['history_complete'])
+            self.assertEqual(m.published_seed({'id':1,'images':[{**image,'sha256':'b'*64}]}),{})
+
     def test_source_weight_formats_and_unknowns(self):
         self.assertEqual(m.weight('28,378'),28378)
         self.assertEqual(m.weight('28.378'),28378)

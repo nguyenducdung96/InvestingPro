@@ -51,6 +51,10 @@ def main():
         if item.get('ocr_config')!='grid-cells-upright':
             raise ValueError('Re-extract the prototype full-page results before publication')
         pages=item.get('pages',[])
+        previous_complete=next((s for s in previous if s['id']==item['id'] and s.get('quality',{}).get('page_scope_complete')),None)
+        if item.get('errors') and previous_complete:
+            sources.append({**previous_complete,'source_error':'Latest source page attempt failed; retained the prior complete document version'})
+            continue
         explicit_empty=bool(pages and pages[0]['status']=='explicit_no_plan')
         if not item.get('from') or (not item['rows'] and not explicit_empty):
             failures.append({'id':item['id'],'title_day':item['title_day'],'errors':item['errors'],'page_status':[p['status'] for p in pages]})
@@ -76,14 +80,14 @@ def main():
                 raise ValueError('DWT has not passed both source cell readings')
             rows.append({k:r[k] for k in ('time','vessel','dwt','from','to','raw','image_sha256','dwt_crosscheck')})
         sources.append({'id':item['id'],'source_kind':'authority','parser_version':bundle['parser_version'],
-                        'url':item['url'],'image':item['images'][0]['url'],'sha256':item['images'][0]['sha256'],
+                        'continuation_reader':item.get('continuation_reader'),'url':item['url'],'image':item['images'][0]['url'],'sha256':item['images'][0]['sha256'],
                         'images':[{k:i[k] for k in ('url','sha256')} for i in item['images']],
                         'issued_on':item['from'][:10],'published_at':published_at,'parsed_at':item['parsed_at'],
                         'from':item['from'],'through':item['through'],'quality':{
-                            'rejected_rows':sum(len(p.get('rejected',[])) for p in pages)+conflict_rows,
+                            'rejected_rows':sum(len(p.get('rejected',[]))+p.get('seed_rejected_rows',0) for p in pages)+conflict_rows,
                             'missing_dwt':sum(r['dwt'] is None for r in rows),
-                            'continuation_pages':sum(p['status']=='continuation_requires_review' for p in pages),
-                            'page_scope_complete':pages[0].get('page_scope_complete',False),'explicit_no_plan':explicit_empty,'duplicate_rows':source_duplicates,'conflicting_groups':conflict_rows},'rows':rows})
+                            'continuation_pages':sum(p['status']=='continuation_requires_review' for p in pages)+len(item.get('errors',[])),
+                            'page_scope_complete':bool(pages and pages[-1].get('page_scope_complete',False) and not item.get('errors')),'explicit_no_plan':explicit_empty,'duplicate_rows':source_duplicates,'conflicting_groups':conflict_rows},'rows':rows,**({'source_error':'One or more source pages did not pass validation; available QNP rows retained'} if item.get('errors') else {})})
     present={s['id'] for s in sources}
     failed_ids={f['id'] for f in failures}|{int(re.search(r'id=(\d+)',f['url'])[1]) for f in bundle['failures']}
     for source in previous:
@@ -99,7 +103,7 @@ def main():
     if any(not expected.issubset(totals['directions'][direction]['months']) for direction in ('arrival','departure')):
         raise ValueError('Owned-berth month matrix incomplete; preserve the published dataset')
     metadata={'source_url':'https://cangvuhanghaiquynhon.gov.vn/index.aspx?page=news&cat=2014',
-              'parser_version':bundle['parser_version'],'collected_at':dt.datetime.now(dt.timezone.utc).isoformat(),
+              'parser_version':bundle['parser_version'],'continuation_reader':'qnp-continuation/5','collected_at':dt.datetime.now(dt.timezone.utc).isoformat(),
               'candidate_documents':len(bundle['schedules'])+len(bundle['failures']),
               'parsed_documents':len(sources),'failed_documents':len(failures)+len(bundle['failures']),
               'rejected_rows':sum(s['quality']['rejected_rows'] for s in sources),

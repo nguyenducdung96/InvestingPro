@@ -4,7 +4,7 @@ export interface QnpPlanRow {time:string;vessel:string;dwt:number|null;from:stri
 export interface QnpBulletin {
  id:number;url:string;image:string;sha256:string;issued_on:string;published_at:string|null;
  from:string;through:string;reviewed_on?:string;rows:QnpPlanRow[];
- source_kind?:'authority';parser_version?:string;parsed_at?:string;
+ source_kind?:'authority';parser_version?:string;continuation_reader?:string|null;parsed_at?:string;
  images?:{url:string;sha256:string}[];quality?:{rejected_rows:number;missing_dwt:number;continuation_pages:number;page_scope_complete:boolean;explicit_no_plan?:boolean;duplicate_rows?:number;conflicting_groups?:number};
  source_error?:string;
 }
