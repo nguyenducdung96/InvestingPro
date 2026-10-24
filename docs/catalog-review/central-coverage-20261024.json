@@ -1,0 +1,61 @@
+{
+  "observed_on": "2026-10-24",
+  "user_selected_scope": [
+    "CDN",
+    "QNP",
+    "CMP",
+    "NAP",
+    "GMD–Dung Quất"
+  ],
+  "regional_complete": false,
+  "regional_total": null,
+  "rows": [
+    {
+      "ticker": "CDN",
+      "assets": [
+        "tien_sa"
+      ],
+      "status": "integrated_published_plan",
+      "source": "http://tttb.cangvuhanghaidanang.gov.vn/public-kh",
+      "history": "cdn-plan-history-20261024.json",
+      "scope_evidence": "cdn-berth-scope-20261024.json"
+    },
+    {
+      "ticker": "QNP",
+      "assets": [
+        "quy_nhon"
+      ],
+      "status": "pending_history",
+      "source": "https://quynhonport.vn/chuyen-muc/ke-hoach-khai-thac-tau/",
+      "reason": "Multi-day quay plans need revision/date deduplication. Container inventory is not vessel events. Exclude QSP."
+    },
+    {
+      "ticker": "CMP",
+      "assets": [
+        "chan_may_cmp"
+      ],
+      "status": "pending_history",
+      "source": "https://www.chanmayport.com.vn/",
+      "reason": "Quay 1 scope from 2025 report; area position snapshots are not issuer event history."
+    },
+    {
+      "ticker": "NAP",
+      "assets": [
+        "cua_lo_nap",
+        "ben_thuy_nap"
+      ],
+      "status": "pending_history",
+      "source": "https://cangvuhanghainghean.gov.vn/index.aspx?cat=2017&page=news",
+      "reason": "Regional reports not fully mapped to NAP asset scope."
+    },
+    {
+      "ticker": "GMD",
+      "assets": [
+        "gemadept_dung_quat"
+      ],
+      "status": "pending_history",
+      "source": "https://www.gemadept.com.vn/",
+      "reason": "Dung Quat only. Do not reuse Hai Phong or Gemalink schedules."
+    }
+  ]
+}

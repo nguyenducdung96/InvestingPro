@@ -25,3 +25,11 @@ Không có tổng DWT miền Trung, thị phần, sản lượng hàng hoặc s�
 Local: 124/124 Vitest, 56/56 Playwright desktop/mobile toàn suite, 14/14 kiểm thử parser Python; typecheck/lint và Next build đạt. Sau sửa đơn vị biểu đồ chạy lại 2/2 Playwright CDN desktop/mobile đạt. Không coi local là xác nhận triển khai.
 
 Workflow `cdn-plans.yml` dự kiến hằng ngày 07:20 giờ Việt Nam; GitHub có thể bắt đầu trễ. Chọn ngày mới, ngày thiếu và bốn ngày gần nhất; có checkpoint, hash archive, nhập lại idempotent, readback và fail rõ lỗi fetch/schema. Ngày nguồn công khai không dùng được ghi unavailable; thành công tác vụ không có nghĩa đủ 661 ngày. Kiểm chứng staging/manual refresh và build sẽ ghi trong biên nhận riêng sau triển khai. Chưa xác nhận chu kỳ cron thực, người dùng review CDN/cụm mới hoặc production.
+
+## Staging đã kiểm chứng — 24/10/2026
+
+[Biên nhận live](catalog-review/cdn-central-staging-20261024.json), [ma trận năm mã](catalog-review/central-coverage-20261024.json). Workers Builds Linux của `c910bd2` thành công. API tổng quan CDN khớp Tiên Sa; CDN trong bảng miền Trung khớp API trang mã. Ngày chốt 23/10: tháng 10 có 113 lượt rời, 76 lượt vào; DWT tổng null do thiếu dữ liệu. Cùng kỳ thiếu ngày 22/10/2025 nên YoY và lũy kế không được hiển thị thành số đủ điều kiện.
+
+UI live 1440px/375px đạt: thẻ Tiên Sa, mặc định Tổng quan và đơn vị lượt trên cả ba biểu đồ; đổi DWT giữ qua chọn bến; năm dòng cụm/four pending, tháng/quý/chiều, hai theme, không tràn ngang. Đã xem ảnh CDN desktop và miền Trung mobile. GMD từ cụm mở thông báo Dung Quất, không hiện lịch Hải Phòng.
+
+[Manual refresh 40108291133](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40108291133) thành công: kiểm tra lại bảy ngày, bốn ngày parsed và ba ngày unavailable công khai giữ thiếu. Không còn lỗi fetch/schema trong lần này. Đây là kiểm chứng chạy thủ công, chưa xác nhận cron thực hoặc độ phủ đủ mọi ngày.

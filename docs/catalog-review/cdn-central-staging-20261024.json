@@ -1,0 +1,371 @@
+{
+  "checked_at": "2026-10-24T15:44:23.435Z",
+  "ui": [
+    {
+      "viewport": "desktop",
+      "width": 1440,
+      "overview_default": true,
+      "count_units": true,
+      "metric_retained": true,
+      "central_rows": 5,
+      "pending_rows": 4,
+      "no_overflow": true,
+      "gmd_scope_preserved": true
+    },
+    {
+      "viewport": "mobile",
+      "width": 375,
+      "overview_default": true,
+      "count_units": true,
+      "metric_retained": true,
+      "central_rows": 5,
+      "pending_rows": 4,
+      "no_overflow": true,
+      "gmd_scope_preserved": true
+    }
+  ],
+  "api": {
+    "cutoff": "2026-10-23",
+    "semantics": "authority_published_plan",
+    "month_departure": {
+      "period": "2026-10",
+      "status": "partial",
+      "current": {
+        "from": "2026-10-01",
+        "through": "2026-10-23",
+        "expected_days": 23,
+        "reported_days": 23,
+        "missing_days": [],
+        "missing_dwt": 1,
+        "ambiguous_groups": 0,
+        "error_days": [],
+        "rows": 113,
+        "dwt": null,
+        "known_rows": 113,
+        "known_dwt": 1822761.46,
+        "complete": true
+      },
+      "prior": {
+        "from": "2025-10-01",
+        "through": "2025-10-23",
+        "expected_days": 23,
+        "reported_days": 22,
+        "missing_days": [
+          "2025-10-22"
+        ],
+        "missing_dwt": 0,
+        "ambiguous_groups": 0,
+        "error_days": [
+          "2025-10-22"
+        ],
+        "rows": null,
+        "dwt": null,
+        "known_rows": 96,
+        "known_dwt": 1743637.42,
+        "complete": false
+      },
+      "yoy": {
+        "rows": null,
+        "dwt": null
+      }
+    },
+    "month_arrival": {
+      "period": "2026-10",
+      "status": "partial",
+      "current": {
+        "from": "2026-10-01",
+        "through": "2026-10-23",
+        "expected_days": 23,
+        "reported_days": 23,
+        "missing_days": [],
+        "missing_dwt": 27,
+        "ambiguous_groups": 0,
+        "error_days": [],
+        "rows": 76,
+        "dwt": null,
+        "known_rows": 76,
+        "known_dwt": 443808.54,
+        "complete": true
+      },
+      "prior": {
+        "from": "2025-10-01",
+        "through": "2025-10-23",
+        "expected_days": 23,
+        "reported_days": 22,
+        "missing_days": [
+          "2025-10-22"
+        ],
+        "missing_dwt": 7,
+        "ambiguous_groups": 0,
+        "error_days": [
+          "2025-10-22"
+        ],
+        "rows": null,
+        "dwt": null,
+        "known_rows": 45,
+        "known_dwt": 515064.72000000003,
+        "complete": false
+      },
+      "yoy": {
+        "rows": null,
+        "dwt": null
+      }
+    },
+    "ytd": {
+      "current": {
+        "from": "2026-01-01",
+        "through": "2026-10-23",
+        "expected_days": 296,
+        "reported_days": 295,
+        "missing_days": [
+          "2026-08-03"
+        ],
+        "missing_dwt": 10,
+        "ambiguous_groups": 0,
+        "error_days": [
+          "2026-08-03"
+        ],
+        "rows": null,
+        "dwt": null,
+        "known_rows": 1447,
+        "known_dwt": 24654900.199999988,
+        "complete": false
+      },
+      "prior": {
+        "from": "2025-01-01",
+        "through": "2025-10-23",
+        "expected_days": 296,
+        "reported_days": 294,
+        "missing_days": [
+          "2025-06-20",
+          "2025-10-22"
+        ],
+        "missing_dwt": 6,
+        "ambiguous_groups": 1,
+        "error_days": [
+          "2025-06-20",
+          "2025-10-22"
+        ],
+        "rows": null,
+        "dwt": null,
+        "known_rows": 1377,
+        "known_dwt": 23209144.239999995,
+        "complete": false
+      },
+      "yoy": {
+        "rows": null,
+        "dwt": null
+      }
+    },
+    "coverage": {
+      "first_day": "2025-01-01",
+      "last_source_day": "2026-10-23",
+      "last_attempt": "2026-10-24T15:44:14.180158+00:00",
+      "stale": false,
+      "errors": 3
+    },
+    "run": {
+      "asset_code": "tien_sa",
+      "id": "40108291133-1",
+      "checked_at": "2026-10-24T15:44:15.83+00:00",
+      "through_day": "2026-10-23",
+      "status": "success",
+      "requested_days": 7,
+      "parsed_days": 4,
+      "error": null
+    },
+    "latest_detail": {
+      "events": [
+        {
+          "dwt": null,
+          "to_berth": "TIEN SA",
+          "direction": "arrival",
+          "from_berth": "P/S",
+          "vessel_name": "INSIGHT",
+          "planned_time": "15:00"
+        },
+        {
+          "dwt": 21908,
+          "to_berth": "TIEN SA",
+          "direction": "arrival",
+          "from_berth": "P/S",
+          "vessel_name": "ANBIEN BAY",
+          "planned_time": "08:00"
+        },
+        {
+          "dwt": 4089.5,
+          "to_berth": "TIEN SA",
+          "direction": "arrival",
+          "from_berth": "P/S",
+          "vessel_name": "AN LỘC 18",
+          "planned_time": "06:00"
+        },
+        {
+          "dwt": 24500.5,
+          "to_berth": "TIEN SA",
+          "direction": "arrival",
+          "from_berth": "P/S",
+          "vessel_name": "MTT PORT KELANG",
+          "planned_time": "00:01"
+        },
+        {
+          "dwt": 21719.2,
+          "to_berth": "P/S",
+          "direction": "departure",
+          "from_berth": "TIEN SA",
+          "vessel_name": "INSIGHT",
+          "planned_time": "23:00"
+        },
+        {
+          "dwt": 24500.5,
+          "to_berth": "P/S",
+          "direction": "departure",
+          "from_berth": "TIEN SA",
+          "vessel_name": "MTT PORT KELANG",
+          "planned_time": "18:00"
+        },
+        {
+          "dwt": 21908,
+          "to_berth": "P/S",
+          "direction": "departure",
+          "from_berth": "TIEN SA",
+          "vessel_name": "ANBIEN BAY",
+          "planned_time": "15:30"
+        },
+        {
+          "dwt": 18618,
+          "to_berth": "P/S",
+          "direction": "departure",
+          "from_berth": "TIEN SA",
+          "vessel_name": "ISEACO WISDOM",
+          "planned_time": "08:00"
+        }
+      ],
+      "semantics": "authority_published_plan",
+      "asset_code": "cdn",
+      "fetched_at": "2026-10-24T15:44:14.180158+00:00",
+      "report_day": "2026-10-23",
+      "source_url": "http://tttb.cangvuhanghaidanang.gov.vn/public-kh",
+      "source_sha256": "6760b1593f4f90c5f678fec8dff1d3650f4d59edc7a900aa173a37de0df8659e",
+      "movement_scope": "port",
+      "parser_version": "danang-public-plan/1.0.1",
+      "includes_internal_transfers": false
+    },
+    "central_scope": {
+      "tickers": 5,
+      "tracked_asset_scopes": 6,
+      "connected_issuers": 1,
+      "regional_total": null,
+      "nationwide_complete": false
+    },
+    "overview_equals_single": true
+  },
+  "implementation_commit": "c910bd2",
+  "cloudflare_build": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/1599f464-18cc-4fdb-b3e9-4399db81692a",
+  "cloudflare_conclusion": "success",
+  "manual_refresh": {
+    "id": 40108291133,
+    "url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40108291133",
+    "conclusion": "success",
+    "requested_days": 7,
+    "parsed_days": 4,
+    "unavailable_days": 3
+  },
+  "cron_configured": "07:20 Asia/Ho_Chi_Minh",
+  "observed_scheduled_runs": 0,
+  "history": {
+    "days": 661,
+    "status": {
+      "parsed": 658,
+      "unavailable": 3
+    },
+    "events": 4813,
+    "directions": {
+      "arrival": 1692,
+      "departure": 3121
+    },
+    "missing_dwt": 260,
+    "invalid_source_dwt_kept_null": 1,
+    "batches": 18,
+    "unavailable": [
+      {
+        "date": "2025-06-20",
+        "reason": "Source has conflicting DWT for the same schedule key"
+      },
+      {
+        "date": "2025-10-22",
+        "reason": "No public source rows; cannot certify zero"
+      },
+      {
+        "date": "2026-08-03",
+        "reason": "Source has conflicting DWT for the same schedule key"
+      }
+    ]
+  },
+  "database_readback": {
+    "counts": {
+      "ambiguous_groups": 1,
+      "arrivals": 1692,
+      "departures": 3121,
+      "first_day": "2025-01-01",
+      "last_day": "2026-10-23",
+      "missing_dwt": 260,
+      "parsed_days": 658,
+      "requested_days": 661,
+      "unavailable_days": 3
+    },
+    "edition": {
+      "entries": [
+        {
+          "alias": "TIEN SA",
+          "asset_code": "tien_sa",
+          "effective_from": null,
+          "effective_to": null,
+          "name": "Tiên Sa",
+          "operator": "Công ty cổ phần Cảng Đà Nẵng",
+          "relationship": "operator",
+          "source_note": "Báo cáo CDN 2025, trang 9, 11–12: Xí nghiệp Cảng Tiên Sa trực thuộc, không có công ty con. Lịch chỉ ghép mã bến BC78 với nhãn Tiên Sa; không gồm Sông Hàn, Liên Chiểu, Hòa Vang hoặc các cảng khác. Không suy ngày hiệu lực hiện hành.",
+          "source_sha256": "97655fb01ef10acd41821e4b0c9c86c356be2b84ddf558975e19b037b60aa76a",
+          "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015940470_VI_Baocaothuongnien2025.pdf"
+        }
+      ],
+      "observed_on": "2026-10-24",
+      "ticker": "CDN"
+    },
+    "latest": {
+      "ambiguous_groups": 0,
+      "arrival_dwt": null,
+      "arrival_dwt_missing": 1,
+      "arrival_rows": 4,
+      "asset_code": "tien_sa",
+      "departure_dwt": 86745.7,
+      "departure_dwt_missing": 0,
+      "departure_rows": 4,
+      "last_attempt": "2026-10-24T14:12:42.028738+00:00",
+      "last_success": "2026-10-24T14:12:42.028738+00:00",
+      "parser_version": "danang-public-plan/1.0.1",
+      "report_day": "2026-10-23",
+      "source_empty_sections": [],
+      "source_error": null,
+      "source_sha256": "6760b1593f4f90c5f678fec8dff1d3650f4d59edc7a900aa173a37de0df8659e",
+      "source_url": "http://tttb.cangvuhanghaidanang.gov.vn/public-kh",
+      "version_id": "dddeeb2e-5ee8-4d4d-8583-0360357198d1"
+    }
+  },
+  "local_validation": {
+    "vitest_passed": 124,
+    "playwright_passed": 56,
+    "parser_python_passed": 14,
+    "post_chart_unit_playwright_passed": 2,
+    "typecheck": "passed",
+    "lint": "passed",
+    "next_build": "passed"
+  },
+  "visual_review": [
+    "CDN-desktop.png",
+    "central-mobile-light.png"
+  ],
+  "user_reviewed": false,
+  "production_accepted": false,
+  "central_complete": false
+}

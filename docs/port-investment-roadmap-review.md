@@ -1,3 +1,5 @@
+> **CDN và miền Trung — 24/10/2026:** [CDN / Tiên Sa và tổng quan năm mã](cdn-central-staging.md) đã triển khai staging, API/UI desktop/mobile và manual refresh đạt. CDN có 658/661 ngày lịch, ba ngày nguồn chưa đủ căn cứ; DWT thiếu giữ null. QNP, CMP, NAP và GMD–Dung Quất có dòng phạm vi/nguồn, chưa tích hợp lịch sử. Không có tổng vùng; cron 07:20 Việt Nam đã cấu hình, chưa chứng kiến chu kỳ định kỳ. Chờ người dùng review.
+
 # Đề xuất đổi lộ trình ngành cảng: từ mã cổ phiếu đến tín hiệu hoạt động
 
 > **Tổng quan phía Bắc — 24/10/2026:** Chín dashboard mã, gồm CQN, đã được người dùng chấp nhận. [Trang tổng quan phía Bắc](north-overview-staging.md) đã triển khai staging, API/UI live khớp từng mã, 8 mã Hải Phòng và CQN tách nhóm; VIP dùng chung, không có tổng cộng vùng. 122 tests dữ liệu và 54 Playwright đạt. Trang tổng quan mới chờ người dùng review.
