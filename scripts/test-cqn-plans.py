@@ -29,6 +29,9 @@ class Contract(unittest.TestCase):
  def test_never_includes_cict_or_infers_temp(self):
   for name in ['Cầu 2 - Cái Lân','Cầu 3 - Cái Lân','Cầu 4 - Cái Lân','Bến tạm - Cái Lân']:
    self.assertEqual(c.parse_day(report(destination=name),DAY)['events'],[])
+ def test_pilot_station_movement_keeps_source_section_kind(self):
+  e=c.parse_day(report(origin='Cầu 6 - Cái Lân',destination='P/S',kind='internal'),DAY)['events'][0]
+  self.assertEqual(e['plan_kind'],'internal');self.assertEqual(e['direction'],'departure')
  def test_missing_dwt_is_not_gt(self):self.assertIsNone(c.parse_day(report(dwt=''),DAY)['events'][0]['dwt'])
  def test_duplicate_views_and_duplicate_rows_not_added(self):
   r=c.parse_day(report(duplicate=True),DAY);self.assertEqual(len(r['events']),1);self.assertEqual(r['exact_duplicates_removed'],1)

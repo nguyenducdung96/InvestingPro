@@ -8,7 +8,7 @@ Một cảng: Cái Lân của Công ty Cổ phần Cảng Quảng Ninh. Card đ�
 
 Nguồn hoạt động là [kế hoạch điều động Cảng vụ Quảng Ninh](https://kht1.cangvuhanghaiquangninh.gov.vn/), gửi form ngày ASP.NET `rdptime`. URL không chứa ngày lịch sử: biên nhận lưu method/event/report_day, thời điểm và SHA-256; raw gzip lưu riêng trong `.local/cqn-plans/raw`. Không công khai thông tin hoa tiêu, đại lý, điện thoại từ raw.
 
-Lấy một lần từ bảng khu vực Hòn Gai, đối chiếu chính xác tàu + ngày giờ + điểm đi/đến + DWT với bảng tàu đến/rời/di chuyển. Không cộng lại các bảng nguồn trùng nhau. STT và các trường không phục vụ chỉ tiêu không phải khóa sự kiện. Cùng khóa chuẩn hóa chỉ giữ một dòng; DWT xung đột, sai ngày/schema hoặc không đối chiếu được thì không nhập bản thành công.
+Lấy một lần từ bảng khu vực Hòn Gai, đối chiếu chính xác tàu + ngày giờ + điểm đi/đến + DWT với bảng tàu đến/rời/di chuyển. Không cộng lại các bảng nguồn trùng nhau. Một số dòng tới/từ P/S được nguồn xếp trong mục di chuyển; giữ nguyên phân loại mục nguồn, không suy ra port departure chỉ từ nhãn P/S. Migration `202610240010` giữ đúng ngoại lệ đã quan sát này. STT và các trường không phục vụ chỉ tiêu không phải khóa sự kiện. Cùng khóa chuẩn hóa chỉ giữ một dòng; DWT xung đột, sai ngày/schema hoặc không đối chiếu được thì không nhập bản thành công.
 
 `authority_published_berth_plan`, `movement_scope=berth`, `includes_internal_transfers=true`, `actual_verified=false`. Chiều arrival là cập cầu, departure là rời cầu. Kế hoạch chuyển giữa hai cầu CQN có hai dấu chiều riêng; không cộng hai chiều thành lượt tàu ghé. Không trộn với lượt vào/rời toàn cảng, snapshot vị trí hoặc actual. DWT là trọng tải thiết kế, không thay GT hay quy thành tấn hàng/doanh thu.
 
@@ -24,4 +24,4 @@ Migration `202610240008` và `202610240009` bổ sung allowlist CQN riêng, gi�
 
 Workflow `cqn-plans.yml`: 07:10 Việt Nam hằng ngày; checkpoint chọn ngày mới/thiếu và bốn ngày gần nhất, đối chiếu lại bản sửa, cache raw đã xác minh hash. Ngày nguồn không có bản lịch được ghi thiếu; run lấy/nhập có thể thành công với parsed_days < requested_days, không chứng nhận đủ độ phủ. Lỗi fetch/schema/import hoặc không đọc lại được ngày chốt làm run thất bại. Không dùng một lần chạy thủ công thay nghiệm thu hai chu kỳ cron.
 
-Local: 13/13 kiểm thử parser CQN, 17/17 parser Hải Phòng, 117/117 TypeScript/database, 50/50 Playwright desktop/mobile, typecheck/lint/Next build đạt. Một lần chạy Vitest đồng thời với E2E bị timeout hook do tải máy; chạy lại hai workers đạt toàn bộ. Staging/API/UI và manual refresh được ghi riêng sau triển khai trong biên nhận staging.
+Local: 14/14 kiểm thử parser CQN, 17/17 parser Hải Phòng, 117/117 TypeScript/database, 50/50 Playwright desktop/mobile, typecheck/lint/Next build đạt. Một lần chạy Vitest đồng thời với E2E bị timeout hook do tải máy; chạy lại hai workers đạt toàn bộ. Staging/API/UI và manual refresh được ghi riêng sau triển khai trong biên nhận staging.

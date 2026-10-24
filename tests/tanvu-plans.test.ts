@@ -71,6 +71,7 @@ it('imports idempotently, versions corrections, protects RLS and preserves succe
   expect((await db.query('select * from port.php_plan_days')).rows).toHaveLength(13);
   const cqn={...input,source_url:'https://kht1.cangvuhanghaiquangninh.gov.vn/',parser_version:'quangninh-berth-plan/1.0.0',events:[{...input.events[0],from_berth:'Cầu 1 - Cái Lân',to_berth:'HG7-1',plan_kind:'internal'}]};
   const importCqn=(data:unknown)=>db.query<{result:{versions_inserted:number}}>("select port.import_php_plan_days('cqn_cai_lan',$1) as result",[JSON.stringify([data])]);
+  await importCqn({...cqn,date:'2025-09-02',events:[{...cqn.events[0],to_berth:'P/S'}]}); // source movement section, not inferred port departure
   await importCqn(cqn);expect((await importCqn(cqn)).rows[0].result.versions_inserted).toBe(0);
   for(const data of [{...cqn,source_url:source},{...cqn,parser_version:input.parser_version},{...cqn,events:[{...cqn.events[0],from_berth:'Cầu 2 - Cái Lân'}]},{...cqn,events:[{...cqn.events[0],plan_kind:null}]},{...cqn,events:[{...cqn.events[0],plan_kind:'departure'}]}])await expect(importCqn(data)).rejects.toThrow();
   await expect(db.query('select port.import_php_plan_days($1,$2)',['tan_vu',JSON.stringify([{...input,events:[{...input.events[0],plan_kind:'internal'}]}])])).rejects.toThrow();
