@@ -21,7 +21,11 @@ Raw HTML nén theo hash được cache; không tải thêm PDF cho nhánh lịch
 
 Trang PHP có bộ chọn bến; mỗi bến có tháng/quý/MTD/YTD/YoY, chiều vào/rời, biểu đồ cột đôi, lịch 90 ngày và drilldown nguồn riêng. Card bến ghi ngày nguồn hiện có, không dùng nhãn actual. Không cộng bốn bến thành tổng doanh nghiệp vì chưa đủ căn cứ ghép sự kiện giữa bến và phạm vi hạch toán.
 
-Sản lượng doanh nghiệp công bố vẫn là metric độc lập. Tân Vũ có chuỗi tấn hàng/TEU riêng. Bản tin có số gộp Hoàng Diệu–Chùa Vẽ nhưng chưa chia thành chuỗi riêng từng bến; HTIT chưa có chuỗi tháng nhập database. UI ghi rõ phần chưa có, không hiển thị số Tân Vũ cho bến khác.
+Sản lượng doanh nghiệp công bố vẫn là metric độc lập. Tân Vũ có 16 tháng tấn hàng/TEU riêng. Đã đối chiếu thêm 19 fact đúng phạm vi: Chùa Vẽ riêng 05–07/2025 (3 tháng), Hoàng Diệu riêng 05–07/2025 (3 tháng, TEU không có và giữ null), Hoàng Diệu–Chùa Vẽ gộp 08/2025–08/2026 (13 tháng). Không tự cộng hai chuỗi riêng thành nhóm hoặc chia nhóm cho từng bến. [Biên bản số liệu đã nhìn đối chiếu](catalog-review/php-newsletters-scoped-reviewed-20261024.json).
+
+Bộ chọn phạm vi sản lượng độc lập với bến lịch tàu, nhãn riêng/gộp hiện ngay đầu khối. Khi xem lịch Chùa Vẽ/Hoàng Diệu, mặc định sản lượng là nhóm có số mới hơn và ghi rõ tổng nhóm. API dùng `throughput?asset=...`. HTIT chưa có chuỗi tháng nhập database; UI ghi phần chưa có, không thay bằng số bến khác.
+
+Các fact mới dùng cùng pipeline newsletter hiện có, đối chiếu raw hash, current source revision và R2 receipt; chỉ fact đã review mới vào bundle. Hash nguồn mới/chưa review vẫn chờ kiểm chứng, không auto-approve OCR hoặc dùng JSON trong frontend. Không tải thêm PDF chỉ vì mở rộng phạm vi: cùng bản nguồn phục vụ nhiều chỉ tiêu.
 
 ## Kiểm tra
 

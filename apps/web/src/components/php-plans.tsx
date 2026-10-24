@@ -15,6 +15,8 @@ export async function PhpPlans({query}:{query:Record<string,string>}){
  try{stored=await repo.phpPlans(asset);}catch{return <section id="vessel-plans" className="panel"><h2>Lịch điều động PHP</h2><p role="status">Chưa kết nối được dữ liệu lịch điều động. Vui lòng thử lại.</p></section>;}
  const series=phpPlanSeries(stored.days,asset,direction,new Date(),stored.run);
  const latest=series.months.at(-1);
+ const average=latest?.current.rows&&latest.current.dwt!==null?latest.current.dwt/latest.current.rows:null;
+ const priorAverage=latest?.prior.rows&&latest.prior.dwt!==null?latest.prior.dwt/latest.prior.rows:null;
  const availableYears=[...new Set(series.months.map(m=>m.period.slice(0,4)))].reverse();
  const year=availableYears.includes(query.plan_year)?query.plan_year:query.plan_year==='all'?'all':series.cutoff.slice(0,4);
  const rows=(quarterly?series.quarters:series.months).filter(r=>year==='all'||r.period.startsWith(year));
@@ -43,7 +45,7 @@ export async function PhpPlans({query}:{query:Record<string,string>}){
   <form method="get" action="/companies/PHP#vessel-plans" className="call-filters"><div><label htmlFor="plan-asset">Bến theo dõi</label><select id="plan-asset" name="plan_asset" defaultValue={asset}>{Object.entries(phpBerths).map(([key,value])=><option key={key} value={key}>{value.name}</option>)}</select></div>{Object.entries(query).filter(([k])=>k.startsWith("plan_")&&k!=="plan_asset"&&k!=="plan_day").map(([k,v])=><input key={k} type="hidden" name={k} value={v}/>)}<button>Xem bến</button></form>
   {!latest?<p role="status">Chưa có lịch được thu thập. Không coi ngày chưa có dữ liệu là 0.</p>:<>
    <div className="stats-strip"><div className="stat"><span>{label} · {latest.period} · 01–{series.cutoff.slice(8)} · {latest.status==='partial'?'đang tích lũy':'tháng đã qua'}</span><strong>{number(latest.current.dwt)} DWT</strong><span>{number(latest.current.rows)} lượt theo lịch · {pct(latest.yoy.dwt)} YoY</span></div>
-    <div className="stat"><span>Lũy kế {series.cutoff.slice(0,4)} đến {series.cutoff}</span><strong>{number(series.ytd.current.dwt)} DWT</strong><span>{number(series.ytd.current.rows)} lượt · {pct(series.ytd.yoy.dwt)} YoY</span></div></div>
+    <div className="stat"><span>Lũy kế {series.cutoff.slice(0,4)} đến {series.cutoff}</span><strong>{number(series.ytd.current.dwt)} DWT</strong><span>{number(series.ytd.current.rows)} lượt · {pct(series.ytd.yoy.dwt)} YoY</span></div><div className="stat"><span>DWT bình quân / lượt · {latest.period}</span><strong>{number(average)}</strong><span>DWT/lượt theo lịch · {pct(average!==null&&priorAverage!==null&&priorAverage>0?(average/priorAverage-1)*100:null)} YoY</span></div></div>
    <p>Cùng phạm vi tháng: {latest.prior.from} → {latest.prior.through}, {number(latest.prior.dwt)} DWT. Kỳ nguồn mới nhất: {series.coverage.last_source_day??'Chưa có'}.</p>
    <p>Lần lấy nguồn gần nhất: {series.coverage.last_attempt?new Date(series.coverage.last_attempt).toLocaleString('vi-VN',{timeZone:'Asia/Ho_Chi_Minh'}):'Chưa có'}. Job gần nhất: {series.run?.status==='success'?'Thành công':series.run?.status==='running'?'Đang chạy':series.run?.status==='failed'?'Có lỗi':'Chưa ghi nhận'}.</p>
    {(series.coverage.stale||series.coverage.errors>0||series.run?.status==='failed')&&<p className="notice" role="status">{series.coverage.stale?'Dữ liệu chưa theo kịp ngày chốt hoặc quá hạn cập nhật. ':''}{series.coverage.errors>0?'Nguồn có lỗi; giữ bản đã lấy thành công và ghi rõ phần thiếu. ':''}{series.run?.status==='failed'?'Lần chạy gần nhất chưa hoàn tất.':''}</p>}

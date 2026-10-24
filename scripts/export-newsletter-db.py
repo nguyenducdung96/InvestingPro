@@ -57,6 +57,22 @@ where excluded.last_attempt>=port.newsletter_documents.last_attempt;''')
         statements.append('insert into core.source_records(id,source_id,source_url,canonical_url,external_id,fetched_at,content_type,content_hash,raw_storage_key,parser_name,parser_version,quality_status) values (' + ','.join(map(literal, evidence)) + ') on conflict do nothing;')
         values = [fact_id, 'tan_vu', r['period'] + '-01', r['publication_month'] + '-01', r['cargo_tonnes'], r['container_teu'], evidence_id, 1, r['note']]
         statements.append('insert into port.monthly_throughput(id,asset_code,period,publication_month,cargo_tonnes,container_teu,source_record_id,pdf_page,extraction_note) values (' + ','.join(map(literal, values)) + ') on conflict(id) do nothing;')
+    # Additional visual reviews retain source reporting scope; separate rows are never synthesized from group totals.
+    scoped=json.loads((ROOT / 'docs/catalog-review/php-newsletters-scoped-reviewed-20261024.json').read_text(encoding='utf8'))
+    if scoped['status']!='visually_reviewed':raise ValueError('Explicit scoped review required')
+    for item in scoped['items']:
+        if item['asset_code'] not in ('chua_ve','hoang_dieu','hoang_dieu_chua_ve'):raise ValueError('Unknown reporting scope')
+        r=db.execute('SELECT r.*,d.latest_sha FROM revisions r JOIN documents d USING(url) WHERE r.url=? AND r.sha=?',(item['url'],item['sha256'])).fetchone()
+        if not r or r['latest_sha']!=item['sha256'] or item['sha256'] not in archive:continue
+        if hashlib.sha256(Path(r['raw_path']).read_bytes()).hexdigest()!=item['sha256']:raise ValueError('Scoped review evidence hash mismatch')
+        evidence_id=str(uuid.uuid5(uuid.NAMESPACE_URL,item['url']+'#'+item['sha256']))
+        fact_id=str(uuid.uuid5(uuid.NAMESPACE_URL,evidence_id+json.dumps([item['asset_code'],item['period'],item['cargo_tonnes'],item['container_teu']],separators=(',',':'))))
+        bundle['records'].append(dict(id=evidence_id,source_url=item['url'],fetched_at=r['captured_at'],content_hash=item['sha256'],raw_storage_key=archive[item['sha256']]))
+        bundle['facts'].append(dict(id=fact_id,asset_code=item['asset_code'],period=item['period']+'-01',publication_month=item['publication_month']+'-01',cargo_tonnes=item['cargo_tonnes'],container_teu=item['container_teu'],source_record_id=evidence_id,extraction_note=item['note']))
+        evidence=[evidence_id,SOURCE,item['url'],item['url'],item['url'],r['captured_at'],'application/pdf',item['sha256'],archive[item['sha256']],'php-newsletters','1.0.0','incomplete']
+        statements.append('insert into core.source_records(id,source_id,source_url,canonical_url,external_id,fetched_at,content_type,content_hash,raw_storage_key,parser_name,parser_version,quality_status) values ('+','.join(map(literal,evidence))+') on conflict do nothing;')
+        values=[fact_id,item['asset_code'],item['period']+'-01',item['publication_month']+'-01',item['cargo_tonnes'],item['container_teu'],evidence_id,1,item['note']]
+        statements.append('insert into port.monthly_throughput(id,asset_code,period,publication_month,cargo_tonnes,container_teu,source_record_id,pdf_page,extraction_note) values ('+','.join(map(literal,values))+') on conflict(id) do nothing;')
     statements.append('commit;')
     db.close()
     (folder / 'staging-bundle.json').write_text(json.dumps(bundle,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
