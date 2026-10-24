@@ -1,3 +1,5 @@
+> **Cập nhật mới nhất — 25/10/2026:** xem [tiến độ dự án và bước tiếp theo](ports-project-status-20261025.md). Chín mã phía Bắc và CDN đã có dashboard staging; hai trang tổng quan đã hoạt động. Quy tắc hiển thị mặc định dùng số đã ghi nhận cho tháng/quý/lũy kế/YoY dù còn thiếu nhỏ, chi tiết chất lượng nằm trong mục mở rộng. Code `4c13c30` có staging build và GitHub check thành công. Tiếp theo: chốt cập nhật tự động cụm hiện có, làm QNP, rồi CMP/NAP/GMD–Dung Quất. Các đoạn ngày 24/10 bên dưới là lịch sử và không thay thế chính sách hiển thị mới.
+
 > **CDN và miền Trung — 24/10/2026:** [CDN / Tiên Sa và tổng quan năm mã](cdn-central-staging.md) đã triển khai staging, API/UI desktop/mobile và manual refresh đạt. CDN có 658/661 ngày lịch, ba ngày nguồn chưa đủ căn cứ; DWT thiếu giữ null. QNP, CMP, NAP và GMD–Dung Quất có dòng phạm vi/nguồn, chưa tích hợp lịch sử. Không có tổng vùng; cron 07:20 Việt Nam đã cấu hình, chưa chứng kiến chu kỳ định kỳ. Chờ người dùng review.
 
 # Đề xuất đổi lộ trình ngành cảng: từ mã cổ phiếu đến tín hiệu hoạt động
