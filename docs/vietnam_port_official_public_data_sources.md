@@ -1,5 +1,7 @@
 # Nguồn dữ liệu public chính thức cho ngành cảng biển Việt Nam
 
+> **Rà lại Đà Nẵng 24/10/2026:** [Hồ sơ CDN / Sơn Trà](cdn-official-sources-recheck.md) bổ sung kết quả đọc lịch Cảng vụ, ba Google Sheets do CDN nhúng và nguồn snapshot TOS liên kết công khai. Nguồn chính thức có lịch không đồng nghĩa đủ DWT từng kỳ. Tách vùng cảng biển Đà Nẵng khỏi pháp nhân CDN: Sơn Trà có công bố chuyển nhượng CDN → PTSC năm 2015, không cộng vào CDN theo phạm vi báo cáo 2025.
+
 **Mục đích:** Tài liệu đầu vào để AI thiết kế và triển khai module `Port Intelligence` cho Financial Intelligence PWA.  
 **Ngày rà soát:** 2026-10-13  
 **Phạm vi:** Nguồn công khai của cơ quan nhà nước, sở giao dịch chứng khoán và doanh nghiệp cung cấp dữ liệu gốc hoặc tài liệu gốc. `dulieucangbien.com` chỉ là website tham khảo về sản phẩm, không phải nguồn dữ liệu đầu vào.

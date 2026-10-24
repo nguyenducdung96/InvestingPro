@@ -1,5 +1,7 @@
 # CDN và tổng quan miền Trung
 
+> **Đính chính độ phủ sau phản hồi người dùng 24/10/2026:** [Rà lại nguồn CDN và Sơn Trà](cdn-official-sources-recheck.md) xác nhận nguồn chính thức nhưng chưa có chuỗi tổng DWT liên tục như Hải Phòng: 22 kỳ tháng có 18 kỳ đủ lượt, 12 kỳ đủ DWT chiều rời và 0 kỳ đủ DWT chiều vào. 658 ngày đọc được không đồng nghĩa đủ trọng tải để vẽ mọi tháng. Sơn Trà không được cộng vào CDN; nguồn PTSC và báo cáo CDN 2025 được đối chiếu riêng. Kết quả UI/refresh bên dưới là kiểm chứng kỹ thuật, chưa phải người dùng chấp nhận chất lượng chuỗi DWT.
+
 Phạm vi được người dùng chọn ngày 24/10/2026: CDN, QNP, CMP, NAP và GMD–Dung Quất. CDN có dashboard lịch; bốn dòng còn lại giữ trạng thái chưa tích hợp lịch sử đủ điều kiện. Không coi năm mã đều đã có dữ liệu hoạt động.
 
 ## CDN

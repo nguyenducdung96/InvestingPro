@@ -1,0 +1,902 @@
+{
+  "checked_at": "2026-10-24T16:34:27.904353+00:00",
+  "scope": "CDN ownership and published schedule completeness; no source data changed",
+  "status": "official_source_confirmed_but_continuous_dwt_series_not_ready",
+  "source_day_coverage": {
+    "requested": 661,
+    "parsed": 658,
+    "unavailable": 3
+  },
+  "source_zero_or_invalid_dwt": {
+    "arrival": 244,
+    "departure": 16
+  },
+  "quality_by_month": {
+    "2025-01": {
+      "parsed_days": 31,
+      "missing_days": [],
+      "arrival": {
+        "rows": 60,
+        "missing_dwt": 1
+      },
+      "departure": {
+        "rows": 146,
+        "missing_dwt": 0
+      }
+    },
+    "2025-02": {
+      "parsed_days": 28,
+      "missing_days": [],
+      "arrival": {
+        "rows": 62,
+        "missing_dwt": 2
+      },
+      "departure": {
+        "rows": 117,
+        "missing_dwt": 0
+      }
+    },
+    "2025-03": {
+      "parsed_days": 31,
+      "missing_days": [],
+      "arrival": {
+        "rows": 81,
+        "missing_dwt": 1
+      },
+      "departure": {
+        "rows": 132,
+        "missing_dwt": 0
+      }
+    },
+    "2025-04": {
+      "parsed_days": 30,
+      "missing_days": [],
+      "arrival": {
+        "rows": 71,
+        "missing_dwt": 2
+      },
+      "departure": {
+        "rows": 136,
+        "missing_dwt": 1
+      }
+    },
+    "2025-05": {
+      "parsed_days": 31,
+      "missing_days": [],
+      "arrival": {
+        "rows": 76,
+        "missing_dwt": 3
+      },
+      "departure": {
+        "rows": 151,
+        "missing_dwt": 1
+      }
+    },
+    "2025-06": {
+      "parsed_days": 29,
+      "missing_days": [
+        "2025-06-20"
+      ],
+      "arrival": {
+        "rows": 86,
+        "missing_dwt": 1
+      },
+      "departure": {
+        "rows": 130,
+        "missing_dwt": 2
+      }
+    },
+    "2025-07": {
+      "parsed_days": 31,
+      "missing_days": [],
+      "arrival": {
+        "rows": 97,
+        "missing_dwt": 2
+      },
+      "departure": {
+        "rows": 155,
+        "missing_dwt": 1
+      }
+    },
+    "2025-08": {
+      "parsed_days": 31,
+      "missing_days": [],
+      "arrival": {
+        "rows": 84,
+        "missing_dwt": 9
+      },
+      "departure": {
+        "rows": 166,
+        "missing_dwt": 1
+      }
+    },
+    "2025-09": {
+      "parsed_days": 30,
+      "missing_days": [],
+      "arrival": {
+        "rows": 76,
+        "missing_dwt": 4
+      },
+      "departure": {
+        "rows": 148,
+        "missing_dwt": 0
+      }
+    },
+    "2025-10": {
+      "parsed_days": 30,
+      "missing_days": [
+        "2025-10-22"
+      ],
+      "arrival": {
+        "rows": 46,
+        "missing_dwt": 7
+      },
+      "departure": {
+        "rows": 128,
+        "missing_dwt": 0
+      }
+    },
+    "2025-11": {
+      "parsed_days": 30,
+      "missing_days": [],
+      "arrival": {
+        "rows": 49,
+        "missing_dwt": 12
+      },
+      "departure": {
+        "rows": 120,
+        "missing_dwt": 0
+      }
+    },
+    "2025-12": {
+      "parsed_days": 31,
+      "missing_days": [],
+      "arrival": {
+        "rows": 37,
+        "missing_dwt": 4
+      },
+      "departure": {
+        "rows": 145,
+        "missing_dwt": 0
+      }
+    },
+    "2026-01": {
+      "parsed_days": 31,
+      "missing_days": [],
+      "arrival": {
+        "rows": 55,
+        "missing_dwt": 8
+      },
+      "departure": {
+        "rows": 154,
+        "missing_dwt": 1
+      }
+    },
+    "2026-02": {
+      "parsed_days": 28,
+      "missing_days": [],
+      "arrival": {
+        "rows": 69,
+        "missing_dwt": 6
+      },
+      "departure": {
+        "rows": 113,
+        "missing_dwt": 0
+      }
+    },
+    "2026-03": {
+      "parsed_days": 31,
+      "missing_days": [],
+      "arrival": {
+        "rows": 91,
+        "missing_dwt": 20
+      },
+      "departure": {
+        "rows": 166,
+        "missing_dwt": 0
+      }
+    },
+    "2026-04": {
+      "parsed_days": 30,
+      "missing_days": [],
+      "arrival": {
+        "rows": 97,
+        "missing_dwt": 19
+      },
+      "departure": {
+        "rows": 157,
+        "missing_dwt": 2
+      }
+    },
+    "2026-05": {
+      "parsed_days": 31,
+      "missing_days": [],
+      "arrival": {
+        "rows": 103,
+        "missing_dwt": 20
+      },
+      "departure": {
+        "rows": 160,
+        "missing_dwt": 0
+      }
+    },
+    "2026-06": {
+      "parsed_days": 30,
+      "missing_days": [],
+      "arrival": {
+        "rows": 96,
+        "missing_dwt": 19
+      },
+      "departure": {
+        "rows": 158,
+        "missing_dwt": 0
+      }
+    },
+    "2026-07": {
+      "parsed_days": 31,
+      "missing_days": [],
+      "arrival": {
+        "rows": 98,
+        "missing_dwt": 17
+      },
+      "departure": {
+        "rows": 153,
+        "missing_dwt": 0
+      }
+    },
+    "2026-08": {
+      "parsed_days": 30,
+      "missing_days": [
+        "2026-08-03"
+      ],
+      "arrival": {
+        "rows": 94,
+        "missing_dwt": 31
+      },
+      "departure": {
+        "rows": 135,
+        "missing_dwt": 6
+      }
+    },
+    "2026-09": {
+      "parsed_days": 30,
+      "missing_days": [],
+      "arrival": {
+        "rows": 88,
+        "missing_dwt": 29
+      },
+      "departure": {
+        "rows": 138,
+        "missing_dwt": 0
+      }
+    },
+    "2026-10": {
+      "parsed_days": 23,
+      "missing_days": [],
+      "arrival": {
+        "rows": 76,
+        "missing_dwt": 27
+      },
+      "departure": {
+        "rows": 113,
+        "missing_dwt": 1
+      }
+    }
+  },
+  "live_by_direction": [
+    {
+      "direction": "departure",
+      "months": [
+        {
+          "period": "2025-01",
+          "rows": 146,
+          "dwt": 2447786.66,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-02",
+          "rows": 117,
+          "dwt": 2119326.5700000003,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-03",
+          "rows": 132,
+          "dwt": 2279814.9000000004,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-04",
+          "rows": null,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 1,
+          "ambiguous_groups": 1
+        },
+        {
+          "period": "2025-05",
+          "rows": 151,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 1,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-06",
+          "rows": null,
+          "dwt": null,
+          "missing_days": [
+            "2025-06-20"
+          ],
+          "missing_dwt": 2,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-07",
+          "rows": 155,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 1,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-08",
+          "rows": 166,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 1,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-09",
+          "rows": 148,
+          "dwt": 2416333.0099999993,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-10",
+          "rows": null,
+          "dwt": null,
+          "missing_days": [
+            "2025-10-22"
+          ],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-11",
+          "rows": 120,
+          "dwt": 2299177.82,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-12",
+          "rows": 145,
+          "dwt": 2606727.6199999996,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-01",
+          "rows": 154,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 1,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-02",
+          "rows": 113,
+          "dwt": 2080214.02,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-03",
+          "rows": 166,
+          "dwt": 2734450.1899999995,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-04",
+          "rows": 157,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 2,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-05",
+          "rows": 160,
+          "dwt": 2756896.11,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-06",
+          "rows": 158,
+          "dwt": 2554300.8700000006,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-07",
+          "rows": 153,
+          "dwt": 2663111.37,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-08",
+          "rows": null,
+          "dwt": null,
+          "missing_days": [
+            "2026-08-03"
+          ],
+          "missing_dwt": 6,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-09",
+          "rows": 138,
+          "dwt": 2443304.12,
+          "missing_days": [],
+          "missing_dwt": 0,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-10",
+          "rows": 113,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 1,
+          "ambiguous_groups": 0
+        }
+      ],
+      "coverage": {
+        "first_day": "2025-01-01",
+        "last_source_day": "2026-10-23",
+        "last_attempt": "2026-10-24T15:44:14.180158+00:00",
+        "stale": false,
+        "errors": 3
+      }
+    },
+    {
+      "direction": "arrival",
+      "months": [
+        {
+          "period": "2025-01",
+          "rows": 60,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 1,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-02",
+          "rows": 62,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 2,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-03",
+          "rows": 81,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 1,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-04",
+          "rows": null,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 2,
+          "ambiguous_groups": 1
+        },
+        {
+          "period": "2025-05",
+          "rows": 76,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 3,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-06",
+          "rows": null,
+          "dwt": null,
+          "missing_days": [
+            "2025-06-20"
+          ],
+          "missing_dwt": 1,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-07",
+          "rows": 97,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 2,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-08",
+          "rows": 84,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 9,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-09",
+          "rows": 76,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 4,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-10",
+          "rows": null,
+          "dwt": null,
+          "missing_days": [
+            "2025-10-22"
+          ],
+          "missing_dwt": 7,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-11",
+          "rows": 49,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 12,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2025-12",
+          "rows": 37,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 4,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-01",
+          "rows": 55,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 8,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-02",
+          "rows": 69,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 6,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-03",
+          "rows": 91,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 20,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-04",
+          "rows": 97,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 19,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-05",
+          "rows": 103,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 20,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-06",
+          "rows": 96,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 19,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-07",
+          "rows": 98,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 17,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-08",
+          "rows": null,
+          "dwt": null,
+          "missing_days": [
+            "2026-08-03"
+          ],
+          "missing_dwt": 31,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-09",
+          "rows": 88,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 29,
+          "ambiguous_groups": 0
+        },
+        {
+          "period": "2026-10",
+          "rows": 76,
+          "dwt": null,
+          "missing_days": [],
+          "missing_dwt": 27,
+          "ambiguous_groups": 0
+        }
+      ],
+      "coverage": {
+        "first_day": "2025-01-01",
+        "last_source_day": "2026-10-23",
+        "last_attempt": "2026-10-24T15:44:14.180158+00:00",
+        "stale": false,
+        "errors": 3
+      }
+    }
+  ],
+  "ownership": {
+    "cdn_assets": [
+      "tien_sa"
+    ],
+    "son_tra_in_cdn_scope": false,
+    "transfer_contract_date_reported": "2015-09-30",
+    "transfer_article_published": "2016-04-06",
+    "legal_effective_date_verified": false,
+    "sources": [
+      "https://www.ptsc.com.vn/tin-tuc/tin-ptsc-1/san-xuat-kinh-doanh/ptsc-ky-hop-dong-nhan-chuyen-nhuong-cang-son-tra",
+      "https://vimawa.gov.vn/vi/node/7824",
+      "https://www.ptsc.com.vn/cang-son-tra--lan-dau-tiep-nhan-tau-tren-18000-dwt",
+      "https://danangport.com/wp-content/uploads/2026/03/VN-CDN-2025-updated.pdf"
+    ],
+    "annual_report_scope": "CDN 2025: Tien Sa operational unit, no subsidiaries, two associates; Son Tra not an operating CDN asset in the reviewed scope"
+  },
+  "identity_enrichment_research_only": {
+    "missing_rows_with_one_observed_positive_dwt_on_same_itinerary_and_imo": 232,
+    "unresolved_or_ambiguous": 28,
+    "applied": false,
+    "reason": "Potential source reconciliation requires immutable cross-report provenance, identity/unit checks and revision rules; no name-only or cross-date imputation has been published."
+  },
+  "source_probes": [
+    {
+      "id": "cdn_home",
+      "url": "https://danangport.com/",
+      "status": 200,
+      "bytes": 113649,
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "3500cd9d6ce2c78662de76d93321acaa7eb05c7ff23ace231c97078aa75dd363",
+      "fetched_at": "2026-10-24T16:19:48.260077+00:00"
+    },
+    {
+      "id": "cdn_shift",
+      "url": "https://danangport.com/dich-vu-khach-hang/ke-hoach-ca-du-bao-tau-den/",
+      "status": 200,
+      "bytes": 85299,
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "3a1623886c9e20c6a80331991bb798389e6ee2343ad16d382cf67d0712a857ce",
+      "fetched_at": "2026-10-24T16:19:49.140900+00:00"
+    },
+    {
+      "id": "cdn_container_schedule",
+      "url": "https://danangport.com/dich-vu-khach-hang/lich-tau-container/",
+      "status": 200,
+      "bytes": 117595,
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "18d0f2da5d660a02ca727105c6c82f433a480b39b7d2894e5b76e53985114b27",
+      "fetched_at": "2026-10-24T16:19:48.763715+00:00"
+    },
+    {
+      "id": "cdn_working",
+      "url": "https://danangport.com/tau-dang-lam-hang/",
+      "status": 200,
+      "bytes": 109921,
+      "content_type": "text/html; charset=UTF-8",
+      "sha256": "16fc47a75f53f84bbcc7a36f5e68668107d59e19c3279d01d087cbdf114e0cc6",
+      "fetched_at": "2026-10-24T16:19:47.474426+00:00"
+    },
+    {
+      "id": "cdn_tv",
+      "url": "https://tvshow.danangport.com/",
+      "status": 200,
+      "bytes": 572,
+      "content_type": "text/html",
+      "sha256": "43387356ebf16a73906fc8c934f7bd273c1b7ae242a59dae25a3bb31d878d08c",
+      "fetched_at": "2026-10-24T16:19:47.770597+00:00"
+    },
+    {
+      "id": "authority_home",
+      "url": "https://cangvuhanghaidanang.gov.vn/",
+      "status": 200,
+      "bytes": 75732,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "996c26001481a040c6559739a90fcd02f733293defc65adb48eb5274a3e98f62",
+      "fetched_at": "2026-10-24T16:19:49.889763+00:00"
+    },
+    {
+      "id": "authority_schedule",
+      "url": "https://cangvuhanghaidanang.gov.vn/vi/ke-hoach-dieu-dong-tau-thuyen",
+      "status": 200,
+      "bytes": 32614,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "19976d6296b9aa1e78369f52f7fa5df18f930b7c6a40a21878409abce8528b1a",
+      "fetched_at": "2026-10-24T16:19:49.883804+00:00"
+    },
+    {
+      "id": "authority_reports",
+      "url": "https://cangvuhanghaidanang.gov.vn/vi/chuyen-muc/thong-tin-khac",
+      "status": 200,
+      "bytes": 52168,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "6dacd052d82b4827b00c3c45edda01302bb25ff61dd3a604552b61fa97476a07",
+      "fetched_at": "2026-10-24T16:19:51.157082+00:00"
+    },
+    {
+      "id": "ministry_user_reference",
+      "url": "https://mt.gov.vn/vn/Pages/Trangchu.aspx",
+      "error": "HTTP Error 500: Internal Server Error",
+      "fetched_at": "2026-10-24T16:19:50.192978+00:00"
+    },
+    {
+      "id": "administration",
+      "url": "https://vimawa.gov.vn/vi",
+      "status": 200,
+      "bytes": 72562,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "551b58e83b8ce42165a29b848fe35920aa1131d0befc02d8e1b41ad19b1bee9a",
+      "fetched_at": "2026-10-24T16:19:50.584156+00:00"
+    },
+    {
+      "id": "administration_statistics",
+      "url": "https://vimawa.gov.vn/en/thong-ke",
+      "status": 200,
+      "bytes": 46691,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "662558d9ddd79364ee84eeef40055ab0fc49d30e61d6d6d7d98da04850d878de",
+      "fetched_at": "2026-10-24T16:19:50.682043+00:00"
+    },
+    {
+      "id": "national_clearances",
+      "url": "https://hanghai.moc.gov.vn/tra-cuu-giay-phep",
+      "status": 200,
+      "bytes": 51993,
+      "content_type": "text/html;charset=UTF-8",
+      "sha256": "824e5ee35d55ff91eee4951d870ce100beaf9c276e82cda24529a40e8936f107",
+      "fetched_at": "2026-10-24T16:20:15.888207+00:00"
+    },
+    {
+      "id": "statistics_intro",
+      "url": "http://144.79.79.16/intro.html",
+      "status": 200,
+      "bytes": 132348,
+      "content_type": "text/html",
+      "sha256": "945cea5690d2064163fa24c94d5a3b59beadcd96e17a1875b9b18cde676e80a8",
+      "fetched_at": "2026-10-24T16:19:50.972506+00:00"
+    },
+    {
+      "id": "son_tra_transfer",
+      "url": "https://www.ptsc.com.vn/tin-tuc/tin-ptsc-1/san-xuat-kinh-doanh/ptsc-ky-hop-dong-nhan-chuyen-nhuong-cang-son-tra",
+      "status": 200,
+      "bytes": 57281,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "8117d80694e8bc5f0a40268b434bc63ea0fa96cb28f994fd0537e6131f58afc1",
+      "fetched_at": "2026-10-24T16:19:50.972304+00:00"
+    },
+    {
+      "id": "son_tra_operator",
+      "url": "https://vimawa.gov.vn/vi/node/7824",
+      "status": 200,
+      "bytes": 47286,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "3bdee9def1a219626140daf5d719a9ba0b66479d2167b926ad47a71a11541959",
+      "fetched_at": "2026-10-24T16:19:51.529114+00:00"
+    },
+    {
+      "id": "son_tra_operations",
+      "url": "https://www.ptsc.com.vn/cang-son-tra--lan-dau-tiep-nhan-tau-tren-18000-dwt",
+      "status": 200,
+      "bytes": 54969,
+      "content_type": "text/html; charset=utf-8",
+      "sha256": "1ad5b2f217ba690e3077207eb64c5e38391f615b950355991b3f01355dcd1552",
+      "fetched_at": "2026-10-24T16:19:51.330686+00:00"
+    },
+    {
+      "id": "published_sheet_0",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRc113z0Gz1iXJ_kfiMOOVioHRETlX7Tv7JPil28dYul1OiDej-f5ZGpn2upIdVxr3uXBL_P0_KnmXx/pubhtml?chrome=false",
+      "status": 200,
+      "bytes": 57990,
+      "sha256": "9cc049109429237daa88df99a3af92cff7e647a9d6b5fff7c586be4a5e8c458e",
+      "fetched_at": "2026-10-24T16:22:45.394363+00:00"
+    },
+    {
+      "id": "published_sheet_1",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTv6pU5aToxt6xlFZVMwXUEGhfk_TpUGfl54nIOs_kKGaJ3CnZNFVCYDQznVNi_TZvvJoX-uXTLUG5Y/pubhtml?chrome=false",
+      "status": 200,
+      "bytes": 57867,
+      "sha256": "e91423b6298dddad6adab57c1d25b1783eb370feedfcee35ff65a7e2d18647d0",
+      "fetched_at": "2026-10-24T16:22:44.911662+00:00"
+    },
+    {
+      "id": "published_sheet_2",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTEcC8wvhHR6r9gRfratJcDSBHmM4igUNv5HKWZW03dVdJCpPONY5F95-qZ3CJ5IAOAesRXIjxi0O_e/pubhtml?chrome=false",
+      "status": 200,
+      "bytes": 57888,
+      "sha256": "6eaa4d74a431c068431b6f9f83964c00fe5ecb60780324515eb2ba42d1d566b2",
+      "fetched_at": "2026-10-24T16:22:45.390464+00:00"
+    },
+    {
+      "id": "tv_script",
+      "url": "https://tvshow.danangport.com/assets/index-S-Jd139L.js",
+      "status": 200,
+      "bytes": 1633390,
+      "sha256": "9ab7c0bd1b62ca22297d94c90e664467be8c8d146ed72ce2da2675ffc6b1ded8",
+      "fetched_at": "2026-10-24T16:22:57.262708+00:00"
+    },
+    {
+      "id": "published_sheet_0-tab-0",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRc113z0Gz1iXJ_kfiMOOVioHRETlX7Tv7JPil28dYul1OiDej-f5ZGpn2upIdVxr3uXBL_P0_KnmXx/pubhtml/sheet?headers=false&gid=0",
+      "sha256": "a070dbbd75306390e1c4919decdade918b6f6817ad62c0c65e445177ff1ff231",
+      "bytes": 81476
+    },
+    {
+      "id": "published_sheet_1-tab-0",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTv6pU5aToxt6xlFZVMwXUEGhfk_TpUGfl54nIOs_kKGaJ3CnZNFVCYDQznVNi_TZvvJoX-uXTLUG5Y/pubhtml/sheet?headers=false&gid=0",
+      "sha256": "db3862709c2d449bc27a33f5863f7d05e6b86705d0287c76dcfe7e4245f61ba7",
+      "bytes": 161690
+    },
+    {
+      "id": "published_sheet_2-tab-0",
+      "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vTEcC8wvhHR6r9gRfratJcDSBHmM4igUNv5HKWZW03dVdJCpPONY5F95-qZ3CJ5IAOAesRXIjxi0O_e/pubhtml/sheet?headers=false&gid=0",
+      "sha256": "c5b1cbca714f054b136047983f7b2eb5b28587a570e81f1d292750d3d93879c4",
+      "bytes": 124169
+    },
+    {
+      "id": "tv_working_snapshot",
+      "url": "https://eport.danangport.com:13443/WS/pwbi/dash_taudanglamhang.php",
+      "sha256": "d6e0fab648f2b4a5c8958a6350c41bd5f6833b68bb61ca920de2b1502fff29a4",
+      "bytes": 1645
+    }
+  ],
+  "current_snapshot_dwt_field_present": false,
+  "embedded_sheet_dwt_column_present": false,
+  "new_source_integrated": false,
+  "regional_scope_changed": false,
+  "production_accepted": false
+}
