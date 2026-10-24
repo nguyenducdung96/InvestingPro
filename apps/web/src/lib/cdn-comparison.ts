@@ -3,6 +3,10 @@ import type {phpPlanSeries} from '@invest/port';
 type Period=ReturnType<typeof phpPlanSeries>['months'][number];
 export const observedGrowth=(current:number|null,prior:number|null)=>current!==null&&prior!==null&&prior>0?(current/prior-1)*100:null;
 
+export function cdnPeriodDisplay(period:Period|null){
+ return {rows:period?.current.known_rows??null,dwt:period?.current.observed_dwt??null,priorDwt:period?.prior.observed_dwt??null,yoyRows:period?observedGrowth(period.current.known_rows,period.prior.known_rows):null,yoyDwt:period?observedGrowth(period.current.observed_dwt,period.prior.observed_dwt):null};
+}
+
 /** Compare the recorded values in the same finished months, without imputing gaps. */
 export function cdnCompletedComparison(months:Period[],year:string){
  const paired=months.filter(m=>m.period.startsWith(`${year}-`)&&m.status!=='partial'&&m.current.observed_dwt!==null&&m.prior.observed_dwt!==null);

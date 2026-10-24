@@ -37,3 +37,7 @@ Workflow `cdn-plans.yml` dự kiến hằng ngày 07:20 giờ Việt Nam; GitHub
 UI live 1440px/375px đạt: thẻ Tiên Sa, mặc định Tổng quan và đơn vị lượt trên cả ba biểu đồ; đổi DWT giữ qua chọn bến; năm dòng cụm/four pending, tháng/quý/chiều, hai theme, không tràn ngang. Đã xem ảnh CDN desktop và miền Trung mobile. GMD từ cụm mở thông báo Dung Quất, không hiện lịch Hải Phòng.
 
 [Manual refresh 40108291133](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40108291133) thành công: kiểm tra lại bảy ngày, bốn ngày parsed và ba ngày unavailable công khai giữ thiếu. Không còn lỗi fetch/schema trong lần này. Đây là kiểm chứng chạy thủ công, chưa xác nhận cron thực hoặc độ phủ đủ mọi ngày.
+
+## Đồng bộ cách hiển thị CDN — 25/10/2026
+
+Tổng quan miền Trung hiển thị DWT đã ghi nhận và YoY tính từ hai giá trị đã ghi nhận, cùng cơ sở với trang CDN mặc định. Lượt dùng số dòng đã ghi nhận để các ngày thiếu nhỏ không chặn hiển thị so sánh. Chi tiết ngày/trọng tải thiếu nằm trong mục mở rộng. API vẫn giữ tổng đầy đủ và chất lượng riêng; không điền dữ liệu thiếu, không đổi các mã chưa tích hợp thành 0. Kiểm thử đối chiếu giá trị ghi nhận dù tổng đầy đủ null, desktop/mobile và các bộ lọc tháng/quý/chiều tàu.

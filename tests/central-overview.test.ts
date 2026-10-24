@@ -1,4 +1,4 @@
-import {cdnCompletedComparison,observedGrowth} from '../apps/web/src/lib/cdn-comparison';
+import {cdnCompletedComparison,observedGrowth,cdnPeriodDisplay} from '../apps/web/src/lib/cdn-comparison';
 import {expect,it} from 'vitest';
 import {centralOverview,issuerPlanAssets,issuerPlanSeries,type TanVuPlanDay} from '@invest/port';
 const now=new Date('2026-10-24T00:00:00Z');
@@ -46,4 +46,12 @@ it('CDN investment comparison uses recorded weights in finished paired months an
  expect(result.months).toEqual([1,2]);expect(result.current).toBe(300);expect(result.prior).toBe(200);expect(result.growth).toBe(50);
  expect(cdnCompletedComparison([month('2026-01',100,90,true)],'2026').current).toBeNull();
  expect(observedGrowth(0,100)).toBe(-100);expect(observedGrowth(100,0)).toBeNull();expect(observedGrowth(null,100)).toBeNull();
+});
+
+it('central CDN presentation shows observed DWT and growth despite missing days or row weights',()=>{
+ const base=issuerPlanSeries(rows,'CDN','cdn','departure',now).months.at(-1)!;
+ const metric={...base,current:{...base.current,rows:null,dwt:null,known_rows:114,observed_dwt:1981502.67},prior:{...base.prior,rows:null,dwt:null,known_rows:98,observed_dwt:1788726.18}};
+ const display=cdnPeriodDisplay(metric);
+ expect(display.rows).toBe(114);expect(display.dwt).toBe(1981502.67);expect(display.priorDwt).toBe(1788726.18);expect(display.yoyDwt).toBeCloseTo(10.78,2);expect(display.yoyRows).toBeCloseTo(16.33,2);
+ expect(cdnPeriodDisplay(null)).toEqual({rows:null,dwt:null,priorDwt:null,yoyRows:null,yoyDwt:null});expect(metric.current.dwt).toBeNull();
 });
