@@ -1,4 +1,4 @@
-> **Lộ trình đã được người dùng duyệt ngày 21/10/2026:** [Kế hoạch ngành cảng theo góc nhìn đầu tư](port-investment-roadmap-review.md) đưa dashboard theo mã, tháng/quý/YTD và YoY vào Slice 2, nghiệm thu pilot trước khi mở rộng ngành. Ngày 24/10 đã có [dashboard PHP bốn bến trên staging](php-four-berths-staging.md), lịch sử kế hoạch/DWT, cập nhật chung, sản lượng công bố riêng/gộp và nghiệm thu live. Chưa xác nhận actual. Các ranh giới slice/ưu tiên cũ bên dưới là lịch sử; runbook và biên nhận vẫn mô tả phần đã thực hiện.
+> **Lộ trình hiện hành:** [Kế hoạch ngành cảng theo góc nhìn đầu tư](port-investment-roadmap-review.md). Ngày 24/10/2026, người dùng đã review và chấp nhận [pilot PHP bốn bến trên staging](php-four-berths-staging.md), gồm tổng quan mặc định, từng bến, tháng/quý/YoY/YTD, drilldown và sản lượng công bố đúng phạm vi. Còn nghiệm thu hai chu kỳ cron phiên bản bốn bến; production và actual chưa được xác nhận. Bước tiếp theo: Slice 3, khảo sát DVP trước rồi CDN/GMD theo dữ liệu nguồn miễn phí. Các ranh giới slice/ưu tiên cũ bên dưới là lịch sử.
 
 # Financial Intelligence PWA
 

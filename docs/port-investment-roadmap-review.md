@@ -1,6 +1,6 @@
 # Đề xuất đổi lộ trình ngành cảng: từ mã cổ phiếu đến tín hiệu hoạt động
 
-> **Trạng thái 24/10/2026:** PHP đã có dashboard staging cho Tân Vũ, Chùa Vẽ, Hoàng Diệu và HTIT theo lịch Cảng vụ, cùng chuỗi sản lượng công bố giữ đúng phạm vi riêng/gộp. Đã qua backfill, cập nhật lặp và kiểm tra live. [Nghiệm thu PHP](php-four-berths-staging.md). Luồng pilot của Slice 2A/2B đã có đầu ra; vận hành bốn bến đã qua manual workflow, lịch cron tiếp tục theo dõi. Không đổi dữ liệu kế hoạch thành actual. Bước sản phẩm tiếp theo là Slice 3 mở rộng mã; hãng tàu/tài chính theo Slice 4/5.
+> **Trạng thái 24/10/2026 — PHP đã được người dùng review và chấp nhận trên staging.** Đã hoàn thành phạm vi sản phẩm pilot Slice 2A/2B: dashboard tổng quan mặc định bốn bến, chọn từng bến, lượt/DWT theo lịch công bố, tháng/quý/YoY/YTD, drilldown ngày, sản lượng riêng/gộp và giao diện công khai đã rút gọn. [Nghiệm thu PHP](php-four-berths-staging.md). Slice 2C: backfill, chạy lặp và kiểm chứng live đạt; còn xác nhận đủ hai chu kỳ cron của phiên bản bốn bến. Production chưa nghiệm thu. Bước tiếp theo là Slice 3: khảo sát DVP trước, sau đó CDN/GMD theo chất lượng nguồn miễn phí; không coi toàn ngành đã hoàn thành.
 
 Ngày: 21/10/2026. Trạng thái: **ĐÃ ĐƯỢC NGƯỜI DÙNG REVIEW VÀ ĐỒNG Ý**. Bắt đầu thực hiện Slice 2A với PHP theo yêu cầu ngày 21/10/2026; các bước 2B/2C theo gate dữ liệu, không suy ra đã nghiệm thu hoặc đã deploy.
 
@@ -156,3 +156,21 @@ Nghiệm thu bổ sung bắt buộc cho Slice 2:
 ## 10. Thực hiện Slice 2A — PHP
 
 Người dùng chọn PHP, không tiếp tục so sánh ba mã ứng viên. Hồ sơ và kết quả gate tại [php-slice2a-pilot.md](php-slice2a-pilot.md). Đã kiểm chứng quan hệ và đo nguồn; ưu tiên Tân Vũ, Chùa Vẽ. Gate lịch sử actual DWT/YoY chưa đạt, không chuyển kế hoạch/snapshot thành actual để triển khai biểu đồ.
+
+
+## 11. Chấp nhận PHP và bàn giao bước tiếp theo — 24/10/2026
+
+Người dùng xác nhận “Tôi thấy ổn rùi” sau khi review tổng quan PHP mặc định. Ba finding cuối đã xử lý và deploy staging: màu tăng/giảm YoY, dòng lũy kế trong bảng so sánh, lựa chọn tổng quan bốn bến mặc định. Không còn finding giao diện PHP đã nêu đang mở. Commit chức năng cuối: `e6e36d9`; trước đó `5b7f521` cho màu/luỹ kế và `e3821cb`/`0abb15b` cho rút gọn nội dung kỹ thuật.
+
+- **Hoàn thành và được chấp nhận:** phạm vi sản phẩm PHP pilot trên staging. Không nâng lịch điều động thành actual, tổng bốn bến thành toàn vùng Hải Phòng, hay dữ liệu vật lý thành phạm vi hạch toán doanh nghiệp.
+- **Chưa khép nghiệm thu vận hành:** cần bằng chứng hai event cron thực của phiên bản bốn bến và readback. Không lấy hai manual run thay điều kiện này; tài liệu hiện chưa ghi nhận bằng chứng bổ sung. Đây là việc theo dõi vận hành song song với mở rộng, không cần sửa giao diện PHP để bắt đầu khảo sát mã tiếp theo.
+- **Giới hạn dữ liệu giữ nguyên:** HTIT chưa có chuỗi sản lượng tháng trên hệ thống; số thiếu và nền so sánh thiếu giữ null. Chưa có nghiệm thu production hay hoàn thành toàn ngành.
+
+Bước tiếp theo được đề xuất là Slice 3, đợt mở rộng đầu tiên:
+
+1. Khảo sát **DVP** trước: đọc reference hiện có và nguồn chính thức miễn phí, chốt mã → pháp nhân → bến, alias trong lịch nguồn, khoảng lịch sử và DWT. Đây là ứng viên ưu tiên khảo sát, chưa phải xác nhận đủ dữ liệu để triển khai.
+2. Đầu ra khảo sát: danh sách bến trong phạm vi, nguồn và các kỳ có thể sử dụng, trạng thái dữ liệu kế hoạch/thực tế, khả năng refresh và phần thiếu. Nếu DVP không đạt thì khảo sát CDN, rồi các bến thuộc GMD; không tạo số liệu để lấp giao diện.
+3. Khi đủ dữ liệu, tái sử dụng luồng PHP: tổng quan trong phạm vi đã chốt, từng bến, tháng/quý/YoY/YTD, nhật ký ngày, cập nhật động và kiểm thử desktop/mobile.
+4. Bổ sung lối vào/bảng tổng quan ngành để mở từng mã và thấy kỳ mới nhất; chỉ so sánh/xếp hạng những mã/bến có cùng định nghĩa, kỳ và độ phủ phù hợp.
+
+Hãng tàu/tuyến và tài chính vẫn thuộc Slice 4/5, sau đợt mở rộng dashboard; không thêm bản đồ/3D như điều kiện hoàn thành PHP.

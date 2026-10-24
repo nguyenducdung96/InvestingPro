@@ -72,3 +72,10 @@ The overview combines daily database heads for Tan Vu, Chua Ve, Hoang Dieu and H
 All four daily heads must exist and share the same source hash; mixed revisions and missing berths withhold that day's total. Unknown DWT stays null. Duplicate berth/day input is rejected. Daily drilldown requires all four matching revisions and retains berth endpoints. The existing independent cargo/TEU scope selector remains explicitly labeled; this change does not synthesize a total cargo series from incomplete HTIT data or mix separate/group figures.
 
 Local validation: six Tan Vu/PHP domain and database tests passed, eight PHP Playwright scenarios passed across desktop/mobile, typecheck/lint passed. Tests cover the default, individual/total switching, direction and quarter filters, dynamic changes, replay, missing coverage, revision mismatch, null DWT and daily drilldown. No migration, new collector, or hardcoded numeric total is introduced.
+
+
+## Người dùng chấp nhận pilot PHP — 24/10/2026
+
+Sau review tổng quan bốn bến mặc định, người dùng xác nhận “Tôi thấy ổn rùi” và yêu cầu cập nhật status dự án. Phạm vi sản phẩm PHP trên staging được chấp nhận: các finding giao diện đã nêu đều đã xử lý. Live overview đối chiếu ngày 24/10 trả tháng 10 đến 23/10: 115 lượt tàu rời theo lịch, 2.824.844 DWT, bằng tổng bốn bến; YTD 35.753.736 DWT, cùng kỳ 20.906.144 DWT, +71,02%. Chuyển tổng quan → Tân Vũ → tổng quan hoạt động đúng. Ảnh kiểm tra local: `.local/php-overview/default-staging.png`.
+
+Trạng thái này không bao gồm nghiệm thu production hoặc xác nhận sự kiện tàu thực tế. Bằng chứng đủ hai chu kỳ cron phiên bản bốn bến vẫn còn phải bổ sung; không dùng manual replay thay cron. HTIT thiếu chuỗi sản lượng tháng vẫn là giới hạn dữ liệu đã công khai, không phải số 0. Có thể bắt đầu khảo sát mã tiếp theo theo [lộ trình](port-investment-roadmap-review.md#11-chấp-nhận-php-và-bàn-giao-bước-tiếp-theo--24102026).
