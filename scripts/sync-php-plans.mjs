@@ -1,13 +1,13 @@
 import {readFile,writeFile} from 'node:fs/promises';
 import {supabaseKeyHeaders} from '../packages/db/src/api-key-headers.mjs';
-const company=process.argv.includes('--cqn')?'CQN':process.argv.includes('--haiphong')?'HAIPHONG':process.argv.includes('--vsc')?'VSC':process.argv.includes('--dvp')?'DVP':'PHP';
-const root=company==='CQN'?'.local/cqn-plans/':company==='HAIPHONG'?'.local/haiphong-plans/':company==='VSC'?'.local/vsc-plans/':company==='DVP'?'.local/dvp-plans/':'.local/php-plans/';
+const company=process.argv.includes('--cdn')?'CDN':process.argv.includes('--cqn')?'CQN':process.argv.includes('--haiphong')?'HAIPHONG':process.argv.includes('--vsc')?'VSC':process.argv.includes('--dvp')?'DVP':'PHP';
+const root=company==='CDN'?'.local/cdn-plans/':company==='CQN'?'.local/cqn-plans/':company==='HAIPHONG'?'.local/haiphong-plans/':company==='VSC'?'.local/vsc-plans/':company==='DVP'?'.local/dvp-plans/':'.local/php-plans/';
 const receipt=JSON.parse(await readFile(root+'receipt.json','utf8'));
 const base=process.env.SUPABASE_URL,key=process.env.SUPABASE_SERVICE_ROLE_KEY;
 if(!base||!key)throw new Error('Configure staging scheduler credentials.');
 const url=new URL(base);
 if(url.protocol!=='https:'||!url.hostname.endsWith('.supabase.co'))throw new Error('Expected Supabase project URL');
-const assets=company==='CQN'?['cqn_cai_lan']:company==='HAIPHONG'?['nam_dinh_vu','hai_an','doan_xa','ptsc_dinh_vu']:company==='VSC'?['green_port','vip_green_port','nam_hai_dinh_vu','vimc_dinh_vu']:company==='DVP'?['dinh_vu']:['tan_vu','chua_ve','hoang_dieu','htit'];
+const assets=company==='CDN'?['tien_sa']:company==='CQN'?['cqn_cai_lan']:company==='HAIPHONG'?['nam_dinh_vu','hai_an','doan_xa','ptsc_dinh_vu']:company==='VSC'?['green_port','vip_green_port','nam_hai_dinh_vu','vimc_dinh_vu']:company==='DVP'?['dinh_vu']:['tan_vu','chua_ve','hoang_dieu','htit'];
 if(receipt.semantics!==(company==='CQN'?'authority_published_berth_plan':'authority_published_plan')||assets.some(a=>!Array.isArray(receipt.assets?.[a])||!receipt.assets[a].length))throw new Error('Invalid schedule receipt');
 async function rpc(name,body){
  const r=await fetch(new URL('/rest/v1/rpc/'+name,url),{method:'POST',headers:{...supabaseKeyHeaders(key),'Content-Type':'application/json','Content-Profile':'port'},body:JSON.stringify(body),signal:AbortSignal.timeout(45000)});
@@ -25,13 +25,13 @@ try{
  for(let offset=0;offset<receipt.days.length;offset+=31){
   const days=receipt.days.slice(offset,offset+31).map(d=>({date:d.date,status:d.status==='unavailable'?'failed':d.status,source_url:d.url_at_fetch,
    fetched_at:d.fetched_at??receipt.checked_at,sha256:d.sha256,parser_version:receipt.parser_version,
-   source_empty_sections:d.source_empty_sections??[],error:d.status==='unavailable'?'Official report unavailable; not a certified zero':d.status==='failed'?'Official source fetch or schema validation failed':null,
+   source_empty_sections:d.source_empty_sections??[],error:d.status==='unavailable'?(company==='CDN'?'Official report unavailable or inconsistent; no certified total':'Official report unavailable; not a certified zero'):d.status==='failed'?'Official source fetch or schema validation failed':null,
    events:(d.events??[]).map(e=>({...(company==='CQN'?{plan_kind:e.plan_kind}:{}),direction:e.direction,vessel_name:e.source_row['Tên tàu'],planned_time:e.source_row['Thời gian'],
     dwt:e.dwt===null?null:Number(e.dwt),from_berth:e.source_row['Từ'],to_berth:e.source_row['Đến']}))}));
   const result=await rpc('import_php_plan_days',{p_asset:asset,p_days:days});
   inserted+=result.versions_inserted;batches++;
  }
- run.status=receipt.days.every(d=>d.status==='parsed'||company==='CQN'&&d.status==='unavailable')&&process.env.COLLECTOR_OUTCOME!=='failure'?'success':'failed';
+ run.status=receipt.days.every(d=>d.status==='parsed'||(company==='CQN'||company==='CDN')&&d.status==='unavailable')&&process.env.COLLECTOR_OUTCOME!=='failure'?'success':'failed';
  if(run.status==='failed')run.error='One or more source days failed; successful prior versions retained';
 }catch(error){run.status='failed';run.error=error.message;}
 // Read back the published day head and its public totals, not just RPC status.

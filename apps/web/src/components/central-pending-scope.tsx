@@ -1,0 +1,2 @@
+import {centralScopes} from '@invest/port';
+export function CentralPendingScope(){const scope=centralScopes.GMD;return <section className="panel" id="central-scope" aria-label="GMD Dung Quất"><p className="eyebrow">GMD · PHẠM VI MIỀN TRUNG</p><h2>Gemadept–Dung Quất</h2><p>{scope.note}</p><p className="notice">Chưa tích hợp lịch sử lượt tàu/DWT đủ điều kiện cho Dung Quất. Không dùng dữ liệu Nam Đình Vũ thay thế.</p><a href="/industries/ports/central">Về tổng quan miền Trung</a></section>;}

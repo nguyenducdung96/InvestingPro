@@ -1,0 +1,23 @@
+{
+  "ticker": "CDN",
+  "observed_on": "2026-10-24",
+  "entries": [
+    {
+      "asset_code": "tien_sa",
+      "name": "Tiên Sa",
+      "alias": "TIEN SA",
+      "operator": "Công ty cổ phần Cảng Đà Nẵng",
+      "relationship": "operator",
+      "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W1/000000015940470_VI_Baocaothuongnien2025.pdf",
+      "source_sha256": "97655fb01ef10acd41821e4b0c9c86c356be2b84ddf558975e19b037b60aa76a",
+      "source_note": "Báo cáo CDN 2025, trang 9, 11–12: Xí nghiệp Cảng Tiên Sa trực thuộc, không có công ty con. Lịch chỉ ghép mã bến BC78 với nhãn Tiên Sa; không gồm Sông Hàn, Liên Chiểu, Hòa Vang hoặc các cảng khác. Không suy ngày hiệu lực hiện hành.",
+      "effective_from": null,
+      "effective_to": null
+    }
+  ],
+  "schedule_source": "http://tttb.cangvuhanghaidanang.gov.vn/public-kh",
+  "maritime_code": "18",
+  "harbour_code": "BC78",
+  "source_mapping": "Exact BC78 plus Unicode-normalized Tien Sa label; public authority UI arrival/departure endpoints only",
+  "current_legal_effective_dates_verified": false
+}

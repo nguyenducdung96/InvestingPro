@@ -1,0 +1,18 @@
+import {issuerPlanSeries} from './vsc-plans';
+import {northSelection} from './north-overview';
+import type {TanVuPlanDay,TanVuPlanRun} from './tanvu-plans';
+export const centralScopes={
+ CDN:{name:'Tiên Sa · Đà Nẵng',assets:['tien_sa'],note:'Lịch đến/rời tại Tiên Sa; không gồm các bến khác trong vùng Cảng vụ, không cộng ATB/ATD container vào kế hoạch.',source:'https://danangport.com/',href:'/companies/CDN',status:'connected'},
+ QNP:{name:'Quy Nhơn',assets:['quy_nhon'],note:'Hồ sơ QNP theo báo cáo 2025. Có bản tin kế hoạch bố trí cầu bến nhiều ngày; chưa đối chiếu đủ lịch sử và bản sửa để tổng hợp lượt/DWT. Trang lịch container không được dùng thay lịch tàu. Không gộp Tân cảng Quy Nhơn của QSP.',source:'https://quynhonport.vn/chuyen-muc/ke-hoach-khai-thac-tau/',href:'/companies/QNP',status:'pending'},
+ CMP:{name:'Chân Mây · phạm vi CMP',assets:['chan_may_cmp'],note:'Theo báo cáo 2025 chỉ phạm vi cầu 1 được đối chiếu. Snapshot vị trí toàn khu Chân Mây chưa đủ để tính lượt/DWT của CMP.',source:'https://www.chanmayport.com.vn/',href:'/companies/CMP',status:'pending'},
+ NAP:{name:'Cửa Lò, Bến Thủy',assets:['cua_lo_nap','ben_thuy_nap'],note:'Theo báo cáo NAP 2025. Báo cáo hoạt động khu vực Nghệ An chưa được ghép đủ từng bến NAP; không dùng tổng khu vực thay hoạt động doanh nghiệp.',source:'https://cangvuhanghainghean.gov.vn/index.aspx?cat=2017&page=news',href:'/companies/NAP',status:'pending'},
+ GMD:{name:'Gemadept–Dung Quất · miền Trung',assets:['gemadept_dung_quat'],note:'Quan hệ qua pháp nhân theo báo cáo GMD 2025. Chỉ phạm vi Dung Quất; không dùng lịch Nam Đình Vũ/Hải Phòng hoặc Gemalink thay thế.',source:'https://www.gemadept.com.vn/',href:'/companies/GMD?central_asset=gemadept_dung_quat',status:'pending'},
+} as const;
+export type CentralTicker=keyof typeof centralScopes;
+export function centralOverview(days:TanVuPlanDay[],query:Record<string,string|undefined>={},now=new Date(),run:TanVuPlanRun|null=null){
+ const selection=northSelection(query,now),series=issuerPlanSeries(days,'CDN','cdn',selection.direction,now,run);
+ const metric=(selection.frequency==='quarter'?series.quarters:series.months).find(p=>p.period===selection.period)??null;
+ const latest=days.find(d=>d.report_day===selection.cutoff);
+ const rows=(Object.entries(centralScopes) as [CentralTicker,typeof centralScopes[CentralTicker]][]).map(([ticker,scope])=>({ticker,...scope,metric:ticker==='CDN'?metric:null,updated_at:ticker==='CDN'?latest?.last_success??null:null,source_error:ticker==='CDN'?latest?.source_error??null:null,stale:ticker==='CDN'?(!latest?.version_id||!latest.last_success||now.getTime()-Date.parse(latest.last_success)>36*3600000):null,href:ticker==='CDN'?`/companies/CDN?${new URLSearchParams({plan_asset:'cdn',plan_direction:selection.direction,plan_period:selection.frequency,plan_year:selection.period.slice(0,4)})}#vessel-plans`:scope.href}));
+ return {selection,rows,run,scope:{tickers:5,tracked_asset_scopes:6,connected_issuers:1,regional_total:null,nationwide_complete:false},semantics:'authority_published_plan',actual_verified:false};
+}

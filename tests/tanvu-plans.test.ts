@@ -66,9 +66,15 @@ it('imports idempotently, versions corrections, protects RLS and preserves succe
    const replay=await db.query<{result:{versions_inserted:number}}>('select port.import_php_plan_days($1,$2) as result',[asset,JSON.stringify([data])]);
    expect(replay.rows[0].result.versions_inserted).toBe(0);
   }
+  const cdn={...input,source_url:'http://tttb.cangvuhanghaidanang.gov.vn/public-kh',parser_version:'danang-public-plan/1.0.0',events:[{...input.events[0],from_berth:'TIEN SA',to_berth:'P/S',dwt:null}]};
+  const cdnReplay=()=>db.query<{result:{versions_inserted:number}}>("select port.import_php_plan_days('tien_sa',$1) as result",[JSON.stringify([cdn])]);
+  await cdnReplay();expect((await cdnReplay()).rows[0].result.versions_inserted).toBe(0);
+  expect((await db.query<{departure_dwt:number|null}>("select departure_dwt from port.php_plan_days where asset_code='tien_sa'")).rows[0].departure_dwt).toBeNull();
+  await expect(db.query("select port.import_php_plan_days('tien_sa',$1)",[JSON.stringify([{...cdn,source_url:source}])])).rejects.toThrow();
+  await expect(db.query("select port.import_php_plan_days('tien_sa',$1)",[JSON.stringify([{...cdn,events:[{...cdn.events[0],from_berth:'CHU LAI'}]}])])).rejects.toThrow();
   await expect(db.query('select port.import_php_plan_days($1,$2)',['chua_ve',JSON.stringify([input])])).rejects.toThrow('Invalid PHP berth');
   await expect(db.query('select port.import_php_plan_days($1,$2)',['hict',JSON.stringify([input])])).rejects.toThrow('Unknown schedule berth');
-  expect((await db.query('select * from port.php_plan_days')).rows).toHaveLength(13);
+  expect((await db.query('select * from port.php_plan_days')).rows).toHaveLength(14);
   const cqn={...input,source_url:'https://kht1.cangvuhanghaiquangninh.gov.vn/',parser_version:'quangninh-berth-plan/1.0.0',events:[{...input.events[0],from_berth:'Cầu 1 - Cái Lân',to_berth:'HG7-1',plan_kind:'internal'}]};
   const importCqn=(data:unknown)=>db.query<{result:{versions_inserted:number}}>("select port.import_php_plan_days('cqn_cai_lan',$1) as result",[JSON.stringify([data])]);
   await importCqn({...cqn,date:'2025-09-02',events:[{...cqn.events[0],to_berth:'P/S'}]}); // source movement section, not inferred port departure

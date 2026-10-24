@@ -74,3 +74,6 @@ input,textarea,select{border-color:var(--control-border)}@media(max-width:480px)
 
 @media(max-width:600px){.app-sidebar .primary-nav svg{display:none}.app-sidebar .primary-nav a{font-size:12px;padding-inline:4px}.north-filters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.north-filters>div{min-width:0}.north-filters select{font-size:14px;padding-inline:8px}.north-filters button{grid-column:1/-1}.north-filters label{font-size:13px}}
 @media(max-width:360px){.app-sidebar .primary-nav{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+@media(max-width:1099px){.app-sidebar .primary-nav{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:360px){.app-sidebar .primary-nav{grid-template-columns:repeat(2,minmax(0,1fr))}}

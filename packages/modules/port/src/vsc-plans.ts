@@ -12,7 +12,9 @@ export const haiPhongBerths={
  ptsc_dinh_vu:{name:'PTSC Đình Vũ',start:'2025-01-01',note:'Lịch PTSC DINH VU; không gộp Đình Vũ/DVP, Nam Đình Vũ, Nam Hải Đình Vũ hoặc VIMC.'},
 } as const;
 export const cqnBerth={name:'Cái Lân · CQN',start:'2025-01-01',note:'Theo dõi cầu 1, 5, 6, 7 Cái Lân. Chưa xác định nhãn bến tạm; chưa gồm bến tạm và khu neo. Không gồm CICT (cầu 2–3–4).'} as const;
+export const cdnBerth={name:'Tiên Sa',start:'2025-01-01',note:'Chỉ lịch tàu đến/rời tại Tiên Sa theo nguồn Cảng vụ Đà Nẵng. Không gồm Sông Hàn, Liên Chiểu, khu neo hoặc các cảng khác trong vùng. DWT bằng 0 trong nguồn được giữ là thiếu, không thay bằng GT; kế hoạch chưa xác nhận thực hiện.'} as const;
 export const issuerPlanScopes={
+ CDN:{cdn:{...cdnBerth,name:'Tổng quan CDN · 1 cảng'},tien_sa:cdnBerth},
  CQN:{cqn:{...cqnBerth,name:'Tổng quan CQN · 1 cảng · 4 cầu theo dõi'},cqn_cai_lan:cqnBerth},
  GMD:{gmd:{...haiPhongBerths.nam_dinh_vu,name:'Tổng quan GMD · Hải Phòng · 1 cảng',note:'Phạm vi Hải Phòng: chỉ Cảng Nam Đình Vũ. Chưa phải tổng hoạt động GMD toàn quốc, không gồm Gemalink, Dung Quất hoặc các ICD. Không quy đổi DWT thành hàng hóa, doanh thu hoặc nhân theo tỷ lệ sở hữu.'},nam_dinh_vu:haiPhongBerths.nam_dinh_vu},
  HAH:{hah:{...haiPhongBerths.hai_an,name:'Tổng quan HAH · 1 cảng'},hai_an:haiPhongBerths.hai_an},
@@ -32,6 +34,6 @@ export function issuerPlanSeries(days:TanVuPlanDay[],ticker:VscTicker,asset:stri
 }
 export function issuerPlanAssets(ticker:VscTicker,asset:string):string[]{
  if(!Object.hasOwn(issuerPlanScopes[ticker],asset))throw new Error('Unknown issuer scope');
- const members:Record<IssuerPlanTicker,string[]>={CQN:['cqn_cai_lan'],VSC:Object.keys(vscBerths),VGR:['vip_green_port'],GMD:['nam_dinh_vu'],HAH:['hai_an'],DXP:['doan_xa'],PSP:['ptsc_dinh_vu']};
+ const members:Record<IssuerPlanTicker,string[]>={CDN:['tien_sa'],CQN:['cqn_cai_lan'],VSC:Object.keys(vscBerths),VGR:['vip_green_port'],GMD:['nam_dinh_vu'],HAH:['hai_an'],DXP:['doan_xa'],PSP:['ptsc_dinh_vu']};
  return asset===ticker.toLowerCase()?members[ticker]:[asset];
 }

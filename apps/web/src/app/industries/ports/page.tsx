@@ -39,6 +39,7 @@ export default async function Page({
         bằng chứng cho từng quan hệ.
       </p>
       <Link className="button-link" href="/industries/ports/north">Xem tổng quan cảng phía Bắc · 9 mã</Link>
+      <Link className="button-link" href="/industries/ports/central">Xem tổng quan cảng miền Trung · 5 mã</Link>
       <nav className="catalog-views" aria-label="Loại danh mục">
         {views.map((item) => (
           <Link key={item.key} href={`?view=${item.key}`}
