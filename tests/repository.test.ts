@@ -78,3 +78,11 @@ it("sends listing decisions to the catalog schema with the admin token and note"
     expect(JSON.parse(String(fetchMock.mock.calls[0][1]?.body))).toMatchObject({ review_note: "Checked filing" });
   } finally { fetchMock.mockRestore(); }
 });
+
+it('paginates bounded overview windows and reads each physical scope once with public data',async()=>{
+ const read=vi.fn().mockResolvedValueOnce(Array.from({length:1000},()=>({asset_code:'tan_vu'}))).mockResolvedValueOnce([{asset_code:'dinh_vu'}]);
+ const repo=new SupabaseCatalogRepository({read,activeInterests:async()=>[],write:async()=>[]});
+ expect(await repo.planDaysWindow(['tan_vu','dinh_vu'],'2026-10-01','2026-10-23')).toHaveLength(1001);
+ expect(read.mock.calls[0][2].get('and')).toBe('(report_day.gte.2026-10-01,report_day.lte.2026-10-23)');expect(read.mock.calls[1][2].get('offset')).toBe('1000');expect(read.mock.calls[0][2].get('asset_code')).toBe('in.(tan_vu,dinh_vu)');
+ await expect(repo.planDaysWindow(['evil)'],'2026-10-01','2026-10-23')).rejects.toThrow();
+});

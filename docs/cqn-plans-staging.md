@@ -1,3 +1,5 @@
+> Người dùng đã review và chấp nhận CQN trên staging ngày 24/10/2026. Các trạng thái chờ review bên dưới là biên nhận trước lần xác nhận này.
+
 # CQN — lịch cập/rời cầu theo kế hoạch
 
 Ngày đối chiếu: 24/10/2026. Phạm vi người dùng yêu cầu: CQN, tiếp nối tám dashboard Hải Phòng đã được chấp nhận. Dashboard CQN chờ người dùng review; không suy ra nghiệm thu production.

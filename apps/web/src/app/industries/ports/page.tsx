@@ -38,6 +38,7 @@ export default async function Page({
         Tra cứu cảng vụ, cảng biển, bến cảng và quan hệ doanh nghiệp với nguồn
         bằng chứng cho từng quan hệ.
       </p>
+      <Link className="button-link" href="/industries/ports/north">Xem tổng quan cảng phía Bắc · 9 mã</Link>
       <nav className="catalog-views" aria-label="Loại danh mục">
         {views.map((item) => (
           <Link key={item.key} href={`?view=${item.key}`}
@@ -70,7 +71,7 @@ export default async function Page({
       <section className="panel">
         <h2>Phạm vi dữ liệu hoạt động</h2>
         <p>
-          Phiên bản danh mục này chưa có lượt tàu, DWT, sản lượng và xếp hạng.
+          Tổng quan phía Bắc đã có lượt và DWT theo lịch cho các mã trong phạm vi theo dõi; độ phủ và nguồn được trình bày riêng.
           DWT là trọng tải thiết kế của tàu, không phải sản lượng hàng hóa thực tế.
         </p>
       </section>

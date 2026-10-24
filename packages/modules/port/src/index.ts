@@ -147,3 +147,5 @@ export * from './company-berths';
 export * from './dvp-plans';
 
 export * from './vsc-plans';
+
+export * from './north-overview';

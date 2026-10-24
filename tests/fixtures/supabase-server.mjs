@@ -242,7 +242,8 @@ createServer(async (req, res) => {
       );
   }
   const or = url.searchParams.get("or");
-  const and=url.searchParams.get('and');if(and?.startsWith('(reported_day.lte.'))data=data.filter(r=>r.reported_day<=and.slice(18,-1));
+  const and=url.searchParams.get('and');
+  const planRange=and?.match(/^\(report_day\.gte\.(\d{4}-\d{2}-\d{2}),report_day\.lte\.(\d{4}-\d{2}-\d{2})\)$/);if(planRange)data=data.filter(r=>r.report_day>=planRange[1]&&r.report_day<=planRange[2]);if(and?.startsWith('(reported_day.lte.'))data=data.filter(r=>r.reported_day<=and.slice(18,-1));
   if(and?.startsWith('(event_day.lte.'))data=data.filter(r=>r.event_day<=and.slice(15,-1));
   if(and?.startsWith('(occurred_at.lte.'))data=data.filter(r=>Date.parse(r.occurred_at)<=Date.parse(and.slice(17,-1)));
   if (or?.startsWith("(valid_to")) {

@@ -139,6 +139,16 @@ export class SupabaseCatalogRepository implements CatalogRepository {
     const run=(await this.db.read('port','php_plan_runs',params({select:'*',asset_code:`eq.${asset}`,order:'checked_at.desc,id.desc',limit:'1'})))[0]??null;
     return {days:rows,run};
   }
+  async planDaysWindow(assets:string[],from:string,through:string){
+    if(!assets.length)return [];
+    if(assets.some(a=>!/^[_a-z0-9]+$/.test(a))||![from,through].every(d=>/^\d{4}-\d{2}-\d{2}$/.test(d))||from>through)throw new Error('Invalid schedule window');
+    const rows:Tables['port']['php_plan_days'][]=[];
+    for(let offset=0;;offset+=1000){
+      const page=await this.db.read('port','php_plan_days',params({select:'*',asset_code:ids(assets),and:`(report_day.gte.${from},report_day.lte.${through})`,order:'asset_code.asc,report_day.asc',limit:'1000',offset:String(offset)}));
+      rows.push(...page);if(page.length<1000)break;
+    }
+    return rows;
+  }
   async phpPlanEvents(asset:string,day:string){return this.db.phpPlanEvents?.(asset,day)??null;}
   async phpPlanCoverage(){return this.db.read('port','php_plan_coverage',params({select:'*',order:'asset_code.asc'}));}
   async companyBerthScope(ticker='PHP') {
