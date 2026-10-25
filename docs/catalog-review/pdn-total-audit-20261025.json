@@ -1,0 +1,505 @@
+{
+  "saved_at": "2026-10-25T15:05:44.007606+00:00",
+  "audit_date": "2026-10-25",
+  "source": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/api/v1/companies/PDN/plans",
+  "scope": "Live series captured during preceding audit, both directions, five scopes, June through October 2026 and comparable 2025 windows; not a new refresh or cron acceptance.",
+  "formula": "PDN = Long Binh Tan + Go Dau A + Go Dau B; Go Dau combined is a derived view.",
+  "max_absolute_sum_gap_dwt": 4.656612873077393e-10,
+  "conclusion": "Aggregation matches; Long Binh Tan recorded-row decline drives total decline. Cause and actual operational trend remain unverified.",
+  "series": {
+    "departure": {
+      "2026-06": {
+        "pdn": {
+          "current": 1815851.64,
+          "prior": 1798211.9,
+          "yoy": 0.9809600303501531,
+          "rows": 487,
+          "prior_rows": 507,
+          "through": "2026-06-30",
+          "prior_through": "2025-06-30"
+        },
+        "pdn_long_binh_tan": {
+          "current": 1032556.3400000001,
+          "prior": 1019909.4200000002,
+          "yoy": 1.2400042348858609,
+          "rows": 337,
+          "prior_rows": 366,
+          "through": "2026-06-30",
+          "prior_through": "2025-06-30"
+        },
+        "pdn_go_dau": {
+          "current": 783295.3,
+          "prior": 778302.4800000002,
+          "yoy": 0.641501232271513,
+          "rows": 150,
+          "prior_rows": 141,
+          "through": "2026-06-30",
+          "prior_through": "2025-06-30"
+        },
+        "pdn_go_dau_a": {
+          "current": 226058.12000000002,
+          "prior": 218117.12999999998,
+          "yoy": 3.640699838660111,
+          "rows": 48,
+          "prior_rows": 46,
+          "through": "2026-06-30",
+          "prior_through": "2025-06-30"
+        },
+        "pdn_go_dau_b": {
+          "current": 557237.1799999999,
+          "prior": 560185.3500000001,
+          "yoy": -0.5262847377212165,
+          "rows": 102,
+          "prior_rows": 95,
+          "through": "2026-06-30",
+          "prior_through": "2025-06-30"
+        },
+        "current_gap": -2.3283064365386963e-10,
+        "prior_gap": -2.3283064365386963e-10
+      },
+      "2026-07": {
+        "pdn": {
+          "current": 766834.79,
+          "prior": 1987805.04,
+          "yoy": -61.42303824725186,
+          "rows": 109,
+          "prior_rows": 589,
+          "through": "2026-07-31",
+          "prior_through": "2025-07-31"
+        },
+        "pdn_long_binh_tan": {
+          "current": 57068.8,
+          "prior": 1186725.3999999997,
+          "yoy": -95.19106947571865,
+          "rows": 19,
+          "prior_rows": 423,
+          "through": "2026-07-31",
+          "prior_through": "2025-07-31"
+        },
+        "pdn_go_dau": {
+          "current": 709765.99,
+          "prior": 801079.64,
+          "yoy": -11.398822968462918,
+          "rows": 90,
+          "prior_rows": 166,
+          "through": "2026-07-31",
+          "prior_through": "2025-07-31"
+        },
+        "pdn_go_dau_a": {
+          "current": 204623.40000000002,
+          "prior": 203424.87,
+          "yoy": 0.5891757482750393,
+          "rows": 32,
+          "prior_rows": 45,
+          "through": "2026-07-31",
+          "prior_through": "2025-07-31"
+        },
+        "pdn_go_dau_b": {
+          "current": 505142.58999999997,
+          "prior": 597654.77,
+          "yoy": -15.479200475552135,
+          "rows": 58,
+          "prior_rows": 121,
+          "through": "2026-07-31",
+          "prior_through": "2025-07-31"
+        },
+        "current_gap": 0,
+        "prior_gap": 4.656612873077393e-10
+      },
+      "2026-08": {
+        "pdn": {
+          "current": 704494.5599999998,
+          "prior": 1873746.48,
+          "yoy": -62.4018207628601,
+          "rows": 117,
+          "prior_rows": 557,
+          "through": "2026-08-31",
+          "prior_through": "2025-08-31"
+        },
+        "pdn_long_binh_tan": {
+          "current": 76045.22999999998,
+          "prior": 1167283.01,
+          "yoy": -93.48527911838622,
+          "rows": 26,
+          "prior_rows": 404,
+          "through": "2026-08-31",
+          "prior_through": "2025-08-31"
+        },
+        "pdn_go_dau": {
+          "current": 628449.33,
+          "prior": 706463.4700000001,
+          "yoy": -11.042912098484036,
+          "rows": 91,
+          "prior_rows": 153,
+          "through": "2026-08-31",
+          "prior_through": "2025-08-31"
+        },
+        "pdn_go_dau_a": {
+          "current": 191036.83000000002,
+          "prior": 208367.40000000002,
+          "yoy": -8.317313552887839,
+          "rows": 34,
+          "prior_rows": 47,
+          "through": "2026-08-31",
+          "prior_through": "2025-08-31"
+        },
+        "pdn_go_dau_b": {
+          "current": 437412.4999999999,
+          "prior": 498096.06999999995,
+          "yoy": -12.183105560339003,
+          "rows": 57,
+          "prior_rows": 106,
+          "through": "2026-08-31",
+          "prior_through": "2025-08-31"
+        },
+        "current_gap": 0,
+        "prior_gap": 0
+      },
+      "2026-09": {
+        "pdn": {
+          "current": 631038.9900000001,
+          "prior": 1759951.99,
+          "yoy": -64.14453385174443,
+          "rows": 96,
+          "prior_rows": 505,
+          "through": "2026-09-30",
+          "prior_through": "2025-09-30"
+        },
+        "pdn_long_binh_tan": {
+          "current": 51165.77,
+          "prior": 1007202.5800000002,
+          "yoy": -94.92001201982625,
+          "rows": 16,
+          "prior_rows": 350,
+          "through": "2026-09-30",
+          "prior_through": "2025-09-30"
+        },
+        "pdn_go_dau": {
+          "current": 579873.2200000001,
+          "prior": 752749.41,
+          "yoy": -22.96596818322314,
+          "rows": 80,
+          "prior_rows": 155,
+          "through": "2026-09-30",
+          "prior_through": "2025-09-30"
+        },
+        "pdn_go_dau_a": {
+          "current": 152859.20999999996,
+          "prior": 214353.94,
+          "yoy": -28.688406660498067,
+          "rows": 29,
+          "prior_rows": 41,
+          "through": "2026-09-30",
+          "prior_through": "2025-09-30"
+        },
+        "pdn_go_dau_b": {
+          "current": 427014.01,
+          "prior": 538395.4700000001,
+          "yoy": -20.687666632856338,
+          "rows": 51,
+          "prior_rows": 114,
+          "through": "2026-09-30",
+          "prior_through": "2025-09-30"
+        },
+        "current_gap": 1.1641532182693481e-10,
+        "prior_gap": -2.3283064365386963e-10
+      },
+      "2026-10": {
+        "pdn": {
+          "current": 684802.27,
+          "prior": 1541148.8599999999,
+          "yoy": -55.56546886716704,
+          "rows": 111,
+          "prior_rows": 420,
+          "through": "2026-10-24",
+          "prior_through": "2025-10-24"
+        },
+        "pdn_long_binh_tan": {
+          "current": 60361.399999999994,
+          "prior": 822165.68,
+          "yoy": -92.6582437739313,
+          "rows": 20,
+          "prior_rows": 282,
+          "through": "2026-10-24",
+          "prior_through": "2025-10-24"
+        },
+        "pdn_go_dau": {
+          "current": 624440.8700000001,
+          "prior": 718983.1799999999,
+          "yoy": -13.149446694983858,
+          "rows": 91,
+          "prior_rows": 138,
+          "through": "2026-10-24",
+          "prior_through": "2025-10-24"
+        },
+        "pdn_go_dau_a": {
+          "current": 159647.16,
+          "prior": 147483.03000000003,
+          "yoy": 8.247816714912881,
+          "rows": 31,
+          "prior_rows": 34,
+          "through": "2026-10-24",
+          "prior_through": "2025-10-24"
+        },
+        "pdn_go_dau_b": {
+          "current": 464793.7100000001,
+          "prior": 571500.1500000001,
+          "yoy": -18.67128818776339,
+          "rows": 60,
+          "prior_rows": 104,
+          "through": "2026-10-24",
+          "prior_through": "2025-10-24"
+        },
+        "current_gap": 0,
+        "prior_gap": -4.656612873077393e-10
+      }
+    },
+    "arrival": {
+      "2026-06": {
+        "pdn": {
+          "current": 1754793.0800000003,
+          "prior": 1630216.3399999999,
+          "yoy": 7.6417305447938455,
+          "rows": 467,
+          "prior_rows": 487,
+          "through": "2026-06-30",
+          "prior_through": "2025-06-30"
+        },
+        "pdn_long_binh_tan": {
+          "current": 965677.8100000002,
+          "prior": 973099.43,
+          "yoy": -0.7626784860001234,
+          "rows": 319,
+          "prior_rows": 351,
+          "through": "2026-06-30",
+          "prior_through": "2025-06-30"
+        },
+        "pdn_go_dau": {
+          "current": 789115.2700000001,
+          "prior": 657116.91,
+          "yoy": 20.087500107096634,
+          "rows": 148,
+          "prior_rows": 136,
+          "through": "2026-06-30",
+          "prior_through": "2025-06-30"
+        },
+        "pdn_go_dau_a": {
+          "current": 216731.91999999998,
+          "prior": 220343.72999999995,
+          "yoy": -1.6391707628803265,
+          "rows": 48,
+          "prior_rows": 46,
+          "through": "2026-06-30",
+          "prior_through": "2025-06-30"
+        },
+        "pdn_go_dau_b": {
+          "current": 572383.3500000001,
+          "prior": 436773.18000000005,
+          "yoy": 31.048190733689296,
+          "rows": 100,
+          "prior_rows": 90,
+          "through": "2026-06-30",
+          "prior_through": "2025-06-30"
+        },
+        "current_gap": 0,
+        "prior_gap": 0
+      },
+      "2026-07": {
+        "pdn": {
+          "current": 778206.29,
+          "prior": 1896224.4099999997,
+          "yoy": -58.960221907490364,
+          "rows": 113,
+          "prior_rows": 584,
+          "through": "2026-07-31",
+          "prior_through": "2025-07-31"
+        },
+        "pdn_long_binh_tan": {
+          "current": 86776.86000000002,
+          "prior": 1186008.41,
+          "yoy": -92.68328459829387,
+          "rows": 27,
+          "prior_rows": 424,
+          "through": "2026-07-31",
+          "prior_through": "2025-07-31"
+        },
+        "pdn_go_dau": {
+          "current": 691429.4299999998,
+          "prior": 710216,
+          "yoy": -2.6451910404722168,
+          "rows": 86,
+          "prior_rows": 160,
+          "through": "2026-07-31",
+          "prior_through": "2025-07-31"
+        },
+        "pdn_go_dau_a": {
+          "current": 192294.98000000004,
+          "prior": 176365.15,
+          "yoy": 9.0323003155669,
+          "rows": 31,
+          "prior_rows": 44,
+          "through": "2026-07-31",
+          "prior_through": "2025-07-31"
+        },
+        "pdn_go_dau_b": {
+          "current": 499134.45,
+          "prior": 533850.85,
+          "yoy": -6.503014840193655,
+          "rows": 55,
+          "prior_rows": 116,
+          "through": "2026-07-31",
+          "prior_through": "2025-07-31"
+        },
+        "current_gap": 0,
+        "prior_gap": 0
+      },
+      "2026-08": {
+        "pdn": {
+          "current": 686900.0700000001,
+          "prior": 1874938.2400000002,
+          "yoy": -63.36412286305495,
+          "rows": 115,
+          "prior_rows": 549,
+          "through": "2026-08-31",
+          "prior_through": "2025-08-31"
+        },
+        "pdn_long_binh_tan": {
+          "current": 80278.87999999999,
+          "prior": 1127018.88,
+          "yoy": -92.8768824174445,
+          "rows": 27,
+          "prior_rows": 397,
+          "through": "2026-08-31",
+          "prior_through": "2025-08-31"
+        },
+        "pdn_go_dau": {
+          "current": 606621.1899999998,
+          "prior": 747919.3600000001,
+          "yoy": -18.8921663961206,
+          "rows": 88,
+          "prior_rows": 152,
+          "through": "2026-08-31",
+          "prior_through": "2025-08-31"
+        },
+        "pdn_go_dau_a": {
+          "current": 151866.16999999998,
+          "prior": 165161.83,
+          "yoy": -8.05008033635859,
+          "rows": 30,
+          "prior_rows": 41,
+          "through": "2026-08-31",
+          "prior_through": "2025-08-31"
+        },
+        "pdn_go_dau_b": {
+          "current": 454755.01999999996,
+          "prior": 582757.53,
+          "yoy": -21.964968861063028,
+          "rows": 58,
+          "prior_rows": 111,
+          "through": "2026-08-31",
+          "prior_through": "2025-08-31"
+        },
+        "current_gap": 1.1641532182693481e-10,
+        "prior_gap": 2.3283064365386963e-10
+      },
+      "2026-09": {
+        "pdn": {
+          "current": 648120.1199999999,
+          "prior": 1776820.51,
+          "yoy": -63.523602054773676,
+          "rows": 98,
+          "prior_rows": 509,
+          "through": "2026-09-30",
+          "prior_through": "2025-09-30"
+        },
+        "pdn_long_binh_tan": {
+          "current": 61863.270000000004,
+          "prior": 1028414.89,
+          "yoy": -93.98459993125925,
+          "rows": 19,
+          "prior_rows": 357,
+          "through": "2026-09-30",
+          "prior_through": "2025-09-30"
+        },
+        "pdn_go_dau": {
+          "current": 586256.8499999999,
+          "prior": 748405.6200000001,
+          "yoy": -21.66589422457841,
+          "rows": 79,
+          "prior_rows": 152,
+          "through": "2026-09-30",
+          "prior_through": "2025-09-30"
+        },
+        "pdn_go_dau_a": {
+          "current": 154779.81999999998,
+          "prior": 208105.35999999996,
+          "yoy": -25.62429915308284,
+          "rows": 30,
+          "prior_rows": 40,
+          "through": "2026-09-30",
+          "prior_through": "2025-09-30"
+        },
+        "pdn_go_dau_b": {
+          "current": 431477.02999999997,
+          "prior": 540300.26,
+          "yoy": -20.1412507186282,
+          "rows": 49,
+          "prior_rows": 112,
+          "through": "2026-09-30",
+          "prior_through": "2025-09-30"
+        },
+        "current_gap": 0,
+        "prior_gap": 0
+      },
+      "2026-10": {
+        "pdn": {
+          "current": 690178.06,
+          "prior": 1502159.5699999998,
+          "yoy": -54.05427800190361,
+          "rows": 115,
+          "prior_rows": 426,
+          "through": "2026-10-24",
+          "prior_through": "2025-10-24"
+        },
+        "pdn_long_binh_tan": {
+          "current": 64870.5,
+          "prior": 825072.4999999999,
+          "yoy": -92.13760002908835,
+          "rows": 21,
+          "prior_rows": 284,
+          "through": "2026-10-24",
+          "prior_through": "2025-10-24"
+        },
+        "pdn_go_dau": {
+          "current": 625307.56,
+          "prior": 677087.07,
+          "yoy": -7.647393118879064,
+          "rows": 94,
+          "prior_rows": 142,
+          "through": "2026-10-24",
+          "prior_through": "2025-10-24"
+        },
+        "pdn_go_dau_a": {
+          "current": 163872.36000000002,
+          "prior": 185578.9,
+          "yoy": -11.696663790980534,
+          "rows": 32,
+          "prior_rows": 41,
+          "through": "2026-10-24",
+          "prior_through": "2025-10-24"
+        },
+        "pdn_go_dau_b": {
+          "current": 461435.19999999995,
+          "prior": 491508.17000000004,
+          "yoy": -6.11850867097491,
+          "rows": 62,
+          "prior_rows": 101,
+          "through": "2026-10-24",
+          "prior_through": "2025-10-24"
+        },
+        "current_gap": 1.1641532182693481e-10,
+        "prior_gap": 0
+      }
+    }
+  }
+}
