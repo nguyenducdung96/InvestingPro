@@ -8,3 +8,6 @@ max_rows = 1000
 major_version = 17
 [db.seed]
 enabled = false
+
+[functions.hcm-source-health]
+verify_jwt = true

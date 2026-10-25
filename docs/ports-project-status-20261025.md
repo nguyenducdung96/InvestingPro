@@ -33,6 +33,8 @@ Bước kế tiếp nên làm là mục 1, sau đó PDN. Tiếp tục để ng�
 
 Rà đường nguồn TP.HCM sau đó: [chẩn đoán kết nối và nguồn thay thế](hcm-source-connectivity-20261025.md). Đã thử thêm Windows/ARM và Cloudflare Placement Bangkok; IP nguồn chính vẫn không truy cập được từ cloud. Bản đồ/API liên quan truy cập được nhưng đối chiếu chỉ có 5/17 dòng kế hoạch cùng ngày, lịch sử mẫu chỉ NEO; chưa thay chuỗi gốc. Cấu hình Placement thử nghiệm đã được khôi phục mặc định.
 
+Rà phương án serverless tiếp theo: [quyết định đường dữ liệu chuẩn](hcm-source-access-decision.md). Đã deploy probe JWT riêng trên Supabase bằng phiên CLI sẵn có và kiểm chứng Singapore/Tokyo/Mumbai; cả ba timeout tới nguồn chính. Chưa nối probe vào luồng nghiệp vụ. Ưu tiên feed/API/file ngày do phía nguồn hỗ trợ hoặc khôi phục đường truy cập cloud; chưa mua dịch vụ egress, chưa tuyên bố đã khắc phục tự động.
+
 ## Tài liệu liên quan
 
 - [Miền Nam và Gemalink/SGP](south-integration.md)

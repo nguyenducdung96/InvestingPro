@@ -1,0 +1,64 @@
+{
+  "checked_on": "2026-10-25",
+  "function": "hcm-source-health",
+  "project_ref": "loapslojajawgzekozfv",
+  "version": 1,
+  "verify_jwt": true,
+  "unauthenticated_status": 401,
+  "cli_version": "2.122.0",
+  "existing_cli_auth_reused": true,
+  "new_credential_created": false,
+  "database_access_added": false,
+  "regions": [
+    {
+      "region": "ap-southeast-1",
+      "status": 200,
+      "edge_region": "ap-southeast-1",
+      "elapsed_ms": 15604,
+      "result": {
+        "checked_at": "2026-10-25T10:06:20.585Z",
+        "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+        "region": "ap-southeast-1",
+        "elapsed_ms": 15001,
+        "reachable": false,
+        "reason": "source_timeout",
+        "detail": "source_timeout",
+        "refresh_verified": false
+      }
+    },
+    {
+      "region": "ap-northeast-1",
+      "status": 200,
+      "edge_region": "ap-northeast-1",
+      "elapsed_ms": 16160,
+      "result": {
+        "checked_at": "2026-10-25T10:06:21.225Z",
+        "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+        "region": "ap-northeast-1",
+        "elapsed_ms": 15001,
+        "reachable": false,
+        "reason": "source_timeout",
+        "detail": "source_timeout",
+        "refresh_verified": false
+      }
+    },
+    {
+      "region": "ap-south-1",
+      "status": 200,
+      "edge_region": "ap-south-1",
+      "elapsed_ms": 16451,
+      "result": {
+        "checked_at": "2026-10-25T10:06:21.502Z",
+        "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+        "region": "ap-south-1",
+        "elapsed_ms": 15002,
+        "reachable": false,
+        "reason": "source_timeout",
+        "detail": "source_timeout",
+        "refresh_verified": false
+      }
+    }
+  ],
+  "source_reachable_verified": false,
+  "scheduled_refresh_verified": false
+}
