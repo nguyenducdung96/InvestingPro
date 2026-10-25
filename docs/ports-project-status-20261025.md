@@ -29,3 +29,5 @@ Các con số độ phủ trong tài liệu ngày 24/10 là snapshot lịch sử
 ## QNP bổ sung ngày 25/10
 
 653/662 tài liệu, 6.465 dòng nguồn, trong đó bổ sung 329 dòng trang tiếp. Dữ liệu ghi nhận từ 01/2025 đến 10/2026; giao diện chỉ giữ YoY DWT. Chín ngoại lệ nguồn đã phân loại và giữ thiếu, không chứng nhận đủ mọi ngày/trọng tải. Số miền Bắc và commit phía trên là snapshot của lần kiểm tra trước, không phải readback lại trong lượt QNP này.
+
+QNP: refresh GitHub 40144613728 (attempt 2) đã thành công và tự push dữ liệu 73a42c9; staging readback khớp. Manual pipeline accepted, cron actual execution chưa chứng nhận. Chi tiết: catalog-review/qnp-final-acceptance-20261025.json.
