@@ -11,7 +11,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   refresh:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
@@ -20,34 +20,56 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
       - uses: actions/cache/restore@v4
         with:
           path: .local/south-plans
           key: south-plans-v1-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: south-plans-v1-
       - run: python scripts/test-south-plans.py
+      - run: node --test scripts/test-south-live.mjs
       - name: Refresh validated historical date forms
         id: collect
         continue-on-error: true
         run: python scripts/collect-south-plans.py --workers 3 --refresh-recent 4
       - name: Verify archives and compile an immutable edition
+        id: compile
+        if: steps.collect.outputs.exportable == 'true'
         run: python scripts/export-south-plans.py
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
       - run: corepack enable
+        if: steps.compile.outcome == 'success'
       - run: pnpm install --frozen-lockfile
+        if: steps.compile.outcome == 'success'
       - run: pnpm exec vitest run tests/south-plans.test.ts tests/south-history.test.ts tests/north-overview.test.ts --maxWorkers=1
+        if: steps.compile.outcome == 'success'
       - run: pnpm typecheck
+        if: steps.compile.outcome == 'success'
       - name: Commit validated edition and source errors to staging branch
+        id: publish
+        if: steps.compile.outcome == 'success'
         run: |
           git add packages/modules/port/src/south-history-data.ts packages/modules/port/src/south-journal-loader.ts packages/modules/port/src/south-journal-data docs/catalog-review/south-history-ledger.json
-          if git diff --cached --quiet; then exit 0; fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git commit -m 'data(ports): refresh southern authority schedules'
-          git pull --rebase origin codex/cloudflare-next-compat
-          git push origin HEAD:codex/cloudflare-next-compat
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'data(ports): refresh southern authority schedules'
+            git pull --rebase origin codex/cloudflare-next-compat
+            git push origin HEAD:codex/cloudflare-next-compat
+          fi
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+      - name: Wait for deployed edition and reconcile live monthly metrics
+        if: steps.publish.outcome == 'success'
+        env:
+          COLLECTOR_OUTCOME: ${{ steps.collect.outcome }}
+          PUBLISHED_COMMIT: ${{ steps.publish.outputs.commit }}
+        run: node scripts/verify-south-live.mjs
+      - name: Record initial source failure without changing published data
+        if: always() && steps.collect.outcome == 'failure' && steps.collect.outputs.exportable != 'true'
+        env:
+          COLLECTOR_OUTCOME: ${{ steps.collect.outcome }}
+        run: node scripts/verify-south-live.mjs --source-unavailable
       - uses: actions/cache/save@v4
         if: always()
         with:
@@ -57,10 +79,14 @@ jobs:
         if: always()
         with:
           name: south-plans-receipt
-          path: .local/south-plans/receipt.json
+          path: |
+            .local/south-plans/receipt.json
+            .local/south-plans/last-run.json
+            .local/south-plans/live-readback.json
+            .local/south-plans/receipts
           include-hidden-files: true
           if-no-files-found: ignore
-          retention-days: 7
+          retention-days: 14
       - name: Report source failures after retaining proven data
-        if: steps.collect.outcome == 'failure'
+        if: always() && steps.collect.outcome == 'failure'
         run: exit 1
