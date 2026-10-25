@@ -1,0 +1,64 @@
+name: CMP official berth plan history
+on:
+  workflow_dispatch:
+  schedule:
+    # 07:50 Asia/Ho_Chi_Minh. The scheduler can start late.
+    - cron: '50 0 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: cmp-plans-staging
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements-cmp.txt
+      - run: python -m pip install -r scripts/requirements-cmp.txt
+      - uses: actions/cache/restore@v4
+        with:
+          path: .local/cmp
+          key: cmp-html-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: cmp-html-v1-
+      - name: Validate source contracts
+        run: python scripts/test-cmp-plans.py
+      - name: Refresh and validate official HTML schedule history
+        run: python scripts/collect-cmp-plans.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test -- tests/cmp-plans.test.ts tests/central-overview.test.ts
+      - name: Publish the versioned server dataset to the staging branch
+        run: |
+          git add packages/modules/port/src/cmp-history-data.ts docs/catalog-review/cmp-history-ledger.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'data(ports): refresh official CMP recorded berth plans'
+          git push origin HEAD:codex/cloudflare-next-compat
+      - name: Keep the compact extraction receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cmp-history-receipt
+          path: .local/cmp/export-receipt.json
+          retention-days: 7
+          if-no-files-found: ignore
+          include-hidden-files: true
+      - name: Preserve validated source cache after partial failures
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .local/cmp
+          key: cmp-html-v1-${{ github.run_id }}-${{ github.run_attempt }}
+
