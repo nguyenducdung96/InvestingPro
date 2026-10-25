@@ -1,0 +1,66 @@
+name: NAP official reported terminal activity
+on:
+  workflow_dispatch:
+  schedule:
+    # 08:05 Asia/Ho_Chi_Minh. The scheduler can start late.
+    - cron: '5 1 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: nap-plans-staging
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: scripts/requirements-nap.txt
+      - run: python -m pip install -r scripts/requirements-nap.txt
+      - uses: actions/cache/restore@v4
+        with:
+          path: .local/nap
+          key: nap-xlsx-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: nap-xlsx-v1-
+      - name: Validate source contracts
+        run: python scripts/test-nap-reports.py
+      - name: Refresh attributed official activity workbooks
+        run: python scripts/collect-nap-reports.py --workers 3 --refresh-recent 4
+      - run: python scripts/export-nap-history.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm test -- tests/nap-activity.test.ts tests/central-overview.test.ts
+      - name: Publish the versioned server dataset to the staging branch
+        run: |
+          git add packages/modules/port/src/nap-history-data.ts packages/modules/port/src/nap-journal-loader.ts packages/modules/port/src/nap-journal-data docs/catalog-review/nap-history-ledger.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'data(ports): refresh official NAP reported terminal activity'
+          git pull --rebase origin codex/cloudflare-next-compat
+          git push origin HEAD:codex/cloudflare-next-compat
+      - name: Keep the compact extraction receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nap-history-receipt
+          path: .local/nap/export-receipt.json
+          retention-days: 7
+          if-no-files-found: ignore
+          include-hidden-files: true
+      - name: Preserve validated source cache after partial failures
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .local/nap
+          key: nap-xlsx-v1-${{ github.run_id }}-${{ github.run_attempt }}
+
