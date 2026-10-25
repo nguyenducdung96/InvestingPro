@@ -1,0 +1,132 @@
+{
+  "checked_at": "2026-10-25T15:16:35.554239+00:00",
+  "event": "local",
+  "run_id": null,
+  "dns_tcp_tls": [
+    {
+      "host": "cangvuhanghaitphcm.gov.vn",
+      "addresses": [
+        "222.253.45.177"
+      ],
+      "connections": [
+        {
+          "port": 80,
+          "tcp_connected": true,
+          "seconds": 0.041
+        },
+        {
+          "port": 443,
+          "tcp_connected": true,
+          "tls_version": "TLSv1.3",
+          "certificate_expires": "Jan 23 23:59:59 2027 GMT",
+          "seconds": 3.077
+        }
+      ]
+    },
+    {
+      "host": "www.cangvuhanghaitphcm.gov.vn",
+      "addresses": [
+        "222.253.45.177"
+      ],
+      "connections": [
+        {
+          "port": 80,
+          "tcp_connected": true,
+          "seconds": 0.041
+        },
+        {
+          "port": 443,
+          "tcp_connected": true,
+          "tls_version": "TLSv1.3",
+          "certificate_expires": "Jan 23 23:59:59 2027 GMT",
+          "seconds": 0.898
+        }
+      ]
+    },
+    {
+      "host": "kehoach.cangvuhanghaitphcm.gov.vn",
+      "addresses": [
+        "216.198.79.65",
+        "64.29.17.65"
+      ],
+      "connections": [
+        {
+          "port": 80,
+          "tcp_connected": true,
+          "seconds": 0.009
+        },
+        {
+          "port": 443,
+          "tcp_connected": true,
+          "tls_version": "TLSv1.3",
+          "certificate_expires": "Nov 24 12:31:04 2026 GMT",
+          "seconds": 0.252
+        }
+      ]
+    },
+    {
+      "host": "phuongdinh.name.vn",
+      "addresses": [
+        "118.69.111.83"
+      ],
+      "connections": [
+        {
+          "port": 80,
+          "error": "[WinError 10061] No connection could be made because the target machine actively refused it",
+          "seconds": 4.009
+        },
+        {
+          "port": 443,
+          "tcp_connected": true,
+          "tls_version": "TLSv1.3",
+          "certificate_expires": "Dec  4 23:59:59 2026 GMT",
+          "seconds": 0.092
+        }
+      ]
+    }
+  ],
+  "http": [
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "status": 200,
+      "bytes": 207137,
+      "sha256": "c5d726a19f8de07bddad500d82d7bbb453cd7de9f9716328ab2ad09b220a6f68",
+      "content_type": "text/html; charset=utf-8",
+      "schedule_tables": true,
+      "seconds": 0.556
+    },
+    {
+      "url": "http://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "status": 302,
+      "location": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "seconds": 0.123
+    },
+    {
+      "url": "https://www.cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "status": 500,
+      "location": null,
+      "seconds": 0.211
+    },
+    {
+      "url": "https://kehoach.cangvuhanghaitphcm.gov.vn/welcome",
+      "status": 200,
+      "bytes": 3206,
+      "sha256": "d45fca16ba8587ad312d426e735ea7bc2f1a52f3e77e12ced7e33ca9f52e8cd5",
+      "content_type": "text/html; charset=utf-8",
+      "schedule_tables": false,
+      "seconds": 0.214
+    },
+    {
+      "url": "https://phuongdinh.name.vn/api/cangvu/getDSTau4?ngay=24/10/2026",
+      "status": 200,
+      "bytes": 747704,
+      "sha256": "1bb1a68a667513fa19e05fedcf9f447c9369146ef7823f43081f926b2e64d92f",
+      "content_type": "application/json; charset=utf-8",
+      "schedule_tables": false,
+      "seconds": 1.616
+    }
+  ],
+  "tls_validation": true,
+  "redirects_followed": false,
+  "publication_performed": false
+}

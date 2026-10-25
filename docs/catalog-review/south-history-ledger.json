@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "checked_at": "2026-10-25T05:38:27.739662+00:00",
+    "checked_at": "2026-10-25T15:17:51.074454+00:00",
     "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
     "parser_version": "hcm-authority-schedule/1.0.0",
     "from": "2025-01-01",
@@ -31,6 +31,31 @@
       "ssit": {
         "rows": 962,
         "first_day": "2025-07-23",
+        "last_day": "2026-10-24"
+      },
+      "sg_tan_thuan": {
+        "rows": 1356,
+        "first_day": "2025-01-01",
+        "last_day": "2026-10-24"
+      },
+      "cll_berth7": {
+        "rows": 1667,
+        "first_day": "2025-01-01",
+        "last_day": "2026-10-24"
+      },
+      "cll_b7": {
+        "rows": 97,
+        "first_day": "2025-05-15",
+        "last_day": "2026-10-02"
+      },
+      "swc_buoys": {
+        "rows": 417,
+        "first_day": "2025-01-05",
+        "last_day": "2026-10-22"
+      },
+      "vgp_k16": {
+        "rows": 253,
+        "first_day": "2025-01-01",
         "last_day": "2026-10-24"
       }
     },
@@ -99,6 +124,66 @@
           "dwt": null,
           "missing_dwt": 0
         }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 32,
+          "dwt": 427059.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 31,
+          "dwt": 415256.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 26,
+          "dwt": 588393.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 48,
+          "dwt": 1070213.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 10,
+          "dwt": 102315.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 11,
+          "dwt": 123010.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 5,
+          "dwt": 48176.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 4,
+          "dwt": 43658.0,
+          "missing_dwt": 0
+        }
       }
     },
     "2025-02": {
@@ -159,6 +244,66 @@
         "departure": {
           "rows": null,
           "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 32,
+          "dwt": 457188.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 30,
+          "dwt": 387541.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 33,
+          "dwt": 754525.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 43,
+          "dwt": 966605.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 1,
+          "dwt": 4375.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 4,
+          "dwt": 84676.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 6,
+          "dwt": 56076.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 5,
+          "dwt": 27973.0,
           "missing_dwt": 0
         }
       }
@@ -223,6 +368,66 @@
           "dwt": null,
           "missing_dwt": 0
         }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 40,
+          "dwt": 496332.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 38,
+          "dwt": 554947.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 37,
+          "dwt": 818524.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 47,
+          "dwt": 1054926.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 7,
+          "dwt": 209295.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 9,
+          "dwt": 219573.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 8,
+          "dwt": 70781.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 4,
+          "dwt": 60237.0,
+          "missing_dwt": 0
+        }
       }
     },
     "2025-04": {
@@ -283,6 +488,66 @@
         "departure": {
           "rows": null,
           "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 28,
+          "dwt": 273173.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 33,
+          "dwt": 352236.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 27,
+          "dwt": 618030.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 50,
+          "dwt": 1140667.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 6,
+          "dwt": 82598.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 11,
+          "dwt": 208092.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 7,
+          "dwt": 94593.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 7,
+          "dwt": 82911.0,
           "missing_dwt": 0
         }
       }
@@ -347,6 +612,66 @@
           "dwt": null,
           "missing_dwt": 0
         }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 30,
+          "dwt": 333934.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 35,
+          "dwt": 460373.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 24,
+          "dwt": 566959.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 40,
+          "dwt": 910330.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": 1,
+          "dwt": 750.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 6,
+          "dwt": 4680.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 8,
+          "dwt": 85174.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 12,
+          "dwt": 174504.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 5,
+          "dwt": 48305.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 6,
+          "dwt": 62576.0,
+          "missing_dwt": 0
+        }
       }
     },
     "2025-06": {
@@ -407,6 +732,66 @@
         "departure": {
           "rows": null,
           "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 29,
+          "dwt": 389764.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 33,
+          "dwt": 489581.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 24,
+          "dwt": 535444.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 33,
+          "dwt": 732550.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 6,
+          "dwt": 71863.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 10,
+          "dwt": 156333.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 3,
+          "dwt": 58396.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 4,
+          "dwt": 79670.0,
           "missing_dwt": 0
         }
       }
@@ -471,6 +856,66 @@
           "dwt": null,
           "missing_dwt": 0
         }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 33,
+          "dwt": 387418.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 37,
+          "dwt": 441107.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 36,
+          "dwt": 813665.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 45,
+          "dwt": 962872.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": 1,
+          "dwt": 550.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 6,
+          "dwt": 3700.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 9,
+          "dwt": 99074.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 12,
+          "dwt": 231313.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 5,
+          "dwt": 67101.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 5,
+          "dwt": 67101.0,
+          "missing_dwt": 0
+        }
       }
     },
     "2025-08": {
@@ -531,6 +976,66 @@
         "departure": {
           "rows": 42,
           "dwt": 3415911.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 29,
+          "dwt": 401816.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 30,
+          "dwt": 421849.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 32,
+          "dwt": 739271.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 40,
+          "dwt": 887317.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 5,
+          "dwt": 3071.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 8,
+          "dwt": 149335.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 12,
+          "dwt": 190948.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 6,
+          "dwt": 68405.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 5,
+          "dwt": 64665.0,
           "missing_dwt": 0
         }
       }
@@ -595,6 +1100,66 @@
           "dwt": 2820579.0,
           "missing_dwt": 0
         }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 24,
+          "dwt": 234843.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 31,
+          "dwt": 415404.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 22,
+          "dwt": 511033.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 42,
+          "dwt": 954909.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 4,
+          "dwt": 117796.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 12,
+          "dwt": 263390.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 7,
+          "dwt": 65755.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 6,
+          "dwt": 65357.0,
+          "missing_dwt": 0
+        }
       }
     },
     "2025-10": {
@@ -655,6 +1220,66 @@
         "departure": {
           "rows": 34,
           "dwt": 2993937.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 33,
+          "dwt": 440972.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 27,
+          "dwt": 333636.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 21,
+          "dwt": 483391.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 44,
+          "dwt": 1009729.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 10,
+          "dwt": 178757.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 13,
+          "dwt": 331547.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 6,
+          "dwt": 89502.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 5,
+          "dwt": 79609.0,
           "missing_dwt": 0
         }
       }
@@ -719,6 +1344,66 @@
           "dwt": 3024928.0,
           "missing_dwt": 0
         }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 29,
+          "dwt": 434270.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 29,
+          "dwt": 525271.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 35,
+          "dwt": 795947.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 38,
+          "dwt": 866383.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": 1,
+          "dwt": 750.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 6,
+          "dwt": 4905.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 6,
+          "dwt": 116076.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 12,
+          "dwt": 224202.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 6,
+          "dwt": 78571.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 7,
+          "dwt": 92419.0,
+          "missing_dwt": 0
+        }
       }
     },
     "2025-12": {
@@ -779,6 +1464,66 @@
         "departure": {
           "rows": 36,
           "dwt": 2843271.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 42,
+          "dwt": 626714.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 38,
+          "dwt": 557245.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 37,
+          "dwt": 849916.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 44,
+          "dwt": 976628.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": 4,
+          "dwt": 3850.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 8,
+          "dwt": 6951.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 9,
+          "dwt": 106353.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 15,
+          "dwt": 302652.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 5,
+          "dwt": 72483.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 6,
+          "dwt": 83356.0,
           "missing_dwt": 0
         }
       }
@@ -843,6 +1588,66 @@
           "dwt": 3270620.0,
           "missing_dwt": 0
         }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 28,
+          "dwt": 301241.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 31,
+          "dwt": 385469.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 42,
+          "dwt": 974890.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 46,
+          "dwt": 1049546.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": 3,
+          "dwt": 2050.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 6,
+          "dwt": 4255.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 7,
+          "dwt": 168129.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 15,
+          "dwt": 305543.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 4,
+          "dwt": 50333.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 3,
+          "dwt": 46742.0,
+          "missing_dwt": 0
+        }
       }
     },
     "2026-02": {
@@ -903,6 +1708,66 @@
         "departure": {
           "rows": 31,
           "dwt": 3124756.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 19,
+          "dwt": 237555.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 19,
+          "dwt": 270946.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 38,
+          "dwt": 852268.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 39,
+          "dwt": 877922.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": 1,
+          "dwt": 550.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 4,
+          "dwt": 3256.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 5,
+          "dwt": 95997.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 9,
+          "dwt": 180671.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 7,
+          "dwt": 75803.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 5,
+          "dwt": 79819.0,
           "missing_dwt": 0
         }
       }
@@ -967,6 +1832,66 @@
           "dwt": 3172753.0,
           "missing_dwt": 0
         }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 35,
+          "dwt": 363370.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 40,
+          "dwt": 432604.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 44,
+          "dwt": 987605.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 49,
+          "dwt": 1055854.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": 2,
+          "dwt": 1100.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 6,
+          "dwt": 4733.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 13,
+          "dwt": 173074.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 19,
+          "dwt": 293894.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 2,
+          "dwt": 24574.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 2,
+          "dwt": 24574.0,
+          "missing_dwt": 0
+        }
       }
     },
     "2026-04": {
@@ -1027,6 +1952,66 @@
         "departure": {
           "rows": 31,
           "dwt": 3254439.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 24,
+          "dwt": 299763.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 27,
+          "dwt": 422401.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 36,
+          "dwt": 793292.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 47,
+          "dwt": 980283.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": 3,
+          "dwt": 1821.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 3,
+          "dwt": 2150.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 15,
+          "dwt": 274657.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 26,
+          "dwt": 513652.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 5,
+          "dwt": 79153.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 4,
+          "dwt": 55462.0,
           "missing_dwt": 0
         }
       }
@@ -1091,6 +2076,66 @@
           "dwt": 3811841.0,
           "missing_dwt": 0
         }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 25,
+          "dwt": 339326.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 29,
+          "dwt": 366186.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 41,
+          "dwt": 927367.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 47,
+          "dwt": 1019723.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": 2,
+          "dwt": 1249.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 2,
+          "dwt": 1071.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 4,
+          "dwt": 106398.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 11,
+          "dwt": 287873.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 3,
+          "dwt": 43486.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 4,
+          "dwt": 66210.0,
+          "missing_dwt": 0
+        }
       }
     },
     "2026-06": {
@@ -1151,6 +2196,66 @@
         "departure": {
           "rows": 25,
           "dwt": 4126031.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 26,
+          "dwt": 299652.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 34,
+          "dwt": 438561.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 40,
+          "dwt": 899071.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 39,
+          "dwt": 870903.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 6,
+          "dwt": 4700.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 12,
+          "dwt": 195060.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 13,
+          "dwt": 216246.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 3,
+          "dwt": 51767.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 9,
+          "dwt": 126881.0,
           "missing_dwt": 0
         }
       }
@@ -1215,6 +2320,66 @@
           "dwt": 3675339.0,
           "missing_dwt": 0
         }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 33,
+          "dwt": 439306.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 33,
+          "dwt": 446714.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 42,
+          "dwt": 927058.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 44,
+          "dwt": 972415.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": 3,
+          "dwt": 1850.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 6,
+          "dwt": 5560.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 3,
+          "dwt": 32356.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 13,
+          "dwt": 310997.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 6,
+          "dwt": 80703.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 5,
+          "dwt": 67155.0,
+          "missing_dwt": 0
+        }
       }
     },
     "2026-08": {
@@ -1275,6 +2440,66 @@
         "departure": {
           "rows": 26,
           "dwt": 3586755.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 30,
+          "dwt": 421000.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 32,
+          "dwt": 541709.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 33,
+          "dwt": 761686.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 39,
+          "dwt": 881818.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": 1,
+          "dwt": 750.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 4,
+          "dwt": 3501.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 9,
+          "dwt": 181679.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 12,
+          "dwt": 285491.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 4,
+          "dwt": 53683.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 11,
+          "dwt": 136042.0,
           "missing_dwt": 0
         }
       }
@@ -1339,6 +2564,66 @@
           "dwt": 2801819.0,
           "missing_dwt": 0
         }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 33,
+          "dwt": 352570.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 33,
+          "dwt": 338205.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 40,
+          "dwt": 1019765.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 36,
+          "dwt": 894270.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 5,
+          "dwt": 3276.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 2,
+          "dwt": 75060.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 5,
+          "dwt": 130945.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 8,
+          "dwt": 79987.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 14,
+          "dwt": 139867.0,
+          "missing_dwt": 0
+        }
       }
     },
     "2026-10": {
@@ -1399,6 +2684,66 @@
         "departure": {
           "rows": 22,
           "dwt": 2459547.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_tan_thuan": {
+        "arrival": {
+          "rows": 26,
+          "dwt": 377631.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 26,
+          "dwt": 343265.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_berth7": {
+        "arrival": {
+          "rows": 26,
+          "dwt": 643515.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 31,
+          "dwt": 742872.0,
+          "missing_dwt": 0
+        }
+      },
+      "cll_b7": {
+        "arrival": {
+          "rows": 1,
+          "dwt": 750.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 1,
+          "dwt": 750.0,
+          "missing_dwt": 0
+        }
+      },
+      "swc_buoys": {
+        "arrival": {
+          "rows": 2,
+          "dwt": 93890.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 5,
+          "dwt": 156641.0,
+          "missing_dwt": 0
+        }
+      },
+      "vgp_k16": {
+        "arrival": {
+          "rows": 12,
+          "dwt": 92590.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 9,
+          "dwt": 102230.0,
           "missing_dwt": 0
         }
       }

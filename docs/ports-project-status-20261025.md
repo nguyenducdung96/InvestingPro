@@ -1,6 +1,27 @@
-# Tiến độ ngành cảng — 25/10/2026
+# Tiến độ ngành cảng — cập nhật 26/10/2026
 
-## Trạng thái hiện hành sau PDN
+## Trạng thái hiện hành — mở rộng miền Nam tại máy
+
+Theo chỉ đạo mới, người dùng tự kiểm tra kết nối TP.HCM và nghiệm thu cron PDN sau. Biến động Long Bình Tân đã được người dùng chấp nhận; không điều tra lại. Ưu tiên là tiếp tục các phạm vi miền Nam có nguồn phù hợp.
+
+Đã triển khai tại máy: CLL (cầu số 7 và bến 2.200 DWT, 1.764 dòng); SWC (bốn bến phao, 417 dòng); VGP (cầu K16, 253 dòng); SGP thêm phần Tân Thuận K12A/B/C/C1 (1.356 dòng); GMD thêm Cảng Bình Dương BC198 (8.342 dòng vào/rời trực tiếp). Các số là tổng dòng hai chiều trong edition 01/01/2025–24/10/2026, không phải actual hoặc lượt ghé duy nhất. Bình Dương không có dòng được ghép sau 24/08/2026 trong hai resource này; tháng 9–10 giữ unavailable, không suy hoạt động bằng 0.
+
+TCL và TCW đã rà báo cáo/phạm vi, có phần giải thích nguồn trên trang doanh nghiệp nhưng chưa có chuỗi tàu riêng đủ căn cứ. Không gán toàn Cát Lái cho TCL/TCW; bến 2.200 DWT hợp tác CLL/TCL chỉ được ghi một lần trong CLL. SWC hiện theo dõi bến phao, chưa phải Long Bình. VGP là hoạt động tại cầu cho thuê, không suy doanh thu hay sản lượng của doanh nghiệp.
+
+Tổng quan miền Nam hiện có sáu mã có một phần dữ liệu: GMD, SGP, PDN, CLL, SWC, VGP; TCL/TCW chờ nguồn riêng. Cộng với các phạm vi miền Bắc/Trung đã làm là 18 mã có ít nhất một phần theo dõi tại máy, chưa phải phủ đủ tài sản hoặc đã phát hành cả 18 mã. GMD có tổng Nam Đình Vũ + Gemalink + Bình Dương; tổng quan miền Bắc giữ Nam Đình Vũ và tổng quan miền Nam chỉ hai cảng miền Nam. Không cộng tổng khu vực.
+
+Bản mở rộng được chuẩn bị commit/push lên `codex/cloudflare-next-compat` theo yêu cầu người dùng; chưa chứng nhận deploy/readback. Đã qua 174 Vitest, 20 kiểm tra Python liên quan, 4 kiểm tra verifier Node, 72/72 E2E toàn bộ desktop/mobile, lint, typecheck và Next production build; kiểm chứng local không thay readback staging hoặc cron. Phần PDN đang phát hành vẫn giữ edition/acceptance trước đó. Bình Dương có exporter/ledger riêng, chưa nối cron riêng; yêu cầu đủ raw, thiếu thì dừng. Bàn giao chi tiết: [mở rộng miền Nam](south-expansion-20261026.md), [phạm vi và nguồn](catalog-review/south-expansion-source-review-20261025.json), [ledger Bình Dương](catalog-review/binhduong-history-ledger.json).
+
+## Snapshot vận hành 25/10, 22:15–22:18 Việt Nam — người dùng để sau
+
+- Đọc trực tiếp GitHub API: workflow PDN trên `main` đã có lịch 08:45 Việt Nam và checkout nhánh staging. Toàn bộ lịch sử hiện trả về chỉ có hai run `workflow_dispatch` thành công (`40185054799`, `40199794476`), **chưa có run `schedule`**. Vì vậy `scheduled_refresh_verified=false`; hai lần thủ công không thay thế hai chu kỳ lịch thật. Hai mốc sớm nhất để kiểm tra tiếp là sau 08:45 ngày 26 và 27/10/2026, có thể trễ theo scheduler. Mỗi lần phải đạt collector, publish và live readback; chưa thể nghiệm thu trước khi các sự kiện này tồn tại.
+- Chạy lại `node scripts/verify-pdn-live.mjs`: đã đối chiếu thành công 22 tháng, năm phạm vi, hai chiều, nhật ký, truy vấn không hợp lệ và tổng quan miền Nam. Edition live khớp `checked_at=2026-10-25T13:55:17.139900+00:00`, cutoff 24/10. Đây là kiểm chứng local mới, không phải schedule mới. Biên nhận: [PDN live recheck](catalog-review/pdn-live-recheck-20261025.json).
+- Nguồn TP.HCM: DNS vẫn `222.253.45.177`; tại máy TCP/TLS và GET lịch chính thành công, đủ ba bảng. Collector POST ngày 01/01/2025 và 24/10/2026 thành công, không lỗi parser; raw và kết quả giữ tại `.local/south-plans`, chưa export/publish edition. Supabase Singapore/Tokyo/Mumbai được gọi lại và cả ba tiếp tục `reachable=false`, `source_timeout` sau 15 giây, dù HTTP của function là 200. Không có đường cloud mới đã chứng minh được; chưa thay nguồn bằng bản đồ thiếu dòng hoặc đổi dữ liệu công bố. Biên nhận: [cloud recheck](catalog-review/hcm-cloud-recheck-20261025.json), [network local recheck](catalog-review/hcm-local-recheck-20261025.json).
+- Lịch sử `south-plans.yml` hiện vẫn có ba lần thủ công thất bại, chưa có refresh cloud thành công mới. Đường xử lý đầy đủ vẫn cần phía nguồn khôi phục truy cập cloud hoặc cung cấp feed/file lịch sử tương đương; nội dung kỹ thuật đề nghị kiểm tra đã có trong tài liệu kết nối, chưa gửi bên ngoài. Bằng chứng workflow/đăng ký lịch: [GitHub recheck](catalog-review/refresh-acceptance-recheck-20261025.json).
+
+Kết quả kiểm tra vận hành trên là snapshot trước chỉ đạo mở rộng. Kết nối HCM và nghiệm thu cron PDN do người dùng để sau; không còn yêu cầu điều tra Long Bình Tân.
+
+## Snapshot đã phát hành trước mở rộng miền Nam (25/10)
 
 PDN đã được triển khai trên [web staging](https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/companies/PDN). Code tính năng `5cc2b57`, bản nén nhật ký `ebd80b4`; head ứng dụng đã kiểm chứng `0fd6401`. Cloudflare build `5139c6bd-c526-4c27-8156-b0b64ca2babf` thành công. [Refresh GitHub 40199794476](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40199794476) đã thu thập, kiểm tra, commit dữ liệu `297c58d`, chờ deploy và đối chiếu live thành công. Biên nhận: [pdn-staging-20261025.json](catalog-review/pdn-staging-20261025.json). Lịch tự động PDN đã đăng ký nhưng chưa có hai chu kỳ `schedule` thật để chứng nhận cron.
 
@@ -33,24 +54,17 @@ Chiều tàu rời như ảnh người dùng: tháng 8 tổng 704.494,56 DWT (-6
 
 Đối chiếu lại phản hồi rời lưu trữ đủ ngày tháng 6–10: số dòng toàn nguồn giảm từ 1.902 tháng 6 xuống 379 tháng 7, 378 tháng 8, 334 tháng 9 và 336 trong 24 ngày tháng 10. Không có dòng mang mã bến PDN bị loại vì nhãn không khớp trong các phản hồi này. Các số này chỉ đếm resource rời trực tiếp, khác tổng sản phẩm có ghép điều chuyển từ cầu ra khu neo. Kết luận: chưa thấy lỗi phép cộng; cần điều tra độ phủ/truy vấn nguồn Long Bình Tân từ tháng 7. Chưa xác định nguồn đổi cách công bố, tham số truy vấn thiếu phạm vi hay hoạt động thực tế thay đổi; không chứng nhận giảm hoạt động từ biểu đồ. Đợt rà này không đổi code/công thức hoặc dữ liệu công bố.
 
-## Next steps theo thứ tự ưu tiên
+## Next steps hiện hành
 
-1. **Rà độ phủ Long Bình Tân từ 7/2026.** So ngày mẫu trước/sau điểm gãy trên giao diện nguồn chính thức với phản hồi đã lưu; rà bộ lọc SHIP/BOAT, trạng thái, category, mã/nhãn bến và resource thay thế. Chỉ sửa collector/mapping khi có bằng chứng; nếu tìm được phạm vi thiếu thì backfill có provenance, đối chiếu nhật ký → tổng con → tổng PDN → API/web. Giữ số ghi nhận và chi tiết chất lượng thu gọn khi nguyên nhân chưa rõ.
-
-2. **Chốt cập nhật tự động cho phạm vi đang có — đang vướng kết nối nguồn miền Nam.** `south-plans.yml` đã đăng ký trên default `main` (head `4fad560`) với checkout nhánh staging, lịch 08:35 Việt Nam. Đã thêm giữ bản tốt cuối khi bootstrap lỗi, chặn mất lịch sử khi cache lạnh, lưu biên nhận lỗi và chờ deploy/readback đúng phiên bản sau commit. Các lần thử GitHub đều timeout, chưa có bản dữ liệu mới từ workflow. Kiểm tra HTTPS thực từ Cloudflare Singapore cũng timeout; chưa thêm Cron Trigger hoặc storage khi chưa chứng minh được đường thu thập hoạt động. Chỉ dùng GitHub/Cloudflare theo quyết định người dùng, không dựng máy chủ hoặc lịch phụ thuộc máy cá nhân. Chi tiết tại [kiểm tra vận hành](port-refresh-operations-20261025.md). Dung Quất tiếp tục để ngỏ.
-3. **PDN đã tích hợp; tiếp tục kiểm chứng cron và độ phủ nguồn.** Có chuỗi 662 ngày / 1.986 phản hồi, 19.760 dòng gồm 58 điều chuyển nội bộ giữ riêng; dashboard/API và tổng quan miền Nam dùng cùng số ghi nhận. GitHub Ubuntu đọc được nguồn Đồng Nai, không gặp blocker TCP của nguồn TP.HCM. Lịch refresh 08:45 Việt Nam đã đăng ký; chỉ ghi nhận cron được nghiệm thu sau hai chu kỳ `schedule` thật kèm live readback. Nguồn ghi nhận ít dòng Long Bình Tân hơn từ 7/2026; nguyên nhân chưa xác minh, không diễn giải YoY số ghi nhận thành biến động toàn bộ hoạt động thực tế. Chi tiết [PDN](pdn-integration.md).
-4. **Bù phạm vi GMD/SGP rồi mở rộng các mã còn lại.** Bình Dương/Phước Long và Tân Thuận phải có nguồn riêng; không gán bến phao hoặc cảng tên gần giống. Với CLL/TCL, phân biệt đúng phạm vi khai thác và dịch vụ xếp dỡ. Với SWC/TCW/VGP, xác định loại hình cảng sông/ICD/kho và chức năng hiện hành trước khi đưa vào cùng thước đo.
-5. **Hoàn thiện góc nhìn đầu tư bằng tấn hàng/TEU.** Mở rộng chuỗi sản lượng doanh nghiệp công bố, tháng/quý/YTD/YoY và đối chiếu với xu hướng tàu/DWT. Giữ sản lượng, trọng tải thiết kế và dữ liệu tài chính thành các thước đo riêng. Chưa suy lượng hàng hoặc doanh thu từ DWT.
-6. **Nghiệm thu toàn bộ sản phẩm.** Kiểm tra danh sách cảng/bến mục tiêu, quy tắc quan hệ theo kỳ, quyền nguồn, bộ lọc/tháng đang cập nhật/null/YoY, RLS và giao diện desktop/mobile. Chạy bộ E2E đầy đủ và kiểm tra môi trường phát hành dự kiến. Chỉ ghi nhận hoàn thiện theo phạm vi có bằng chứng; chưa tuyên bố toàn quốc hoặc production.
-
-PDN đã được thực hiện theo yêu cầu. Bước tiếp theo là rà độ phủ Long Bình Tân từ tháng 7/2026, kiểm chứng cron của nguồn Đồng Nai, tiếp tục xử lý đường nguồn TP.HCM và rà CLL/TCL theo phạm vi thực tế. Tiếp tục để ngỏ GMD–Dung Quất theo quyết định đã thống nhất.
-
-Rà đường nguồn TP.HCM sau đó: [chẩn đoán kết nối và nguồn thay thế](hcm-source-connectivity-20261025.md). Đã thử thêm Windows/ARM và Cloudflare Placement Bangkok; IP nguồn chính vẫn không truy cập được từ cloud. Bản đồ/API liên quan truy cập được nhưng đối chiếu chỉ có 5/17 dòng kế hoạch cùng ngày, lịch sử mẫu chỉ NEO; chưa thay chuỗi gốc. Cấu hình Placement thử nghiệm đã được khôi phục mặc định.
-
-Rà phương án serverless tiếp theo: [quyết định đường dữ liệu chuẩn](hcm-source-access-decision.md). Đã deploy probe JWT riêng trên Supabase bằng phiên CLI sẵn có và kiểm chứng Singapore/Tokyo/Mumbai; cả ba timeout tới nguồn chính. Chưa nối probe vào luồng nghiệp vụ. Ưu tiên feed/API/file ngày do phía nguồn hỗ trợ hoặc khôi phục đường truy cập cloud; chưa mua dịch vụ egress, chưa tuyên bố đã khắc phục tự động.
+1. Rà nguồn riêng ICD Tân Cảng Nhơn Trạch/TCL, Long Bình–Sotrans–Mekong của SWC và ICD Phước Long/GMD. Chỉ thêm mã bến/nhãn có bằng chứng; không dùng phao Gemadept thay ICD.
+2. Với TCW, tìm sản lượng dịch vụ kho/bãi/depot công bố thay vì gán tàu Cát Lái. Giữ rõ bản chất cho thuê cầu của VGP khi đọc biến động K16.
+3. Tân Thuận cần mã/nguồn phân biệt K12 với khu neo và xác định TT2 trước khi bổ sung. Hiện giữ bốn cầu đã đối chiếu, không bỏ đóng góp ghi nhận.
+4. Khi tiếp tục vận hành: kiểm tra kết nối HCM, nghiệm thu cron PDN và nối refresh Bình Dương; đây là các mục người dùng để sau, chưa chứng nhận hoàn tất. Không điều tra lại biến động Long Bình Tân. Dung Quất tiếp tục để ngỏ theo quyết định trước.
+5. Phát hành bản mở rộng và readback API/UI đúng edition trên môi trường được chọn, rồi bổ sung sản lượng tấn/TEU theo doanh nghiệp. Không suy hàng hóa hay doanh thu từ DWT, không chứng nhận phủ toàn ngành từ số mã đã tích hợp.
 
 ## Tài liệu liên quan
 
+- [Mở rộng CLL/TCL/SWC/TCW/VGP và GMD/SGP](south-expansion-20261026.md)
 - [PDN · Long Bình Tân/Gò Dầu](pdn-integration.md)
 - [Miền Nam và Gemalink/SGP](south-integration.md)
 - [Dung Quất: công bố chọn lọc](dungquat-integration.md)

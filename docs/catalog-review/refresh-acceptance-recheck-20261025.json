@@ -1,0 +1,47 @@
+{
+  "pdn_runs": [
+    {
+      "id": 40199794476,
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-25T13:54:55Z",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40199794476"
+    },
+    {
+      "id": 40185054799,
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-10-25T10:30:27Z",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40185054799"
+    }
+  ],
+  "south_runs": [
+    {
+      "id": 40177904675,
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-10-25T08:45:41Z",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40177904675"
+    },
+    {
+      "id": 40177546957,
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-10-25T08:40:22Z",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40177546957"
+    },
+    {
+      "id": 40177006819,
+      "event": "workflow_dispatch",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-10-25T08:32:10Z",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40177006819"
+    }
+  ],
+  "pdn_default_workflow": "name: PDN official published berth plans\non:\n  workflow_dispatch:\n    inputs:\n      probe_only:\n        description: Read one official day without publishing an edition\n        type: boolean\n        default: false\n  schedule:\n    # 08:45 Vietnam; actual cron acceptance requires real scheduled evidence.\n    - cron: '45 1 * * *'\npermissions:\n  contents: write\nconcurrency:\n  group: pdn-plans-staging\n  cancel-in-progress: false\njobs:\n  refresh:\n    runs-on: ubuntu-24.04\n    timeout-minutes: 45\n    steps:\n      - uses: actions/checkout@v4\n        with:\n          ref: codex/cloudflare-next-compat\n      - uses: actions/setup-python@v5\n        with:\n          python-version: '3.12'\n      - uses: actions/cache/restore@v4\n        if: ${{ !inputs.probe_only }}\n        with:\n          path: .local/pdn\n          key: pdn-public-v1-${{ github.run_id }}-${{ github.run_attempt }}\n          restore-keys: pdn-public-v1-\n      - name: Read official source\n        env:\n          PROBE: ${{ inputs.probe_only }}\n        run: |\n          if [ \"$PROBE\" = \"true\" ]; then\n            DAY=$(TZ=Asia/Ho_Chi_Minh date -d yesterday +%F)\n            python scripts/collect-pdn-plans.py --from \"$DAY\" --to \"$DAY\"\n          else\n            python scripts/test-pdn-plans.py\n            FROM=$(TZ=Asia/Ho_Chi_Minh date -d \"7 days ago\" +%F)\n            python scripts/collect-pdn-plans.py --from \"$FROM\"\n            python scripts/export-pdn-plans.py\n          fi\n      - uses: actions/setup-node@v4\n        if: ${{ !inputs.probe_only }}\n        with:\n          node-version: 24\n      - if: ${{ !inputs.probe_only }}\n        run: corepack enable && pnpm install --frozen-lockfile\n      - if: ${{ !inputs.probe_only }}\n        run: pnpm exec vitest run tests/pdn-plans.test.ts tests/pdn-history.test.ts --maxWorkers=1 && pnpm typecheck\n      - name: Publish validated edition\n        if: ${{ !inputs.probe_only }}\n        run: |\n          git add packages/modules/port/src/pdn-history-data.ts packages/modules/port/src/pdn-journal-loader.ts packages/modules/port/src/pdn-journal-data docs/catalog-review/pdn-history-ledger.json\n          if ! git diff --cached --quiet; then\n            git config user.name 'github-actions[bot]'\n            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'\n            git commit -m 'data(ports): refresh PDN official published berth plans'\n            git pull --rebase origin codex/cloudflare-next-compat\n            git push origin HEAD:codex/cloudflare-next-compat\n          fi\n      - name: Reconcile deployed edition\n        if: ${{ !inputs.probe_only }}\n        run: node scripts/verify-pdn-live.mjs\n      - uses: actions/cache/save@v4\n        if: ${{ always() && !inputs.probe_only }}\n        with:\n          path: .local/pdn\n          key: pdn-public-v1-${{ github.run_id }}-${{ github.run_attempt }}\n      - uses: actions/upload-artifact@v4\n        if: always()\n        with:\n          name: pdn-readback\n          path: .local/pdn/*receipt.json\n          include-hidden-files: true\n          if-no-files-found: ignore\n          retention-days: 14\n"
+}

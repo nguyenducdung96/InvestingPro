@@ -1,0 +1,52 @@
+{
+  "verified_at": "2026-10-25T17:26:37.817772+00:00",
+  "environment": "local",
+  "vitest": {
+    "passed": 174,
+    "files": 40,
+    "command": "pnpm exec vitest run --maxWorkers=1",
+    "receipt_log": ".local/south/vitest-serial-final.log"
+  },
+  "python": {
+    "passed": 20,
+    "commands": [
+      "python scripts/test-south-plans.py",
+      "python scripts/test-pdn-plans.py",
+      "python scripts/test-binhduong-plans.py"
+    ]
+  },
+  "node_verifier_tests": {
+    "passed": 4,
+    "command": "node scripts/test-south-live.mjs"
+  },
+  "e2e_targeted": {
+    "passed": 6,
+    "projects": [
+      "desktop",
+      "mobile"
+    ]
+  },
+  "typecheck": "passed",
+  "lint": "passed",
+  "next_production_build": "passed",
+  "staging_deployed": false,
+  "production_accepted": false,
+  "cron_acceptance_deferred_by_user": true,
+  "hcm_connectivity_deferred_by_user": true,
+  "pdn_edition_changed": false,
+  "e2e_full": {
+    "passed": 72,
+    "projects": [
+      "desktop",
+      "mobile"
+    ],
+    "command": "pnpm test:e2e",
+    "receipt_log": ".local/south/e2e-final.log"
+  },
+  "e2e_date_boundary_fix": "NAP test selects the ledger evidence date rather than assuming yesterday has observations; production NAP logic unchanged",
+  "diff_check": "passed",
+  "notes": [
+    "Full parallel Vitest recheck during E2E hit three PGlite hook timeouts; final single-worker full run passed all 174 tests.",
+    "PDN published history/journals/ledger have no diff."
+  ]
+}

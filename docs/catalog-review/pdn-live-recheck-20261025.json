@@ -1,0 +1,74 @@
+{
+  "verified_at": "2026-10-25T15:16:25.924Z",
+  "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "checked_at": "2026-10-25T13:55:17.139900+00:00",
+  "through": "2026-10-24",
+  "event_name": "local",
+  "run_id": "local",
+  "source_refresh_success": true,
+  "deployment_readback_verified": true,
+  "scheduled_refresh_verified": false,
+  "actual_verified": false,
+  "checks": [
+    {
+      "asset": "pdn",
+      "direction": "arrival",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_long_binh_tan",
+      "direction": "arrival",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_go_dau",
+      "direction": "arrival",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_go_dau_a",
+      "direction": "arrival",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_go_dau_b",
+      "direction": "arrival",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn",
+      "direction": "departure",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_long_binh_tan",
+      "direction": "departure",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_go_dau",
+      "direction": "departure",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_go_dau_a",
+      "direction": "departure",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_go_dau_b",
+      "direction": "departure",
+      "months": 22,
+      "journal_direction_matched": true
+    }
+  ]
+}

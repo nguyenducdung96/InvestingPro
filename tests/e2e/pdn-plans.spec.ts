@@ -1,5 +1,6 @@
 import {test,expect} from '@playwright/test';
 test('PDN scopes reconcile with API, filters and original time evidence',async({page},info)=>{
+ await page.request.post('http://127.0.0.1:54329/__throughput',{data:[]});
  const payload=await(await page.request.get('/api/v1/companies/PDN/plans')).json(),cutoff=payload.data.cutoff;
  expect(payload.data.actual_verified).toBe(false);expect(payload.data.full_scope_certified).toBe(false);
  await page.goto('/industries/ports/south?period='+cutoff.slice(0,7));

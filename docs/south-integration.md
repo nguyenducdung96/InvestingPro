@@ -1,6 +1,12 @@
-# Miền Nam: Gemalink và các phạm vi SGP
+# Miền Nam: phạm vi tích hợp và nguồn
 
-## Phạm vi bản tích hợp 25/10/2026
+## Bản mở rộng tại máy — 26/10/2026
+
+Đã thêm CLL (cầu số 7 và bến 2.200 DWT), SWC (bốn bến phao), VGP (K16), bốn cầu Tân Thuận cho SGP và dòng vào/rời trực tiếp Bình Dương cho GMD. TCL/TCW đã rà phạm vi và có ghi chú nguồn, còn chờ chuỗi phù hợp. Chi tiết, số dòng, giới hạn, lệnh tái lập và kiểm chứng tại [bàn giao mở rộng miền Nam](south-expansion-20261026.md). Bản mới được chuẩn bị phát hành lên nhánh staging theo yêu cầu người dùng; chưa chứng nhận deploy/readback; các mục bên dưới là snapshot bản phát hành trước đó, không phải phạm vi mới nhất.
+
+Người dùng để nghiệm thu cron PDN và kết nối HCM sau; biến động Long Bình Tân đã được chấp nhận và không cần điều tra lại.
+
+## Snapshot bản tích hợp trước mở rộng — 25/10/2026
 
 - `/industries/ports/south`: tổng quan tháng/quý, vào/rời, DWT ghi nhận và YoY; các mã chờ nguồn vẫn hiện, không có tổng khu vực.
 - `/companies/GMD`: mặc định Nam Đình Vũ + Gemalink; `plan_asset=gemalink` xem riêng Gemalink. `plan_asset=gmd` hoặc `nam_dinh_vu` giữ chuỗi Hải Phòng cũ. Không thêm Gemalink vào tổng quan phía Bắc.

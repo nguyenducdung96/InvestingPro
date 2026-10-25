@@ -1,0 +1,50 @@
+[
+  {
+    "region": "ap-southeast-1",
+    "status": 200,
+    "edge_region": "ap-southeast-1",
+    "result": {
+      "checked_at": "2026-10-25T15:15:43.858Z",
+      "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "region": "ap-southeast-1",
+      "elapsed_ms": 15002,
+      "reachable": false,
+      "reason": "source_timeout",
+      "detail": "source_timeout",
+      "refresh_verified": false
+    },
+    "elapsed_ms": 16852
+  },
+  {
+    "region": "ap-northeast-1",
+    "status": 200,
+    "edge_region": "ap-northeast-1",
+    "result": {
+      "checked_at": "2026-10-25T15:15:42.883Z",
+      "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "region": "ap-northeast-1",
+      "elapsed_ms": 15002,
+      "reachable": false,
+      "reason": "source_timeout",
+      "detail": "source_timeout",
+      "refresh_verified": false
+    },
+    "elapsed_ms": 15834
+  },
+  {
+    "region": "ap-south-1",
+    "status": 200,
+    "edge_region": "ap-south-1",
+    "result": {
+      "checked_at": "2026-10-25T15:15:42.997Z",
+      "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "region": "ap-south-1",
+      "elapsed_ms": 15001,
+      "reachable": false,
+      "reason": "source_timeout",
+      "detail": "source_timeout",
+      "refresh_verified": false
+    },
+    "elapsed_ms": 15974
+  }
+]

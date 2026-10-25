@@ -1,0 +1,215 @@
+{
+  "reviewed_at": "2026-10-25T16:50:21.488950+00:00",
+  "scope": "Operational attribution for selected published plans; no legal catalog/RLS or rights approval",
+  "corporate_reports": [
+    {
+      "ticker": "CLL",
+      "source_url": "https://cafef1.mediacdn.vn/download/120326/cll-bao-cao-thuong-nien-nam-2025-0.pdf",
+      "sha256": "271adf39709b40a0549e8e3373679caa778b3e1de3f659c10e499c12e236a93a",
+      "pdf_pages_reviewed": [
+        4,
+        5,
+        7
+      ],
+      "hosting_note": "Issuer-authored annual report reproduced on CafeF CDN; original issuer website could not be fetched. Publication and version must be checked before approval.",
+      "rights_status": "to_verify",
+      "catalog_fact_review_status": "pending"
+    },
+    {
+      "ticker": "TCL",
+      "source_url": "https://tancanglogistics.com/quan-he-co-dong/Documents/20260319%20-%20TCL%20-%20BAO%20CAO%20THUONG%20NIEN%20202520260319161535.pdf",
+      "sha256": "f884d92dfb0a3f9c6fdd32abeeff90e83c8d3c9072a593f9e7a5488a592b9cdb",
+      "pdf_pages_reviewed": [
+        3,
+        4,
+        7
+      ],
+      "hosting_note": null,
+      "rights_status": "to_verify",
+      "catalog_fact_review_status": "pending"
+    },
+    {
+      "ticker": "SWC",
+      "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016132083_VI_BaoCaoThuongNien_2025.pdf",
+      "sha256": "4d6ca2a4de5e85909b6328f839897172149d870d3ef9a66c7f1623e4f9c74edd",
+      "pdf_pages_reviewed": [
+        4,
+        5,
+        6
+      ],
+      "hosting_note": null,
+      "rights_status": "to_verify",
+      "catalog_fact_review_status": "pending"
+    },
+    {
+      "ticker": "TCW",
+      "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016022074_EN_AnnualReport_2025.pdf",
+      "sha256": "36925fd1b6b5869e30bb16caefafc4e80a2903b2d5b41c3e33c7492cfb90bc13",
+      "pdf_pages_reviewed": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "hosting_note": null,
+      "rights_status": "to_verify",
+      "catalog_fact_review_status": "pending"
+    },
+    {
+      "ticker": "VGP",
+      "source_url": "https://owa.hnx.vn/ftp///cims/2026/4_W3/000000016156439_VI_BaoCaoThuongNien_2025.pdf",
+      "sha256": "5a679df7a8db00586b26f6e096844bbf18ea41bd5e4b9b6a31392b04256ae079",
+      "pdf_pages_reviewed": [
+        6
+      ],
+      "hosting_note": null,
+      "rights_status": "to_verify",
+      "catalog_fact_review_status": "pending"
+    }
+  ],
+  "official_map_url": "https://kehoach.cangvuhanghaitphcm.gov.vn/welcome",
+  "catalog_url": "https://phuongdinh.name.vn/api/cangvu/getDSTau4?ngay=01/01/2025",
+  "catalog_file_sha256": "cad2f56c7c23b1eefa700d39772095eba7d71abdae24c5f5f073c2d3e2312842",
+  "catalog_use": "Berth identities only, never NEO snapshots as events",
+  "selected_berths": [
+    {
+      "idcauphao": 53,
+      "tencauphao": "C.LAI 7",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG CÁT LÁI (TÂN CẢNG)",
+      "loa": 216,
+      "maxdwt": 30000
+    },
+    {
+      "idcauphao": 55,
+      "tencauphao": "CAU CANG 2.200 DWT",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG CÁT LÁI (TÂN CẢNG)",
+      "loa": 22,
+      "maxdwt": 2200
+    },
+    {
+      "idcauphao": 97,
+      "tencauphao": "K12A",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG SÀI GÒN",
+      "loa": 132,
+      "maxdwt": 32000
+    },
+    {
+      "idcauphao": 98,
+      "tencauphao": "K12B",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG SÀI GÒN",
+      "loa": 203.9,
+      "maxdwt": 36000
+    },
+    {
+      "idcauphao": 101,
+      "tencauphao": "K12C",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG SÀI GÒN",
+      "loa": 189.3,
+      "maxdwt": 30000
+    },
+    {
+      "idcauphao": 102,
+      "tencauphao": "K12C1",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG SÀI GÒN",
+      "loa": 60,
+      "maxdwt": 2000
+    },
+    {
+      "idcauphao": 222,
+      "tencauphao": "SOWATCO-ĐT1",
+      "phanloai": "Phao",
+      "bencang": "BẾN PHAO TCT ĐƯỜNG SÔNG MIỀN NAM",
+      "loa": 215,
+      "maxdwt": 40000
+    },
+    {
+      "idcauphao": 223,
+      "tencauphao": "SOWATCO-ĐT2",
+      "phanloai": "Phao",
+      "bencang": "BẾN PHAO TCT ĐƯỜNG SÔNG MIỀN NAM",
+      "loa": 215,
+      "maxdwt": 30000
+    },
+    {
+      "idcauphao": 224,
+      "tencauphao": "SOWATCO-ĐT3",
+      "phanloai": "Phao",
+      "bencang": "BẾN PHAO TCT ĐƯỜNG SÔNG MIỀN NAM",
+      "loa": 205,
+      "maxdwt": 15000
+    },
+    {
+      "idcauphao": 238,
+      "tencauphao": "K16",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG RAU QUẢ",
+      "loa": 195,
+      "maxdwt": 20000
+    },
+    {
+      "idcauphao": 296,
+      "tencauphao": "SOWATCO-TL9",
+      "phanloai": "Phao",
+      "bencang": "BẾN PHAO TCT ĐƯỜNG SÔNG MIỀN NAM",
+      "loa": 260,
+      "maxdwt": 60000
+    }
+  ],
+  "additional_issuer_sources": [
+    {
+      "url": "https://saigonport.vn/thiet-ke-cau-thu-thiem-4-anh-huong-den-cang-nha-rong-khanh-hoi/",
+      "supports": "Tan Thuan K12A/B/C/C1 names; K12 excluded due anchorage-name collision in reviewed map catalog"
+    },
+    {
+      "url": "https://www.gemadept.com.vn/cang-binh-duong/",
+      "supports": "Binh Duong is a Gemadept group port"
+    },
+    {
+      "url": "https://tancanglogistics.com/gioi-thieu/Pages/cong-ty-co-phan-tiep-van-tan-cang-dong-nai.aspx",
+      "supports": "TCL subsidiary at Tan Cang Nhon Trach; does not establish ship schedules"
+    },
+    {
+      "url": "https://tancangwarehousing.com.vn/",
+      "supports": "Warehouse/yard/depot services at Cat Lai; no separate berth movement attribution"
+    }
+  ],
+  "decisions": {
+    "CLL": "C.LAI 7 + CAU CANG 2.200 DWT only; shared small berth with TCL reported once in CLL series",
+    "TCL": "Scope researched; Nhon Trach series unavailable. No blanket Cat Lai attribution or duplicate CLL joint berth series",
+    "SWC": "Four named buoy facilities only. Long Binh, Sotrans ICD and Mekong Can Tho remain outside series; no VICT substitution",
+    "TCW": "Warehouse/yard/open-port/depot operations; no separate berth identified for ship/DWT series",
+    "VGP": "K16 location activity; report describes leasing wharf/warehouses, not all direct stevedoring",
+    "SGP": "Add only unambiguous K12A/B/C/C1; K12, TT2 and Tan Thuan Dong remain excluded",
+    "GMD": "Add BC198 plus exact NFC Cang Binh Duong terminal token from Dong Nai; direct arrival/departure only. Gemadept buoys PL03/04/05 are not Phuoc Long ICD"
+  },
+  "unavailable_scope_search": {
+    "dongnai_archives": "1986 reviewed response envelopes, arrival/departure/movement, 2025-01-01 through 2026-10-24",
+    "label_fields": [
+      "anchoringPortWharfName",
+      "from",
+      "to"
+    ],
+    "target_label_substrings": [
+      "SOWATCO",
+      "TÂN CẢNG NHƠN TRẠCH",
+      "PHƯỚC LONG",
+      "NAM HẢI ICD"
+    ],
+    "matching_rows": 0,
+    "limitation": "Search absence in this SHIP/filter edition is not proof no operations or no other official source exists"
+  },
+  "semantics": "authority_published_plan",
+  "actual_verified": false,
+  "full_scope_certified": false,
+  "deferred_by_user": [
+    "PDN cron acceptance",
+    "HCM cloud connectivity"
+  ],
+  "long_binh_tan_decline": "Accepted by user; no reinvestigation"
+}

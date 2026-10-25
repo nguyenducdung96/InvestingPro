@@ -6,9 +6,9 @@ SOURCE='http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachD
 VERSION='pdn-public-plan/1.0.0'
 TERMINALS={'BC185':('pdn_long_binh_tan','Bến cảng Đồng Nai - Phân cảng Long Bình Tân'),'BC186':('pdn_go_dau_a','Bến cảng Gò Dầu A'),'BC187':('pdn_go_dau_b','Bến cảng Gò Dầu B')}
 def norm(s):return re.sub(r'\s+',' ',unicodedata.normalize('NFC',str(s))).strip()
-def terminal(code,label):
- if code not in TERMINALS:return None
- asset,name=TERMINALS[code]
+def terminal(code,label,terminals=TERMINALS):
+ if code not in terminals:return None
+ asset,name=terminals[code]
  # Require the independently identified authority harbour code AND exact terminal label.
  parts=[norm(x) for x in label.split(',')]
  return asset if name in parts else None
@@ -16,7 +16,7 @@ def terminal(code,label):
 def weight(v):
  return float(v) if isinstance(v,(int,float)) and not isinstance(v,bool) and math.isfinite(v) and 0<v<=1_000_000 else None
 
-def parse(e):
+def parse(e,terminals=TERMINALS,require_route=True):
  day=e['day'];section=e['direction'];rows=e['response']['data'];result=[];unmapped=0
  raw=e.get('raw_response',json.dumps(e['response'],ensure_ascii=False,separators=(',',':')))
  if hashlib.sha256(raw.encode()).hexdigest()!=e['sha256'] or json.loads(raw)!=e['response']:raise ValueError('Archive checksum mismatch')
@@ -33,20 +33,20 @@ def parse(e):
   if native in ids:raise ValueError('Duplicate native ID')
   ids.add(native)
   if moving:
-   from_=norm(row['from']);to=norm(row['to']);fr=terminal(row.get('anchoringPortHarbourCode'),from_);dest=terminal(row.get('shiftingPortHarbourCode'),to)
-   if (row.get('anchoringPortHarbourCode') in TERMINALS and not fr) or (row.get('shiftingPortHarbourCode') in TERMINALS and not dest):unmapped+=1;continue
+   from_=norm(row['from']);to=norm(row['to']);fr=terminal(row.get('anchoringPortHarbourCode'),from_,terminals);dest=terminal(row.get('shiftingPortHarbourCode'),to,terminals)
+   if (row.get('anchoringPortHarbourCode') in terminals and not fr) or (row.get('shiftingPortHarbourCode') in terminals and not dest):unmapped+=1;continue
    kind='internal' if fr and dest else 'departure' if fr else 'arrival' if dest else None
    asset=fr if kind in ['internal','departure'] else dest
    code=row.get('anchoringPortHarbourCode' if kind in ['internal','departure'] else 'shiftingPortHarbourCode','');wharf=row.get('anchoringPortWharfCode' if kind in ['internal','departure'] else 'shiftingPortWharfCode','')
   else:
-   label=norm(row.get('anchoringPortWharfName',''));code=row.get('portHarbourCode','');wharf=row.get('portWharfCode','');asset=terminal(code,label);kind=section if asset else None
+   label=norm(row.get('anchoringPortWharfName',''));code=row.get('portHarbourCode','');wharf=row.get('portWharfCode','');asset=terminal(code,label,terminals);kind=section if asset else None
    from_=norm(row.get('initFrom','')) if section=='arrival' else label;to=label if section=='arrival' else norm(row.get('initFrom',''))
   if not moving:fr=asset if section=='departure' else None;dest=asset if section=='arrival' else None
   if not asset:
-   if code in TERMINALS:unmapped+=1
+   if code in terminals:unmapped+=1
    continue
   vessel=norm(row.get('nameOfShip',''))
-  if not vessel or not from_ or not to:raise ValueError('Incomplete matched row')
+  if not vessel or (require_route and (not from_ or not to)):raise ValueError('Incomplete matched row')
   result.append(dict(id=section+':'+native,day=day,time=time.isoformat(timespec='seconds')+'+07:00',vessel=vessel,imo=str(row.get('imoNumber') or '') or None,dwt=weight(row.get('dwt')),gt=weight(row.get('gt')),from_=from_,to=to,asset=asset,kind=kind,section=section,source_id=native,sha256=e['sha256'],checked_at=e['checked_at'],harbour_code=code,wharf_code=wharf,raw_dwt=row.get('dwt'),conflicting_dwt=False,from_asset=fr,to_asset=dest,unit_dwt=norm(row.get('unitDwt','')) or None,raw_time=raw_time,time_normalized=raw_time!=normalized_time))
  for r in result:r['from']=r.pop('from_')
  return result,unmapped
