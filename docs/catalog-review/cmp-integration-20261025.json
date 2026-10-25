@@ -203,9 +203,9 @@
   },
   "validation": {
     "vitest": {
-      "passed": 145,
+      "passed": 146,
       "failed": 0,
-      "workers": 1
+      "environment": "GitHub Actions e3e01b7"
     },
     "python_source_contracts": {
       "passed": 4,
@@ -217,9 +217,28 @@
     "cloudflare_local_build": "blocked_windows_EPERM_symlink",
     "playwright_cmp_desktop_mobile": "passed",
     "playwright_qnp_desktop_mobile": "passed",
-    "playwright_cdn_desktop_mobile": "passed"
+    "playwright_cdn_desktop_mobile": "passed",
+    "regional_window_regression": "passed: month/quarter, both directions, cross-year",
+    "playwright_full_suite": {
+      "passed": 62,
+      "failed": 0,
+      "environment": "GitHub Actions e3e01b7"
+    },
+    "cloudflare_cloud_build": "passed"
   },
-  "staging_verified": false,
+  "staging_verified": true,
   "scheduled_refresh_verified": false,
-  "production_accepted": false
+  "production_accepted": false,
+  "staging_receipt": "cmp-staging-20261025.json",
+  "staging_release": "e3e01b784cab14e33de0d92af3ca0ad9d5049fa5",
+  "cloudflare_build": "4af280e9-86de-4174-bb33-f1b49c031f44",
+  "scheduler_registered": true,
+  "scheduler_main_commit": "141f0d754a734d3ce46a72174cfd8fd5f7e841c7",
+  "manual_refresh_run": 40157488437,
+  "manual_refresh_verified": false,
+  "quality_run": {
+    "id": 40157700584,
+    "conclusion": "success",
+    "commit": "e3e01b784cab14e33de0d92af3ca0ad9d5049fa5"
+  }
 }

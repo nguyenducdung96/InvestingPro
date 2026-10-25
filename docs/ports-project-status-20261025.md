@@ -1,4 +1,4 @@
-> Cập nhật CMP 25/10/2026: đã bổ sung chuỗi điều động cầu 1 và 2 với 681 bản nguồn, 22 tháng 01/2025–10/2026; dashboard/API và tổng quan miền Trung dùng cùng số ghi nhận. Nghiệm thu staging ghi riêng trong [CMP](cmp-integration.md). NAP và GMD–Dung Quất vẫn pending. Các snapshot/code bên dưới mô tả đợt kiểm tra trước.
+> Cập nhật CMP 25/10/2026: đã bổ sung chuỗi điều động cầu 1 và 2 với 681 bản nguồn, 22 tháng 01/2025–10/2026; dashboard/API và tổng quan miền Trung dùng cùng số ghi nhận. Đã readback API/UI staging desktop/mobile; xem [CMP](cmp-integration.md). Miền Trung hiện 3/5 phạm vi có chuỗi. NAP và GMD–Dung Quất vẫn pending. Các snapshot/code bên dưới mô tả đợt kiểm tra trước.
 
 # Tiến độ ngành cảng — 25/10/2026
 

@@ -22,7 +22,7 @@ HTML từng trang lưu bất biến theo hash trong `.local/cmp/archive`; bản 
 
 Python 3.12+, `pip install -r scripts/requirements-cmp.txt`; chạy `python scripts/test-cmp-plans.py`, `python scripts/collect-cmp-plans.py`. Không cần OCR. `--cached` chỉ tái phân tích archive và giữ nguyên thời điểm đã kiểm tra nguồn; `--resume` phục hồi lần thu ban đầu bị ngắt. Refresh thường đọc lại toàn bộ lịch sử để không bỏ bản sửa; lỗi HTTP/parser không ghi đè bản dữ liệu thành công. Chặn mất trên 5% tài liệu hoặc mất tháng/chiều trước xuất. Ledger Python độc lập đối chiếu TypeScript cho cả 44 ô tháng/chiều.
 
-Workflow `cmp-plans.yml` dự kiến 07:50 Việt Nam, cùng nhánh staging hiện có; cache archive, lưu receipt và chỉ push sau kiểm thử. Cấu hình trong repo chưa đồng nghĩa cron đã đăng ký trên default branch hoặc đã chạy thực. scheduled_refresh_verified=false.
+Workflow `cmp-plans.yml` đã đăng ký trên default `main` (141f0d7), lịch 07:50 Việt Nam; checkout nhánh staging, cache archive, lưu receipt và chỉ push sau kiểm thử. Khi có code cập nhật đồng thời, rebase nhánh mới trước push để không làm mất thay đổi. Lần workflow_dispatch đang được nghiệm thu riêng; chưa có event=schedule thực chạy, scheduled_refresh_verified=false.
 
 ## Số liệu đối chiếu đến 24/10/2026
 
@@ -33,3 +33,11 @@ Kiểm chứng local và staging được chốt riêng trong biên nhận. NAP 
 ## Kiểm chứng local
 
 145/145 Vitest với một worker; 4/4 hợp đồng Python; typecheck, lint, Next production build và diff-check đạt. CMP/QNP/CDN desktop và mobile: sáu luồng liên quan đạt sau cập nhật kỳ vọng CMP trong bảng miền Trung. OpenNext local hoàn tất Next build nhưng bị Windows EPERM khi tạo symlink; không coi là bundle Cloudflare đạt. Build cloud và readback staging sẽ được ghi riêng.
+
+Tối ưu staging: bảng miền Trung chỉ tính cửa sổ đang chọn và cùng kỳ, giữ các bản QNP chồng lấn để không đổi quy tắc thay thế. Các ô so sánh khớp chuỗi đầy đủ cho tháng/quý, hai chiều và khác năm. CMP tái sử dụng kết quả kiểm tra nguồn của edition array bất biến trong cùng Worker; fixture mutable vẫn được kiểm tra lại.
+
+## Readback staging
+
+Release e3e01b7 / Cloudflare build 4af280e9-86de-4174-bb33-f1b49c031f44 thành công. API hai chiều khớp ledger 44 ô tháng, tổng hai cầu khớp tổng quan, strict DWT giữ null. UI live desktop/mobile, lọc cầu/năm/quý/chiều, hai theme và không tràn ngang đạt. Miền Trung có 3/5 chuỗi; NAP và GMD–Dung Quất vẫn pending. Biên nhận `catalog-review/cmp-staging-20261025.json`.
+
+GitHub Quality e3e01b7 ([40157700584](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40157700584)) đạt toàn bộ: 146/146 Vitest, 62/62 Playwright, lint, typecheck, Next build và Cloudflare bundle. Refresh thủ công [40157488437](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40157488437) còn đang đọc lại nguồn tại thời điểm ghi biên nhận; chưa đánh dấu manual_refresh_verified hoặc scheduled_refresh_verified.
