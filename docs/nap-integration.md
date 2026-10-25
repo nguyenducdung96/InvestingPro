@@ -14,7 +14,7 @@ Không thay đổi catalog/RLS, ngày hiệu lực hoặc trạng thái quyền 
 
 Discovery 25 trang có 369 bài từ 01/2025 đến 24/10/2026. 366 workbook trích xuất được, 4.218 dòng NAP hợp lệ, hợp nhất thành 1.399 lượt ghé có ngày đến. Có 2.819 dòng lặp qua các báo cáo được hợp nhất. Các giá trị ghi nhận có mặt trong đủ 22 tháng; điều này không chứng nhận đủ ngày hoặc mọi cầu. Nguồn 2025 thưa hơn 2026; YoY là tỷ lệ của hai giá trị đã ghi nhận, không chứng nhận tăng trưởng của toàn bộ hoạt động.
 
-Khóa lượt gồm cảng, tên tàu chuẩn hóa Unicode/khoảng trắng/hoa-thường và ngày/giờ đến. Không ghép tên gần giống, suy IMO, hoặc nối tàu qua hai cảng. Trong dữ liệu hiện có mọi ô ngày đến/rời được đọc ở độ chính xác ngày; không biến thành giờ 00:00. Bản báo cáo hoạt động mới nhất theo ngày trong workbook thay thế phiên bản cũ của cùng lượt, kể cả khi ô DWT/ngày rời được bỏ. Ngày đăng chỉ dùng thứ tự phụ, để một đợt đăng bù tài liệu cũ không ghi đè báo cáo hoạt động mới hơn. Bằng chứng tất cả phiên bản giữ trong archive.
+Khóa lượt gồm cảng, tên tàu chuẩn hóa Unicode/khoảng trắng/hoa-thường và ngày/giờ đến. Không ghép tên gần giống, suy IMO, hoặc nối tàu qua hai cảng. Trong dữ liệu hiện có mọi ô ngày đến/rời được đọc ở độ chính xác ngày; không biến thành giờ 00:00. Giá trị hợp lệ ở báo cáo hoạt động mới hơn theo ngày trong workbook có thể điều chỉnh phiên bản cũ của cùng lượt. Một ô trống/không đọc được ở báo cáo sau không tự rút lại sự kiện đã báo cáo trước đó. Giữ các sự kiện đã báo cáo với bằng chứng riêng của từng dòng nguồn; ô trống trong quan sát raw mới vẫn nguyên. Mỗi sự kiện dẫn đúng workbook, dòng và trọng tải của bản làm bằng chứng, không gắn dữ liệu cũ vào hash của bản mới. Ngày đăng chỉ dùng thứ tự phụ, để một đợt đăng bù tài liệu cũ không ghi đè báo cáo hoạt động mới hơn. Bằng chứng tất cả phiên bản giữ trong archive.
 
 DWT cột G và GT cột F tách riêng; ô thiếu/không hợp lệ giữ null. Không lấy GT thay DWT. Trùng trong một workbook có trọng tải/ngày rời xung đột giữ phần chưa rõ là null. Ngày đi tương lai hoặc trước ngày đến giữ ngoài sự kiện đã báo cáo. Dòng thiếu ngày đến không đủ khóa lượt, hoặc ngày đến tương lai, được cách ly, không tính lặp theo ngày báo cáo.
 
@@ -35,3 +35,5 @@ Cấu hình workflow, chạy thủ công, cron thực, staging và production đ
 ## Kiểm chứng local
 
 151/151 Vitest với một worker; 9/9 hợp đồng Python; typecheck, lint, Next production build và diff-check đạt. NAP/CDN desktop/mobile: 4 luồng liên quan đạt; giữ nhật ký chỉ có ngày, không hiển thị giờ 00:00. Chưa coi local build là triển khai cloud; readback staging và workflow ghi riêng trong biên nhận.
+
+Kiểm tra bổ sung phát hiện các ngày rời đã được nguồn ghi nhận nhưng bị để trống ở bản ngày sau. Các sự kiện này được giữ cùng bằng chứng cũ; không suy lượt từ snapshot biến mất hoặc từ ô trống. Một xung đột giữa hai dòng trong cùng workbook vẫn được giữ thiếu. Chiều rời đến 24/10/2026: 399 lượt / 2.336.540,52 DWT lũy kế; tháng 10: 37 lượt / 242.422,2 DWT.

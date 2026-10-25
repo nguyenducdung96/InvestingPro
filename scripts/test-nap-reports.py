@@ -56,13 +56,13 @@ class Contracts(unittest.TestCase):
         w,s=workbook();s['G8']=None;self.assertIsNone(parse(w)['rows'][0]['dwt'])
         s['B8']='TUG + BARGE';self.assertEqual(parse(w)['rejected'][0]['reason'],'multiple_vessels')
 
-    def test_latest_visit_replaces_previous_including_removed_departure(self):
+    def test_blank_later_cells_preserve_recorded_events_with_their_original_evidence(self):
         w,s=workbook();row=parse(w)['rows'][0]
         report={'status':'parsed','id':1,'day':'2026-10-24','published_at':'2026-10-24T16:00:00+07:00','url':'https://cangvuhanghainghean.gov.vn/index.aspx?page=detail&id=1','attachment_url':'https://cangvuhanghainghean.gov.vn/a.xlsx','sha256':'a'*64,'html_sha256':'b'*64,'report_day':'2026-10-24','checked_at':'2026-10-25T00:00:00Z','parser_version':collector.VERSION,'rows':[row]}
         later={**report,'id':2,'day':'2026-10-25','published_at':'2026-10-25T16:00:00+07:00','rows':[{**row,'dwt':None,'departure':None}]}
         visits,repeated,_=exporter.compile_reports([report,later]);self.assertEqual(len(visits),1);self.assertEqual(repeated,1)
-        self.assertIsNone(visits[0]['dwt']);self.assertIsNone(visits[0]['departure'])
-        _,monthly=exporter.subtotals(visits,'2026-10-24');self.assertEqual(monthly['2026-10/nap/arrival'],{'rows':1,'dwt':None,'missing_dwt':1});self.assertNotIn('2026-10/nap/departure',monthly)
+        self.assertIsNone(visits[0]['dwt']);self.assertIsNotNone(visits[0]['departure']);self.assertEqual(visits[0]['departure_evidence']['source']['id'],1)
+        _,monthly=exporter.subtotals(visits,'2026-10-24');self.assertEqual(monthly['2026-10/nap/arrival'],{'rows':1,'dwt':123.45,'missing_dwt':0});self.assertEqual(monthly['2026-10/nap/departure']['dwt'],123.45)
 
     def test_conflicting_rows_in_one_report_do_not_pick_a_weight_arbitrarily(self):
         w,s=workbook();row=parse(w)['rows'][0]

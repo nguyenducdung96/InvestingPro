@@ -19,6 +19,9 @@ it('keeps daily source precision and links to the actual workbook rather than a 
  expect(known?.source.attachment_url).toMatch(/^https:\/\/cangvuhanghainghean\.gov\.vn\/images\/uploads\/attach\/.+\.xlsx$/);
  expect(known?.source.sha256).toMatch(/^[a-f0-9]{64}$/);expect(known?.raw.G.value).toBe(12834.7);
  expect(await loadNapJournal('not-a-month')).toEqual([]);
+ const july=await loadNapJournal('2026-07'),persisted=napVisitEvents(july,'2026-07-10').find(e=>e.vessel==='VTT 36'&&e.kind==='departure');
+ expect(persisted?.source.id).toBe(5802);expect(persisted?.dwt).toBe(3570.6);expect(persisted?.source.report_day).toBe('2026-07-10');
+ const visit=july.find(v=>v.vessel==='VTT 36'&&v.departure?.day==='2026-07-10');expect(visit?.reported_departure).toBeNull();expect(visit?.raw.I).toBeUndefined();
 });
 it('sums terminal contributions without double-counting vessel persistence in daily reports',()=>{
  expect(napHistoryMetadata.repeated_visit_rows).toBeGreaterThan(2000);expect(napHistoryMetadata.unique_visits).toBeLessThan(napHistoryMetadata.source_rows);

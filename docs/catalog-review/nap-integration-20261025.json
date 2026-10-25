@@ -32,6 +32,8 @@
       }
     ],
     "retained_reports": 0,
+    "historical_retained_reports": 0,
+    "refresh_recent_days": null,
     "schema_warnings": [
       {
         "id": 4941,
@@ -520,11 +522,12 @@
     "source_rows": 4218,
     "unique_visits": 1399,
     "repeated_visit_rows": 2819,
-    "revised_visit_rows": 467,
+    "revised_visit_rows": 475,
     "rejected_rows": 925,
-    "departure_errors": 151,
+    "departure_errors": 150,
     "missing_dwt_visits": 2,
     "conflicting_visits": 1,
+    "retained_event_evidence": 6,
     "history_complete": false,
     "full_coverage_verified": false,
     "actual_verified": false,
@@ -555,5 +558,6 @@
   "staging_verified": false,
   "manual_refresh_verified": false,
   "scheduled_refresh_verified": false,
-  "production_accepted": false
+  "production_accepted": false,
+  "note": "Blank daily snapshot cells do not retract recorded events; each retained event uses its original workbook/row evidence."
 }

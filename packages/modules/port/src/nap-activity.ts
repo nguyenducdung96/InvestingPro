@@ -8,7 +8,10 @@ export interface NapVisit {
  key:string;scope:NapAsset;vessel:string;dwt:number|null;gt:number|null;arrival:NapDate;departure:NapDate|null;
  source:{id:number;url:string;attachment_url:string;sha256:string;html_sha256:string;report_day:string;published_at:string;checked_at:string;parser_version:string;row:number;conflict_rows?:number[];dwt_conflict?:boolean;departure_conflict?:boolean};
  raw:Record<string,{value:string|number|null;format:string;type:string}>;departure_error:string|null;
+ reported_departure?:NapDate|null;
+ arrival_evidence?:NapEvidence;departure_evidence?:NapEvidence;
 }
+export interface NapEvidence {source:NapVisit['source'];raw:NapVisit['raw'];dwt:number|null;gt:number|null}
 export interface NapDay {day:string;asset:NapAsset;arrival_rows:number|null;departure_rows:number|null;arrival_dwt:number|null;departure_dwt:number|null;arrival_missing:number;departure_missing:number}
 export function napActivitySeries(input:NapDay[],direction:PlanDirection='departure',now=new Date(),asset:NapScope='nap'){
  const grouped=new Map<string,TanVuPlanDay>();
@@ -36,6 +39,6 @@ export function napActivitySeries(input:NapDay[],direction:PlanDirection='depart
 export function napVisitEvents(visits:NapVisit[],day:string,asset:NapScope='nap'){
  if(!validPlanDate(day))throw new Error('Invalid NAP detail day');
  return visits.filter(v=>asset==='nap'||v.scope===asset).flatMap(v=>(['arrival','departure'] as const).flatMap(direction=>{
-  const date=v[direction];return date?.day===day?[{key:v.key+'|'+direction,kind:direction,day:date.day,time:date.time,precision:date.precision,scope:v.scope,vessel:v.vessel,dwt:v.dwt,gt:v.gt,source:v.source,raw:v.raw,arrival_day:v.arrival.day,departure_day:v.departure?.day??null}]:[];
+  const date=v[direction],evidence=v[`${direction}_evidence`]??v;return date?.day===day?[{key:v.key+'|'+direction,kind:direction,day:date.day,time:date.time,precision:date.precision,scope:v.scope,vessel:v.vessel,dwt:evidence.dwt,gt:evidence.gt,source:evidence.source,raw:evidence.raw,arrival_day:v.arrival.day,departure_day:v.departure?.day??null}]:[];
  }));
 }

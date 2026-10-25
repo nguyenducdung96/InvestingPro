@@ -21,19 +21,30 @@ def compile_reports(reports):
             if previous:
                 repeats+=1
                 if (previous['dwt'],previous['departure'])!=(row['dwt'],row['departure']):corrections+=1
-            # The latest source row supersedes the prior visit, including blank or
-            # quarantined departure cells. Older source observations stay archived.
+            # A later valid value may revise a reported fact. A blank in a later
+            # daily snapshot is not a retraction of an already reported event.
             candidate={'key':key,'scope':row['scope'],'vessel':row['vessel'],'dwt':row['dwt'],'gt':row['gt'],
-                         'arrival':row['arrival'],'departure':row['departure'],'departure_error':row['departure_error'],
+                         'arrival':row['arrival'],'departure':row['departure'],'reported_departure':row['departure'],'departure_error':row['departure_error'],
                          'source':{'id':report['id'],'url':report['url'],'attachment_url':report['attachment_url'],'sha256':report['sha256'],'html_sha256':report['html_sha256'],'report_day':report['report_day'],'published_at':report['published_at'],'checked_at':report['checked_at'],'parser_version':report['parser_version'],'row':row['row']},
                          'raw':{k:v for k,v in row['raw'].items() if k in ['B','F','G','H','I','T','U','V','W','Y']}}
             if previous and previous['source']['id']==report['id'] and previous['source']['report_day']==report['report_day']:
-                weight_conflict=previous['source'].get('dwt_conflict',False) or previous['dwt']!=row['dwt']
-                departure_conflict=previous['source'].get('departure_conflict',False) or previous['departure']!=row['departure']
+                weight_conflict=previous['source'].get('dwt_conflict',False) or (previous['dwt'] is not None and row['dwt'] is not None and previous['dwt']!=row['dwt'])
+                prior_departure=previous.get('reported_departure',previous['departure'])
+                departure_conflict=previous['source'].get('departure_conflict',False) or (prior_departure is not None and row['departure'] is not None and prior_departure!=row['departure'])
                 if weight_conflict or departure_conflict:
                     candidate['source'].update(conflict_rows=sorted(set(previous['source'].get('conflict_rows',[previous['source']['row']])+[row['row']])),dwt_conflict=weight_conflict,departure_conflict=departure_conflict)
                     if weight_conflict:candidate['dwt']=None
                     if departure_conflict:candidate['departure']=None;candidate['departure_error']='conflicting_source_rows'
+            if previous:
+                if candidate['dwt'] is None and not candidate['source'].get('dwt_conflict'):
+                    evidence=previous.get('arrival_evidence') or {k:previous[k] for k in ['source','raw','dwt','gt']}
+                    if evidence['dwt'] is not None:candidate['arrival_evidence']=evidence
+                if candidate['departure'] is None and previous['departure'] and not candidate['source'].get('departure_conflict'):
+                    candidate['departure']=previous['departure']
+                    candidate['departure_evidence']=previous.get('departure_evidence') or {k:previous[k] for k in ['source','raw','dwt','gt']}
+                elif candidate['departure'] and candidate['dwt'] is None and not candidate['source'].get('dwt_conflict') and previous['departure']==candidate['departure']:
+                    evidence=previous.get('departure_evidence') or {k:previous[k] for k in ['source','raw','dwt','gt']}
+                    if evidence['dwt'] is not None:candidate['departure_evidence']=evidence
             visits[key]=candidate
     return sorted(visits.values(),key=lambda v:(v['arrival']['day'],v['key'])),repeats,corrections
 
@@ -43,17 +54,19 @@ def subtotals(visits,cutoff):
         for direction in ['arrival','departure']:
             date=v[direction]
             if not date or not '2025-01-01'<=date['day']<=cutoff:continue
+            evidence=v.get(direction+'_evidence') or v
+            dwt=evidence['dwt']
             key=(date['day'],v['scope'])
             day=daily.setdefault(key,{'day':date['day'],'asset':v['scope'],'arrival_rows':None,'departure_rows':None,'arrival_dwt':None,'departure_dwt':None,'arrival_missing':0,'departure_missing':0})
             day[direction+'_rows']=(day[direction+'_rows'] or 0)+1
-            if v['dwt'] is None:day[direction+'_missing']+=1
-            else:day[direction+'_dwt']=(day[direction+'_dwt'] or 0)+v['dwt']
+            if dwt is None:day[direction+'_missing']+=1
+            else:day[direction+'_dwt']=(day[direction+'_dwt'] or 0)+dwt
             for scope in ['nap',v['scope']]:
                 k=date['day'][:7]+'/'+scope+'/'+direction
                 value=monthly.setdefault(k,{'rows':0,'dwt':None,'missing_dwt':0})
                 value['rows']+=1
-                if v['dwt'] is None:value['missing_dwt']+=1
-                else:value['dwt']=(value['dwt'] or 0)+v['dwt']
+                if dwt is None:value['missing_dwt']+=1
+                else:value['dwt']=(value['dwt'] or 0)+dwt
     for row in daily.values():
         for key in ['arrival_dwt','departure_dwt']:
             if row[key] is not None:row[key]=round(row[key],6)
@@ -86,6 +99,7 @@ def main():
               'source_rows':ledger['source_rows'],'unique_visits':len(visits),'repeated_visit_rows':repeats,'revised_visit_rows':corrections,
               'rejected_rows':sum(len(r['rejected']) for r in reports),'departure_errors':sum(bool(v['departure_error']) for v in visits),'missing_dwt_visits':sum(v['dwt'] is None for v in visits),
               'conflicting_visits':sum(bool(v['source'].get('conflict_rows')) for v in visits),
+              'retained_event_evidence':sum(bool(v.get(direction+'_evidence')) for v in visits for direction in ['arrival','departure']),
               'history_complete':False,'full_coverage_verified':False,'actual_verified':False,'scheduled_refresh_verified':False}
     text="// Generated from archived official activity workbooks; see scripts/export-nap-history.py.\nimport type {NapDay} from './nap-activity';\n"
     text+='export const napHistoryMetadata='+json.dumps(metadata,ensure_ascii=False,separators=(',',':'))+';\n'

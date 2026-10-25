@@ -5,7 +5,7 @@
   "source_rows": 4218,
   "unique_visits": 1399,
   "repeated_visit_rows": 2819,
-  "revised_visit_rows": 467,
+  "revised_visit_rows": 475,
   "monthly": {
     "2025-01/nap/arrival": {
       "rows": 52,
@@ -98,8 +98,8 @@
       "missing_dwt": 0
     },
     "2025-04/nap/departure": {
-      "rows": 36,
-      "dwt": 166810.6,
+      "rows": 37,
+      "dwt": 168340.6,
       "missing_dwt": 0
     },
     "2025-04/nap_ben_thuy/arrival": {
@@ -108,8 +108,8 @@
       "missing_dwt": 0
     },
     "2025-04/nap_ben_thuy/departure": {
-      "rows": 9,
-      "dwt": 11823.0,
+      "rows": 10,
+      "dwt": 13353.0,
       "missing_dwt": 0
     },
     "2025-04/nap_cua_lo/arrival": {
@@ -278,8 +278,8 @@
       "missing_dwt": 0
     },
     "2025-10/nap/departure": {
-      "rows": 27,
-      "dwt": 87303.95,
+      "rows": 28,
+      "dwt": 94168.95,
       "missing_dwt": 0
     },
     "2025-10/nap_ben_thuy/arrival": {
@@ -298,8 +298,8 @@
       "missing_dwt": 0
     },
     "2025-10/nap_cua_lo/departure": {
-      "rows": 14,
-      "dwt": 69347.7,
+      "rows": 15,
+      "dwt": 76212.7,
       "missing_dwt": 0
     },
     "2025-11/nap/arrival": {
@@ -308,8 +308,8 @@
       "missing_dwt": 1
     },
     "2025-11/nap/departure": {
-      "rows": 47,
-      "dwt": 275607.73,
+      "rows": 48,
+      "dwt": 276627.73,
       "missing_dwt": 0
     },
     "2025-11/nap_ben_thuy/arrival": {
@@ -318,8 +318,8 @@
       "missing_dwt": 1
     },
     "2025-11/nap_ben_thuy/departure": {
-      "rows": 11,
-      "dwt": 13934.45,
+      "rows": 12,
+      "dwt": 14954.45,
       "missing_dwt": 0
     },
     "2025-11/nap_cua_lo/arrival": {
@@ -338,8 +338,8 @@
       "missing_dwt": 0
     },
     "2025-12/nap/departure": {
-      "rows": 58,
-      "dwt": 382759.12,
+      "rows": 60,
+      "dwt": 405988.12,
       "missing_dwt": 0
     },
     "2025-12/nap_ben_thuy/arrival": {
@@ -358,8 +358,8 @@
       "missing_dwt": 0
     },
     "2025-12/nap_cua_lo/departure": {
-      "rows": 47,
-      "dwt": 365627.92,
+      "rows": 49,
+      "dwt": 388856.92,
       "missing_dwt": 0
     },
     "2026-01/nap/arrival": {
@@ -548,8 +548,8 @@
       "missing_dwt": 0
     },
     "2026-07/nap/departure": {
-      "rows": 45,
-      "dwt": 268985.73,
+      "rows": 46,
+      "dwt": 272556.33,
       "missing_dwt": 0
     },
     "2026-07/nap_ben_thuy/arrival": {
@@ -568,8 +568,8 @@
       "missing_dwt": 0
     },
     "2026-07/nap_cua_lo/departure": {
-      "rows": 38,
-      "dwt": 257698.73,
+      "rows": 39,
+      "dwt": 261269.33,
       "missing_dwt": 0
     },
     "2026-08/nap/arrival": {
