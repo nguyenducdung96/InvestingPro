@@ -1,0 +1,126 @@
+{
+  "verified_at": "2026-10-25T14:27:02.628Z",
+  "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "checked_at": "2026-10-25T13:55:17.139900+00:00",
+  "through": "2026-10-24",
+  "event_name": "local",
+  "run_id": "local",
+  "source_refresh_success": true,
+  "deployment_readback_verified": true,
+  "scheduled_refresh_verified": false,
+  "actual_verified": false,
+  "checks": [
+    {
+      "asset": "pdn",
+      "direction": "arrival",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_long_binh_tan",
+      "direction": "arrival",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_go_dau",
+      "direction": "arrival",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_go_dau_a",
+      "direction": "arrival",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_go_dau_b",
+      "direction": "arrival",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn",
+      "direction": "departure",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_long_binh_tan",
+      "direction": "departure",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_go_dau",
+      "direction": "departure",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_go_dau_a",
+      "direction": "departure",
+      "months": 22,
+      "journal_direction_matched": true
+    },
+    {
+      "asset": "pdn_go_dau_b",
+      "direction": "departure",
+      "months": 22,
+      "journal_direction_matched": true
+    }
+  ],
+  "application_commit": "0fd6401f3fb87da7d41e6b84b2920ed9ef530ec7",
+  "feature_commit": "5cc2b573b51fc571eee3e056e7da63451b38b08c",
+  "compression_commit": "ebd80b4",
+  "data_commit": "297c58d313fed60e6d88c8dcd1d111103ec0125e",
+  "cloudflare_build": "5139c6bd-c526-4c27-8156-b0b64ca2babf",
+  "cloudflare_build_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/5139c6bd-c526-4c27-8156-b0b64ca2babf",
+  "cloudflare_deployment_verified": true,
+  "refresh_workflow": {
+    "run_id": 40199794476,
+    "url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40199794476",
+    "event": "workflow_dispatch",
+    "conclusion": "success",
+    "source_refresh": true,
+    "data_commit_published": true,
+    "deployment_readback": true,
+    "scheduled_refresh_verified": false
+  },
+  "quality": {
+    "commit": "0fd6401",
+    "run_id": 40201762484,
+    "url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40201762484",
+    "vitest": 172,
+    "e2e": 70,
+    "lint": true,
+    "typecheck": true,
+    "next_build": true,
+    "opennext_build": true,
+    "conclusion": "success",
+    "pdn_desktop_mobile_filters_and_provenance": true
+  },
+  "python_tests": 7,
+  "cold_cache_preservation_verified": true,
+  "compressed_journal_roundtrip_verified": true,
+  "journal_module_bytes": 1134498,
+  "browser": {
+    "desktop_dashboard": true,
+    "live_company_catalog_available": true,
+    "no_horizontal_overflow_at_1280": true,
+    "scope_filters": true,
+    "month_quarter_year_and_rows_filters": true,
+    "source_time_evidence": true,
+    "screenshot": ".local/pdn/pdn-staging-desktop.png"
+  },
+  "coverage_note": {
+    "asset": "pdn_long_binh_tan",
+    "observed_from": "2026-07-01",
+    "cause_verified": false
+  },
+  "nationwide_complete": false,
+  "production_acceptance": false,
+  "workflow_registration_commit": "af73b195b8627a819b6441b4667680299fec36a3",
+  "next_operational_acceptance": "Two real successful scheduled runs with deployed edition readback; manual workflow_dispatch is not cron evidence."
+}
