@@ -19,8 +19,13 @@ export function cmpKind(row:CmpRow){
  if(from&&(row.section==='departure'||row.section==='movement'))return 'departure';
  return 'unmapped';
 }
-export function cmpEvents(bulletins:CmpBulletin[]){
- type Event=CmpRow&{source:Omit<CmpBulletin,'rows'|'rejected_rows'>;kind:ReturnType<typeof cmpKind>;conflicting_dwt:boolean};
+type CmpEvent=CmpRow&{source:Omit<CmpBulletin,'rows'|'rejected_rows'>;kind:ReturnType<typeof cmpKind>;conflicting_dwt:boolean};
+const eventCache=new WeakMap<readonly CmpBulletin[],CmpEvent[]>();
+export function cmpEvents(bulletins:readonly CmpBulletin[]){
+ // Generated editions are immutable for the lifetime of a deployed module.
+ // Cache frozen published arrays only; mutable fixtures are always revalidated.
+ const cached=Object.isFrozen(bulletins)?eventCache.get(bulletins):undefined;if(cached)return cached;
+ type Event=CmpEvent;
  const editions=new Map<string,CmpBulletin[]>();
  for(const bulletin of bulletins){
   if(!validPlanDate(bulletin.day)||bulletin.url!=='https://cangvuhanghaithuathienhue.gov.vn/index.aspx?page=law&cat=3133'||!/^[a-f0-9]{64}$/.test(bulletin.sha256)||bulletin.parser_version!=='cmp-authority-html/1.0.0')throw new Error('Invalid CMP evidence');
@@ -41,7 +46,9 @@ export function cmpEvents(bulletins:CmpBulletin[]){
   }
   output.push(...events.values());
  }
- return output.sort((a,b)=>a.time.localeCompare(b.time));
+ output.sort((a,b)=>a.time.localeCompare(b.time));
+ if(Object.isFrozen(bulletins))eventCache.set(bulletins,output);
+ return output;
 }
 export function cmpPlanSeries(bulletins:CmpBulletin[],direction:PlanDirection='departure',now=new Date(),asset:CmpScope='cmp'){
  const events=cmpEvents(bulletins),group=new Map<string,typeof events>();

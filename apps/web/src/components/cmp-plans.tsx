@@ -1,4 +1,5 @@
-import {cmpBulletins,cmpHistoryMetadata,cmpPlanSeries,cmpEvents,cmpScopes,isCmpScope,cmpBerthScope,validPlanDate,type CmpScope} from '@invest/port';
+import {cmpPlanSeries,cmpEvents,cmpScopes,isCmpScope,cmpBerthScope,validPlanDate,type CmpScope} from '@invest/port';
+import {cmpBulletins,cmpHistoryMetadata} from '@/lib/cmp-data';
 import {cdnPeriodDisplay,observedGrowth} from '@/lib/cdn-comparison';
 import {PlanColumnChart,type PlanColumn} from './plan-column-chart';
 import {YoyChange} from './yoy-change';

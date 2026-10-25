@@ -1,5 +1,6 @@
 import 'server-only';
-import {centralOverview,northSelection,qnpAuthorityBulletins,cmpBulletins,cmpHistoryMetadata} from '@invest/port';
+import {centralOverview,northSelection,qnpAuthorityBulletins} from '@invest/port';
+import {cmpBulletins,cmpHistoryMetadata} from './cmp-data';
 import {publicRepository} from './server';
 export async function loadCentralOverview(query:Record<string,string|undefined>,now=new Date()){
  const repo=publicRepository(),s=northSelection(query,now);

@@ -1,6 +1,6 @@
 import {expect,it} from 'vitest';
 import {readFileSync} from 'node:fs';
-import {cmpBulletins,cmpHistoryMetadata,cmpEvents,cmpPlanSeries,cmpKind,cmpBerthScope,centralOverview,type CmpBulletin} from '@invest/port';
+import {cmpBulletins,cmpHistoryMetadata,cmpEvents,cmpPlanSeries,cmpKind,cmpBerthScope,centralOverview,qnpAuthorityBulletins,qnpPlanSeries,type CmpBulletin} from '@invest/port';
 const now=new Date('2026-10-25T03:00:00Z');
 const seed=cmpBulletins.find(b=>b.day==='2026-10-24'&&!b.supplement)!;
 const ledger=JSON.parse(readFileSync('docs/catalog-review/cmp-history-ledger.json','utf8'));
@@ -48,4 +48,13 @@ it('uses the same CMP series in the regional overview without overlapping region
  expect(result.scope.connected_issuers).toBe(2);expect(result.scope.regional_total).toBeNull();
  expect(result.rows.find(r=>r.ticker==='CMP')?.metric).toEqual(cmpPlanSeries(cmpBulletins,'departure',now).months.at(-1));
  expect(cmpBulletins.filter(b=>b.source_error).every(b=>b.rows.length===0)).toBe(true);
+});
+it('preserves complete issuer comparison cells when the region evaluates only the selected windows',()=>{
+ for(const direction of ['arrival','departure'] as const){
+  const cmp=cmpPlanSeries(cmpBulletins,direction,now),qnp=qnpPlanSeries(qnpAuthorityBulletins,direction,now);
+  for(const [frequency,period] of [['month','2025-01'],['month','2025-06'],['month','2026-10'],['quarter','2025-Q4'],['quarter','2026-Q4']] as const){
+   const overview=centralOverview([],{direction,frequency,period},now,null,qnpAuthorityBulletins,cmpBulletins,cmpHistoryMetadata.collected_at);
+   for(const [ticker,series] of [['CMP',cmp],['QNP',qnp]] as const)expect(overview.rows.find(r=>r.ticker===ticker)?.metric).toEqual((frequency==='month'?series.months:series.quarters).find(p=>p.period===period));
+  }
+ }
 });
