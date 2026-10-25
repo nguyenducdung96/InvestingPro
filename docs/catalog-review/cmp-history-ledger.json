@@ -1,7 +1,7 @@
 {
-  "cutoff": "2026-10-24",
-  "documents": 681,
-  "source_rows": 4712,
+  "cutoff": "2026-10-25",
+  "documents": 682,
+  "source_rows": 4713,
   "monthly": {
     "2025-01/arrival": {
       "rows": 63,
