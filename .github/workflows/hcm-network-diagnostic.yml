@@ -1,0 +1,24 @@
+name: HCM public source network diagnostic
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/diagnose-hcm-network.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hcm-network-diagnostic
+          path: .local/ops/hcm-network-diagnostic.json
+          include-hidden-files: true
+          retention-days: 14
