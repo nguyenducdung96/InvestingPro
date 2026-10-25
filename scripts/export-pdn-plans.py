@@ -1,5 +1,5 @@
 """Validate archived anonymous public responses and compile PDN berth plans."""
-import argparse,collections,datetime as dt,gzip,hashlib,json,math,re,unicodedata
+import argparse,base64,collections,datetime as dt,gzip,hashlib,io,json,math,re,unicodedata
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];OUT=ROOT/'.local/pdn';MODULE=ROOT/'packages/modules/port/src'
 SOURCE='http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2'
@@ -51,8 +51,18 @@ def parse(e):
  for r in result:r['from']=r.pop('from_')
  return result,unmapped
 
+def write_month(path,rows):
+ raw=json.dumps(rows,ensure_ascii=False,separators=(',',':')).encode()
+ output=io.BytesIO()
+ with gzip.GzipFile(fileobj=output,mode='wb',filename='',mtime=0) as f:f.write(raw)
+ encoded=base64.b64encode(output.getvalue()).decode()
+ path.write_text('export const pdnJournalGzip='+json.dumps(encoded)+';\n',encoding='utf8')
+
 def published_json(path,marker):
  text=path.read_text(encoding='utf-8-sig')
+ if marker=='export const pdnEvents:PdnEvent[]=' and 'export const pdnJournalGzip=' in text:
+  encoded=json.loads(text.split('export const pdnJournalGzip=',1)[1].rsplit(';',1)[0])
+  return json.loads(gzip.decompress(base64.b64decode(encoded,validate=True)))
  return json.loads(text.split(marker,1)[1].rsplit(';',1)[0])
 
 def main():
@@ -123,9 +133,10 @@ def main():
  compact=lambda v:json.dumps(v,ensure_ascii=False,separators=(',',':'))
  grouped=collections.defaultdict(list)
  for e in events:grouped[e['day'][:7]].append(e)
- for month,rows in grouped.items():(target/f'{month}.ts').write_text("import type {PdnEvent} from '../pdn-plans';\nexport const pdnEvents:PdnEvent[]="+compact(sorted(rows,key=lambda r:(r['time'],r['id'])))+';\n',encoding='utf8')
+ for month,rows in grouped.items():
+  write_month(target/f'{month}.ts',sorted(rows,key=lambda r:(r['time'],r['id'])))
  (MODULE/'pdn-history-data.ts').write_text("import type {PdnDay} from './pdn-plans';\nexport const pdnHistoryMetadata="+compact(metadata)+";\nexport const pdnDaily:PdnDay[]="+compact(daily)+';\n',encoding='utf8')
- (MODULE/'pdn-journal-loader.ts').write_text("import type {PdnEvent} from './pdn-plans';\nexport async function loadPdnJournal(month:string):Promise<PdnEvent[]>{switch(month){\n"+'\n'.join(f"case '{m}':return (await import('./pdn-journal-data/{m}')).pdnEvents;" for m in sorted(grouped))+"\ndefault:return [];}}\n",encoding='utf8')
+ (MODULE/'pdn-journal-loader.ts').write_text("import type {PdnEvent} from './pdn-plans';\nimport {decodePdnJournal} from './pdn-journal-codec';\nexport async function loadPdnJournal(month:string):Promise<PdnEvent[]>{switch(month){\n"+'\n'.join(f"case '{m}':return decodePdnJournal((await import('./pdn-journal-data/{m}')).pdnJournalGzip);" for m in sorted(grouped))+"\ndefault:return [];}}\n",encoding='utf8')
  ledger=dict(metadata=metadata,monthly=monthly,sources=sources)
  (ROOT/'docs/catalog-review/pdn-history-ledger.json').write_text(json.dumps(ledger,ensure_ascii=False,indent=2)+'\n',encoding='utf8')
  (OUT/'export-receipt.json').write_text(json.dumps(metadata,indent=2)+'\n')
