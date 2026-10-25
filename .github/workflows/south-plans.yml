@@ -1,0 +1,66 @@
+name: Southern official authority schedules
+on:
+  workflow_dispatch:
+  schedule:
+    # 08:35 Vietnam. Configuration does not establish a successful scheduled run.
+    - cron: '35 1 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: south-plans-staging
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache/restore@v4
+        with:
+          path: .local/south-plans
+          key: south-plans-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: south-plans-v1-
+      - run: python scripts/test-south-plans.py
+      - name: Refresh validated historical date forms
+        id: collect
+        continue-on-error: true
+        run: python scripts/collect-south-plans.py --workers 3 --refresh-recent 4
+      - name: Verify archives and compile an immutable edition
+        run: python scripts/export-south-plans.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec vitest run tests/south-plans.test.ts tests/south-history.test.ts tests/north-overview.test.ts --maxWorkers=1
+      - run: pnpm typecheck
+      - name: Commit validated edition and source errors to staging branch
+        run: |
+          git add packages/modules/port/src/south-history-data.ts packages/modules/port/src/south-journal-loader.ts packages/modules/port/src/south-journal-data docs/catalog-review/south-history-ledger.json
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'data(ports): refresh southern authority schedules'
+          git pull --rebase origin codex/cloudflare-next-compat
+          git push origin HEAD:codex/cloudflare-next-compat
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .local/south-plans
+          key: south-plans-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: south-plans-receipt
+          path: .local/south-plans/receipt.json
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 7
+      - name: Report source failures after retaining proven data
+        if: steps.collect.outcome == 'failure'
+        run: exit 1
