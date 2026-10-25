@@ -1,4 +1,4 @@
-import importlib.util,json,hashlib,unittest
+import importlib.util,json,hashlib,tempfile,unittest
 from pathlib import Path
 spec=importlib.util.spec_from_file_location('pdn_export',Path(__file__).with_name('export-pdn-plans.py'));m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
 def envelope(direction='arrival',**extra):
@@ -24,6 +24,10 @@ class Pdn(unittest.TestCase):
   r=m.parse(envelope(timeOfArrival='24/10/2026 010:30'))[0][0]
   self.assertEqual(r['time'],'2026-10-24T10:30:00+07:00');self.assertEqual(r['raw_time'],'24/10/2026 010:30');self.assertTrue(r['time_normalized'])
   r=m.parse(envelope(timeOfArrival='24/10/2026 13:010'))[0][0];self.assertEqual(r['time'],'2026-10-24T13:10:00+07:00')
+ def test_compressed_reviewed_month_roundtrip(self):
+  rows=m.parse(envelope())[0]
+  with tempfile.TemporaryDirectory() as tmp:
+   path=Path(tmp)/'2026-10.ts';m.write_month(path,rows);self.assertEqual(m.published_json(path,'export const pdnEvents:PdnEvent[]='),rows)
  def test_direction_and_weight_provenance(self):
   r=m.parse(envelope('departure',dwt=120.5))[0][0]
   self.assertEqual(r['kind'],'departure');self.assertEqual(r['to'],'P/S');self.assertEqual(r['raw_dwt'],120.5)
