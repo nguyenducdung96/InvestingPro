@@ -109,14 +109,14 @@
           "missing_dwt": 1
         },
         "2026-10": {
-          "rows": 51,
-          "dwt": 610955.0,
+          "rows": 52,
+          "dwt": 614610.0,
           "missing_dwt": 9
         }
       },
       "ytd": {
-        "rows": 635,
-        "dwt": 8182130.0,
+        "rows": 636,
+        "dwt": 8185785.0,
         "missing_dwt": 38
       },
       "prior_ytd": {
@@ -126,8 +126,8 @@
       },
       "scopes": {
         "qnp_cau1": {
-          "rows": 723,
-          "dwt": 9378659.0,
+          "rows": 724,
+          "dwt": 9382314.0,
           "missing_dwt": 36
         },
         "qnp_cau2": {
@@ -304,5 +304,5 @@
       }
     }
   },
-  "source_events": 6312
+  "source_events": 6313
 }
