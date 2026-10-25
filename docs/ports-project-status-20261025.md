@@ -2,6 +2,23 @@
 
 # Tiến độ ngành cảng — 25/10/2026
 
+## Bàn giao mới nhất sau NAP
+
+Đã lưu code và biên nhận NAP trên nhánh `codex/cloudflare-next-compat`; commit bàn giao `4bdb42a`, bản dữ liệu đã kiểm chứng trên staging `03135f3`. Phía Bắc giữ phạm vi chín mã đã tích hợp; lượt NAP này không kiểm chứng lại toàn bộ phía Bắc. Miền Trung có CDN, QNP, CMP, NAP; còn GMD–Dung Quất. NAP dùng báo cáo hoạt động Cảng vụ, CMP dùng điều động cầu; giữ ngữ nghĩa nguồn riêng, không coi tất cả là actual đã xác minh độc lập.
+
+NAP: Cửa Lò và Bến Thủy, 366/369 workbook, 22 tháng; ngày nguồn cuối 24/10/2026. Chiều rời lũy kế 2026: 399 lượt / 2.336.540,52 DWT; tháng 10: 37 lượt / 242.422,2 DWT. Giữ null raw, hợp nhất dòng lặp và giữ bằng chứng sự kiện đã báo cáo khi snapshot sau để trống. Không chứng nhận đủ mọi ngày/cầu.
+
+Kiểm chứng NAP: 151 Vitest, 9 hợp đồng Python, 64 Playwright hosted; typecheck/lint/Next build đạt. Staging API/UI desktop/mobile, 22 tháng hai chiều và tổng hai cảng khớp ledger. Refresh thủ công GitHub `40160558048` thành công; lịch 08:05 Việt Nam đã đăng ký nhưng chưa xác nhận cron thực. Chưa nghiệm thu production hoặc toàn quốc.
+
+### Next steps theo thứ tự
+
+1. Làm GMD–Dung Quất: xác minh chính xác phạm vi khai thác và tên bến trên nguồn chính thức; rà lịch sử tàu, DWT và ngày đến/rời. Lập ma trận nguồn/phạm vi trước khi ghép; không cộng với phạm vi GMD Hải Phòng hoặc suy quyền sở hữu từ tên giống nhau. Nếu nguồn công khai chưa đủ, ghi rõ phần thiếu.
+2. Khi có nguồn đủ dùng, triển khai lịch sử, parser có hợp đồng, archive/hash, chống trùng, dashboard/API và nối bảng miền Trung theo mẫu đã có. Kiểm chứng số ghi nhận tháng/quý/YTD/YoY, desktop/mobile và refresh thực trước khi chốt GMD–Dung Quất.
+3. Chốt vận hành cụm miền Trung: kiểm tra lần cron thực và ngày nguồn mới của từng mã, cảnh báo lỗi nguồn, giữ dữ liệu tốt cuối cùng. Đối chiếu tổng quan với từng dashboard; không cộng các phạm vi chồng lấn. Chạy thủ công thành công không thay thế bằng chứng cron.
+4. Sau khi cụm miền Trung vận hành, bổ sung chuỗi sản lượng tấn/TEU doanh nghiệp công bố để so sánh với hoạt động tàu; DWT vẫn là trọng tải thiết kế, không thay cho lượng hàng. Sau đó chọn phạm vi phía Nam bằng ma trận cảng/bến và nguồn công khai.
+
+## Snapshot lịch sử trước CMP/NAP
+
 ## Đã triển khai trên staging
 
 - Chín mã phía Bắc: PHP, DVP, VGR, VSC, GMD (Nam Đình Vũ/Hải Phòng), HAH, DXP, PSP, CQN. Có trang mã, phạm vi cảng/bến, tổng quan và chọn bến, tháng/quý/YoY/lũy kế, lịch từng ngày. CQN giữ riêng kế hoạch cập/rời cầu.
