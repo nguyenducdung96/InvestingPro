@@ -45,6 +45,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git commit -m 'data(ports): refresh official CMP recorded berth plans'
+          git pull --rebase origin codex/cloudflare-next-compat
           git push origin HEAD:codex/cloudflare-next-compat
       - name: Keep the compact extraction receipt
         if: always()
