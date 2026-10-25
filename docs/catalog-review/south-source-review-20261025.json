@@ -1,0 +1,102 @@
+{
+  "checked_on": "2026-10-25",
+  "scope": "Exact selected terminal aliases for operational attribution, not historical ownership approval",
+  "schedule_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+  "public_map_url": "https://kehoach.cangvuhanghaitphcm.gov.vn/welcome",
+  "map_backend": "https://phuongdinh.name.vn/api/cangvu/getDSTau4?ngay=01/01/2025",
+  "backend_ownership": "Not certified; endpoint referenced by the official public map client",
+  "response_sha256": "cad2f56c7c23b1eefa700d39772095eba7d71abdae24c5f5f073c2d3e2312842",
+  "selected_berths": [
+    {
+      "idcauphao": 45,
+      "tencauphao": "CAI MEP GEMADEPT-TERMINAL LINK",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG CÁI MÉP GEMADEPT-TERMINAL LINK"
+    },
+    {
+      "idcauphao": 68,
+      "tencauphao": "CẦU CẢNG SỐ 1 - SSIT",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG CONTAINER QUỐC TẾ SG-SSA (SSIT)"
+    },
+    {
+      "idcauphao": 69,
+      "tencauphao": "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG QUỐC TẾ CÁI MÉP (CMIT)"
+    },
+    {
+      "idcauphao": 103,
+      "tencauphao": "CAU CANG SO 3 SG-HP",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG SÀI GÒN - HIỆP PHƯỚC"
+    },
+    {
+      "idcauphao": 104,
+      "tencauphao": "CAU CANG SO 2 SG-HP",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG SÀI GÒN - HIỆP PHƯỚC"
+    },
+    {
+      "idcauphao": 105,
+      "tencauphao": "CAU CANG SO 1 SG-HP",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG SÀI GÒN - HIỆP PHƯỚC"
+    },
+    {
+      "idcauphao": 249,
+      "tencauphao": "CẦU CẢNG SỐ 1 - SP-PSA",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG QUỐC TẾ SP-PSA"
+    },
+    {
+      "idcauphao": 250,
+      "tencauphao": "CẦU CẢNG SỐ 2 - SP-PSA",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG QUỐC TẾ SP-PSA"
+    },
+    {
+      "idcauphao": 576,
+      "tencauphao": "CẦU CẢNG SỐ 2 (BẾN SÀ LAN) - SSIT",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG CONTAINER QUỐC TẾ SG-SSA (SSIT)"
+    },
+    {
+      "idcauphao": 577,
+      "tencauphao": "CẦU CẢNG SỐ 3 (BẾN SÀ LAN) - SSIT",
+      "phanloai": "Cầu",
+      "bencang": "BẾN CẢNG CONTAINER QUỐC TẾ SG-SSA (SSIT)"
+    }
+  ],
+  "corporate_reports": [
+    {
+      "ticker": "GMD",
+      "source_url": "https://www.gemadept.com.vn/wp-content/uploads/2026/04/20260418_GMD-AR_VN_SmartPDF01.pdf",
+      "content_hash": "19f18cccab1d93cd8b2db5713d2c82440fce3b5719fceaa0d152a05ec8f25f6a",
+      "artifact_label": "gmd-2025.pdf",
+      "rights_status": "to_verify",
+      "fact_review_status": "pending"
+    },
+    {
+      "ticker": "SGP",
+      "source_url": "https://owa.hnx.vn/ftp///cims/2026/3_W4/000000016036254_VN_340__Bao_cao_thuong_nien_nam_2025_CTCP_Cang_Sai_Gon_HNX.pdf",
+      "content_hash": "f405d81207ce494ae6916e4b103f784e4b5f37d683d0fde188a05da3944c8c18",
+      "artifact_label": "sgp-2025.pdf",
+      "rights_status": "to_verify",
+      "fact_review_status": "pending"
+    }
+  ],
+  "report_review_manifest": "company-portfolios-manifest.json; GMD and SGP report-year 2025; SGP pages 5,6,16",
+  "excluded": [
+    "source_type=NEO snapshots",
+    "internal movement section",
+    "all unlisted berth names",
+    "agent names as terminal identification",
+    "Gemadept PL03/PL04/PL05 buoys as Phuoc Long ICD"
+  ],
+  "actual_verified": false,
+  "historical_ownership_effective_dates_verified": false,
+  "source_rights_approved": false,
+  "cloud_published": false,
+  "scheduled_refresh_verified": false
+}

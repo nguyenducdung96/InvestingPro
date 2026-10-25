@@ -24,9 +24,9 @@ export function tanvuPlanSeries(input:TanVuPlanDay[],direction:PlanDirection='de
   const expected:string[]=[];for(let n=Date.parse(from);n<=Date.parse(through);n+=dayMs)expected.push(iso(n));
   const present=expected.flatMap(key=>{const d=map.get(key);return d?.version_id?[d]:[];});
   const missing_days=expected.filter(key=>!map.get(key)?.version_id);
-  const missing_dwt=present.reduce((s,d)=>s+(d[`${direction}_dwt_missing`]??0),0);
-  const ambiguous_groups=present.reduce((s,d)=>s+(d[`${direction}_ambiguous_groups`]??d.ambiguous_groups??0),0);
   const observed=expected.flatMap(key=>{const d=map.get(key);return d&&(d.version_id||d.observed_available)?[d]:[];});
+  const missing_dwt=observed.reduce((s,d)=>s+(d[`${direction}_dwt_missing`]??0),0);
+  const ambiguous_groups=present.reduce((s,d)=>s+(d[`${direction}_ambiguous_groups`]??d.ambiguous_groups??0),0);
   const known_rows=observed.reduce((s,d)=>s+Number(d[`${direction}_known_rows`]??d[`${direction}_rows`]??0),0);
   const known_dwt=observed.reduce((s,d)=>s+Number(d[`${direction}_known_dwt`]??d[`${direction}_dwt`]??0),0);
   const observed_dwt=observed.some(d=>(d[`${direction}_known_rows`]??d[`${direction}_rows`])===0||((d[`${direction}_known_rows`]??d[`${direction}_rows`]??0)>(d[`${direction}_dwt_missing`]??0)&&(d[`${direction}_known_dwt`]!=null||d[`${direction}_dwt`]!=null)))?known_dwt:null;

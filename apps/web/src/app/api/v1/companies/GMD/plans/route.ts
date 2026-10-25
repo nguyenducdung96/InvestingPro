@@ -1,10 +1,12 @@
 import {publicRepository} from '@/lib/server';
 import {loadIssuerPlans,loadIssuerPlanEvents} from '@/lib/issuer-plans';
 import {issuerPlanScopes,issuerPlanSeries,validPlanDate} from '@invest/port';
+import {southPlansResponse} from '@/lib/south-plans-api';
 export const dynamic='force-dynamic';
 export async function GET(request:Request){
  const ticker='GMD',query=new URL(request.url).searchParams,day=query.get('day'),asset=query.get('asset')??ticker.toLowerCase();
  const headers={'Cache-Control':'no-store'};
+ if(asset==='gemalink'||asset==='gmd_all')return southPlansResponse(request,'GMD');
  if(!Object.hasOwn(issuerPlanScopes[ticker],asset))return Response.json({error:'Cảng không thuộc phạm vi mã.'},{status:400,headers});
  if(day&&!validPlanDate(day))return Response.json({error:'Ngày không hợp lệ.'},{status:400,headers});
  try{

@@ -1,0 +1,1407 @@
+{
+  "metadata": {
+    "checked_at": "2026-10-25T05:38:27.739662+00:00",
+    "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+    "parser_version": "hcm-authority-schedule/1.0.0",
+    "from": "2025-01-01",
+    "through": "2026-10-24",
+    "requested_days": 662,
+    "source_errors": [],
+    "assets": {
+      "gemalink": {
+        "rows": 1838,
+        "first_day": "2025-07-23",
+        "last_day": "2026-10-24"
+      },
+      "sg_hiep_phuoc": {
+        "rows": 535,
+        "first_day": "2025-01-04",
+        "last_day": "2026-10-23"
+      },
+      "cmit": {
+        "rows": 2561,
+        "first_day": "2025-07-09",
+        "last_day": "2026-10-24"
+      },
+      "sp_psa": {
+        "rows": 679,
+        "first_day": "2025-08-01",
+        "last_day": "2026-10-24"
+      },
+      "ssit": {
+        "rows": 962,
+        "first_day": "2025-07-23",
+        "last_day": "2026-10-24"
+      }
+    },
+    "actual_verified": false,
+    "full_scope_certified": false,
+    "source_rights": "publicly_accessible; republication_rights_not_certified"
+  },
+  "monthly": {
+    "2025-01": {
+      "gemalink": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 3,
+          "dwt": 28154.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 5,
+          "dwt": 35241.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2025-02": {
+      "gemalink": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 4,
+          "dwt": 24430.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 3,
+          "dwt": 19335.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2025-03": {
+      "gemalink": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 3,
+          "dwt": 54143.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 6,
+          "dwt": 58301.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2025-04": {
+      "gemalink": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 4,
+          "dwt": 33444.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 10,
+          "dwt": 75595.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2025-05": {
+      "gemalink": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 8,
+          "dwt": 37017.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 6,
+          "dwt": 51222.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2025-06": {
+      "gemalink": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 47,
+          "dwt": 174480.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 46,
+          "dwt": 164745.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2025-07": {
+      "gemalink": {
+        "arrival": {
+          "rows": 2,
+          "dwt": 146354.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 23,
+          "dwt": 77232.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 39,
+          "dwt": 111916.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 4,
+          "dwt": 126946.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 2,
+          "dwt": 170958.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": null,
+          "dwt": null,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2025-08": {
+      "gemalink": {
+        "arrival": {
+          "rows": 54,
+          "dwt": 6609756.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 57,
+          "dwt": 6739874.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 6,
+          "dwt": 24087.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 7,
+          "dwt": 24017.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 80,
+          "dwt": 2320510.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 77,
+          "dwt": 2407883.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 10,
+          "dwt": 110631.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 41,
+          "dwt": 718112.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 42,
+          "dwt": 3465634.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 42,
+          "dwt": 3415911.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2025-09": {
+      "gemalink": {
+        "arrival": {
+          "rows": 50,
+          "dwt": 6120927.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 51,
+          "dwt": 6143710.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 4,
+          "dwt": 36983.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 5,
+          "dwt": 37026.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 86,
+          "dwt": 2346229.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 90,
+          "dwt": 2316311.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 4,
+          "dwt": 26194.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 26,
+          "dwt": 792443.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 33,
+          "dwt": 3095210.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 33,
+          "dwt": 2820579.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2025-10": {
+      "gemalink": {
+        "arrival": {
+          "rows": 54,
+          "dwt": 5913991.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 56,
+          "dwt": 5991804.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 9,
+          "dwt": 54710.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 11,
+          "dwt": 94453.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 78,
+          "dwt": 2210212.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 76,
+          "dwt": 2273585.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 5,
+          "dwt": 128370.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 27,
+          "dwt": 1107855.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 30,
+          "dwt": 2560399.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 34,
+          "dwt": 2993937.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2025-11": {
+      "gemalink": {
+        "arrival": {
+          "rows": 50,
+          "dwt": 5934274.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 51,
+          "dwt": 6053355.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 6,
+          "dwt": 25748.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 8,
+          "dwt": 42232.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 85,
+          "dwt": 2419516.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 87,
+          "dwt": 2493315.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 9,
+          "dwt": 288742.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 28,
+          "dwt": 900355.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 37,
+          "dwt": 3146425.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 39,
+          "dwt": 3024928.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2025-12": {
+      "gemalink": {
+        "arrival": {
+          "rows": 60,
+          "dwt": 6976483.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 64,
+          "dwt": 7322245.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 9,
+          "dwt": 54035.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 11,
+          "dwt": 63201.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 90,
+          "dwt": 2402927.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 91,
+          "dwt": 2434474.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 22,
+          "dwt": 316583.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 33,
+          "dwt": 823026.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 38,
+          "dwt": 2947726.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 36,
+          "dwt": 2843271.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2026-01": {
+      "gemalink": {
+        "arrival": {
+          "rows": 114,
+          "dwt": 6481528.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 112,
+          "dwt": 6467504.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 12,
+          "dwt": 46974.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 9,
+          "dwt": 40115.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 98,
+          "dwt": 2733944.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 97,
+          "dwt": 2604657.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 21,
+          "dwt": 244186.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 40,
+          "dwt": 941994.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 54,
+          "dwt": 3247016.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 51,
+          "dwt": 3270620.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2026-02": {
+      "gemalink": {
+        "arrival": {
+          "rows": 71,
+          "dwt": 4716211.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 76,
+          "dwt": 4829422.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 6,
+          "dwt": 35461.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 8,
+          "dwt": 54519.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 72,
+          "dwt": 2167053.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 69,
+          "dwt": 2123643.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 17,
+          "dwt": 376325.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 28,
+          "dwt": 739302.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 29,
+          "dwt": 3134625.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 31,
+          "dwt": 3124756.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2026-03": {
+      "gemalink": {
+        "arrival": {
+          "rows": 64,
+          "dwt": 6031288.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 68,
+          "dwt": 6194223.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 11,
+          "dwt": 70321.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 13,
+          "dwt": 95400.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 83,
+          "dwt": 2672075.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 83,
+          "dwt": 2665669.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 13,
+          "dwt": 425949.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 32,
+          "dwt": 922470.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 37,
+          "dwt": 3242337.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 36,
+          "dwt": 3172753.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2026-04": {
+      "gemalink": {
+        "arrival": {
+          "rows": 65,
+          "dwt": 7377890.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 69,
+          "dwt": 7164338.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 18,
+          "dwt": 89598.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 16,
+          "dwt": 117044.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 74,
+          "dwt": 2339856.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 74,
+          "dwt": 2406812.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 10,
+          "dwt": 329471.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 31,
+          "dwt": 973051.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 31,
+          "dwt": 3182035.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 31,
+          "dwt": 3254439.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2026-05": {
+      "gemalink": {
+        "arrival": {
+          "rows": 66,
+          "dwt": 7294162.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 68,
+          "dwt": 7217076.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 11,
+          "dwt": 52824.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 11,
+          "dwt": 42547.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 78,
+          "dwt": 2939636.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 80,
+          "dwt": 2875086.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 18,
+          "dwt": 445443.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 41,
+          "dwt": 891865.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 29,
+          "dwt": 3897207.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 30,
+          "dwt": 3811841.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2026-06": {
+      "gemalink": {
+        "arrival": {
+          "rows": 58,
+          "dwt": 6173672.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 60,
+          "dwt": 6388113.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 13,
+          "dwt": 42974.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 13,
+          "dwt": 54564.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 100,
+          "dwt": 2628309.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 101,
+          "dwt": 2693246.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 7,
+          "dwt": 124392.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 33,
+          "dwt": 885151.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 25,
+          "dwt": 4084674.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 25,
+          "dwt": 4126031.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2026-07": {
+      "gemalink": {
+        "arrival": {
+          "rows": 60,
+          "dwt": 6455778.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 61,
+          "dwt": 6444076.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 12,
+          "dwt": 48626.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 12,
+          "dwt": 39339.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 98,
+          "dwt": 2771170.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 96,
+          "dwt": 2698438.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 13,
+          "dwt": 375212.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 24,
+          "dwt": 537939.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 24,
+          "dwt": 3524497.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 26,
+          "dwt": 3675339.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2026-08": {
+      "gemalink": {
+        "arrival": {
+          "rows": 49,
+          "dwt": 5449165.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 49,
+          "dwt": 5460302.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 17,
+          "dwt": 59214.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 16,
+          "dwt": 52245.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 92,
+          "dwt": 2486279.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 93,
+          "dwt": 2518632.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 11,
+          "dwt": 265279.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 40,
+          "dwt": 1061204.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 24,
+          "dwt": 3553843.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 26,
+          "dwt": 3586755.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2026-09": {
+      "gemalink": {
+        "arrival": {
+          "rows": 48,
+          "dwt": 5618078.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 50,
+          "dwt": 5768246.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 12,
+          "dwt": 43249.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 16,
+          "dwt": 73244.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 77,
+          "dwt": 2724713.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 81,
+          "dwt": 2831443.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 17,
+          "dwt": 324229.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 31,
+          "dwt": 725625.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 20,
+          "dwt": 2738843.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 22,
+          "dwt": 2801819.0,
+          "missing_dwt": 0
+        }
+      }
+    },
+    "2026-10": {
+      "gemalink": {
+        "arrival": {
+          "rows": 40,
+          "dwt": 4485675.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 41,
+          "dwt": 4589377.0,
+          "missing_dwt": 0
+        }
+      },
+      "sg_hiep_phuoc": {
+        "arrival": {
+          "rows": 12,
+          "dwt": 32329.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 14,
+          "dwt": 47794.0,
+          "missing_dwt": 0
+        }
+      },
+      "cmit": {
+        "arrival": {
+          "rows": 87,
+          "dwt": 1948526.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 84,
+          "dwt": 2023334.0,
+          "missing_dwt": 0
+        }
+      },
+      "sp_psa": {
+        "arrival": {
+          "rows": 9,
+          "dwt": 109331.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 38,
+          "dwt": 710790.0,
+          "missing_dwt": 0
+        }
+      },
+      "ssit": {
+        "arrival": {
+          "rows": 23,
+          "dwt": 2721846.0,
+          "missing_dwt": 0
+        },
+        "departure": {
+          "rows": 22,
+          "dwt": 2459547.0,
+          "missing_dwt": 0
+        }
+      }
+    }
+  }
+}

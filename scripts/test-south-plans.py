@@ -1,0 +1,31 @@
+import importlib.util
+import unittest
+from pathlib import Path
+from html import escape
+spec=importlib.util.spec_from_file_location('collector',Path(__file__).with_name('collect-south-plans.py'));m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
+def board(day='2026-10-24',clock='11:00',weight='156694'):
+ html='<input name="ctl22$txtDate" value="'+day+'"><h2>Kế hoạch điều động tàu ngày 24/10/2026</h2>'
+ for table,kind in m.TABLES.items():
+  html+='<table id="'+table+'"><tr>'+''.join('<th>'+escape(h)+'</th>' for h in m.HEADERS[kind])+'</tr>'
+  if kind!='internal':
+   row=['1','* COSCO DENMARK','HK','CALL',weight,'300','12','CONT','CAI MEP GEMADEPT-TERMINAL LINK',clock]+['']*(len(m.HEADERS[kind])-10)
+   html+='<tr>'+''.join('<td>'+escape(c)+'</td>' for c in row)+'</tr>'
+  html+='</table>'
+ return html.encode()
+class Tests(unittest.TestCase):
+ def test_selected_and_heading_dates_must_match_requested_day(self):
+  with self.assertRaises(ValueError):m.parse(board(),'2025-01-01')
+  with self.assertRaises(ValueError):m.parse(board('2025-01-01'),'2025-01-01')
+ def test_schema_drift_fails_closed(self):
+  with self.assertRaises(ValueError):m.parse(board().replace(b'DWT',b'GT'),'2026-10-24')
+ def test_marker_and_raw_weight_preserved(self):
+  d=m.parse(board(),'2026-10-24');self.assertEqual(d['events'][0]['vessel'],'COSCO DENMARK');self.assertEqual(d['events'][0]['raw'][1],'* COSCO DENMARK');self.assertEqual(d['events'][0]['dwt'],156694)
+ def test_no_midnight_or_gt_substitution(self):
+  d=m.parse(board(clock='chưa rõ'),'2026-10-24');self.assertFalse(d['events']);self.assertEqual(len(d['rejected']),2)
+  for value in ['0','','GT 1000','9'*400]:
+   self.assertIsNone(m.parse(board(weight=value),'2026-10-24')['events'][0]['dwt'])
+ def test_post_matches_public_date_widget_state(self):
+  from urllib.parse import parse_qs
+  import json
+  fields=parse_qs(m.post_fields(board(),'2025-01-01').decode());self.assertEqual(fields['ctl22$txtDate'],['2025-01-01']);self.assertEqual(json.loads(fields['ctl22_txtDate_dateInput_ClientState'][0])['lastSetTextBoxValue'],'01/01/2025')
+if __name__=='__main__':unittest.main()

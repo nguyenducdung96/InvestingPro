@@ -3,9 +3,13 @@ import {publicRepository} from '@/lib/server';
 import {PhpBerthScope} from './php-berth-scope';
 import {CmpBerthScope} from './cmp-berth-scope';
 import {NapPortScope} from './nap-port-scope';
+import {GmdPortScope} from './gmd-port-scope';
+import {SgpPortScope} from './sgp-port-scope';
 const roles:Record<string,string>={operator:'Khai thác theo báo cáo',owner:'Sở hữu theo báo cáo',indirect:'Quan hệ qua pháp nhân',group_portfolio:'Mạng lưới theo báo cáo',business_cooperation:'Hợp tác kinh doanh',cargo_handling_service:'Dịch vụ xếp dỡ'};
 // Every issuer uses the same top-of-page scope. Only published, cited assets enter it.
 export async function CompanyPortScope({ticker}:{ticker:string}){
+ if(ticker==='GMD')return <GmdPortScope/>;
+ if(ticker==='SGP')return <SgpPortScope/>;
  if(ticker==='CMP')return <CmpBerthScope/>;
  if(ticker==='NAP')return <NapPortScope/>;
  if(ticker==='PHP'||isIssuerPlanTicker(ticker))return <PhpBerthScope ticker={ticker}/>;

@@ -1,0 +1,33 @@
+import {test,expect} from '@playwright/test';
+test('southern scopes reconcile API/UI and preserve empty history, filters and provenance',async({page},info)=>{
+ await page.request.post('http://127.0.0.1:54329/__throughput',{data:[]});
+ await page.goto('/industries/ports/south?period=2026-10');
+ await expect(page.getByRole('heading',{name:'Tổng quan cảng miền Nam',exact:true})).toBeVisible();
+ await expect(page.locator('.primary-nav a[aria-current="page"]')).toHaveText('Miền Nam');
+ const overview=await(await page.request.get('/api/v1/industries/ports/south?period=2026-10')).json();
+ expect(overview.regional_total).toBeNull();expect(overview.nationwide_complete).toBe(false);
+ const api=await(await page.request.get('/api/v1/companies/GMD/plans?asset=gemalink')).json();
+ expect(api.actual_verified).toBe(false);expect(api.metadata.requested_days).toBeGreaterThanOrEqual(662);
+ const current=api.months.find((m:{period:string})=>m.period==='2026-10');
+ await expect(page.locator('tr[data-ticker="GMD"] [data-label="DWT đã ghi nhận"]')).toContainText(current.current.observed_dwt.toLocaleString('vi-VN',{maximumFractionDigits:2}));
+ await expect(page.locator('tr[data-ticker="PDN"] [data-label="Lượt"]')).toHaveText('—');
+ await page.locator('tr[data-ticker="GMD"] .north-ticker').click();
+ const plans=page.getByRole('region',{name:'Lịch điều động GMD',exact:true});
+ await expect(plans.getByLabel('Phạm vi theo dõi')).toHaveValue('gemalink');
+ await plans.getByLabel('Năm',{exact:true}).selectOption('2025');await plans.getByRole('button',{name:'Xem lịch',exact:true}).click();
+ await expect(plans.locator('tbody').first().locator('tr').first().locator('[data-label="Lượt"]')).toHaveText('—');
+ await plans.getByLabel('Kỳ',{exact:true}).selectOption('quarter');await plans.getByLabel('Chỉ tiêu',{exact:true}).selectOption('rows');await plans.getByRole('button',{name:'Xem lịch',exact:true}).click();
+ await expect(plans.locator('.plan-chart-legend').filter({hasText:'Đơn vị: lượt'})).toHaveCount(3);
+ await expect(plans.locator('tbody').first().locator('tr')).toHaveCount(4);
+ await page.goto('/companies/GMD?plan_asset=gemalink&plan_day=2026-10-24');
+ await expect(plans.locator('#plan-days tbody')).toContainText('EVER MATCH');
+ await plans.locator('#plan-days details').first().getByText('Bằng chứng dòng',{exact:true}).click();await expect(plans.locator('#plan-days')).toContainText('SHA-256:');
+ const day=await(await page.request.get('/api/v1/companies/GMD/plans?asset=gemalink&day=2026-10-24')).json();expect(day.events).toHaveLength(4);
+ expect((await page.request.get('/api/v1/companies/SGP/plans?asset=gemalink')).status()).toBe(400);
+ expect((await page.request.get('/api/v1/companies/GMD/plans?asset=gemalink&day=2026-02-30')).status()).toBe(400);
+ await page.goto('/companies/GMD?plan_asset=gmd_all');await expect(plans.getByLabel('Phạm vi theo dõi')).toHaveValue('gmd_all');
+ await page.goto('/companies/SGP');const sgp=page.getByRole('region',{name:'Lịch điều động SGP',exact:true});await expect(sgp.getByLabel('Phạm vi theo dõi').locator('option')).toHaveCount(5);
+ for(const theme of ['dark','light']){await page.getByLabel('Giao diện',{exact:true}).selectOption(theme);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}
+ await page.screenshot({path:`.local/south/south-${info.project.name}.png`,fullPage:true});
+ await page.goto('/companies/GMD?central_asset=gemadept_dung_quat');await expect(page.getByRole('region',{name:'Hoạt động tàu Gemadept Dung Quất',exact:true})).toBeVisible();await expect(plans).toHaveCount(0);
+});

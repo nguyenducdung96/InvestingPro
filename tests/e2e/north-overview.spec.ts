@@ -47,7 +47,7 @@ test('all northern issuer pages and the overview keep month and YTD visible with
   const row=page.locator(`[data-ticker="${ticker}"]`);await expect(row.locator('[data-label="DWT"] strong')).not.toHaveText('—');await expect(row.locator('[data-label="YoY DWT"]')).toContainText('%');
  }
  for(const ticker of ['PHP','DVP','VGR','VSC','GMD','HAH','DXP','PSP','CQN']){
-  await page.goto(`/companies/${ticker}#plan-yoy`);const table=page.locator('#plan-yoy');
+  await page.goto(`/companies/${ticker}${ticker==='GMD'?'?plan_asset=gmd':''}#plan-yoy`);const table=page.locator('#plan-yoy');
   await expect(table.locator('tbody tr').last().locator('[data-label="DWT"]')).not.toHaveText('Chưa đủ dữ liệu');
   await expect(table.locator('tfoot [data-label="DWT"]')).not.toHaveText('Chưa đủ dữ liệu');await expect(table.locator('tfoot [data-label="YoY DWT"]')).toContainText('%');
  }

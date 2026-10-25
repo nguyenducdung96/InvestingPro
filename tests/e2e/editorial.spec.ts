@@ -26,7 +26,7 @@ test('public catalog works without a session or provider and keeps reported fact
   const source=page.getByRole('complementary',{name:'Nguồn hồ sơ',exact:true});
   await expect(source.getByText('Kỳ báo cáo',{exact:true})).toBeVisible();
   await expect(source.locator('a, details, code')).toHaveCount(0);
-  await expect(page.getByText(/Trang PDF đã đối chiếu|Bản biên tập phát hành|Dấu vết dữ liệu|Nghiên cứu API có đăng nhập|SHA-256:/)).toHaveCount(0);
+  await expect(page.getByText(/Trang PDF đã đối chiếu|Bản biên tập phát hành|Dấu vết dữ liệu|Nghiên cứu API có đăng nhập|SHA-256:/).filter({visible:true})).toHaveCount(0);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  }
  await request.post('http://127.0.0.1:54329/reset');

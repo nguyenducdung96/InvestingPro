@@ -15,7 +15,7 @@ export default async function Page({searchParams}:{searchParams:Promise<Record<s
   <p className="eyebrow">THEO DÕI DOANH NGHIỆP · HẢI PHÒNG & QUẢNG NINH</p>
   <h1>Tổng quan cảng phía Bắc</h1>
   <p>So sánh hoạt động theo lịch công bố của 9 mã trong phạm vi đã đối chiếu. Chọn mã để xem cảng, biểu đồ và lịch từng ngày.</p>
-  <nav className="section-tabs" aria-label="Tra cứu ngành cảng"><Link href="/industries/ports/north" aria-current="page">Tổng quan phía Bắc</Link><Link href="/industries/ports/central">Miền Trung</Link><Link href="/industries/ports/companies?view=all">Danh mục doanh nghiệp</Link><Link href="/industries/ports">Danh mục cảng</Link></nav>
+  <nav className="section-tabs" aria-label="Tra cứu ngành cảng"><Link href="/industries/ports/north" aria-current="page">Tổng quan phía Bắc</Link><Link href="/industries/ports/central">Miền Trung</Link><Link href="/industries/ports/south">Miền Nam</Link><Link href="/industries/ports/companies?view=all">Danh mục doanh nghiệp</Link><Link href="/industries/ports">Danh mục cảng</Link></nav>
   <form method="get" className="call-filters north-filters" action="/industries/ports/north">
    <div><label htmlFor="north-frequency">Kỳ theo dõi</label><select id="north-frequency" name="frequency" defaultValue={s.frequency}><option value="month">Tháng</option><option value="quarter">Quý</option></select></div>
    <div><label htmlFor="north-period">Thời kỳ</label><select id="north-period" name="period" defaultValue={s.period}>{s.periods.map(p=><option key={p} value={p}>{p}</option>)}</select></div>

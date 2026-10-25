@@ -162,3 +162,4 @@ export * from './nap-journal-loader';
 export * from './dungquat-snapshot-data';
 export * from './dungquat-history-data';
 export * from './dungquat-activity';
+export * from './south-plans';

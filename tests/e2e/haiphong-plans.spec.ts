@@ -12,9 +12,9 @@ test('four Hai Phong issuers show cited ports, regional overview and unchanged s
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:[...days,...prior],details}});
  for(const [i,ticker] of tickers.entries()){
   const asset=manifest.entries[ticker][0].asset_code;
-  await page.goto('/companies/'+ticker);
-  const region=page.getByRole('region',{name:'Lịch điều động '+ticker,exact:true}),scope=page.getByRole('region',{name:'Các bến liên quan '+ticker,exact:true}),select=region.getByLabel('Bến theo dõi',{exact:true});
-  await expect(scope.locator('article')).toHaveCount(1);await expect(select).toHaveValue(ticker.toLowerCase());
+  await page.goto('/companies/'+ticker+(ticker==='GMD'?'?plan_asset=gmd':''));
+  const region=page.getByRole('region',{name:'Lịch điều động '+ticker,exact:true}),scope=page.getByRole('region',{name:ticker==='GMD'?'Phạm vi theo dõi GMD':'Các bến liên quan '+ticker,exact:true}),select=region.getByLabel('Bến theo dõi',{exact:true});
+  if(ticker==='GMD')await expect(scope.getByRole('link',{name:/^Nam Đình Vũ/})).toBeVisible();else await expect(scope.locator('article')).toHaveCount(1);await expect(select).toHaveValue(ticker.toLowerCase());
   await expect(region.getByText('TEST '+ticker,{exact:true})).toBeVisible();
   const total=await(await request.get(`/api/v1/companies/${ticker}/plans`)).json();expect(total.months.at(-1).current.dwt).toBe(through*(i+1)*100);
   if(ticker==='GMD'){expect(total.name).toContain('Hải Phòng');expect(total.months.at(-1).prior.dwt).toBeNull();expect(total.months.at(-1).yoy.dwt).toBeNull();await expect(region.locator('tfoot [data-label="DWT"]')).not.toHaveText('Chưa đủ dữ liệu');}
