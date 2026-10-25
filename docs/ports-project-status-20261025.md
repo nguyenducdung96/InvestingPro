@@ -1,52 +1,41 @@
-> Cập nhật NAP 25/10/2026: miền Trung hiện 4/5 phạm vi có chuỗi: CDN, QNP, CMP và NAP. NAP gồm Cửa Lò/Bến Thủy, 366 workbook, 22 tháng 01/2025–10/2026; API/UI staging desktop/mobile đã đối chiếu ledger. Refresh thủ công GitHub 40160558048 thành công, dữ liệu `03135f3` đã triển khai. Lịch 08:05 Việt Nam đã đăng ký, chưa chứng nhận lần cron thực. Còn GMD–Dung Quất chưa tích hợp lịch sử. Xem [NAP](nap-integration.md) và [CMP](cmp-integration.md). Các phần bên dưới là snapshot lịch sử của đợt kiểm tra trước.
-
 # Tiến độ ngành cảng — 25/10/2026
 
-## Bàn giao mới nhất sau NAP
+## Trạng thái hiện hành sau Gemalink/SGP
 
-Đã lưu code và biên nhận NAP trên nhánh `codex/cloudflare-next-compat`; commit bàn giao `4bdb42a`, bản dữ liệu đã kiểm chứng trên staging `03135f3`. Phía Bắc giữ phạm vi chín mã đã tích hợp; lượt NAP này không kiểm chứng lại toàn bộ phía Bắc. Miền Trung có CDN, QNP, CMP, NAP; còn GMD–Dung Quất. NAP dùng báo cáo hoạt động Cảng vụ, CMP dùng điều động cầu; giữ ngữ nghĩa nguồn riêng, không coi tất cả là actual đã xác minh độc lập.
+Ứng dụng đã được triển khai và đối chiếu trực tiếp trên [web staging](https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/industries/ports/south). Code tính năng `3395d39`; head triển khai `f8623688a7dc57d015d5a42b58d1c68c26c78881` đã gộp bản cập nhật QNP `8437f26`. Cloudflare build `824a481c-e75f-4d1d-813f-11fc843c0c1d`. Biên nhận: [south-staging-20261025.json](catalog-review/south-staging-20261025.json).
 
-NAP: Cửa Lò và Bến Thủy, 366/369 workbook, 22 tháng; ngày nguồn cuối 24/10/2026. Chiều rời lũy kế 2026: 399 lượt / 2.336.540,52 DWT; tháng 10: 37 lượt / 242.422,2 DWT. Giữ null raw, hợp nhất dòng lặp và giữ bằng chứng sự kiện đã báo cáo khi snapshot sau để trống. Không chứng nhận đủ mọi ngày/cầu.
+Hiện có 14 mã có ít nhất một phạm vi được tích hợp; đây không phải 14 doanh nghiệp đã phủ mọi tài sản. Không dùng tỷ lệ mã hoặc số dòng để kết luận hoàn thiện toàn ngành.
 
-Kiểm chứng NAP: 151 Vitest, 9 hợp đồng Python, 64 Playwright hosted; typecheck/lint/Next build đạt. Staging API/UI desktop/mobile, 22 tháng hai chiều và tổng hai cảng khớp ledger. Refresh thủ công GitHub `40160558048` thành công; lịch 08:05 Việt Nam đã đăng ký nhưng chưa xác nhận cron thực. Chưa nghiệm thu production hoặc toàn quốc.
+- Miền Bắc: 9 mã PHP, DVP, VGR, VSC, GMD tại Nam Đình Vũ, HAH, DXP, PSP, CQN. Giữ phạm vi bến đã làm; CQN là kế hoạch cập/rời cầu, khác lượt vào/rời vùng cảng. VGR/VSC chia sẻ VIP Greenport, không cộng trùng vào tổng khu vực.
+- Miền Trung: CDN/Tiên Sa, QNP, CMP, NAP có chuỗi. NAP gồm Cửa Lò/Bến Thủy. GMD–Dung Quất giữ công bố chọn lọc và quan sát bổ trợ; người dùng đã đồng ý để ngỏ chuỗi định kỳ, không tiếp tục coi đây là điều kiện chặn mở rộng.
+- Miền Nam: Gemalink/GMD và 4 phạm vi SGP gồm Sài Gòn–Hiệp Phước, CMIT, SP-PSA, SSIT. Đã có tổng quan miền Nam. GMD có tổng quan Nam Đình Vũ + Gemalink và chọn từng cảng; tổng quan miền Bắc vẫn chỉ lấy Nam Đình Vũ.
+- Phạm vi chưa có chuỗi: Bình Dương, Phước Long và Nam Hải ICD của GMD; Tân Thuận và các bến SGP còn lại; PDN, CLL, TCL, SWC, TCW, VGP trong danh sách mục tiêu miền Nam. VTP/ILB/IST và các công ty mẹ/liên doanh cần rà phạm vi trước khi bổ sung.
 
-### Next steps theo thứ tự
+## Dữ liệu và kiểm chứng
 
-1. Làm GMD–Dung Quất: xác minh chính xác phạm vi khai thác và tên bến trên nguồn chính thức; rà lịch sử tàu, DWT và ngày đến/rời. Lập ma trận nguồn/phạm vi trước khi ghép; không cộng với phạm vi GMD Hải Phòng hoặc suy quyền sở hữu từ tên giống nhau. Nếu nguồn công khai chưa đủ, ghi rõ phần thiếu.
-2. Khi có nguồn đủ dùng, triển khai lịch sử, parser có hợp đồng, archive/hash, chống trùng, dashboard/API và nối bảng miền Trung theo mẫu đã có. Kiểm chứng số ghi nhận tháng/quý/YTD/YoY, desktop/mobile và refresh thực trước khi chốt GMD–Dung Quất.
-3. Chốt vận hành cụm miền Trung: kiểm tra lần cron thực và ngày nguồn mới của từng mã, cảnh báo lỗi nguồn, giữ dữ liệu tốt cuối cùng. Đối chiếu tổng quan với từng dashboard; không cộng các phạm vi chồng lấn. Chạy thủ công thành công không thay thế bằng chứng cron.
-4. Sau khi cụm miền Trung vận hành, bổ sung chuỗi sản lượng tấn/TEU doanh nghiệp công bố để so sánh với hoạt động tàu; DWT vẫn là trọng tải thiết kế, không thay cho lượng hàng. Sau đó chọn phạm vi phía Nam bằng ma trận cảng/bến và nguồn công khai.
+Nguồn miền Nam: 662 bảng ngày từ 01/01/2025 đến 24/10/2026; 6.575 dòng lịch đến/rời được ghép, trong đó Gemalink 1.838 dòng và 4 phạm vi SGP 4.737 dòng. Đây không phải số tàu ghé duy nhất hoặc actual đã xác minh. Các mục di chuyển nội cảng và snapshot vị trí không được cộng vào chỉ tiêu.
 
-## Snapshot lịch sử trước CMP/NAP
+Đã đối chiếu API live 22 tháng, hai chiều của cả 5 phạm vi với ledger; kiểm tra tổng 4 phạm vi SGP, tổng GMD hai cảng, bảng miền Nam và nhật ký Gemalink ngày 24/10. Đã đọc giao diện miền Nam/GMD/SGP trên staging. Miền Nam theo `authority_published_plan`; không lấy DWT làm tấn hàng.
 
-## Đã triển khai trên staging
+Kiểm thử tính năng: 164 Vitest, 5 kiểm tra parser Python, 16 ca E2E liên quan desktop/mobile, lint, typecheck và Next build đã qua. Sau khi gộp dữ liệu QNP mới, 12 kiểm tra QNP/miền Trung/ledger miền Nam đã qua. Không phải kết quả chạy toàn bộ E2E ở head triển khai. OpenNext local vướng symlink Windows; bản Linux Cloudflare đã triển khai được và API/UI live đã kiểm chứng. Không đồng nghĩa nghiệm thu production, quyền nguồn hoặc cron tự động.
 
-- Chín mã phía Bắc: PHP, DVP, VGR, VSC, GMD (Nam Đình Vũ/Hải Phòng), HAH, DXP, PSP, CQN. Có trang mã, phạm vi cảng/bến, tổng quan và chọn bến, tháng/quý/YoY/lũy kế, lịch từng ngày. CQN giữ riêng kế hoạch cập/rời cầu.
-- CDN: phạm vi Tiên Sa; lịch sử, biểu đồ, tháng/quý/YoY và lũy kế. Không cộng Sơn Trà vào CDN.
-- Tổng quan phía Bắc: chín mã, tách Hải Phòng/CQN, không cộng trùng VIP Greenport.
-- Tổng quan miền Trung: đủ năm dòng CDN, QNP, CMP, NAP, GMD–Dung Quất; CDN và QNP đã có chuỗi; CMP, NAP và GMD–Dung Quất chưa tích hợp lịch sử.
-- Quy tắc hiển thị thống nhất: có dữ liệu ghi nhận thì vẫn cộng tháng/quý/lũy kế và tính YoY từ hai giá trị hiển thị; thiếu nhỏ không làm trống cả kỳ. Chi tiết chất lượng nằm trong mục mở rộng. Quy tắc đã lưu trong AGENTS.md và bộ nhớ theo yêu cầu người dùng.
+Quy tắc hiển thị vẫn theo AGENTS.md: giữ tổng số dòng và DWT ghi nhận, tháng/quý/YTD/YoY dù thiếu ngày/trọng tải; kỳ không có quan sát giữ null. Tháng hiện tại có cửa sổ cập nhật. Chất lượng thu gọn; raw null, provenance và tổng đủ độ phủ giữ riêng. Không cộng phạm vi chồng lấn hoặc nhân hoạt động theo tỷ lệ vốn.
 
-Code mới nhất: `4c13c30`. Đã xác nhận Workers staging và GitHub check thành công. Bộ kiểm thử dữ liệu 130/130; các kiểm thử desktop/mobile liên quan đạt sau cập nhật kỳ vọng. Readback UI staging: phía Bắc 9/9 mã có DWT; PHP đến 24/10/2026 có lũy kế 35.753.736 DWT, YoY +70,63%.
+## Next steps theo thứ tự ưu tiên
 
-## Còn phải làm
+1. **Chốt cập nhật tự động cho phạm vi đang có.** Đăng ký `south-plans.yml` trên default `main` với checkout nhánh staging; kiểm tra cache/archive, lượt chạy thủ công, bản dữ liệu được commit và deploy/readback sau cập nhật. Xác minh các chu kỳ cron thực của miền Bắc/Trung/Nam; cấu hình lịch hoặc chạy thủ công không chứng minh cron ổn định. Kiểm tra lỗi nguồn và giữ bản thành công cuối. `south-plans.yml` và `dungquat-activity.yml` chưa có trên `origin/main` tại lần kiểm tra 25/10; NAP đã có. Dung Quất chỉ duy trì phần công bố chọn lọc nếu cần, không mở lại nghiên cứu chuỗi đang để ngỏ.
+2. **Ưu tiên PDN cho đợt dữ liệu miền Nam kế tiếp.** Rà nguồn chính thức Long Bình Tân/Gò Dầu A/B và nhãn cầu; lập ma trận cầu–nguồn–khoảng thời gian. Chỉ ghép khi có bằng chứng, không coi kế hoạch/snapshot là actual. Mục tiêu bàn giao: chuỗi dùng được, API/dashboard, refresh và staging readback.
+3. **Bù phạm vi GMD/SGP rồi mở rộng các mã còn lại.** Bình Dương/Phước Long và Tân Thuận phải có nguồn riêng; không gán bến phao hoặc cảng tên gần giống. Với CLL/TCL, phân biệt đúng phạm vi khai thác và dịch vụ xếp dỡ. Với SWC/TCW/VGP, xác định loại hình cảng sông/ICD/kho và chức năng hiện hành trước khi đưa vào cùng thước đo.
+4. **Hoàn thiện góc nhìn đầu tư bằng tấn hàng/TEU.** Mở rộng chuỗi sản lượng doanh nghiệp công bố, tháng/quý/YTD/YoY và đối chiếu với xu hướng tàu/DWT. Giữ sản lượng, trọng tải thiết kế và dữ liệu tài chính thành các thước đo riêng. Chưa suy lượng hàng hoặc doanh thu từ DWT.
+5. **Nghiệm thu toàn bộ sản phẩm.** Kiểm tra danh sách cảng/bến mục tiêu, quy tắc quan hệ theo kỳ, quyền nguồn, bộ lọc/tháng đang cập nhật/null/YoY, RLS và giao diện desktop/mobile. Chạy bộ E2E đầy đủ và kiểm tra môi trường phát hành dự kiến. Chỉ ghi nhận hoàn thiện theo phạm vi có bằng chứng; chưa tuyên bố toàn quốc hoặc production.
 
-- Vận hành cập nhật: tại thời điểm kiểm tra, chín mã phía Bắc mới có 23/24 ngày tháng 10, chưa có lịch ngày chốt 24/10. Số đã ghi nhận đã hiển thị bình thường; cần kiểm tra workflow/nguồn và nhập bổ sung nếu nguồn có lịch. Chưa coi cấu hình cron là bằng chứng cập nhật ổn định.
-- Ba phạm vi miền Trung chưa có chuỗi tích hợp: CMP, NAP, GMD–Dung Quất. Có đầu mối nghiên cứu, chưa xác minh đủ lịch sử để công bố số.
-- Sản lượng tấn/TEU do doanh nghiệp công bố chưa được triển khai đồng đều cho mọi mã. Phần hiện có không phải chuỗi DWT theo lịch.
-- Chưa hoàn thành toàn quốc hoặc nghiệm thu production. Các kết quả trên là staging.
+Bước kế tiếp nên làm là mục 1, sau đó PDN. Tiếp tục để ngỏ GMD–Dung Quất theo quyết định đã thống nhất.
 
-## Thứ tự tiếp theo đề xuất
+## Tài liệu liên quan
 
-1. Chốt vận hành cụm đã có: kiểm tra các lần refresh gần nhất, bổ sung ngày nguồn có sẵn, xác nhận cập nhật tự động và tránh lỗi một nguồn dừng các nguồn khác. Không chặn hiển thị số đã ghi nhận trong thời gian này.
-2. QNP đã có dashboard và 22 tháng lịch chính thức, xử lý trang tiếp, chống trùng và nối bảng miền Trung; xem docs/qnp-integration.md và biên nhận mới nhất. Giữ lịch dự kiến khác actual; TC1 không có alias nguồn thì giữ thiếu.
-3. Tiếp tục CMP, NAP, GMD–Dung Quất; ưu tiên lại nếu rà nguồn cho thấy một phạm vi có lịch sử thuận lợi hơn. Mỗi mã phải có chuỗi dùng được và luồng cập nhật trước khi coi là tích hợp.
-4. Khi cụm miền Trung vận hành, bổ sung sản lượng tấn/TEU và góc nhìn so sánh giữa mã để hỗ trợ nghiên cứu đầu tư; sau đó chọn cụm phía Nam.
+- [Miền Nam và Gemalink/SGP](south-integration.md)
+- [Dung Quất: công bố chọn lọc](dungquat-integration.md)
+- [NAP](nap-integration.md), [CMP](cmp-integration.md), [QNP](qnp-integration.md)
+- [Hướng phát triển sản phẩm](port-investment-roadmap-review.md)
 
-Các con số độ phủ trong tài liệu ngày 24/10 là snapshot lịch sử; dùng tài liệu này và các sửa đổi ngày 25/10 làm trạng thái sản phẩm mới nhất.
-
-## QNP bổ sung ngày 25/10
-
-653/662 tài liệu, 6.465 dòng nguồn, trong đó bổ sung 329 dòng trang tiếp. Dữ liệu ghi nhận từ 01/2025 đến 10/2026; giao diện chỉ giữ YoY DWT. Chín ngoại lệ nguồn đã phân loại và giữ thiếu, không chứng nhận đủ mọi ngày/trọng tải. Số miền Bắc và commit phía trên là snapshot của lần kiểm tra trước, không phải readback lại trong lượt QNP này.
-
-QNP: refresh GitHub 40144613728 (attempt 2) đã thành công và tự push dữ liệu 73a42c9; staging readback khớp. Manual pipeline accepted, cron actual execution chưa chứng nhận. Chi tiết: catalog-review/qnp-final-acceptance-20261025.json.
+Các trạng thái trước Gemalink/SGP trong lịch sử Git là snapshot lịch sử; tài liệu này thay thế thứ tự ưu tiên cũ yêu cầu giải quyết Dung Quất trước miền Nam.

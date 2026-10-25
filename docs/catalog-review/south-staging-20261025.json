@@ -1,0 +1,97 @@
+{
+  "verified_at": "2026-10-25T05:58:27.862Z",
+  "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "commit": "f8623688a7dc57d015d5a42b58d1c68c26c78881",
+  "cloudflare_build": "824a481c-e75f-4d1d-813f-11fc843c0c1d",
+  "checks": [
+    {
+      "asset": "gemalink",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "sg_hiep_phuoc",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "cmit",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "sp_psa",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "ssit",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "gemalink",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "sg_hiep_phuoc",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "cmit",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "sp_psa",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "ssit",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "direction": "arrival",
+      "sgp_aggregate_matched": true,
+      "gmd_combined_matched": true,
+      "south_overview_matched": true
+    },
+    {
+      "direction": "departure",
+      "sgp_aggregate_matched": true,
+      "gmd_combined_matched": true,
+      "south_overview_matched": true
+    }
+  ],
+  "gemalink_20261024_rows": 4,
+  "actual_verified": false,
+  "full_scope_certified": false,
+  "scheduled_refresh_verified": false,
+  "method": "Public API navigation and read-only rendered JSON; no authenticated backend extraction",
+  "ui_verified": {
+    "south": {
+      "heading": "Tổng quan cảng miền Nam",
+      "rows": [
+        "GMDGemalink414.589.377Cùng kỳ: 4.459.430▲ +2,91%Đã tích hợp một phầnPhạm vi và nguồnMiền Nam chỉ Gemalink. Bình Dương, Phước Long chưa có chuỗi được ghép.23 ngày có dòng được ghép; 0 dòng thiếu DWT. Chưa chứng nhận tổng đầy đủ.Nguồn chính thức ↗",
+        "SGPHiệp Phước · CMIT · SP-PSA · SSIT1585.241.465Cùng kỳ: 5.054.178▲ +3,71%Đã tích hợp một phầnPhạm vi và nguồnBốn phạm vi, chưa gồm Tân Thuận và các bến khác.24 ngày có dòng được ghép; 0 dòng thiếu DWT. Chưa chứng nhận tổng đầy đủ.Nguồn chính thức ↗"
+      ],
+      "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/industries/ports/south"
+    },
+    "gmd_all": {
+      "asset": "gmd_all",
+      "heading": "Công ty Cổ phần Tập đoàn Gemadept",
+      "stats": "Tàu rời · 2026-10 · đang cập nhật6.140.537 DWT▲ +0,85% YoYLũy kế 2026 đến 2026-10-2479.142.754 DWT▲ +117,19% YoYDWT bình quân / lượt có trọng tải · 2026-1050.332,27DWT/lượt theo lịch",
+      "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/companies/GMD?plan_asset=gmd_all"
+    },
+    "sgp": {
+      "asset": "sgp",
+      "heading": "CTCP Cảng Sài Gòn",
+      "verified_from_rendered_dom": true
+    }
+  },
+  "browser_screenshot": ".local/south/staging-south.png"
+}

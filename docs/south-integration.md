@@ -27,7 +27,7 @@ Các tổng ghi nhận cộng dòng và DWT có bằng chứng dù thiếu ngày
 
 API: `/api/v1/industries/ports/south`, `/api/v1/companies/SGP/plans?asset=sgp`, `/api/v1/companies/GMD/plans?asset=gemalink` hoặc `gmd_all`. Thêm `day=YYYY-MM-DD` để lấy nhật ký có nguồn. GMD API không có asset tiếp tục giữ default Hải Phòng cũ để tương thích; UI mặc định phạm vi hai cảng mới.
 
-Workflow `south-plans.yml` được cấu hình cập nhật và commit bản dữ liệu vào nhánh staging lúc 08:35 Việt Nam. Cấu hình chưa chứng minh đã chạy trên GitHub hoặc đã triển khai cloud. Bản dữ liệu hoạt động là một edition trong build, không tự thay đổi trên bản deploy nếu chưa có build mới. Không thay đổi quyền nguồn, dữ liệu catalog đã duyệt hoặc RLS. Nguồn công khai chưa đồng nghĩa quyền tái phân phối được phê duyệt.
+Workflow `south-plans.yml` được cấu hình cập nhật và commit bản dữ liệu vào nhánh staging lúc 08:35 Việt Nam. Workflow chưa có trên default main tại lần kiểm tra 25/10; chưa xác minh chạy định kỳ trên GitHub. Bản ứng dụng đã triển khai cloud và có biên nhận riêng. Bản dữ liệu hoạt động là một edition trong build, không tự thay đổi trên bản deploy nếu chưa có build mới. Không thay đổi quyền nguồn, dữ liệu catalog đã duyệt hoặc RLS. Nguồn công khai chưa đồng nghĩa quyền tái phân phối được phê duyệt.
 
 ## Phần ngành còn mở
 
@@ -39,4 +39,4 @@ Miền Bắc giữ các phạm vi đã tích hợp, miền Trung giữ CDN/QNP/C
 
 Ngày 25/10/2026: 5 kiểm tra parser Python, toàn bộ 164 kiểm tra Vitest, lint, typecheck và Next production build đã qua. 16 ca E2E liên quan trên desktop/mobile đã qua qua các lần chạy mục tiêu: miền Nam, miền Bắc, Hải Phòng, miền Trung/CDN, Dung Quất và danh mục biên tập. Kiểm tra ledger đối chiếu mọi tháng/cảng/chiều với nhật ký; kiểm tra giao diện gồm bộ lọc, ngày thiếu, YoY, provenance thu gọn, hai giao diện màu và không tràn ngang. Không phải kết quả chạy toàn bộ E2E.
 
-`pnpm build:cloudflare` qua phần Next build nhưng dừng khi OpenNext tạo symlink với `EPERM` trên Windows. Máy chưa có WSL; chưa xác nhận bước đóng gói hoặc runtime Cloudflare. Chưa push, triển khai cloud hoặc xác minh workflow trên GitHub trong đợt này.
+`pnpm build:cloudflare` qua phần Next build nhưng dừng khi OpenNext tạo symlink với `EPERM` trên Windows. Máy chưa có WSL. Sau đó đã push head `f862368` và triển khai bằng Cloudflare Workers Builds Linux; API/UI staging đã đối chiếu trực tiếp lúc 05:58 UTC ngày 25/10/2026. Xem `catalog-review/south-staging-20261025.json`. Chưa xác minh cron GitHub hoặc nghiệm thu production.
