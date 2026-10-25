@@ -13,8 +13,6 @@
       "workers_dev": true,
       "preview_urls": false,
       "vars": { "PORT_CALL_IMPORT_MODE": "edge" },
-      // Bounded HCM reachability experiment; keep evidence before retaining it.
-      "placement": { "region": "aws:ap-southeast-7" },
     },
   },
 }
