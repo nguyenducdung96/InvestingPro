@@ -5,7 +5,11 @@ permissions:
   contents: read
 jobs:
   diagnose:
-    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        runner: [ubuntu-24.04-arm, windows-latest]
+    runs-on: ${{ matrix.runner }}
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
@@ -18,7 +22,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: hcm-network-diagnostic
+          name: hcm-network-diagnostic-${{ runner.os }}-${{ runner.arch }}
           path: .local/ops/hcm-network-diagnostic.json
           include-hidden-files: true
           retention-days: 14
