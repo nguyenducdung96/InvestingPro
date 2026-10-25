@@ -1,0 +1,6 @@
+export function NapPortScope(){
+ return <section className="asset-section" aria-label="Các cảng liên quan NAP" id="company-ports"><div className="section-heading"><div><p className="eyebrow">NAP · PHẠM VI THEO DÕI</p><h2>Cảng Nghệ Tĩnh · Cửa Lò và Bến Thủy</h2></div></div><div className="php-berth-grid">{[
+  {name:'Cửa Lò',note:'Bảng Xí nghiệp xếp dỡ Cửa Lò thuộc Cảng Nghệ Tĩnh; doanh nghiệp liệt kê cầu 1–4. Bến số 5 của Công ty TNHH Cảng Cửa Lò giữ ngoài phạm vi.'},
+  {name:'Bến Thủy',note:'Bảng Cảng Bến Thủy thuộc Cảng Nghệ Tĩnh; giữ tách với xăng dầu Hưng Hòa và các bến phía Hà Tĩnh.'},
+ ].map(p=><article className="panel company-card" key={p.name}><span className="badge">Hoạt động gắn với NAP theo nguồn</span><h3>{p.name}</h3><p>{p.note}</p><a href="https://nghetinhport.vn/nguon-luc-khai-thac/cau-ben-va-luong-hang-hai/" target="_blank" rel="noreferrer">Nguồn doanh nghiệp ↗</a></article>)}</div><details><summary>Phạm vi và cách ghép nguồn</summary><p>Chỉ dùng bảng báo cáo ghi rõ Công ty cổ phần Cảng Nghệ Tĩnh. Các cảng có cùng khu vực hoặc tên Cửa Lò không tự được gộp. Đây là phạm vi hoạt động do nguồn gắn với đơn vị, chưa chứng nhận toàn bộ cầu, tỷ lệ sở hữu hay ngày hiệu lực pháp lý.</p></details></section>;
+}

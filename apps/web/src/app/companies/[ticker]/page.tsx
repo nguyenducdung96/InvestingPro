@@ -6,6 +6,7 @@ import {CentralPendingScope} from '@/components/central-pending-scope';
 import {isIssuerPlanTicker} from '@invest/port';
 import {QnpPlans} from '@/components/qnp-plans';
 import {CmpPlans} from '@/components/cmp-plans';
+import {NapActivity} from '@/components/nap-activity';
 export const dynamic = "force-dynamic";
 export default async function Page({
   params,
@@ -23,6 +24,7 @@ export default async function Page({
     {ticker==='PHP'&&<PhpThroughput query={query}/>}
     {ticker==='QNP'&&<QnpPlans query={query}/>}
     {ticker==='CMP'&&<CmpPlans query={query}/>}
+    {ticker==='NAP'&&<NapActivity query={query}/>}
     <CompanyPage
       keyValue={ticker}
       query={query}
