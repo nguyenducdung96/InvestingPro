@@ -37,6 +37,7 @@ try{
  for(const query of ['asset=gemalink','day=2026-02-30','direction=internal']){const r=await fetch(base+'/api/v1/companies/PDN/plans?'+query);assert.equal(r.status,400);}
  receipt.deployment_readback_verified=true;
 }catch(e){receipt.error=e.message;process.exitCode=1;}
+receipt.verified_at=new Date().toISOString();
 const prior=[];for(const path of await readdir(archive))if(path.endsWith('.json'))try{prior.push(JSON.parse(await readFile(new URL(path,archive),'utf8')));}catch{/* Broken receipts never prove a scheduled success. */}
 const scheduled=[...prior,receipt].filter(r=>r.event_name==='schedule'&&r.source_refresh_success&&r.deployment_readback_verified&&Date.now()-Date.parse(r.verified_at)<7*86400000);
 receipt.scheduled_refresh_verified=new Set(scheduled.map(r=>r.run_id)).size>=2;
