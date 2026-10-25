@@ -11,6 +11,7 @@ import hashlib
 from html.parser import HTMLParser
 import json
 import math
+import os
 from pathlib import Path
 import re
 import time
@@ -84,6 +85,18 @@ def request(data=None):
   if len(raw)>4_000_000:raise ValueError('Authority response too large')
   return raw
 
+def initial_request():
+ for attempt in range(3):
+  try:return request()
+  except (OSError,ValueError):
+   if attempt==2:raise
+   time.sleep(attempt+1)
+
+def write_run(out,run):
+ (out/'last-run.json').write_text(json.dumps(run,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+ if os.environ.get('GITHUB_OUTPUT'):
+  with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as stream:stream.write('exportable='+str(run['exportable']).lower()+'\n')
+
 def post_fields(raw,day):
  p=Page();p.feed(raw.decode('utf-8-sig'))
  fields={k:v for k,v in p.fields.items() if k.startswith('__') or k.startswith('ctl22_txtDate')}
@@ -97,7 +110,11 @@ def main():
  end=dt.date.fromisoformat(args.through) if args.through else cutoff;start=dt.date.fromisoformat(args.start)
  if start>end or end>cutoff or args.workers<1 or args.workers>3:raise ValueError('Invalid elapsed history window')
  rawdir=OUT/'archive';parsed=OUT/'parsed';rawdir.mkdir(parents=True,exist_ok=True);parsed.mkdir(exist_ok=True)
- base=request();dates=[(start+dt.timedelta(days=n)).isoformat() for n in range((end-start).days+1)]
+ dates=[(start+dt.timedelta(days=n)).isoformat() for n in range((end-start).days+1)]
+ try:base=initial_request()
+ except (OSError,ValueError) as exc:
+  run={'checked_at':dt.datetime.now(dt.timezone.utc).isoformat(),'stage':'bootstrap','status':'failed','exportable':False,'requested_days':len(dates),'error':str(exc),'source_url':URL}
+  write_run(OUT,run);print(json.dumps(run),flush=True);raise SystemExit(1)
  def collect(day):
   path=parsed/(day+'.json')
   if path.exists() and dt.date.fromisoformat(day)<end-dt.timedelta(days=args.refresh_recent):
@@ -125,6 +142,7 @@ def main():
    if n%60==0:print(json.dumps({'processed':n,'errors':sum(bool(d.get('source_error')) for d in results)}),flush=True)
  receipt={'checked_at':dt.datetime.now(dt.timezone.utc).isoformat(),'requested_days':len(dates),'errors':[{'day':d['day'],'error':d['source_error']} for d in results if d.get('source_error')],'labels':sorted(set(label for d in results for label in d['labels']))}
  (OUT/'receipt.json').write_text(json.dumps(receipt,ensure_ascii=False,indent=2),encoding='utf-8')
+ write_run(OUT,{'checked_at':receipt['checked_at'],'stage':'collection','status':'failed' if receipt['errors'] else 'success','exportable':True,'requested_days':len(dates),'parsed_days':sum(bool(d.get('sha256')) for d in results),'error_days':len(receipt['errors']),'source_url':URL})
  print(json.dumps({'parsed':len(results),'errors':len(receipt['errors'])}),flush=True)
  if receipt['errors']:raise SystemExit(1)
 

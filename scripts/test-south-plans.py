@@ -1,5 +1,8 @@
 import importlib.util
 import unittest
+from unittest.mock import patch
+import tempfile
+import json
 from pathlib import Path
 from html import escape
 spec=importlib.util.spec_from_file_location('collector',Path(__file__).with_name('collect-south-plans.py'));m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
@@ -13,6 +16,21 @@ def board(day='2026-10-24',clock='11:00',weight='156694'):
   html+='</table>'
  return html.encode()
 class Tests(unittest.TestCase):
+ def test_initial_connection_retries_and_fails_without_false_success(self):
+  with patch.object(m,'request',side_effect=[OSError('timeout'),OSError('timeout'),b'valid']),patch.object(m.time,'sleep'):
+   self.assertEqual(m.initial_request(),b'valid')
+  with patch.object(m,'request',side_effect=OSError('timeout')),patch.object(m.time,'sleep'):
+   with self.assertRaises(OSError):m.initial_request()
+ def test_initial_failure_receipt_does_not_replace_prior_source_receipt(self):
+  with tempfile.TemporaryDirectory() as folder,patch.dict(m.os.environ,{},clear=True):
+   p=Path(folder);(p/'receipt.json').write_text('last-good')
+   m.write_run(p,{'exportable':False,'stage':'bootstrap','error':'timeout'})
+   self.assertEqual((p/'receipt.json').read_text(),'last-good');self.assertFalse(json.loads((p/'last-run.json').read_text())['exportable'])
+ def test_sparse_cold_cache_cannot_replace_published_history(self):
+  spec=importlib.util.spec_from_file_location('exporter',Path(__file__).with_name('export-south-plans.py'));exporter=importlib.util.module_from_spec(spec);spec.loader.exec_module(exporter)
+  prior={'metadata':{'assets':{'gemalink':{'rows':100}}}}
+  with self.assertRaises(ValueError):exporter.check_retention({'gemalink':{'rows':2}},prior)
+  exporter.check_retention({'gemalink':{'rows':99}},prior)
  def test_selected_and_heading_dates_must_match_requested_day(self):
   with self.assertRaises(ValueError):m.parse(board(),'2025-01-01')
   with self.assertRaises(ValueError):m.parse(board('2025-01-01'),'2025-01-01')

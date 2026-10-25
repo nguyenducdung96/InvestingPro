@@ -13,6 +13,10 @@ ALIASES={
  'sp_psa':['CẦU CẢNG SỐ 1 - SP-PSA','CẦU CẢNG SỐ 2 - SP-PSA'],
  'ssit':['CẦU CẢNG SỐ 1 - SSIT','CẦU CẢNG SỐ 2 (BẾN SÀ LAN) - SSIT','CẦU CẢNG SỐ 3 (BẾN SÀ LAN) - SSIT'],
 }
+def check_retention(stats,previous):
+ for asset,old in previous.get('metadata',{}).get('assets',{}).items():
+  if old.get('rows',0)>=20 and stats.get(asset,{}).get('rows',0)<old['rows']*.95:
+   raise ValueError('Selected history shrank by more than 5%; preserve published edition and review '+asset)
 def main():
  source=ROOT/'.local/south-plans';days=[];journals={};stats={a:{'rows':0,'first_day':None,'last_day':None} for a in ALIASES};seen_days=set()
  for path in sorted((source/'parsed').glob('*.json')):
@@ -46,6 +50,8 @@ def main():
   days.append({'day':day,'sha256':d.get('sha256'),'checked_at':d.get('checked_at'),'last_attempt':d['last_attempt'],'error':d.get('source_error'),'assets':summary,'rejected':len(d['rejected']),'internal':d['section_rows'].get('internal',0)})
  receipt=json.loads((source/'receipt.json').read_text(encoding='utf-8'))
  if len(days)!=receipt['requested_days']:raise ValueError('Incomplete requested edition')
+ previous_path=ROOT/'docs/catalog-review/south-history-ledger.json'
+ if previous_path.exists():check_retention(stats,json.loads(previous_path.read_text(encoding='utf-8')))
  metadata={'checked_at':receipt['checked_at'],'source_url':collector.URL,'parser_version':collector.VERSION,'from':days[0]['day'],'through':days[-1]['day'],'requested_days':len(days),'source_errors':receipt['errors'],'assets':stats,'actual_verified':False,'full_scope_certified':False,'source_rights':'publicly_accessible; republication_rights_not_certified'}
  dest=ROOT/'packages/modules/port/src';journal=dest/'south-journal-data';journal.mkdir(exist_ok=True)
  compact=lambda value:json.dumps(value,ensure_ascii=False,separators=(',',':'))
