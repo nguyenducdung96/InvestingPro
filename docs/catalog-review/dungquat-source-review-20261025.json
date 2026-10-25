@@ -1,0 +1,67 @@
+{
+  "reviewed_on": "2026-10-25",
+  "scope": "GMD Gemadept Dung Quat only",
+  "records": [
+    {
+      "url": "http://cangvuhanghaiqni.gov.vn/",
+      "sha256": "2e4324c0b95ed00dbcc2bcaf9b88c5124082f4b5523d5a3d60babe4fd533d669",
+      "bytes": 171402,
+      "disposition": "Public menu links plans and position board"
+    },
+    {
+      "url": "http://cangvuhanghaiqni.gov.vn/?lk=0206",
+      "sha256": "03c2ab049b5bb21adb3978c8aea4174c22fe22bf1fa98e0c713eb61b28c0b441",
+      "bytes": 151261,
+      "disposition": "Tin muc nay dang duoc cap nhat"
+    },
+    {
+      "url": "http://cangvuhanghaiqni.gov.vn/?lk=6201",
+      "sha256": "dc49c36528178434668c7299ae31124ef69498620dbc74dede17b78946251014",
+      "bytes": 151261,
+      "disposition": "Tin muc nay dang duoc cap nhat"
+    },
+    {
+      "url": "https://dqp.gemadept.com.vn/gioi-thieu/tong-quan/",
+      "sha256": "1bc78ca715b9acb681141efb2f4070976346beb60de676634ef32c02b7774de0",
+      "bytes": 55159,
+      "disposition": "Official address Ben so 1; operational scope only"
+    },
+    {
+      "url": "https://dqp.gemadept.com.vn/page-sitemap.xml",
+      "sha256": "0ba7189845c958fbecf145b510d1ef0d2032f348520a5dfbd017ce1738ecebcb",
+      "bytes": 4332,
+      "disposition": "No vessel history page identified in page sitemap"
+    },
+    {
+      "url": "https://dqp.gemadept.com.vn/wp-json/wp/v2/search?search=t%C3%A0u&per_page=100",
+      "sha256": "329ced0559e6ebb4e27f0d79675885079c3217d2ab1147b453404bdb5a935eda",
+      "bytes": 1267,
+      "disposition": "Public search returned two news posts, no operational history"
+    }
+  ],
+  "position_board": {
+    "url": "http://cangvuhanghaiqni.gov.vn/tivi.aspx",
+    "sha256": "aaefb5a883baf3a180a9899f1f83ab5e7cebe1b5f0d3acde90db04d0b1fb03cf",
+    "source_rows": 69,
+    "selected_rows": 1,
+    "source_row": 15,
+    "vessel": "HJ TIANHE",
+    "dwt": 60434,
+    "gt": 49098,
+    "source_time_raw": "11/6/2026 18:00",
+    "semantics": "authority_position_snapshot"
+  },
+  "history_available": false,
+  "scheduled_refresh_verified": false,
+  "cloud_deployed": false,
+  "rights_status_changed": false,
+  "local_validation": {
+    "python_contracts": "5 passed",
+    "vitest_related": "12 passed",
+    "typecheck": "passed",
+    "targeted_eslint": "passed",
+    "playwright": "4 passed: Dung Quat and CDN/central on desktop and mobile; mobile screenshot inspected",
+    "build": "Next production build passed",
+    "diff_check": "passed"
+  }
+}
