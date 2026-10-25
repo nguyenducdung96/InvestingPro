@@ -15,7 +15,7 @@ test('PDN scopes reconcile with API, filters and original time evidence',async({
  await expect(plans.locator('tbody').first().locator('tr')).toHaveCount(4);
  await expect(plans.locator('.plan-chart-legend').filter({hasText:'Đơn vị: lượt'})).toHaveCount(3);
  await page.goto('/companies/PDN?plan_day=2026-03-13&plan_direction=arrival');
- const record=plans.locator('#plan-days tbody tr').filter({hasText:'DAI TAY DUONG 26'});
+ const record=plans.locator('#plan-days tbody tr').filter({hasText:'DAI TAY DUONG 26'}).filter({has:page.locator('[data-label="Giờ dự kiến"]').filter({hasText:/^13:10$/})});
  await expect(record).toHaveCount(1);await expect(record.locator('[data-label="Giờ dự kiến"]')).toHaveText('13:10');
  await record.getByText('Bằng chứng dòng',{exact:true}).click();await expect(record).toContainText('13/03/2026 13:010');await expect(record).toContainText('SHA-256:');
  const day=await(await page.request.get('/api/v1/companies/PDN/plans?day=2026-03-13&direction=arrival')).json();
