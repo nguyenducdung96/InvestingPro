@@ -160,3 +160,5 @@ export * from './nap-activity';
 export * from './nap-history-data';
 export * from './nap-journal-loader';
 export * from './dungquat-snapshot-data';
+export * from './dungquat-history-data';
+export * from './dungquat-activity';

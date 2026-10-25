@@ -1,0 +1,164 @@
+{
+  "reviewed_on": "2026-10-25",
+  "status": "reviewed_subset",
+  "records": [
+    {
+      "url": "http://cangvuhanghaiqni.gov.vn/?lk=kehoach_tauvaocang",
+      "sha256": "db483fa3f44eb3159e4df3c5704ccea28dbfc9fe398dee118f99f2efcc33a22b",
+      "bytes": 154871
+    },
+    {
+      "url": "http://cangvuhanghaiqni.gov.vn/?lk=kehoach_tauvaocang&ntn=all",
+      "sha256": "da57084676f6e9bd3506c2dbca982bd5752e04641e7ec6ab82de9deae8fe5971",
+      "bytes": 154883
+    },
+    {
+      "url": "http://cangvuhanghaiqni.gov.vn/?lk=kehoach_tauvaocang&ntn=20250210",
+      "sha256": "e9d8c593b97dcdacdc8c39f1579e449a55a2d3ea8ff4abf044d0a5eff7572038",
+      "bytes": 153339
+    },
+    {
+      "url": "http://cangvuhanghaiqni.gov.vn/?lk=0708",
+      "sha256": "122948a9b1d54e9cc89f12ba800507cbe5e9fd0e0639727168e5fd03ec036ab9",
+      "bytes": 151261
+    },
+    {
+      "url": "http://cangvuhanghaiqni.gov.vn/?lk=tivingoai",
+      "sha256": "60f0a937175103214690bd1a0d2ceee4ea9125fe8ce0ea6592991cbfb6a3ba4f",
+      "bytes": 151897
+    },
+    {
+      "url": "https://dqp.gemadept.com.vn/wp-json/wp/v2/posts?per_page=100&_fields=id,date,link,title,content",
+      "sha256": "520f07839bfb737258e31e7db4a34ad8bbdc17baa4f630a2ec50f898229893af",
+      "bytes": 758493
+    },
+    {
+      "url": "https://smartport.gemadept.com.vn/",
+      "sha256": "863265356f2866293a9ffafa2408f528d6d43b0dd4d1153d811595a7b6dab921",
+      "bytes": 7427
+    },
+    {
+      "url": "https://www.gemadept.com.vn/ban-tin-gemadept/",
+      "sha256": "e7ba7ead0f3055f916952c1ac2c3803d845775995dd8a7fa97df2c8003312467",
+      "bytes": 62274
+    }
+  ],
+  "operator_disclosures": {
+    "accepted_article_ids": [
+      4019,
+      4051
+    ],
+    "excluded_article_ids": [
+      4038,
+      4054
+    ],
+    "accepted_arrivals": 2,
+    "accepted_departures": 0,
+    "arrivals_with_dwt": 1,
+    "source_dates": [
+      "2022-06-04",
+      "2025-02-10"
+    ],
+    "article_catalog_rows": 99
+  },
+  "authority_plan": {
+    "source_rows": 4,
+    "gemadept_rows": 0,
+    "qualifying_events": 0,
+    "date_filter_20250210_rows": 0,
+    "notes": "Only PTSC, Jetty and P/S; times lack explicit years in rows. Do not use as Gemadept history."
+  },
+  "smartport": {
+    "checked_via": "Public browser login page, Tra cuu Lich tau tab",
+    "public_terminals": [
+      "CẢNG NAM ĐÌNH VŨ",
+      "NAM HẢI ICD",
+      "CẢNG BÌNH DƯƠNG",
+      "CẢNG GEMALINK",
+      "ASL GEMADEPT DEPOT",
+      "GAL DEPOT",
+      "PME DEPOT",
+      "PHƯỚC LONG ICD 1",
+      "PHƯỚC LONG ICD 3",
+      "GNL DEPOT"
+    ],
+    "dungquat_available": false,
+    "captcha_submitted": false,
+    "login_submitted": false
+  },
+  "newsletters": {
+    "text_scanned": [
+      {
+        "url": "https://www.gemadept.com.vn/wp-content/uploads/2026/10/GMD-NEWS-10.2026-VN.pdf",
+        "sha256": "ec62a3074c6b0136872bf7059450d795a6b654e90aa4069c82a688d1887d0ad7",
+        "pages": 17,
+        "matching_extracted_text_pages": []
+      },
+      {
+        "url": "https://www.gemadept.com.vn/wp-content/uploads/2026/03/GMD-NEWS-3.2026-TV.pdf",
+        "sha256": "cf879df7939b7d2b447b7fe12781fb7c749dbb701f3f23f24a7180b4af1f5094",
+        "pages": 15,
+        "matching_extracted_text_pages": []
+      },
+      {
+        "url": "https://www.gemadept.com.vn/wp-content/uploads/2026/04/GMD-NEWS-4.2026-VN.pdf",
+        "sha256": "35c5e81550731385719e38c7503410a678c508d0d21ad7124fa02f9fcd6d0c7f",
+        "pages": 14,
+        "matching_extracted_text_pages": []
+      },
+      {
+        "url": "https://www.gemadept.com.vn/wp-content/uploads/2026/05/GMD-NEWS-5.2026-VN.pdf",
+        "sha256": "8d3c740dea18efae1a52ed720f362eca44a2327f21ceaf374194f819eb1274d7",
+        "pages": 14,
+        "matching_extracted_text_pages": []
+      },
+      {
+        "url": "https://www.gemadept.com.vn/wp-content/uploads/2026/06/GMD-NEWS-6.2026-TV.pdf",
+        "sha256": "e77c014b1f3f368d43fdb8241c27ba9d4bf914249a57420d673f546a10ff4bad",
+        "pages": 13,
+        "matching_extracted_text_pages": []
+      },
+      {
+        "url": "https://www.gemadept.com.vn/wp-content/uploads/2026/07/GMD-NEWS-7.2026-VN.pdf",
+        "sha256": "bbaaef588bdd3878ccffe2d2e831a6a0fe65984cc62b267e2141cdca7140007a",
+        "pages": 17,
+        "matching_extracted_text_pages": []
+      },
+      {
+        "url": "https://www.gemadept.com.vn/wp-content/uploads/2026/08/GMD-NEWS-8.2026-VN.pdf",
+        "sha256": "da279ceae1169cbf77bb3bdb055d49675967d85dabdab37a41c1adee6e1d8902",
+        "pages": 13,
+        "matching_extracted_text_pages": []
+      }
+    ],
+    "failed": [
+      {
+        "url": "https://www.gemadept.com.vn/wp-content/uploads/2026/09/GMD-NEWS-9.2026-VN.pdf",
+        "error": "40 second download timeout; not accepted as evidence"
+      }
+    ],
+    "note": "Extracted-text search only; no additional events accepted. Does not certify full visual/OCR review."
+  },
+  "regular_history_available": false,
+  "connected_regular_issuers": 4,
+  "disclosed_issuers": 1,
+  "cloud_deployed": false,
+  "scheduled_refresh_verified": false,
+  "source_rights_changed": false,
+  "validation": {
+    "python": "10 passed",
+    "vitest": "157 passed across 34 files",
+    "playwright": "4 passed desktop/mobile, Dung Quat and CDN/central",
+    "typecheck": "passed",
+    "eslint": "targeted files passed",
+    "build": "Next production build passed",
+    "diff_check": "passed",
+    "visual": "desktop and mobile comparison screenshots inspected"
+  },
+  "completion": {
+    "technical_integration": "implemented locally",
+    "regular_historical_dataset": "blocked by unavailable qualifying public feed in reviewed sources",
+    "production_acceptance": false,
+    "workflow_configured": "08:20 Asia/Ho_Chi_Minh, not pushed or executed"
+  }
+}

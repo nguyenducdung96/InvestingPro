@@ -1,31 +1,42 @@
-# GMD – Gemadept Dung Quất, kiểm tra ngày 25/10/2026
+# GMD – Gemadept Dung Quất, 25/10/2026
 
-## Tiến độ đã đối chiếu
+## Trạng thái bàn giao hiện tại
 
-Working tree sạch khi bắt đầu. Mã nguồn và biên nhận NAP hiện có xác nhận cụm miền Trung tích hợp chuỗi CDN, QNP, CMP, NAP (4/5), còn GMD Dung Quất là trang chờ. Miền Bắc có các dashboard đã triển khai; lượt này không nghiệm thu lại toàn bộ dữ liệu miền Bắc. Biên nhận NAP ghi staging đã đối chiếu; đây là bằng chứng trong repo, chưa phải lần readback cloud mới của lượt Dung Quất.
+Đã có dashboard và API hoạt động theo công bố chọn lọc của doanh nghiệp, cùng collector, kiểm thử và cấu hình refresh. Đã đối chiếu hai sự kiện đến có ngày cụ thể: Glorious Lotus ngày 04/06/2022 (49.602 DWT) và Spring Breeze ngày 10/02/2025 (DWT chưa được nguồn nêu). Chưa có chuỗi báo cáo tàu vào/rời định kỳ để hoàn tất lịch sử đầu tư như CDN/QNP/CMP/NAP. Không coi hai sự kiện là toàn bộ hoạt động hoặc độ phủ 5/5 chuỗi miền Trung.
 
-## Nguồn và giới hạn thực tế
+Working tree sạch khi bắt đầu các lượt Dung Quất. Biên nhận NAP trong repo xác nhận staging cho bốn phạm vi CDN/QNP/CMP/NAP; lượt này không nghiệm thu lại miền Bắc hoặc readback cloud cũ. Commit đầu `afe1b3e` chỉ có quan sát vị trí; phần hiện tại bổ sung hoạt động công bố và các bộ lọc.
 
-- Website doanh nghiệp: https://dqp.gemadept.com.vn/gioi-thieu/tong-quan/ ghi địa chỉ Bến số 1 – Cảng tổng hợp Dung Quất, xã Vạn Tường, Quảng Ngãi. Không suy tỷ lệ sở hữu hoặc ngày hiệu lực từ địa chỉ. Không thay đổi catalog đã duyệt hay quyền nguồn.
-- Địa chỉ Cảng vụ hoạt động là **HTTP** http://cangvuhanghaiqni.gov.vn/; HTTPS không tải được trong lần khảo sát. Tên miền `cangvuhanghaiquangngai.gov.vn` trong ghi chú cũ không phải endpoint đang dùng.
-- Hai liên kết công khai `?lk=0206` và `?lk=6201` đều trả “Tin mục này đang được cập nhật”. Chưa có bản tin hay phân trang lịch sử trên hai mục này.
-- Trang `tivi.aspx` là bảng **vị trí** với 69 dòng tàu, gồm ETA, khu neo và nhiều đơn vị. Một dòng có cột VỊ TRÍ = GMD: HJ TIANHE, DWT 60.434, GT 49.098, thời gian nguyên văn `11/6/2026 18:00`. Một dòng khác có đại lý GEMADEPT DUNG QUẤT nhưng vị trí ETA, bị loại. Không coi đại lý là bến.
-- Menu, page sitemap và tìm kiếm công khai của website DQP chưa cho thấy chuỗi lịch tàu phù hợp. Đây là kết quả khảo sát có giới hạn, không khẳng định nguồn không tồn tại ở nơi khác. Không dùng lịch shipping, số liệu toàn vùng hoặc lịch Nam Đình Vũ/Gemalink thay thế.
+## Phạm vi và nguồn đã kiểm tra
 
-## Phần đã triển khai local
+- Website DQP: https://dqp.gemadept.com.vn/gioi-thieu/tong-quan/ ghi Bến số 1 – Cảng tổng hợp Dung Quất. Giữ riêng Nam Đình Vũ, Gemalink, PTSC, Hào Hưng, Hòa Phát và Jetty lọc dầu; không suy tỷ lệ sở hữu hay hiệu lực pháp lý.
+- API nội dung công khai DQP: danh sách tải được có 99 bài. Hai bài 4019/4051 có ngày tiếp nhận/cập cảng rõ ràng, được đăng ký thủ công trong collector. Bài 4038 (Dyna Floresta) không có ngày cập chính xác; bài 4054 (Golden Autumn) chỉ nêu đầu tháng 06/2022. Không lấy ngày đăng hoặc tự tạo ngày đầu tháng. Không tự thêm một bài mới thành sự kiện đã duyệt.
+- Spring Breeze: ngày tiếp nhận 10/02/2025 nằm trong phần dẫn `excerpt`, bài đăng 18/02/2025. 27.500 MT là hàng viên nén, không phải DWT. Glorious Lotus: nội dung ghi 04/06/2022 và 49.602 DWT; 40.000 tấn hàng dăm gỗ giữ ngoài DWT.
+- Cảng vụ dùng HTTP http://cangvuhanghaiqni.gov.vn/; HTTPS không tải được ở lần khảo sát đầu. Hai mục menu `?lk=0206` và `?lk=6201` trả đang cập nhật. Mục nghiệp vụ `?lk=0708` cũng chưa có nội dung; khu upload yêu cầu tài khoản, không truy cập vào phần quản trị.
+- URL do người dùng cung cấp http://cangvuhanghaiqni.gov.vn/?lk=kehoach_tauvaocang có bảng kế hoạch với 4 dòng. Tải `ntn=all` vẫn 4 dòng, gồm PTSC, Jetty và P/S, không có Gemadept Dung Quất. Bộ lọc `ntn=20250210` trả bảng trống. Không biến kế hoạch của bến khác thành lịch sử GMD và không suy năm từ giờ/ngày thiếu năm.
+- `tivi.aspx` có 69 dòng vị trí; chọn một dòng cột VỊ TRÍ = GMD: HJ TIANHE, DWT 60.434, GT 49.098, thời gian nguyên văn `11/6/2026 18:00`. Dòng đại lý Gemadept nhưng vị trí ETA bị loại. Bảng này chỉ là nguồn bổ trợ, không đóng góp vào hoạt động/tháng/quý/YTD/YoY.
+- Smartport do người dùng cung cấp: đã xem tab công khai Tra cứu Lịch tàu trong trình duyệt. Danh sách cảng không có Dung Quất; có Nam Đình Vũ, Nam Hải ICD, Bình Dương, Gemalink và các depot/ICD. Không đăng nhập hay gửi CAPTCHA; không truy vấn endpoint ẩn để vượt bộ chọn cảng.
+- Quét thêm menu, page/post sitemap, nội dung DQP, nguồn doanh nghiệp về đại lý tàu, danh sách bản tin tập đoàn. Đã tải và tìm trên lớp text của 7 PDF tháng 03–08 và 10/2026; không chấp nhận thêm sự kiện từ lần quét này. PDF 09/2026 tải timeout. Chưa coi tìm lớp text là nghiệm thu OCR/ảnh toàn bộ tài liệu.
 
-Trang `/companies/GMD?central_asset=gemadept_dung_quat` giữ phạm vi riêng, bổ sung bảng quan sát vị trí, DWT, nguyên văn thời gian và disclosure chứa nguồn/hash/dòng/giới hạn. API `/api/v1/companies/GMD/dungquat` trả `authority_position_snapshot`, không tạo sự kiện vào/ra; metrics arrivals/departures/DWT lũy kế/YoY đều null. Tổng quan miền Trung vẫn 4/5 chuỗi, GMD không có metric để cộng vào kỳ đầu tư.
+## Dashboard và API
 
-Collector chuẩn thư viện Python: `python scripts/collect-dungquat-snapshot.py`. Kiểm tra đủ 11 cột và hàng tàu, chỉ chọn nhãn GMD chính xác ở cột vị trí, GT/DWT tách riêng, giữ raw và thời gian nguyên văn. Trọng tải thiếu/không hợp lệ/0 là null. Lỗi tải/schema không ghi đè bản export đã chấp nhận; tiến trình trả lỗi. Archive `.local/dungquat/archive/<sha256>.html`, export `packages/modules/port/src/dungquat-snapshot-data.ts`. Chưa thiết lập hoặc nghiệm thu refresh định kỳ.
+`/companies/GMD?central_asset=gemadept_dung_quat#dungquat-activity` có chọn năm, tháng/quý, chiều đến/rời, lượt/DWT; biểu đồ lịch sử, cùng kỳ, 90 ngày; bảng ghi nhận và YTD; nhật ký có ngày sự kiện/ngày đăng riêng, liên kết nguồn, trường bằng chứng và SHA-256. Các form giữ `central_asset` để không chuyển sang Nam Đình Vũ. Snapshot vị trí nằm trong disclosure đóng ở phần phạm vi.
 
-Hợp đồng nguồn: `python scripts/test-dungquat-snapshot.py` dùng đoạn ba dòng thật (GMD, ETA có đại lý Gemadept, Hào Hưng) kiểm tra loại sai phạm vi, phân biệt GT/DWT, schema drift và không sinh sự kiện. Playwright desktop/mobile kiểm tra trang Dung Quất, API, liên kết miền Trung, theme và tràn ngang.
+API `/api/v1/companies/GMD/dungquat/activity` trả chuỗi chọn lọc và chất lượng, hỗ trợ `direction=arrival|departure` và `day=YYYY-MM-DD`; ngày hoặc chiều không hợp lệ trả 400. API snapshot `/api/v1/companies/GMD/dungquat` giữ tương thích, vẫn có metrics sự kiện null vì quan sát vị trí không phải lượt đến/rời.
 
-## Còn thiếu để hoàn thành dashboard đầu tư
+Miền Trung dùng cùng hàm tính hoạt động với trang mã. GMD có trạng thái `reviewed_subset`, được theo dõi riêng bằng `disclosed_issuers=1`; `connected_issuers` vẫn là 4 chuỗi định kỳ. Ví dụ kỳ 02/2025 chiều đến hiển thị 1 lượt và DWT thiếu. Không cộng các mã thành tổng vùng.
 
-Cần nguồn lịch sử có ngày/giờ đến/rời hoặc điều động, DWT và bến Dung Quất rõ ràng, đủ dữ liệu hai kỳ để tính YoY. Khi có số đã ghi nhận sẽ hiển thị tháng/quý/lũy kế theo AGENTS.md dù thiếu một số ngày hoặc trọng tải. Hiện không có quan sát sự kiện nên không dựng số 0 hay biểu đồ từ snapshot.
+Số đã ghi nhận, DWT đã biết và YTD được giữ dù thiếu ngày/trọng tải. YoY hiển thị từ hai số đã ghi nhận nếu nền trước dương; dữ liệu hiện chưa có cặp thực tế đủ để hiển thị YoY. Không có quan sát vẫn unavailable; chiều rời hiện không có sự kiện. API tổng đầy đủ giữ null; không tạo giờ 00:00, không dùng GT/tấn hàng thay DWT. Cùng một tàu/ngày/chiều từ nhiều công bố hợp nhất thành một sự kiện, giữ các nguồn; trọng tải xung đột để null.
 
-Chưa triển khai cloud cho thay đổi này; chưa nghiệm thu production, quyền tái phát hành nguồn, độ phủ đầy đủ hoặc cron thực. Chi tiết hash và kiểm chứng local ở `catalog-review/dungquat-source-review-20261025.json`.
+## Thu thập và refresh
 
-## Kiểm chứng thay đổi
+Chạy `python scripts/collect-dungquat-history.py` và `python scripts/collect-dungquat-snapshot.py`. Dùng Python chuẩn và curl trên Windows/Linux. Bản gốc lưu `.local/dungquat/archive/<sha256>.*`; export nằm trong hai module `dungquat-history-data.ts` và `dungquat-snapshot-data.ts`.
 
-5 hợp đồng Python, 12 Vitest liên quan NAP/miền Trung, typecheck, ESLint các file thay đổi và Next production build đạt. 4 Playwright đạt cho Dung Quất và CDN/miền Trung trên desktop/mobile, gồm API null metrics, liên kết đúng phạm vi, hai theme và không tràn ngang. Đã xem ảnh mobile. Lần Playwright đầu thiếu bước tạo catalog fixture GMD nên trả 404; đã thêm khởi tạo fixture đúng như các test doanh nghiệp hiện có và chạy lại đạt. Không thay đổi logic production để né lỗi fixture.
+Collector lịch sử kiểm tra định danh bài, trạng thái công khai, ngày/nội dung đã duyệt và DWT trước khi xuất. Nếu bài đổi schema/nội dung hoặc lỗi tải, giữ sự kiện cũ cùng hash/thời điểm kiểm tra cũ; cập nhật lỗi nguồn và last_attempt riêng, trả exit 1. Không chuyển bằng chứng cũ sang hash mới. Collector snapshot kiểm tra 11 cột, vị trí chính xác và số; lỗi không ghi đè export cũ, trả exit 1.
+
+Workflow `dungquat-activity.yml` cấu hình 08:20 giờ Việt Nam và chạy thủ công. Chỉ refresh các bài đã duyệt; không tự suy sự kiện mới từ tin tức hay thay đổi vị trí. Kiểm tra hợp đồng, Vitest và typecheck trước khi ghi dataset lên nhánh staging; lưu cache bằng chứng và receipt. Lỗi nguồn vẫn báo job thất bại sau khi giữ dữ liệu có bằng chứng. Cấu hình chưa được push/chạy trong lượt này; `scheduled_refresh_verified=false`, không coi cron thực đã đạt.
+
+## Kiểm chứng và phần còn thiếu
+
+10 hợp đồng Python; 157/157 Vitest; 4 Playwright cho Dung Quất và CDN/miền Trung trên desktop/mobile đạt. Typecheck, ESLint các file thay đổi và Next production build đạt; kiểm tra cuối được ghi trong `catalog-review/dungquat-history-review-20261025.json`.
+
+Chưa push/deploy hoặc nghiệm thu production. Chưa thay đổi quyền nguồn, catalog/RLS hay trạng thái phê duyệt sở hữu. Cần nguồn lịch sử định kỳ theo bến có ngày/giờ đến/rời và DWT, đặc biệt 2025–2026, để hoàn tất dữ liệu xu hướng đầu tư. Bản hiện tại hoàn thiện phần tích hợp kỹ thuật cho dữ kiện công khai đủ bằng chứng, không chứng nhận đã hoàn thành chuỗi lịch sử.

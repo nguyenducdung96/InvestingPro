@@ -1,10 +1,11 @@
 import {test,expect} from '@playwright/test';
 
-test('Dung Quat shows scoped source positions while history metrics stay unavailable',async({page})=>{
+test('Dung Quat separates disclosed arrivals, missing periods, and supporting positions',async({page})=>{
  await page.request.post('http://127.0.0.1:54329/__throughput',{data:[]});
  await page.goto('/companies/GMD?central_asset=gemadept_dung_quat');
  const scope=page.getByRole('region',{name:'GMD Dung Quất',exact:true});
  await expect(scope.getByRole('heading',{name:'Gemadept–Dung Quất',exact:true})).toBeVisible();
+ await scope.getByText('Quan sát vị trí Cảng vụ · nguồn bổ trợ',{exact:true}).click();
  await expect(scope.locator('tbody')).toContainText('HJ TIANHE');
  await expect(scope.locator('[data-label="DWT theo nguồn"]')).toHaveText('60.434');
  await expect(page.locator('#vessel-plans')).toHaveCount(0);
@@ -16,6 +17,33 @@ test('Dung Quat shows scoped source positions while history metrics stay unavail
  expect(body.data.semantics).toBe('authority_position_snapshot');
  expect(body.data.source_rows).toBe(69);
  expect(body.metrics).toEqual({arrivals:null,departures:null,dwt:null,yoy:null});
+ const activity=page.getByRole('region',{name:'Hoạt động tàu Gemadept Dung Quất',exact:true});
+ await expect(activity).toContainText('DỮ LIỆU CÔNG BỐ CHỌN LỌC');
+ await activity.getByLabel('Năm',{exact:true}).selectOption('2025');
+ await activity.getByRole('button',{name:'Xem dữ liệu',exact:true}).click();
+ await expect(page).toHaveURL(/central_asset=gemadept_dung_quat/);
+ const feb=activity.locator('#dq-yoy tbody tr').filter({hasText:'2025-02'});
+ await expect(feb.locator('[data-label="Lượt"]')).toHaveText('1');
+ await expect(feb.locator('[data-label="DWT đã ghi nhận"]')).toHaveText('—');
+ await expect(activity.locator('#dq-days tbody')).toContainText('Spring Breeze');
+ await expect(activity.locator('#dq-days tbody')).toContainText('2025-02-10');
+ await expect(activity.locator('#dq-days tbody')).toContainText('Chỉ có ngày');
+ await expect(activity.locator('#dq-yoy tbody tr').first().locator('[data-label="Lượt"]')).toHaveText('—');
+ await activity.getByLabel('Năm',{exact:true}).selectOption('2022');
+ await activity.getByLabel('Chỉ tiêu biểu đồ',{exact:true}).selectOption('observed_dwt');
+ await activity.getByLabel('Kỳ',{exact:true}).selectOption('quarter');
+ await activity.getByRole('button',{name:'Xem dữ liệu',exact:true}).click();
+ await expect(activity.locator('#dq-yoy tbody tr').filter({hasText:'2022-Q2'}).locator('[data-label="DWT đã ghi nhận"]')).toHaveText('49.602');
+ await expect(activity.locator('#dq-days tbody')).toContainText('Glorious Lotus');
+ await activity.locator('#dq-yoy').scrollIntoViewIfNeeded();
+ await page.screenshot({path:test.info().outputPath('dungquat-comparison.png')});
+ await activity.getByLabel('Chiều tàu',{exact:true}).selectOption('departure');
+ await activity.getByRole('button',{name:'Xem dữ liệu',exact:true}).click();
+ await expect(activity.locator('#dq-yoy tbody tr').first().locator('[data-label="Lượt"]')).toHaveText('—');
+ const actual=await(await page.request.get('/api/v1/companies/GMD/dungquat/activity?direction=arrival&day=2025-02-10')).json();
+ expect(actual.data).toHaveLength(1);expect(actual.data[0].dwt).toBeNull();
+ expect(actual.quality.regular_history_available).toBe(false);
+ expect((await page.request.get('/api/v1/companies/GMD/dungquat/activity?day=2025-02-30')).status()).toBe(400);
  for(const theme of ['light','dark']){
   await page.getByLabel('Giao diện',{exact:true}).selectOption(theme);
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
@@ -24,7 +52,10 @@ test('Dung Quat shows scoped source positions while history metrics stay unavail
  await page.goto('/industries/ports/central');
  const row=page.locator('[data-ticker="GMD"]');
  await expect(row.locator('[data-label="Lượt"]')).toHaveText('—');
- await expect(row).toContainText('Chưa tích hợp lịch sử');
+ await expect(row).toContainText('Đã có dữ liệu chọn lọc');
  await row.getByRole('link',{name:'GMD',exact:true}).click();
  await expect(scope).toBeVisible();
+ await page.goto('/industries/ports/central?period=2025-02&direction=arrival');
+ await expect(row.locator('[data-label="Lượt"]')).toHaveText('1');
+ await expect(row.locator('[data-label="DWT đã ghi nhận"]')).toContainText('—');
 });

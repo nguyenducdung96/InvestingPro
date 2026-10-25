@@ -3,6 +3,7 @@ import {CompanyPortScope} from '@/components/company-port-scope';
 import { PhpThroughput } from '@/components/php-throughput';
 import {PhpPlans} from '@/components/php-plans';
 import {DungquatScope} from '@/components/dungquat-scope';
+import {DungquatActivity} from '@/components/dungquat-activity';
 import {isIssuerPlanTicker} from '@invest/port';
 import {QnpPlans} from '@/components/qnp-plans';
 import {CmpPlans} from '@/components/cmp-plans';
@@ -20,6 +21,7 @@ export default async function Page({
   return (
     <>
     {ticker==='GMD'&&query.central_asset==='gemadept_dung_quat'?<DungquatScope/>:<CompanyPortScope ticker={ticker}/>}
+    {ticker==='GMD'&&query.central_asset==='gemadept_dung_quat'&&<DungquatActivity query={query}/>}
     {!(ticker==='GMD'&&query.central_asset==='gemadept_dung_quat')&&(ticker==='PHP'||ticker==='DVP'||isIssuerPlanTicker(ticker))&&<PhpPlans query={query} ticker={ticker}/>}
     {ticker==='PHP'&&<PhpThroughput query={query}/>}
     {ticker==='QNP'&&<QnpPlans query={query}/>}

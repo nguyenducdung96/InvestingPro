@@ -1,0 +1,73 @@
+name: Dung Quat reviewed disclosures and supporting positions
+on:
+  workflow_dispatch:
+  schedule:
+    # 08:20 Asia/Ho_Chi_Minh. A configured schedule is not a verified run.
+    - cron: '20 1 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: dungquat-reviewed-data-staging
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache/restore@v4
+        with:
+          path: .local/dungquat/archive
+          key: dungquat-evidence-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: dungquat-evidence-v1-
+      - name: Check disclosure and position contracts
+        run: |
+          python scripts/test-dungquat-history.py
+          python scripts/test-dungquat-snapshot.py
+      - name: Refresh reviewed operator facts
+        id: history
+        continue-on-error: true
+        run: python scripts/collect-dungquat-history.py
+      - name: Refresh supporting position observation
+        id: positions
+        continue-on-error: true
+        run: python scripts/collect-dungquat-snapshot.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec vitest run tests/dungquat-activity.test.ts tests/central-overview.test.ts --maxWorkers=1
+      - run: pnpm typecheck
+      - name: Commit validated facts and source error metadata
+        run: |
+          git add packages/modules/port/src/dungquat-history-data.ts packages/modules/port/src/dungquat-snapshot-data.ts
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'data(ports): refresh reviewed Dung Quat source evidence'
+          git pull --rebase origin codex/cloudflare-next-compat
+          git push origin HEAD:codex/cloudflare-next-compat
+      - name: Preserve evidence cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: .local/dungquat/archive
+          key: dungquat-evidence-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Save source refresh receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dungquat-source-receipt
+          path: .local/dungquat/history-receipt.json
+          if-no-files-found: ignore
+          include-hidden-files: true
+          retention-days: 7
+      - name: Report source failures after keeping proven data
+        if: steps.history.outcome == 'failure' || steps.positions.outcome == 'failure'
+        run: exit 1
