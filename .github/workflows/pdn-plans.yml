@@ -1,0 +1,80 @@
+name: PDN official published berth plans
+on:
+  workflow_dispatch:
+    inputs:
+      probe_only:
+        description: Read one official day without publishing an edition
+        type: boolean
+        default: false
+  schedule:
+    # 08:45 Vietnam; actual cron acceptance requires real scheduled evidence.
+    - cron: '45 1 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: pdn-plans-staging
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache/restore@v4
+        if: ${{ !inputs.probe_only }}
+        with:
+          path: .local/pdn
+          key: pdn-public-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: pdn-public-v1-
+      - name: Read official source
+        env:
+          PROBE: ${{ inputs.probe_only }}
+        run: |
+          if [ "$PROBE" = "true" ]; then
+            DAY=$(TZ=Asia/Ho_Chi_Minh date -d yesterday +%F)
+            python scripts/collect-pdn-plans.py --from "$DAY" --to "$DAY"
+          else
+            python scripts/test-pdn-plans.py
+            python scripts/collect-pdn-plans.py
+            python scripts/export-pdn-plans.py
+          fi
+      - uses: actions/setup-node@v4
+        if: ${{ !inputs.probe_only }}
+        with:
+          node-version: 24
+      - if: ${{ !inputs.probe_only }}
+        run: corepack enable && pnpm install --frozen-lockfile
+      - if: ${{ !inputs.probe_only }}
+        run: pnpm exec vitest run tests/pdn-plans.test.ts tests/pdn-history.test.ts --maxWorkers=1 && pnpm typecheck
+      - name: Publish validated edition
+        if: ${{ !inputs.probe_only }}
+        run: |
+          git add packages/modules/port/src/pdn-history-data.ts packages/modules/port/src/pdn-journal-loader.ts packages/modules/port/src/pdn-journal-data docs/catalog-review/pdn-history-ledger.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'data(ports): refresh PDN official published berth plans'
+            git pull --rebase origin codex/cloudflare-next-compat
+            git push origin HEAD:codex/cloudflare-next-compat
+          fi
+      - name: Reconcile deployed edition
+        if: ${{ !inputs.probe_only }}
+        run: node scripts/verify-pdn-live.mjs
+      - uses: actions/cache/save@v4
+        if: ${{ always() && !inputs.probe_only }}
+        with:
+          path: .local/pdn
+          key: pdn-public-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pdn-readback
+          path: .local/pdn/*receipt.json
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 14
