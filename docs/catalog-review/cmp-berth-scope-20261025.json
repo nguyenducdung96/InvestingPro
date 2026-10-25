@@ -1,0 +1,32 @@
+{
+  "ticker": "CMP",
+  "observed_on": "2026-10-25",
+  "scope": [
+    "cmp_cau1",
+    "cmp_cau2"
+  ],
+  "relationship": "operator_reported_scope",
+  "legal_effective_from": null,
+  "catalog_auto_approval": false,
+  "evidence": [
+    {
+      "url": "https://www.chanmayport.com.vn/cau-cang",
+      "sha256": "d0adb2578492b75d7578dac535ac667f0460c51139a27f00ceeb7e7b9ae93de3",
+      "note": "Danh mục có bến số 1 và bến số 2."
+    },
+    {
+      "url": "https://www.chanmayport.com.vn/co-so-vat-chat/cau-cang/ben-so-2.html",
+      "sha256": "b15f574b498f6037ab867e2c6af6fca5de4203715556a92e876b77e60b0d7305",
+      "note": "Bài 03/08/2023 nêu cầu cảng số 2; không suy ngày hiệu lực pháp lý từ ngày đăng."
+    }
+  ],
+  "authority_crosscheck": "https://cangvuhanghaithuathienhue.gov.vn/index.aspx?id=20409&page=detail",
+  "excluded": [
+    "Cầu 120 m chưa có alias lịch đối chiếu",
+    "Cầu 3 Hào Hưng",
+    "VSICO 4/5",
+    "bến phao",
+    "công trình",
+    "cập mạn/hỗ trợ chưa ghép"
+  ]
+}

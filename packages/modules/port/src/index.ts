@@ -154,3 +154,5 @@ export * from './central-overview';
 export * from './qnp-plans';
 export * from './qnp-reviewed';
 export * from './qnp-history-data';
+export * from './cmp-plans';
+export * from './cmp-history-data';

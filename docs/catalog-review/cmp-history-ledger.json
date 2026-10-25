@@ -1,0 +1,227 @@
+{
+  "cutoff": "2026-10-24",
+  "documents": 681,
+  "source_rows": 4712,
+  "monthly": {
+    "2025-01/arrival": {
+      "rows": 63,
+      "known_dwt": 664507.1,
+      "missing_dwt": 0
+    },
+    "2025-01/departure": {
+      "rows": 59,
+      "known_dwt": 692738.41,
+      "missing_dwt": 0
+    },
+    "2025-02/arrival": {
+      "rows": 61,
+      "known_dwt": 675885.52,
+      "missing_dwt": 0
+    },
+    "2025-02/departure": {
+      "rows": 53,
+      "known_dwt": 596489.0,
+      "missing_dwt": 0
+    },
+    "2025-03/arrival": {
+      "rows": 64,
+      "known_dwt": 708849.45,
+      "missing_dwt": 0
+    },
+    "2025-03/departure": {
+      "rows": 65,
+      "known_dwt": 650133.17,
+      "missing_dwt": 0
+    },
+    "2025-04/arrival": {
+      "rows": 49,
+      "known_dwt": 628108.18,
+      "missing_dwt": 0
+    },
+    "2025-04/departure": {
+      "rows": 49,
+      "known_dwt": 654163.28,
+      "missing_dwt": 0
+    },
+    "2025-05/arrival": {
+      "rows": 55,
+      "known_dwt": 560112.07,
+      "missing_dwt": 0
+    },
+    "2025-05/departure": {
+      "rows": 54,
+      "known_dwt": 548685.84,
+      "missing_dwt": 0
+    },
+    "2025-06/arrival": {
+      "rows": 54,
+      "known_dwt": 609727.09,
+      "missing_dwt": 0
+    },
+    "2025-06/departure": {
+      "rows": 54,
+      "known_dwt": 591046.05,
+      "missing_dwt": 0
+    },
+    "2025-07/arrival": {
+      "rows": 52,
+      "known_dwt": 447467.7,
+      "missing_dwt": 0
+    },
+    "2025-07/departure": {
+      "rows": 49,
+      "known_dwt": 422303.43,
+      "missing_dwt": 0
+    },
+    "2025-08/arrival": {
+      "rows": 41,
+      "known_dwt": 602037.5,
+      "missing_dwt": 0
+    },
+    "2025-08/departure": {
+      "rows": 40,
+      "known_dwt": 627211.8,
+      "missing_dwt": 0
+    },
+    "2025-09/arrival": {
+      "rows": 47,
+      "known_dwt": 473563.42,
+      "missing_dwt": 0
+    },
+    "2025-09/departure": {
+      "rows": 46,
+      "known_dwt": 475527.84,
+      "missing_dwt": 0
+    },
+    "2025-10/arrival": {
+      "rows": 47,
+      "known_dwt": 471642.85,
+      "missing_dwt": 0
+    },
+    "2025-10/departure": {
+      "rows": 48,
+      "known_dwt": 448421.38,
+      "missing_dwt": 0
+    },
+    "2025-11/arrival": {
+      "rows": 48,
+      "known_dwt": 466765.96,
+      "missing_dwt": 0
+    },
+    "2025-11/departure": {
+      "rows": 47,
+      "known_dwt": 487263.13,
+      "missing_dwt": 0
+    },
+    "2025-12/arrival": {
+      "rows": 61,
+      "known_dwt": 587251.83,
+      "missing_dwt": 0
+    },
+    "2025-12/departure": {
+      "rows": 65,
+      "known_dwt": 661558.02,
+      "missing_dwt": 0
+    },
+    "2026-01/arrival": {
+      "rows": 59,
+      "known_dwt": 660711.67,
+      "missing_dwt": 0
+    },
+    "2026-01/departure": {
+      "rows": 54,
+      "known_dwt": 550541.73,
+      "missing_dwt": 0
+    },
+    "2026-02/arrival": {
+      "rows": 45,
+      "known_dwt": 761245.19,
+      "missing_dwt": 0
+    },
+    "2026-02/departure": {
+      "rows": 44,
+      "known_dwt": 730143.25,
+      "missing_dwt": 0
+    },
+    "2026-03/arrival": {
+      "rows": 57,
+      "known_dwt": 867420.47,
+      "missing_dwt": 0
+    },
+    "2026-03/departure": {
+      "rows": 57,
+      "known_dwt": 885537.4,
+      "missing_dwt": 0
+    },
+    "2026-04/arrival": {
+      "rows": 55,
+      "known_dwt": 574197.7,
+      "missing_dwt": 0
+    },
+    "2026-04/departure": {
+      "rows": 58,
+      "known_dwt": 565658.97,
+      "missing_dwt": 0
+    },
+    "2026-05/arrival": {
+      "rows": 62,
+      "known_dwt": 679096.98,
+      "missing_dwt": 0
+    },
+    "2026-05/departure": {
+      "rows": 59,
+      "known_dwt": 692096.13,
+      "missing_dwt": 0
+    },
+    "2026-06/arrival": {
+      "rows": 48,
+      "known_dwt": 455015.02,
+      "missing_dwt": 0
+    },
+    "2026-06/departure": {
+      "rows": 51,
+      "known_dwt": 560201.18,
+      "missing_dwt": 0
+    },
+    "2026-07/arrival": {
+      "rows": 27,
+      "known_dwt": 271215.5,
+      "missing_dwt": 0
+    },
+    "2026-07/departure": {
+      "rows": 44,
+      "known_dwt": 481905.84,
+      "missing_dwt": 0
+    },
+    "2026-08/arrival": {
+      "rows": 53,
+      "known_dwt": 564361.02,
+      "missing_dwt": 0
+    },
+    "2026-08/departure": {
+      "rows": 51,
+      "known_dwt": 623213.29,
+      "missing_dwt": 0
+    },
+    "2026-09/arrival": {
+      "rows": 57,
+      "known_dwt": 656325.22,
+      "missing_dwt": 0
+    },
+    "2026-09/departure": {
+      "rows": 56,
+      "known_dwt": 576157.34,
+      "missing_dwt": 0
+    },
+    "2026-10/arrival": {
+      "rows": 36,
+      "known_dwt": 522626.73,
+      "missing_dwt": 0
+    },
+    "2026-10/departure": {
+      "rows": 36,
+      "known_dwt": 509140.47,
+      "missing_dwt": 0
+    }
+  }
+}

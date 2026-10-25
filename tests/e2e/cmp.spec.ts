@@ -1,0 +1,38 @@
+import {test,expect} from '@playwright/test';
+import {readFileSync} from 'node:fs';
+const ledger=JSON.parse(readFileSync('docs/catalog-review/cmp-history-ledger.json','utf8'));
+const year=ledger.cutoff.slice(0,4),month=ledger.cutoff.slice(0,7);
+test('CMP has multi-month history, berth selection, YoY and source drilldown on the shared port layout',async({page},info)=>{
+ await page.request.post('http://127.0.0.1:54329/__throughput',{data:[]});
+ await page.goto(`/companies/CMP?plan_year=${year}`);
+ const plans=page.getByRole('region',{name:'Lịch điều động CMP',exact:true});
+ await expect(plans.getByRole('heading',{name:'Lượt tàu và trọng tải theo lịch công bố'})).toBeVisible();
+ await expect(plans.getByLabel('Bến theo dõi')).toHaveValue('cmp');await expect(plans.getByLabel('Bến theo dõi').locator('option')).toHaveCount(3);
+ await expect(plans.locator('.plan-chart-legend').filter({hasText:'Đơn vị: DWT'})).toHaveCount(3);
+ const january=plans.locator('#plan-yoy tbody tr').filter({has:page.locator('td').filter({hasText:new RegExp('^'+year+'-01$')})});
+ await expect(january.locator('[data-label="DWT đã ghi nhận"]')).not.toHaveText('—');
+ const api=await(await page.request.get('/api/v1/companies/CMP/plans')).json();
+ expect(api.quality.documents).toBeGreaterThan(500);expect(api.data.actual_verified).toBe(false);expect(api.data.history_complete).toBe(false);
+ expect(api.data.months.length).toBeGreaterThanOrEqual(22);expect(api.data.months.at(-1).current.dwt).toBeNull();
+ await plans.getByLabel('Năm',{exact:true}).selectOption('2025');await plans.getByRole('button',{name:'Xem lịch',exact:true}).click();
+ await expect(plans.locator('#plan-yoy tbody tr')).toHaveCount(12);
+ await expect(plans.locator('#plan-yoy tbody tr').first().locator('[data-label="DWT đã ghi nhận"]')).not.toHaveText('—');
+ await plans.getByLabel('Kỳ',{exact:true}).selectOption('quarter');await plans.getByRole('button',{name:'Xem lịch',exact:true}).click();
+ await expect(plans.locator('#plan-yoy tbody tr')).toHaveCount(4);
+ await plans.getByLabel('Bến theo dõi').selectOption('cmp_cau2');await plans.getByRole('button',{name:'Xem bến',exact:true}).click();
+ await expect(plans.getByLabel('Bến theo dõi')).toHaveValue('cmp_cau2');await expect(plans.getByLabel('Năm',{exact:true})).toHaveValue('2025');
+ await plans.getByLabel('Chỉ tiêu biểu đồ').selectOption('rows');await plans.getByLabel('Chiều tàu',{exact:true}).selectOption('arrival');await plans.getByRole('button',{name:'Xem lịch',exact:true}).click();
+ await expect(plans.locator('.plan-chart-legend').filter({hasText:'Đơn vị: lượt'})).toHaveCount(3);
+ await plans.getByText('Chi tiết dữ liệu và nguồn',{exact:true}).click();await expect(plans.getByRole('region',{name:'Độ phủ dữ liệu CMP'})).toContainText('không lấy GT thay thế');
+ for(const theme of ['dark','light']){await page.getByLabel('Giao diện',{exact:true}).selectOption(theme);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}
+ await page.goto('/companies/CMP?plan_year='+year+'#vessel-plans');
+ await page.screenshot({path:`.local/cmp/cmp-${info.project.name}.png`,fullPage:true});
+ await page.screenshot({path:`.local/cmp/cmp-${info.project.name}-overview.png`});
+ await page.goto(`/industries/ports/central?period=${month}&direction=departure`);
+ const row=page.locator('tr[data-ticker="CMP"]'),expected=api.data.months.find((m:{period:string})=>m.period===month).current.observed_dwt;
+ await expect(row.locator('[data-label="DWT đã ghi nhận"]')).toContainText(expected.toLocaleString('vi-VN',{maximumFractionDigits:2}));
+ await expect(row).not.toContainText('Chưa tích hợp lịch sử');await row.locator('.north-ticker').click();await expect(page).toHaveURL(/companies\/CMP\?.*plan_year=/);
+ const day=await(await page.request.get('/api/v1/companies/CMP/plans?day=2026-10-24')).json();
+ expect(day.data.some((e:{kind:string;vessel:string})=>e.kind==='arrival'&&e.vessel==='ĐÔNG BẮC 22-08')).toBe(true);
+ expect((await page.request.get('/api/v1/companies/CMP/plans?asset=TCQN')).status()).toBe(400);
+});

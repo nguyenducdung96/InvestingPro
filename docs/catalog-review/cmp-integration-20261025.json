@@ -1,0 +1,225 @@
+{
+  "verified_at": "2026-10-25T03:10:14.745907+00:00",
+  "scope": [
+    "cmp_cau1",
+    "cmp_cau2"
+  ],
+  "quality": {
+    "source_url": "https://cangvuhanghaithuathienhue.gov.vn/index.aspx?page=law&cat=3133",
+    "collected_at": "2026-10-25T03:00:18.687071+00:00",
+    "parser_version": "cmp-authority-html/1.0.0",
+    "documents": 681,
+    "pages": [
+      {
+        "page": 1,
+        "sha256": "69342f7a32482e3d0e1b5ff7c5f68ac3718cf9fb91407e9d5c39909fe23ad36c"
+      },
+      {
+        "page": 2,
+        "sha256": "ff18a03c7271ab276a1892a0bdbb67e3c269253fc74d7381de5c65e85836cfe1"
+      },
+      {
+        "page": 3,
+        "sha256": "e917474e97a036d0a024ceb333503194a5a387bdb597c1e49ea7449c3d62ec34"
+      },
+      {
+        "page": 4,
+        "sha256": "13e2a1b218e29135406ca5fc7b3a14e590dd94a285dccc57851f009d544ddefd"
+      },
+      {
+        "page": 5,
+        "sha256": "e449b505e21f10131e49ee14a9e1a81575ec30bc68258dfe48f96523453b6f64"
+      },
+      {
+        "page": 6,
+        "sha256": "0b81772252cdf4dd10cb504386ba9727d246c52fb32fb38af0137305fa9720f2"
+      },
+      {
+        "page": 7,
+        "sha256": "c93a21e5c8cf9b06921e5deca34a35d9480588a6ba6c32f74f3480c5eff451dd"
+      },
+      {
+        "page": 8,
+        "sha256": "bc8f13947827e439486f22e94abdb3e4b1879a899d8d5759f69afe08198e0d4b"
+      },
+      {
+        "page": 9,
+        "sha256": "9c7bb27207f9a1af7ce0889afdb2094cffca6020530cdf36abbba94b349b6ba2"
+      },
+      {
+        "page": 10,
+        "sha256": "587d8560ac1cd028de21c25bb32d7dfc0ca6566626999c8605c473808cede634"
+      },
+      {
+        "page": 11,
+        "sha256": "3dffe8cbdac07cbdb29ca064b3551182c1f1f5603a10d0590bbcacaa41cd8628"
+      },
+      {
+        "page": 12,
+        "sha256": "632ca7bc3f73d93c8a0a936ad44ecfac13a76a83c513fa6aaeab776a3e94c482"
+      },
+      {
+        "page": 13,
+        "sha256": "f5cf4a3e5be60e175bcb2fd933e7636c3ffe4dc66d958956caa1c55c1ae4b069"
+      },
+      {
+        "page": 14,
+        "sha256": "61f578125549e1e946a7b10b047d263ce0087f9987fc90f2ac2d5418ae3e71f0"
+      },
+      {
+        "page": 15,
+        "sha256": "56eff131f6b4b62cd3dfb548d889c871b87f10c82812f0eab7dab5fc1c1112e2"
+      },
+      {
+        "page": 16,
+        "sha256": "5169e61d3d6dd5943394f3a328f9a7b916ef271a0e6ca623d960eddcc48d68e1"
+      },
+      {
+        "page": 17,
+        "sha256": "93c2155a47eacfcb25e5ac3964bf1da02856ee395da02c688d87d0d4183f6898"
+      },
+      {
+        "page": 18,
+        "sha256": "edc6da4c38664f934020d85569b2e0aac7b10415d13b3f6d9ba4bb9f27f4b2f5"
+      },
+      {
+        "page": 19,
+        "sha256": "83419863963dde06b5a41b4e68843061364be41eff8d6eb648ec34130a754c9a"
+      },
+      {
+        "page": 20,
+        "sha256": "b5f86a7c01acccd971ec695cdd681515dabca019b6cc0528261f38bd10139862"
+      },
+      {
+        "page": 21,
+        "sha256": "40eb94dbadaab518e92cc7524b5f47b62bac7b3ef430e6d047274c2948b73485"
+      },
+      {
+        "page": 22,
+        "sha256": "2e5e2ca13c5fa16624b9849cc8e85ed46969f82eb5ac1829da7bb9e0f9d248da"
+      },
+      {
+        "page": 23,
+        "sha256": "022f5968c199193d041c48e9f487c9c38ba173252eaac13234d13bf90647a28f"
+      },
+      {
+        "page": 24,
+        "sha256": "f9e0e72aa5b71cecbfbfc7b5fe11c2fb42a784b215f8cdde59900846a2b4ea31"
+      },
+      {
+        "page": 25,
+        "sha256": "f1df68f7bbdca7b8903292b3f65b24fdc786ec98484372d1cc860865b125588c"
+      },
+      {
+        "page": 26,
+        "sha256": "ce5c05ae1140138409df0e114dfb00cb4814f0a762ea7e620e4a436d4ab5a131"
+      },
+      {
+        "page": 27,
+        "sha256": "cb8a708f506cb21b631ca256bd4e5f2cf9db5cafa7ec18ee6f405e81500deeb4"
+      },
+      {
+        "page": 28,
+        "sha256": "8c2c70aed072ab1edc3689e4d83a7b00b137976605f9ea78fcc4003f352acf84"
+      },
+      {
+        "page": 29,
+        "sha256": "1f19f591ddb4eddbea319feca0909201980c41e8f6acf054a5a62f692185d76c"
+      },
+      {
+        "page": 30,
+        "sha256": "4a8d8667168b3a19fbba7b042765b34d7cfa337f4add1466b9195601bb77e9a7"
+      },
+      {
+        "page": 31,
+        "sha256": "c698a6c6d7e896c7bd756e9ddfc380a8b4d4d5b5277afc6742f37868edecba3c"
+      },
+      {
+        "page": 32,
+        "sha256": "fe9d1e493fb6e6f6a4c9ba9036658e44c53ae68b2466a01d119af5c51be3bd11"
+      },
+      {
+        "page": 33,
+        "sha256": "168656eb576130c4cf0686c5e2e50d9cdad7666ed0282840724dafdddddc6ff2"
+      },
+      {
+        "page": 34,
+        "sha256": "58d4d4fa310b333f880ddfb42950bddef8929c29b387635950ffdde28ffd6647"
+      },
+      {
+        "page": 35,
+        "sha256": "c6d4332763dff6f4e7d85036acd9883b1d3b02c935c186c3f2b7ec3b59d44a58"
+      },
+      {
+        "page": 36,
+        "sha256": "77c20fda0749b1fbaea91adf89355a90b579029145d61ebb6d6104f4402d397d"
+      },
+      {
+        "page": 37,
+        "sha256": "d3df06286090ce3038dd11d743bcfcdabb7f44121697e44700193e9ff4a0363f"
+      },
+      {
+        "page": 38,
+        "sha256": "8470e404d3fd99c9175527ab3e083ca7dd73213898cbbb24fa37fbc22957a86e"
+      },
+      {
+        "page": 39,
+        "sha256": "a6bd98926621a71854b19affed1d982fd0f287bead93cf169ec5017f229e5487"
+      },
+      {
+        "page": 40,
+        "sha256": "1964e387b01543212b1cc010a39affc64b65df1b60bbc05b0013891b4c3a6bc2"
+      },
+      {
+        "page": 41,
+        "sha256": "a216881e3e0064244237fab6bc64ff47c6a066d049bff1315d748dc1ed8e5159"
+      },
+      {
+        "page": 42,
+        "sha256": "1ac67e25c8639352c3a298cefda2bd9105e930ad5ba264714d645bd1a11f31ec"
+      },
+      {
+        "page": 43,
+        "sha256": "bf37d0d2e4a8d7b48fa163cfac4f95f1cd685ec9ed8e50c53723eab932043126"
+      },
+      {
+        "page": 44,
+        "sha256": "442b545ef6e978efe55219d659df35180a1a90e968eae2f13c70d8233a8532be"
+      },
+      {
+        "page": 45,
+        "sha256": "23e9fe59ae11ff838864a460daa7ac9ddb7f029c6638ea5efcef6e4d38a31ba6"
+      },
+      {
+        "page": 46,
+        "sha256": "16659fa1f2b5749f16d67af7be7dae2b377b4001a3df348269df6857785b2b7b"
+      }
+    ],
+    "rejected_rows": 245,
+    "date_error_documents": 11,
+    "history_complete": false,
+    "full_coverage_verified": false,
+    "scheduled_refresh_verified": false
+  },
+  "validation": {
+    "vitest": {
+      "passed": 145,
+      "failed": 0,
+      "workers": 1
+    },
+    "python_source_contracts": {
+      "passed": 4,
+      "failed": 0
+    },
+    "typescript": "passed",
+    "eslint": "passed",
+    "next_build": "passed",
+    "cloudflare_local_build": "blocked_windows_EPERM_symlink",
+    "playwright_cmp_desktop_mobile": "passed",
+    "playwright_qnp_desktop_mobile": "passed",
+    "playwright_cdn_desktop_mobile": "passed"
+  },
+  "staging_verified": false,
+  "scheduled_refresh_verified": false,
+  "production_accepted": false
+}
