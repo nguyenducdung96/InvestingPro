@@ -31,8 +31,8 @@ async function probe() {
     html += decoder.decode();
     const hasTables = ['ctl22_GridView_TauDen', 'ctl22_GridView_TauRoi', 'ctl22_GridView_TauDiChuyen'].every(id => html.includes(`id="${id}"`));
     return {checked_at: checkedAt, source_url: source, colo, reachable: true, source_status: response.status, bytes, schedule_tables_present: hasTables, purpose: 'connectivity_only', refresh_verified: false};
-  } catch {
-    return {checked_at: checkedAt, source_url: source, colo, reachable: false, reason: controller.signal.aborted ? 'source_timeout' : 'source_fetch_failed', refresh_verified: false};
+  } catch (error) {
+    return {checked_at: checkedAt, source_url: source, colo, reachable: false, reason: controller.signal.aborted ? 'source_timeout' : 'source_fetch_failed', detail: error instanceof Error ? error.message.slice(0, 200) : 'unknown', refresh_verified: false};
   } finally { clearTimeout(timeout); }
 }
 
