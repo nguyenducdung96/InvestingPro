@@ -1,0 +1,83 @@
+{
+  "reviewed_on": "2026-10-25",
+  "official_map_url": "https://kehoach.cangvuhanghaitphcm.gov.vn/welcome",
+  "map_client_calls": "https://phuongdinh.name.vn/api/cangvu/getDSTau4",
+  "backend_ownership_certified": false,
+  "day": "2026-10-25",
+  "official_schedule_sha256": "d900b32966ccbeea65d98e9a0c04e4069ceaa87114a97a3cd701033e84866327",
+  "map_payload_sha256": "a19d1f3763695a6fd0b7d9301f1f5ff3cf110ddbe78ba9aae626e12e6c91d58b",
+  "official_selected_plan_rows": 17,
+  "map_selected_plan_rows": 5,
+  "exact_matches": [
+    [
+      "arrival",
+      "ASIAN JUMP",
+      "CẦU CẢNG SỐ 1 - SSIT",
+      "12:30",
+      13555
+    ],
+    [
+      "arrival",
+      "CAUQUENES",
+      "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+      "12:30",
+      115642
+    ],
+    [
+      "departure",
+      "HVS 44.V3",
+      "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+      "19:30",
+      168
+    ],
+    [
+      "departure",
+      "HVS 44.V5",
+      "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+      "19:30",
+      114
+    ],
+    [
+      "departure",
+      "MT HA NOI 69",
+      "CẦU CẢNG SỐ 1 - SP-PSA",
+      "20:00",
+      4375
+    ]
+  ],
+  "unmatched": [],
+  "map_source_types": {
+    "NEO": 545,
+    "DEN": 15,
+    "DI_CHUYEN": 8,
+    "DI": 24
+  },
+  "historical_samples": [
+    {
+      "day": "2026-10-24",
+      "sha256": "46854103078eb032d696b9ff96fc2da5cbf649d2558c1f8552d5d6737a927dc7",
+      "rows": 574,
+      "source_types": {
+        "NEO": 574
+      }
+    },
+    {
+      "day": "2026-10-23",
+      "sha256": "d4e6282274d293930a2f44b6122c1ddefd55139e1267607ae7af36cd2bcea18f",
+      "rows": 587,
+      "source_types": {
+        "NEO": 587
+      }
+    },
+    {
+      "day": "2025-01-01",
+      "sha256": "cad2f56c7c23b1eefa700d39772095eba7d71abdae24c5f5f073c2d3e2312842",
+      "rows": 243,
+      "source_types": {
+        "NEO": 243
+      }
+    }
+  ],
+  "replacement_accepted": false,
+  "reason": "Map merges/omits schedule rows; historical responses only contain NEO snapshots in sampled dates."
+}

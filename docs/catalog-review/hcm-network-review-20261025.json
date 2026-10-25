@@ -1,0 +1,478 @@
+{
+  "reviewed_on": "2026-10-25",
+  "scope": "HCM official source connectivity and alternatives",
+  "github": [
+    {
+      "runner": "ubuntu-24.04",
+      "job_id": 121130928252,
+      "checked_at": "2026-10-25T09:27:34.799310+00:00",
+      "event": "workflow_dispatch",
+      "run_id": "40180688786",
+      "dns_tcp_tls": [
+        {
+          "host": "cangvuhanghaitphcm.gov.vn",
+          "addresses": [
+            "222.253.45.177"
+          ],
+          "connections": [
+            {
+              "port": 80,
+              "error": "timed out",
+              "seconds": 6.191
+            },
+            {
+              "port": 443,
+              "error": "timed out",
+              "seconds": 6.403
+            }
+          ]
+        },
+        {
+          "host": "www.cangvuhanghaitphcm.gov.vn",
+          "addresses": [
+            "222.253.45.177"
+          ],
+          "connections": [
+            {
+              "port": 80,
+              "error": "timed out",
+              "seconds": 6.191
+            },
+            {
+              "port": 443,
+              "error": "timed out",
+              "seconds": 6.179
+            }
+          ]
+        },
+        {
+          "host": "kehoach.cangvuhanghaitphcm.gov.vn",
+          "addresses": [
+            "216.198.79.1",
+            "64.29.17.1"
+          ],
+          "connections": [
+            {
+              "port": 80,
+              "tcp_connected": true,
+              "seconds": 0.017
+            },
+            {
+              "port": 443,
+              "tcp_connected": true,
+              "tls_version": "TLSv1.3",
+              "certificate_expires": "Nov 24 12:31:04 2026 GMT",
+              "seconds": 0.088
+            }
+          ]
+        },
+        {
+          "host": "phuongdinh.name.vn",
+          "addresses": [
+            "118.69.111.83"
+          ],
+          "connections": [
+            {
+              "port": 80,
+              "error": "[Errno 111] Connection refused",
+              "seconds": 0.489
+            },
+            {
+              "port": 443,
+              "tcp_connected": true,
+              "tls_version": "TLSv1.3",
+              "certificate_expires": "Dec  4 23:59:59 2026 GMT",
+              "seconds": 0.774
+            }
+          ]
+        }
+      ],
+      "http": [
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+          "error": "<urlopen error timed out>",
+          "seconds": 8.231
+        },
+        {
+          "url": "http://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+          "error": "<urlopen error timed out>",
+          "seconds": 8.23
+        },
+        {
+          "url": "https://www.cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+          "error": "<urlopen error timed out>",
+          "seconds": 8.413
+        },
+        {
+          "url": "https://kehoach.cangvuhanghaitphcm.gov.vn/welcome",
+          "status": 200,
+          "bytes": 3206,
+          "sha256": "d45fca16ba8587ad312d426e735ea7bc2f1a52f3e77e12ced7e33ca9f52e8cd5",
+          "content_type": "text/html; charset=utf-8",
+          "schedule_tables": false,
+          "seconds": 0.11
+        },
+        {
+          "url": "https://phuongdinh.name.vn/api/cangvu/getDSTau4?ngay=24/10/2026",
+          "status": 200,
+          "bytes": 747644,
+          "sha256": "a0d065abd76e16e461f9200eb40eeca7d94183f6e0be86ffda7e8b93fffca549",
+          "content_type": "application/json; charset=utf-8",
+          "schedule_tables": false,
+          "seconds": 2.806
+        }
+      ],
+      "tls_validation": true,
+      "redirects_followed": false,
+      "publication_performed": false
+    },
+    {
+      "runner": "windows-latest",
+      "job_id": 121132533043,
+      "checked_at": "2026-10-25T09:35:22.778856+00:00",
+      "event": "workflow_dispatch",
+      "run_id": "40181225160",
+      "dns_tcp_tls": [
+        {
+          "host": "cangvuhanghaitphcm.gov.vn",
+          "addresses": [
+            "222.253.45.177"
+          ],
+          "connections": [
+            {
+              "port": 80,
+              "error": "timed out",
+              "seconds": 6
+            },
+            {
+              "port": 443,
+              "error": "timed out",
+              "seconds": 6.016
+            }
+          ]
+        },
+        {
+          "host": "www.cangvuhanghaitphcm.gov.vn",
+          "addresses": [
+            "222.253.45.177"
+          ],
+          "connections": [
+            {
+              "port": 80,
+              "error": "timed out",
+              "seconds": 6
+            },
+            {
+              "port": 443,
+              "error": "timed out",
+              "seconds": 6
+            }
+          ]
+        },
+        {
+          "host": "kehoach.cangvuhanghaitphcm.gov.vn",
+          "addresses": [
+            "216.198.79.65",
+            "64.29.17.65"
+          ],
+          "connections": [
+            {
+              "port": 80,
+              "tcp_connected": true,
+              "seconds": 0.047
+            },
+            {
+              "port": 443,
+              "tcp_connected": true,
+              "tls_version": "TLSv1.3",
+              "certificate_expires": "Nov 24 12:31:04 2026 GMT",
+              "seconds": 0.406
+            }
+          ]
+        },
+        {
+          "host": "phuongdinh.name.vn",
+          "addresses": [
+            "118.69.111.83"
+          ],
+          "connections": [
+            {
+              "port": 80,
+              "error": "[WinError 10061] No connection could be made because the target machine actively refused it",
+              "seconds": 3.203
+            },
+            {
+              "port": 443,
+              "tcp_connected": true,
+              "tls_version": "TLSv1.3",
+              "certificate_expires": "Dec  4 23:59:59 2026 GMT",
+              "seconds": 0.61
+            }
+          ]
+        }
+      ],
+      "http": [
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+          "error": "<urlopen error timed out>",
+          "seconds": 8.438
+        },
+        {
+          "url": "http://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+          "error": "<urlopen error timed out>",
+          "seconds": 8.438
+        },
+        {
+          "url": "https://www.cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+          "error": "<urlopen error timed out>",
+          "seconds": 8.438
+        },
+        {
+          "url": "https://kehoach.cangvuhanghaitphcm.gov.vn/welcome",
+          "status": 200,
+          "bytes": 3206,
+          "sha256": "d45fca16ba8587ad312d426e735ea7bc2f1a52f3e77e12ced7e33ca9f52e8cd5",
+          "content_type": "text/html; charset=utf-8",
+          "schedule_tables": false,
+          "seconds": 0.359
+        },
+        {
+          "url": "https://phuongdinh.name.vn/api/cangvu/getDSTau4?ngay=24/10/2026",
+          "status": 200,
+          "bytes": 747629,
+          "sha256": "46854103078eb032d696b9ff96fc2da5cbf649d2558c1f8552d5d6737a927dc7",
+          "content_type": "application/json; charset=utf-8",
+          "schedule_tables": false,
+          "seconds": 2.234
+        }
+      ],
+      "tls_validation": true,
+      "redirects_followed": false,
+      "publication_performed": false
+    },
+    {
+      "runner": "ubuntu-24.04-arm",
+      "job_id": 121132533238,
+      "checked_at": "2026-10-25T09:35:17.891332+00:00",
+      "event": "workflow_dispatch",
+      "run_id": "40181225160",
+      "dns_tcp_tls": [
+        {
+          "host": "cangvuhanghaitphcm.gov.vn",
+          "addresses": [
+            "222.253.45.177"
+          ],
+          "connections": [
+            {
+              "port": 80,
+              "error": "timed out",
+              "seconds": 6.758
+            },
+            {
+              "port": 443,
+              "error": "timed out",
+              "seconds": 6.235
+            }
+          ]
+        },
+        {
+          "host": "www.cangvuhanghaitphcm.gov.vn",
+          "addresses": [
+            "222.253.45.177"
+          ],
+          "connections": [
+            {
+              "port": 80,
+              "error": "timed out",
+              "seconds": 6.226
+            },
+            {
+              "port": 443,
+              "error": "timed out",
+              "seconds": 6.234
+            }
+          ]
+        },
+        {
+          "host": "kehoach.cangvuhanghaitphcm.gov.vn",
+          "addresses": [
+            "216.198.79.65",
+            "64.29.17.65"
+          ],
+          "connections": [
+            {
+              "port": 80,
+              "tcp_connected": true,
+              "seconds": 0.068
+            },
+            {
+              "port": 443,
+              "tcp_connected": true,
+              "tls_version": "TLSv1.3",
+              "certificate_expires": "Nov 24 12:31:04 2026 GMT",
+              "seconds": 0.207
+            }
+          ]
+        },
+        {
+          "host": "phuongdinh.name.vn",
+          "addresses": [
+            "118.69.111.83"
+          ],
+          "connections": [
+            {
+              "port": 80,
+              "error": "[Errno 111] Connection refused",
+              "seconds": 0.244
+            },
+            {
+              "port": 443,
+              "tcp_connected": true,
+              "tls_version": "TLSv1.3",
+              "certificate_expires": "Dec  4 23:59:59 2026 GMT",
+              "seconds": 0.504
+            }
+          ]
+        }
+      ],
+      "http": [
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+          "error": "<urlopen error timed out>",
+          "seconds": 8.068
+        },
+        {
+          "url": "http://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+          "error": "<urlopen error timed out>",
+          "seconds": 8.068
+        },
+        {
+          "url": "https://www.cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+          "error": "<urlopen error timed out>",
+          "seconds": 8.293
+        },
+        {
+          "url": "https://kehoach.cangvuhanghaitphcm.gov.vn/welcome",
+          "status": 200,
+          "bytes": 3206,
+          "sha256": "d45fca16ba8587ad312d426e735ea7bc2f1a52f3e77e12ced7e33ca9f52e8cd5",
+          "content_type": "text/html; charset=utf-8",
+          "schedule_tables": false,
+          "seconds": 0.129
+        },
+        {
+          "url": "https://phuongdinh.name.vn/api/cangvu/getDSTau4?ngay=24/10/2026",
+          "status": 200,
+          "bytes": 747629,
+          "sha256": "46854103078eb032d696b9ff96fc2da5cbf649d2558c1f8552d5d6737a927dc7",
+          "content_type": "application/json; charset=utf-8",
+          "schedule_tables": false,
+          "seconds": 3.353
+        }
+      ],
+      "tls_validation": true,
+      "redirects_followed": false,
+      "publication_performed": false
+    }
+  ],
+  "advanced_settings": {
+    "initial_worker_placement": "Default",
+    "hostname_experiment": {
+      "commit": "25d0175",
+      "placement_hostname": "cangvuhanghaitphcm.gov.vn",
+      "response_header": "local-HKG",
+      "result": "source_timeout; remote placement not demonstrated"
+    },
+    "thailand_experiment": {
+      "commit": "e08ea7e",
+      "deployment": "a143ae09",
+      "build": "a0c769f8-f35f-4901-b67e-f3c93100c8ec",
+      "placement_region": "aws:ap-southeast-7",
+      "response_header": "remote-BKK",
+      "main_result": "source_timeout",
+      "www_result": "source_timeout"
+    },
+    "restored_default_commit": "e952d97",
+    "security_settings_weakened": false,
+    "new_credentials_created": false,
+    "new_servers_created": false,
+    "supabase_read_only_extension_check": {
+      "extensions": [
+        "pg_net",
+        "http",
+        "pg_cron"
+      ],
+      "installed": [],
+      "extensions_installed_by_this_task": false
+    },
+    "default_restored_live_readback": {
+      "status": 200,
+      "placement": null,
+      "body": {
+        "checked_at": "2026-10-25T09:42:28.631Z",
+        "source_url": "https://kehoach.cangvuhanghaitphcm.gov.vn/welcome",
+        "colo": "SIN",
+        "elapsed_ms": 623,
+        "reachable": true,
+        "source_status": 200,
+        "bytes": 3206,
+        "schedule_tables_present": false,
+        "source_types": null,
+        "purpose": "connectivity_only",
+        "refresh_verified": false
+      }
+    }
+  },
+  "sources_reviewed": [
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "kind": "official schedule history",
+      "result": "local works; cloud TCP timeout"
+    },
+    {
+      "url": "https://www.cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "kind": "official hostname alias",
+      "result": "same IPv4; cloud TCP timeout"
+    },
+    {
+      "url": "https://kehoach.cangvuhanghaitphcm.gov.vn/welcome",
+      "kind": "official public map",
+      "result": "GitHub and Cloudflare HTTP 200"
+    },
+    {
+      "url": "https://phuongdinh.name.vn/api/cangvu/getDSTau4",
+      "kind": "backend referenced by official map client",
+      "ownership_certified": false,
+      "result": "GitHub and Cloudflare HTTP 200; not a lossless replacement for schedules"
+    },
+    {
+      "url": "https://tcgp.cangvuhanghaitphcm.gov.vn",
+      "kind": "official permit lookup",
+      "result": "same IPv4 as failing source; no demonstrated alternative cloud route"
+    },
+    {
+      "url": "https://dnhh.cangvuhanghaitphcm.gov.vn/cvsg",
+      "kind": "official linked service",
+      "result": "DNS resolves to private address; not suitable as public cloud source; not pursued"
+    },
+    {
+      "url": "https://qlct.cangvuhanghaitphcm.gov.vn",
+      "kind": "official linked service",
+      "result": "DNS resolves to private address; not suitable as public cloud source; not pursued"
+    },
+    {
+      "url": "https://hanghai.moc.gov.vn/tra-cuu-giay-phep",
+      "kind": "national permit lookup",
+      "result": "existing project review identifies clearance documents; HCM berth/DWT equivalence not verified; not substituted"
+    }
+  ],
+  "conclusions": {
+    "dns_error": false,
+    "exact_source_firewall_or_routing_cause": "unconfirmed",
+    "lossless_cloud_refresh_solution_verified": false,
+    "map_supplementary_path_reachable": true,
+    "source_substitution_performed": false,
+    "confirmed_github_failure_stage": "TCP before TLS",
+    "cloudflare_failure_observed": "HTTPS fetch timeout, including confirmed remote-BKK execution"
+  }
+}

@@ -31,6 +31,8 @@ Quy tắc hiển thị vẫn theo AGENTS.md: giữ tổng số dòng và DWT ghi
 
 Bước kế tiếp nên làm là mục 1, sau đó PDN. Tiếp tục để ngỏ GMD–Dung Quất theo quyết định đã thống nhất.
 
+Rà đường nguồn TP.HCM sau đó: [chẩn đoán kết nối và nguồn thay thế](hcm-source-connectivity-20261025.md). Đã thử thêm Windows/ARM và Cloudflare Placement Bangkok; IP nguồn chính vẫn không truy cập được từ cloud. Bản đồ/API liên quan truy cập được nhưng đối chiếu chỉ có 5/17 dòng kế hoạch cùng ngày, lịch sử mẫu chỉ NEO; chưa thay chuỗi gốc. Cấu hình Placement thử nghiệm đã được khôi phục mặc định.
+
 ## Tài liệu liên quan
 
 - [Miền Nam và Gemalink/SGP](south-integration.md)
