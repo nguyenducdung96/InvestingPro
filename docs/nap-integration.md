@@ -37,3 +37,11 @@ Cấu hình workflow, chạy thủ công, cron thực, staging và production đ
 151/151 Vitest với một worker; 9/9 hợp đồng Python; typecheck, lint, Next production build và diff-check đạt. NAP/CDN desktop/mobile: 4 luồng liên quan đạt; giữ nhật ký chỉ có ngày, không hiển thị giờ 00:00. Chưa coi local build là triển khai cloud; readback staging và workflow ghi riêng trong biên nhận.
 
 Kiểm tra bổ sung phát hiện các ngày rời đã được nguồn ghi nhận nhưng bị để trống ở bản ngày sau. Các sự kiện này được giữ cùng bằng chứng cũ; không suy lượt từ snapshot biến mất hoặc từ ô trống. Một xung đột giữa hai dòng trong cùng workbook vẫn được giữ thiếu. Chiều rời đến 24/10/2026: 399 lượt / 2.336.540,52 DWT lũy kế; tháng 10: 37 lượt / 242.422,2 DWT.
+
+## Nghiệm thu staging và refresh
+
+Quality GitHub [40160558100](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40160558100) đạt 151 Vitest và 64 Playwright. Refresh thủ công [40160558048](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40160558048) đạt hợp đồng nguồn, thu thập, export, kiểm thử và tự push dữ liệu `03135f33c265b50a888a1bedc0873a06e34e9062`. Cloudflare build `6c5c9d98-598b-482a-bb96-581b6c072ce0` thành công.
+
+Readback staging ngày 25/10 đối chiếu cả 22 tháng theo hai chiều với ledger, tổng hai cảng, API tương thích, nhật ký chỉ có ngày và bằng chứng sự kiện được giữ từ báo cáo cũ. Desktop/mobile, bộ lọc, sáng/tối và đường dẫn NAP từ miền Trung đạt; miền Trung hiện 4/5 phạm vi có chuỗi và không cộng tổng chồng lấn. Biên nhận: `catalog-review/nap-staging-20261025.json` và `catalog-review/nap-integration-20261025.json`.
+
+Workflow đã đăng ký trên main, lịch 08:05 giờ Việt Nam. Lần chạy thủ công thành công không chứng nhận cron thực đã chạy; `scheduled_refresh_verified=false`. Chưa nghiệm thu production hoặc độ phủ đầy đủ mọi ngày/cầu.

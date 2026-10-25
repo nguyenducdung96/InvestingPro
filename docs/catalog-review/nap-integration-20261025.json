@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-10-25T03:54:47.961038+00:00",
+  "verified_at": "2026-10-25T04:30:29.709Z",
   "scope": [
     "nap_cua_lo",
     "nap_ben_thuy"
@@ -7,7 +7,7 @@
   "semantics": "authority_reported_terminal_activity",
   "quality": {
     "source_url": "https://cangvuhanghainghean.gov.vn/index.aspx?page=news&cat=2017",
-    "checked_at": "2026-10-25T03:32:54.221010+00:00",
+    "checked_at": "2026-10-25T04:05:47.161439+00:00",
     "parser_version": "nap-authority-xlsx/1.0.0",
     "candidate_reports": 369,
     "parsed_reports": 366,
@@ -32,8 +32,8 @@
       }
     ],
     "retained_reports": 0,
-    "historical_retained_reports": 0,
-    "refresh_recent_days": null,
+    "historical_retained_reports": 362,
+    "refresh_recent_days": 4,
     "schema_warnings": [
       {
         "id": 4941,
@@ -553,11 +553,28 @@
     },
     "typescript": "passed",
     "eslint": "passed",
-    "next_build": "passed"
+    "next_build": "passed",
+    "hosted_quality": {
+      "run_id": 40160558100,
+      "vitest_passed": 151,
+      "playwright_passed": 64,
+      "conclusion": "success"
+    }
   },
-  "staging_verified": false,
-  "manual_refresh_verified": false,
+  "staging_verified": true,
+  "manual_refresh_verified": true,
   "scheduled_refresh_verified": false,
   "production_accepted": false,
-  "note": "Blank daily snapshot cells do not retract recorded events; each retained event uses its original workbook/row evidence."
+  "note": "Blank daily snapshot cells do not retract recorded events; each retained event uses its original workbook/row evidence.",
+  "release_commit": "03135f33c265b50a888a1bedc0873a06e34e9062",
+  "cloudflare_build": "6c5c9d98-598b-482a-bb96-581b6c072ce0",
+  "refresh": {
+    "manual_run_id": 40160558048,
+    "conclusion": "success",
+    "data_commit": "03135f33c265b50a888a1bedc0873a06e34e9062",
+    "scheduler_registered": true,
+    "workflow_registration_commit": "02d51ae482c716185c2208112e2fb5aad503edda",
+    "schedule_vietnam": "08:05 daily",
+    "scheduled_refresh_verified": false
+  }
 }

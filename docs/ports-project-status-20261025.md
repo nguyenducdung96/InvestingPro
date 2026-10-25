@@ -1,4 +1,4 @@
-> Cập nhật CMP 25/10/2026: đã bổ sung chuỗi điều động cầu 1 và 2 với 681 bản nguồn, 22 tháng 01/2025–10/2026; dashboard/API và tổng quan miền Trung dùng cùng số ghi nhận. Đã readback API/UI staging desktop/mobile; xem [CMP](cmp-integration.md). Miền Trung hiện 3/5 phạm vi có chuỗi. NAP và GMD–Dung Quất vẫn pending. Các snapshot/code bên dưới mô tả đợt kiểm tra trước.
+> Cập nhật NAP 25/10/2026: miền Trung hiện 4/5 phạm vi có chuỗi: CDN, QNP, CMP và NAP. NAP gồm Cửa Lò/Bến Thủy, 366 workbook, 22 tháng 01/2025–10/2026; API/UI staging desktop/mobile đã đối chiếu ledger. Refresh thủ công GitHub 40160558048 thành công, dữ liệu `03135f3` đã triển khai. Lịch 08:05 Việt Nam đã đăng ký, chưa chứng nhận lần cron thực. Còn GMD–Dung Quất chưa tích hợp lịch sử. Xem [NAP](nap-integration.md) và [CMP](cmp-integration.md). Các phần bên dưới là snapshot lịch sử của đợt kiểm tra trước.
 
 # Tiến độ ngành cảng — 25/10/2026
 
