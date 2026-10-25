@@ -40,7 +40,8 @@ jobs:
             python scripts/collect-pdn-plans.py --from "$DAY" --to "$DAY"
           else
             python scripts/test-pdn-plans.py
-            python scripts/collect-pdn-plans.py
+            FROM=$(TZ=Asia/Ho_Chi_Minh date -d "7 days ago" +%F)
+            python scripts/collect-pdn-plans.py --from "$FROM"
             python scripts/export-pdn-plans.py
           fi
       - uses: actions/setup-node@v4

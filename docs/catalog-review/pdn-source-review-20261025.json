@@ -1,0 +1,149 @@
+{
+  "reviewed_at": "2026-10-25T10:45:49.583123+00:00",
+  "ticker": "PDN",
+  "corporate_source": {
+    "url": "https://www.dongnaiport.com.vn/bao-cao-thuong-nien/bao-cao-thuong-nien-nam-2025-tieng-viet-338545",
+    "attachment_url": "https://storage-vnportal.vnpt.vn/bpc-khdn/3234/Văn bản/20260330 - PDN - Bao cao thuong nien-VI.pdf",
+    "sha256": "cbf94b2e38cba156a770c4aa5a3aac120d54148b1495425490507b812f087069",
+    "pdf_pages": [
+      7,
+      10
+    ],
+    "basis": "2025 annual report identifies Long Binh Tan and Go Dau; no temporal ownership certification"
+  },
+  "authority_sources": [
+    "https://cangvuhanghaidongnai.gov.vn/index.aspx",
+    "https://cangvuhanghaidongnai.gov.vn/index.aspx?page=detail&id=2656",
+    "https://cangvuhanghaidongnai.gov.vn/index.aspx?page=detail&id=2654",
+    "https://www.vimawa.gov.vn/vi/noi-dung/ben-cang-go-dau-b",
+    "https://www.vimawa.gov.vn/vi/noi-dung/ben-cang-go-dau"
+  ],
+  "official_public_plan_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+  "public_app_sha256": "f08da9113fca7c612f82f492b7b446d7b6320e13b758b45fb2c47acb615ca7da",
+  "mapping_rule": "Exact authority harbour code AND NFC terminal label; wharf codes are retained but never used alone because the source has inconsistent wharf code assignments.",
+  "observed_scope_matrix": {
+    "BC185": {
+      "rows": 12926,
+      "labels": [
+        "Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Cầu cảng số 2",
+        "Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Cầu cảng số 3",
+        "Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Cầu cảng số 2 nối dài",
+        "Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Cầu số 2",
+        "Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Đoạn cầu cảng lkg cc số 2 và cc số 3",
+        "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Bến cảng Đồng Nai - Phân cảng Long Bình Tân, ",
+        "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Cầu cảng số 2",
+        "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Cầu cảng số 3",
+        "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Cầu cảng số 2",
+        "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Cầu cảng số 2 nối dài",
+        "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Cầu cảng số 3",
+        "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Cầu số 1",
+        "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Cầu số 2",
+        "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Bến cảng Đồng Nai - Phân cảng Long Bình Tân, Đoạn cầu cảng lkg cc số 2 và cc số 3"
+      ],
+      "wharf_codes": [
+        "",
+        "54948",
+        "55050",
+        "55120",
+        "55121",
+        "55124",
+        "70122",
+        "70382",
+        "70383",
+        "70505",
+        "K0015",
+        "K0016"
+      ],
+      "first_observed_day": "2025-01-01",
+      "last_observed_day": "2026-10-23"
+    },
+    "BC187": {
+      "rows": 4952,
+      "labels": [
+        "Bến cảng Gò Dầu B, Cầu cảng số 1",
+        "Bến cảng Gò Dầu B, Cầu cảng số 2",
+        "Bến cảng Gò Dầu B, Cầu cảng số 3",
+        "Bến cảng Gò Dầu B, Cầu cảng số 4",
+        "Bến cảng Gò Dầu B, Cầu cảng số 5",
+        "Bến cảng Gò Dầu B, Cầu số 2",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu B, ",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu B, Cầu cảng số 1",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu B, Cầu cảng số 2",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu B, Cầu cảng số 3",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu B, Cầu cảng số 4",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu B, Cầu cảng số 5",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu B, Cầu cảng số 6",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu B, Cầu số 1",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu B, Cầu số 2"
+      ],
+      "wharf_codes": [
+        "",
+        "55121",
+        "55122",
+        "55123",
+        "55124",
+        "6X365",
+        "70382",
+        "70383",
+        "70509",
+        "K0007",
+        "K0010",
+        "K0013",
+        "K0016",
+        "K0034"
+      ],
+      "first_observed_day": "2025-01-01",
+      "last_observed_day": "2026-10-24"
+    },
+    "BC186": {
+      "rows": 1962,
+      "labels": [
+        "Bến cảng Gò Dầu A, Cầu cảng gò dầu A",
+        "Bến cảng Gò Dầu A, Cầu cảng số 2",
+        "Bến cảng Gò Dầu A, Cầu cảng số 3",
+        "Bến cảng Gò Dầu A, Cầu số 2",
+        "Bến cảng Gò Dầu A, GÒ DẦU A1",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu A, Cầu cảng số 1",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu A, Cầu cảng số 2",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu A, Cầu cảng số 3",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu A, Cầu số 1",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu A, Cầu số 2",
+        "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Bến cảng Gò Dầu A, GÒ DẦU A1"
+      ],
+      "wharf_codes": [
+        "55119",
+        "55120",
+        "55121",
+        "55124",
+        "70382",
+        "70383",
+        "K0013",
+        "K0016",
+        "K0049"
+      ],
+      "first_observed_day": "2025-01-01",
+      "last_observed_day": "2026-10-24"
+    }
+  },
+  "excluded": [
+    "Sowatco / Cang thuy noi dia Long Binh",
+    "Ben TND Xang dau Long Binh Tan",
+    "Phuoc An",
+    "VOPAK",
+    "unlinked anchorages",
+    "unmapped planned berths; no inferred zero"
+  ],
+  "semantics": "authority_published_berth_plan",
+  "actual_verified": false,
+  "full_scope_certified": false,
+  "source_reuse_rights_verified": false,
+  "cloud_probe": {
+    "run_id": 40185054799,
+    "url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40185054799",
+    "event": "workflow_dispatch",
+    "runner": "ubuntu-24.04",
+    "conclusion": "success",
+    "official_responses": 3,
+    "scheduled_refresh_verified": false
+  }
+}

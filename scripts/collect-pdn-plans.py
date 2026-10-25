@@ -5,8 +5,11 @@ BASE='http://123.25.204.166/web/guest/public-kh'
 SOURCE=BASE+'#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2'
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/'.local/pdn'
+class NoRedirect(u.HTTPRedirectHandler):
+ def redirect_request(self,*args,**kwargs):raise ValueError('Public source redirected')
+OPENER=u.build_opener(NoRedirect())
 def read(url):
- with u.urlopen(u.Request(url,headers={'User-Agent':'InvestingPro public source research'}),timeout=45) as r:
+ with OPENER.open(u.Request(url,headers={'User-Agent':'InvestingPro public source research'}),timeout=45) as r:
   if r.geturl().split('?')[0].split(';')[0] not in [BASE,'http://123.25.204.166/public-kh']:raise ValueError('Unexpected redirect')
   b=r.read(8_000_001)
   if len(b)>8_000_000:raise ValueError('Response too large')
@@ -25,7 +28,13 @@ def bootstrap():
 
 def collect(day,direction,urls,refresh=False):
  path=OUT/'raw'/f'{day}-{direction}.json.gz'
- if path.exists() and not refresh:return 'cached'
+ if path.exists() and not refresh:
+  archived=json.loads(gzip.decompress(path.read_bytes()))
+  candidate=archived.get('raw_response',json.dumps(archived['response'],ensure_ascii=False,separators=(',',':')))
+  if hashlib.sha256(candidate.encode()).hexdigest()==archived['sha256']:
+   if 'raw_response' not in archived:
+    archived['raw_response']=candidate;path.write_bytes(gzip.compress(json.dumps(archived,ensure_ascii=False).encode()))
+   return 'cached'
  args=dict(start=-1,end=-1,maritimeCode=11,shipBoat='SHIP',noticeShipType=1 if direction=='arrival' else 2)
  args['markedAsArrival' if direction=='arrival' else 'markedAsDeparture']='3,4,5,7,8,9'
  args['timeOfArrival' if direction=='arrival' else 'timeOfDeparture']=dt.date.fromisoformat(day).strftime('%d/%m/%Y')
@@ -39,7 +48,7 @@ def collect(day,direction,urls,refresh=False):
     if not row.get(field,'').startswith(args[field]+' '):raise ValueError('Date filter mismatch')
    previous=json.loads(gzip.decompress(path.read_bytes())) if path.exists() else None
    if previous and len(v['data'])<len(previous['response']['data'])*.95:raise ValueError('Unexpected row loss; keeping last good')
-   envelope=dict(day=day,direction=direction,source_url=SOURCE,parameters=args,sha256=hashlib.sha256(raw).hexdigest(),checked_at=dt.datetime.now(dt.timezone.utc).isoformat(),response=v)
+   envelope=dict(day=day,direction=direction,source_url=SOURCE,parameters=args,sha256=hashlib.sha256(raw).hexdigest(),checked_at=dt.datetime.now(dt.timezone.utc).isoformat(),response=v,raw_response=raw.decode('utf8'))
    path.parent.mkdir(parents=True,exist_ok=True);tmp=path.with_suffix('.tmp');tmp.write_bytes(gzip.compress(json.dumps(envelope,ensure_ascii=False).encode()));tmp.replace(path)
    return 'ok'
   except Exception:
@@ -50,11 +59,14 @@ def main():
  a=argparse.ArgumentParser();a.add_argument('--from',dest='start',default='2025-01-01');a.add_argument('--to',dest='end',default=str(dt.datetime.now(dt.timezone(dt.timedelta(hours=7))).date()-dt.timedelta(days=1)));a.add_argument('--refresh-days',type=int,default=7);a.add_argument('--directions',default='arrival,departure,movement');o=a.parse_args()
  urls=bootstrap();start=dt.date.fromisoformat(o.start);end=dt.date.fromisoformat(o.end);tasks=[(str(start+dt.timedelta(days=i)),d) for i in range((end-start).days+1) for d in o.directions.split(',')]
  counts={}
+ OUT.mkdir(parents=True,exist_ok=True)
  with cf.ThreadPoolExecutor(max_workers=3) as pool:
   futures=[pool.submit(collect,day,d,urls,day>=str(end-dt.timedelta(days=o.refresh_days-1))) for day,d in tasks]
   for i,f in enumerate(cf.as_completed(futures),1):
    r=f.result();counts[r]=counts.get(r,0)+1
    if i%100==0:print(i,len(tasks),counts,flush=True)
  print(counts,flush=True)
+ receipt=dict(checked_at=dt.datetime.now(dt.timezone.utc).isoformat(),source_url=SOURCE,from_day=str(start),through=str(end),requested_responses=len(tasks),counts=counts,source_refresh_success=not counts.get('failed',0))
+ (OUT/'collect-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n')
  if counts.get('failed'):raise SystemExit(1)
 if __name__=='__main__':main()

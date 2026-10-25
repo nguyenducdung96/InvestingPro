@@ -29,7 +29,7 @@ export function southSeries(groups:Record<string,TanVuPlanDay[]|undefined>,asset
 export const southTargets=[
  {ticker:'GMD',name:'Gemalink',assets:['gemalink'],status:'integrated',note:'Miền Nam chỉ Gemalink. Bình Dương, Phước Long chưa có chuỗi được ghép.',asset:'gemalink'},
  {ticker:'SGP',name:'Hiệp Phước · CMIT · SP-PSA · SSIT',assets:['sg_hiep_phuoc','cmit','sp_psa','ssit'],status:'integrated',note:'Bốn phạm vi, chưa gồm Tân Thuận và các bến khác.',asset:'sgp'},
- {ticker:'PDN',name:'Long Bình Tân · Gò Dầu',assets:[],status:'pending',note:'Cần nguồn lịch sử và alias cầu bến chính thức.',asset:''},
+ {ticker:'PDN',name:'Long Bình Tân · Gò Dầu A/B',assets:[],status:'integrated',note:'Lịch công bố Đồng Nai; gồm tuyến giữa khu neo và cầu đã ghép. Chuyển giữa các bến PDN giữ riêng. Chưa chứng nhận toàn bộ hoạt động.',asset:'pdn'},
  {ticker:'CLL',name:'Cát Lái · phạm vi CLL',assets:[],status:'pending',note:'Không gán toàn bộ Cát Lái cho CLL.',asset:''},
  {ticker:'TCL',name:'Dịch vụ cảng Tân Cảng',assets:[],status:'pending',note:'Dịch vụ xếp dỡ không đồng nghĩa sở hữu/khai thác toàn bộ Tân Cảng.',asset:''},
  {ticker:'SWC',name:'Sowatco Long Bình',assets:[],status:'pending',note:'Cảng sông; chưa có chuỗi tàu được đối chiếu. Không lấy hoạt động VICT thay thế.',asset:''},

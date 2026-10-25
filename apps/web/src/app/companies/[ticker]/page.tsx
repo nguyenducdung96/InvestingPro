@@ -8,6 +8,7 @@ import {isIssuerPlanTicker} from '@invest/port';
 import {QnpPlans} from '@/components/qnp-plans';
 import {CmpPlans} from '@/components/cmp-plans';
 import {NapActivity} from '@/components/nap-activity';
+import {PdnPlans} from '@/components/pdn-plans';
 import {SouthPlans} from '@/components/south-plans';
 export const dynamic = "force-dynamic";
 export default async function Page({
@@ -25,6 +26,7 @@ export default async function Page({
     {ticker==='GMD'&&query.central_asset==='gemadept_dung_quat'&&<DungquatActivity query={query}/>}
     {ticker==='GMD'&&query.central_asset!=='gemadept_dung_quat'&&!['gmd','nam_dinh_vu'].includes(query.plan_asset)&&<SouthPlans ticker="GMD" query={query}/>}
     {ticker==='SGP'&&<SouthPlans ticker="SGP" query={query}/>}
+    {ticker==='PDN'&&<PdnPlans query={query}/>}
     {!(ticker==='GMD'&&(query.central_asset==='gemadept_dung_quat'||!['gmd','nam_dinh_vu'].includes(query.plan_asset)))&&(ticker==='PHP'||ticker==='DVP'||isIssuerPlanTicker(ticker))&&<PhpPlans query={query} ticker={ticker}/>}
     {ticker==='PHP'&&<PhpThroughput query={query}/>}
     {ticker==='QNP'&&<QnpPlans query={query}/>}

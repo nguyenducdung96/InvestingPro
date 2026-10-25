@@ -10,7 +10,8 @@ test('southern scopes reconcile API/UI and preserve empty history, filters and p
  expect(api.actual_verified).toBe(false);expect(api.metadata.requested_days).toBeGreaterThanOrEqual(662);
  const current=api.months.find((m:{period:string})=>m.period==='2026-10');
  await expect(page.locator('tr[data-ticker="GMD"] [data-label="DWT đã ghi nhận"]')).toContainText(current.current.observed_dwt.toLocaleString('vi-VN',{maximumFractionDigits:2}));
- await expect(page.locator('tr[data-ticker="PDN"] [data-label="Lượt"]')).toHaveText('—');
+ const pdn=await(await page.request.get('/api/v1/companies/PDN/plans')).json();
+ await expect(page.locator('tr[data-ticker="PDN"] [data-label="Lượt"]')).toHaveText(pdn.data.months.find((m:{period:string})=>m.period==='2026-10').current.known_rows.toLocaleString('vi-VN'));
  await page.locator('tr[data-ticker="GMD"] .north-ticker').click();
  const plans=page.getByRole('region',{name:'Lịch điều động GMD',exact:true});
  await expect(plans.getByLabel('Phạm vi theo dõi')).toHaveValue('gemalink');
