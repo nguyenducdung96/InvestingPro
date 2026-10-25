@@ -16,6 +16,9 @@ def board(day='2026-10-24',clock='11:00',weight='156694'):
   html+='</table>'
  return html.encode()
 class Tests(unittest.TestCase):
+ def test_connectivity_probe_cannot_export_or_publish(self):
+  with tempfile.TemporaryDirectory() as folder,patch.object(m,'OUT',Path(folder)),patch.object(m,'initial_request',return_value=board()),patch('sys.argv',['collector','--probe']),patch.dict(m.os.environ,{},clear=True):
+   m.main();run=json.loads((Path(folder)/'last-run.json').read_text());self.assertFalse(run['exportable']);self.assertEqual(run['stage'],'connectivity_probe');self.assertFalse((Path(folder)/'receipt.json').exists())
  def test_initial_connection_retries_and_fails_without_false_success(self):
   with patch.object(m,'request',side_effect=[OSError('timeout'),OSError('timeout'),b'valid']),patch.object(m.time,'sleep'):
    self.assertEqual(m.initial_request(),b'valid')

@@ -105,7 +105,7 @@ def post_fields(raw,day):
  return urllib.parse.urlencode(fields).encode()
 
 def main():
- parser=argparse.ArgumentParser();parser.add_argument('--from',dest='start',default='2025-01-01');parser.add_argument('--through');parser.add_argument('--workers',type=int,default=3);parser.add_argument('--refresh-recent',type=int,default=4);args=parser.parse_args()
+ parser=argparse.ArgumentParser();parser.add_argument('--from',dest='start',default='2025-01-01');parser.add_argument('--through');parser.add_argument('--workers',type=int,default=3);parser.add_argument('--refresh-recent',type=int,default=4);parser.add_argument('--probe',action='store_true');args=parser.parse_args()
  cutoff=dt.datetime.now(dt.timezone(dt.timedelta(hours=7))).date()-dt.timedelta(days=1)
  end=dt.date.fromisoformat(args.through) if args.through else cutoff;start=dt.date.fromisoformat(args.start)
  if start>end or end>cutoff or args.workers<1 or args.workers>3:raise ValueError('Invalid elapsed history window')
@@ -115,6 +115,10 @@ def main():
  except (OSError,ValueError) as exc:
   run={'checked_at':dt.datetime.now(dt.timezone.utc).isoformat(),'stage':'bootstrap','status':'failed','exportable':False,'requested_days':len(dates),'error':str(exc),'source_url':URL}
   write_run(OUT,run);print(json.dumps(run),flush=True);raise SystemExit(1)
+ if args.probe:
+  page=Page();page.feed(base.decode('utf-8-sig'));selected=page.fields.get('ctl22$txtDate');parse(base,selected)
+  run={'checked_at':dt.datetime.now(dt.timezone.utc).isoformat(),'stage':'connectivity_probe','status':'success','exportable':False,'selected_day':selected,'source_url':URL}
+  write_run(OUT,run);print(json.dumps(run),flush=True);return
  def collect(day):
   path=parsed/(day+'.json')
   if path.exists() and dt.date.fromisoformat(day)<end-dt.timedelta(days=args.refresh_recent):

@@ -1,17 +1,36 @@
 name: Southern official authority schedules
+run-name: ${{ inputs.probe_only && 'Source connectivity probe' || 'Southern official authority schedules' }}
 on:
   workflow_dispatch:
+    inputs:
+      runner:
+        description: Standard hosted runner
+        type: choice
+        default: ubuntu-24.04
+        options:
+          - ubuntu-24.04
+          - macos-latest
+          - windows-latest
+      probe_only:
+        description: Check the public source connection without refreshing or publishing data
+        type: boolean
+        default: false
   schedule:
     # 08:35 Vietnam. Configuration does not establish a successful scheduled run.
     - cron: '35 1 * * *'
 permissions:
   contents: write
+defaults:
+  run:
+    shell: bash
+env:
+  PYTHONUTF8: '1'
 concurrency:
   group: south-plans-staging
   cancel-in-progress: false
 jobs:
   refresh:
-    runs-on: ubuntu-24.04
+    runs-on: ${{ inputs.runner || 'ubuntu-24.04' }}
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
@@ -33,7 +52,7 @@ jobs:
       - name: Refresh validated historical date forms
         id: collect
         continue-on-error: true
-        run: python scripts/collect-south-plans.py --workers 3 --refresh-recent 4
+        run: python scripts/collect-south-plans.py --workers 3 --refresh-recent 4 ${{ inputs.probe_only && '--probe' || '' }}
       - name: Verify archives and compile an immutable edition
         id: compile
         if: steps.collect.outputs.exportable == 'true'
