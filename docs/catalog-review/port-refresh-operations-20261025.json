@@ -1,0 +1,472 @@
+{
+  "scope": "existing_port_refresh_operations",
+  "checked_at": "2026-10-25T09:10:00Z",
+  "infrastructure": [
+    "GitHub",
+    "Cloudflare"
+  ],
+  "main_workflow_head": "4fad560845ca640d41389586ef0efa6f762dd49f",
+  "schedule_vietnam": "08:35 daily",
+  "network": {
+    "checked_at": "2026-10-25T08:44:00Z",
+    "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+    "source_ipv4": "222.253.45.177",
+    "local_https_get": {
+      "status": 200,
+      "seconds": 0.4
+    },
+    "github_failures": [
+      {
+        "run_id": 40177006819,
+        "runner": "ubuntu-26.04",
+        "region": "westus3",
+        "error": "TCP connection timed out",
+        "retries": 1
+      },
+      {
+        "run_id": 40177546957,
+        "runner": "ubuntu-24.04",
+        "region": "westus2",
+        "error": "TCP connection timed out",
+        "retries": 3,
+        "exportable": false,
+        "published_commit": null,
+        "last_good_preserved": true
+      },
+      {
+        "run_id": 40177904675,
+        "runner": "macos-latest",
+        "region": "westus",
+        "probe_only": true,
+        "error": "TCP connection timed out",
+        "retries": 3,
+        "published_commit": null
+      }
+    ],
+    "tls_verification_disabled": false,
+    "proxy_used": false,
+    "source_access_refusal_received": false
+  },
+  "cloudflare_runtime_probe": {
+    "checked_at": "2026-10-25T09:07:29.774Z",
+    "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+    "colo": "SIN",
+    "reachable": false,
+    "reason": "source_timeout",
+    "detail": "The operation was aborted",
+    "refresh_verified": false
+  },
+  "scheduled_audit": {
+    "checked_at": "2026-10-25T08:32:01.830650+00:00",
+    "workflows": [
+      {
+        "workflow": ".github/workflows/cdn-plans.yml",
+        "state": "active",
+        "scheduled_runs": [
+          {
+            "id": 40163593289,
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-25T04:54:36Z",
+            "updated_at": "2026-10-25T04:55:25Z",
+            "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40163593289"
+          }
+        ]
+      },
+      {
+        "workflow": ".github/workflows/cmp-plans.yml",
+        "state": "active",
+        "scheduled_runs": []
+      },
+      {
+        "workflow": ".github/workflows/cqn-plans.yml",
+        "state": "active",
+        "scheduled_runs": [
+          {
+            "id": 40162069545,
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-25T04:29:38Z",
+            "updated_at": "2026-10-25T04:31:26Z",
+            "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40162069545"
+          }
+        ]
+      },
+      {
+        "workflow": ".github/workflows/dvp-plans.yml",
+        "state": "active",
+        "scheduled_runs": [
+          {
+            "id": 40150992934,
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-25T01:31:53Z",
+            "updated_at": "2026-10-25T01:32:25Z",
+            "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40150992934"
+          }
+        ]
+      },
+      {
+        "workflow": ".github/workflows/haiphong-plans.yml",
+        "state": "active",
+        "scheduled_runs": [
+          {
+            "id": 40161673050,
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-25T04:22:55Z",
+            "updated_at": "2026-10-25T04:23:31Z",
+            "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40161673050"
+          }
+        ]
+      },
+      {
+        "workflow": ".github/workflows/nap-activity.yml",
+        "state": "active",
+        "scheduled_runs": []
+      },
+      {
+        "workflow": ".github/workflows/qnp-plans.yml",
+        "state": "active",
+        "scheduled_runs": [
+          {
+            "id": 40164592906,
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-25T05:10:59Z",
+            "updated_at": "2026-10-25T05:13:57Z",
+            "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40164592906"
+          }
+        ]
+      },
+      {
+        "workflow": ".github/workflows/tanvu-plans.yml",
+        "state": "active",
+        "scheduled_runs": [
+          {
+            "id": 40150466931,
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-25T01:23:52Z",
+            "updated_at": "2026-10-25T01:24:27Z",
+            "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40150466931"
+          },
+          {
+            "id": 40051357349,
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-24T01:47:13Z",
+            "updated_at": "2026-10-24T01:47:40Z",
+            "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40051357349"
+          },
+          {
+            "id": 39885652387,
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-23T01:43:57Z",
+            "updated_at": "2026-10-23T01:44:37Z",
+            "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/39885652387"
+          }
+        ]
+      },
+      {
+        "workflow": ".github/workflows/vsc-plans.yml",
+        "state": "active",
+        "scheduled_runs": [
+          {
+            "id": 40151887945,
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-25T01:45:40Z",
+            "updated_at": "2026-10-25T01:46:18Z",
+            "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/40151887945"
+          }
+        ]
+      }
+    ]
+  },
+  "live_quality": {
+    "checked_at": "2026-10-25T08:40:09.509Z",
+    "results": [
+      {
+        "status": "fulfilled",
+        "value": {
+          "region": "north",
+          "cutoff": "2026-10-24",
+          "read_errors": [],
+          "source_checked_at": null,
+          "rows": [
+            {
+              "ticker": "PHP",
+              "scope": "Tân Vũ, Chùa Vẽ, Hoàng Diệu, HTIT",
+              "updated_at": "2026-10-25T01:24:12.864565+00:00",
+              "last_source_day": "2026-10-24",
+              "stale": false,
+              "source_error": false,
+              "recorded_rows": 120,
+              "missing_dwt": 0,
+              "status": null
+            },
+            {
+              "ticker": "DVP",
+              "scope": "Đình Vũ",
+              "updated_at": "2026-10-25T01:32:18.316978+00:00",
+              "last_source_day": "2026-10-24",
+              "stale": false,
+              "source_error": false,
+              "recorded_rows": 22,
+              "missing_dwt": 0,
+              "status": null
+            },
+            {
+              "ticker": "VGR",
+              "scope": "VIP Greenport",
+              "updated_at": "2026-10-25T01:46:05.650281+00:00",
+              "last_source_day": "2026-10-24",
+              "stale": false,
+              "source_error": false,
+              "recorded_rows": 27,
+              "missing_dwt": 0,
+              "status": null
+            },
+            {
+              "ticker": "VSC",
+              "scope": "Greenport, VIP Greenport, Nam Hải Đình Vũ, VIMC Đình Vũ",
+              "updated_at": "2026-10-25T01:46:05.64442+00:00",
+              "last_source_day": "2026-10-24",
+              "stale": false,
+              "source_error": false,
+              "recorded_rows": 80,
+              "missing_dwt": 0,
+              "status": null
+            },
+            {
+              "ticker": "GMD",
+              "scope": "Nam Đình Vũ · Hải Phòng",
+              "updated_at": "2026-10-25T04:23:19.380044+00:00",
+              "last_source_day": "2026-10-24",
+              "stale": false,
+              "source_error": false,
+              "recorded_rows": 81,
+              "missing_dwt": 0,
+              "status": null
+            },
+            {
+              "ticker": "HAH",
+              "scope": "Hải An",
+              "updated_at": "2026-10-25T04:23:19.385042+00:00",
+              "last_source_day": "2026-10-24",
+              "stale": false,
+              "source_error": false,
+              "recorded_rows": 16,
+              "missing_dwt": 0,
+              "status": null
+            },
+            {
+              "ticker": "DXP",
+              "scope": "Đoạn Xá",
+              "updated_at": "2026-10-25T04:23:19.389914+00:00",
+              "last_source_day": "2026-10-24",
+              "stale": false,
+              "source_error": false,
+              "recorded_rows": 9,
+              "missing_dwt": 0,
+              "status": null
+            },
+            {
+              "ticker": "PSP",
+              "scope": "PTSC Đình Vũ",
+              "updated_at": "2026-10-25T04:23:19.394751+00:00",
+              "last_source_day": "2026-10-24",
+              "stale": false,
+              "source_error": false,
+              "recorded_rows": 20,
+              "missing_dwt": 0,
+              "status": null
+            },
+            {
+              "ticker": "CQN",
+              "scope": "Cái Lân · cầu 1, 5, 6, 7",
+              "updated_at": "2026-10-25T04:31:17.404109+00:00",
+              "last_source_day": "2026-10-24",
+              "stale": false,
+              "source_error": false,
+              "recorded_rows": 35,
+              "missing_dwt": 0,
+              "status": null
+            }
+          ]
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "region": "central",
+          "cutoff": "2026-10-24",
+          "read_errors": 0,
+          "source_checked_at": null,
+          "rows": [
+            {
+              "ticker": "CDN",
+              "scope": "Tiên Sa · Đà Nẵng",
+              "updated_at": "2026-10-25T04:55:18.421243+00:00",
+              "last_source_day": null,
+              "stale": false,
+              "source_error": null,
+              "recorded_rows": 114,
+              "missing_dwt": 1,
+              "status": "connected"
+            },
+            {
+              "ticker": "QNP",
+              "scope": "Quy Nhơn · lịch cầu bến",
+              "updated_at": "2026-10-25T05:12:49.729944+00:00",
+              "last_source_day": null,
+              "stale": false,
+              "source_error": null,
+              "recorded_rows": 69,
+              "missing_dwt": 4,
+              "status": "connected"
+            },
+            {
+              "ticker": "CMP",
+              "scope": "Chân Mây · cầu 1 và 2",
+              "updated_at": "2026-10-25T03:24:06.045667+00:00",
+              "last_source_day": null,
+              "stale": false,
+              "source_error": null,
+              "recorded_rows": 36,
+              "missing_dwt": 0,
+              "status": "connected"
+            },
+            {
+              "ticker": "NAP",
+              "scope": "Cửa Lò, Bến Thủy",
+              "updated_at": "2026-10-25T04:05:47.161439+00:00",
+              "last_source_day": null,
+              "stale": false,
+              "source_error": null,
+              "recorded_rows": 37,
+              "missing_dwt": 0,
+              "status": "connected"
+            },
+            {
+              "ticker": "GMD",
+              "scope": "Gemadept–Dung Quất · miền Trung",
+              "updated_at": "2026-10-25T04:53:35.662995+00:00",
+              "last_source_day": null,
+              "stale": null,
+              "source_error": null,
+              "recorded_rows": null,
+              "missing_dwt": 0,
+              "status": "reviewed_subset"
+            }
+          ]
+        }
+      },
+      {
+        "status": "fulfilled",
+        "value": {
+          "region": "south",
+          "cutoff": "2026-10-24",
+          "read_errors": null,
+          "source_checked_at": "2026-10-25T05:38:27.739662+00:00",
+          "rows": [
+            {
+              "ticker": "GMD",
+              "scope": "Gemalink",
+              "updated_at": null,
+              "last_source_day": null,
+              "stale": null,
+              "source_error": null,
+              "recorded_rows": 41,
+              "missing_dwt": 0,
+              "status": "integrated"
+            },
+            {
+              "ticker": "SGP",
+              "scope": "Hiệp Phước · CMIT · SP-PSA · SSIT",
+              "updated_at": null,
+              "last_source_day": null,
+              "stale": null,
+              "source_error": null,
+              "recorded_rows": 158,
+              "missing_dwt": 0,
+              "status": "integrated"
+            },
+            {
+              "ticker": "PDN",
+              "scope": "Long Bình Tân · Gò Dầu",
+              "updated_at": null,
+              "last_source_day": null,
+              "stale": null,
+              "source_error": null,
+              "recorded_rows": null,
+              "missing_dwt": null,
+              "status": "pending"
+            },
+            {
+              "ticker": "CLL",
+              "scope": "Cát Lái · phạm vi CLL",
+              "updated_at": null,
+              "last_source_day": null,
+              "stale": null,
+              "source_error": null,
+              "recorded_rows": null,
+              "missing_dwt": null,
+              "status": "pending"
+            },
+            {
+              "ticker": "TCL",
+              "scope": "Dịch vụ cảng Tân Cảng",
+              "updated_at": null,
+              "last_source_day": null,
+              "stale": null,
+              "source_error": null,
+              "recorded_rows": null,
+              "missing_dwt": null,
+              "status": "pending"
+            },
+            {
+              "ticker": "SWC",
+              "scope": "Sowatco Long Bình",
+              "updated_at": null,
+              "last_source_day": null,
+              "stale": null,
+              "source_error": null,
+              "recorded_rows": null,
+              "missing_dwt": null,
+              "status": "pending"
+            },
+            {
+              "ticker": "TCW",
+              "scope": "Tân Cảng Warehousing",
+              "updated_at": null,
+              "last_source_day": null,
+              "stale": null,
+              "source_error": null,
+              "recorded_rows": null,
+              "missing_dwt": null,
+              "status": "pending"
+            },
+            {
+              "ticker": "VGP",
+              "scope": "Cảng Rau Quả",
+              "updated_at": null,
+              "last_source_day": null,
+              "stale": null,
+              "source_error": null,
+              "recorded_rows": null,
+              "missing_dwt": null,
+              "status": "pending"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "southern_cloud_refresh_end_to_end_verified": false,
+  "all_current_scopes_two_scheduled_cycles_verified": false,
+  "last_good_preserved": true,
+  "own_server_or_personal_machine_schedule_created": false
+}
