@@ -11,7 +11,7 @@ async function probe() {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 15_000);
   try {
-    const response = await fetch(source, {signal: controller.signal, cache: 'no-store', redirect: 'error'});
+    const response = await fetch(source, {signal: controller.signal, cache: 'no-store', redirect: 'manual'});
     if (!response.ok) {
       await response.body?.cancel();
       return {checked_at: checkedAt, source_url: source, colo, reachable: false, source_status: response.status, reason: 'source_http_error'};
