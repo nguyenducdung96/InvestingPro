@@ -2,7 +2,7 @@
 
 ## Phạm vi đã thực hiện tại máy
 
-Tiếp tục CLL/TCL rồi SWC/TCW/VGP, bổ sung phần GMD/SGP có nguồn phù hợp. Theo chỉ đạo mới, người dùng tự kiểm tra nghiệm thu cron PDN và kết nối TP.HCM sau; biến động Long Bình Tân đã được người dùng chấp nhận, không điều tra lại. Bản mở rộng này được chuẩn bị commit/push lên `codex/cloudflare-next-compat` theo yêu cầu người dùng; deploy/readback cần được xác minh riêng và không thay đổi trạng thái nghiệm thu production hay cron.
+Tiếp tục CLL/TCL rồi SWC/TCW/VGP, bổ sung phần GMD/SGP có nguồn phù hợp. Theo chỉ đạo mới, người dùng tự kiểm tra nghiệm thu cron PDN và kết nối TP.HCM sau; biến động Long Bình Tân đã được người dùng chấp nhận, không điều tra lại. Bản mở rộng đã commit/push tại `989a319` lên `codex/cloudflare-next-compat` theo yêu cầu người dùng; deploy/readback cần được xác minh riêng và không thay đổi trạng thái nghiệm thu production hay cron.
 
 CLL đã có dashboard/API cho cầu số 7 (`C.LAI 7`, 1.667 dòng) và bến 2.200 DWT (`CAU CANG 2.200 DWT`, 97 dòng). Báo cáo doanh nghiệp 2025 trang PDF 4–5 xác định cầu container 216 m và bến nhỏ hợp tác TCL; trang 7 mô tả địa bàn kinh doanh. Tổng 1.764 dòng là hai chiều lịch công bố, không phải toàn bộ Cát Lái hoặc lượt tàu ghé duy nhất. Không ghép `B7`, `B7 - CSG`, các cầu Cát Lái khác hoặc cộng lại bến hợp tác cho TCL. Bản báo cáo doanh nghiệp phát hành đang lưu trên CDN CafeF; không mô tả CafeF là bên phát hành hay website doanh nghiệp.
 
@@ -50,3 +50,14 @@ Verifier HCM hiện được mở rộng cho các scope mới và tổng SGP nă
 ## Tiếp tục
 
 Ưu tiên tìm nguồn riêng cho ICD Nhơn Trạch/TCL, Long Bình–Sotrans–Mekong của SWC và Phước Long/GMD; với TCW, ưu tiên dữ liệu sản lượng kho/bãi/depot phù hợp. Tân Thuận cần thêm mã/nguồn phân biệt K12 và TT2 trước khi mở rộng. Kiểm tra vận hành HCM, cron PDN và lịch refresh Bình Dương do người dùng để sau. Không mở lại vấn đề giảm số ghi nhận Long Bình Tân.
+
+
+## Điều tra thiếu dữ liệu Bình Dương — 26/10/2026
+
+Chuỗi đang phát hành chưa đầy đủ: dòng rời cuối 15/07/2026, dòng vào cuối 24/08/2026. Các tháng sau 6/2026 thưa bất thường trong tập phản hồi đã lưu; đây không phải bằng chứng cảng ít hoặc không hoạt động. Không đổi các tổng ghi nhận, null hoặc cách tính YoY.
+
+Đã đối chiếu raw năm 2026 của hai chiều và điều chuyển: nhãn BC198/Cảng Bình Dương không đổi trong các dòng còn tìm được. Probe công khai ngày 24/10 với SHIP, bỏ shipBoat và lịch tổng hợp không tìm được dòng Bình Dương. Probe BOAT chiều vào trả total=1 nhưng data=[] nên **không đủ trang**; không dùng để kết luận BOAT không có dữ liệu. Hai probe bỏ trạng thái bị timeout. Không chứng nhận mọi biến thể truy vấn đã được phủ.
+
+Smartport Gemadept được tra cứu qua giao diện trước đăng nhập, chọn CẢNG BÌNH DƯƠNG và 01–31/07/2026: 46 trang, 10 dòng/trang, trang cuối chỉ STT 451. Bảng có hãng tàu, tên tàu, chuyến nhập/xuất, closing time, ETA/ETB/ETD, trạng thái; không có DWT hoặc vị trí cầu của từng dòng. Ví dụ WAN HAI A01: closing 25/07, ETA/ETB 28/07 nhưng ETD 22/07; không thể dùng trường trạng thái để xác nhận lượt vào/rời thực tế tại Bình Dương. Các dòng này chưa đủ ngữ nghĩa để cộng vào chuỗi Cảng vụ và không được nhập thay số thiếu.
+
+Nguồn đã xem: https://smartport.gemadept.com.vn/login và lịch công khai Đồng Nai tại URL nguồn trong ledger. Bằng chứng truy vấn lưu tại `.local/binhduong-research/` (ignored, không chứa URL phiên trong tài liệu commit). Chưa tìm được nguồn bổ sung đủ điều kiện. Bước cần tiếp: lịch/nhật ký có mã bến Bình Dương, thời gian, chiều vào/rời và DWT từ Cảng vụ hoặc doanh nghiệp; nếu chỉ có lịch dịch vụ Smartport thì cần chuỗi riêng, không ghép vào chỉ tiêu hiện tại. Giao diện bổ sung ngày quan sát cuối theo từng chiều trong chi tiết thu gọn, tính từ dữ liệu đang phát hành.
