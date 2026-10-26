@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-24",
+  "cutoff": "2026-10-25",
   "directions": {
     "arrival": {
       "months": {
@@ -109,25 +109,25 @@
           "missing_dwt": 1
         },
         "2026-10": {
-          "rows": 52,
-          "dwt": 614610.0,
+          "rows": 53,
+          "dwt": 617794.0,
           "missing_dwt": 9
         }
       },
       "ytd": {
-        "rows": 636,
-        "dwt": 8185785.0,
+        "rows": 637,
+        "dwt": 8188969.0,
         "missing_dwt": 38
       },
       "prior_ytd": {
-        "rows": 643,
-        "dwt": 7864791.0,
+        "rows": 645,
+        "dwt": 7904260.0,
         "missing_dwt": 31
       },
       "scopes": {
         "qnp_cau1": {
-          "rows": 724,
-          "dwt": 9382314.0,
+          "rows": 725,
+          "dwt": 9385498.0,
           "missing_dwt": 36
         },
         "qnp_cau2": {
@@ -260,25 +260,25 @@
           "missing_dwt": 4
         },
         "2026-10": {
-          "rows": 69,
-          "dwt": 821256.0,
+          "rows": 72,
+          "dwt": 865516.0,
           "missing_dwt": 4
         }
       },
       "ytd": {
-        "rows": 768,
-        "dwt": 8837915.0,
+        "rows": 771,
+        "dwt": 8882175.0,
         "missing_dwt": 48
       },
       "prior_ytd": {
-        "rows": 793,
-        "dwt": 8298284.0,
+        "rows": 795,
+        "dwt": 8327717.0,
         "missing_dwt": 47
       },
       "scopes": {
         "qnp_cau1": {
-          "rows": 844,
-          "dwt": 9746215.0,
+          "rows": 845,
+          "dwt": 9766201.0,
           "missing_dwt": 50
         },
         "qnp_cau2": {
@@ -287,13 +287,13 @@
           "missing_dwt": 20
         },
         "qnp_cau3": {
-          "rows": 353,
-          "dwt": 1270774.0,
+          "rows": 354,
+          "dwt": 1272716.0,
           "missing_dwt": 27
         },
         "qnp_cau4": {
-          "rows": 227,
-          "dwt": 6088269.0,
+          "rows": 228,
+          "dwt": 6110601.0,
           "missing_dwt": 7
         },
         "qnp_tc1": {
@@ -304,5 +304,5 @@
       }
     }
   },
-  "source_events": 6313
+  "source_events": 6325
 }
