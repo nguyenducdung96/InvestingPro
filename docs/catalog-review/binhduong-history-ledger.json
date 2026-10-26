@@ -3,10 +3,10 @@
     "parser_version": "binhduong-direct-plan/1.0.0",
     "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
     "from": "2025-01-01",
-    "through": "2026-10-24",
-    "checked_at": "2026-10-25T10:45:11.595053+00:00",
-    "requested_days": 662,
-    "responses": 1324,
+    "through": "2026-10-25",
+    "checked_at": "2026-10-26T07:26:54.133471+00:00",
+    "requested_days": 663,
+    "responses": 1326,
     "events": 8342,
     "first_observation": "2025-01-01",
     "last_observation": "2026-08-24",
@@ -19,7 +19,13 @@
     ],
     "shifting_included": false,
     "actual_verified": false,
-    "full_scope_certified": false
+    "full_scope_certified": false,
+    "last_observation_by_direction": {
+      "arrival": "2026-08-24",
+      "departure": "2026-07-15"
+    },
+    "coverage_status": "partial",
+    "absence_means_zero": false
   },
   "monthly": {
     "2025-01": {
@@ -11545,6 +11551,23 @@
           "sha256": "433c636b8e83fac54f489e6ec2a486a1818664c1bd0095097f435ca8d111c3a8",
           "checked_at": "2026-10-25T10:45:11.595053+00:00",
           "source_rows": 16
+        }
+      ]
+    },
+    {
+      "day": "2026-10-25",
+      "responses": [
+        {
+          "section": "arrival",
+          "sha256": "7a1baa30ac41e71a426f1f8977b33ee6aeec64d56fa58ba36b0ce4391428c454",
+          "checked_at": "2026-10-26T07:26:54.133471+00:00",
+          "source_rows": 7
+        },
+        {
+          "section": "departure",
+          "sha256": "2bb00d21a2ebfe5fafab9d213df2abe53720e8fd1062a242257515daca91aa79",
+          "checked_at": "2026-10-26T07:26:54.059657+00:00",
+          "source_rows": 9
         }
       ]
     }

@@ -54,6 +54,14 @@ Verifier HCM hiện được mở rộng cho các scope mới và tổng SGP nă
 
 ## Điều tra thiếu dữ liệu Bình Dương — 26/10/2026
 
+### Bản cập nhật tiếp theo
+
+- Đã lấy đủ hai phản hồi trực tiếp ngày 25/10 và xuất lại edition đến 25/10/2026: 663 ngày, 1.326 phản hồi, vẫn 8.342 dòng. Không có dòng Bình Dương mới; lịch sử đã ghi nhận không thay đổi.
+- Metadata API bổ sung `last_observation_by_direction`, `coverage_status=partial`, `absence_means_zero=false`. Ngày quan sát cuối không thay thế ngày thu thập/cutoff. Chưa chứng nhận độ phủ đủ hoặc actual.
+- Web giữ số/YoY đã ghi nhận và thêm bối cảnh nguồn trong phần thu gọn. Đã tìm được đầu mối thay đổi thủ tục, **chưa xác minh nguyên nhân riêng Bình Dương**: [Cục công bố văn bản hợp nhất 64/2026](https://vimawa.gov.vn/en/node/15565), [Cảng vụ hướng dẫn miễn thủ tục cho một số nhóm phương tiện](https://cangvudtndhcm.gov.vn/vi/news/print/thong-tin-khac/dai-dien-cang-vu-duong-thuy-noi-dia-so-3-to-chuc-tuyen-truyen-thong-tu-so-20-2026-tt-bxd-ngay-15-thang-5-nam-2026-cua-bo-xay-dung-370.html), [Đồng Nai sơ kết thực hiện Thông tư 20](https://cangvuhanghaidongnai.gov.vn/index.aspx?id=2666&page=detail). Bản PDF đính kèm của văn bản hợp nhất bị timeout trong lần đọc; chưa kiểm chứng toàn bộ điều khoản hoặc loại đăng kiểm từng tàu. Không dùng nhận định của website tổng hợp làm kết luận nhân quả.
+- Verifier riêng `node scripts/verify-binhduong-live.mjs` kiểm tra edition, số tháng hai chiều, null, trạng thái partial và nhật ký có provenance trên staging. Chỉ receipt thành công mới xác nhận readback; không xác nhận cron.
+- **Chưa hoàn tất việc bù số thiếu**: cần nguồn nhật ký hoặc dữ liệu doanh nghiệp phù hợp. Không có nguồn công khai đã kiểm chứng để dựng lại phần thiếu; không dùng lịch dịch vụ Smartport thay thế.
+
 Chuỗi đang phát hành chưa đầy đủ: dòng rời cuối 15/07/2026, dòng vào cuối 24/08/2026. Các tháng sau 6/2026 thưa bất thường trong tập phản hồi đã lưu; đây không phải bằng chứng cảng ít hoặc không hoạt động. Không đổi các tổng ghi nhận, null hoặc cách tính YoY.
 
 Đã đối chiếu raw năm 2026 của hai chiều và điều chuyển: nhãn BC198/Cảng Bình Dương không đổi trong các dòng còn tìm được. Probe công khai ngày 24/10 với SHIP, bỏ shipBoat và lịch tổng hợp không tìm được dòng Bình Dương. Probe BOAT chiều vào trả total=1 nhưng data=[] nên **không đủ trang**; không dùng để kết luận BOAT không có dữ liệu. Hai probe bỏ trạng thái bị timeout. Không chứng nhận mọi biến thể truy vấn đã được phủ.

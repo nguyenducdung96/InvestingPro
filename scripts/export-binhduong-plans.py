@@ -65,6 +65,9 @@ def main():
    for direction,value in assets['gmd_binh_duong'].items():
     if monthly.get(month,{}).get('gmd_binh_duong',{}).get(direction,{}).get('rows',0)<value['rows']*.95:raise ValueError('Unexpected history loss')
  metadata={'parser_version':'binhduong-direct-plan/1.0.0','source_url':dn.SOURCE,'from':str(start),'through':str(end),'checked_at':max(d['checked_at'] for d in daily),'requested_days':len(daily),'responses':len(sources)*2,'events':len(events),'first_observation':min((e['day'] for e in events),default=None),'last_observation':max((e['day'] for e in events),default=None),'source_errors':[],'semantics':'authority_published_plan','movement_scope':'berth','included_resources':['arrival','departure'],'shifting_included':False,'actual_verified':False,'full_scope_certified':False}
+ metadata['last_observation_by_direction']={direction:max((e['day'] for e in events if e['direction']==direction),default=None) for direction in ['arrival','departure']}
+ metadata['coverage_status']='partial'
+ metadata['absence_means_zero']=False
  compact=lambda v:json.dumps(v,ensure_ascii=False,separators=(',',':'))
  target=MODULE/'binhduong-journal-data';target.mkdir(exist_ok=True)
  for month,rows in grouped.items():
