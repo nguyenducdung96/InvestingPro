@@ -1,0 +1,268 @@
+{
+  "checked_at": "2026-10-26T09:33:16.689948+00:00",
+  "scope": [
+    "gemalink",
+    "gmd_binh_duong"
+  ],
+  "probes": [
+    {
+      "name": "vungtau",
+      "url": "https://cangvuhanghaivungtau.gov.vn/Index.aspx?d=0&page=schedule&tab=khtdd",
+      "checked_at": "2026-10-26T09:29:29.257114+00:00",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "name": "hcm",
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "checked_at": "2026-10-26T09:29:29.258563+00:00",
+      "status": 200,
+      "final_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "bytes": 204764,
+      "sha256": "c8095108a4935702bf6a3d87bfb9ee6b3801a51511d9d05710b6dc8a33bdf5fd",
+      "links": [
+        {
+          "url": "index.aspx?page=shipinport&cat=3106",
+          "text": "Vị trí tàu tại cảng"
+        },
+        {
+          "url": "index.aspx?page=shipschedule&cat=3107",
+          "text": "Kế hoạch điều động tàu thuyền"
+        },
+        {
+          "url": "index.aspx?page=news&cat=2033",
+          "text": "Kế hoạch điều động tàu thuyền"
+        },
+        {
+          "url": "index.aspx?page=shipschedule&cat=3146",
+          "text": "Bảng kế hoạch điều động tàu"
+        },
+        {
+          "url": "https://kehoach.cangvuhanghaitphcm.gov.vn/welcome",
+          "text": "Bản đồ kế hoạch điều động tàu"
+        },
+        {
+          "url": "index.aspx?page=shipinport&cat=3095",
+          "text": "Vị trí tàu tại cảng"
+        }
+      ]
+    },
+    {
+      "name": "dongnai",
+      "url": "https://cangvuhanghaidongnai.gov.vn/",
+      "checked_at": "2026-10-26T09:29:29.259165+00:00",
+      "status": 200,
+      "final_url": "https://cangvuhanghaidongnai.gov.vn/",
+      "bytes": 66884,
+      "sha256": "1b2fbb20bccc664430b2898b47b5e13e68cac11953e3153fc48ca728e5ac30d3",
+      "links": [
+        {
+          "url": "index.aspx?page=news&cat=2044",
+          "text": "Vị trí Cảng Biển"
+        },
+        {
+          "url": "http://cangvuhanghaidongnai.vishipel.net/index.aspx?page=news&cat=5",
+          "text": "Mẫu Văn bản"
+        },
+        {
+          "url": "javascript:void(0)",
+          "text": "Vishipel http://vishipel.com.vn/"
+        },
+        {
+          "url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+          "text": "Kế hoạch điều động tàu"
+        },
+        {
+          "url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/ViTriTauTaiCang",
+          "text": "Vị trí tàu tại cảng"
+        },
+        {
+          "url": "http://quanlytau.vishipel.vn/login.aspx?returnurl=%2FDefault.aspx",
+          "text": ""
+        }
+      ]
+    },
+    {
+      "name": "dongnai_public",
+      "url": "http://123.25.204.166/web/guest/public-kh",
+      "checked_at": "2026-10-26T09:29:29.361671+00:00",
+      "status": 200,
+      "final_url": "http://123.25.204.166/web/guest/public-kh",
+      "bytes": 1901,
+      "sha256": "c51ae42a06f9dd10fd54c5d7ce5705dae4689bf982ea01ce8d950ff4e17ae838",
+      "links": []
+    },
+    {
+      "name": "hcm_map",
+      "url": "https://kehoach.cangvuhanghaitphcm.gov.vn/welcome",
+      "checked_at": "2026-10-26T09:29:29.464602+00:00",
+      "status": 200,
+      "final_url": "https://kehoach.cangvuhanghaitphcm.gov.vn/welcome",
+      "bytes": 3206,
+      "sha256": "d45fca16ba8587ad312d426e735ea7bc2f1a52f3e77e12ced7e33ca9f52e8cd5",
+      "links": []
+    }
+  ],
+  "additional_pages": [
+    {
+      "name": "hcm3107",
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3107",
+      "sha256": "bd41d3055570d7f4b05fd5f2ce3fd041256d8342675e7d5a56ef279715ad965e",
+      "dates": {
+        "ctl22$txtDate": "2026-10-26",
+        "ctl22$txtDate$dateInput": "26/10/2026",
+        "ctl22_txtDate_dateInput_ClientState": "",
+        "ctl22_txtDate_calendar_SD": "[]",
+        "ctl22_txtDate_calendar_AD": "[[1980,1,1],[2099,12,30],[2026,10,26]]",
+        "ctl22_txtDate_ClientState": ""
+      },
+      "schedule_links": [
+        "index.aspx?page=shipschedule&cat=3107",
+        "index.aspx?page=shipschedule&cat=3146"
+      ]
+    },
+    {
+      "name": "hcm2033",
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=news&cat=2033",
+      "sha256": "c301242bdafdb937a6ba91f5c9503d95cae54355c03f0180385888ea6966beec",
+      "dates": {},
+      "schedule_links": [
+        "index.aspx?page=shipschedule&cat=3107",
+        "index.aspx?page=shipschedule&cat=3146",
+        "index.aspx?page=shipschedule&cat=3146"
+      ]
+    }
+  ],
+  "historical_probes": [
+    {
+      "day": "2025-01-15",
+      "error": "HTTP Error 500: Internal Server Error"
+    },
+    {
+      "day": "2025-06-15",
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3107",
+      "sha256": "3278b54da8e94253059f14a01c8951c6bdadf669d2c57a8912a06f236cce2093",
+      "section_rows": {
+        "arrival": 49,
+        "departure": 37,
+        "internal": 9
+      },
+      "gemalink": []
+    },
+    {
+      "day": "2026-10-25",
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3107",
+      "sha256": "df8fdb3ea7e90e1d58b3e0dc624b42b11b0e3214fa30b96b2551506f07294903",
+      "section_rows": {
+        "arrival": 77,
+        "departure": 86,
+        "internal": 51
+      },
+      "gemalink": [
+        {
+          "section": "arrival",
+          "vessel": "BLPL TRUST",
+          "call_sign": "3EPK4",
+          "time": "05:30",
+          "dwt": 20058.0,
+          "from": null,
+          "to": "CAI MEP GEMADEPT-TERMINAL LINK",
+          "raw": [
+            "11",
+            "* BLPL TRUST",
+            "PANAMA",
+            "3EPK4",
+            "20058",
+            "166.87",
+            "9.3",
+            "CONTAINER 13978",
+            "CAI MEP GEMADEPT-TERMINAL LINK",
+            "05:30",
+            "05:30",
+            "AWAJI MARU 43.V7,SKY 1",
+            "VIETFRACHT",
+            "VŨNG TÀU - THỊ VẢI"
+          ]
+        },
+        {
+          "section": "arrival",
+          "vessel": "LAN HAI CHANG AN",
+          "call_sign": "BPLF3",
+          "time": "12:01",
+          "dwt": 37450.0,
+          "from": null,
+          "to": "CAI MEP GEMADEPT-TERMINAL LINK",
+          "raw": [
+            "50",
+            "LAN HAI CHANG AN",
+            "CHINA",
+            "BPLF3",
+            "37450",
+            "184.80",
+            "8.6",
+            "CONTAINER 8351",
+            "CAI MEP GEMADEPT-TERMINAL LINK",
+            "12:01",
+            "12:01",
+            "HVS 44.V4,HVS 51.H7",
+            "VIETFRACHT",
+            "VŨNG TÀU - THỊ VẢI"
+          ]
+        },
+        {
+          "section": "departure",
+          "vessel": "COSCO DENMARK",
+          "call_sign": "VRNP8",
+          "time": "01:00",
+          "dwt": 156694.0,
+          "from": "CAI MEP GEMADEPT-TERMINAL LINK",
+          "to": null,
+          "raw": [
+            "2",
+            "* COSCO DENMARK",
+            "HONGKONG",
+            "VRNP8",
+            "156694",
+            "366.00",
+            "13.3",
+            "CONTAINER 12101",
+            "CAI MEP GEMADEPT-TERMINAL LINK",
+            "01:00",
+            "HVS 51.H7,HVS 51.H8,SKY 1",
+            "TAM CANG JSC",
+            "VŨNG TÀU - THỊ VẢI"
+          ]
+        },
+        {
+          "section": "departure",
+          "vessel": "CMA CGM LITANI",
+          "call_sign": "9HA3793",
+          "time": "14:00",
+          "dwt": 116422.0,
+          "from": "CAI MEP GEMADEPT-TERMINAL LINK",
+          "to": null,
+          "raw": [
+            "53",
+            "CMA CGM LITANI",
+            "MALTA",
+            "9HA3793",
+            "116422",
+            "299.95",
+            "11.7",
+            "CONTAINER 39721",
+            "CAI MEP GEMADEPT-TERMINAL LINK",
+            "14:00",
+            "HVS 44.V4,HVS 51.H7,HVS 55.TH3",
+            "VIETFRACHT",
+            "VŨNG TÀU - THỊ VẢI"
+          ]
+        }
+      ]
+    }
+  ],
+  "interpretation": {
+    "gemalink": "Current official HCM board exposes Gemalink with DWT and separate arrival/departure; early history remains unavailable. Old Vung Tau site failed DNS in this environment. Merger decision is contextual evidence, not proof of data migration.",
+    "binhduong": "Dong Nai homepage links directly to current public-kh source. No alternative daily authority feed verified in this scan. Prior direct-source observations and gaps are unchanged.",
+    "new_data_imported": false,
+    "actual_verified": false
+  }
+}

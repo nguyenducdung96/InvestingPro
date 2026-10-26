@@ -51,6 +51,15 @@ Verifier HCM hiện được mở rộng cho các scope mới và tổng SGP nă
 
 Ưu tiên tìm nguồn riêng cho ICD Nhơn Trạch/TCL, Long Bình–Sotrans–Mekong của SWC và Phước Long/GMD; với TCW, ưu tiên dữ liệu sản lượng kho/bãi/depot phù hợp. Tân Thuận cần thêm mã/nguồn phân biệt K12 và TT2 trước khi mở rộng. Kiểm tra vận hành HCM, cron PDN và lịch refresh Bình Dương do người dùng để sau. Không mở lại vấn đề giảm số ghi nhận Long Bình Tân.
 
+## Tách theo dõi GMD và quét lại nguồn chính thức — 26/10/2026
+
+- Tổng quan miền Nam tách hai dòng GMD: Gemalink và Cảng Bình Dương, mỗi dòng có số và liên kết riêng. Số mã theo dõi tính theo ticker duy nhất, không tăng vì tách cảng. GMD mặc định mở Gemalink; thanh chọn đặt các cảng riêng trước tổng hợp. Các URL tổng hợp tường minh vẫn dùng được, không sửa cách cộng số ghi nhận hoặc YoY.
+- [Bảng lịch chính thức TP.HCM](https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146) truy cập HTTP 200. Trang chủ/bảng lịch có liên kết đến [bản đồ kế hoạch](https://kehoach.cangvuhanghaitphcm.gov.vn/welcome), trang `cat=3107` và `cat=2033`. Probe `cat=3107` ngày 25/10/2026 trả Gemalink ở cả hai chiều, có DWT; ngày 15/06/2025 không có nhãn Gemalink; probe 15/01/2025 lỗi HTTP 500. Không coi các trang menu khác là nguồn độc lập nếu chưa đối chiếu dữ liệu.
+- [Trang chính thức Đồng Nai](https://cangvuhanghaidongnai.gov.vn/) truy cập HTTP 200 và dẫn trực tiếp đến [lịch công khai đang dùng](http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2), đồng thời có trang vị trí tàu. Snapshot vị trí không dùng thay lượt vào/rời. Chưa xác minh được nguồn lịch sử khác bù khoảng thiếu Bình Dương.
+- [Trang lịch Vũng Tàu cũ](https://cangvuhanghaivungtau.gov.vn/Index.aspx?d=0&page=schedule&tab=khtdd) có kết quả được lập chỉ mục nhưng lần truy cập trực tiếp bị lỗi DNS tại máy này. [Cục công bố Quyết định 1086/QĐ-BXD ngày 16/07/2025 về hợp nhất hai Cảng vụ](https://vimawa.gov.vn/vi/node/15106). Việc chuyển cơ quan là đầu mối cho khoảng lịch sử Gemalink, chưa phải bằng chứng lịch cũ đã được chuyển hết vào bảng TP.HCM. Không khẳng định nguồn gốc không có dữ liệu.
+- Rà raw toàn năm 2025 thấy dòng Gemalink vào đầu tiên ngày 23/07 (SKY 1), dòng TEXAS TRIUMPH vào 31/07; chiều rời bắt đầu có trong tháng 8. Mô tả thiếu tháng 1–7 trước đây là theo **chiều rời trong ảnh**, không áp dụng đồng nhất cho hai chiều.
+- Bằng chứng URL, HTTP, hash và probe lịch sử: [quét nguồn chính thức](catalog-review/gmd-official-source-rescan-20261026.json). Quét này chưa nhập thêm dữ liệu, chưa nối hoặc nghiệm thu cron.
+
 
 ## Điều tra thiếu dữ liệu Bình Dương — 26/10/2026
 
