@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-25",
+  "cutoff": "2026-10-26",
   "directions": {
     "arrival": {
       "months": {
@@ -109,35 +109,35 @@
           "missing_dwt": 1
         },
         "2026-10": {
-          "rows": 53,
-          "dwt": 617794.0,
+          "rows": 56,
+          "dwt": 648642.0,
           "missing_dwt": 9
         }
       },
       "ytd": {
-        "rows": 637,
-        "dwt": 8188969.0,
+        "rows": 640,
+        "dwt": 8219817.0,
         "missing_dwt": 38
       },
       "prior_ytd": {
-        "rows": 645,
-        "dwt": 7904260.0,
+        "rows": 646,
+        "dwt": 7908271.0,
         "missing_dwt": 31
       },
       "scopes": {
         "qnp_cau1": {
-          "rows": 725,
-          "dwt": 9385498.0,
+          "rows": 726,
+          "dwt": 9396364.0,
           "missing_dwt": 36
         },
         "qnp_cau2": {
-          "rows": 221,
-          "dwt": 1828258.0,
+          "rows": 222,
+          "dwt": 1842177.0,
           "missing_dwt": 12
         },
         "qnp_cau3": {
-          "rows": 272,
-          "dwt": 1078152.0,
+          "rows": 273,
+          "dwt": 1084215.0,
           "missing_dwt": 17
         },
         "qnp_cau4": {
@@ -260,25 +260,25 @@
           "missing_dwt": 4
         },
         "2026-10": {
-          "rows": 72,
-          "dwt": 865516.0,
+          "rows": 74,
+          "dwt": 870712.0,
           "missing_dwt": 4
         }
       },
       "ytd": {
-        "rows": 771,
-        "dwt": 8882175.0,
+        "rows": 773,
+        "dwt": 8887371.0,
         "missing_dwt": 48
       },
       "prior_ytd": {
-        "rows": 795,
-        "dwt": 8327717.0,
+        "rows": 797,
+        "dwt": 8352789.0,
         "missing_dwt": 47
       },
       "scopes": {
         "qnp_cau1": {
-          "rows": 845,
-          "dwt": 9766201.0,
+          "rows": 846,
+          "dwt": 9769489.0,
           "missing_dwt": 50
         },
         "qnp_cau2": {
@@ -292,8 +292,8 @@
           "missing_dwt": 27
         },
         "qnp_cau4": {
-          "rows": 228,
-          "dwt": 6110601.0,
+          "rows": 229,
+          "dwt": 6112509.0,
           "missing_dwt": 7
         },
         "qnp_tc1": {
@@ -304,5 +304,5 @@
       }
     }
   },
-  "source_events": 6325
+  "source_events": 6333
 }
