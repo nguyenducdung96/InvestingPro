@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-26",
+  "cutoff": "2026-10-27",
   "directions": {
     "arrival": {
       "months": {
@@ -109,25 +109,25 @@
           "missing_dwt": 1
         },
         "2026-10": {
-          "rows": 56,
-          "dwt": 648642.0,
+          "rows": 60,
+          "dwt": 674569.0,
           "missing_dwt": 9
         }
       },
       "ytd": {
-        "rows": 640,
-        "dwt": 8219817.0,
+        "rows": 644,
+        "dwt": 8245744.0,
         "missing_dwt": 38
       },
       "prior_ytd": {
-        "rows": 646,
-        "dwt": 7908271.0,
+        "rows": 650,
+        "dwt": 7999844.0,
         "missing_dwt": 31
       },
       "scopes": {
         "qnp_cau1": {
-          "rows": 726,
-          "dwt": 9396364.0,
+          "rows": 729,
+          "dwt": 9408732.0,
           "missing_dwt": 36
         },
         "qnp_cau2": {
@@ -141,8 +141,8 @@
           "missing_dwt": 17
         },
         "qnp_cau4": {
-          "rows": 191,
-          "dwt": 5705563.0,
+          "rows": 192,
+          "dwt": 5719122.0,
           "missing_dwt": 7
         },
         "qnp_tc1": {
@@ -260,14 +260,14 @@
           "missing_dwt": 4
         },
         "2026-10": {
-          "rows": 74,
-          "dwt": 870712.0,
+          "rows": 78,
+          "dwt": 885243.0,
           "missing_dwt": 4
         }
       },
       "ytd": {
-        "rows": 773,
-        "dwt": 8887371.0,
+        "rows": 777,
+        "dwt": 8901902.0,
         "missing_dwt": 48
       },
       "prior_ytd": {
@@ -277,8 +277,8 @@
       },
       "scopes": {
         "qnp_cau1": {
-          "rows": 846,
-          "dwt": 9769489.0,
+          "rows": 849,
+          "dwt": 9782078.0,
           "missing_dwt": 50
         },
         "qnp_cau2": {
@@ -292,8 +292,8 @@
           "missing_dwt": 27
         },
         "qnp_cau4": {
-          "rows": 229,
-          "dwt": 6112509.0,
+          "rows": 230,
+          "dwt": 6114451.0,
           "missing_dwt": 7
         },
         "qnp_tc1": {
@@ -304,5 +304,5 @@
       }
     }
   },
-  "source_events": 6333
+  "source_events": 6344
 }
