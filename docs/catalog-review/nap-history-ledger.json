@@ -1,11 +1,11 @@
 {
-  "cutoff": "2026-10-26",
-  "candidate_reports": 370,
-  "parsed_reports": 367,
-  "source_rows": 4226,
-  "unique_visits": 1402,
-  "repeated_visit_rows": 2824,
-  "revised_visit_rows": 476,
+  "cutoff": "2026-10-27",
+  "candidate_reports": 371,
+  "parsed_reports": 368,
+  "source_rows": 4234,
+  "unique_visits": 1404,
+  "repeated_visit_rows": 2830,
+  "revised_visit_rows": 477,
   "monthly": {
     "2025-01/nap/arrival": {
       "rows": 52,
@@ -633,13 +633,13 @@
       "missing_dwt": 0
     },
     "2026-10/nap/arrival": {
-      "rows": 51,
-      "dwt": 306436.7,
+      "rows": 53,
+      "dwt": 322624.7,
       "missing_dwt": 0
     },
     "2026-10/nap/departure": {
-      "rows": 38,
-      "dwt": 245122.2,
+      "rows": 39,
+      "dwt": 252385.1,
       "missing_dwt": 0
     },
     "2026-10/nap_ben_thuy/arrival": {
@@ -653,13 +653,13 @@
       "missing_dwt": 0
     },
     "2026-10/nap_cua_lo/arrival": {
-      "rows": 48,
-      "dwt": 301627.7,
+      "rows": 50,
+      "dwt": 317815.7,
       "missing_dwt": 0
     },
     "2026-10/nap_cua_lo/departure": {
-      "rows": 35,
-      "dwt": 240313.2,
+      "rows": 36,
+      "dwt": 247576.1,
       "missing_dwt": 0
     }
   }
