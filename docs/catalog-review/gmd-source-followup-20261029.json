@@ -279,9 +279,266 @@
         "30/06/2025 11:41 ",
         "View "
       ]
-    ]
+    ],
+    "retained_maritime_code": "12"
   },
   "new_history_imported": false,
   "source_semantics": "authority_published_plan",
-  "actual_verified": false
+  "actual_verified": false,
+  "national_cma_filter": {
+    "source_url": "https://hanghai.moc.gov.vn/tra-cuu-giay-phep",
+    "menu": "published_vessel_movement_plans",
+    "query": {
+      "flagMenu": "2",
+      "certificateNumber": "",
+      "shipName": "CMA CGM",
+      "shipDateFrom": "01/06/2025 00:00",
+      "callSign": "",
+      "shipDateTo": "30/06/2025 23:59",
+      "maritimeCode": "12",
+      "portCode": "LUA_CHON1"
+    },
+    "sha256": "4ba7a9b4491236a804eec0d33f3707d0fa1f4822c119c6e7f0067c52c958c539",
+    "retained_fields": {
+      "certificateNumber": "",
+      "shipName": "CMA CGM",
+      "shipDateFrom": "01/06/2025 00:00",
+      "callSign": "",
+      "shipDateTo": "30/06/2025 23:59"
+    },
+    "summary": [
+      "Showing 19 results"
+    ],
+    "rows": [
+      [
+        "1 ",
+        "",
+        "CMA CGM VISBY ",
+        "MALTA ",
+        "9HA6072 ",
+        "BUI THANH TUNG ",
+        "",
+        "28/06/2025 18:53 ",
+        "View "
+      ],
+      [
+        "2 ",
+        "",
+        "CMA CGM VISBY ",
+        "MALTA ",
+        "9HA6072 ",
+        "BUI THANH TUNG ",
+        "",
+        "28/06/2025 18:53 ",
+        "View "
+      ],
+      [
+        "3 ",
+        "",
+        "CMA CGM PANAMA ",
+        "MALTA ",
+        "9HA5074 ",
+        "BUI THANH TUNG ",
+        "",
+        "25/06/2025 18:40 ",
+        "View "
+      ],
+      [
+        "4 ",
+        "",
+        "CMA CGM SAMSON ",
+        "MALTA ",
+        "9HA2907 ",
+        "BUI THANH TUNG ",
+        "",
+        "24/06/2025 18:50 ",
+        "View "
+      ],
+      [
+        "5 ",
+        "",
+        "CMA CGM VISBY ",
+        "MALTA ",
+        "9HA6072 ",
+        "BUI THANH TUNG ",
+        "",
+        "21/06/2025 18:05 ",
+        "View "
+      ],
+      [
+        "6 ",
+        "",
+        "CMA CGM T. JEFFERSON ",
+        "MALTA ",
+        "9HA4970 ",
+        "BUI THANH TUNG ",
+        "",
+        "20/06/2025 13:10 ",
+        "View "
+      ],
+      [
+        "7 ",
+        "",
+        "CMA CGM ALMAVIVA ",
+        "MALTA ",
+        "9HA6068 ",
+        "BUI THANH TUNG ",
+        "",
+        "19/06/2025 10:53 ",
+        "View "
+      ],
+      [
+        "8 ",
+        "",
+        "CMA CGM A. LINCOLN ",
+        "MALTA ",
+        "9HA4969 ",
+        "BUI THANH TUNG ",
+        "",
+        "18/06/2025 22:32 ",
+        "View "
+      ],
+      [
+        "9 ",
+        "",
+        "CMA CGM LAGUNA ",
+        "FRANCE ",
+        "FMYQ ",
+        "BUI THANH TUNG ",
+        "",
+        "16/06/2025 19:00 ",
+        "View "
+      ],
+      [
+        "10 ",
+        "",
+        "CMA CGM MELISANDE ",
+        "MALTA ",
+        "9HA2954 ",
+        "BUI THANH TUNG ",
+        "",
+        "12/06/2025 18:10 ",
+        "View "
+      ],
+      [
+        "11 ",
+        "",
+        "CMA CGM CHRISTOPHE COLOMB ",
+        "MALTA ",
+        "9HA5397 ",
+        "BUI THANH TUNG ",
+        "",
+        "12/06/2025 17:47 ",
+        "View "
+      ],
+      [
+        "12 ",
+        "",
+        "CMA CGM NERVAL ",
+        "MALTA ",
+        "9HA2361 ",
+        "BUI THANH TUNG ",
+        "",
+        "12/06/2025 11:06 ",
+        "View "
+      ],
+      [
+        "13 ",
+        "",
+        "CMA CGM NERVAL ",
+        "MALTA ",
+        "9HA2361 ",
+        "BUI THANH TUNG ",
+        "",
+        "12/06/2025 14:00 ",
+        "View "
+      ],
+      [
+        "14 ",
+        "",
+        "CMA CGM ANDROMEDA ",
+        "MALTA ",
+        "9HA4989 ",
+        "BUI THANH TUNG ",
+        "",
+        "10/06/2025 20:53 ",
+        "View "
+      ],
+      [
+        "15 ",
+        "",
+        "CMA CGM G. WASHINGTON ",
+        "MALTA ",
+        "9HA5003 ",
+        "BUI THANH TUNG ",
+        "",
+        "10/06/2025 16:23 ",
+        "View "
+      ],
+      [
+        "16 ",
+        "",
+        "CMA CGM THAMES ",
+        "MALTA ",
+        "9HA3851 ",
+        "BUI THANH TUNG ",
+        "",
+        "05/06/2025 11:19 ",
+        "View "
+      ],
+      [
+        "17 ",
+        "",
+        "CMA CGM J. MADISON ",
+        "MALTA ",
+        "9HA4975 ",
+        "BUI THANH TUNG ",
+        "",
+        "03/06/2025 18:57 ",
+        "View "
+      ],
+      [
+        "18 ",
+        "",
+        "CMA CGM LISA MARIE ",
+        "MALTA ",
+        "9HA4652 ",
+        "BUI THANH TUNG ",
+        "",
+        "03/06/2025 15:38 ",
+        "View "
+      ],
+      [
+        "19 ",
+        "",
+        "CMA CGM SYMI ",
+        "MALTA ",
+        "9HA5600 ",
+        "BUI THANH TUNG ",
+        "",
+        "03/06/2025 12:00 ",
+        "View "
+      ]
+    ]
+  },
+  "reviewed_pdf": {
+    "source_url": "https://hanghai.moc.gov.vn/documents/10180/34181393/giao_thong46026290085730189.pdf",
+    "sha256": "83474f32084181daf8dc1b3d3fa559a9069f7110db66e58270146d8596e8e020a",
+    "bytes": 341077,
+    "visual_reviewed": true,
+    "authority": "Cảng vụ Hàng hải Vũng Tàu",
+    "semantics": "authority_published_plan",
+    "vessel": "CMA CGM VISBY",
+    "published_on": "2025-06-28",
+    "planned_time_local": "2025-06-29T08:30:00+07:00",
+    "from": "SINGAPORE",
+    "to": "BẾN CẢNG CÁI MÉP GEMADEPT-TERMINAL LINK / CAI MEP GEMADEPT-TERMINAL LINK",
+    "asset": "gemalink",
+    "direction": "arrival",
+    "dwt": 31285,
+    "actual_verified": false,
+    "imported": false,
+    "duplicate_pdf_url": "https://hanghai.moc.gov.vn/documents/10180/34181393/giao_thong460026288744921697.pdf",
+    "duplicate_bytes_identical": true
+  }
 }

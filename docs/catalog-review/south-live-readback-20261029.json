@@ -1,0 +1,129 @@
+{
+  "verifier_version": "south-live/1",
+  "verified_at": "2026-10-29T14:22:52.938Z",
+  "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "expected_checked_at": "2026-10-29T14:12:52.063915+00:00",
+  "through": "2026-10-28",
+  "event_name": "local",
+  "run_id": "local",
+  "run_attempt": "1",
+  "published_commit": null,
+  "source_refresh_success": false,
+  "deployment_readback_verified": true,
+  "scheduled_refresh_verified": false,
+  "actual_verified": false,
+  "full_scope_certified": false,
+  "checks": [
+    {
+      "asset": "gemalink",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "sg_hiep_phuoc",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "cmit",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "sp_psa",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "ssit",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "sg_tan_thuan",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "cll_berth7",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "cll_b7",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "swc_buoys",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "asset": "vgp_k16",
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "direction": "arrival",
+      "sgp_aggregate_matched": true,
+      "south_overview_matched": true
+    },
+    {
+      "asset": "gemalink",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "sg_hiep_phuoc",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "cmit",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "sp_psa",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "ssit",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "sg_tan_thuan",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "cll_berth7",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "cll_b7",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "swc_buoys",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "asset": "vgp_k16",
+      "direction": "departure",
+      "months_matched": 22
+    },
+    {
+      "direction": "departure",
+      "sgp_aggregate_matched": true,
+      "south_overview_matched": true
+    }
+  ],
+  "scheduled_run_ids": []
+}
