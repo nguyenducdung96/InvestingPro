@@ -1,0 +1,17 @@
+{
+  "verified_at": "2026-10-29T16:21:12.343Z",
+  "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "national_checked_at": "2026-10-29T15:57:52.121022+00:00",
+  "deployment_readback_verified": true,
+  "scheduled_refresh_verified": false,
+  "checks": [
+    {
+      "direction": "arrival",
+      "months_matched": 22
+    },
+    {
+      "direction": "departure",
+      "months_matched": 22
+    }
+  ]
+}

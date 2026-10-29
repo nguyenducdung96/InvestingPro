@@ -25,7 +25,11 @@ test('NAP has multi-month history, berth selection, YoY and source drilldown on 
  await expect(plans.locator('.plan-chart-legend').filter({hasText:'Đơn vị: lượt'})).toHaveCount(3);
  await plans.getByText('Chi tiết dữ liệu và nguồn',{exact:true}).click();await expect(plans.getByRole('region',{name:'Độ phủ dữ liệu NAP'})).toContainText('không lấy GT thay thế');
  for(const theme of ['dark','light']){await page.getByLabel('Giao diện',{exact:true}).selectOption(theme);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}
- await page.goto('/companies/NAP?plan_year='+year+'&plan_day='+ledger.cutoff+'#vessel-plans');
+ // A refresh cutoff can legitimately have no reported movements. Drill into
+ // the latest observed departure day rather than assuming cutoff has rows.
+ const detailDay=api.data.days.filter((d:{day:string;rows:number|null})=>d.day<=ledger.cutoff&&(d.rows??0)>0).at(-1)?.day;
+ expect(detailDay).toBeTruthy();
+ await page.goto('/companies/NAP?plan_year='+year+'&plan_day='+detailDay+'#vessel-plans');
  await expect(plans.locator('#plan-days [data-label="Ngày / giờ theo nguồn"]')).not.toHaveCount(0);
  await expect(plans.locator('#plan-days tbody')).toContainText('Chỉ có ngày');
  await page.screenshot({path:`.local/nap/nap-${info.project.name}.png`,fullPage:true});
@@ -34,7 +38,7 @@ test('NAP has multi-month history, berth selection, YoY and source drilldown on 
  const row=page.locator('tr[data-ticker="NAP"]'),expected=api.data.months.find((m:{period:string})=>m.period===month).current.observed_dwt;
  await expect(row.locator('[data-label="DWT đã ghi nhận"]')).toContainText(expected.toLocaleString('vi-VN',{maximumFractionDigits:2}));
  await expect(row).not.toContainText('Chưa tích hợp lịch sử');await row.locator('.north-ticker').click();await expect(page).toHaveURL(/companies\/NAP\?.*plan_year=/);
- const day=await(await page.request.get('/api/v1/companies/NAP/activity?day='+ledger.cutoff)).json();
+ const day=await(await page.request.get('/api/v1/companies/NAP/activity?day='+detailDay)).json();
  expect(day.data.length).toBeGreaterThan(0);expect(day.data.every((e:{precision:string;time:string|null})=>e.precision==='day'&&e.time===null)).toBe(true);
  expect((await page.request.get('/api/v1/companies/NAP/activity?asset=TCQN')).status()).toBe(400);
 });

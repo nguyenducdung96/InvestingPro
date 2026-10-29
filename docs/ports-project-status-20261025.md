@@ -6,7 +6,11 @@
 
 Web/API dùng module lịch sử riêng, ghép Gemalink sau loại trùng; giữ Bình Dương tách riêng. Trang Gemalink mặc định chiều tàu vào; API vẫn giữ mặc định chiều tàu rời cũ khi không truyền direction. Chi tiết thu gọn có PDF/hash, hồ sơ, trang/dòng, ngày ký và giới hạn theo chiều. Tổng ghi nhận và YoY vẫn hiển thị theo AGENTS.md.
 
-Đã qua 178 Vitest (sửa bài test URL/hash rồi chạy lại hai ca liên quan), 10 kiểm tra parser Python, lint, typecheck và E2E miền Nam desktop/mobile. Xuất lại cùng raw cho kết quả byte-identical. Export dừng nếu thiếu/lệch hash archive HCM dùng đối chiếu trùng. Chưa chứng nhận staging của thay đổi này trước khi receipt live được bổ sung. Chi tiết: [backfill Gemalink](gemalink-national-backfill.md), [ledger](catalog-review/gemalink-national-ledger.json).
+Đã qua 178 Vitest, 10 kiểm tra parser Python, lint, typecheck, Next production build và E2E miền Nam desktop/mobile. Xuất lại cùng raw cho kết quả byte-identical. Export dừng nếu thiếu/lệch hash archive HCM dùng đối chiếu trùng. Chi tiết: [backfill Gemalink](gemalink-national-backfill.md), [ledger](catalog-review/gemalink-national-ledger.json).
+
+Commit `22b5d8a` đã push lên `codex/cloudflare-next-compat`; Cloudflare Workers Builds thành công, version `96f80601-c1a1-43d0-bbff-5ff262b98ff8`. Staging đã khớp Gemalink 22 tháng hai chiều, mẫu PDF, strict null; toàn bộ 10 phạm vi HCM, tổng SGP và tổng quan miền Nam cũng khớp. UI live xác nhận mặc định tàu vào, DWT tháng 1/2025 và PDF CMA CGM VISBY. Biên nhận: [Gemalink API](catalog-review/gemalink-national-live-readback-20261029.json), [miền Nam](catalog-review/south-gemalink-backfill-readback-20261029.json), [UI](catalog-review/gemalink-national-ui-readback-20261029.json). Đây là manual readback, không phải cron.
+
+CI tại `22b5d8a` qua lint/typecheck/Vitest/Python và 70/72 E2E; hai ca NAP giả định ngày cutoff phải có tàu. Đã sửa test chọn ngày có quan sát từ API, không đổi dữ liệu hoặc hành vi NAP, rồi chạy lại desktop/mobile 2/2 đạt. Bản sửa và biên nhận được push tiếp; CI toàn bộ của commit tiếp theo cần đọc đúng trạng thái run, không coi kết quả cũ là run mới.
 
 Các đoạn bên dưới là lịch sử bàn giao trước bản bổ sung này. HCM connectivity, nghiệm thu cron PDN và điều tra Long Bình Tân tiếp tục ngoài phạm vi theo chỉ đạo người dùng.
 

@@ -1,0 +1,12 @@
+{
+  "verified_at": "2026-10-29T16:22:48.809Z",
+  "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "published_commit": "22b5d8a0bc231ada6f2d9919ed31ee8a3f8e875e",
+  "ui_readback_verified": true,
+  "checks": [
+    "Gemalink defaults to arrival",
+    "January 2025 recorded DWT",
+    "June 29 CMA CGM VISBY",
+    "official PDF provenance"
+  ]
+}
