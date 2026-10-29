@@ -165,5 +165,3 @@ export * from './dungquat-activity';
 export * from './south-plans';
 export * from './gemalink-national';
 export * from './pdn-plans';
-export * from './tcl-activity';
-export * from './tcl-berth-activity';

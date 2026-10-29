@@ -1,5 +1,7 @@
 # TCL — ICD Nhơn Trạch và dịch vụ doanh nghiệp
 
+**Đã rút khỏi sản phẩm theo quyết định người dùng ngày 30/10/2026.** TCL không còn trong danh mục doanh nghiệp hoặc tổng quan miền Nam; trang/API TNT và workflow riêng đã gỡ. Các mô tả tích hợp, lệnh chạy và receipt bên dưới là lịch sử của bản đã rút, không còn là hướng dẫn vận hành hiện hành. Hồ sơ nguồn được giữ để tham chiếu.
+
 Rà soát theo yêu cầu dùng cùng chuỗi lượt tàu/DWT như các mã khác: **chưa hoàn thành**. Nguồn TNT bên dưới chỉ là hoạt động tại cầu một phần. Kiểm tra bổ sung trang chủ TCL, tài liệu ĐHĐCĐ 2026, danh mục 51 bến/79 cầu và endpoint điều động tổng hợp Cảng vụ chưa tìm được chuỗi lịch sử đúng TCL kèm DWT; nguồn ĐTNĐ III vẫn chưa truy cập được. Xem [kết quả và giới hạn kiểm tra](tcl-source-feasibility-20261030.md).
 
 ## Phạm vi đã tích hợp ngày 30/10/2026

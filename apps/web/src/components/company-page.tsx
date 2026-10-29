@@ -6,6 +6,7 @@ import { UUID, pageQuery } from "@invest/port";
 import { ReportedAssets } from "./reported-assets";
 import {CompanyResearch} from "./company-research";
 import {EditorialCompanyPage} from './editorial-catalog';
+import {isPublishedCompany} from '@/lib/published-catalog';
 export async function CompanyPage({
   keyValue,
   query,
@@ -13,6 +14,7 @@ export async function CompanyPage({
   keyValue: string;
   query: Record<string, string>;
 }) {
+  if(!isPublishedCompany(keyValue))notFound();
   if(query.view==="research") {const research=await CompanyResearch({keyValue});if(research)return research;}
   if(query.view!=="verified"&&query.view!=="research"){
     try{const edition=await publicRepository().editorialEdition();const company=edition?.entries.find(c=>c.ticker===keyValue.toUpperCase()||c.company_id===keyValue);if(edition&&company)return <EditorialCompanyPage company={company} edition={edition}/>;}catch{return <Unavailable/>;}

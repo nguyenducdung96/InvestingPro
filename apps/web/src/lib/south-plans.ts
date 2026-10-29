@@ -1,6 +1,4 @@
 import 'server-only';
-import {tclBerthData} from './tcl-data';
-import {tclAnnualSource,tclActivity,tclBerthSeries} from '@invest/port';
 import {southAssets,southPlanDays,southScopes,southSeries,southTargets,northSelection,southAssetSource,mergeGemalinkPlanDays,gemalinkNationalSource,type TanVuPlanDay,type SouthAsset,type SouthIssuer} from '@invest/port';
 import {southDaily,southHistoryMetadata} from '../../../../packages/modules/port/src/south-history-data';
 import {loadSouthJournal as loadHcmJournal} from '../../../../packages/modules/port/src/south-journal-loader';
@@ -26,9 +24,9 @@ export async function loadSouthIssuer(ticker:SouthIssuer,requested:string){
 export function loadSouthOverview(query:Record<string,string|undefined>,now=new Date()){
  const selection=northSelection(query,now);
  const rows=southTargets.map(target=>{
-  const series=target.ticker==='TCL'?tclBerthSeries(tclBerthData.events,selection.direction,now):target.ticker==='PDN'?pdnPlanSeries(pdnDaily,selection.direction,now):target.assets.length?southSeries(southGroups,[...target.assets],selection.direction,now):null;
-  return {...target,source:target.ticker==='TCL'?'https://eport.tcis.co/Ships':target.ticker==='PDN'?pdnSource:target.assets[0]?southAssetSource(target.assets[0]):southSource,sources:target.ticker==='TCL'?['https://eport.tcis.co/Ships',tclAnnualSource.url]:target.ticker==='PDN'?[pdnSource]:[...new Set([...target.assets.map(southAssetSource),...(target.assets.includes('gemalink' as never)?[gemalinkNationalSource]:[])])],service_reference:target.ticker==='TCL'?tclActivity().reference_figures[0]:null,movement_scope:target.ticker==='TCL'?'berth':null,semantics:target.ticker==='TCL'?'operator_reported_berth_activity':target.ticker==='PDN'?'authority_published_berth_plan':'authority_published_plan',updated_at:target.ticker==='TCL'?tclBerthData.metadata.last_success:target.ticker==='PDN'?pdnHistoryMetadata.checked_at:target.asset==='gmd_binh_duong'?binhduongMetadata.checked_at:target.asset==='gemalink'?[southHistoryMetadata.checked_at,gemalinkNationalMetadata.checked_at].sort().at(-1):southHistoryMetadata.checked_at,metric:(selection.frequency==='quarter'?series?.quarters:series?.months)?.find(p=>p.period===selection.period)??null,
-   href:`/companies/${target.ticker}?${new URLSearchParams({plan_asset:target.asset,plan_direction:selection.direction,plan_year:selection.period.slice(0,4),plan_period:selection.frequency})}#${target.ticker==='TCL'?'tcl-activity':'vessel-plans'}`};
+  const series=target.ticker==='PDN'?pdnPlanSeries(pdnDaily,selection.direction,now):target.assets.length?southSeries(southGroups,[...target.assets],selection.direction,now):null;
+  return {...target,source:target.ticker==='PDN'?pdnSource:target.assets[0]?southAssetSource(target.assets[0]):southSource,sources:target.ticker==='PDN'?[pdnSource]:[...new Set([...target.assets.map(southAssetSource),...(target.assets.includes('gemalink' as never)?[gemalinkNationalSource]:[])])],semantics:target.ticker==='PDN'?'authority_published_berth_plan':'authority_published_plan',updated_at:target.ticker==='PDN'?pdnHistoryMetadata.checked_at:target.asset==='gmd_binh_duong'?binhduongMetadata.checked_at:target.asset==='gemalink'?[southHistoryMetadata.checked_at,gemalinkNationalMetadata.checked_at].sort().at(-1):southHistoryMetadata.checked_at,metric:(selection.frequency==='quarter'?series?.quarters:series?.months)?.find(p=>p.period===selection.period)??null,
+   href:`/companies/${target.ticker}?${new URLSearchParams({plan_asset:target.asset,plan_direction:selection.direction,plan_year:selection.period.slice(0,4),plan_period:selection.frequency})}#vessel-plans`};
  });
- return {selection,rows,semantics:'source_specific_activity',actual_verified:false,nationwide_complete:false,regional_total:null,metadata:southHistoryMetadata,pdn_metadata:pdnHistoryMetadata,binhduong_metadata:binhduongMetadata,tcl_metadata:tclBerthData.metadata};
+ return {selection,rows,semantics:'source_specific_activity',actual_verified:false,nationwide_complete:false,regional_total:null,metadata:southHistoryMetadata,pdn_metadata:pdnHistoryMetadata,binhduong_metadata:binhduongMetadata};
 }

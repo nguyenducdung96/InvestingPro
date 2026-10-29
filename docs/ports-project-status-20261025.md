@@ -2,6 +2,8 @@
 
 ## Cập nhật TCL — 30/10/2026
 
+**Quyết định sản phẩm mới: rút TCL khỏi danh mục doanh nghiệp và tổng quan miền Nam.** Người dùng xác nhận không cần phủ mọi mã ngành cảng. Đã gỡ trang/API hoạt động riêng TNT, dữ liệu chạy kèm và workflow TCL; danh mục công khai lọc TCL trước phân trang và khỏi bản biên tập, đường dẫn mã/ID cũ trả 404. Bằng chứng và hồ sơ nghiên cứu lịch sử được giữ để tham chiếu, không coi là doanh nghiệp còn được theo dõi trên web. Chưa mở rộng quyết định này sang mã khác.
+
 **Theo yêu cầu mới làm TCL cùng cách với các mã khác: chưa hoàn thành.** Đã kiểm tra bổ sung trang chủ và tài liệu ĐHĐCĐ TCL 2026 (314 trang), danh mục Cảng vụ Đồng Nai (51 bến/79 cầu), endpoint điều động tổng hợp ba ngày mẫu. Chưa tìm được chuỗi lịch sử đúng bến TCL kèm DWT; nguồn ĐTNĐ III còn timeout. Phần TNT dưới đây chỉ là dữ liệu một phần, không thay yêu cầu chuỗi 2025–2026. [Hồ sơ rà soát](tcl-source-feasibility-20261030.md), [biên nhận](catalog-review/tcl-feasibility-recheck-20261030.json).
 
 TCL đã có quan sát cập/rời cầu riêng ICD Nhơn Trạch từ ePort TCIS, mã TNT: edition đầu 81 cập/78 rời ngày 16–29/10/2026, không gồm 3 trường giờ rời EST hoặc 497 dòng bến khác trong phản hồi. Nguồn không có DWT; chưa có lịch sử năm trước nên lũy kế so sánh/YoY vẫn unavailable. Không tính thành port arrivals/departures hoặc cộng trùng bến CLL.

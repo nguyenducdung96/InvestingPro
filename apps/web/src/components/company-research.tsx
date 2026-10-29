@@ -4,10 +4,11 @@ import {ReportedAssets} from "./reported-assets";
 import {SourceBadge} from "./catalog";
 import {pageQuery} from "@invest/port";
 import type {ReferenceSnapshot} from "@invest/domain";
+import {isPublishedCompany} from '@/lib/published-catalog';
 export async function researchDirectory() {
  try {
   const repo=await adminRepository();const rows=await repo.referenceSnapshots();
-  return rows.filter((r,i)=>rows.findIndex(x=>x.company_id===r.company_id)===i).sort((a,b)=>a.ticker.localeCompare(b.ticker));
+  return rows.filter((r,i)=>isPublishedCompany(r.ticker)&&isPublishedCompany(r.company_id)&&rows.findIndex(x=>x.company_id===r.company_id)===i).sort((a,b)=>a.ticker.localeCompare(b.ticker));
  }catch(error){if(error instanceof HttpError&&[401,403].includes(error.status))return null;throw error;}
 }
 export function ResearchDirectory({rows}:{rows:ReferenceSnapshot[]}) {

@@ -2,6 +2,7 @@ import "server-only";
 import { cookies } from "next/headers";
 import { SupabaseCatalogRepository, supabaseTransport } from "@invest/db";
 import { HttpError } from "./errors";
+import {publishedCatalogTransport} from './published-catalog';
 export { HttpError } from "./errors";
 export function config() {
   const url = process.env.SUPABASE_URL,
@@ -12,7 +13,7 @@ export function config() {
 }
 export function publicRepository() {
   const { url, key } = config();
-  return new SupabaseCatalogRepository(supabaseTransport(url, key));
+  return new SupabaseCatalogRepository(publishedCatalogTransport(supabaseTransport(url, key)));
 }
 export async function accessToken(request?: Request) {
   const header = request?.headers.get("Authorization");
