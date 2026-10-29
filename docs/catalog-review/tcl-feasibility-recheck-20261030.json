@@ -1,0 +1,100 @@
+{
+  "reviewed_at": "2026-10-29T20:22:28.717578+00:00",
+  "issuer": "TCL",
+  "purpose": "Reassess feasibility of the same historical monthly vessel/DWT dashboard used by other issuers",
+  "result": "No verified source found for a TCL-attributed 2025/2026 vessel and DWT series. Existing TNT operator berth observations are partial activity, not completion of this requirement.",
+  "evidence": [
+    {
+      "evidence_file": "DM_PORT_HARBOUR-maritime11.json",
+      "sha256": "e161fcc03438cad5d440da365d3cda353e9dab444d090b8a582f8f69477ec816",
+      "bytes": 17456,
+      "rows": 51,
+      "tcl_scope_label_matches": []
+    },
+    {
+      "evidence_file": "DM_PORT_WHARF-maritime11.json",
+      "sha256": "007c39fb28343646a1b3fe25dd5e9433ab2809a7bb3867d4d6820d132475f10e",
+      "bytes": 35214,
+      "rows": 79,
+      "tcl_scope_label_matches": []
+    },
+    {
+      "evidence_file": "combined-15-06-2025.json",
+      "sha256": "f9b80b1f66ce949e95746f76dc58f2adf40733016ddc6691ab466bc227088473",
+      "bytes": 125364,
+      "rows": 101,
+      "tcl_scope_label_matches": []
+    },
+    {
+      "evidence_file": "combined-15-06-2026.json",
+      "sha256": "18da4eb7ad164989c5e8da91ddc483734807fce9bc732e963f80835837a572f5",
+      "bytes": 222915,
+      "rows": 177,
+      "tcl_scope_label_matches": []
+    },
+    {
+      "evidence_file": "combined-15-10-2026.json",
+      "sha256": "690fb46135ed96604d284878d8ad85be4b2d13adeb157ebed2b4532b92f3f18a",
+      "bytes": 43527,
+      "rows": 34,
+      "tcl_scope_label_matches": []
+    },
+    {
+      "evidence_file": "dongnai-berths.xlsx",
+      "sha256": "363cd49589088b92f3897fca5f909830af24b864bd63beca84e832b62f49e7d3",
+      "bytes": 28434
+    },
+    {
+      "evidence_file": "agm-2026.pdf",
+      "sha256": "ff289fb289ae96b9908b85cff7b538ecb7e8621618238011b6bac8e8f4a3a930",
+      "bytes": 12992917
+    }
+  ],
+  "public_source_contract": {
+    "authority_listing": "https://cangvuhanghaidongnai.gov.vn/index.aspx?cat=2069&page=about",
+    "authority_board": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+    "catalogue_resource": "getDetailDmCategories",
+    "catalogue_parameters": {
+      "maritimeCode": "11",
+      "start": -1,
+      "end": -1,
+      "categoryId": [
+        "DM_PORT_HARBOUR",
+        "DM_PORT_WHARF"
+      ]
+    },
+    "combined_resource": "findVmaItinerary_VmaItinerarySchedule_VmaScheduleShifting_URL",
+    "combined_parameters": {
+      "maritimeCode": "11",
+      "start": -1,
+      "end": -1,
+      "markedAsArrival": "3,4,5,7,8,9",
+      "markedAsDeparture": "3,4,5,7,8,9",
+      "noticeShipType": "1,2,4",
+      "timeOfArrival": [
+        "15/06/2025",
+        "15/06/2026",
+        "15/10/2026"
+      ]
+    },
+    "bootstrap_note": "Resource URLs contain transient public session parameters and are intentionally excluded."
+  },
+  "official_urls": {
+    "tcl_home": "https://tancanglogistics.com/pages/default.aspx",
+    "tcl_linked_vessel_search": "https://eport.saigonnewport.com.vn/Ships",
+    "tnt_search": "https://eport.tcis.co/Ships",
+    "agm_2026": "https://tancanglogistics.com/quan-he-co-dong/Documents/TCL%20-%20CBTT%20TAI%20LIEU%20DHDCD%20TN%20NAM%20202620260408170123.pdf",
+    "berth_workbook": "https://cangvuhanghaidongnai.gov.vn/images/uploads/attach/DS%20CANG%20CAP%20NHAT%20VUNG%20NUOC.xlsx",
+    "inland_catalogue": "https://cv3.gov.vn/CangBen/DanhSachCangBen"
+  },
+  "limitations": [
+    "No catalogue match is not evidence of inactivity or exhaustive current jurisdiction coverage.",
+    "Combined schedule sampling is not a complete historical backfill.",
+    "Vessels named Tan Cang at Phuoc An or other berths do not identify a TCL berth.",
+    "The linked workbook is a berth catalogue with dated contents, not an activity series; DWT capacity is not observed vessel DWT.",
+    "CV3 catalogue remained inaccessible/timeout; its contents and potential history have not been verified.",
+    "AGM PDF text extracted from all 314 pages; 2025 operating discussion and financial table on PDF pages 8-10 do not supply a monthly vessel/DWT/tons/TEU series.",
+    "No annualized total or per-month series is inferred from a rounded average TEU reference."
+  ],
+  "product_changes": false
+}

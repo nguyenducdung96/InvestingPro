@@ -2,6 +2,8 @@
 
 ## Cập nhật TCL — 30/10/2026
 
+**Theo yêu cầu mới làm TCL cùng cách với các mã khác: chưa hoàn thành.** Đã kiểm tra bổ sung trang chủ và tài liệu ĐHĐCĐ TCL 2026 (314 trang), danh mục Cảng vụ Đồng Nai (51 bến/79 cầu), endpoint điều động tổng hợp ba ngày mẫu. Chưa tìm được chuỗi lịch sử đúng bến TCL kèm DWT; nguồn ĐTNĐ III còn timeout. Phần TNT dưới đây chỉ là dữ liệu một phần, không thay yêu cầu chuỗi 2025–2026. [Hồ sơ rà soát](tcl-source-feasibility-20261030.md), [biên nhận](catalog-review/tcl-feasibility-recheck-20261030.json).
+
 TCL đã có quan sát cập/rời cầu riêng ICD Nhơn Trạch từ ePort TCIS, mã TNT: edition đầu 81 cập/78 rời ngày 16–29/10/2026, không gồm 3 trường giờ rời EST hoặc 497 dòng bến khác trong phản hồi. Nguồn không có DWT; chưa có lịch sử năm trước nên lũy kế so sánh/YoY vẫn unavailable. Không tính thành port arrivals/departures hoặc cộng trùng bến CLL.
 
 Đã bổ sung bình quân xếp dỡ khoảng 200.000 TEU/tháng theo báo cáo 2025 riêng ở phạm vi dịch vụ TCL; không gán từng tháng hoặc riêng ICD. Đã mở rộng rà soát trang cảng TCL/SNP, ePort riêng và Cảng vụ Hàng hải Đồng Nai/ĐTNĐ khu vực III. Chi tiết: [TCL](tcl-integration.md), [biên nhận nguồn](catalog-review/tcl-source-review-20261030.json). Còn thiếu DWT, chuỗi sản lượng tấn/TEU thực hiện và lịch sử trước 16/10/2026. Workflow refresh mới được cấu hình; chưa nghiệm thu schedule/production. Bản tính năng `92d876b` đã Cloudflare success và readback API/HTML hai chiều đúng edition; xem [receipt staging](catalog-review/tcl-staging-20261030.json). CI Quality tổng được theo dõi riêng, không coi build/readback là nghiệm thu cron hoặc production.

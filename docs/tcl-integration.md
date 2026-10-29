@@ -1,5 +1,7 @@
 # TCL — ICD Nhơn Trạch và dịch vụ doanh nghiệp
 
+Rà soát theo yêu cầu dùng cùng chuỗi lượt tàu/DWT như các mã khác: **chưa hoàn thành**. Nguồn TNT bên dưới chỉ là hoạt động tại cầu một phần. Kiểm tra bổ sung trang chủ TCL, tài liệu ĐHĐCĐ 2026, danh mục 51 bến/79 cầu và endpoint điều động tổng hợp Cảng vụ chưa tìm được chuỗi lịch sử đúng TCL kèm DWT; nguồn ĐTNĐ III vẫn chưa truy cập được. Xem [kết quả và giới hạn kiểm tra](tcl-source-feasibility-20261030.md).
+
 ## Phạm vi đã tích hợp ngày 30/10/2026
 
 - Trang TCL và tổng quan miền Nam có **quan sát cập/rời cầu do ePort riêng công bố**, chỉ mã `TNT` của ICD Tân Cảng Nhơn Trạch. Đây là hoạt động tại cầu, không phải lượt tàu vào/rời toàn cảng; không cộng hai chiều thành lượt ghé.
