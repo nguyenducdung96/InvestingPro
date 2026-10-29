@@ -3,17 +3,17 @@ import {readFileSync,readdirSync} from 'node:fs';
 import {expect,it} from 'vitest';
 import {throughputSeries,type ThroughputFact} from '@invest/port';
 const fact=(period:string,n:number|null=100,extra:Partial<ThroughputFact>={}):ThroughputFact=>({id:period,asset_code:'tan_vu',period:`${period}-01`,publication_month:'2026-10-01',cargo_tonnes:n,container_teu:10,source_url:'https://haiphongport.com.vn/test.pdf',source_sha256:'a'.repeat(64),pdf_page:1,fetched_at:'2026-10-21T00:00:00Z',source_checked_at:'2026-10-21T00:00:00Z',source_error:null,...extra});
-it('withholds conflicts and missing periods without inventing YTD or zero baselines',()=>{
+it('excludes conflicts and pairs available YTD months without inventing zero baselines',()=>{
  const s=throughputSeries([fact('2025-05'),fact('2026-05',120),fact('2026-06',null),fact('2026-07',100),fact('2026-07',101)]);
  expect(s.months.at(-2)?.yoy_pct.cargo_tonnes).toBeCloseTo(20);
  expect(s.quarters.find(q=>q.period==='2026-Q2')?.cargo_tonnes).toBeNull();
- expect(s.ytd.cargo_tonnes).toBeNull();expect(s.conflicts).toEqual(['2026-07']);
+ expect(s.ytd.cargo_tonnes).toMatchObject({paired_months:[5],current:120,prior:100});expect(s.ytd.cargo_tonnes?.yoy_pct).toBeCloseTo(20);expect(s.conflicts).toEqual(['2026-07']);
  expect(throughputSeries([fact('2025-01',0),fact('2026-01',20)]).months[1].yoy_pct.cargo_tonnes).toBeNull();
 });
 it('deduplicates identical reports and aggregates only complete metrics',()=>{
  const s=throughputSeries([fact('2025-01'),fact('2025-02'),fact('2025-03'),fact('2026-01',200),fact('2026-01',200,{id:'duplicate'}),fact('2026-02',200),fact('2026-03',200)]);
  expect(s.months).toHaveLength(6);expect(s.quarters[1].cargo_tonnes).toBe(600);
- expect(s.ytd.cargo_tonnes).toEqual({through_month:3,current:600,prior:300,yoy_pct:100});
+ expect(s.ytd.cargo_tonnes).toEqual({through_month:3,paired_months:[1,2,3],current:600,prior:300,yoy_pct:100});
 });
 it('enforces pending/rights/RLS, hides revised PDFs and serves changed DB data without a rebuild',async()=>{
  const db=new PGlite();

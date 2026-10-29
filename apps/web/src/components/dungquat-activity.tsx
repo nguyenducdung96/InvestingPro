@@ -1,3 +1,4 @@
+import {pairedYtd,pairedMonthLabel} from '@/lib/paired-ytd';
 import {dungquatActivitySeries,dungquatEvents,dungquatHistory,validPlanDate} from '@invest/port';
 import {cdnPeriodDisplay,observedGrowth} from '@/lib/cdn-comparison';
 import {PlanColumnChart,type PlanColumn} from './plan-column-chart';
@@ -11,7 +12,7 @@ export function DungquatActivity({query}:{query:Record<string,string>}){
  const years=[...new Set(series.months.map(p=>p.period.slice(0,4)))].reverse();
  const year=years.includes(query.plan_year)?query.plan_year:series.cutoff.slice(0,4);
  const periods=quarter?series.quarters:series.months,selected=periods.filter(p=>p.period.startsWith(year));
- const ytd=year===series.cutoff.slice(0,4)?series.ytd:dungquatActivitySeries(dungquatHistory.events,direction,new Date(`${Number(year)+1}-01-01T00:00:00+07:00`)).ytd;
+ const ytd=pairedYtd(series,year,byRows?'rows':'observed_dwt');
  type Range=typeof ytd.current;
  const value=(r:Range)=>byRows?(r.observed_days?r.known_rows:null):r.observed_dwt;
  const history:PlanColumn[]=periods.map(p=>({key:p.period,label:p.period,current:value(p.current),partial:p.status==='partial'}));
@@ -40,7 +41,7 @@ export function DungquatActivity({query}:{query:Record<string,string>}){
    <div><label htmlFor="dq-year">Năm</label><select id="dq-year" name="plan_year" defaultValue={year}>{years.map(y=><option key={y}>{y}</option>)}</select></div><button>Xem dữ liệu</button>
   </form>
   <p className="meta">Ngày chốt: {series.cutoff} · giờ Việt Nam. Tháng hiện tại đang cập nhật; số đã ghi nhận tính đến ngày chốt. Các kỳ chưa có quan sát để trống.</p>
-  <div className="stats-strip"><div className="stat"><span>{label} · {selected.at(-1)?.period??year}</span><strong>{number(selected.length?value(selected.at(-1)!.current):null)} {unit}</strong></div><div className="stat"><span>Lũy kế {year} đến {ytd.current.through}</span><strong>{number(value(ytd.current))} {unit}</strong></div><div className="stat"><span>YoY số đã ghi nhận · lũy kế</span><strong><YoyChange value={observedGrowth(value(ytd.current),value(ytd.prior))}/></strong></div></div>
+  <div className="stats-strip"><div className="stat"><span>{label} · {selected.at(-1)?.period??year}</span><strong>{number(selected.length?value(selected.at(-1)!.current):null)} {unit}</strong></div><div className="stat"><span>Lũy kế cùng kỳ {year} ({pairedMonthLabel(series,year,byRows?'rows':'observed_dwt')})</span><strong>{number(value(ytd.current))} {unit}</strong></div><div className="stat"><span>YoY số đã ghi nhận · lũy kế</span><strong><YoyChange value={observedGrowth(value(ytd.current),value(ytd.prior))}/></strong></div></div>
   <details><summary>Chi tiết dữ liệu và nguồn Dung Quất</summary>
    <p>{journal.length} sự kiện đã đối chiếu, {journal.filter(e=>e.dwt===null).length} sự kiện thiếu DWT. {dungquatHistory.quality.reviewed_articles} bài công bố được trích xuất. Ngày đăng bài tách với ngày sự kiện; không tạo giờ 00:00 khi nguồn chỉ nêu ngày.</p>
    <p>Ngày không có bản công bố không có nghĩa là không có tàu. Chưa có báo cáo ngày đầy đủ, chưa đủ căn cứ đánh giá xu hướng toàn cảng hoặc tăng trưởng toàn bộ hoạt động. Không cộng quan sát vị trí, đại lý tàu, kế hoạch chưa thực hiện, Nam Đình Vũ hay Gemalink vào chuỗi này.</p>
@@ -52,7 +53,7 @@ export function DungquatActivity({query}:{query:Record<string,string>}){
   </details>
   <section id="dq-history"><PlanColumnChart title="Lịch sử số đã ghi nhận" columns={history} currentLabel={label} unit={unit}/></section>
   <section id="dq-yoy"><PlanColumnChart title="So sánh cùng kỳ năm trước" columns={calendar} currentLabel={year} priorLabel={String(Number(year)-1)} unit={unit}/>
-   <div className="call-table-wrap"><table className="call-table"><caption>Dung Quất · {label} · {year} · công bố chọn lọc</caption><thead><tr><th scope="col">Kỳ</th><th scope="col">Lượt</th><th scope="col">DWT đã ghi nhận</th><th scope="col">Cùng kỳ DWT</th><th scope="col">YoY DWT</th></tr></thead><tbody>{selected.map(p=>{const d=cdnPeriodDisplay(p);return <tr key={p.period}><td data-label="Kỳ">{p.period}{p.status==='partial'&&<small>Đang cập nhật · đến {p.current.through}</small>}</td><td data-label="Lượt">{number(d.rows)}</td><td data-label="DWT đã ghi nhận">{number(d.dwt)}</td><td data-label="Cùng kỳ DWT">{number(d.priorDwt)}</td><td data-label="YoY DWT"><YoyChange value={d.yoyDwt}/></td></tr>;})}</tbody><tfoot><tr className="comparison-ytd"><th scope="row">Lũy kế {year} đến {ytd.current.through}</th><td data-label="Lượt">{number(ytd.current.observed_days?ytd.current.known_rows:null)}</td><td data-label="DWT đã ghi nhận">{number(ytd.current.observed_dwt)}</td><td data-label="Cùng kỳ DWT">{number(ytd.prior.observed_dwt)}</td><td data-label="YoY DWT"><YoyChange value={observedGrowth(ytd.current.observed_dwt,ytd.prior.observed_dwt)}/></td></tr></tfoot></table></div>
+   <div className="call-table-wrap"><table className="call-table"><caption>Dung Quất · {label} · {year} · công bố chọn lọc</caption><thead><tr><th scope="col">Kỳ</th><th scope="col">Lượt</th><th scope="col">DWT đã ghi nhận</th><th scope="col">Cùng kỳ DWT</th><th scope="col">YoY DWT</th></tr></thead><tbody>{selected.map(p=>{const d=cdnPeriodDisplay(p);return <tr key={p.period}><td data-label="Kỳ">{p.period}{p.status==='partial'&&<small>Đang cập nhật · đến {p.current.through}</small>}</td><td data-label="Lượt">{number(d.rows)}</td><td data-label="DWT đã ghi nhận">{number(d.dwt)}</td><td data-label="Cùng kỳ DWT">{number(d.priorDwt)}</td><td data-label="YoY DWT"><YoyChange value={d.yoyDwt}/></td></tr>;})}</tbody><tfoot><tr className="comparison-ytd"><th scope="row">Lũy kế cùng kỳ {year} ({pairedMonthLabel(series,year,byRows?'rows':'observed_dwt')})</th><td data-label="Lượt">{number(ytd.current.observed_days?ytd.current.known_rows:null)}</td><td data-label="DWT đã ghi nhận">{number(ytd.current.observed_dwt)}</td><td data-label="Cùng kỳ DWT">{number(ytd.prior.observed_dwt)}</td><td data-label="YoY DWT"><YoyChange value={observedGrowth(ytd.current.observed_dwt,ytd.prior.observed_dwt)}/></td></tr></tfoot></table></div>
   </section>
   <section id="dq-days"><PlanColumnChart title="Hoạt động tàu 90 ngày gần nhất" columns={daily} currentLabel={label} unit={unit} daily/>
    <h3>Nhật ký {label.toLowerCase()} · {day}</h3>

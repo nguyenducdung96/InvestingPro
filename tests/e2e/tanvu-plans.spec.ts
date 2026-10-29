@@ -78,7 +78,7 @@ test('PHP comparison totals include the current partial month, respect year and 
  const footer=region.locator('tfoot');
  const current=days.filter(d=>d.report_day.startsWith(String(year)));
  const previous=days.filter(d=>d.report_day>=`${year-1}-01-01`&&d.report_day<=`${year-1}${cutoff.slice(4)}`);
- await expect(footer.getByRole('rowheader')).toHaveText(`Lũy kế ${year} (T1–T${Number(cutoff.slice(5,7))})`);
+ await expect(footer.getByRole('rowheader')).toHaveText(`Lũy kế cùng kỳ ${year} (${Array.from({length:Number(cutoff.slice(5,7))},(_,i)=>`T${i+1}`).join(', ')})`);
  await expect(footer.locator('td[data-label="DWT"]')).toHaveText(current.reduce((n,d)=>n+d.departure_dwt,0).toLocaleString('vi-VN'));
  await expect(footer.locator('td[data-label="Cùng kỳ DWT"]')).toHaveText(previous.reduce((n,d)=>n+d.departure_dwt,0).toLocaleString('vi-VN'));
  await expect(footer.locator('td[data-label="Phạm vi"]')).toContainText(`${year}-01-01 → ${cutoff}`);
@@ -101,13 +101,19 @@ test('PHP comparison totals include the current partial month, respect year and 
  await expect(footer.locator('td[data-label="DWT"]')).toHaveText((current.length*4000).toLocaleString('vi-VN'));
  await plans.getByLabel('Năm',{exact:true}).selectOption(String(year-1));
  await plans.getByRole('button',{name:'Xem lịch',exact:true}).click();
- await expect(footer.getByRole('rowheader')).toHaveText(`Lũy kế ${year-1} (T1–T12)`);
- await expect(footer.locator('td[data-label="Phạm vi"]')).toContainText(`${year-1}-01-01 → ${year-1}-12-31`);
+ await expect(footer.getByRole('rowheader')).toHaveText(`Lũy kế cùng kỳ ${year-1} (chưa có tháng chung)`);
+ await expect(footer.locator('td[data-label="DWT"]')).toHaveText('Chưa đủ dữ liệu');
  await expect(footer.getByLabel('Chưa đủ dữ liệu so sánh',{exact:true})).toHaveText('—');
- // HTIT recorded totals remain comparable even though the series starts in May.
+ // HTIT excludes current January-April when the prior year only starts in May.
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:days.map(d=>({...d,asset_code:'htit'})),details:[]}});
  await page.goto('/companies/PHP?plan_asset=htit#plan-yoy');
- const htit=await(await request.get('/api/v1/companies/PHP/plans?asset=htit')).json();await expect(footer.locator('[data-label="YoY DWT"]')).toContainText(((htit.ytd.current.observed_dwt/htit.ytd.prior.observed_dwt-1)*100).toLocaleString('vi-VN',{maximumFractionDigits:2})+'%');
+ const htit=await(await request.get('/api/v1/companies/PHP/plans?asset=htit')).json();
+ const paired=htit.months.filter((m:{period:string;current:{observed_dwt:number|null};prior:{observed_dwt:number|null}})=>m.period.startsWith(String(year))&&m.current.observed_dwt!==null&&m.prior.observed_dwt!==null);
+ const total=(side:'current'|'prior')=>paired.reduce((n:number,m:{current:{observed_dwt:number};prior:{observed_dwt:number}})=>n+m[side].observed_dwt,0);
+ await expect(footer.locator('[data-label="DWT"]')).toHaveText(total('current').toLocaleString('vi-VN'));
+ await expect(footer.locator('[data-label="Cùng kỳ DWT"]')).toHaveText(total('prior').toLocaleString('vi-VN'));
+ await expect(footer.locator('[data-label="YoY DWT"]')).toContainText(((total('current')/total('prior')-1)*100).toLocaleString('vi-VN',{maximumFractionDigits:2})+'%');
+ if(Number(cutoff.slice(5,7))>=5)expect(total('current')).toBeLessThan(htit.ytd.current.observed_dwt);
  await request.post('http://127.0.0.1:54329/__plans',{data:{days:[]}});
 });
 
