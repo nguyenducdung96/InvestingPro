@@ -6,7 +6,7 @@ test('southern scopes reconcile API/UI and preserve empty history, filters and p
  await expect(page.locator('.primary-nav a[aria-current="page"]')).toHaveText('Miền Nam');
  const overview=await(await page.request.get('/api/v1/industries/ports/south?period=2026-10')).json();
  expect(overview.regional_total).toBeNull();expect(overview.nationwide_complete).toBe(false);
- const api=await(await page.request.get('/api/v1/companies/GMD/plans?asset=gemalink')).json();
+ const api=await(await page.request.get('/api/v1/companies/GMD/plans?asset=gemalink&direction=arrival')).json();
  expect(api.actual_verified).toBe(false);expect(api.metadata.requested_days).toBeGreaterThanOrEqual(662);
  const southern=await(await page.request.get('/api/v1/companies/GMD/plans?asset=gemalink')).json();
  const current=southern.months.find((m:{period:string})=>m.period==='2026-10');
@@ -20,11 +20,17 @@ test('southern scopes reconcile API/UI and preserve empty history, filters and p
  await expect(plans.getByLabel('Phạm vi theo dõi')).toHaveValue('gemalink');
  await page.goto('/companies/GMD?plan_asset=gemalink');
  await plans.getByLabel('Năm',{exact:true}).selectOption('2025');await plans.getByRole('button',{name:'Xem lịch',exact:true}).click();
- await expect(plans.locator('tbody').first().locator('tr').first().locator('[data-label="Lượt"]')).toHaveText('—');
+ const january=api.months.find((m:{period:string})=>m.period==='2025-01');
+ await expect(plans.locator('tbody').first().locator('tr').first().locator('[data-label="Lượt"]')).toHaveText(january.current.known_rows.toLocaleString('vi-VN'));
+ expect(january.current.known_rows).toBeGreaterThan(0);
+ await plans.locator('#plan-yoy').screenshot({path:`.local/gemalink-national/history-${info.project.name}.png`});
+ await page.goto('/companies/GMD?plan_asset=gemalink&plan_direction=arrival&plan_day=2025-06-29');
+ await expect(plans.locator('#plan-days')).toContainText('CMA CGM VISBY');
+ await expect(plans.locator('#plan-days')).toContainText('Cổng Cục HH&ĐT');
  await plans.getByLabel('Kỳ',{exact:true}).selectOption('quarter');await plans.getByLabel('Chỉ tiêu',{exact:true}).selectOption('rows');await plans.getByRole('button',{name:'Xem lịch',exact:true}).click();
  await expect(plans.locator('.plan-chart-legend').filter({hasText:'Đơn vị: lượt'})).toHaveCount(3);
  await expect(plans.locator('tbody').first().locator('tr')).toHaveCount(4);
- await page.goto('/companies/GMD?plan_asset=gemalink&plan_day=2026-10-24');
+ await page.goto('/companies/GMD?plan_asset=gemalink&plan_direction=departure&plan_day=2026-10-24');
  await expect(plans.locator('#plan-days tbody')).toContainText('EVER MATCH');
  await plans.locator('#plan-days details').first().getByText('Bằng chứng dòng',{exact:true}).click();await expect(plans.locator('#plan-days')).toContainText('SHA-256:');
  const day=await(await page.request.get('/api/v1/companies/GMD/plans?asset=gemalink&day=2026-10-24')).json();expect(day.events.length).toBeGreaterThan(0);expect(day.events.every((e:{direction:string})=>e.direction==='departure')).toBe(true);

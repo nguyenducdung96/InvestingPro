@@ -8,7 +8,12 @@ export function assertEdition(data,metadata){
 export function assertAssetMonths(data,ledger,asset,direction){
  assertEdition(data,ledger.metadata);
  assert.deepEqual(data.months.map(p=>p.period).sort(),Object.keys(ledger.monthly).sort(),'Live month matrix differs');
- for(const period of data.months){const expected=ledger.monthly[period.period][asset][direction];assert.deepEqual(recordedRange(period.current),{rows:expected.rows,dwt:expected.dwt},`${asset}/${direction}/${period.period}`);}
+ for(const period of data.months){
+  const expected=ledger.monthly[period.period][asset][direction],actual=recordedRange(period.current),label=`${asset}/${direction}/${period.period}`;
+  assert.equal(actual.rows,expected.rows,label+' rows');
+  if(expected.dwt===null)assert.equal(actual.dwt,null,label+' DWT');
+  else assert.ok(actual.dwt!==null&&Math.abs(actual.dwt-expected.dwt)<1e-5,label+' DWT');
+ }
 }
 export function scheduledEvidence(receipts,now=new Date()){
  const latest=new Map();

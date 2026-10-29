@@ -19,7 +19,7 @@ Bình Dương đã lấy đủ hai resource vào/rời của ba ngày 26–28/10
 
 Truy vấn thêm `shipName=CMA CGM`, giữ mã Vũng Tàu 12 và tháng 6/2025, trả 19 kết quả trên một trang. Đã kiểm tra các option/bộ lọc được giữ trong HTML phản hồi. Danh sách để trống cột bến cho những dòng này, nên không thể loại bỏ chúng chỉ vì cột đó trống hoặc gán bến từ tên hãng.
 
-PDF gốc [CMA CGM VISBY](https://hanghai.moc.gov.vn/documents/10180/34181393/giao_thong46026290085730189.pdf), SHA-256 `83474f32084181daf8dc1b3d3fa559a9069f7110db66e58270146d8596e8e020a`, 341.077 bytes, đã trích text và render kiểm tra trực quan trang 1:
+PDF gốc [CMA CGM VISBY](https://hanghai.moc.gov.vn/documents/10180/34181393/giao_thong46026290085730189.pdf), SHA-256 `83474f32084181daf8dc1b3d3fa559a9069f710db66e58270146d8596e8e020a`, 341.077 bytes, đã trích text và render kiểm tra trực quan trang 1:
 
 - Cơ quan: Cảng vụ Hàng hải Vũng Tàu; loại: **Kế hoạch điều động tàu thuyền**.
 - Ngày ban hành/ký 28/06/2025; thời gian dự kiến trong dòng là **29/06/2025 08:30**. Ngày 28/6 ở danh sách không được dùng làm ngày sự kiện.

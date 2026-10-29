@@ -5,6 +5,8 @@ import {assertEdition,assertAssetMonths,recordedRange,sumAvailable,scheduledEvid
 const base=process.env.SOUTH_VERIFY_BASE??'https://investing-pro-web-staging.tuyenkinhmon88.workers.dev';
 const root=new URL('../',import.meta.url),out=new URL('.local/south-plans/',root),archive=new URL('receipts/',out);
 const ledger=JSON.parse(await readFile(new URL('docs/catalog-review/south-history-ledger.json',root),'utf8'));
+const nationalLedger=JSON.parse(await readFile(new URL('docs/catalog-review/gemalink-national-ledger.json',root),'utf8'));
+for(const [month,directions] of Object.entries(nationalLedger.monthly))for(const direction of ['arrival','departure']){const a=ledger.monthly[month].gemalink[direction],b=directions[direction];a.rows=sumAvailable([a.rows,b.rows]);a.dwt=sumAvailable([a.dwt,b.dwt]);a.missing_dwt+=b.missing_dwt;}
 const receipt={verifier_version:'south-live/1',verified_at:new Date().toISOString(),base_url:base,expected_checked_at:ledger.metadata.checked_at,through:ledger.metadata.through,event_name:process.env.GITHUB_EVENT_NAME??'local',run_id:process.env.GITHUB_RUN_ID??'local',run_attempt:process.env.GITHUB_RUN_ATTEMPT??'1',published_commit:process.env.PUBLISHED_COMMIT??null,source_refresh_success:process.env.COLLECTOR_OUTCOME==='success',deployment_readback_verified:false,scheduled_refresh_verified:false,actual_verified:false,full_scope_certified:false,checks:[]};
 await mkdir(archive,{recursive:true});
 async function get(path){const r=await fetch(base+path,{redirect:'error',signal:AbortSignal.timeout(30000),headers:{Accept:'application/json'}});if(!r.ok)throw Error(`Live API HTTP ${r.status}: ${path}`);return r.json();}
