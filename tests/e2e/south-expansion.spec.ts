@@ -22,5 +22,6 @@ test('southern expansion attributes each source and excludes unsupported company
  expect((await page.request.get('/api/v1/companies/VGP/plans?direction=internal')).status()).toBe(400);
  await page.goto('/industries/ports/south?period=2026-10');
  for(const ticker of ['CLL','SWC','VGP'])await expect(page.locator(`tr[data-ticker="${ticker}"] .badge`)).toHaveText('Đã tích hợp một phần');
- for(const ticker of ['TCL','TCW'])await expect(page.locator(`tr[data-ticker="${ticker}"] [data-label="Lượt"]`)).toHaveText('—');
+ await expect(page.locator('tr[data-ticker="TCW"] [data-label="Lượt"]')).toHaveText('—');
+ await expect(page.locator('tr[data-ticker="TCL"] .badge')).toHaveText('Đã tích hợp một phần');
 });

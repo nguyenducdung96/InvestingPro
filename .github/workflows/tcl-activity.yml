@@ -1,0 +1,65 @@
+name: TCL Nhon Trach reported berth activity
+on:
+  workflow_dispatch:
+  schedule:
+    # 08:35 Vietnam; configuration is not proof of a scheduled run.
+    - cron: '35 1 * * *'
+permissions:
+  contents: write
+concurrency:
+  group: tcl-berth-staging
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/cache/restore@v4
+        with:
+          path: .local/tcl/archive
+          key: tcl-evidence-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: tcl-evidence-v1-
+      - run: python scripts/test-tcl-activity.py
+      - name: Retain source-backed observations and record source failures
+        id: collect
+        continue-on-error: true
+        run: python scripts/collect-tcl-activity.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec vitest run tests/tcl-activity.test.ts tests/south-plans.test.ts
+      - run: pnpm typecheck
+      - name: Publish validated edition
+        run: |
+          git add packages/modules/port/src/tcl-berth-data.ts
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'data(ports): refresh TCL reported berth activity'
+          git pull --rebase origin codex/cloudflare-next-compat
+          git push origin HEAD:codex/cloudflare-next-compat
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .local/tcl/archive
+          key: tcl-evidence-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: tcl-source-evidence
+          path: |
+            .local/tcl/archive
+            .local/tcl/collect-receipt.json
+          include-hidden-files: true
+          retention-days: 30
+      - name: Report source error after preserving history
+        if: steps.collect.outcome == 'failure'
+        run: exit 1

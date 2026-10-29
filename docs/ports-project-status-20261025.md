@@ -1,5 +1,12 @@
 # Tiến độ ngành cảng — cập nhật 29/10/2026
 
+## Cập nhật TCL — 30/10/2026
+
+TCL đã có quan sát cập/rời cầu riêng ICD Nhơn Trạch từ ePort TCIS, mã TNT: edition đầu 81 cập/78 rời ngày 16–29/10/2026, không gồm 3 trường giờ rời EST hoặc 497 dòng bến khác trong phản hồi. Nguồn không có DWT; chưa có lịch sử năm trước nên lũy kế so sánh/YoY vẫn unavailable. Không tính thành port arrivals/departures hoặc cộng trùng bến CLL.
+
+Đã bổ sung bình quân xếp dỡ khoảng 200.000 TEU/tháng theo báo cáo 2025 riêng ở phạm vi dịch vụ TCL; không gán từng tháng hoặc riêng ICD. Đã mở rộng rà soát trang cảng TCL/SNP, ePort riêng và Cảng vụ Hàng hải Đồng Nai/ĐTNĐ khu vực III. Chi tiết: [TCL](tcl-integration.md), [biên nhận nguồn](catalog-review/tcl-source-review-20261030.json). Còn thiếu DWT, chuỗi sản lượng tấn/TEU thực hiện và lịch sử trước 16/10/2026. Workflow refresh mới được cấu hình; chưa nghiệm thu schedule/production. Trạng thái CI/Cloudflare/readback được xác minh sau commit triển khai.
+
+
 ## Bàn giao hiện hành — chờ người dùng review
 
 Theo yêu cầu ngày 29/10: cập nhật status/next steps, commit/push tài liệu và dừng triển khai để người dùng review một lượt. **Chưa bắt đầu phase tiếp theo.** Điểm tiếp tục, thứ tự công việc và tiêu chí nghiệm thu tại [bàn giao phase sau](ports-next-phase-handoff-20261029.md); phần này thay thế các thứ tự ưu tiên trong snapshot cũ bên dưới.

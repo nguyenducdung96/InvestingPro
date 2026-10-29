@@ -19,6 +19,7 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r scripts/requirements-gemalink-national.txt
       - run: python scripts/test-gemalink-national.py
+      - run: python scripts/test-tcl-activity.py
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
       - run: pnpm build

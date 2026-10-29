@@ -10,6 +10,7 @@ import {CmpPlans} from '@/components/cmp-plans';
 import {NapActivity} from '@/components/nap-activity';
 import {PdnPlans} from '@/components/pdn-plans';
 import {SouthPlans} from '@/components/south-plans';
+import {TclActivity} from '@/components/tcl-activity';
 export const dynamic = "force-dynamic";
 export default async function Page({
   params,
@@ -27,6 +28,7 @@ export default async function Page({
     {ticker==='GMD'&&query.central_asset!=='gemadept_dung_quat'&&!['gmd','nam_dinh_vu'].includes(query.plan_asset)&&<SouthPlans ticker="GMD" query={query}/>}
     {Object.hasOwn(southScopes,ticker)&&ticker!=='GMD'&&<SouthPlans ticker={ticker as SouthIssuer} query={query}/>}
     {ticker==='PDN'&&<PdnPlans query={query}/>}
+    {ticker==='TCL'&&<TclActivity query={query}/>}
     {!(ticker==='GMD'&&(query.central_asset==='gemadept_dung_quat'||!['gmd','nam_dinh_vu'].includes(query.plan_asset)))&&(ticker==='PHP'||ticker==='DVP'||isIssuerPlanTicker(ticker))&&<PhpPlans query={query} ticker={ticker}/>}
     {ticker==='PHP'&&<PhpThroughput query={query}/>}
     {ticker==='QNP'&&<QnpPlans query={query}/>}

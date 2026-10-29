@@ -1,0 +1,427 @@
+{
+  "reviewed_on": "2026-10-30",
+  "issuer": "TCL",
+  "decision": "Integrate only operator-reported TNT berth activity, with DWT unavailable. Keep average TEU service reference separate. No blanket Cat Lai or CLL duplicate attribution.",
+  "sources": [
+    {
+      "key": "annual-index",
+      "url": "https://tancanglogistics.com/quan-he-co-dong/Pages/bao-cao-thuong-nien.aspx",
+      "http_status": 200,
+      "sha256": "edf4505c0108a71d46a4cc768a0b5938c2a66a0b229cbe12cfc371e3fe88db44",
+      "bytes": 69310,
+      "checked_at": "2026-10-29T19:42:52.874862+00:00"
+    },
+    {
+      "key": "annual-2025",
+      "url": "https://tancanglogistics.com/quan-he-co-dong/Documents/20260319%20-%20TCL%20-%20BAO%20CAO%20THUONG%20NIEN%20202520260319161535.pdf",
+      "http_status": 200,
+      "sha256": "f884d92dfb0a3f9c6fdd32abeeff90e83c8d3c9072a593f9e7a5488a592b9cdb",
+      "bytes": 32690404,
+      "checked_at": "2026-10-29T19:44:20.803250+00:00"
+    },
+    {
+      "key": "operator",
+      "url": "https://tancanglogistics.com/gioi-thieu/Pages/cong-ty-co-phan-tiep-van-tan-cang-dong-nai.aspx",
+      "http_status": 200,
+      "sha256": "4592cad45cad7e64364f60bfe7115ccd8e49d193a6fbeda3705670c244cf4e50",
+      "bytes": 75383,
+      "checked_at": "2026-10-29T19:43:26.381878+00:00"
+    },
+    {
+      "key": "tariffs",
+      "url": "https://tancanglogistics.com/ho-tro-khach-hang/Pages/bang-gia-dich-vu.aspx",
+      "http_status": 200,
+      "sha256": "373180e715f0e75cff05ef992b3d2c298ee9bced96e2792bc899b788d4a2879f",
+      "bytes": 97299,
+      "checked_at": "2026-10-29T19:43:27.812696+00:00"
+    },
+    {
+      "key": "annual-2024",
+      "url": "https://tancanglogistics.com/quan-he-co-dong/Documents/20250325%20-%20TCL%20-%20BAO%20CAO%20THUONG%20NIEN%20NAM%20202420250325161256.pdf",
+      "sha256": "447b0ed075684a4030ff4da06cc3c6bd87e22419872bf462e30ae3f7499d99e1",
+      "bytes": 51943155,
+      "checked_at": "2026-10-29T19:45:22.753070+00:00"
+    },
+    {
+      "key": "snp-icd.html",
+      "url": "https://saigonnewport.com.vn/en/port-company/tan-cang-nhon-trach-icd-tcnt-icd",
+      "sha256": "4c34507502840eeac4aa57884b9c47243e8bd64c885233978e26a7182f3aa931",
+      "bytes": 104644,
+      "http_status": 200
+    },
+    {
+      "key": "tcis-more-0.txt",
+      "url": "https://eport.tcis.co/Ships",
+      "sha256": "a86f3e3b70d414d0cd095c9243dc87c3d77710b44beda4c68adae783fc484f9d",
+      "bytes": 33034,
+      "http_status": 200
+    },
+    {
+      "key": "tcis-more-1.txt",
+      "url": "https://eport.tcis.co/Scripts/eport/modules/ships/ships.js?v=26.9.22.49",
+      "sha256": "ddaa334076f22358c1658fe0b22a46f62e6cbc66ae8f8278b8b97a858767659e",
+      "bytes": 4686,
+      "http_status": 200
+    }
+  ],
+  "report_facts": {
+    "2025_monthly_average_teu": {
+      "value": 200000,
+      "approximate": true,
+      "pdf_page": 3,
+      "observation_month": null,
+      "scope": "TCL container-handling services across stated locations",
+      "additive": false
+    },
+    "2024_monthly_average_teu": {
+      "value": 200000,
+      "approximate": true,
+      "pdf_page": 3,
+      "observation_month": null,
+      "use": "cross-check only; not a monthly or annual total"
+    },
+    "nhon_trach_physical_scope": {
+      "report_year": 2025,
+      "area_m2": 145000,
+      "wharf_length_m": 320,
+      "pdf_page": 4
+    },
+    "dongnai_subsidiary": {
+      "ownership_pct": 51,
+      "as_of": "2025-12-31",
+      "pdf_page": 7
+    }
+  },
+  "tnt_edition": {
+    "parser_version": "tcis-tnt-berth/1.0.0",
+    "source_url": "https://eport.tcis.co/Ships",
+    "endpoint": "https://eport.tcis.co/ships/Searcher",
+    "checked_at": "2026-10-29T19:52:23.648529+00:00",
+    "last_attempt": "2026-10-29T19:52:23.648529+00:00",
+    "last_success": "2026-10-29T19:52:23.648529+00:00",
+    "source_error": null,
+    "events": 159,
+    "semantics": "operator_reported_berth_activity",
+    "movement_scope": "berth",
+    "actual_verified": false,
+    "full_scope_certified": false,
+    "history_complete": false,
+    "scheduled_refresh_verified": false,
+    "absence_means_zero": false,
+    "dwt_available": false,
+    "first_observation": "2026-10-16",
+    "last_observation": "2026-10-29",
+    "snapshots": [
+      {
+        "sha256": "bb5d7c7cd23674491e77c218927d482024d13a2d35520658dec4bc2a967329a6",
+        "checked_at": "2026-10-29T19:50:38.230923+00:00",
+        "parameters": {
+          "siteId": "TNT",
+          "vesselName": ""
+        },
+        "source_rows": 578,
+        "tnt_rows": 81,
+        "other_site_rows_excluded": 497,
+        "duplicate_events": 0,
+        "estimated_fields": {
+          "departure": 3
+        }
+      }
+    ],
+    "latest_response": {
+      "source_rows": 578,
+      "tnt_rows": 81,
+      "other_site_rows_excluded": 497,
+      "duplicate_events": 0,
+      "estimated_fields": {
+        "departure": 3
+      }
+    }
+  },
+  "monthly_ledger": {
+    "2026-10": {
+      "arrival": {
+        "recorded_berth_events": 81,
+        "dwt": null,
+        "first_day": "2026-10-16",
+        "last_day": "2026-10-29"
+      },
+      "departure": {
+        "recorded_berth_events": 78,
+        "dwt": null,
+        "first_day": "2026-10-16",
+        "last_day": "2026-10-29"
+      }
+    }
+  },
+  "dongnai_archive_search": {
+    "checked_envelopes": 1994,
+    "first_day": "2025-01-01",
+    "last_day": "2026-10-28",
+    "sha256_verified": true,
+    "unique_labels": 204,
+    "matching_labels": [
+      {
+        "code": "BC194",
+        "label": "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Bến cảng SCC-VN Nhơn Trạch, Cầu chuyên dùng",
+        "rows": 33
+      },
+      {
+        "code": "BC194",
+        "label": "Bến cảng SCC-VN Nhơn Trạch, Cầu chuyên dùng",
+        "rows": 17
+      },
+      {
+        "code": "K0013",
+        "label": "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Cảng TNĐ Nhà máy điện Nhơn Trạch 1, Cảng TNĐ Nhà máy điện Nhơn Trạch 1",
+        "rows": 18
+      },
+      {
+        "code": "K0013",
+        "label": "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Cảng TNĐ Nhà máy điện Nhơn Trạch 1, Cầu số 1",
+        "rows": 2
+      },
+      {
+        "code": "K0013",
+        "label": "Cảng TNĐ Nhà máy điện Nhơn Trạch 1, Cảng TNĐ Nhà máy điện Nhơn Trạch 1",
+        "rows": 15
+      }
+    ]
+  },
+  "dongnai_expanded_filter_probes": [
+    {
+      "day": "2025-06-15",
+      "direction": "arrival",
+      "parameters": {
+        "start": -1,
+        "end": -1,
+        "maritimeCode": 11,
+        "shipBoat": "SHIP",
+        "noticeShipType": 1,
+        "markedAsArrival": "3,4,5,7,8,9",
+        "timeOfArrival": "15/06/2025"
+      },
+      "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+      "sha256": "86896fd5faaa937914bf1e79a8e356698a94d3d59255a7c5f1188ebbb07927f8",
+      "source_rows": 45,
+      "tcl_matching_labels": [],
+      "checked_at": "2026-10-29T19:57:13.304650+00:00"
+    },
+    {
+      "day": "2025-06-15",
+      "direction": "arrival",
+      "parameters": {
+        "start": -1,
+        "end": -1,
+        "maritimeCode": 11,
+        "shipBoat": "BOAT",
+        "noticeShipType": 1,
+        "markedAsArrival": "3,4,5,7,8,9",
+        "timeOfArrival": "15/06/2025"
+      },
+      "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+      "sha256": "263eba216ab1af4f4c2e01290e3aab331a22203ac2f1f45d586954bb56574255",
+      "source_rows": 42,
+      "tcl_matching_labels": [],
+      "checked_at": "2026-10-29T19:57:13.267375+00:00"
+    },
+    {
+      "day": "2025-06-15",
+      "direction": "departure",
+      "parameters": {
+        "start": -1,
+        "end": -1,
+        "maritimeCode": 11,
+        "shipBoat": "SHIP",
+        "noticeShipType": 2,
+        "markedAsDeparture": "3,4,5,7,8,9",
+        "timeOfDeparture": "15/06/2025"
+      },
+      "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+      "sha256": "4ee45b53708b94ff604d883a03aa56018b69f9f92d076092fabf7e8d2aaaad9f",
+      "source_rows": 47,
+      "tcl_matching_labels": [],
+      "checked_at": "2026-10-29T19:57:13.161850+00:00"
+    },
+    {
+      "day": "2025-06-15",
+      "direction": "departure",
+      "parameters": {
+        "start": -1,
+        "end": -1,
+        "maritimeCode": 11,
+        "shipBoat": "BOAT",
+        "noticeShipType": 2,
+        "markedAsDeparture": "3,4,5,7,8,9",
+        "timeOfDeparture": "15/06/2025"
+      },
+      "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+      "sha256": "266d80175bf3984c68a1cb7da9f8d94e8310a2ae5d2656cdf008f12fe48e5f75",
+      "source_rows": 42,
+      "tcl_matching_labels": [],
+      "checked_at": "2026-10-29T19:57:15.104396+00:00"
+    },
+    {
+      "day": "2026-06-15",
+      "direction": "arrival",
+      "parameters": {
+        "start": -1,
+        "end": -1,
+        "maritimeCode": 11,
+        "shipBoat": "SHIP",
+        "noticeShipType": 1,
+        "markedAsArrival": "3,4,5,7,8,9",
+        "timeOfArrival": "15/06/2026"
+      },
+      "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+      "sha256": "081841515d3ef4c08d36a7f36166895dcf8e3c5cc92e6d6df55c0a8fc3495002",
+      "source_rows": 78,
+      "tcl_matching_labels": [],
+      "checked_at": "2026-10-29T19:57:15.511013+00:00"
+    },
+    {
+      "day": "2026-06-15",
+      "direction": "arrival",
+      "parameters": {
+        "start": -1,
+        "end": -1,
+        "maritimeCode": 11,
+        "shipBoat": "BOAT",
+        "noticeShipType": 1,
+        "markedAsArrival": "3,4,5,7,8,9",
+        "timeOfArrival": "15/06/2026"
+      },
+      "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+      "sha256": "9c683b6c6db2e25b112b0b02ba68eefa4153c6fc6b1f941acda2c9e25d6b47bd",
+      "source_rows": 70,
+      "tcl_matching_labels": [],
+      "checked_at": "2026-10-29T19:57:15.582095+00:00"
+    },
+    {
+      "day": "2026-06-15",
+      "direction": "departure",
+      "parameters": {
+        "start": -1,
+        "end": -1,
+        "maritimeCode": 11,
+        "shipBoat": "SHIP",
+        "noticeShipType": 2,
+        "markedAsDeparture": "3,4,5,7,8,9",
+        "timeOfDeparture": "15/06/2026"
+      },
+      "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+      "sha256": "7aac81ec6c7379b7d182e8649d69c5332546caf4e707f9426d4f8ad3bc0a7cb8",
+      "source_rows": 93,
+      "tcl_matching_labels": [],
+      "checked_at": "2026-10-29T19:57:15.685602+00:00"
+    },
+    {
+      "day": "2026-06-15",
+      "direction": "departure",
+      "parameters": {
+        "start": -1,
+        "end": -1,
+        "maritimeCode": 11,
+        "shipBoat": "BOAT",
+        "noticeShipType": 2,
+        "markedAsDeparture": "3,4,5,7,8,9",
+        "timeOfDeparture": "15/06/2026"
+      },
+      "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+      "sha256": "805462648b3c4dd8477320cf832af88193139535c54a3d94779c3a8bf5972edc",
+      "source_rows": 84,
+      "tcl_matching_labels": [],
+      "checked_at": "2026-10-29T19:57:15.977128+00:00"
+    },
+    {
+      "day": "2026-10-15",
+      "direction": "arrival",
+      "parameters": {
+        "start": -1,
+        "end": -1,
+        "maritimeCode": 11,
+        "shipBoat": "SHIP",
+        "noticeShipType": 1,
+        "markedAsArrival": "3,4,5,7,8,9",
+        "timeOfArrival": "15/10/2026"
+      },
+      "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+      "sha256": "136baef15853aba8253c9e42309f1b5cf1d9c909c8bc9fe96f347c23439c3cf6",
+      "source_rows": 21,
+      "tcl_matching_labels": [],
+      "checked_at": "2026-10-29T19:57:17.411527+00:00"
+    },
+    {
+      "day": "2026-10-15",
+      "direction": "arrival",
+      "parameters": {
+        "start": -1,
+        "end": -1,
+        "maritimeCode": 11,
+        "shipBoat": "BOAT",
+        "noticeShipType": 1,
+        "markedAsArrival": "3,4,5,7,8,9",
+        "timeOfArrival": "15/10/2026"
+      },
+      "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+      "sha256": "50f343b7b4825cdabf339de5934bdc4d13a022a28de3d1a1f0a86ba7cf3a8911",
+      "source_rows": 3,
+      "tcl_matching_labels": [],
+      "checked_at": "2026-10-29T19:57:17.434780+00:00"
+    },
+    {
+      "day": "2026-10-15",
+      "direction": "departure",
+      "parameters": {
+        "start": -1,
+        "end": -1,
+        "maritimeCode": 11,
+        "shipBoat": "SHIP",
+        "noticeShipType": 2,
+        "markedAsDeparture": "3,4,5,7,8,9",
+        "timeOfDeparture": "15/10/2026"
+      },
+      "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+      "sha256": "4e1985a04393dac9111097ee14094eac94755e0420d875bff14a6602ee6c839b",
+      "source_rows": 10,
+      "tcl_matching_labels": [],
+      "checked_at": "2026-10-29T19:57:17.645857+00:00"
+    },
+    {
+      "day": "2026-10-15",
+      "direction": "departure",
+      "parameters": {
+        "start": -1,
+        "end": -1,
+        "maritimeCode": 11,
+        "shipBoat": "BOAT",
+        "noticeShipType": 2,
+        "markedAsDeparture": "3,4,5,7,8,9",
+        "timeOfDeparture": "15/10/2026"
+      },
+      "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+      "sha256": "71932f8188c5806280d99f7d0b2cd88279fc737c49ec54771270cd769e497918",
+      "source_rows": 3,
+      "tcl_matching_labels": [],
+      "checked_at": "2026-10-29T19:57:18.759746+00:00"
+    }
+  ],
+  "additional_authority_checks": [
+    {
+      "url": "https://cv3.gov.vn/CangBen/DanhSachCangBen",
+      "result": "Located official directory; direct HTTP/HTTPS/www requests failed or timed out; no usable history obtained."
+    },
+    {
+      "url": "https://cangvuhanghaidongnai.gov.vn/",
+      "result": "Official public plan source reviewed through its linked anonymous Dong Nai board; no independently mapped TCL label from checked responses."
+    }
+  ],
+  "limits": [
+    "TCIS displayed date window is not historical completeness.",
+    "Public search response ignores requested site and includes other sites; retain only row SITE_ID trimmed exactly TNT.",
+    "81 actual-label berth times and 78 departure times; 3 EST departure fields excluded in initial edition.",
+    "No source DWT/IMO; do not name-join registry weights.",
+    "No published per-month cargo/TEU series found; an average or tariff is not actual monthly throughput.",
+    "No verified scheduled refresh or production acceptance."
+  ]
+}
