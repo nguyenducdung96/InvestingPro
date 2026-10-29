@@ -1,5 +1,5 @@
 {
-  "cutoff": "2026-10-27",
+  "cutoff": "2026-10-28",
   "directions": {
     "arrival": {
       "months": {
@@ -120,8 +120,8 @@
         "missing_dwt": 38
       },
       "prior_ytd": {
-        "rows": 650,
-        "dwt": 7999844.0,
+        "rows": 652,
+        "dwt": 8007667.0,
         "missing_dwt": 31
       },
       "scopes": {
@@ -260,14 +260,14 @@
           "missing_dwt": 4
         },
         "2026-10": {
-          "rows": 78,
-          "dwt": 885243.0,
+          "rows": 82,
+          "dwt": 910146.0,
           "missing_dwt": 4
         }
       },
       "ytd": {
-        "rows": 777,
-        "dwt": 8901902.0,
+        "rows": 781,
+        "dwt": 8926805.0,
         "missing_dwt": 48
       },
       "prior_ytd": {
@@ -277,18 +277,18 @@
       },
       "scopes": {
         "qnp_cau1": {
-          "rows": 849,
-          "dwt": 9782078.0,
+          "rows": 851,
+          "dwt": 9789821.0,
           "missing_dwt": 50
         },
         "qnp_cau2": {
-          "rows": 287,
-          "dwt": 2010236.0,
+          "rows": 288,
+          "dwt": 2024155.0,
           "missing_dwt": 20
         },
         "qnp_cau3": {
-          "rows": 354,
-          "dwt": 1272716.0,
+          "rows": 355,
+          "dwt": 1275957.0,
           "missing_dwt": 27
         },
         "qnp_cau4": {
@@ -304,5 +304,5 @@
       }
     }
   },
-  "source_events": 6344
+  "source_events": 6352
 }
