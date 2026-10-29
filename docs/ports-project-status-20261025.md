@@ -1,5 +1,13 @@
 # Tiến độ ngành cảng — cập nhật 29/10/2026
 
+## Bàn giao hiện hành — chờ người dùng review
+
+Theo yêu cầu ngày 29/10: cập nhật status/next steps, commit/push tài liệu và dừng triển khai để người dùng review một lượt. **Chưa bắt đầu phase tiếp theo.** Điểm tiếp tục, thứ tự công việc và tiêu chí nghiệm thu tại [bàn giao phase sau](ports-next-phase-handoff-20261029.md); phần này thay thế các thứ tự ưu tiên trong snapshot cũ bên dưới.
+
+Head code/data đã phát hành: `d0e4031`, nhánh `codex/cloudflare-next-compat`, gồm backfill Gemalink `22b5d8a`. Đã đọc lại GitHub: [Quality run 40911108780](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40911108780) thành công; [Cloudflare build 9e1b5772](https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/9e1b5772-42bd-4f3a-b754-26da1d5205e6) thành công, version `86ef8f32-a60f-421c-ae2d-d53817afd351`. Verifier Gemalink đọc staging thành công sau triển khai này, đối chiếu 22 tháng hai chiều. Đây là staging/manual readback, chưa phải nghiệm thu production hoặc cron.
+
+Edition HCM/Bình Dương đến 28/10/2026; PDF quốc gia chỉ bổ sung lịch sử Gemalink tháng 1–7/2025. Tách riêng Gemalink/Bình Dương đã phát hành. Các khoảng thiếu còn mở: tàu rời Gemalink đầu 2025, Bình Dương rời sau 15/07 và vào sau 24/08/2026. Không suy thiếu quan sát thành không hoạt động. TCL/TCW chưa có chuỗi riêng; SWC mới có bến phao, chưa đại diện Long Bình. HCM connectivity và cron PDN do người dùng để sau; không rà lại Long Bình Tân.
+
 ## Bổ sung lịch sử Gemalink — 29/10/2026
 
 Đã quét đủ 7.845 hồ sơ kế hoạch Vũng Tàu công bố 01/12/2024–31/08/2025 trên cổng Cục Hàng hải và Đường thủy. 7.683 PDF khác hash, 162 bản trùng; sau xử lý ba bản bị thay thế và một dòng giao lịch HCM, bổ sung **326 dòng kế hoạch tàu vào Gemalink tháng 1–7/2025**. Không còn dòng Gemalink cách ly chưa xử lý. Chưa tìm được dòng tàu rời phù hợp để bù chiều đó; không suy chiều rời từ chiều vào. Đây là kế hoạch công bố, không phải actual hoặc chứng nhận phủ đủ.
@@ -10,7 +18,7 @@ Web/API dùng module lịch sử riêng, ghép Gemalink sau loại trùng; giữ
 
 Commit `22b5d8a` đã push lên `codex/cloudflare-next-compat`; Cloudflare Workers Builds thành công, version `96f80601-c1a1-43d0-bbff-5ff262b98ff8`. Staging đã khớp Gemalink 22 tháng hai chiều, mẫu PDF, strict null; toàn bộ 10 phạm vi HCM, tổng SGP và tổng quan miền Nam cũng khớp. UI live xác nhận mặc định tàu vào, DWT tháng 1/2025 và PDF CMA CGM VISBY. Biên nhận: [Gemalink API](catalog-review/gemalink-national-live-readback-20261029.json), [miền Nam](catalog-review/south-gemalink-backfill-readback-20261029.json), [UI](catalog-review/gemalink-national-ui-readback-20261029.json). Đây là manual readback, không phải cron.
 
-CI tại `22b5d8a` qua lint/typecheck/Vitest/Python và 70/72 E2E; hai ca NAP giả định ngày cutoff phải có tàu. Đã sửa test chọn ngày có quan sát từ API, không đổi dữ liệu hoặc hành vi NAP, rồi chạy lại desktop/mobile 2/2 đạt. Bản sửa và biên nhận được push tiếp; CI toàn bộ của commit tiếp theo cần đọc đúng trạng thái run, không coi kết quả cũ là run mới.
+CI tại `22b5d8a` qua lint/typecheck/Vitest/Python và 70/72 E2E; hai ca NAP giả định ngày cutoff phải có tàu. Đã sửa test chọn ngày có quan sát từ API, không đổi dữ liệu hoặc hành vi NAP, rồi chạy lại desktop/mobile 2/2 đạt. Bản sửa và biên nhận tại `d0e4031`; CI toàn bộ của chính commit này đã thành công, bao gồm E2E và hai bước Next/OpenNext build.
 
 Các đoạn bên dưới là lịch sử bàn giao trước bản bổ sung này. HCM connectivity, nghiệm thu cron PDN và điều tra Long Bình Tân tiếp tục ngoài phạm vi theo chỉ đạo người dùng.
 
@@ -20,7 +28,7 @@ Các đoạn bên dưới là lịch sử bàn giao trước bản bổ sung nà
 
 Đã xác minh PDF gốc CMA CGM VISBY: kế hoạch vào Gemalink 29/06/2025 08:30, DWT 31.285, ban hành 28/06. Nguồn toàn quốc có lịch sử Gemalink trước tháng 8; chưa backfill hàng loạt. Cần parser PDF, phân biệt ngày ban hành/ngày kế hoạch và xử lý trùng/sửa đổi. Commit dữ liệu `99b51b5` đã deploy thành công; readback hai chiều 22 tháng trên staging đã qua cho HCM và Bình Dương.
 
-## Trạng thái hiện hành — mở rộng miền Nam tại máy
+## Snapshot 26/10 — mở rộng miền Nam tại máy
 
 Theo yêu cầu mới, GMD được tách Gemalink và Cảng Bình Dương thành hai dòng monitor miền Nam; trang GMD mặc định Gemalink, tổng hợp chỉ mở khi chọn tường minh. Đã quét lại nguồn Cảng vụ chính thức: bảng TP.HCM và liên kết lịch từ trang Đồng Nai hoạt động; Vũng Tàu cũ lỗi DNS tại máy. Chưa tìm được nguồn bổ sung đã kiểm chứng cho khoảng thiếu. Xem [quét nguồn và thay đổi giao diện](south-expansion-20261026.md#tách-theo-dõi-gmd-và-quét-lại-nguồn-chính-thức--26102026).
 
@@ -82,14 +90,17 @@ Chiều tàu rời như ảnh người dùng: tháng 8 tổng 704.494,56 DWT (-6
 
 ## Next steps hiện hành
 
-1. Rà nguồn riêng ICD Tân Cảng Nhơn Trạch/TCL, Long Bình–Sotrans–Mekong của SWC và ICD Phước Long/GMD. Chỉ thêm mã bến/nhãn có bằng chứng; không dùng phao Gemadept thay ICD.
-2. Với TCW, tìm sản lượng dịch vụ kho/bãi/depot công bố thay vì gán tàu Cát Lái. Giữ rõ bản chất cho thuê cầu của VGP khi đọc biến động K16.
-3. Tân Thuận cần mã/nguồn phân biệt K12 với khu neo và xác định TT2 trước khi bổ sung. Hiện giữ bốn cầu đã đối chiếu, không bỏ đóng góp ghi nhận.
-4. Khi tiếp tục vận hành: kiểm tra kết nối HCM, nghiệm thu cron PDN và nối refresh Bình Dương; đây là các mục người dùng để sau, chưa chứng nhận hoàn tất. Không điều tra lại biến động Long Bình Tân. Dung Quất tiếp tục để ngỏ theo quyết định trước.
-5. Phát hành bản mở rộng và readback API/UI đúng edition trên môi trường được chọn, rồi bổ sung sản lượng tấn/TEU theo doanh nghiệp. Không suy hàng hóa hay doanh thu từ DWT, không chứng nhận phủ toàn ngành từ số mã đã tích hợp.
+Chờ người dùng review trước khi triển khai. Kế hoạch chi tiết và tiêu chí hoàn tất nằm trong [bàn giao phase sau](ports-next-phase-handoff-20261029.md).
+
+1. Sau review, ưu tiên refresh/monitor Bình Dương riêng: giữ edition khi lỗi nguồn, xuất dữ liệu, commit/push, chờ deploy và đọc lại đúng edition; chưa coi workflow có lịch là đã nghiệm thu cron.
+2. Tiếp tục nguồn riêng TCL–ICD Nhơn Trạch, SWC–Long Bình/Sotrans/Mekong; với TCW tìm sản lượng kho/bãi/depot. Giữ giới hạn CLL/VGP đã đối chiếu, không gán toàn Cát Lái cho TCL/TCW.
+3. Bổ sung GMD Phước Long/Nam Hải ICD và SGP Tân Thuận khi có mã bến/nguồn đủ căn cứ. Không dùng phao Gemadept thay ICD hoặc gộp K12/khu neo/TT2 chưa xác minh.
+4. Bù các khoảng lịch sử Gemalink/Bình Dương chỉ khi có bằng chứng mới; đợt quét PDF đã hoàn tất không cần quét lặp toàn bộ khi chưa có thay đổi nguồn. Giữ tổng ghi nhận và chất lượng thu gọn.
+5. Bổ sung tấn/TEU doanh nghiệp công bố riêng với DWT/lịch tàu; kiểm chứng phát hành theo từng phạm vi. HCM connectivity và nghiệm thu cron PDN vẫn để người dùng kiểm tra sau; không rà lại Long Bình Tân, Dung Quất tiếp tục để ngỏ.
 
 ## Tài liệu liên quan
 
+- [Bàn giao phase sau và checklist review](ports-next-phase-handoff-20261029.md)
 - [Mở rộng CLL/TCL/SWC/TCW/VGP và GMD/SGP](south-expansion-20261026.md)
 - [PDN · Long Bình Tân/Gò Dầu](pdn-integration.md)
 - [Miền Nam và Gemalink/SGP](south-integration.md)
