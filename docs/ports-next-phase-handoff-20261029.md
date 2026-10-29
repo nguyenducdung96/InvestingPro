@@ -1,5 +1,8 @@
 # Bàn giao ngành cảng cho phase sau — 29/10/2026
 
+> Snapshot lịch sử. Đã được thay thế bởi [bàn giao 30/10/2026](ports-next-phase-handoff-20261030.md): TCL đã rút khỏi sản phẩm, không còn là next step; lũy kế dùng các tháng chung ở hai năm.
+
+
 ## Điểm dừng theo yêu cầu người dùng
 
 Người dùng review một lượt trước khi làm tiếp. Đợt bàn giao này chỉ cập nhật tài liệu và commit/push; không bắt đầu collector, migration, refresh, cron hoặc mở rộng dữ liệu mới. Chỉ tiếp tục triển khai khi người dùng yêu cầu sau review.

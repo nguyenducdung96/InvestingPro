@@ -1,0 +1,93 @@
+{
+  "base": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "commit": "f4d930e227c82b0a075b350440d383d0e4e7bc28",
+  "checked_at": "2026-10-29T20:37:40.960Z",
+  "checks": [
+    {
+      "path": "/companies/TCL",
+      "status": 404
+    },
+    {
+      "path": "/companies/tcl?view=research",
+      "status": 404
+    },
+    {
+      "path": "/companies/id/009b5929-253c-5b10-8d75-22b9828c93ae",
+      "status": 404
+    },
+    {
+      "path": "/api/v1/companies/TCL/activity",
+      "status": 404
+    },
+    {
+      "path": "/api/v1/companies/TCL",
+      "status": 404
+    },
+    {
+      "path": "/industries/ports/companies?view=all",
+      "status": 200,
+      "tcl_link": false
+    },
+    {
+      "path": "/industries/ports/companies?view=listed",
+      "status": 200,
+      "tcl_link": false
+    },
+    {
+      "path": "/industries/ports/south",
+      "status": 200,
+      "tcl_link": false
+    },
+    {
+      "path": "/api/v1/industries/ports/south",
+      "tickers": [
+        "GMD",
+        "SGP",
+        "PDN",
+        "CLL",
+        "SWC",
+        "TCW",
+        "VGP"
+      ]
+    },
+    {
+      "path": "/api/v1/industries/ports/listed-companies?limit=100",
+      "companies": 0,
+      "tcl": false
+    }
+  ],
+  "cloudflare_build": {
+    "id": "b39e0da7-7c51-47ed-a67e-03193557a81b",
+    "conclusion": "success",
+    "version": "ca20daa5-5603-4078-9dbc-f0b5911159a7"
+  },
+  "quality": {
+    "run_id": 40950348908,
+    "head_sha": "f4d930e227c82b0a075b350440d383d0e4e7bc28",
+    "status_at_initial_handoff_check": "in_progress",
+    "conclusion": "failure",
+    "status": "completed",
+    "completed_at": "2026-10-29T20:42:15Z",
+    "steps": {
+      "lint": "success",
+      "typecheck": "success",
+      "vitest": "success",
+      "python": "success",
+      "e2e": "cancelled",
+      "next_build": "skipped",
+      "opennext_build": "skipped"
+    },
+    "limitation": "Cancellation cause has not been established. This receipt does not identify an assertion or product failure."
+  },
+  "limits": [
+    "Manual staging readback only, not production or scheduled refresh acceptance.",
+    "The verified listed-companies endpoint returned no companies; TCL exclusion there alone does not prove a populated registry.",
+    "Editorial directory separately returned GMD; TCL search returned no result cards."
+  ],
+  "editorial_positive_control": {
+    "path": "/industries/ports/companies?view=all",
+    "http_status": 200,
+    "gmd_link_present": true,
+    "tcl_search_result_cards": 0
+  }
+}

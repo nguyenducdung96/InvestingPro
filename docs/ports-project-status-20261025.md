@@ -1,6 +1,17 @@
-# Tiến độ ngành cảng — cập nhật 29/10/2026
+# Tiến độ ngành cảng — cập nhật 30/10/2026
 
-## Cập nhật TCL — 30/10/2026
+## Bàn giao hiện hành — 30/10/2026
+
+Đã lưu theo yêu cầu người dùng; chưa bắt đầu phase triển khai mới. Tài liệu tiếp tục hiện hành là [bàn giao phase sau 30/10](ports-next-phase-handoff-20261030.md), thay thế thứ tự trong bàn giao 29/10 và snapshot cũ.
+
+- Head code sản phẩm `f4d930e` trên `codex/cloudflare-next-compat`: TCL đã rút khỏi danh mục/tìm kiếm/tổng quan miền Nam; mã/ID/API cũ 404, collector và workflow riêng đã gỡ. Không khôi phục chỉ để phủ thêm mã ngành cảng. TCW và mã khác chưa có quyết định rút tương tự.
+- Lũy kế chung `564539e`: chỉ cộng cùng các tháng có số liệu hai năm, cutoff tương ứng, ghi danh sách tháng; API full-range giữ riêng. CDN không còn ngoại lệ chỉ tháng hoàn tất. Cảnh báo PDN về thay đổi thủ tục từ 01/07/2026 ở `40139b9`.
+- Bản rút TCL đã qua 185 Vitest, 6 Playwright desktop/mobile, lint/typecheck tại máy. Cloudflare staging build `b39e0da7-7c51-47ed-a67e-03193557a81b` success, version `ca20daa5-5603-4078-9dbc-f0b5911159a7`; đã đọc trực tiếp staging đúng hành vi. [Receipt](catalog-review/tcl-withdrawal-staging-20261030.json). Quality run `40950348908` đã kết thúc failure: lint/typecheck/Vitest/Python success, E2E cancelled, hai bước build skipped; chưa xác định nguyên nhân cancellation. Cần xác minh lại CI khi tiếp tục. Không coi staging/local là CI/cron/production acceptance.
+- Thứ tự phase sau: (1) refresh/monitor Bình Dương riêng; (2) rà chọn lọc SWC–Long Bình và tính phù hợp dữ liệu TCW; (3) tài sản GMD/SGP và khoảng lịch sử có nguồn mới; (4) tấn/TEU công bố riêng. HCM connectivity, cron PDN và Dung Quất tiếp tục để sau; không rà lại Long Bình Tân.
+
+Các phần bên dưới là nhật ký lịch sử. Quyết định rút TCL và bàn giao 30/10 ở trên có ưu tiên cao hơn mọi kế hoạch còn nhắc tiếp tục TCL.
+
+## Nhật ký TCL — 30/10/2026 (tích hợp TNT đã rút)
 
 **Quyết định sản phẩm mới: rút TCL khỏi danh mục doanh nghiệp và tổng quan miền Nam.** Người dùng xác nhận không cần phủ mọi mã ngành cảng. Đã gỡ trang/API hoạt động riêng TNT, dữ liệu chạy kèm và workflow TCL; danh mục công khai lọc TCL trước phân trang và khỏi bản biên tập, đường dẫn mã/ID cũ trả 404. Bằng chứng và hồ sơ nghiên cứu lịch sử được giữ để tham chiếu, không coi là doanh nghiệp còn được theo dõi trên web. Chưa mở rộng quyết định này sang mã khác.
 
@@ -11,7 +22,7 @@ TCL đã có quan sát cập/rời cầu riêng ICD Nhơn Trạch từ ePort TCI
 Đã bổ sung bình quân xếp dỡ khoảng 200.000 TEU/tháng theo báo cáo 2025 riêng ở phạm vi dịch vụ TCL; không gán từng tháng hoặc riêng ICD. Đã mở rộng rà soát trang cảng TCL/SNP, ePort riêng và Cảng vụ Hàng hải Đồng Nai/ĐTNĐ khu vực III. Chi tiết: [TCL](tcl-integration.md), [biên nhận nguồn](catalog-review/tcl-source-review-20261030.json). Còn thiếu DWT, chuỗi sản lượng tấn/TEU thực hiện và lịch sử trước 16/10/2026. Workflow refresh mới được cấu hình; chưa nghiệm thu schedule/production. Bản tính năng `92d876b` đã Cloudflare success và readback API/HTML hai chiều đúng edition; xem [receipt staging](catalog-review/tcl-staging-20261030.json). CI Quality tổng được theo dõi riêng, không coi build/readback là nghiệm thu cron hoặc production.
 
 
-## Bàn giao hiện hành — chờ người dùng review
+## Snapshot bàn giao 29/10 — đã được thay thế
 
 Theo yêu cầu ngày 29/10: cập nhật status/next steps, commit/push tài liệu và dừng triển khai để người dùng review một lượt. **Chưa bắt đầu phase tiếp theo.** Điểm tiếp tục, thứ tự công việc và tiêu chí nghiệm thu tại [bàn giao phase sau](ports-next-phase-handoff-20261029.md); phần này thay thế các thứ tự ưu tiên trong snapshot cũ bên dưới.
 
@@ -101,17 +112,18 @@ Chiều tàu rời như ảnh người dùng: tháng 8 tổng 704.494,56 DWT (-6
 
 ## Next steps hiện hành
 
-Chờ người dùng review trước khi triển khai. Kế hoạch chi tiết và tiêu chí hoàn tất nằm trong [bàn giao phase sau](ports-next-phase-handoff-20261029.md).
+Xem [bàn giao 30/10](ports-next-phase-handoff-20261030.md) để tiếp tục đúng phase và tiêu chí nghiệm thu. Chưa triển khai phase mới trong đợt lưu này.
 
-1. Sau review, ưu tiên refresh/monitor Bình Dương riêng: giữ edition khi lỗi nguồn, xuất dữ liệu, commit/push, chờ deploy và đọc lại đúng edition; chưa coi workflow có lịch là đã nghiệm thu cron.
-2. Tiếp tục nguồn riêng TCL–ICD Nhơn Trạch, SWC–Long Bình/Sotrans/Mekong; với TCW tìm sản lượng kho/bãi/depot. Giữ giới hạn CLL/VGP đã đối chiếu, không gán toàn Cát Lái cho TCL/TCW.
-3. Bổ sung GMD Phước Long/Nam Hải ICD và SGP Tân Thuận khi có mã bến/nguồn đủ căn cứ. Không dùng phao Gemadept thay ICD hoặc gộp K12/khu neo/TT2 chưa xác minh.
-4. Bù các khoảng lịch sử Gemalink/Bình Dương chỉ khi có bằng chứng mới; đợt quét PDF đã hoàn tất không cần quét lặp toàn bộ khi chưa có thay đổi nguồn. Giữ tổng ghi nhận và chất lượng thu gọn.
-5. Bổ sung tấn/TEU doanh nghiệp công bố riêng với DWT/lịch tàu; kiểm chứng phát hành theo từng phạm vi. HCM connectivity và nghiệm thu cron PDN vẫn để người dùng kiểm tra sau; không rà lại Long Bình Tân, Dung Quất tiếp tục để ngỏ.
+1. Kiểm tra CI đúng head `f4d930e`, sau đó ưu tiên refresh/monitor Bình Dương riêng khi được yêu cầu tiếp tục.
+2. Rà nguồn có chọn lọc SWC–Long Bình/Sotrans/Mekong và chỉ tiêu dịch vụ phù hợp TCW; chưa tự rút thêm mã. TCL đã rút, không còn là next step.
+3. Hoàn thiện GMD Phước Long/Nam Hải ICD, SGP K12/TT2 và khoảng thiếu Gemalink/Bình Dương khi có nguồn mới.
+4. Bổ sung tấn/TEU công bố riêng với DWT, giữ quy tắc lũy kế các tháng chung.
+5. HCM connectivity/cron PDN/Dung Quất để sau theo chỉ đạo; không điều tra lại Long Bình Tân hoặc tự mở rộng toàn ngành.
 
 ## Tài liệu liên quan
 
-- [Bàn giao phase sau và checklist review](ports-next-phase-handoff-20261029.md)
+- [Bàn giao phase sau hiện hành 30/10](ports-next-phase-handoff-20261030.md)
+- [Snapshot bàn giao 29/10](ports-next-phase-handoff-20261029.md)
 - [Mở rộng CLL/TCL/SWC/TCW/VGP và GMD/SGP](south-expansion-20261026.md)
 - [PDN · Long Bình Tân/Gò Dầu](pdn-integration.md)
 - [Miền Nam và Gemalink/SGP](south-integration.md)
