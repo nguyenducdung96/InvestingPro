@@ -13,7 +13,7 @@ for(const direction of ['arrival','departure']){
  for(const period of series.months){const rows=events.filter(e=>e.day.startsWith(period.period));assert.equal(period.current.observed_days?period.current.known_rows:null,rows.length||null);assert.equal(period.current.observed_dwt,null);}
  const day=events.at(-1)?.day;if(day){const detail=await get(`/api/v1/companies/TCL/activity?direction=${direction}&day=${day}`);assert.deepEqual(detail.events.map(e=>e.key).sort(),events.filter(e=>e.day===day).map(e=>e.key).sort());assert.ok(detail.events.every(e=>e.site_id==='TNT'&&!e.raw_time.startsWith('EST:')&&e.dwt===null));}
  const overview=await get('/api/v1/industries/ports/south?direction='+direction+'&period='+series.cutoff.slice(0,7));
- const row=overview.rows.find(r=>r.ticker==='TCL');assert.equal(row.semantics,'operator_reported_berth_activity');assert.deepEqual(row.metric,series.months.find(m=>m.period===series.cutoff.slice(0,7))??null);assert.equal(overview.regional_total,null);
+ const row=overview.rows.find(r=>r.ticker==='TCL');assert.equal(row.semantics,'operator_reported_berth_activity');assert.deepEqual(row.metric,series.months.find(m=>m.period===series.cutoff.slice(0,7))??null);assert.equal(overview.regional_total,null);assert.equal(overview.semantics,'source_specific_activity');
  checks.push({direction,rows:events.length,day,cutoff:series.cutoff});
 }
 const reference=await get('/api/v1/companies/TCL/activity?asset=tcl');assert.equal(reference.reference_figures[0].value,200000);assert.equal(reference.reference_figures[0].additive,false);assert.equal(reference.reference_figures[0].observation_month,null);

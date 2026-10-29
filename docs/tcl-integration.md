@@ -35,3 +35,5 @@ Khóa quan sát gồm site, tàu, chuyến, chiều và giờ nguồn. Trùng kh
 Biên nhận nguồn và ledger: `docs/catalog-review/tcl-source-review-20261030.json`. Kiểm tra tại máy, CI, build Cloudflare và live readback là các bước riêng. Không có production acceptance hoặc chứng nhận quyền tái phân phối trong phần việc này.
 
 Kiểm chứng local của edition đầu: 186 Vitest toàn dự án, 5 kiểm tra parser Python, 6 Playwright desktop/mobile (TCL + mở rộng miền Nam + hồi quy miền Nam), lint và typecheck đạt. Replay phản hồi không tạo thêm quan sát.
+
+Staging edition `92d876b` đã đọc lại thành công API/HTML ở cả hai chiều, nguồn từng dòng và tổng quan miền Nam; Cloudflare build `48860f54-057b-4419-b847-8c21914e7b35`, version `64885969-d368-4cc5-9d24-b84863982460`. Biên nhận: `catalog-review/tcl-staging-20261030.json`. Đã kiểm tra viewport desktop/mobile trực tiếp. Root API miền Nam dùng `source_specific_activity`; từng dòng giữ semantics riêng để giờ tại cầu do doanh nghiệp công bố không bị mô tả là kế hoạch Cảng vụ.

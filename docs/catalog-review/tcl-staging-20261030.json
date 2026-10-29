@@ -1,0 +1,26 @@
+{
+  "verified_at": "2026-10-29T20:04:57.401Z",
+  "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "last_success": "2026-10-29T19:52:23.648529+00:00",
+  "source_sha256": "bb5d7c7cd23674491e77c218927d482024d13a2d35520658dec4bc2a967329a6",
+  "checks": [
+    {
+      "direction": "arrival",
+      "rows": 81,
+      "day": "2026-10-29",
+      "cutoff": "2026-10-29"
+    },
+    {
+      "direction": "departure",
+      "rows": 78,
+      "day": "2026-10-29",
+      "cutoff": "2026-10-29"
+    }
+  ],
+  "ui_readback_verified": true,
+  "scheduled_refresh_verified": false,
+  "published_commit": "92d876b6178162c9d2eab14eca87754de98a3f72",
+  "cloudflare_build": "48860f54-057b-4419-b847-8c21914e7b35",
+  "cloudflare_version": "64885969-d368-4cc5-9d24-b84863982460",
+  "scope": "API/HTML edition readback before mixed-source root label clarification"
+}
