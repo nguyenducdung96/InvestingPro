@@ -3,10 +3,10 @@
     "parser_version": "binhduong-direct-plan/1.0.0",
     "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
     "from": "2025-01-01",
-    "through": "2026-10-25",
-    "checked_at": "2026-10-26T07:26:54.133471+00:00",
-    "requested_days": 663,
-    "responses": 1326,
+    "through": "2026-10-28",
+    "checked_at": "2026-10-29T14:12:23.813625+00:00",
+    "requested_days": 666,
+    "responses": 1332,
     "events": 8342,
     "first_observation": "2025-01-01",
     "last_observation": "2026-08-24",
@@ -11568,6 +11568,57 @@
           "sha256": "2bb00d21a2ebfe5fafab9d213df2abe53720e8fd1062a242257515daca91aa79",
           "checked_at": "2026-10-26T07:26:54.059657+00:00",
           "source_rows": 9
+        }
+      ]
+    },
+    {
+      "day": "2026-10-26",
+      "responses": [
+        {
+          "section": "arrival",
+          "sha256": "7401c170b77091c147449ce357f9b80187606212fb4240e36e5d01ee2dc71125",
+          "checked_at": "2026-10-29T14:12:21.331270+00:00",
+          "source_rows": 17
+        },
+        {
+          "section": "departure",
+          "sha256": "4d11a20128f9e7bb0a45d217ea2feb4429d48146fff3370e44f6acea776a5766",
+          "checked_at": "2026-10-29T14:12:20.793619+00:00",
+          "source_rows": 17
+        }
+      ]
+    },
+    {
+      "day": "2026-10-27",
+      "responses": [
+        {
+          "section": "arrival",
+          "sha256": "64cd1e9f2c74dc52ea257073ec956f450a6c3349e112333613b0131ca0ca1744",
+          "checked_at": "2026-10-29T14:12:21.337085+00:00",
+          "source_rows": 13
+        },
+        {
+          "section": "departure",
+          "sha256": "345816582becb29efc95c450fc2778cc8ecdf57688edc2a6df7ef580f64bc455",
+          "checked_at": "2026-10-29T14:12:23.813625+00:00",
+          "source_rows": 13
+        }
+      ]
+    },
+    {
+      "day": "2026-10-28",
+      "responses": [
+        {
+          "section": "arrival",
+          "sha256": "0193751fd63d2f76ce2f59165863c383519fabd7b84a48014406dfddc73ce641",
+          "checked_at": "2026-10-29T14:12:23.379277+00:00",
+          "source_rows": 9
+        },
+        {
+          "section": "departure",
+          "sha256": "d39212350db2f3c5054253bb519caf169fb39a5677da2db6543542642b89079d",
+          "checked_at": "2026-10-29T14:12:23.346400+00:00",
+          "source_rows": 11
         }
       ]
     }

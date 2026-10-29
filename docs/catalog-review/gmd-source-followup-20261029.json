@@ -1,0 +1,287 @@
+{
+  "checked_at": "2026-10-29T14:19:23.693581+00:00",
+  "probes": [
+    {
+      "name": "vungtau",
+      "source_url": "https://cangvuhanghaivungtau.gov.vn/Index.aspx?d=0&page=schedule&tab=khtdd",
+      "checked_at": "2026-10-29T14:11:50.785379+00:00",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "name": "vungtau_www",
+      "source_url": "https://www.cangvuhanghaivungtau.gov.vn/Index.aspx?d=0&page=schedule&tab=khtdd",
+      "checked_at": "2026-10-29T14:11:50.786602+00:00",
+      "error": "<urlopen error [Errno 11001] getaddrinfo failed>"
+    },
+    {
+      "name": "national",
+      "source_url": "https://hanghai.moc.gov.vn/tra-cuu-giay-phep",
+      "checked_at": "2026-10-29T14:11:50.787106+00:00",
+      "status": 200,
+      "bytes": 52065,
+      "sha256": "8720055a2488cb8c1aac93453e07990b425c8e2f34de603012205a0cb5965de7"
+    },
+    {
+      "name": "hcm",
+      "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "checked_at": "2026-10-29T14:11:50.969135+00:00",
+      "status": 200,
+      "bytes": 190274,
+      "sha256": "8ae372b917514944d72cba9b5c4af98aac7b85c672f23e84874d6b36838c41eb"
+    }
+  ],
+  "national_history": {
+    "source_url": "https://hanghai.moc.gov.vn/tra-cuu-giay-phep",
+    "maritimeCode": "12",
+    "menu": "published_vessel_movement_plans",
+    "from": "01/06/2025 00:00",
+    "through": "30/06/2025 23:59",
+    "sha256": "1cdccfa89eec899f748496ad3aafcb3491002aa66aad70f51a157bb193a9306c",
+    "retained_fields": {
+      "certificateNumber": "",
+      "shipName": "",
+      "shipDateFrom": "01/06/2025 00:00",
+      "callSign": "",
+      "shipDateTo": "30/06/2025 23:59"
+    },
+    "summary": [
+      "Showing 1 - 20 of 1.065 results"
+    ],
+    "rows": [
+      [
+        "STT No ",
+        "Số giấy phép Number of Shifting Order ",
+        "Tên tàu Name of Ship ",
+        "Quốc tịch Flag State of Ship ",
+        "Hô hiệu Call Sign ",
+        "Đại lý Ship Agency ",
+        "Vị trí neo đậu dự kiến đến Shifted To ",
+        "Thời gian đến Time of arrival ",
+        "Xem View "
+      ],
+      [
+        "1 ",
+        "",
+        "TC VIGOUR ",
+        "VIET NAM ",
+        "XVHX7 ",
+        "PTSC SUPPLY BASE ",
+        "Cầu cảng số 4 ",
+        "30/06/2025 21:35 ",
+        "View "
+      ],
+      [
+        "2 ",
+        "",
+        "TC VIGOUR ",
+        "VIET NAM ",
+        "XVHX7 ",
+        "PTSC SUPPLY BASE ",
+        "Cầu cảng số 4 ",
+        "30/06/2025 15:00 ",
+        "View "
+      ],
+      [
+        "3 ",
+        "",
+        "THIEN UNG 01 ",
+        "VIET NAM ",
+        "3WAA9 ",
+        "Vungtauship ",
+        "Cầu cảng số 7 ",
+        "30/06/2025 23:45 ",
+        "View "
+      ],
+      [
+        "4 ",
+        "",
+        "PTSC THANG LONG ",
+        "VIET NAM ",
+        "XVIH ",
+        "công ty TNHH Thương Mại Dich Vụ Hàng Hải Nam Việt ",
+        "Cầu cảng số 2 ",
+        "30/06/2025 05:00 ",
+        "View "
+      ],
+      [
+        "5 ",
+        "",
+        "VIET THUAN 215-05 ",
+        "VIET NAM ",
+        "XVOP2 ",
+        "Viet Nam Import Export And Trading JSC ",
+        "Bến phao BP2 ",
+        "30/06/2025 22:30 ",
+        "View "
+      ],
+      [
+        "6 ",
+        "",
+        "THẮNG LỢI 126 ",
+        "VIET NAM ",
+        "3WHM ",
+        "Công ty TNHH sản xuất và thương mại cơ khí Thắng Lợi ",
+        "",
+        "30/06/2025 16:00 ",
+        "View "
+      ],
+      [
+        "7 ",
+        "",
+        "MERWEDEGRACHT ",
+        "NETHERLANDS ",
+        "PCJE ",
+        "CHI NHANH CONG TY TNHH THORESEN VINAMA TAI BR-VT ",
+        "",
+        "30/06/2025 15:00 ",
+        "View "
+      ],
+      [
+        "8 ",
+        "",
+        "SEA TEAM 2 ",
+        "VIET NAM ",
+        "XVPL2 ",
+        "HAIVANSHIP ",
+        "Cầu cảng quốc tế Cái Mép (CMIT) ",
+        "30/06/2025 17:00 ",
+        "View "
+      ],
+      [
+        "9 ",
+        "",
+        "SEA TEAM 1 ",
+        "VIET NAM ",
+        "XVMC2 ",
+        "HAIVANSHIP ",
+        "Cầu cảng quốc tế Cái Mép (CMIT) ",
+        "30/06/2025 17:00 ",
+        "View "
+      ],
+      [
+        "10 ",
+        "",
+        "NORDBALTIC ",
+        "CYPRUS ",
+        "5BRW6 ",
+        "ISS-GEMADEPT ",
+        "Cầu cảng quốc tế Cái Mép (CMIT) ",
+        "30/06/2025 17:00 ",
+        "View "
+      ],
+      [
+        "11 ",
+        "",
+        "COSCO KAOHSIUNG ",
+        "HONGKONG ",
+        "VREM3 ",
+        "HAIVANSHIP GROUP ",
+        "Cầu cảng Container quốc tế Cái Mép (ODA) (TCTT) ",
+        "30/06/2025 15:44 ",
+        "View "
+      ],
+      [
+        "12 ",
+        "",
+        "HAIAN DELL ",
+        "VIET NAM ",
+        "XVKK7 ",
+        "Công ty TNHH Đại Lý và Tiếp Vận Hải An ",
+        "Cầu cảng số 1 ",
+        "30/06/2025 15:44 ",
+        "View "
+      ],
+      [
+        "13 ",
+        "",
+        "SEA MEADOW 19 ",
+        "PANAMA ",
+        "3FPA7 ",
+        "PTSC SUPPLY BASE ",
+        "Cầu cảng số 5 ",
+        "30/06/2025 14:00 ",
+        "View "
+      ],
+      [
+        "14 ",
+        "",
+        "TAN CANG 18 ",
+        "VIET NAM ",
+        "TC18 ",
+        "Nguyễn Đức Quang ",
+        "",
+        "30/06/2025 14:00 ",
+        "View "
+      ],
+      [
+        "15 ",
+        "",
+        "TC SATURN ",
+        "VIET NAM ",
+        "3WVS ",
+        "Nguyễn Đức Quang ",
+        "",
+        "30/06/2025 14:00 ",
+        "View "
+      ],
+      [
+        "16 ",
+        "",
+        "VIET GAS ",
+        "VIET NAM ",
+        "3WDV ",
+        "NGUYỄN HỒNG CHƯƠNG ",
+        "A12 ",
+        "30/06/2025 13:00 ",
+        "View "
+      ],
+      [
+        "17 ",
+        "",
+        "MSC COTONOU VIII ",
+        "LIBERIA ",
+        "5LRL2 ",
+        "CÔNG TY CỔ PHẦN KẾT NỐI XANH VIỆT NAM ",
+        "Cầu A ",
+        "30/06/2025 12:51 ",
+        "View "
+      ],
+      [
+        "18 ",
+        "",
+        "JULIE ",
+        "LIBERIA ",
+        "D5WN3 ",
+        "CÔNG TY CỔ PHẦN KẾT NỐI XANH VIỆT NAM ",
+        "Cầu cảng số 1 ",
+        "30/06/2025 12:50 ",
+        "View "
+      ],
+      [
+        "19 ",
+        "",
+        "H CYGNUS ",
+        "SINGAPORE ",
+        "9V9876 ",
+        "BUI THANH TUNG ",
+        "",
+        "30/06/2025 12:00 ",
+        "View "
+      ],
+      [
+        "20 ",
+        "",
+        "DING HENG 3 ",
+        "CHINA ",
+        "BPOD6 ",
+        "Golden Sea Shipping Co., Ltd ",
+        "G12 ",
+        "30/06/2025 11:41 ",
+        "View "
+      ]
+    ]
+  },
+  "new_history_imported": false,
+  "source_semantics": "authority_published_plan",
+  "actual_verified": false
+}
