@@ -1,5 +1,10 @@
 # Bàn giao ngành cảng — 30/10/2026
 
+## Bổ sung sau yêu cầu hoàn thiện SWC
+
+Đã triển khai Long Bình K0005/cầu 1–3 riêng với bến phao; 4.434 dòng vào/rời 01/01/2025–29/10/2026, tổng tùy chọn, container rỗng 2023/2024 riêng. Xem [SWC](swc-integration-20261030.md). Các dòng bên dưới ghi SWC mới có bến phao là snapshot cũ. Chưa có chuỗi ICD Sotrans/Mekong. Refresh riêng chạy tại máy thành công; workflow thủ công đã cấu hình, chưa đăng ký cron. Cần receipt CI/staging đúng commit sau push; không coi local là nghiệm thu cloud. Không thay đổi thứ tự các phạm vi khác và các phần người dùng để sau.
+
+
 Tài liệu hiện hành cho các phase tiếp theo, thay thế thứ tự trong bàn giao 29/10 và các snapshot cũ. Đợt lưu này chỉ cập nhật hồ sơ, không bắt đầu phase triển khai mới.
 
 ## Điểm tiếp tục

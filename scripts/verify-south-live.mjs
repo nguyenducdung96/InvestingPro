@@ -27,7 +27,7 @@ try{
   const binhDuong=await get(`/api/v1/companies/GMD/plans?asset=gmd_binh_duong&direction=${direction}`);
   assert.equal(region.rows.filter(r=>r.ticker==='GMD').length,2);
   assert.deepEqual(recordedRange(region.rows.find(r=>r.asset==='gmd_binh_duong').metric.current),recordedRange(binhDuong.months.find(p=>p.period===period).current));
-  for(const [ticker,data] of [['GMD',series.gemalink],['SGP',combined],['SWC',series.swc_buoys],['VGP',series.vgp_k16]])assert.deepEqual(recordedRange(region.rows.find(r=>r.ticker===ticker).metric.current),recordedRange(data.months.find(p=>p.period===period).current));
+  for(const [ticker,data] of [['GMD',series.gemalink],['SGP',combined],['SWC',series.swc_buoys],['VGP',series.vgp_k16]])assert.deepEqual(recordedRange(region.rows.find(r=>r.ticker===ticker&&(ticker!=='SWC'||r.asset==='swc_buoys')).metric.current),recordedRange(data.months.find(p=>p.period===period).current));
   receipt.checks.push({direction,sgp_aggregate_matched:true,south_overview_matched:true});
  }
  receipt.deployment_readback_verified=true;

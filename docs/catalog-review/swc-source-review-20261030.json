@@ -1,0 +1,405 @@
+{
+  "reviewed_at": "2026-10-30T00:21:05.406537+00:00",
+  "authority_entry": "https://cangvuhanghaidongnai.gov.vn/",
+  "data_source": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+  "legal_scope_source": "https://mt.gov.vn/Images/editor/files/KIM%20CUC/2022/17_06_54-02_06_2022_qd-cong-bo-cang-long-bin4_signed.pdf",
+  "decision": "706/QD-BGTVT, 2022-06-06",
+  "decision_retrieval": "Official search-indexed PDF text reviewed; direct download failed, no local raw hash claimed.",
+  "company_scope_source": "https://sowatco.com.vn/dich-vu/khai-thac-cang/cang-sowatco-long-binh/",
+  "annual_report_source": "https://owa.hnx.vn/ftp///cims/2026/4_W2/000000016132083_VI_BaoCaoThuongNien_2025.pdf",
+  "annual_report_sha256": "4d6ca2a4de5e85909b6328f839897172149d870d3ef9a66c7f1623e4f9c74edd",
+  "company_direct_site_limit": "SWC pages/PDF search-indexed; direct fetch returned timeout/502/fetch failure.",
+  "authority_files": [
+    {
+      "local_archive": ".local\\swc\\DM_PORT_HARBOUR.json",
+      "sha256": "e161fcc03438cad5d440da365d3cda353e9dab444d090b8a582f8f69477ec816",
+      "bytes": 17456,
+      "rows": 51,
+      "matched_longbinh": [
+        {
+          "isDelete": 0,
+          "id": 1051,
+          "portHarbourCode": "K0005",
+          "portHarbourNameVN": "Cảng thủy nội địa Long Bình",
+          "portRegion": "065",
+          "portRegionNameVN": "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI",
+          "role": false,
+          "portRegionCode": "11",
+          "portCodeCB": "Đồng Nai, Bình Dương",
+          "sequenceNo": 2,
+          "portHarbourShortName": ""
+        }
+      ]
+    },
+    {
+      "local_archive": ".local\\swc\\DM_PORT_WHARF.json",
+      "sha256": "007c39fb28343646a1b3fe25dd5e9433ab2809a7bb3867d4d6820d132475f10e",
+      "bytes": 35214,
+      "rows": 79,
+      "matched_longbinh": [
+        {
+          "portHarbourCode": "K0005",
+          "portWharfCode": "K0013",
+          "portRegionCode": "065",
+          "portCodeBC": "Cảng Long Bình",
+          "portWharfPayment": 0,
+          "isDelete": 0,
+          "id": 2607,
+          "dwt": 0,
+          "loa": 146,
+          "portWharfNameVN": "Cầu cảng số 1",
+          "node": "",
+          "portWharfShortName": "",
+          "portRegionNameVN": "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI",
+          "role": false,
+          "portWharfType": 1,
+          "sequenceNo": 1,
+          "managedVinalines": 0,
+          "maxDraft": 0
+        },
+        {
+          "portHarbourCode": "K0005",
+          "portWharfCode": "K0015",
+          "portRegionCode": "065",
+          "portCodeBC": "Cảng Long Bình",
+          "portWharfPayment": 0,
+          "isDelete": 0,
+          "id": 2609,
+          "dwt": 0,
+          "loa": 216.3,
+          "portWharfNameVN": "Cầu cảng số 2",
+          "node": "",
+          "portWharfShortName": "",
+          "portRegionNameVN": "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI",
+          "role": false,
+          "portWharfType": 1,
+          "sequenceNo": 2,
+          "managedVinalines": 0,
+          "maxDraft": 5.5
+        },
+        {
+          "portHarbourCode": "K0005",
+          "portWharfCode": "K0016",
+          "portRegionCode": "065",
+          "portCodeBC": "Cảng Long Bình",
+          "portWharfPayment": 0,
+          "isDelete": 0,
+          "id": 2610,
+          "dwt": 0,
+          "loa": 159,
+          "portWharfNameVN": "Cầu cảng số 3",
+          "node": "",
+          "portWharfShortName": "",
+          "portRegionNameVN": "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI",
+          "role": false,
+          "portWharfType": 1,
+          "sequenceNo": 3,
+          "managedVinalines": 0,
+          "maxDraft": 5.5
+        }
+      ]
+    },
+    {
+      "local_archive": ".local\\swc\\authority-ports.xlsx",
+      "sha256": "363cd49589088b92f3897fca5f909830af24b864bd63beca84e832b62f49e7d3",
+      "bytes": 28434
+    }
+  ],
+  "source_probes": [
+    {
+      "day": "2025-06-15",
+      "direction": "arrival",
+      "shipBoat": "BOAT",
+      "sha256": "263eba216ab1af4f4c2e01290e3aab331a22203ac2f1f45d586954bb56574255",
+      "checked_at": "2026-10-30T00:13:53.873947+00:00",
+      "total": 42,
+      "longbinh_rows": 4,
+      "ids": [
+        160489,
+        160446,
+        160439,
+        160737
+      ]
+    },
+    {
+      "day": "2025-06-15",
+      "direction": "arrival",
+      "shipBoat": "SHIP",
+      "sha256": "86896fd5faaa937914bf1e79a8e356698a94d3d59255a7c5f1188ebbb07927f8",
+      "checked_at": "2026-10-30T00:13:51.248742+00:00",
+      "total": 45,
+      "longbinh_rows": 4,
+      "ids": [
+        160489,
+        160446,
+        160439,
+        160737
+      ]
+    },
+    {
+      "day": "2025-06-15",
+      "direction": "departure",
+      "shipBoat": "BOAT",
+      "sha256": "266d80175bf3984c68a1cb7da9f8d94e8310a2ae5d2656cdf008f12fe48e5f75",
+      "checked_at": "2026-10-30T00:13:57.503725+00:00",
+      "total": 42,
+      "longbinh_rows": 5,
+      "ids": [
+        160440,
+        160394,
+        160367,
+        160300,
+        160388
+      ]
+    },
+    {
+      "day": "2025-06-15",
+      "direction": "departure",
+      "shipBoat": "SHIP",
+      "sha256": "4ee45b53708b94ff604d883a03aa56018b69f9f92d076092fabf7e8d2aaaad9f",
+      "checked_at": "2026-10-30T00:13:55.701071+00:00",
+      "total": 47,
+      "longbinh_rows": 5,
+      "ids": [
+        160440,
+        160394,
+        160367,
+        160300,
+        160388
+      ]
+    },
+    {
+      "day": "2026-06-15",
+      "direction": "arrival",
+      "shipBoat": "BOAT",
+      "sha256": "9c683b6c6db2e25b112b0b02ba68eefa4153c6fc6b1f941acda2c9e25d6b47bd",
+      "checked_at": "2026-10-30T00:14:01.817581+00:00",
+      "total": 70,
+      "longbinh_rows": 6,
+      "ids": [
+        208626,
+        208572,
+        208529,
+        208527,
+        208508,
+        208480
+      ]
+    },
+    {
+      "day": "2026-06-15",
+      "direction": "arrival",
+      "shipBoat": "SHIP",
+      "sha256": "081841515d3ef4c08d36a7f36166895dcf8e3c5cc92e6d6df55c0a8fc3495002",
+      "checked_at": "2026-10-30T00:13:59.699412+00:00",
+      "total": 78,
+      "longbinh_rows": 6,
+      "ids": [
+        208626,
+        208572,
+        208529,
+        208527,
+        208508,
+        208480
+      ]
+    },
+    {
+      "day": "2026-06-15",
+      "direction": "departure",
+      "shipBoat": "BOAT",
+      "sha256": "805462648b3c4dd8477320cf832af88193139535c54a3d94779c3a8bf5972edc",
+      "checked_at": "2026-10-30T00:14:06.247927+00:00",
+      "total": 84,
+      "longbinh_rows": 8,
+      "ids": [
+        208573,
+        208530,
+        208528,
+        208510,
+        208481,
+        208327,
+        208387,
+        208379
+      ]
+    },
+    {
+      "day": "2026-06-15",
+      "direction": "departure",
+      "shipBoat": "SHIP",
+      "sha256": "7aac81ec6c7379b7d182e8649d69c5332546caf4e707f9426d4f8ad3bc0a7cb8",
+      "checked_at": "2026-10-30T00:14:04.077372+00:00",
+      "total": 93,
+      "longbinh_rows": 9,
+      "ids": [
+        208573,
+        208530,
+        208528,
+        208510,
+        208481,
+        208327,
+        208428,
+        208387,
+        208379
+      ]
+    },
+    {
+      "day": "2026-10-28",
+      "direction": "arrival",
+      "shipBoat": "BOAT",
+      "sha256": "235cf6f0a7d488a63f7731dfa377fc6ff1fce27f6d097fec315023b882732d29",
+      "checked_at": "2026-10-30T00:14:09.875671+00:00",
+      "total": 1,
+      "longbinh_rows": 0,
+      "ids": []
+    },
+    {
+      "day": "2026-10-28",
+      "direction": "arrival",
+      "shipBoat": "SHIP",
+      "sha256": "0193751fd63d2f76ce2f59165863c383519fabd7b84a48014406dfddc73ce641",
+      "checked_at": "2026-10-30T00:14:08.135132+00:00",
+      "total": 9,
+      "longbinh_rows": 0,
+      "ids": []
+    },
+    {
+      "day": "2026-10-28",
+      "direction": "departure",
+      "shipBoat": "BOAT",
+      "sha256": "c133442598eee6effe1a33792031a6b8283d90df2a5078c4282a9765e8ce4581",
+      "checked_at": "2026-10-30T00:14:13.049710+00:00",
+      "total": 3,
+      "longbinh_rows": 1,
+      "ids": [
+        214773
+      ]
+    },
+    {
+      "day": "2026-10-28",
+      "direction": "departure",
+      "shipBoat": "SHIP",
+      "sha256": "d39212350db2f3c5054253bb519caf169fb39a5677da2db6543542642b89079d",
+      "checked_at": "2026-10-30T00:14:11.438743+00:00",
+      "total": 11,
+      "longbinh_rows": 1,
+      "ids": [
+        214773
+      ]
+    }
+  ],
+  "hcm_archived_label_scan": {
+    "boards": 666,
+    "matching_labels": {
+      "SOWATCO-ĐT2": 306,
+      "SOWATCO-ĐT1": 223,
+      "SOWATCO-ĐT3": 116,
+      "SOWATCO-TL9": 83
+    },
+    "not_a_fresh_hcm_refresh": true
+  },
+  "longbinh_edition": {
+    "parser_version": "swc-longbinh-direct-plan/1.0.0",
+    "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+    "from": "2025-01-01",
+    "through": "2026-10-29",
+    "checked_at": "2026-10-30T00:17:57.064413+00:00",
+    "requested_days": 667,
+    "responses": 1334,
+    "events": 4434,
+    "first_observation": "2025-01-03",
+    "last_observation": "2026-10-28",
+    "source_errors": [],
+    "semantics": "authority_published_plan",
+    "movement_scope": "berth",
+    "included_resources": [
+      "arrival",
+      "departure"
+    ],
+    "shifting_included": false,
+    "actual_verified": false,
+    "full_scope_certified": false,
+    "last_observation_by_direction": {
+      "arrival": "2026-10-24",
+      "departure": "2026-10-28"
+    },
+    "coverage_status": "partial",
+    "absence_means_zero": false,
+    "quarantined_rows": 2,
+    "scheduled_refresh_verified": false
+  },
+  "excluded": [
+    {
+      "id": "departure:156975",
+      "day": "2025-05-20",
+      "time": "2025-05-20T12:00:00+07:00",
+      "vessel": "HOÀNG ANH 45",
+      "imo": null,
+      "dwt": 3528.6,
+      "gt": 1548.0,
+      "to": "P/S",
+      "asset": "swc_long_binh",
+      "kind": "departure",
+      "section": "departure",
+      "source_id": "156975",
+      "sha256": "ccd5550661718b4db6f1d55032e3d5eb8d99aedec1ea8a1c63262783520ea52b",
+      "checked_at": "2026-10-25T10:28:04.712547+00:00",
+      "harbour_code": "K0005",
+      "wharf_code": "K0002",
+      "raw_dwt": 3528.6,
+      "conflicting_dwt": false,
+      "from_asset": "swc_long_binh",
+      "to_asset": null,
+      "unit_dwt": null,
+      "raw_time": "20/05/2025 12:00",
+      "time_normalized": false,
+      "from": "ĐỒNG NAI - KHU VỰC SÔNG LÒNG TÀU - NHÀ BÈ, SÔNG ĐỒNG NAI, Cảng thủy nội địa Long Bình, Khu neo trên sông Đồng Nai",
+      "reason": "unreviewed_berth_or_waterway"
+    },
+    {
+      "id": "departure:175630",
+      "day": "2025-10-09",
+      "time": "2025-10-09T14:00:00+07:00",
+      "vessel": "VINH QUANG GREEN",
+      "imo": null,
+      "dwt": 5112.15,
+      "gt": 2998.0,
+      "to": "P/S",
+      "asset": "swc_long_binh",
+      "kind": "departure",
+      "section": "departure",
+      "source_id": "175630",
+      "sha256": "9c1ba70100c6d36f94eca8df7c4979bdd27c847ffe132e55a08d9d12354cd496",
+      "checked_at": "2026-10-25T10:31:58.474912+00:00",
+      "harbour_code": "K0005",
+      "wharf_code": "K0013",
+      "raw_dwt": 5112.15,
+      "conflicting_dwt": false,
+      "from_asset": "swc_long_binh",
+      "to_asset": null,
+      "unit_dwt": null,
+      "raw_time": "09/10/2025 14:00",
+      "time_normalized": false,
+      "from": "ĐỒNG NAI - KHU VỰC SÔNG THỊ VẢI, Cảng thủy nội địa Long Bình, Cầu cảng số 1",
+      "reason": "unreviewed_berth_or_waterway"
+    }
+  ],
+  "source_coverage": "SHIP direct arrival/departure only; BOAT sampled, not certified exhaustive; shifting and snapshots excluded.",
+  "reported_empty_container_teu": {
+    "source": "https://sotransgroup.vn/phong-van-diem-tua-logistics-vai-tro-icd/",
+    "published_on": "2026-08-20",
+    "periods": {
+      "2023": 250000,
+      "2024": 350000
+    },
+    "unit": "TEU",
+    "scope": "empty containers received at Long Binh, annual; not total cargo throughput",
+    "yoy_2024_percent": 40
+  },
+  "missing_scopes": [
+    "ICD Sotrans vessel/DWT history",
+    "Mekong - Can Tho terminal mapping and history",
+    "Tri Phuong outside this southern implementation",
+    "VICT/PDN not added to avoid overlapping issuers"
+  ],
+  "scheduled_refresh_verified": false,
+  "production_accepted": false
+}

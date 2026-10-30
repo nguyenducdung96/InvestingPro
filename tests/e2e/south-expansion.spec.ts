@@ -21,7 +21,7 @@ test('southern expansion attributes each source and excludes unsupported company
  expect((await page.request.get('/api/v1/companies/CLL/plans?asset=gemalink')).status()).toBe(400);
  expect((await page.request.get('/api/v1/companies/VGP/plans?direction=internal')).status()).toBe(400);
  await page.goto('/industries/ports/south?period=2026-10');
- for(const ticker of ['CLL','SWC','VGP'])await expect(page.locator(`tr[data-ticker="${ticker}"] .badge`)).toHaveText('Đã tích hợp một phần');
+ for(const ticker of ['CLL','SWC','VGP'])await expect(page.locator(`tr[data-ticker="${ticker}"] .badge`)).toHaveText(Array(ticker==='SWC'?2:1).fill('Đã tích hợp một phần'));
  await expect(page.locator('tr[data-ticker="TCW"] [data-label="Lượt"]')).toHaveText('—');
  await expect(page.locator('tr[data-ticker="TCL"]')).toHaveCount(0);
  expect((await(await page.request.get('/api/v1/industries/ports/south')).json()).rows.some((r:{ticker:string})=>r.ticker==='TCL')).toBe(false);

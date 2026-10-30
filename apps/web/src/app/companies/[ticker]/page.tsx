@@ -9,6 +9,7 @@ import {QnpPlans} from '@/components/qnp-plans';
 import {CmpPlans} from '@/components/cmp-plans';
 import {NapActivity} from '@/components/nap-activity';
 import {PdnPlans} from '@/components/pdn-plans';
+import {SwcReported} from '@/components/swc-reported';
 import {SouthPlans} from '@/components/south-plans';
 import {notFound} from 'next/navigation';
 import {isPublishedCompany} from '@/lib/published-catalog';
@@ -28,6 +29,7 @@ export default async function Page({
     {ticker==='GMD'&&query.central_asset==='gemadept_dung_quat'?<DungquatScope/>:<CompanyPortScope ticker={ticker}/>}
     {ticker==='GMD'&&query.central_asset==='gemadept_dung_quat'&&<DungquatActivity query={query}/>}
     {ticker==='GMD'&&query.central_asset!=='gemadept_dung_quat'&&!['gmd','nam_dinh_vu'].includes(query.plan_asset)&&<SouthPlans ticker="GMD" query={query}/>}
+    {ticker==='SWC'&&<SwcReported/>}
     {Object.hasOwn(southScopes,ticker)&&ticker!=='GMD'&&<SouthPlans ticker={ticker as SouthIssuer} query={query}/>}
     {ticker==='PDN'&&<PdnPlans query={query}/>}
     {!(ticker==='GMD'&&(query.central_asset==='gemadept_dung_quat'||!['gmd','nam_dinh_vu'].includes(query.plan_asset)))&&(ticker==='PHP'||ticker==='DVP'||isIssuerPlanTicker(ticker))&&<PhpPlans query={query} ticker={ticker}/>}

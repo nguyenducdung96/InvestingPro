@@ -1,5 +1,14 @@
 # Tiến độ ngành cảng — cập nhật 30/10/2026
 
+## SWC — triển khai Long Bình ngày 30/10/2026
+
+Theo yêu cầu mới, đã tiếp tục riêng SWC: mặc định Long Bình K0005/cầu 1–3, thêm 4.434 dòng vào/rời trực tiếp 01/01/2025–29/10/2026; bến phao giữ riêng, tổng hai phạm vi chỉ khi chọn tường minh. Nguồn pháp nhân/bến đã đối chiếu doanh nghiệp, quyết định Bộ và danh mục Cảng vụ 51 bến/79 cầu. Hai dòng không phù hợp cách ly, bốn nhóm trùng được hợp nhất có proof. Container rỗng Long Bình 2023/2024 do SOTRANS Group công bố hiển thị riêng. [Triển khai và giới hạn](swc-integration-20261030.md), [rà nguồn](catalog-review/swc-source-review-20261030.json).
+
+Local đạt 186 Vitest, ba test Python mới, bốn E2E SWC/miền Nam desktop/mobile, lint/typecheck và Next build. Refresh thủ công bảy ngày (14 phản hồi) thành công, cold-cache/replay khớp. Workflow SWC riêng đã viết, chưa chạy cloud hoặc đăng ký lịch tự động; CI/deploy/readback sau push chưa có ở mốc này. ICD Sotrans/Mekong còn thiếu chuỗi; không gọi là phủ đủ SWC. Không mở lại TCL, Long Bình Tân hoặc cron PDN/HCM connectivity.
+
+Bàn giao 30/10 bên dưới là mốc trước triển khai SWC; phần cập nhật này có ưu tiên hơn các dòng còn ghi SWC chỉ có bến phao. Tiếp theo: hoàn tất readback/CI SWC, rồi trở lại refresh Bình Dương và rà chọn lọc TCW/GMD/SGP theo thứ tự trong bàn giao.
+
+
 ## Bàn giao hiện hành — 30/10/2026
 
 Đã lưu theo yêu cầu người dùng; chưa bắt đầu phase triển khai mới. Tài liệu tiếp tục hiện hành là [bàn giao phase sau 30/10](ports-next-phase-handoff-20261030.md), thay thế thứ tự trong bàn giao 29/10 và snapshot cũ.

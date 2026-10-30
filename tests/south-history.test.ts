@@ -9,7 +9,7 @@ it('reconciles every asset/month/direction to a separate journal ledger',()=>{
  expect(southDaily.length).toBe(southHistoryMetadata.requested_days);
  expect(new Set(southDaily.map(d=>d.day)).size).toBe(southDaily.length);
  expect(southDaily.every(d=>!d.sha256||/^[a-f0-9]{64}$/.test(d.sha256))).toBe(true);
- for(const asset of (Object.keys(southAssets) as SouthAsset[]).filter(a=>a!=='gmd_binh_duong'))for(const direction of ['arrival','departure'] as const){
+ for(const asset of (Object.keys(southAssets) as SouthAsset[]).filter(a=>a!=='gmd_binh_duong'&&a!=='swc_long_binh'))for(const direction of ['arrival','departure'] as const){
   const series=southSeries({[asset]:southPlanDays(southDaily,asset)},[asset],direction,now);
   for(const p of series.months){
    const expected=ledger.monthly[p.period][asset][direction];

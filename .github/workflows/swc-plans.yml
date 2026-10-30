@@ -1,0 +1,50 @@
+name: SWC Long Binh official plans
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: swc-plans-staging
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/test-swc-longbinh-plans.py
+      - run: python scripts/refresh-swc-plans.py
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec vitest run tests/swc-history.test.ts tests/south-plans.test.ts --maxWorkers=1
+      - run: pnpm typecheck
+      - name: Publish validated SWC edition
+        run: |
+          git add packages/modules/port/src/swc-longbinh-history-data.ts packages/modules/port/src/swc-longbinh-journal-loader.ts packages/modules/port/src/swc-longbinh-journal-data docs/catalog-review/swc-longbinh-history-ledger.json
+          if ! git diff --cached --quiet; then
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'data(ports): refresh SWC Long Binh official plans'
+            git push origin HEAD:codex/cloudflare-next-compat
+          fi
+          echo "PUBLISHED_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Reconcile deployed edition
+        run: node scripts/verify-swc-live.mjs --wait
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: swc-readback
+          path: .local/swc/*.json
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 14
