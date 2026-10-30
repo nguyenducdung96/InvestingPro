@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('hcm', ROOT/'scripts/collect-south-plans.py')
 hcm = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(hcm)
-LABELS = ['K12', 'TT2', 'B.TT2', 'TTD', 'K17']
+LABELS = ['K12', 'TT2', 'TAN.T.2', 'B.TT2', 'TTD', 'K17']
 
 def audit():
     counts = collections.Counter()

@@ -21,6 +21,8 @@ jobs:
       - run: python scripts/test-gemalink-national.py
       - run: python scripts/test-swc-longbinh-plans.py
       - run: python scripts/test-binhduong-plans.py
+      - run: python scripts/test-sgp-pilot-plans.py
+      - run: python scripts/test-sgp-pilot-overlap.py
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
       - run: pnpm build
