@@ -29,6 +29,11 @@ class Tests(unittest.TestCase):
    for name in ['binhduong-history-data.ts','binhduong-journal-loader.ts']:
     shutil.copy(bd.MODULE/name,module/name)
    shutil.copytree(bd.MODULE/'binhduong-journal-data',module/'binhduong-journal-data')
+   journal=module/'binhduong-journal-data/2025-01.ts'
+   encoded=json.loads(journal.read_text(encoding='utf8').split('export const southJournalGzip=',1)[1].rsplit(';',1)[0])
+   payload=bytearray(bd.base64.b64decode(encoded));payload[9]=3 # Simulate another platform's reviewed gzip bytes.
+   journal.write_text('export const southJournalGzip='+json.dumps(bd.base64.b64encode(payload).decode())+';\n',encoding='utf8')
+   reviewed_bytes=journal.read_bytes()
    ledger=json.loads(ledgerpath.read_text(encoding='utf8'));end=bd.dt.date.fromisoformat(ledger['metadata']['through'])
    raw=root/'raw';raw.mkdir()
    for n in range(7):
@@ -42,7 +47,7 @@ class Tests(unittest.TestCase):
    with patch.object(bd,'ROOT',root),patch.object(bd,'MODULE',module),patch.object(sys,'argv',args):
     bd.main()
     files=lambda:{str(p.relative_to(root)):p.read_bytes() for p in root.rglob('*') if p.is_file() and raw not in p.parents}
-    first=files();bd.main();self.assertEqual(first,files())
+    first=files();self.assertEqual(journal.read_bytes(),reviewed_bytes);bd.main();self.assertEqual(first,files())
     updated=json.loads(ledgerpath.read_text(encoding='utf8'))
     self.assertEqual(updated['metadata']['events'],ledger['metadata']['events'])
     self.assertEqual(updated['metadata']['last_observation_by_direction'],ledger['metadata']['last_observation_by_direction'])

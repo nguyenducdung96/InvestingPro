@@ -122,9 +122,14 @@ def main():
  compact=lambda v:json.dumps(v,ensure_ascii=False,separators=(',',':'))
  target=MODULE/'binhduong-journal-data';target.mkdir(exist_ok=True)
  for month,rows in grouped.items():
-  raw=compact(rows).encode();encoded=encode_journal(raw)
+  raw=compact(rows).encode();path=target/f'{month}.ts'
+  if path.exists():
+   previous_encoded=json.loads(path.read_text(encoding='utf8').split('export const southJournalGzip=',1)[1].rsplit(';',1)[0])
+   # Preserve reviewed bytes across zlib/Python versions when the JSON is unchanged.
+   if gzip.decompress(base64.b64decode(previous_encoded,validate=True))==raw:continue
+  encoded=encode_journal(raw)
   if gzip.decompress(base64.b64decode(encoded))!=raw:raise ValueError('Journal codec mismatch')
-  (target/f'{month}.ts').write_text('export const southJournalGzip='+json.dumps(encoded)+';\n',encoding='utf8')
+  path.write_text('export const southJournalGzip='+json.dumps(encoded)+';\n',encoding='utf8')
  (MODULE/'binhduong-history-data.ts').write_text("import type {SouthDay} from './south-plans';\nexport const binhduongMetadata="+compact(metadata)+";\nexport const binhduongDaily:SouthDay[]="+compact(daily)+';\n',encoding='utf8')
  (MODULE/'binhduong-journal-loader.ts').write_text("import type {SouthEvent} from './south-plans';\nimport {decodeSouthJournal} from './south-journal-codec';\nexport async function loadBinhduongJournal(month:string):Promise<SouthEvent[]>{switch(month){\n"+'\n'.join(f"case '{m}':return decodeSouthJournal((await import('./binhduong-journal-data/{m}')).southJournalGzip);" for m in sorted(grouped))+"\ndefault:return [];}}\n",encoding='utf8')
  ledgerpath.write_text(json.dumps({'metadata':metadata,'monthly':monthly,'sources':sources},ensure_ascii=False,indent=2)+'\n',encoding='utf8')
