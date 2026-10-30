@@ -1,5 +1,12 @@
 # Bàn giao ngành cảng — 30/10/2026
 
+## Kết quả SWC sau triển khai
+
+SWC đã nghiệm thu **staging** tại `b7378a8`: Cloudflare build `8236e8d1` và Quality `41070711134` success (186 Vitest, 74 E2E, Python, lint/typecheck, Next/OpenNext). API/UI khớp 22 tháng hai chiều, tổng, nhật ký và hai dòng SWC miền Nam. [Receipt](catalog-review/swc-staging-20261030.json). Code tính năng là `ae61032`; bản bảo vệ lịch sử đã rebase trên các refresh QNP/NAP/PDN và push nhánh hiện hành.
+
+Đã hoàn thiện phạm vi Long Bình+bến phao có nguồn, chưa phủ đủ ICD Sotrans/Mekong. Workflow refresh SWC chưa đăng ký default branch/chưa chạy cloud; cron/production vẫn chưa nghiệm thu. Các mốc bên dưới ghi CI SWC còn chờ là lịch sử, không phải trạng thái hiện hành. Tiếp tục Bình Dương riêng rồi TCW/GMD/SGP như kế hoạch; không mở rộng phạm vi từ việc lưu receipt này.
+
+
 ## Bổ sung sau yêu cầu hoàn thiện SWC
 
 Đã triển khai Long Bình K0005/cầu 1–3 riêng với bến phao; 4.434 dòng vào/rời 01/01/2025–29/10/2026, tổng tùy chọn, container rỗng 2023/2024 riêng. Xem [SWC](swc-integration-20261030.md). Các dòng bên dưới ghi SWC mới có bến phao là snapshot cũ. Chưa có chuỗi ICD Sotrans/Mekong. Refresh riêng chạy tại máy thành công; workflow thủ công đã cấu hình, chưa đăng ký cron. Staging `ae61032` đã khớp 22 tháng hai chiều, tổng và nhật ký; receipt tại `catalog-review/swc-staging-20261030.json`. Local 186 Vitest/74 E2E đạt. CI `40979236386` bị runner shutdown ở E2E, cần tiếp tục xác minh CI đúng head; không gọi local/staging là CI toàn bộ. Không thay đổi thứ tự các phạm vi khác và các phần người dùng để sau.

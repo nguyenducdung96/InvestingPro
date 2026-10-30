@@ -1,7 +1,7 @@
 {
-  "verified_at": "2026-10-30T14:16:27.349Z",
+  "verified_at": "2026-10-30T14:24:06.668Z",
   "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
-  "published_commit": "ae61032d47973b2e53128eb997ab36b47e3c3ec3",
+  "published_commit": "b7378a8082440f6e59acc9cdd82b9a5bfa84b843",
   "expected_metadata": {
     "parser_version": "swc-longbinh-direct-plan/1.0.0",
     "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
@@ -50,7 +50,27 @@
   ],
   "deployment_readback_verified": true,
   "scheduled_refresh_verified": false,
+  "feature_commit": "ae61032d47973b2e53128eb997ab36b47e3c3ec3",
+  "cloudflare_build": {
+    "id": "8236e8d1-b7bc-492d-a5be-6c084ff17e79",
+    "commit": "b7378a8082440f6e59acc9cdd82b9a5bfa84b843",
+    "conclusion": "success",
+    "url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/8236e8d1-b7bc-492d-a5be-6c084ff17e79"
+  },
   "quality": {
+    "run_id": 41070711134,
+    "commit": "b7378a8082440f6e59acc9cdd82b9a5bfa84b843",
+    "url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41070711134",
+    "conclusion": "success",
+    "vitest": 186,
+    "e2e": 74,
+    "swc_python": 4,
+    "lint": "success",
+    "typecheck": "success",
+    "next_build": "success",
+    "opennext_build": "success"
+  },
+  "previous_quality": {
     "run_id": 40979236386,
     "commit": "ae61032d47973b2e53128eb997ab36b47e3c3ec3",
     "conclusion": "failure",
@@ -73,5 +93,29 @@
     "cold_cache_preservation": true,
     "byte_identical_replay": true
   },
-  "production_acceptance": false
+  "post_rebase_validation": {
+    "test_files": 4,
+    "tests": 10,
+    "result": "passed",
+    "scopes": [
+      "SWC",
+      "PDN",
+      "NAP",
+      "QNP"
+    ]
+  },
+  "ui_readback": {
+    "verified_at": "2026-10-30T14:19:00Z",
+    "default_asset": "swc_long_binh",
+    "annual_empty_container_teu": true,
+    "paired_cumulative_label": "T1, T3, T4, T5, T6, T7, T8, T9, T10",
+    "source_and_coverage_details": true,
+    "local_desktop_mobile_screenshots": [
+      ".local/swc/ui-desktop.png",
+      ".local/swc/ui-mobile.png"
+    ]
+  },
+  "production_acceptance": false,
+  "refresh_workflow_registered_on_default_branch": false,
+  "cloud_refresh_workflow_run_verified": false
 }

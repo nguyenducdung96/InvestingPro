@@ -43,3 +43,14 @@ Các khoảng này còn mở; hoàn thiện Long Bình không có nghĩa phủ �
 - Local: 186 Vitest, bốn Python test mới, bốn E2E SWC/miền Nam desktop/mobile, lint/typecheck và Next production build đạt. Cold-cache giữ lịch sử với 14 raw mới; replay 23 file dữ liệu/ledger giống từng byte. Toàn bộ 74 E2E tại máy đạt. Staging đã khớp 22 tháng hai chiều, tổng, nhật ký và miền Nam tại `ae61032`; [receipt](catalog-review/swc-staging-20261030.json). CI `40979236386` qua lint/typecheck/Vitest/Python nhưng E2E bị runner shutdown, hai bước build skipped; chưa gọi CI thành công.
 
 CI cũ `40950348908` nhận shutdown signal từ runner ở E2E rồi cancellation; log chưa chứng minh assertion sản phẩm thất bại. Không sửa sản phẩm từ cancellation đó. Chưa nghiệm thu production hoặc schedule SWC/PDN.
+
+
+## Nghiệm thu staging cuối
+
+Code tính năng `ae61032`, bản bảo vệ lịch sử `b7378a8` đã push lên `codex/cloudflare-next-compat`. Khi push có ba commit refresh tự động QNP/NAP/PDN; đã rebase không xung đột và kiểm tra lại bốn nhóm dữ liệu (10 test đạt), không sửa edition của chúng.
+
+**Quality [41070711134](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41070711134) thành công** ở đúng `b7378a8`: lint/typecheck, 186 Vitest, 74 E2E desktop/mobile, Python và hai build Next/OpenNext đều đạt. Run cũ bị shutdown vẫn giữ đúng trạng thái lịch sử, đã được thay bằng bằng chứng CI thành công mới.
+
+**Cloudflare build `8236e8d1-b7bc-492d-a5be-6c084ff17e79` thành công**, đúng `b7378a8`; đọc lại staging sau triển khai khớp 22 tháng hai chiều, nhật ký ID/cầu/hash, tổng Long Bình+bến phao, hai dòng SWC trên miền Nam và mặc định Long Bình. UI live xác nhận nhãn tháng lũy kế và chỉ tiêu container rỗng riêng. [Receipt cuối](catalog-review/swc-staging-20261030.json).
+
+Đây là nghiệm thu staging/manual readback. Workflow refresh SWC mới có trong nhánh staging, chưa đăng ký trên default branch/chưa chạy cloud; chưa chứng nhận cron hoặc production. ICD Sotrans/Mekong và các khoảng nguồn đã nêu tiếp tục mở. Thứ tự tiếp theo của dự án: refresh Bình Dương riêng, đánh giá TCW, rồi tài sản GMD/SGP có nguồn phù hợp; không tự mở lại các phần người dùng để sau.
