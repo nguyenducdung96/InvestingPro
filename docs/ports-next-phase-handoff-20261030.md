@@ -1,106 +1,53 @@
-# Bàn giao ngành cảng — 30/10/2026
+# Bàn giao ngành cảng — trạng thái chốt 30/10/2026
 
-Bản rút TCW `53d226f` đã push lên `codex/cloudflare-next-compat`; staging API/HTML xác nhận mã/ID/API cũ 404, danh mục và tổng quan không còn TCW, GMD còn hoạt động. [Receipt](catalog-review/tcw-withdrawal-staging-20261030.json). Local 7 Vitest/4 E2E desktop-mobile/lint/typecheck đạt. Quality `41079292805` còn chạy E2E lúc lưu, chưa gọi CI toàn bộ thành công. Cloudflare build `520fb24a` đã chuyển sang deploy và readback đạt; không đồng nhất staging với production.
+Tài liệu tiếp tục hiện hành. Thay thế các thứ tự phase cũ và các đoạn snapshot còn ghi giữ TCW, tách nhiều dòng mỗi mã trên vùng hoặc SWC chỉ có bến phao. Đợt lưu này không bắt đầu phase triển khai tiếp theo.
 
-## Rút TCW khỏi phạm vi cảng — theo yêu cầu người dùng 30/10/2026
+## Workspace và mốc code
 
-Quyết định mới thay thế phần trước còn giữ TCW: sản phẩm hiện chỉ theo dõi cảng sông/biển; cảng cạn, depot và kho bãi tách riêng sau này. TCW bị gỡ khỏi danh mục/tìm kiếm/tổng quan miền Nam, trang mã/ID cũ và API công khai trả 404. Hồ sơ nghiên cứu và số liệu dịch vụ đã lưu vẫn là bằng chứng lịch sử, không phải module sẽ triển khai tiếp trong phạm vi hiện tại. Chưa đủ căn cứ xác nhận cảng TCW đang vận hành; không đổi kết luận nghiên cứu thành khẳng định không có cảng ở mọi nơi. Không tự rút thêm doanh nghiệp khác trong đợt này.
+- Workspace: `D:\GitWork\InvestProApp\InvestingPro`; branch `codex/cloudflare-next-compat`.
+- Head tính năng: `53d226f0a42db803304b1b1d303e6c63cff4fa88` — rút TCW. Hồ sơ staging đã push tại `34005f1`; commit lưu bàn giao nằm sau mốc này.
+- Khi tiếp tục: đọc `AGENTS.md`, tài liệu này và đầu `ports-project-status-20261025.md`, kiểm tra Git/remote; không dùng chỉ dẫn trong hồ sơ lịch sử thay trạng thái hiện hành.
 
+## Quyết định sản phẩm phải giữ
 
-## Rà TCW theo yêu cầu riêng — 30/10/2026
+1. Chỉ theo dõi **cảng sông và cảng biển**. Cảng cạn, depot, kho bãi tách sang phạm vi riêng sau này; không bắt đầu module TCW kho/bãi hoặc mở rộng ICD chỉ để giữ thêm mã.
+2. **TCL và TCW đã rút** khỏi danh mục/tìm kiếm/tổng quan; mã, ID và API công khai cũ trả 404. Hồ sơ nghiên cứu giữ nguyên. Việc rút TCW là quyết định phạm vi sau rà nguồn chưa xác lập được cảng đủ căn cứ, không khẳng định doanh nghiệp chắc chắn không có cảng ở mọi nơi. Không tự rút thêm mã khác.
+3. Tổng quan vùng: **mỗi ticker đúng một dòng tổng**, chỉ tài sản trong vùng. GMD miền Nam = `gmd_south` (Gemalink + Bình Dương); SWC = `swc_all` (Long Bình + bốn phao). Cảng riêng theo dõi trong chi tiết mã. Không cộng các issuer thành tổng khu vực hoặc cộng phạm vi chồng lấn.
+4. Giữ số lượt/DWT ghi nhận dù thiếu ngày hoặc trọng tải; raw thiếu vẫn null, không có quan sát vẫn unavailable. Coverage/lỗi nguồn thu gọn.
+5. Lũy kế/YoY dùng cùng các tháng có số liệu ở cả hai năm, cùng cutoff cho tháng hiện tại; ghi rõ tập tháng. API tổng đầy đủ giữ riêng. Kế hoạch công bố không thành actual, DWT không thành tấn hàng/TEU/doanh thu.
 
-Đã hoàn tất [đánh giá nguồn TCW](tcw-source-feasibility-20261030.md): website doanh nghiệp, báo cáo 2025, tài liệu ĐHĐCĐ 2026, 7 trang/103 mục bến cảng TP.HCM và danh mục Đồng Nai 51 cảng/79 cầu. Chưa xác lập được cảng biển/sông đang vận hành và mapping lịch tàu/DWT đủ căn cứ cho TCW; không gán toàn Cát Lái, không tự rút TCW. Có số thực hiện **công ty mẹ** 2024/2025: kho 1.314.489/1.394.382 tấn; bãi 747.024/841.032 TEU (đã gồm Suối Tiên). Đã lưu receipt và giới hạn nguồn ĐTNĐ. Chưa triển khai dashboard sản lượng dịch vụ mới; không gọi rà nguồn là hoàn thiện dashboard tàu TCW. Code/API/UI/edition không đổi. Không mở lại TCL hoặc các phạm vi đã để sau. Người dùng đã ưu tiên TCW trong đợt này; các phase khác giữ thứ tự hiện hành.
+## Phần đã hoàn tất
 
+- **SWC:** Long Bình K0005, cầu 1/2/3 và bốn bến phao theo dõi riêng trong chi tiết mã; có tổng `swc_all`. Long Bình 4.434 dòng vào/rời 01/01/2025–29/10/2026; nguồn là kế hoạch công bố. Code `ae61032`, bảo vệ lịch sử `b7378a8`; Quality `41070711134` và Cloudflare `8236e8d1` success, API/UI staging 22 tháng hai chiều khớp. Chưa phủ đủ tài sản; không tự đưa ICD Sotrans/depot/kho vào phạm vi hiện tại. [Hồ sơ SWC](swc-integration-20261030.md), [receipt](catalog-review/swc-staging-20261030.json).
+- **Tổng quan vùng:** `f916399`, biên nhận `afaf5f3`; staging khớp tổng API/UI hai chiều. Quality `41073780446` và `41074411845` đã xác minh success qua GitHub API ở đợt rút TCW. [Receipt vùng](catalog-review/regional-issuer-totals-20261030.json).
+- **TCW:** đã rà website/báo cáo/ĐHĐCĐ, 103 mục bến cảng TP.HCM và 51 cảng/79 cầu Đồng Nai. Chưa có mapping cảng đang khai thác đủ căn cứ. Số kho/bãi năm 2024/2025 chỉ lưu nghiên cứu; không tích hợp vào sản phẩm cảng. Rút mã tại `53d226f`; local 7 Vitest, 4 E2E desktop/mobile, lint/typecheck đạt. Staging danh mục/tìm kiếm/tổng quan không còn mã, mã/ID/API cũ 404; GMD còn hoạt động. [Rà nguồn TCW](tcw-source-feasibility-20261030.md), [receipt rút mã](catalog-review/tcw-withdrawal-staging-20261030.json).
+- **Lũy kế cùng tháng:** `564539e`; [hợp đồng tính](ports-paired-cumulative-20261030.md).
+- **PDN:** lưu ý thay đổi thủ tục từ 01/07/2026 đã hiển thị tại `40139b9`; không mở lại điều tra Long Bình Tân hoặc suy mức giảm hoạt động thực từ thiếu bản ghi.
 
-## Quy tắc tổng quan vùng mới
+## CI, triển khai và giới hạn nghiệm thu
 
-Người dùng yêu cầu mỗi mã một dòng tổng trong vùng; cảng riêng nằm ở chi tiết mã. Miền Nam dùng GMD `gmd_south` (Gemalink+Bình Dương) và SWC `swc_all` (Long Bình+bến phao). Các đoạn bàn giao trước đó nói hai dòng monitor GMD/SWC riêng đã được thay thế ở màn hình tổng quan vùng. Không gộp tài sản ngoài vùng, không cộng tổng các issuer hoặc thay chuỗi nguồn.
+- Khi lưu, kiểm tra lại Quality **`41079292805` của `53d226f`** và Cloudflare build **`520fb24a-eb4c-4175-a5cf-22a95861c17e`**. Trạng thái máy đọc được lưu ở [snapshot bàn giao](catalog-review/ports-status-snapshot-20261030.json).
+- Cloudflare bản tính năng `53d226f`: **Ready**, version `e347c515`, 100% traffic trên worker staging; build `520fb24a`. Build tài liệu `34005f1` còn chạy lúc lưu. Quality `41079292805` (tính năng) và `41080083652` (tài liệu) còn chạy E2E lúc kiểm tra cuối.
+- Readback staging bản rút TCW đã đạt; không gọi CI toàn bộ thành công khi run còn chạy hoặc bỏ qua bước. Không suy một lần readback thành cron hoặc production đã nghiệm thu.
+- CI cũ `40950348908`/`40979236386` là lịch sử; không dùng làm điểm bắt đầu thay cho head hiện hành. Nếu run hiện hành failure/cancelled, đọc bước/log đúng SHA và chỉ sửa khi có bằng chứng lỗi; không tự chạy lại quét nguồn.
+- SWC refresh thủ công tại máy đạt; workflow mới chưa đăng ký default branch/chưa chạy cloud. Chưa nghiệm thu scheduled refresh/production.
 
+## Điểm tiếp tục sau khi người dùng yêu cầu làm tiếp
 
-## Kết quả SWC sau triển khai
+1. **Chốt kiểm chứng head hiện hành:** xem kết quả CI/Cloudflare nêu trên và các commit tài liệu về sau. Nếu có lỗi, xử lý đúng bằng chứng; staging đã có receipt, không cần lặp toàn bộ audit nếu không có thay đổi.
+2. **Bình Dương riêng:** đánh giá refresh/monitor độc lập, không refresh hoặc thay edition PDN để làm mới Bình Dương. Đọc `scripts/collect-pdn-plans.py`, `scripts/export-binhduong-plans.py`, `scripts/verify-binhduong-live.mjs` và ledger. Giữ raw/hash bất biến, lịch sử khi nguồn rỗng/lỗi, replay không nhân dòng, chống ghi đè do commit cạnh tranh. Đích: refresh thủ công → export → push → deploy → readback đúng edition, có receipt. Có cấu hình lịch không đồng nghĩa đã chạy lịch thật.
+3. **Phạm vi cảng sông/biển có nguồn của GMD/SGP:** ưu tiên khoảng trống SGP K12/TT2 và các tài sản phù hợp còn thiếu khi có chứng cứ mới. Không tự gộp K12/khu neo/TT2, không dùng phao Gemadept thay cảng. Phước Long/Nam Hải ICD và phần cảng cạn/kho bãi để phạm vi riêng sau này theo quyết định mới.
+4. **Khoảng lịch sử:** chỉ điều tra khi có đầu mối mới. Gemalink hiện có 326 dòng vào Jan–Jul/2025 từ PDF quốc gia, còn thiếu chiều rời đầu 2025; đã quét 7.845 hồ sơ/7.683 hash, không tải lại toàn bộ vô cớ. Bình Dương edition đang bàn giao đến 28/10/2026, 8.342 dòng; quan sát rời cuối 15/07 và vào cuối 24/08/2026. Thiếu quan sát không có nghĩa bằng 0.
+5. **Sản lượng công bố tấn/TEU của cảng đủ phạm vi:** giữ riêng với DWT và lịch tàu; kỳ, đơn vị và actual/plan phải rõ. Không lấy bình quân/công suất nhân thành tổng kỳ. TCW và sản lượng kho/bãi không nằm trong phase này.
 
-SWC đã nghiệm thu **staging** tại `b7378a8`: Cloudflare build `8236e8d1` và Quality `41070711134` success (186 Vitest, 74 E2E, Python, lint/typecheck, Next/OpenNext). API/UI khớp 22 tháng hai chiều, tổng, nhật ký và hai dòng SWC miền Nam. [Receipt](catalog-review/swc-staging-20261030.json). Code tính năng là `ae61032`; bản bảo vệ lịch sử đã rebase trên các refresh QNP/NAP/PDN và push nhánh hiện hành.
+## Các phần tiếp tục để sau
 
-Đã hoàn thiện phạm vi Long Bình+bến phao có nguồn, chưa phủ đủ ICD Sotrans/Mekong. Workflow refresh SWC chưa đăng ký default branch/chưa chạy cloud; cron/production vẫn chưa nghiệm thu. Các mốc bên dưới ghi CI SWC còn chờ là lịch sử, không phải trạng thái hiện hành. Tiếp tục Bình Dương riêng rồi TCW/GMD/SGP như kế hoạch; không mở rộng phạm vi từ việc lưu receipt này.
+- HCM cloud connectivity; cron PDN (khi mở lại cần hai chu kỳ schedule thật và readback); GMD Dung Quất định kỳ.
+- Không điều tra lại Long Bình Tân, không khôi phục TCL/TCW, không triển khai cảng cạn/kho/bãi hoặc production từ yêu cầu lưu trạng thái.
+- Không liên hệ bên ngoài khi chưa được người dùng chỉ đạo.
 
+## Dữ liệu và quy trình kết thúc phase
 
-## Bổ sung sau yêu cầu hoàn thiện SWC
+Raw/cache `.local/swc/`, `.local/swc-longbinh/`, `.local/tcw-recheck/`, `.local/gemalink-national/`, `.local/south-plans/`, `.local/pdn/`, `.local/tcl-recheck/` không đi theo Git; xem tên đường dẫn chính xác trong hồ sơ từng phạm vi. Khôi phục đúng hash trước khi export lại; không giả định máy mới có cache. Module/ledger/docs/receipt đã commit mới là mốc khôi phục từ repository.
 
-Đã triển khai Long Bình K0005/cầu 1–3 riêng với bến phao; 4.434 dòng vào/rời 01/01/2025–29/10/2026, tổng tùy chọn, container rỗng 2023/2024 riêng. Xem [SWC](swc-integration-20261030.md). Các dòng bên dưới ghi SWC mới có bến phao là snapshot cũ. Chưa có chuỗi ICD Sotrans/Mekong. Refresh riêng chạy tại máy thành công; workflow thủ công đã cấu hình, chưa đăng ký cron. Staging `ae61032` đã khớp 22 tháng hai chiều, tổng và nhật ký; receipt tại `catalog-review/swc-staging-20261030.json`. Local 186 Vitest/74 E2E đạt. CI `40979236386` bị runner shutdown ở E2E, cần tiếp tục xác minh CI đúng head; không gọi local/staging là CI toàn bộ. Không thay đổi thứ tự các phạm vi khác và các phần người dùng để sau.
-
-
-Tài liệu hiện hành cho các phase tiếp theo, thay thế thứ tự trong bàn giao 29/10 và các snapshot cũ. Đợt lưu này chỉ cập nhật hồ sơ, không bắt đầu phase triển khai mới.
-
-## Điểm tiếp tục
-
-- Workspace: `D:\GitWork\InvestProApp\InvestingPro`; nhánh `codex/cloudflare-next-compat`.
-- Head code sản phẩm: `f4d930e227c82b0a075b350440d383d0e4e7bc28` — rút TCL khỏi danh mục. Commit bàn giao tài liệu nằm sau head này.
-- Đọc `AGENTS.md`, tài liệu này và phần đầu `ports-project-status-20261025.md`; kiểm tra Git/remote trước khi sửa. Không khôi phục TCL từ hồ sơ hoặc workflow lịch sử.
-- Mục tiêu sản phẩm là quan sát xu hướng đầu tư trên các phạm vi có dữ liệu phù hợp. **Không đặt mục tiêu phủ đủ mọi mã ngành cảng.** Quyết định rút TCL chưa tự áp dụng cho TCW hoặc doanh nghiệp khác.
-
-## Thay đổi đã hoàn tất trong đợt 30/10
-
-1. **Lũy kế cùng tháng có dữ liệu ở hai năm** — `564539e`. Cùng một tập tháng được dùng cho hai tổng; YoY tính từ hai tổng khi nền dương. Bao gồm tháng hiện tại tới cutoff tương ứng khi hai năm có số liệu; hiển thị danh sách tháng. Áp dụng chung cho các trang cảng đã tích hợp và chỉ tiêu sản lượng công bố. CDN cũng theo quy tắc chung, không còn ngoại lệ chỉ tháng đã kết thúc. Tổng đầy đủ theo cửa sổ và metadata nguồn trong API giữ riêng. Xem [quy tắc và phạm vi áp dụng](ports-paired-cumulative-20261030.md).
-2. **Lưu ý PDN về thay đổi thủ tục từ 01/07/2026** — `40139b9`. Trang PDN có cảnh báo ngắn kèm liên kết văn bản: thay đổi thủ tục có thể làm giảm số lượt/DWT ghi nhận; không dùng biểu đồ này để kết luận sản lượng thực giảm tương ứng. Không khẳng định định lượng tác động cho từng bến hoặc nhóm tàu từ lời giải thích này.
-3. **Rà TCL và rút khỏi sản phẩm** — rà nguồn `6a91219`, rút sản phẩm `f4d930e`. Trang chủ TCL, ePort, báo cáo thường niên/ĐHĐCĐ và nguồn Cảng vụ chưa cung cấp chuỗi lịch sử đúng TCL đủ căn cứ để làm tương tự các mã khác. ĐTNĐ III còn lỗi truy cập, không kết luận mọi nguồn đều không tồn tại. TCL đã bị gỡ khỏi danh mục/tìm kiếm/tổng quan miền Nam; mã và ID cũ trả 404; API hoạt động, dữ liệu chạy kèm, collector/verifier và workflow riêng đã xóa. Bằng chứng lịch sử giữ trong docs. Bến hợp tác 2.200 DWT vẫn thuộc phạm vi CLL đã đối chiếu, không xóa hoặc cộng lại vì rút TCL.
-
-Các commit `92d876b`/`77d9f24` là thử nghiệm tích hợp TNT đã rút. Không sử dụng hướng dẫn chạy TCL trong tài liệu cũ như quy trình hiện hành. Chỉ xem xét lại TCL khi người dùng yêu cầu và có đầu mối nguồn mới đáng kể. [Kết quả rà soát TCL](tcl-source-feasibility-20261030.md).
-
-## Kiểm chứng và phát hành
-
-- Local của `f4d930e`: **185 Vitest**, **6 Playwright desktop/mobile**, lint và typecheck đạt. E2E kiểm tra danh mục không còn TCL, tìm TCL không có kết quả, mã/ID/API cũ 404, tổng quan miền Nam không còn TCL và các phạm vi khác tiếp tục hoạt động.
-- Cloudflare staging `f4d930e`: [build b39e0da7](https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/b39e0da7-7c51-47ed-a67e-03193557a81b) **success**; version `ca20daa5-5603-4078-9dbc-f0b5911159a7`.
-- Đã đọc trực tiếp staging: danh mục và tổng quan không còn liên kết TCL; tìm TCL không có kết quả; GMD vẫn có trong danh mục; đường dẫn TCL theo mã/ID và API cũ 404. Receipt: [rút TCL trên staging](catalog-review/tcl-withdrawal-staging-20261030.json). Danh sách niêm yết đã xác minh hiện trả rỗng, nên phép kiểm tra không có TCL ở endpoint đó không chứng minh danh mục này có đầy đủ doanh nghiệp; danh mục biên tập được kiểm tra riêng.
-- [Quality run 40950348908](https://github.com/nguyenducdung96/InvestingPro/actions/runs/40950348908): **completed / failure**. Lint, typecheck, Vitest và Python success; bước `pnpm test:e2e` bị `cancelled`, hai bước Next/OpenNext build bị skipped. Chưa xác định nguyên nhân cancellation; chưa có căn cứ gọi đây là lỗi assertion hay lỗi sản phẩm. Khi tiếp tục, xem log/run đúng head và xác minh lại CI trước khi triển khai phase mới. Không ghi CI thành công từ việc local hoặc Cloudflare đã đạt.
-- Đây là staging/manual readback. Chưa chứng nhận production hoặc cron. Receipt trước đó vẫn gắn với commit/edition của nó, không đổi nhãn thành chứng cứ mới.
-
-## Phạm vi và khoảng thiếu đang giữ
-
-- Miền Nam có dữ liệu một phần cho **GMD, SGP, PDN, CLL, SWC, VGP**; TCW còn trong danh mục theo dõi chờ nguồn; TCL đã rút. GMD Gemalink và Bình Dương là hai dòng monitor riêng. Không cộng các mã thành tổng khu vực.
-- HCM/Bình Dương: edition đã bàn giao đến **28/10/2026**, chưa refresh lại trong đợt này. Bình Dương vẫn 8.342 dòng; quan sát rời cuối 15/07/2026, vào cuối 24/08/2026. Thiếu quan sát không phải hoạt động bằng 0.
-- Gemalink: HCM 1.854 dòng hai chiều và 326 dòng tàu vào tháng 1–7/2025 từ PDF quốc gia sau loại trùng. Chiều rời đầu 2025 còn thiếu. Đã quét 7.845 hồ sơ/7.683 hash PDF; không tải lại toàn bộ khi chưa có đầu mối mới. Web mặc định tàu vào, API giữ mặc định tàu rời để tương thích.
-- CLL: cầu số 7 và bến 2.200 DWT; SWC: bốn bến phao, chưa đại diện Long Bình/Sotrans/Mekong; VGP: cầu K16 cho thuê, không suy doanh thu từ DWT. SGP có K12A/B/C/C1, chưa tự gộp K12 chung/khu neo/TT2.
-- Miền Bắc/Trung giữ các phạm vi đã tích hợp. Không tuyên bố phủ đủ tài sản hay toàn quốc. Chi tiết lịch sử Gemalink/Bình Dương tại [bàn giao 29/10](ports-next-phase-handoff-20261029.md).
-
-## Thứ tự phase tiếp theo
-
-### Phase 1 — ổn định refresh/monitor các phạm vi đang dùng
-
-Điểm bắt đầu ưu tiên: **Bình Dương riêng**. Đọc `scripts/collect-pdn-plans.py`, `scripts/export-binhduong-plans.py`, `scripts/verify-binhduong-live.mjs` và ledger Bình Dương. Đánh giá cơ chế thu thập/export độc lập, không đổi edition PDN hoặc nhập shifting để làm mới Bình Dương.
-
-Giữ raw/hash bất biến, không mất lịch sử khi nguồn rỗng/lỗi, replay không nhân dòng, commit cạnh tranh không ghi đè. Phân biệt nguồn lỗi, phản hồi rỗng hợp lệ và không có quan sát mới. Hoàn tất khi refresh thủ công → export → commit/push → deploy → live readback khớp edition có receipt. Có cấu hình lịch chưa phải đã nghiệm thu chạy lịch thật.
-
-Việc đầu tiên khi tiếp tục: đọc log Quality `40950348908` để xác định vì sao E2E bị cancelled và xác minh lại CI; chỉ sửa code nếu log hoặc tái hiện chứng minh có lỗi. Không tự triển khai phase này chỉ từ việc lưu bàn giao.
-
-### Phase 2 — chọn lọc phạm vi có nguồn và giá trị theo dõi
-
-Ưu tiên rà nguồn chính thức cho **SWC–Long Bình**; sau đó Sotrans/Mekong theo quan hệ và phạm vi thực tế. Với TCW, kiểm tra có chỉ tiêu kho/bãi/depot hoặc tấn/TEU đủ kỳ để theo dõi hữu ích hay không. Không làm một màn hình riêng chỉ để giữ thêm mã trong danh mục; nếu không có nguồn phù hợp, báo rõ kết quả và đề xuất quyết định phạm vi. Không tự xóa TCW theo quyết định dành riêng TCL.
-
-Mỗi ứng viên cần xác định pháp nhân/bến, mã/nhãn nguồn, hợp đồng dữ liệu, lịch sử, đơn vị, mẫu raw và provenance trước khi viết collector/UI. Dùng quy tắc tổng hợp và hiển thị chung khi dữ liệu phù hợp. Không gán toàn Cát Lái cho doanh nghiệp dịch vụ, không lấy tên tàu làm mã bến.
-
-### Phase 3 — hoàn thiện tài sản GMD/SGP và khoảng lịch sử
-
-Rà **GMD Phước Long/Nam Hải ICD**, **SGP K12/TT2** khi có nguồn đủ căn cứ. Không dùng phao Gemadept thay ICD hoặc gộp khu neo với cầu. Bổ sung chiều rời Gemalink đầu 2025 và khoảng thiếu Bình Dương chỉ khi có bằng chứng mới; không ước tính chiều rời từ chiều vào.
-
-Hoàn tất từng phạm vi khi mapping có nguồn, parser/dedup đúng nghĩa, ledger khớp API/UI, kiểm tra không chồng lấn và readback sau deploy. Dữ liệu một phần vẫn được giữ nhưng không gọi là phủ đủ.
-
-### Phase 4 — sản lượng tấn/TEU do doanh nghiệp công bố
-
-Thu thập chuỗi tháng/quý/năm có kỳ và phạm vi rõ ràng, giữ riêng với DWT/lịch tàu. Phân biệt công suất, bình quân tham khảo và sản lượng thực hiện. Không nhân bình quân thành tổng năm; không suy doanh thu hay tấn hàng từ DWT. Lũy kế chỉ so các tháng chung có dữ liệu theo `AGENTS.md`.
-
-### Phase vận hành để sau — chỉ mở lại khi người dùng yêu cầu
-
-- Kết nối nguồn HCM trên cloud và nghiệm thu cron PDN: vẫn để sau theo chỉ đạo trước. Khi mở lại phải kiểm tra sự kiện `schedule` thật và readback đúng bản triển khai; với PDN cần hai chu kỳ lịch thật. Không dùng run thủ công làm bằng chứng schedule.
-- Long Bình Tân: không điều tra lại biến động đã được người dùng chấp nhận. Giữ lưu ý PDN đang hiển thị.
-- GMD–Dung Quất: chuỗi định kỳ tiếp tục để ngỏ theo quyết định trước.
-- Không tự mở lại TCL, mở rộng toàn ngành hoặc phát hành production từ yêu cầu lưu tiến độ.
-
-## Quy tắc tiếp tục và bàn giao
-
-Giữ tổng ghi nhận dù thiếu ngày/trọng tải; raw thiếu null, kỳ không có quan sát unavailable, chất lượng thu gọn. Lũy kế dùng cùng tập tháng hai năm và cutoff tương ứng; không cộng phạm vi chồng lấn hoặc nhân theo tỷ lệ vốn. Giữ kế hoạch, giờ tại cầu, snapshot và actual đúng ngữ nghĩa của từng nguồn.
-
-Các verifier còn dùng: `node scripts/verify-gemalink-backfill-live.mjs`, `node scripts/verify-binhduong-live.mjs`, `node scripts/verify-south-live.mjs`. Chỉ chạy khi cần kiểm chứng, không tự refresh hoặc quét lại nguồn trong đợt bàn giao.
-
-Raw/cache `.local/gemalink-national/`, `.local/south-plans/`, `.local/pdn/`, `.local/tcl/`, `.local/tcl-recheck/` không đi theo Git. Ledger/module/docs/receipt đã commit mới là mốc có thể lấy lại từ repository; muốn export lại phải khôi phục bằng chứng đúng hash. Không gửi yêu cầu cho bên ngoài khi chưa được chỉ đạo.
-
-Kết thúc mỗi phạm vi: cập nhật status/giới hạn, kiểm tra phù hợp, commit/push nhánh hiện tại, đọc CI/Cloudflare đúng commit, lưu receipt API/UI đúng edition và báo riêng phần chưa nghiệm thu. Không cần hỏi lại quyền commit/push đã được người dùng giao trong chuỗi công việc này.
+Kết thúc mỗi phạm vi: cập nhật trạng thái/giới hạn, kiểm tra phù hợp, commit/push nhánh hiện tại, kiểm tra CI/Cloudflare đúng SHA và lưu readback đúng edition. Không cần hỏi lại quyền commit/push đã được giao. Đợt lưu bàn giao hiện tại dừng ở hồ sơ; chưa bắt đầu Bình Dương hoặc các phase sau.

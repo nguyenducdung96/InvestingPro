@@ -1,5 +1,16 @@
 # Tiến độ ngành cảng — cập nhật 30/10/2026
 
+## Trạng thái chốt để tiếp tục sau — 30/10/2026
+
+Đây là trạng thái hiện hành, thay các snapshot lịch sử bên dưới. Đọc [bàn giao đã tổng hợp lại](ports-next-phase-handoff-20261030.md) trước khi làm tiếp.
+
+- Branch `codex/cloudflare-next-compat`; code tính năng `53d226f`, biên nhận `34005f1`. TCW và TCL đã rút; chỉ theo dõi cảng sông/biển. Cảng cạn, depot, kho bãi để phạm vi riêng sau này; không bắt đầu module sản lượng kho/bãi TCW.
+- Tổng quan mỗi mã một dòng tổng theo tài sản trong vùng; cảng riêng ở chi tiết mã. SWC có Long Bình + bốn phao; các giới hạn nguồn/actual và so sánh cùng tháng vẫn giữ.
+- Staging bản rút TCW đã đọc lại đạt; Cloudflare `520fb24a` **Ready**, version `e347c515`, 100% traffic worker staging. Quality `41079292805` và `41080083652` còn chạy E2E khi lưu; cần chốt kết quả lần tiếp tục. Không chứng nhận production/cron.
+- Thứ tự sau: chốt CI hiện hành → refresh Bình Dương độc lập → khoảng thiếu/tài sản GMD/SGP thuộc cảng sông/biển khi có nguồn. Không mở lại TCL/TCW, HCM connectivity, cron PDN, Long Bình Tân hoặc Dung Quất định kỳ trong đợt lưu này.
+- [Snapshot trạng thái và các bước CI](catalog-review/ports-status-snapshot-20261030.json). Đợt này chỉ lưu hồ sơ; chưa bắt đầu phase tiếp theo.
+
+
 Bản rút TCW `53d226f` đã push lên `codex/cloudflare-next-compat`; staging API/HTML xác nhận mã/ID/API cũ 404, danh mục và tổng quan không còn TCW, GMD còn hoạt động. [Receipt](catalog-review/tcw-withdrawal-staging-20261030.json). Local 7 Vitest/4 E2E desktop-mobile/lint/typecheck đạt. Quality `41079292805` còn chạy E2E lúc lưu, chưa gọi CI toàn bộ thành công. Cloudflare build `520fb24a` đã chuyển sang deploy và readback đạt; không đồng nhất staging với production.
 
 ## Rút TCW khỏi phạm vi cảng — theo yêu cầu người dùng 30/10/2026

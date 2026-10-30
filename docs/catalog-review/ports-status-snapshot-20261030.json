@@ -1,0 +1,271 @@
+{
+  "checked_at": "2026-10-30T15:24:51.625Z",
+  "branch": "codex/cloudflare-next-compat",
+  "feature_commit": "53d226f0a42db803304b1b1d303e6c63cff4fa88",
+  "previous_documentation_commit": "34005f1",
+  "scope": "river and sea ports only; dry ports, depots and warehouses deferred",
+  "withdrawn": [
+    "TCL",
+    "TCW"
+  ],
+  "staging_readback_receipt": "tcw-withdrawal-staging-20261030.json",
+  "quality": [
+    {
+      "id": 41080083652,
+      "sha": "34005f1118d70510e052172f591979a3a5dd139b",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41080083652",
+      "jobs": [
+        {
+          "id": 124146539747,
+          "status": "in_progress",
+          "conclusion": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm/action-setup@v4",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm install --frozen-lockfile",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm lint",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm typecheck",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm test",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python -m pip install -r scripts/requirements-gemalink-national.txt",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python scripts/test-gemalink-national.py",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python scripts/test-swc-longbinh-plans.py",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm exec playwright install --with-deps chromium",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm test:e2e",
+              "status": "in_progress",
+              "conclusion": null
+            },
+            {
+              "name": "Run pnpm build",
+              "status": "pending",
+              "conclusion": null
+            },
+            {
+              "name": "Run pnpm build:cloudflare",
+              "status": "pending",
+              "conclusion": null
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "pending",
+              "conclusion": null
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "pending",
+              "conclusion": null
+            },
+            {
+              "name": "Post Run pnpm/action-setup@v4",
+              "status": "pending",
+              "conclusion": null
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "pending",
+              "conclusion": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 41079292805,
+      "sha": "53d226f0a42db803304b1b1d303e6c63cff4fa88",
+      "status": "in_progress",
+      "conclusion": null,
+      "url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41079292805",
+      "jobs": [
+        {
+          "id": 124143784857,
+          "status": "in_progress",
+          "conclusion": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm/action-setup@v4",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm install --frozen-lockfile",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm lint",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm typecheck",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm test",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python -m pip install -r scripts/requirements-gemalink-national.txt",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python scripts/test-gemalink-national.py",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run python scripts/test-swc-longbinh-plans.py",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm exec playwright install --with-deps chromium",
+              "status": "completed",
+              "conclusion": "success"
+            },
+            {
+              "name": "Run pnpm test:e2e",
+              "status": "in_progress",
+              "conclusion": null
+            },
+            {
+              "name": "Run pnpm build",
+              "status": "pending",
+              "conclusion": null
+            },
+            {
+              "name": "Run pnpm build:cloudflare",
+              "status": "pending",
+              "conclusion": null
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "pending",
+              "conclusion": null
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "pending",
+              "conclusion": null
+            },
+            {
+              "name": "Post Run pnpm/action-setup@v4",
+              "status": "pending",
+              "conclusion": null
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "pending",
+              "conclusion": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "production_verified": false,
+  "next_steps": [
+    "Confirm outstanding CI and Cloudflare terminal state",
+    "Independent Binh Duong refresh and monitor",
+    "Source-backed river/sea port gaps in GMD/SGP"
+  ],
+  "deferred": [
+    "TCW service production module",
+    "Dry ports/depots/warehouse scope",
+    "HCM cloud connectivity",
+    "PDN scheduled cron acceptance",
+    "Long Binh Tan reinvestigation",
+    "GMD Dung Quat recurring series"
+  ],
+  "new_phase_started": false,
+  "cloudflare": {
+    "feature_build": "520fb24a-eb4c-4175-a5cf-22a95861c17e",
+    "feature_commit": "53d226f0a42db803304b1b1d303e6c63cff4fa88",
+    "status": "Ready",
+    "version_short": "e347c515",
+    "traffic_percent": 100,
+    "observed_on": "Cloudflare deployment list",
+    "documentation_build": "e8da26b6-0e9b-49e7-ba59-9891f90aa57a",
+    "documentation_build_status": "in_progress"
+  }
+}

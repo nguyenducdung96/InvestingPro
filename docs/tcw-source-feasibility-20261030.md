@@ -54,3 +54,5 @@ Tổng kho 2024 công bố là 1.314.489, trong khi ba thành phần cộng ra 1
 ## Kiểm chứng bản rút TCW
 
 Local: 7 Vitest (bộ lọc catalog và phạm vi miền Nam), 4 Playwright desktop/mobile (danh mục 39 mã sau lọc, tìm TCW rỗng, mã/ID/API cũ 404, các mã còn lại hoạt động), lint và typecheck đạt. Code và test đã thay đổi trong bản rút này; phần ghi “chỉ nghiên cứu, code không đổi” bên trên thuộc đợt rà nguồn trước quyết định rút. Chưa dùng local để chứng nhận CI, staging hoặc production.
+
+Chốt bàn giao tiếp theo: Cloudflare build `520fb24a` đã Ready (version `e347c515`, 100% traffic staging). CI vẫn còn chạy E2E tại lần lưu; xem snapshot hiện hành trong `ports-next-phase-handoff-20261030.md`.
