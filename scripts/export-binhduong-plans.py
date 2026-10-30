@@ -9,6 +9,12 @@ spec=importlib.util.spec_from_file_location('dongnai',ROOT/'scripts/export-pdn-p
 dn=importlib.util.module_from_spec(spec);spec.loader.exec_module(dn)
 TERMINALS={'BC198':('gmd_binh_duong','Cảng Bình Dương')}
 
+def check_event_retention(previous,current):
+ # A blank board on a cold runner must not erase an already reviewed movement.
+ # Corrections to weights remain possible; removals or route changes need review.
+ key=lambda r:(r['day'],r['direction'],r['time'],r['vessel'].casefold(),r['from'],r['to'])
+ if not {key(r) for r in previous}<={key(r) for r in current}:raise ValueError('Unexpected missing previously published movement')
+
 def compile_day(day,rawdir):
  events=[];proof=[]
  for direction in ['arrival','departure']:
@@ -41,16 +47,50 @@ def compile_day(day,rawdir):
 def main():
  # A standalone Binh Duong edition never changes PDN's publication or cutoff.
  cutoff=dt.datetime.now(dt.timezone(dt.timedelta(hours=7))).date()-dt.timedelta(days=1)
- parser=argparse.ArgumentParser();parser.add_argument('--through',default=str(cutoff));options=parser.parse_args()
+ parser=argparse.ArgumentParser();parser.add_argument('--through',default=str(cutoff));parser.add_argument('--raw-dir',type=Path,default=ROOT/'.local/binhduong/raw');parser.add_argument('--recent-only',action='store_true');options=parser.parse_args()
  start=dt.date(2025,1,1);end=dt.date.fromisoformat(options.through)
  if not start<=end<=cutoff:raise ValueError('Invalid elapsed history window')
+ previous_path=ROOT/'docs/catalog-review/binhduong-history-ledger.json'
+ previous=json.loads(previous_path.read_text(encoding='utf8')) if previous_path.exists() else None
+ if previous and end<dt.date.fromisoformat(previous['metadata']['through']):raise ValueError('Cannot regress the published cutoff')
+ preserved_days={};preserved_sources={};preserved_months={}
+ if options.recent_only:
+  if not previous or previous['metadata']['source_url']!=dn.SOURCE or previous['metadata']['parser_version']!='binhduong-direct-plan/1.0.0':raise ValueError('Missing reviewed historical edition')
+  preserved_days={d['day']:d for d in dn.published_json(MODULE/'binhduong-history-data.ts','export const binhduongDaily:SouthDay[]=')}
+  preserved_sources={d['day']:d['responses'] for d in previous['sources']}
  daily=[];events=[];sources=[]
  for n in range((end-start).days+1):
-  day=str(start+dt.timedelta(days=n));d,rows,proof=compile_day(day,ROOT/'.local/pdn/raw')
+  day=str(start+dt.timedelta(days=n))
+  if options.recent_only and day<str(end-dt.timedelta(days=6)) and day<=previous['metadata']['through']:
+   if day not in preserved_days or day not in preserved_sources:raise ValueError('Missing preserved day')
+   d=preserved_days[day];proof=preserved_sources[day];month=day[:7]
+   if {p['section'] for p in proof}!={'arrival','departure'} or len(proof)!=2:raise ValueError('Missing historical source proof')
+   if hashlib.sha256(''.join(p['sha256'] for p in proof).encode()).hexdigest()!=d['sha256']:raise ValueError('Preserved daily checksum mismatch')
+   if month not in preserved_months:
+    path=MODULE/'binhduong-journal-data'/f'{month}.ts'
+    preserved_months[month]=json.loads(gzip.decompress(base64.b64decode(json.loads(path.read_text(encoding='utf8').split('export const southJournalGzip=',1)[1].rsplit(';',1)[0]),validate=True))) if path.exists() else []
+   rows=[r for r in preserved_months[month] if r['day']==day]
+   for r in rows:
+    if (r['asset']!='gmd_binh_duong' or r['harbour_code']!='BC198'
+        or r['direction'] not in ['arrival','departure'] or not r['time'].startswith(day+'T')
+        or r['source_url']!=dn.SOURCE or (r['dwt'] is not None and dn.weight(r['dwt']) is None)
+        or not any(p['section']==r['direction'] and p['sha256']==r['sha256'] for p in proof)):raise ValueError('Invalid preserved event')
+   for direction in ['arrival','departure']:
+    selected=[r for r in rows if r['direction']==direction];weights=[r['dwt'] for r in selected if r['dwt'] is not None]
+    expected=[len(selected),sum(weights) if weights else None,len(selected)-len(weights)]
+    if d['assets'].get('gmd_binh_duong',{}).get(direction,[0,None,0])!=expected:raise ValueError('Preserved daily aggregate mismatch')
+  else:d,rows,proof=compile_day(day,options.raw_dir)
   daily.append(d);events.extend(rows);sources.append({'day':day,'responses':proof})
  ids=collections.defaultdict(set)
  for e in events:ids[(e['direction'],e['source_id'])].add(e['day'])
  if any(len(v)>1 for v in ids.values()):raise ValueError('Native ID appears on different days')
+ if previous:
+  old_events=[]
+  for month in previous['monthly']:
+   path=MODULE/'binhduong-journal-data'/f'{month}.ts'
+   if path.exists():old_events.extend(json.loads(gzip.decompress(base64.b64decode(json.loads(path.read_text(encoding='utf8').split('export const southJournalGzip=',1)[1].rsplit(';',1)[0]),validate=True))))
+   elif any(v['rows'] for v in previous['monthly'][month]['gmd_binh_duong'].values()):raise ValueError('Missing published journal')
+  check_event_retention(old_events,events)
  monthly={};grouped=collections.defaultdict(list)
  for e in events:
   month=e['day'][:7];grouped[month].append(e)
@@ -58,16 +98,20 @@ def main():
   v['rows']+=1
   if e['dwt'] is None:v['missing_dwt']+=1
   else:v['dwt']=(v['dwt'] or 0)+e['dwt']
+ for d in daily:
+  for direction in ['arrival','departure']:
+   monthly.setdefault(d['day'][:7],{}).setdefault('gmd_binh_duong',{}).setdefault(direction,{'rows':None,'dwt':None,'missing_dwt':0})
  ledgerpath=ROOT/'docs/catalog-review/binhduong-history-ledger.json'
  if ledgerpath.exists():
   old=json.loads(ledgerpath.read_text(encoding='utf8'))
   for month,assets in old['monthly'].items():
    for direction,value in assets['gmd_binh_duong'].items():
-    if monthly.get(month,{}).get('gmd_binh_duong',{}).get(direction,{}).get('rows',0)<value['rows']*.95:raise ValueError('Unexpected history loss')
+    if (monthly.get(month,{}).get('gmd_binh_duong',{}).get(direction,{}).get('rows') or 0)<(value['rows'] or 0)*.95:raise ValueError('Unexpected history loss')
  metadata={'parser_version':'binhduong-direct-plan/1.0.0','source_url':dn.SOURCE,'from':str(start),'through':str(end),'checked_at':max(d['checked_at'] for d in daily),'requested_days':len(daily),'responses':len(sources)*2,'events':len(events),'first_observation':min((e['day'] for e in events),default=None),'last_observation':max((e['day'] for e in events),default=None),'source_errors':[],'semantics':'authority_published_plan','movement_scope':'berth','included_resources':['arrival','departure'],'shifting_included':False,'actual_verified':False,'full_scope_certified':False}
  metadata['last_observation_by_direction']={direction:max((e['day'] for e in events if e['direction']==direction),default=None) for direction in ['arrival','departure']}
  metadata['coverage_status']='partial'
  metadata['absence_means_zero']=False
+ metadata['scheduled_refresh_verified']=False
  compact=lambda v:json.dumps(v,ensure_ascii=False,separators=(',',':'))
  target=MODULE/'binhduong-journal-data';target.mkdir(exist_ok=True)
  for month,rows in grouped.items():

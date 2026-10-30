@@ -1,0 +1,78 @@
+{
+  "checked_at": "2026-10-30T15:47:32.114937+00:00",
+  "prior_quality": [
+    {
+      "id": 41079292805,
+      "head_sha": "53d226f0a42db803304b1b1d303e6c63cff4fa88",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41079292805"
+    },
+    {
+      "id": 41080083652,
+      "head_sha": "34005f1118d70510e052172f591979a3a5dd139b",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41080083652"
+    },
+    {
+      "id": 41080575259,
+      "head_sha": "2790e0ad847d6ca6e46fe3592b635206f6a71a44",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41080575259"
+    }
+  ],
+  "refresh": {
+    "checked_at": "2026-10-30T15:44:06.513713+00:00",
+    "from": "2026-10-23",
+    "through": "2026-10-29",
+    "source_refresh_success": true,
+    "export_success": true,
+    "scheduled_refresh_verified": false,
+    "counts": {
+      "ok": 14
+    }
+  },
+  "metadata": {
+    "parser_version": "binhduong-direct-plan/1.0.0",
+    "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+    "from": "2025-01-01",
+    "through": "2026-10-29",
+    "checked_at": "2026-10-30T15:44:17.533566+00:00",
+    "requested_days": 667,
+    "responses": 1334,
+    "events": 8342,
+    "first_observation": "2025-01-01",
+    "last_observation": "2026-08-24",
+    "source_errors": [],
+    "semantics": "authority_published_plan",
+    "movement_scope": "berth",
+    "included_resources": [
+      "arrival",
+      "departure"
+    ],
+    "shifting_included": false,
+    "actual_verified": false,
+    "full_scope_certified": false,
+    "last_observation_by_direction": {
+      "arrival": "2026-08-24",
+      "departure": "2026-07-15"
+    },
+    "coverage_status": "partial",
+    "absence_means_zero": false,
+    "scheduled_refresh_verified": false
+  },
+  "validation": {
+    "python_tests": 7,
+    "vitest_tests": 7,
+    "lint": true,
+    "typecheck": true,
+    "cold_runner_history_preserved": true,
+    "replay_byte_identical": true,
+    "pdn_publication_unchanged": true,
+    "e2e_desktop_mobile": 4
+  },
+  "scheduled_refresh_verified": false,
+  "production_verified": false
+}

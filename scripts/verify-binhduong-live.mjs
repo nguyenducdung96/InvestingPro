@@ -1,13 +1,20 @@
 import assert from 'node:assert/strict';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {setTimeout as delay} from 'node:timers/promises';
+import {assertAssetMonths,assertEdition,recordedRange,sumAvailable} from './lib/south-live.mjs';
 const root=new URL('../',import.meta.url);
 const ledger=JSON.parse(await readFile(new URL('docs/catalog-review/binhduong-history-ledger.json',root),'utf8'));
 const base=process.env.SOUTH_VERIFY_BASE??'https://investing-pro-web-staging.tuyenkinhmon88.workers.dev';
-const receipt={verified_at:new Date().toISOString(),base_url:base,through:ledger.metadata.through,checked_at:ledger.metadata.checked_at,deployment_readback_verified:false,scheduled_refresh_verified:false,checks:[]};
+const receipt={verified_at:new Date().toISOString(),base_url:base,through:ledger.metadata.through,checked_at:ledger.metadata.checked_at,deployment_readback_verified:false,scheduled_refresh_verified:false,published_commit:process.env.PUBLISHED_COMMIT??null,checks:[]};
 async function get(path){const r=await fetch(base+path,{redirect:'error',signal:AbortSignal.timeout(30000)});assert.equal(r.status,200,path);return r.json();}
 try{
+ if(process.argv.includes('--wait')){
+  const until=Date.now()+10*60000;
+  while(true){try{assertEdition(await get('/api/v1/companies/GMD/plans?asset=gmd_binh_duong'),ledger.metadata);break;}catch(error){if(Date.now()>until)throw error;console.log('Waiting for the Binh Duong edition to deploy');await delay(15000);}}
+ }
  for(const direction of ['arrival','departure']){
   const result=await get(`/api/v1/companies/GMD/plans?asset=gmd_binh_duong&direction=${direction}`);
+  assertAssetMonths(result,ledger,'gmd_binh_duong',direction);
   assert.equal(result.metadata.checked_at,ledger.metadata.checked_at,'Published edition differs');
   assert.equal(result.metadata.through,ledger.metadata.through);
   assert.deepEqual(result.metadata.last_observation_by_direction,ledger.metadata.last_observation_by_direction);
@@ -20,6 +27,19 @@ try{
    else assert.ok(Math.abs(period.current.observed_dwt-expected.dwt)<0.001,`${period.period}/${direction} DWT`);
    assert.equal(period.current.dwt,null);
   }
+  const gemalink=await get(`/api/v1/companies/GMD/plans?asset=gemalink&direction=${direction}`);
+  const combined=await get(`/api/v1/companies/GMD/plans?asset=gmd_south&direction=${direction}`);
+  for(const month of combined.months){
+   const parts=[result,gemalink].map(data=>data.months.find(p=>p.period===month.period));
+   for(const key of ['rows','dwt']){
+    const expected=sumAvailable(parts.map(p=>p?recordedRange(p.current)[key]:null));
+    const actual=recordedRange(month.current)[key];
+    if(expected===null)assert.equal(actual,null);else assert.ok(actual!==null&&Math.abs(actual-expected)<1e-5,`${month.period}/${key} GMD south`);
+   }
+  }
+  const region=await get(`/api/v1/industries/ports/south?period=2026-06&direction=${direction}`);
+  assert.equal(region.regional_total,null);assert.equal(region.rows.filter(r=>r.ticker==='GMD').length,1);
+  assert.deepEqual(recordedRange(region.rows.find(r=>r.asset==='gmd_south').metric.current),recordedRange(combined.months.find(p=>p.period==='2026-06').current));
   const day=ledger.metadata.last_observation_by_direction[direction];
   const detail=await get(`/api/v1/companies/GMD/plans?asset=gmd_binh_duong&direction=${direction}&day=${day}`);
   assert.ok(detail.events.length>0);
@@ -30,6 +50,6 @@ try{
  assert.equal(page.status,200);assert.ok((await page.text()).includes('Bối cảnh nguồn Bình Dương từ tháng 7/2026'));
  receipt.deployment_readback_verified=true;
 }catch(error){receipt.error=error.message;process.exitCode=1;}
-const out=new URL('.local/binhduong-research/',root);await mkdir(out,{recursive:true});
+const out=new URL('.local/binhduong/',root);await mkdir(out,{recursive:true});
 await writeFile(new URL('live-readback.json',out),JSON.stringify(receipt,null,2)+'\n');
 console.log(JSON.stringify(receipt,null,2));

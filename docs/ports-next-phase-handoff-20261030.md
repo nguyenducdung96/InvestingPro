@@ -2,6 +2,14 @@
 
 Tài liệu tiếp tục hiện hành. Thay thế các thứ tự phase cũ và các đoạn snapshot còn ghi giữ TCW, tách nhiều dòng mỗi mã trên vùng hoặc SWC chỉ có bến phao. Đợt lưu này không bắt đầu phase triển khai tiếp theo.
 
+## Cập nhật phase Bình Dương theo yêu cầu mới 30/10/2026
+
+Đã bắt đầu và hoàn thiện tại máy quy trình refresh riêng Bình Dương; xem [triển khai](binhduong-refresh-20261030.md) và [receipt](catalog-review/binhduong-stabilization-20261030.json). Ba run Quality `41079292805`, `41080083652`, `41080575259` đều success, thay trạng thái còn chờ bên dưới. Edition mới đến 29/10: 8.342 dòng không đổi, last observation vẫn vào 24/08 và rời 15/07. Không đổi PDN.
+
+Bước còn lại trong phase: kiểm tra CI/deploy/readback đúng SHA bản mới, lưu receipt. Workflow Bình Dương hiện chỉ cấu hình thủ công trên nhánh staging; chưa đăng ký default branch, chưa chạy refresh cloud hoặc schedule. Không xem cấu hình là nghiệm thu vận hành. Sau readback, bước vận hành kế tiếp là đăng ký/chạy workflow thủ công cloud, rồi mới xét lịch riêng Bình Dương; không mở lại cron PDN.
+
+Các snapshot bên dưới là trước phase Bình Dương, giữ làm mốc lịch sử.
+
 ## Workspace và mốc code
 
 - Workspace: `D:\GitWork\InvestProApp\InvestingPro`; branch `codex/cloudflare-next-compat`.
