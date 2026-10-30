@@ -1,5 +1,20 @@
 # Tiến độ ngành cảng — cập nhật 30/10/2026
 
+## Bình Dương đã chạy cloud và đăng ký lịch riêng — 30/10/2026
+
+Bản code cuối **77d88f0**: Quality [41087454420](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41087454420) **success ở attempt 2**, gồm lint/typecheck/Vitest/Python 8 kiểm tra Bình Dương, E2E và Next/OpenNext build. Attempt 1 bị runner shutdown ở E2E, không sửa code theo lỗi hạ tầng. Cloudflare build `a05a1d7b-dd58-4e54-9617-07f1692ca3fe` **success**; readback staging sau deploy đúng edition cloud `b103701` cũng đạt. Đã hoàn tất yêu cầu chạy cloud và cấu hình lịch; nghiệm thu hai chu kỳ schedule thật/production vẫn tách riêng.
+
+Workflow `binhduong-plans.yml` đã active trên default branch `main`, đăng ký lịch **08:55 Việt Nam mỗi ngày** tại `af6fb3f`; checkout/publish vẫn chỉ nhánh staging `codex/cloudflare-next-compat`. Thay đổi `main` chỉ gồm workflow Bình Dương, không merge ứng dụng staging hoặc đổi workflow PDN.
+
+Run thủ công cloud [41085429972](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41085429972) đã **success**: cold runner lấy 14 phản hồi 23–29/10 → export → kiểm tra → push `2e1ec1f` → deploy → readback đúng edition `checked_at=2026-10-30T15:57:29.850729+00:00`, 22 tháng hai chiều và tổng GMD miền Nam khớp. Vẫn 8.342 dòng, không bù được khoảng thiếu. [Receipt cloud](catalog-review/binhduong-cloud-refresh-20261030.json).
+
+Run thứ hai từ chính workflow trên `main` [41086953831](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41086953831) cũng **success**, publish `b103701`, readback hoàn tất 23:10:43 Việt Nam; edition `checked_at=2026-10-30T16:07:26.450609+00:00`. [Receipt cấu hình lịch và hai run cloud](catalog-review/binhduong-schedule-20261030.json). Dữ liệu vẫn 8.342 dòng; cả 20 JSON nhật ký lịch sử và PDN không đổi. Sửa cuối `77d88f0` giữ nguyên tệp nén khi JSON không đổi; Python 8 kiểm tra gồm cold runner với gzip header khác nền tảng đã qua.
+
+Không cần Deploy Hook hoặc secret mới. GitHub không có check trên commit bot không đủ để kết luận Cloudflare không build: readback cloud đã hoàn tất trước khi build commit code tiếp theo bắt đầu. Đã bỏ yêu cầu hook từng thử trong quá trình chẩn đoán. Gzip journal chuẩn hóa header; nếu JSON không đổi thì giữ nguyên tệp nén đã duyệt, kể cả khác zlib/Python. Kiểm tra cold runner mô phỏng header khác nền tảng đã qua. Verifier lưu event/run/attempt/commit và nguồn refresh để audit.
+
+Lịch đã đăng ký không thay bằng chứng chạy lịch. Tại lúc cấu hình chưa có run `event=schedule`; `scheduled_refresh_verified=false`, production chưa nghiệm thu. Hai chu kỳ sớm nhất để đối chiếu là sau 08:55 ngày 31/10 và 01/11/2026, có thể trễ theo scheduler. Chỉ chốt schedule khi hai chu kỳ thật có source/export/publish và readback đúng edition; không lấy hai run thủ công làm bằng chứng schedule. HCM connectivity, cron PDN, Long Bình Tân, ICD/kho bãi và Dung Quất định kỳ tiếp tục để sau.
+
+
 ## Bình Dương / GMD — ổn định refresh độc lập 30/10/2026
 
 Quality **41084003113** của bản tính năng **ea7b7a3** đã **success**, gồm lint/typecheck/Vitest/Python, E2E và cả Next/OpenNext build. CI/readback này không thay nghiệm thu refresh cloud theo lịch hoặc production.
@@ -169,7 +184,7 @@ Chiều tàu rời như ảnh người dùng: tháng 8 tổng 704.494,56 DWT (-6
 ## Next steps hiện hành
 
 1. Refresh thủ công và staging Bình Dương `ea7b7a3` đã đạt; xem receipt phase để biết kết quả Quality đúng SHA.
-2. Đăng ký workflow Bình Dương trên default branch và chạy thủ công cloud trước khi xét lịch riêng; không đồng nhất cấu hình với nghiệm thu schedule.
+2. Bình Dương đã active lịch 08:55 Việt Nam; tiếp theo đối chiếu hai run schedule thật sau 31/10 và 01/11. Hai run thủ công không chứng nhận schedule.
 3. GMD/SGP: chỉ tiếp tục khoảng thiếu hoặc tài sản cảng sông/biển đủ nguồn; không tự gộp K12/khu neo/TT2 hoặc lấy phao Gemadept thay cảng.
 4. Tấn/TEU công bố của cảng đủ phạm vi giữ riêng DWT; so lũy kế cùng tháng/cutoff.
 5. HCM connectivity, cron PDN, Long Bình Tân, Dung Quất định kỳ và phạm vi ICD/depot/kho bãi tiếp tục để sau. TCL/TCW đã rút.

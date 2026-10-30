@@ -1,0 +1,547 @@
+{
+  "recorded_at": "2026-10-30T16:28:52.075239+00:00",
+  "registration": {
+    "registered_at": "2026-10-30T16:06:56.963503+00:00",
+    "parent": "99d75810f0a49f5bfd68121b829e9243c70ba0c6",
+    "commit": "af6fb3f122be671e1b18cdce69ca77fdaf23d883",
+    "paths": [
+      ".github/workflows/binhduong-plans.yml"
+    ],
+    "schedule_configured": true,
+    "cron_utc": "55 1 * * *",
+    "timezone": "Asia/Ho_Chi_Minh",
+    "time_local": "08:55",
+    "deploy_hook_required": false,
+    "scheduled_refresh_verified": false
+  },
+  "registration_verification": {
+    "checked_at": "2026-10-30T16:07:44.251053+00:00",
+    "workflow": {
+      "id": 401967706,
+      "name": "GMD Binh Duong official plans",
+      "path": ".github/workflows/binhduong-plans.yml",
+      "state": "active",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/blob/main/.github/workflows/binhduong-plans.yml"
+    },
+    "default_branch_file_matches_staging": true,
+    "cron_utc": "55 1 * * *",
+    "local_time": "08:55 Asia/Ho_Chi_Minh",
+    "schedule_configured": true,
+    "scheduled_runs": [],
+    "scheduled_refresh_verified": false,
+    "earliest_next_cycles_local": [
+      "2026-10-31 08:55 Asia/Ho_Chi_Minh",
+      "2026-11-01 08:55 Asia/Ho_Chi_Minh"
+    ]
+  },
+  "manual_cloud_runs": [
+    {
+      "run": {
+        "id": 41085429972,
+        "head_sha": "59c48ceb3d1ebc03c6427ad595e1513e83543401",
+        "head_branch": "codex/cloudflare-next-compat",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41085429972",
+        "created_at": "2026-10-30T15:57:15Z"
+      },
+      "source_receipt": {
+        "checked_at": "2026-10-30T15:57:25.644330+00:00",
+        "from": "2026-10-23",
+        "through": "2026-10-29",
+        "source_refresh_success": true,
+        "export_success": true,
+        "scheduled_refresh_verified": false,
+        "counts": {
+          "ok": 14
+        }
+      },
+      "live_readback": {
+        "verified_at": "2026-10-30T15:58:09.032Z",
+        "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+        "through": "2026-10-29",
+        "checked_at": "2026-10-30T15:57:29.850729+00:00",
+        "deployment_readback_verified": true,
+        "scheduled_refresh_verified": false,
+        "published_commit": "2e1ec1f69406a50ceef20d92c1b81b345b457592",
+        "checks": [
+          {
+            "direction": "arrival",
+            "months_matched": 22,
+            "last_observation": "2026-08-24",
+            "journal_rows": 1
+          },
+          {
+            "direction": "departure",
+            "months_matched": 22,
+            "last_observation": "2026-07-15",
+            "journal_rows": 1
+          }
+        ]
+      },
+      "artifact": {
+        "id": 12992336354,
+        "name": "binhduong-readback",
+        "size_in_bytes": 137638,
+        "expires_at": "2026-11-13T16:03:57Z"
+      }
+    },
+    {
+      "run": {
+        "id": 41086953831,
+        "head_sha": "af6fb3f122be671e1b18cdce69ca77fdaf23d883",
+        "head_branch": "main",
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41086953831",
+        "created_at": "2026-10-30T16:07:08Z"
+      },
+      "source_receipt": {
+        "checked_at": "2026-10-30T16:07:20.787921+00:00",
+        "from": "2026-10-23",
+        "through": "2026-10-29",
+        "source_refresh_success": true,
+        "export_success": true,
+        "scheduled_refresh_verified": false,
+        "counts": {
+          "ok": 14
+        }
+      },
+      "live_readback": {
+        "verified_at": "2026-10-30T16:10:43.405Z",
+        "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+        "through": "2026-10-29",
+        "checked_at": "2026-10-30T16:07:26.450609+00:00",
+        "deployment_readback_verified": true,
+        "scheduled_refresh_verified": false,
+        "published_commit": "b10370139260071cc60a2ffbfb33e0fc5251dd2a",
+        "event_name": "workflow_dispatch",
+        "run_id": "41086953831",
+        "run_attempt": "1",
+        "verifier_version": "south-live/1",
+        "checks": [
+          {
+            "direction": "arrival",
+            "months_matched": 22,
+            "last_observation": "2026-08-24",
+            "journal_rows": 1
+          },
+          {
+            "direction": "departure",
+            "months_matched": 22,
+            "last_observation": "2026-07-15",
+            "journal_rows": 1
+          }
+        ],
+        "source_refresh_success": true
+      },
+      "artifact": {
+        "id": 12991893006,
+        "name": "binhduong-readback",
+        "size_in_bytes": 137708,
+        "expires_at": "2026-11-13T16:10:43Z"
+      }
+    }
+  ],
+  "history_retention": {
+    "all_20_journal_json_bytes_unchanged": true,
+    "pdn_publication_and_workflow_unchanged": true,
+    "files": [
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2025-01.ts",
+        "journal_json_sha256": "9d743e47e07b1b55e2f4cfc12a743b65f12dc1497c95a41f9510e695c9e78b47"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2025-02.ts",
+        "journal_json_sha256": "ab2db8ac1baf2a365a2cf092b02ba92908a006a2d63d8d0a63ad2bc53fd1c1e4"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2025-03.ts",
+        "journal_json_sha256": "dd1b2c6420ba186fbb5cf535f869542bfbd9c7835ab87ca2dcb90c1fc5e1e2dc"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2025-04.ts",
+        "journal_json_sha256": "88d6aef8fdff9f8f7d2899ffedea16949f07c678ca523139f732c6ec118685d9"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2025-05.ts",
+        "journal_json_sha256": "352f7d1dc4b519c23ebc7dec60e078d5146a03fcdf8ca0575b975009ffebaab1"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2025-06.ts",
+        "journal_json_sha256": "178e2991cbeaa3a99a839ac9060be20b5ea66c7f2ed5a06ecbe06178ae03c52e"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2025-07.ts",
+        "journal_json_sha256": "db549dac4d63d4d5d190ea8f3deb85a78e52a70d8e6940a811807234cb4c09a0"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2025-08.ts",
+        "journal_json_sha256": "e4d4e6bcb3f7c433db7147a5965ecf895cb118b11609391a50661177aa3d0eec"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2025-09.ts",
+        "journal_json_sha256": "46f81b2f2d0c35cc5def7b6ec7f103a50c583a883e32a082636e6f9b365b425a"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2025-10.ts",
+        "journal_json_sha256": "b350b3a7410c40af0d2342eea65e42ea2811993416bba5fa637cb4df70049a63"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2025-11.ts",
+        "journal_json_sha256": "5034613f94f1124bc2fc56d65020bb60a864fcbf09bf7c21fccd918ebfe6bce7"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2025-12.ts",
+        "journal_json_sha256": "7353916107a637bab10870c241e9f2010c27105934affae4796816ff42edaafb"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2026-01.ts",
+        "journal_json_sha256": "72a9161b4c926882bb78df3a0f4bfe0c5c50f6f6353df568e330ace068d7a628"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2026-02.ts",
+        "journal_json_sha256": "833a29d3c99b263fa652c058c425b961884746513ff98cb68f59dd9340a4c8fa"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2026-03.ts",
+        "journal_json_sha256": "3875f3ff100ff98490c453e1480419a555aa226cf67f99cf45508d9d2e49f35c"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2026-04.ts",
+        "journal_json_sha256": "10cbde8480877de74afc99e814e976d61b694d490e79ce0804cbb585ec4ce9bc"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2026-05.ts",
+        "journal_json_sha256": "f66df0a265738380925be1475c08639b2f91df25e625a151b531ccd93a2eba31"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2026-06.ts",
+        "journal_json_sha256": "337317121258bbc800b3df6bc1df7895f7efe5ed6bcde8827dbb5edf51ac107d"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2026-07.ts",
+        "journal_json_sha256": "be0ff20e3b9dd7b7ab3f46ac8c9641381ed0426854bc8cb1aa93c0ed91bc6e8a"
+      },
+      {
+        "path": "packages/modules/port/src/binhduong-journal-data/2026-08.ts",
+        "journal_json_sha256": "3e663188ae08b4a132d631157105bc25c1b03e2470a99988fda1f69b2320ba73"
+      }
+    ],
+    "compressed_bytes_may_differ_by_zlib_version": true,
+    "future_exports_preserve_existing_compressed_bytes_when_json_unchanged": true
+  },
+  "metadata": {
+    "parser_version": "binhduong-direct-plan/1.0.0",
+    "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+    "from": "2025-01-01",
+    "through": "2026-10-29",
+    "checked_at": "2026-10-30T16:07:26.450609+00:00",
+    "requested_days": 667,
+    "responses": 1334,
+    "events": 8342,
+    "first_observation": "2025-01-01",
+    "last_observation": "2026-08-24",
+    "source_errors": [],
+    "semantics": "authority_published_plan",
+    "movement_scope": "berth",
+    "included_resources": [
+      "arrival",
+      "departure"
+    ],
+    "shifting_included": false,
+    "actual_verified": false,
+    "full_scope_certified": false,
+    "last_observation_by_direction": {
+      "arrival": "2026-08-24",
+      "departure": "2026-07-15"
+    },
+    "coverage_status": "partial",
+    "absence_means_zero": false,
+    "scheduled_refresh_verified": false
+  },
+  "code_commit": "77d88f0afbaffec16c53574f7c25dd3c08f424d8",
+  "schedule_configured": true,
+  "scheduled_refresh_verified": false,
+  "production_verified": false,
+  "deploy_hook_required": false,
+  "quality_retry": {
+    "requested_at": "2026-10-30T16:18:48.121247+00:00",
+    "run_id": 41087454420,
+    "commit": "77d88f0afbaffec16c53574f7c25dd3c08f424d8",
+    "http_status": 201,
+    "first_attempt_failure": "Runner received a shutdown signal during E2E; builds skipped",
+    "source_file_changed": false,
+    "runner_shutdown_log": "2026-10-30T16:17:40.2487499Z The runner has received a shutdown signal.",
+    "final_attempt": 2,
+    "final_conclusion": "success"
+  },
+  "final_code_staging_readback": {
+    "verified_at": "2026-10-30T16:13:50.753Z",
+    "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+    "through": "2026-10-29",
+    "checked_at": "2026-10-30T16:07:26.450609+00:00",
+    "deployment_readback_verified": true,
+    "scheduled_refresh_verified": false,
+    "published_commit": "b10370139260071cc60a2ffbfb33e0fc5251dd2a",
+    "event_name": "local",
+    "run_id": null,
+    "run_attempt": null,
+    "verifier_version": "south-live/1",
+    "checks": [
+      {
+        "direction": "arrival",
+        "months_matched": 22,
+        "last_observation": "2026-08-24",
+        "journal_rows": 1
+      },
+      {
+        "direction": "departure",
+        "months_matched": 22,
+        "last_observation": "2026-07-15",
+        "journal_rows": 1
+      }
+    ],
+    "source_refresh_success": true
+  },
+  "release": {
+    "checked_at": "2026-10-30T16:28:21.149378+00:00",
+    "sha": "77d88f0afbaffec16c53574f7c25dd3c08f424d8",
+    "checks": [
+      {
+        "name": "check",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41087454420/job/124176684563"
+      },
+      {
+        "name": "Workers Builds: investing-pro-web-staging",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/a05a1d7b-dd58-4e54-9617-07f1692ca3fe"
+      }
+    ],
+    "runs": [
+      {
+        "id": 41087454420,
+        "head_sha": "77d88f0afbaffec16c53574f7c25dd3c08f424d8",
+        "name": "Quality",
+        "event": "push",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41087454420",
+        "run_attempt": 2,
+        "jobs": [
+          {
+            "id": 124176684563,
+            "run_id": 41087454420,
+            "workflow_name": "Quality",
+            "head_branch": "codex/cloudflare-next-compat",
+            "run_url": "https://api.github.com/repos/nguyenducdung96/InvestingPro/actions/runs/41087454420",
+            "run_attempt": 2,
+            "node_id": "CR_kwDOVJhEU88AAAAc6YHWEw",
+            "head_sha": "77d88f0afbaffec16c53574f7c25dd3c08f424d8",
+            "url": "https://api.github.com/repos/nguyenducdung96/InvestingPro/actions/jobs/124176684563",
+            "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41087454420/job/124176684563",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-30T16:18:50Z",
+            "started_at": "2026-10-30T16:18:53Z",
+            "completed_at": "2026-10-30T16:27:49Z",
+            "name": "check",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-30T16:18:53Z",
+                "completed_at": "2026-10-30T16:18:55Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-30T16:18:55Z",
+                "completed_at": "2026-10-30T16:18:57Z"
+              },
+              {
+                "name": "Run pnpm/action-setup@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-30T16:18:57Z",
+                "completed_at": "2026-10-30T16:18:58Z"
+              },
+              {
+                "name": "Run actions/setup-node@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-30T16:18:58Z",
+                "completed_at": "2026-10-30T16:19:03Z"
+              },
+              {
+                "name": "Run pnpm install --frozen-lockfile",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-30T16:19:03Z",
+                "completed_at": "2026-10-30T16:19:09Z"
+              },
+              {
+                "name": "Run pnpm lint",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-30T16:19:09Z",
+                "completed_at": "2026-10-30T16:19:20Z"
+              },
+              {
+                "name": "Run pnpm typecheck",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-30T16:19:20Z",
+                "completed_at": "2026-10-30T16:19:49Z"
+              },
+              {
+                "name": "Run pnpm test",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-30T16:19:49Z",
+                "completed_at": "2026-10-30T16:20:21Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9,
+                "started_at": "2026-10-30T16:20:21Z",
+                "completed_at": "2026-10-30T16:20:21Z"
+              },
+              {
+                "name": "Run python -m pip install -r scripts/requirements-gemalink-national.txt",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 10,
+                "started_at": "2026-10-30T16:20:21Z",
+                "completed_at": "2026-10-30T16:20:25Z"
+              },
+              {
+                "name": "Run python scripts/test-gemalink-national.py",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 11,
+                "started_at": "2026-10-30T16:20:25Z",
+                "completed_at": "2026-10-30T16:20:26Z"
+              },
+              {
+                "name": "Run python scripts/test-swc-longbinh-plans.py",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 12,
+                "started_at": "2026-10-30T16:20:26Z",
+                "completed_at": "2026-10-30T16:20:26Z"
+              },
+              {
+                "name": "Run python scripts/test-binhduong-plans.py",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-30T16:20:26Z",
+                "completed_at": "2026-10-30T16:20:27Z"
+              },
+              {
+                "name": "Run pnpm exec playwright install --with-deps chromium",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-30T16:20:27Z",
+                "completed_at": "2026-10-30T16:20:45Z"
+              },
+              {
+                "name": "Run pnpm test:e2e",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-30T16:20:45Z",
+                "completed_at": "2026-10-30T16:26:40Z"
+              },
+              {
+                "name": "Run pnpm build",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-30T16:26:40Z",
+                "completed_at": "2026-10-30T16:27:23Z"
+              },
+              {
+                "name": "Run pnpm build:cloudflare",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-30T16:27:23Z",
+                "completed_at": "2026-10-30T16:27:45Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 31,
+                "started_at": "2026-10-30T16:27:45Z",
+                "completed_at": "2026-10-30T16:27:45Z"
+              },
+              {
+                "name": "Post Run actions/setup-node@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 32,
+                "started_at": "2026-10-30T16:27:45Z",
+                "completed_at": "2026-10-30T16:27:46Z"
+              },
+              {
+                "name": "Post Run pnpm/action-setup@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 33,
+                "started_at": "2026-10-30T16:27:46Z",
+                "completed_at": "2026-10-30T16:27:46Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 34,
+                "started_at": "2026-10-30T16:27:46Z",
+                "completed_at": "2026-10-30T16:27:46Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 35,
+                "started_at": "2026-10-30T16:27:46Z",
+                "completed_at": "2026-10-30T16:27:46Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/nguyenducdung96/InvestingPro/check-runs/124176684563",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000000360,
+            "runner_name": "GitHub Actions 1000000360",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          }
+        ]
+      }
+    ]
+  },
+  "cloud_manual_refresh_verified": true,
+  "quality_verified": true
+}

@@ -1,5 +1,20 @@
 # Bàn giao ngành cảng — trạng thái chốt 30/10/2026
 
+## Bình Dương đã chạy cloud và đăng ký lịch riêng — 30/10/2026
+
+Bản code cuối **77d88f0**: Quality [41087454420](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41087454420) **success ở attempt 2**, gồm lint/typecheck/Vitest/Python 8 kiểm tra Bình Dương, E2E và Next/OpenNext build. Attempt 1 bị runner shutdown ở E2E, không sửa code theo lỗi hạ tầng. Cloudflare build `a05a1d7b-dd58-4e54-9617-07f1692ca3fe` **success**; readback staging sau deploy đúng edition cloud `b103701` cũng đạt. Đã hoàn tất yêu cầu chạy cloud và cấu hình lịch; nghiệm thu hai chu kỳ schedule thật/production vẫn tách riêng.
+
+Workflow `binhduong-plans.yml` đã active trên default branch `main`, đăng ký lịch **08:55 Việt Nam mỗi ngày** tại `af6fb3f`; checkout/publish vẫn chỉ nhánh staging `codex/cloudflare-next-compat`. Thay đổi `main` chỉ gồm workflow Bình Dương, không merge ứng dụng staging hoặc đổi workflow PDN.
+
+Run thủ công cloud [41085429972](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41085429972) đã **success**: cold runner lấy 14 phản hồi 23–29/10 → export → kiểm tra → push `2e1ec1f` → deploy → readback đúng edition `checked_at=2026-10-30T15:57:29.850729+00:00`, 22 tháng hai chiều và tổng GMD miền Nam khớp. Vẫn 8.342 dòng, không bù được khoảng thiếu. [Receipt cloud](catalog-review/binhduong-cloud-refresh-20261030.json).
+
+Run thứ hai từ chính workflow trên `main` [41086953831](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41086953831) cũng **success**, publish `b103701`, readback hoàn tất 23:10:43 Việt Nam; edition `checked_at=2026-10-30T16:07:26.450609+00:00`. [Receipt cấu hình lịch và hai run cloud](catalog-review/binhduong-schedule-20261030.json). Dữ liệu vẫn 8.342 dòng; cả 20 JSON nhật ký lịch sử và PDN không đổi. Sửa cuối `77d88f0` giữ nguyên tệp nén khi JSON không đổi; Python 8 kiểm tra gồm cold runner với gzip header khác nền tảng đã qua.
+
+Không cần Deploy Hook hoặc secret mới. GitHub không có check trên commit bot không đủ để kết luận Cloudflare không build: readback cloud đã hoàn tất trước khi build commit code tiếp theo bắt đầu. Đã bỏ yêu cầu hook từng thử trong quá trình chẩn đoán. Gzip journal chuẩn hóa header; nếu JSON không đổi thì giữ nguyên tệp nén đã duyệt, kể cả khác zlib/Python. Kiểm tra cold runner mô phỏng header khác nền tảng đã qua. Verifier lưu event/run/attempt/commit và nguồn refresh để audit.
+
+Lịch đã đăng ký không thay bằng chứng chạy lịch. Tại lúc cấu hình chưa có run `event=schedule`; `scheduled_refresh_verified=false`, production chưa nghiệm thu. Hai chu kỳ sớm nhất để đối chiếu là sau 08:55 ngày 31/10 và 01/11/2026, có thể trễ theo scheduler. Chỉ chốt schedule khi hai chu kỳ thật có source/export/publish và readback đúng edition; không lấy hai run thủ công làm bằng chứng schedule. HCM connectivity, cron PDN, Long Bình Tân, ICD/kho bãi và Dung Quất định kỳ tiếp tục để sau.
+
+
 Tài liệu tiếp tục hiện hành. Thay thế các thứ tự phase cũ và các đoạn snapshot còn ghi giữ TCW, tách nhiều dòng mỗi mã trên vùng hoặc SWC chỉ có bến phao. Đã cập nhật thêm kết quả phase Bình Dương được người dùng giao trong cùng ngày; snapshot trước phase giữ bên dưới.
 
 ## Cập nhật phase Bình Dương theo yêu cầu mới 30/10/2026
@@ -45,7 +60,7 @@ Các snapshot bên dưới là trước phase Bình Dương, giữ làm mốc l�
 ## Điểm tiếp tục sau khi người dùng yêu cầu làm tiếp
 
 1. **Đã chốt phase Bình Dương thủ công:** tính năng `ea7b7a3`, Quality `41084003113` và Cloudflare `ebe50cc3` success; staging đúng edition đến 29/10, 8.342 dòng, 22 tháng hai chiều và tổng GMD miền Nam khớp. Xem receipt phase và readback ở đầu tài liệu.
-2. **Bình Dương vận hành cloud:** đăng ký workflow riêng trên default branch và chạy thủ công cloud với artifact/receipt trước khi cân nhắc schedule riêng. Giữ raw/hash bất biến, cold-runner history, replay không nhân dòng và push từ chối commit cạnh tranh. Không refresh/thay edition PDN. Có cấu hình lịch không đồng nghĩa đã chạy lịch thật.
+2. **Bình Dương đã chạy cloud và đăng ký 08:55 Việt Nam:** xem mục đầu tài liệu; tiếp theo nghiệm thu hai chu kỳ schedule thật (sớm nhất 31/10 và 01/11), giữ source/export/readback đúng edition. Không mở lại cron PDN. Các snapshot chưa đăng ký bên dưới là lịch sử trước đợt vận hành này.
 3. **Phạm vi cảng sông/biển có nguồn của GMD/SGP:** ưu tiên khoảng trống SGP K12/TT2 và các tài sản phù hợp còn thiếu khi có chứng cứ mới. Không tự gộp K12/khu neo/TT2, không dùng phao Gemadept thay cảng. Phước Long/Nam Hải ICD và phần cảng cạn/kho bãi để phạm vi riêng sau này theo quyết định mới.
 4. **Khoảng lịch sử:** chỉ điều tra khi có đầu mối mới. Gemalink hiện có 326 dòng vào Jan–Jul/2025 từ PDF quốc gia, còn thiếu chiều rời đầu 2025; đã quét 7.845 hồ sơ/7.683 hash, không tải lại toàn bộ vô cớ. Bình Dương edition đang bàn giao đến 28/10/2026, 8.342 dòng; quan sát rời cuối 15/07 và vào cuối 24/08/2026. Thiếu quan sát không có nghĩa bằng 0.
 5. **Sản lượng công bố tấn/TEU của cảng đủ phạm vi:** giữ riêng với DWT và lịch tàu; kỳ, đơn vị và actual/plan phải rõ. Không lấy bình quân/công suất nhân thành tổng kỳ. TCW và sản lượng kho/bãi không nằm trong phase này.
