@@ -1,5 +1,14 @@
 # Bàn giao ngành cảng — trạng thái chốt 30/10/2026
 
+## Rà nguồn SGP K12 / TT2 — hoàn tất 31/10/2026
+
+Đã xác minh phạm vi cầu K12 và TT2, xem bản scan thông báo hàng hải 38/2025 và tờ trình SGP 493/2026; kiểm tra hash/parse đủ 666 bảng Cảng vụ (01/01/2025–28/10/2026). K12 có 228 vào + 224 rời còn mơ hồ giữa cầu Sài Gòn/khu neo Vũng Tàu; 43 điều chuyển giữ riêng. `B.TT2` là phao (30 vào/32 rời), `TTD` là bến khác, `K17` thuộc Bông Sen; không gán sang cầu TT2.
+
+Tìm được nguồn trực tiếp Hoa tiêu miền Nam có nhãn `K12`/`TT2`, hai tab 30–31/10. Mẫu TT2: HAI PHAT 135, GRT 6.282, DWT không có. Có thể chuẩn bị collector lưu kế hoạch riêng; không đổi GRT thành DWT, không suy lịch thành actual hoặc cộng trùng với Cảng vụ. Frontend bản đồ hiện gọi API `apikehoach.cangvuhanghaitphcm.gov.vn:5000`; mẫu local vẫn toàn NEO, không dùng làm movement. Không mở lại nghiệm thu HCM cloud.
+
+[Hồ sơ rà nguồn](sgp-k12-tt2-source-review-20261031.md), [receipt hash và mẫu](catalog-review/sgp-k12-tt2-source-review-20261031.json), công cụ `scripts/audit-sgp-k12-tt2.py`. **Chưa thay code ứng dụng, alias hoặc edition công bố.** Bước kế tiếp: collector Hoa tiêu độc lập chỉ lưu raw/parse để review, rồi nghiệm thu quy thuộc từng dòng và chống trùng trước khi cộng tổng. Đợt này chỉ rà nguồn, chưa bắt đầu collector/tích hợp. Bình Dương đã bật 08:55; nghiệm thu hai chu kỳ schedule thật/production vẫn theo mục bàn giao riêng.
+
+
 ## Bình Dương đã chạy cloud và đăng ký lịch riêng — 30/10/2026
 
 Bản code cuối **77d88f0**: Quality [41087454420](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41087454420) **success ở attempt 2**, gồm lint/typecheck/Vitest/Python 8 kiểm tra Bình Dương, E2E và Next/OpenNext build. Attempt 1 bị runner shutdown ở E2E, không sửa code theo lỗi hạ tầng. Cloudflare build `a05a1d7b-dd58-4e54-9617-07f1692ca3fe` **success**; readback staging sau deploy đúng edition cloud `b103701` cũng đạt. Đã hoàn tất yêu cầu chạy cloud và cấu hình lịch; nghiệm thu hai chu kỳ schedule thật/production vẫn tách riêng.
@@ -61,7 +70,7 @@ Các snapshot bên dưới là trước phase Bình Dương, giữ làm mốc l�
 
 1. **Đã chốt phase Bình Dương thủ công:** tính năng `ea7b7a3`, Quality `41084003113` và Cloudflare `ebe50cc3` success; staging đúng edition đến 29/10, 8.342 dòng, 22 tháng hai chiều và tổng GMD miền Nam khớp. Xem receipt phase và readback ở đầu tài liệu.
 2. **Bình Dương đã chạy cloud và đăng ký 08:55 Việt Nam:** xem mục đầu tài liệu; tiếp theo nghiệm thu hai chu kỳ schedule thật (sớm nhất 31/10 và 01/11), giữ source/export/readback đúng edition. Không mở lại cron PDN. Các snapshot chưa đăng ký bên dưới là lịch sử trước đợt vận hành này.
-3. **Phạm vi cảng sông/biển có nguồn của GMD/SGP:** ưu tiên khoảng trống SGP K12/TT2 và các tài sản phù hợp còn thiếu khi có chứng cứ mới. Không tự gộp K12/khu neo/TT2, không dùng phao Gemadept thay cảng. Phước Long/Nam Hải ICD và phần cảng cạn/kho bãi để phạm vi riêng sau này theo quyết định mới.
+3. **SGP K12/TT2 đã rà nguồn 31/10:** bước sau là collector Hoa tiêu riêng, lưu raw/parse để review trước khi tích hợp; giữ GRT/DWT và K12/khu neo/B.TT2/TTD/K17 riêng. Xem hồ sơ mới ở đầu tài liệu. Các khoảng GMD/SGP khác chỉ mở khi có đầu mối nguồn mới; ICD/kho/bãi để phạm vi riêng.
 4. **Khoảng lịch sử:** chỉ điều tra khi có đầu mối mới. Gemalink hiện có 326 dòng vào Jan–Jul/2025 từ PDF quốc gia, còn thiếu chiều rời đầu 2025; đã quét 7.845 hồ sơ/7.683 hash, không tải lại toàn bộ vô cớ. Bình Dương edition đang bàn giao đến 28/10/2026, 8.342 dòng; quan sát rời cuối 15/07 và vào cuối 24/08/2026. Thiếu quan sát không có nghĩa bằng 0.
 5. **Sản lượng công bố tấn/TEU của cảng đủ phạm vi:** giữ riêng với DWT và lịch tàu; kỳ, đơn vị và actual/plan phải rõ. Không lấy bình quân/công suất nhân thành tổng kỳ. TCW và sản lượng kho/bãi không nằm trong phase này.
 

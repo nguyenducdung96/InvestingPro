@@ -1,5 +1,14 @@
 # Tiến độ ngành cảng — cập nhật 30/10/2026
 
+## Rà nguồn SGP K12 / TT2 — hoàn tất 31/10/2026
+
+Đã xác minh phạm vi cầu K12 và TT2, xem bản scan thông báo hàng hải 38/2025 và tờ trình SGP 493/2026; kiểm tra hash/parse đủ 666 bảng Cảng vụ (01/01/2025–28/10/2026). K12 có 228 vào + 224 rời còn mơ hồ giữa cầu Sài Gòn/khu neo Vũng Tàu; 43 điều chuyển giữ riêng. `B.TT2` là phao (30 vào/32 rời), `TTD` là bến khác, `K17` thuộc Bông Sen; không gán sang cầu TT2.
+
+Tìm được nguồn trực tiếp Hoa tiêu miền Nam có nhãn `K12`/`TT2`, hai tab 30–31/10. Mẫu TT2: HAI PHAT 135, GRT 6.282, DWT không có. Có thể chuẩn bị collector lưu kế hoạch riêng; không đổi GRT thành DWT, không suy lịch thành actual hoặc cộng trùng với Cảng vụ. Frontend bản đồ hiện gọi API `apikehoach.cangvuhanghaitphcm.gov.vn:5000`; mẫu local vẫn toàn NEO, không dùng làm movement. Không mở lại nghiệm thu HCM cloud.
+
+[Hồ sơ rà nguồn](sgp-k12-tt2-source-review-20261031.md), [receipt hash và mẫu](catalog-review/sgp-k12-tt2-source-review-20261031.json), công cụ `scripts/audit-sgp-k12-tt2.py`. **Chưa thay code ứng dụng, alias hoặc edition công bố.** Bước kế tiếp: collector Hoa tiêu độc lập chỉ lưu raw/parse để review, rồi nghiệm thu quy thuộc từng dòng và chống trùng trước khi cộng tổng. Đợt này chỉ rà nguồn, chưa bắt đầu collector/tích hợp. Bình Dương đã bật 08:55; nghiệm thu hai chu kỳ schedule thật/production vẫn theo mục bàn giao riêng.
+
+
 ## Bình Dương đã chạy cloud và đăng ký lịch riêng — 30/10/2026
 
 Bản code cuối **77d88f0**: Quality [41087454420](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41087454420) **success ở attempt 2**, gồm lint/typecheck/Vitest/Python 8 kiểm tra Bình Dương, E2E và Next/OpenNext build. Attempt 1 bị runner shutdown ở E2E, không sửa code theo lỗi hạ tầng. Cloudflare build `a05a1d7b-dd58-4e54-9617-07f1692ca3fe` **success**; readback staging sau deploy đúng edition cloud `b103701` cũng đạt. Đã hoàn tất yêu cầu chạy cloud và cấu hình lịch; nghiệm thu hai chu kỳ schedule thật/production vẫn tách riêng.
@@ -185,7 +194,7 @@ Chiều tàu rời như ảnh người dùng: tháng 8 tổng 704.494,56 DWT (-6
 
 1. Refresh thủ công và staging Bình Dương `ea7b7a3` đã đạt; xem receipt phase để biết kết quả Quality đúng SHA.
 2. Bình Dương đã active lịch 08:55 Việt Nam; tiếp theo đối chiếu hai run schedule thật sau 31/10 và 01/11. Hai run thủ công không chứng nhận schedule.
-3. GMD/SGP: chỉ tiếp tục khoảng thiếu hoặc tài sản cảng sông/biển đủ nguồn; không tự gộp K12/khu neo/TT2 hoặc lấy phao Gemadept thay cảng.
+3. SGP K12/TT2 đã rà nguồn 31/10: tiếp theo collector Hoa tiêu riêng để lưu raw/parse review, chưa cộng vào tổng khi chưa giải alias/overlap; các khoảng GMD/SGP khác cần đầu mối mới.
 4. Tấn/TEU công bố của cảng đủ phạm vi giữ riêng DWT; so lũy kế cùng tháng/cutoff.
 5. HCM connectivity, cron PDN, Long Bình Tân, Dung Quất định kỳ và phạm vi ICD/depot/kho bãi tiếp tục để sau. TCL/TCW đã rút.
 
