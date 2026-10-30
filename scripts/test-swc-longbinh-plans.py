@@ -9,6 +9,10 @@ def envelope(direction='arrival',code='K0005',label='Cảng thủy nội địa 
  return dict(day='2026-10-24',direction=direction,parameters={field:'24/10/2026','maritimeCode':11,'shipBoat':'SHIP'},source_url=swc.dn.SOURCE,response=response,raw_response=raw,sha256=hashlib.sha256(raw.encode()).hexdigest(),checked_at='2026-10-25T00:00:00Z')
 
 class Tests(unittest.TestCase):
+ def test_empty_refresh_cannot_erase_a_published_movement(self):
+  row={'day':'2026-10-24','direction':'arrival','time':'2026-10-24T10:00:00+07:00','vessel':'TEST','from':None,'to':'Long Binh','dwt':None}
+  with self.assertRaisesRegex(ValueError,'missing previously published'):swc.check_event_retention([row],[])
+  swc.check_event_retention([row],[{**row,'dwt':100}])
  def test_no_pdn_oil_terminal_or_unrelated_berth(self):
   for code,label in [('BC185','Cảng thủy nội địa Long Bình'),('K0008','Cảng thủy nội địa Long Bình'),('K0005','Long Bình')]:
    rows,bad=swc.dn.parse(envelope(code=code,label=label),swc.TERMINALS,require_route=False)

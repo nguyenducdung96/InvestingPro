@@ -1,0 +1,77 @@
+{
+  "verified_at": "2026-10-30T14:16:27.349Z",
+  "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "published_commit": "ae61032d47973b2e53128eb997ab36b47e3c3ec3",
+  "expected_metadata": {
+    "parser_version": "swc-longbinh-direct-plan/1.0.0",
+    "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+    "from": "2025-01-01",
+    "through": "2026-10-29",
+    "checked_at": "2026-10-30T00:17:57.064413+00:00",
+    "requested_days": 667,
+    "responses": 1334,
+    "events": 4434,
+    "first_observation": "2025-01-03",
+    "last_observation": "2026-10-28",
+    "source_errors": [],
+    "semantics": "authority_published_plan",
+    "movement_scope": "berth",
+    "included_resources": [
+      "arrival",
+      "departure"
+    ],
+    "shifting_included": false,
+    "actual_verified": false,
+    "full_scope_certified": false,
+    "last_observation_by_direction": {
+      "arrival": "2026-10-24",
+      "departure": "2026-10-28"
+    },
+    "coverage_status": "partial",
+    "absence_means_zero": false,
+    "quarantined_rows": 2,
+    "scheduled_refresh_verified": false
+  },
+  "checks": [
+    {
+      "direction": "arrival",
+      "months_matched": 22,
+      "journal_day": "2026-10-24",
+      "aggregate_matched": true,
+      "regional_matched": true
+    },
+    {
+      "direction": "departure",
+      "months_matched": 22,
+      "journal_day": "2026-10-28",
+      "aggregate_matched": true,
+      "regional_matched": true
+    }
+  ],
+  "deployment_readback_verified": true,
+  "scheduled_refresh_verified": false,
+  "quality": {
+    "run_id": 40979236386,
+    "commit": "ae61032d47973b2e53128eb997ab36b47e3c3ec3",
+    "conclusion": "failure",
+    "e2e": "cancelled",
+    "reason": "runner received shutdown signal; no assertion failure identified",
+    "lint": "success",
+    "typecheck": "success",
+    "vitest": "success",
+    "python": "success",
+    "next_build": "skipped",
+    "opennext_build": "skipped"
+  },
+  "local_validation": {
+    "vitest": 186,
+    "e2e": 74,
+    "python": 4,
+    "lint": true,
+    "typecheck": true,
+    "next_build": true,
+    "cold_cache_preservation": true,
+    "byte_identical_replay": true
+  },
+  "production_acceptance": false
+}

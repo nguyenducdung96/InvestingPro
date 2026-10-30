@@ -25,6 +25,12 @@ def review_berths(rows):
   else:accepted.append(r)
  return accepted,quarantine
 
+def check_event_retention(previous,current):
+ # A blank board on a cold runner must not erase an already reviewed movement.
+ # Corrections to weights remain possible; removals or route changes need review.
+ key=lambda r:(r['day'],r['direction'],r['time'],r['vessel'].casefold(),r['from'],r['to'])
+ if not {key(r) for r in previous}<={key(r) for r in current}:raise ValueError('Unexpected missing previously published movement')
+
 def compile_day(day,rawdir):
  events=[];proof=[];quarantine=[]
  for direction in ['arrival','departure']:
@@ -99,6 +105,13 @@ def main():
  ids=collections.defaultdict(set)
  for e in events:ids[(e['direction'],e['source_id'])].add(e['day'])
  if any(len(v)>1 for v in ids.values()):raise ValueError('Native ID appears on different days')
+ if previous:
+  old_events=[]
+  for month in previous['monthly']:
+   path=MODULE/'swc-longbinh-journal-data'/f'{month}.ts'
+   if path.exists():old_events.extend(json.loads(gzip.decompress(base64.b64decode(json.loads(path.read_text(encoding='utf8').split('export const southJournalGzip=',1)[1].rsplit(';',1)[0]),validate=True))))
+   elif any(v['rows'] for v in previous['monthly'][month]['swc_long_binh'].values()):raise ValueError('Missing published journal')
+  check_event_retention(old_events,events)
  monthly={};grouped=collections.defaultdict(list)
  for e in events:
   month=e['day'][:7];grouped[month].append(e)

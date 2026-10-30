@@ -36,10 +36,10 @@ Các khoảng này còn mở; hoàn thiện Long Bình không có nghĩa phủ �
 
 ## Refresh và kiểm chứng
 
-- `python scripts/refresh-swc-plans.py`: lấy ít nhất bảy ngày gần nhất, bổ sung các ngày mới kể từ edition trước, dùng archive riêng `.local/swc/raw`. Lỗi nguồn làm dừng trước export; không viết lại PDN/Bình Dương.
+- `python scripts/refresh-swc-plans.py`: lấy ít nhất bảy ngày gần nhất, bổ sung các ngày mới kể từ edition trước, dùng archive riêng `.local/swc/raw`. Lỗi nguồn hoặc mất bất kỳ dòng đã công bố làm dừng trước export; sửa trọng tải vẫn được đối chiếu. Không viết lại PDN/Bình Dương.
 - `python scripts/export-swc-longbinh-plans.py --recent-only --raw-dir .local/swc/raw`: giữ lịch sử đã phát hành sau kiểm tra hash/proof và đối chiếu tổng ngày. Bản đầy đủ cần raw theo ngày; cache cũ tại `.local/pdn/raw` chỉ được đọc cho lần dựng đầu, không sửa dữ liệu PDN.
 - `.github/workflows/swc-plans.yml`: refresh thủ công, kiểm tra, commit/push fast-forward và chờ đọc edition trên staging. Push cạnh tranh bị từ chối; không force push hoặc ghi đè bản khác. Chưa đăng ký lịch tự động và chưa có bằng chứng chạy workflow refresh cloud cho SWC.
 - `node scripts/verify-swc-live.mjs`: đối chiếu 22 tháng hai chiều, nhật ký, tổng Long Bình+bến phao, hai dòng miền Nam và mặc định API. `--wait` dùng khi chờ deploy; biên nhận không tự coi là cron.
-- Local: 186 Vitest, ba Python test mới, bốn E2E SWC/miền Nam desktop/mobile, lint/typecheck và Next production build đạt. Cold-cache giữ lịch sử với 14 raw mới; replay 23 file dữ liệu/ledger giống từng byte. E2E toàn bộ và CI/staging sau push được cập nhật trong receipt nghiệm thu riêng.
+- Local: 186 Vitest, bốn Python test mới, bốn E2E SWC/miền Nam desktop/mobile, lint/typecheck và Next production build đạt. Cold-cache giữ lịch sử với 14 raw mới; replay 23 file dữ liệu/ledger giống từng byte. Toàn bộ 74 E2E tại máy đạt. Staging đã khớp 22 tháng hai chiều, tổng, nhật ký và miền Nam tại `ae61032`; [receipt](catalog-review/swc-staging-20261030.json). CI `40979236386` qua lint/typecheck/Vitest/Python nhưng E2E bị runner shutdown, hai bước build skipped; chưa gọi CI thành công.
 
 CI cũ `40950348908` nhận shutdown signal từ runner ở E2E rồi cancellation; log chưa chứng minh assertion sản phẩm thất bại. Không sửa sản phẩm từ cancellation đó. Chưa nghiệm thu production hoặc schedule SWC/PDN.
