@@ -40,13 +40,11 @@ export function southSeries(groups:Record<string,TanVuPlanDay[]|undefined>,asset
  return {...tanvuPlanSeries(days,direction,now),days,semantics:'authority_published_plan' as const,actual_verified:false,full_scope_certified:false};
 }
 export const southTargets=[
- {ticker:'GMD',name:'Gemalink · Cái Mép',assets:['gemalink'],status:'integrated',note:'Gemalink theo lịch Cảng vụ TP.HCM; theo dõi riêng với Bình Dương. Lịch sử tháng 1–7/2025 bổ sung từ PDF kế hoạch Vũng Tàu trên cổng toàn quốc, có loại trùng với bảng TP.HCM.',asset:'gemalink'},
- {ticker:'GMD',name:'Cảng Bình Dương',assets:['gmd_binh_duong'],status:'integrated',note:'Dòng vào/rời trực tiếp từ lịch Đồng Nai; theo dõi riêng với Gemalink. Sau tháng 6/2026 thưa quan sát, chưa chứng nhận hoạt động giảm tương ứng.',asset:'gmd_binh_duong'},
+ {ticker:'GMD',name:'Gemalink · Bình Dương',assets:['gemalink','gmd_binh_duong'],status:'integrated',note:'Tổng số ghi nhận tại hai cảng GMD thuộc miền Nam: Gemalink và Bình Dương. Giữ đóng góp từ nguồn có dữ liệu; chưa phủ đủ tài sản GMD miền Nam. Không gồm Nam Đình Vũ hoặc Dung Quất.',asset:'gmd_south'},
  {ticker:'SGP',name:'Hiệp Phước · CMIT · SP-PSA · SSIT · Tân Thuận',assets:['sg_hiep_phuoc','cmit','sp_psa','ssit','sg_tan_thuan'],status:'integrated',note:'Năm phạm vi; Tân Thuận chỉ K12A/B/C/C1, chưa gồm K12 và TT2.',asset:'sgp'},
  {ticker:'PDN',name:'Long Bình Tân · Gò Dầu A/B',assets:[],status:'integrated',note:'Lịch công bố Đồng Nai; gồm tuyến giữa khu neo và cầu đã ghép. Chuyển giữa các bến PDN giữ riêng. Chưa chứng nhận toàn bộ hoạt động.',asset:'pdn'},
  {ticker:'CLL',name:'Cầu số 7 · bến 2.200 DWT',assets:['cll_berth7','cll_b7'],status:'integrated',note:'Chỉ phạm vi CLL; bến 2.200 DWT hợp tác TCL được ghi một lần tại CLL.',asset:'cll'},
- {ticker:'SWC',name:'Sowatco Long Bình',assets:['swc_long_binh'],status:'integrated',note:'Cảng TNĐ Long Bình K0005 · cầu 1/2/3 · lịch vào/rời trực tiếp Đồng Nai. Phủ một phần, tách riêng bến phao.',asset:'swc_long_binh'},
- {ticker:'SWC',name:'Bốn bến phao SWC',assets:['swc_buoys'],status:'integrated',note:'Chỉ ĐT1/ĐT2/ĐT3/TL9. Long Bình được theo dõi riêng; ICD Sotrans và Mekong – Cần Thơ còn thiếu chuỗi riêng.',asset:'swc_buoys'},
+ {ticker:'SWC',name:'Long Bình · bốn bến phao',assets:['swc_long_binh','swc_buoys'],status:'integrated',note:'Tổng số ghi nhận tại Long Bình và bốn bến phao ĐT1/ĐT2/ĐT3/TL9. Giữ nguồn riêng; chưa có chuỗi ICD Sotrans và Mekong – Cần Thơ. Chưa đại diện toàn bộ SWC.',asset:'swc_all'},
  {ticker:'TCW',name:'Kho · bãi · depot Tân Cảng',assets:[],status:'pending',note:'Báo cáo 2025 xác nhận hoạt động kho/bãi, cảng mở và depot. Chưa có cầu riêng để gán lịch tàu; cần chỉ tiêu dịch vụ phù hợp.',asset:''},
  {ticker:'VGP',name:'Cảng Rau Quả · K16',assets:['vgp_k16'],status:'integrated',note:'Lịch tại cầu K16; VGP công bố cho thuê kho/bãi, cầu cảng. Không coi DWT là doanh thu hoặc sản lượng VGP.',asset:'vgp_k16'},
 ] as const;

@@ -26,8 +26,8 @@ try{
   const day=ledger.metadata.last_observation_by_direction[direction],journal=await get(`/api/v1/companies/SWC/plans?asset=swc_long_binh&direction=${direction}&day=${day}`);
   assert.ok(journal.events.length);assert.ok(journal.events.every(e=>e.harbour_code==='K0005'&&e.direction===direction&&e.source_url===ledger.metadata.source_url));
   const region=await get(`/api/v1/industries/ports/south?period=2026-06&direction=${direction}`);
-  assert.equal(region.regional_total,null);assert.equal(region.rows.filter(r=>r.ticker==='SWC').length,2);
-  assert.deepEqual(recordedRange(region.rows.find(r=>r.asset==='swc_long_binh').metric.current),recordedRange(data.months.find(p=>p.period==='2026-06').current));
+  assert.equal(region.regional_total,null);assert.equal(region.rows.filter(r=>r.ticker==='SWC').length,1);
+  assert.deepEqual(recordedRange(region.rows.find(r=>r.asset==='swc_all').metric.current),recordedRange(combined.months.find(p=>p.period==='2026-06').current));
   receipt.checks.push({direction,months_matched:data.months.length,journal_day:day,aggregate_matched:true,regional_matched:true});
  }
  assert.equal((await get('/api/v1/companies/SWC/plans')).asset,'swc_long_binh');

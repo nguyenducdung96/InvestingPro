@@ -20,7 +20,7 @@ test('SWC separates Long Binh from buoys and preserves source evidence and match
  await panel.getByText('Phạm vi và độ phủ Long Bình',{exact:true}).click();await expect(panel).toContainText('Chỉ dòng vào/rời trực tiếp');
  await page.screenshot({path:`.local/swc/ui-${info.project.name}.png`,fullPage:true});
  await page.goto('/industries/ports/south?period=2026-06');
- await expect(page.locator('tr[data-ticker="SWC"]')).toHaveCount(2);
- await expect(page.locator('tr[data-ticker="SWC"]').first()).toContainText('Sowatco Long Bình');
+ await expect(page.locator('tr[data-ticker="SWC"]')).toHaveCount(1);
+ await expect(page.locator('tr[data-ticker="SWC"]').first()).toContainText('Long Bình · bốn bến phao');
  expect((await page.request.get('/api/v1/companies/SWC/plans?asset=pdn_long_binh_tan')).status()).toBe(400);
 });

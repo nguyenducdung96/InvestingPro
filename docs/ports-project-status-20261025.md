@@ -1,5 +1,10 @@
 # Tiến độ ngành cảng — cập nhật 30/10/2026
 
+## Điều chỉnh tổng quan vùng — một dòng mỗi mã, 30/10/2026
+
+Theo yêu cầu mới, tổng quan vùng hiển thị mỗi mã một dòng tổng các cảng đang theo dõi thuộc chính vùng đó; từng cảng giữ ở chi tiết mã. Miền Nam gộp GMD = Gemalink + Bình Dương (`gmd_south`), SWC = Long Bình + bốn bến phao (`swc_all`). Miền Bắc/Trung vốn đã một dòng mỗi mã. Không đưa Nam Đình Vũ/Dung Quất vào tổng GMD miền Nam; không cộng các mã thành tổng vùng. Nguồn, khoảng thiếu và số ghi nhận tiếp tục giữ riêng; API chi tiết cảng vẫn dùng được. Quy tắc này thay thế các đoạn lịch sử bên dưới còn yêu cầu tách hai dòng GMD/SWC ở tổng quan vùng.
+
+
 ## SWC — nghiệm thu staging cuối ngày 30/10/2026
 
 Code `ae61032` + bảo vệ lịch sử `b7378a8`, nhánh `codex/cloudflare-next-compat`, đã push. **Quality 41070711134 success**: 186 Vitest, 74 E2E, Python, lint/typecheck và Next/OpenNext build. **Cloudflare build 8236e8d1 success** đúng `b7378a8`; API/UI staging đã đối chiếu 22 tháng hai chiều, nhật ký, tổng và hai dòng miền Nam. [Receipt](catalog-review/swc-staging-20261030.json), [triển khai và nguồn](swc-integration-20261030.md). Phần SWC bên dưới là nhật ký trước nghiệm thu; CI mới thành công thay thế khoảng chờ CI của mốc cũ.

@@ -1,5 +1,7 @@
 # Port investment dashboards
 
+User update (2026-10-30): regional overviews show exactly one aggregate row per stock ticker, summing only its tracked assets within that region. Keep individual port monitors on the issuer detail page. Preserve available recorded contributions and source-specific quality details; do not include the issuer's assets from other regions or sum overlapping issuers into a regional total.
+
 User-confirmed display policy (2026-10-25): the purpose is observing investment trends. For every integrated port issuer and regional overview, display recorded vessel rows, recorded DWT, cumulative sums and YoY even if some source days or individual DWT values are missing. Do not blank an entire month, quarter or YTD because coverage is incomplete. Compute displayed YoY from the two displayed recorded values when the prior value is positive.
 
 Keep coverage, source errors and missing weights in collapsed details. Do not add prominent per-cell completeness warnings for small gaps. Keep the current partial month visible and label its update window. User update (2026-10-30): cumulative comparisons for every port sum only months with data in both years, using the same selected months for both totals and YoY. Include the current partial month through matching cutoffs when both years have data; label the selected months explicitly. Preserve ordinary full-range API aggregates separately.

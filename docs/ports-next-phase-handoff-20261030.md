@@ -1,5 +1,10 @@
 # Bàn giao ngành cảng — 30/10/2026
 
+## Quy tắc tổng quan vùng mới
+
+Người dùng yêu cầu mỗi mã một dòng tổng trong vùng; cảng riêng nằm ở chi tiết mã. Miền Nam dùng GMD `gmd_south` (Gemalink+Bình Dương) và SWC `swc_all` (Long Bình+bến phao). Các đoạn bàn giao trước đó nói hai dòng monitor GMD/SWC riêng đã được thay thế ở màn hình tổng quan vùng. Không gộp tài sản ngoài vùng, không cộng tổng các issuer hoặc thay chuỗi nguồn.
+
+
 ## Kết quả SWC sau triển khai
 
 SWC đã nghiệm thu **staging** tại `b7378a8`: Cloudflare build `8236e8d1` và Quality `41070711134` success (186 Vitest, 74 E2E, Python, lint/typecheck, Next/OpenNext). API/UI khớp 22 tháng hai chiều, tổng, nhật ký và hai dòng SWC miền Nam. [Receipt](catalog-review/swc-staging-20261030.json). Code tính năng là `ae61032`; bản bảo vệ lịch sử đã rebase trên các refresh QNP/NAP/PDN và push nhánh hiện hành.

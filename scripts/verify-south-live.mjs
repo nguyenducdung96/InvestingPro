@@ -24,10 +24,9 @@ try{
   for(const p of combined.months)for(const key of ['rows','dwt'])assert.equal(recordedRange(p.current)[key],sumAvailable(['sg_hiep_phuoc','cmit','sp_psa','ssit','sg_tan_thuan'].map(a=>ledger.monthly[p.period][a][direction][key])),`SGP aggregate ${p.period}/${direction}/${key}`);
   const period=ledger.metadata.through.slice(0,7),region=await get(`/api/v1/industries/ports/south?period=${period}&direction=${direction}`);
   assert.equal(region.regional_total,null);assert.equal(region.nationwide_complete,false);
-  const binhDuong=await get(`/api/v1/companies/GMD/plans?asset=gmd_binh_duong&direction=${direction}`);
-  assert.equal(region.rows.filter(r=>r.ticker==='GMD').length,2);
-  assert.deepEqual(recordedRange(region.rows.find(r=>r.asset==='gmd_binh_duong').metric.current),recordedRange(binhDuong.months.find(p=>p.period===period).current));
-  for(const [ticker,data] of [['GMD',series.gemalink],['SGP',combined],['SWC',series.swc_buoys],['VGP',series.vgp_k16]])assert.deepEqual(recordedRange(region.rows.find(r=>r.ticker===ticker&&(ticker!=='SWC'||r.asset==='swc_buoys')).metric.current),recordedRange(data.months.find(p=>p.period===period).current));
+  const gmdSouth=await get(`/api/v1/companies/GMD/plans?asset=gmd_south&direction=${direction}`),swcAll=await get(`/api/v1/companies/SWC/plans?asset=swc_all&direction=${direction}`);
+  assert.equal(new Set(region.rows.map(r=>r.ticker)).size,region.rows.length);
+  for(const [ticker,data] of [['GMD',gmdSouth],['SGP',combined],['SWC',swcAll],['VGP',series.vgp_k16]])assert.deepEqual(recordedRange(region.rows.find(r=>r.ticker===ticker).metric.current),recordedRange(data.months.find(p=>p.period===period).current));
   receipt.checks.push({direction,sgp_aggregate_matched:true,south_overview_matched:true});
  }
  receipt.deployment_readback_verified=true;

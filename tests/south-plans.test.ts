@@ -28,6 +28,9 @@ describe('southern authority plans',()=>{
  });
  it('has unique exact berth aliases and no regional total or pending fake observations',()=>{
   const aliases=Object.values(southAssets).flatMap(a=>[...a.aliases]);expect(new Set(aliases).size).toBe(aliases.length);
+  expect(new Set(southTargets.map(t=>t.ticker)).size).toBe(southTargets.length);
+  expect(southTargets.find(t=>t.ticker==='GMD')?.assets).toEqual(['gemalink','gmd_binh_duong']);
+  expect(southTargets.find(t=>t.ticker==='SWC')?.assets).toEqual(['swc_long_binh','swc_buoys']);
   expect(southTargets.filter(t=>t.status==='pending').every(t=>t.assets.length===0)).toBe(true);
  });
 });
