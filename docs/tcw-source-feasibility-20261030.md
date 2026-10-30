@@ -1,5 +1,7 @@
 # TCW — kết quả rà nguồn ngày 30/10/2026
 
+Bản rút TCW `53d226f` đã push lên `codex/cloudflare-next-compat`; staging API/HTML xác nhận mã/ID/API cũ 404, danh mục và tổng quan không còn TCW, GMD còn hoạt động. [Receipt](catalog-review/tcw-withdrawal-staging-20261030.json). Local 7 Vitest/4 E2E desktop-mobile/lint/typecheck đạt. Quality `41079292805` còn chạy E2E lúc lưu, chưa gọi CI toàn bộ thành công. Cloudflare build `520fb24a` đã chuyển sang deploy và readback đạt; không đồng nhất staging với production.
+
 ## Rút TCW khỏi phạm vi cảng — theo yêu cầu người dùng 30/10/2026
 
 Quyết định mới thay thế phần trước còn giữ TCW: sản phẩm hiện chỉ theo dõi cảng sông/biển; cảng cạn, depot và kho bãi tách riêng sau này. TCW bị gỡ khỏi danh mục/tìm kiếm/tổng quan miền Nam, trang mã/ID cũ và API công khai trả 404. Hồ sơ nghiên cứu và số liệu dịch vụ đã lưu vẫn là bằng chứng lịch sử, không phải module sẽ triển khai tiếp trong phạm vi hiện tại. Chưa đủ căn cứ xác nhận cảng TCW đang vận hành; không đổi kết luận nghiên cứu thành khẳng định không có cảng ở mọi nơi. Không tự rút thêm doanh nghiệp khác trong đợt này.

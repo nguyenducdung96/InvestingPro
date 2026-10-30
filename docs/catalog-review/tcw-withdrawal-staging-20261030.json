@@ -1,0 +1,85 @@
+{
+  "base": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "commit": "53d226f0a42db803304b1b1d303e6c63cff4fa88",
+  "checked_at": "2026-10-30T15:21:48.722Z",
+  "checks": [
+    {
+      "path": "/companies/TCW",
+      "status": 404
+    },
+    {
+      "path": "/companies/tcw?view=research",
+      "status": 404
+    },
+    {
+      "path": "/companies/id/a251ebfd-2516-5067-99f7-91dce6623f7b",
+      "status": 404
+    },
+    {
+      "path": "/api/v1/companies/TCW",
+      "status": 404
+    },
+    {
+      "path": "/api/v1/companies/TCW/activity",
+      "status": 404
+    },
+    {
+      "path": "/api/v1/companies/TCW/plans",
+      "status": 404
+    },
+    {
+      "path": "/industries/ports/companies?view=all",
+      "status": 200,
+      "tcw_link": false
+    },
+    {
+      "path": "/industries/ports/companies?view=listed",
+      "status": 200,
+      "tcw_link": false
+    },
+    {
+      "path": "/industries/ports/south",
+      "status": 200,
+      "tcw_link": false
+    },
+    {
+      "path": "/industries/ports/companies?view=all&q=TCW",
+      "status": 200,
+      "tcw_link": false
+    },
+    {
+      "path": "/api/v1/industries/ports/south",
+      "tickers": [
+        "GMD",
+        "SGP",
+        "PDN",
+        "CLL",
+        "SWC",
+        "VGP"
+      ]
+    },
+    {
+      "path": "/companies/GMD",
+      "status": 200
+    }
+  ],
+  "local": {
+    "vitest": 7,
+    "playwright": 4,
+    "lint": "passed",
+    "typecheck": "passed"
+  },
+  "deployment_readback_verified": true,
+  "production_verified": false,
+  "cloudflare_build": {
+    "id": "520fb24a-eb4c-4175-a5cf-22a95861c17e",
+    "commit": "53d226f0a42db803304b1b1d303e6c63cff4fa88",
+    "last_observed_status": "deploying; API/HTML readback already passed"
+  },
+  "quality": {
+    "run_id": 41079292805,
+    "last_observed_status": "in_progress",
+    "active_step": "Run pnpm test:e2e",
+    "conclusion": null
+  }
+}
