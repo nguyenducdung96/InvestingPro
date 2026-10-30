@@ -2,12 +2,19 @@
 
 Does not write PDN data. Shifting resources are deliberately outside this edition.
 """
-import argparse,base64,collections,datetime as dt,gzip,hashlib,importlib.util,json
+import argparse,base64,collections,datetime as dt,gzip,hashlib,importlib.util,io,json
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];MODULE=ROOT/'packages/modules/port/src'
 spec=importlib.util.spec_from_file_location('dongnai',ROOT/'scripts/export-pdn-plans.py')
 dn=importlib.util.module_from_spec(spec);spec.loader.exec_module(dn)
 TERMINALS={'BC198':('gmd_binh_duong','Cảng Bình Dương')}
+
+def encode_journal(raw):
+ # Python 3.12 gzip.compress inherits zlib's OS header; newer Python uses 255.
+ # GzipFile fixes the header on every supported runtime and omits filenames.
+ output=io.BytesIO()
+ with gzip.GzipFile(fileobj=output,mode='wb',filename='',mtime=0,compresslevel=9) as stream:stream.write(raw)
+ return base64.b64encode(output.getvalue()).decode()
 
 def check_event_retention(previous,current):
  # A blank board on a cold runner must not erase an already reviewed movement.
@@ -115,7 +122,7 @@ def main():
  compact=lambda v:json.dumps(v,ensure_ascii=False,separators=(',',':'))
  target=MODULE/'binhduong-journal-data';target.mkdir(exist_ok=True)
  for month,rows in grouped.items():
-  raw=compact(rows).encode();encoded=base64.b64encode(gzip.compress(raw,mtime=0)).decode()
+  raw=compact(rows).encode();encoded=encode_journal(raw)
   if gzip.decompress(base64.b64decode(encoded))!=raw:raise ValueError('Journal codec mismatch')
   (target/f'{month}.ts').write_text('export const southJournalGzip='+json.dumps(encoded)+';\n',encoding='utf8')
  (MODULE/'binhduong-history-data.ts').write_text("import type {SouthDay} from './south-plans';\nexport const binhduongMetadata="+compact(metadata)+";\nexport const binhduongDaily:SouthDay[]="+compact(daily)+';\n',encoding='utf8')

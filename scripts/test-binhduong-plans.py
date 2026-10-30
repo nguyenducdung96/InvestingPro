@@ -7,6 +7,14 @@ def envelope(code='BC198',label='Cảng Bình Dương',dwt=None):
  response={'total':1,'data':[row]};raw=json.dumps(response,ensure_ascii=False,separators=(',',':'))
  return dict(day='2026-10-24',direction='departure',source_url=bd.dn.SOURCE,response=response,raw_response=raw,sha256=hashlib.sha256(raw.encode()).hexdigest(),checked_at='2026-10-25T00:00:00Z')
 class Tests(unittest.TestCase):
+ def test_journal_header_is_portable_across_windows_linux_and_python_versions(self):
+  raw=b'[{"dwt":null}]';encoded=bd.encode_journal(raw);payload=bd.base64.b64decode(encoded)
+  self.assertEqual(payload[3],0) # No optional filename or timestamp metadata.
+  self.assertEqual(payload[4:8],b'\x00\x00\x00\x00')
+  self.assertEqual(payload[9],255) # Portable OS header, including Python 3.12 Linux.
+  self.assertEqual(gzip.decompress(payload),raw)
+  self.assertEqual(encoded,bd.encode_journal(raw))
+
  def test_blank_response_cannot_erase_even_one_published_event(self):
   row={'day':'2026-10-24','direction':'arrival','time':'2026-10-24T10:00:00+07:00','vessel':'TEST','from':None,'to':'Binh Duong','dwt':None}
   with self.assertRaisesRegex(ValueError,'missing previously published'):bd.check_event_retention([row],[])

@@ -1,6 +1,9 @@
 name: GMD Binh Duong official plans
 on:
   workflow_dispatch:
+  schedule:
+    # 08:55 Vietnam. Manual runs do not establish scheduled-refresh acceptance.
+    - cron: '55 1 * * *'
 permissions:
   contents: write
 concurrency:
@@ -16,6 +19,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: codex/cloudflare-next-compat
+      - name: Require the staging build hook before publishing data
+        env:
+          DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_STAGING_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$DEPLOY_HOOK" ]; then
+            echo '::error::Missing CLOUDFLARE_STAGING_DEPLOY_HOOK; keeping the published edition.'
+            exit 1
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -29,6 +40,7 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec vitest run tests/binhduong-history.test.ts tests/south-plans.test.ts --maxWorkers=1
       - run: pnpm typecheck
+      - run: node --test scripts/test-binhduong-deploy.mjs
       - name: Publish validated Binh Duong edition
         run: |
           # No rebase or force push: a competing branch update must reject publication.
@@ -40,6 +52,10 @@ jobs:
             git push origin HEAD:codex/cloudflare-next-compat
           fi
           echo "PUBLISHED_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+      - name: Request Cloudflare staging build
+        env:
+          CLOUDFLARE_STAGING_DEPLOY_HOOK: ${{ secrets.CLOUDFLARE_STAGING_DEPLOY_HOOK }}
+        run: node scripts/trigger-binhduong-deploy.mjs
       - name: Reconcile deployed edition
         run: node scripts/verify-binhduong-live.mjs --wait
       - uses: actions/upload-artifact@v4

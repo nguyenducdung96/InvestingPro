@@ -5,7 +5,7 @@ import {assertAssetMonths,assertEdition,recordedRange,sumAvailable} from './lib/
 const root=new URL('../',import.meta.url);
 const ledger=JSON.parse(await readFile(new URL('docs/catalog-review/binhduong-history-ledger.json',root),'utf8'));
 const base=process.env.SOUTH_VERIFY_BASE??'https://investing-pro-web-staging.tuyenkinhmon88.workers.dev';
-const receipt={verified_at:new Date().toISOString(),base_url:base,through:ledger.metadata.through,checked_at:ledger.metadata.checked_at,deployment_readback_verified:false,scheduled_refresh_verified:false,published_commit:process.env.PUBLISHED_COMMIT??null,checks:[]};
+const receipt={verified_at:new Date().toISOString(),base_url:base,through:ledger.metadata.through,checked_at:ledger.metadata.checked_at,deployment_readback_verified:false,scheduled_refresh_verified:false,published_commit:process.env.PUBLISHED_COMMIT??null,event_name:process.env.GITHUB_EVENT_NAME??'local',run_id:process.env.GITHUB_RUN_ID??null,run_attempt:process.env.GITHUB_RUN_ATTEMPT??null,verifier_version:'south-live/1',checks:[]};
 async function get(path){const r=await fetch(base+path,{redirect:'error',signal:AbortSignal.timeout(30000)});assert.equal(r.status,200,path);return r.json();}
 try{
  if(process.argv.includes('--wait')){
@@ -49,6 +49,11 @@ try{
  const page=await fetch(base+'/companies/GMD?plan_asset=gmd_binh_duong',{signal:AbortSignal.timeout(30000)});
  assert.equal(page.status,200);assert.ok((await page.text()).includes('Bối cảnh nguồn Bình Dương từ tháng 7/2026'));
  receipt.deployment_readback_verified=true;
+ receipt.verified_at=new Date().toISOString();
+ const sourceText=await readFile(new URL('.local/binhduong/collect-receipt.json',root),'utf8').catch(error=>{if(error.code!=='ENOENT')throw error;return null;});
+ const sourceReceipt=sourceText?JSON.parse(sourceText):null;
+ receipt.source_refresh_success=sourceReceipt?Boolean(sourceReceipt.source_refresh_success&&sourceReceipt.export_success&&sourceReceipt.through===ledger.metadata.through&&Date.parse(ledger.metadata.checked_at)>=Date.parse(sourceReceipt.checked_at)):null;
+ if(process.env.GITHUB_ACTIONS)assert.equal(receipt.source_refresh_success,true,'Current cloud source collection must succeed');
 }catch(error){receipt.error=error.message;process.exitCode=1;}
 const out=new URL('.local/binhduong/',root);await mkdir(out,{recursive:true});
 await writeFile(new URL('live-readback.json',out),JSON.stringify(receipt,null,2)+'\n');
