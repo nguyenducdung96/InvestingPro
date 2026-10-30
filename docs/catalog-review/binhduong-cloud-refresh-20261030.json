@@ -1,0 +1,197 @@
+{
+  "recorded_at": "2026-10-30T16:06:27.147640+00:00",
+  "registration": {
+    "registered_at": "2026-10-30T15:57:05.803890+00:00",
+    "parent": "af73b195b8627a819b6441b4667680299fec36a3",
+    "commit": "fc86d8b380e768b26aad005a6f4976b16fb1dfca",
+    "paths": [
+      ".github/workflows/binhduong-plans.yml"
+    ],
+    "schedule_configured": false
+  },
+  "cloud_run": {
+    "id": 41085429972,
+    "head_sha": "59c48ceb3d1ebc03c6427ad595e1513e83543401",
+    "head_branch": "codex/cloudflare-next-compat",
+    "event": "workflow_dispatch",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41085429972",
+    "created_at": "2026-10-30T15:57:15Z"
+  },
+  "steps": [
+    {
+      "name": "Set up job",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T15:57:19Z",
+      "completed_at": "2026-10-30T15:57:22Z"
+    },
+    {
+      "name": "Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T15:57:22Z",
+      "completed_at": "2026-10-30T15:57:24Z"
+    },
+    {
+      "name": "Run actions/setup-python@v5",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T15:57:24Z",
+      "completed_at": "2026-10-30T15:57:24Z"
+    },
+    {
+      "name": "Run python scripts/test-binhduong-plans.py",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T15:57:24Z",
+      "completed_at": "2026-10-30T15:57:25Z"
+    },
+    {
+      "name": "Run python scripts/refresh-binhduong-plans.py",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T15:57:25Z",
+      "completed_at": "2026-10-30T15:57:30Z"
+    },
+    {
+      "name": "Run pnpm/action-setup@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T15:57:30Z",
+      "completed_at": "2026-10-30T15:57:31Z"
+    },
+    {
+      "name": "Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T15:57:31Z",
+      "completed_at": "2026-10-30T15:57:35Z"
+    },
+    {
+      "name": "Run pnpm install --frozen-lockfile",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T15:57:35Z",
+      "completed_at": "2026-10-30T15:57:41Z"
+    },
+    {
+      "name": "Run pnpm exec vitest run tests/binhduong-history.test.ts tests/south-plans.test.ts --maxWorkers=1",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T15:57:41Z",
+      "completed_at": "2026-10-30T15:57:43Z"
+    },
+    {
+      "name": "Run pnpm typecheck",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T15:57:43Z",
+      "completed_at": "2026-10-30T15:58:07Z"
+    },
+    {
+      "name": "Publish validated Binh Duong edition",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T15:58:07Z",
+      "completed_at": "2026-10-30T15:58:08Z"
+    },
+    {
+      "name": "Reconcile deployed edition",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T15:58:08Z",
+      "completed_at": "2026-10-30T16:03:57Z"
+    },
+    {
+      "name": "Run actions/upload-artifact@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T16:03:57Z",
+      "completed_at": "2026-10-30T16:03:58Z"
+    },
+    {
+      "name": "Post Run actions/setup-node@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T16:03:58Z",
+      "completed_at": "2026-10-30T16:03:59Z"
+    },
+    {
+      "name": "Post Run pnpm/action-setup@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T16:03:59Z",
+      "completed_at": "2026-10-30T16:03:59Z"
+    },
+    {
+      "name": "Post Run actions/setup-python@v5",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T16:03:59Z",
+      "completed_at": "2026-10-30T16:03:59Z"
+    },
+    {
+      "name": "Post Run actions/checkout@v4",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T16:03:59Z",
+      "completed_at": "2026-10-30T16:03:59Z"
+    },
+    {
+      "name": "Complete job",
+      "status": "completed",
+      "conclusion": "success",
+      "started_at": "2026-10-30T16:03:59Z",
+      "completed_at": "2026-10-30T16:03:59Z"
+    }
+  ],
+  "source_receipt": {
+    "checked_at": "2026-10-30T15:57:25.644330+00:00",
+    "from": "2026-10-23",
+    "through": "2026-10-29",
+    "source_refresh_success": true,
+    "export_success": true,
+    "scheduled_refresh_verified": false,
+    "counts": {
+      "ok": 14
+    }
+  },
+  "live_readback": {
+    "verified_at": "2026-10-30T15:58:09.032Z",
+    "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+    "through": "2026-10-29",
+    "checked_at": "2026-10-30T15:57:29.850729+00:00",
+    "deployment_readback_verified": true,
+    "scheduled_refresh_verified": false,
+    "published_commit": "2e1ec1f69406a50ceef20d92c1b81b345b457592",
+    "checks": [
+      {
+        "direction": "arrival",
+        "months_matched": 22,
+        "last_observation": "2026-08-24",
+        "journal_rows": 1
+      },
+      {
+        "direction": "departure",
+        "months_matched": 22,
+        "last_observation": "2026-07-15",
+        "journal_rows": 1
+      }
+    ]
+  },
+  "artifact": {
+    "id": 12992336354,
+    "name": "binhduong-readback"
+  },
+  "bot_publication_deployment_verified": true,
+  "deployment_interpretation": {
+    "readback_step_completed_at": "2026-10-30T16:03:57Z",
+    "next_code_build_started_at": "2026-10-30T16:04:13Z",
+    "github_check_absence_does_not_prove_no_cloudflare_build": true,
+    "deploy_hook_required": false
+  },
+  "scheduled_refresh_verified": false,
+  "production_verified": false
+}
