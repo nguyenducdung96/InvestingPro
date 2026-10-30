@@ -1,12 +1,14 @@
 # Bàn giao ngành cảng — trạng thái chốt 30/10/2026
 
-Tài liệu tiếp tục hiện hành. Thay thế các thứ tự phase cũ và các đoạn snapshot còn ghi giữ TCW, tách nhiều dòng mỗi mã trên vùng hoặc SWC chỉ có bến phao. Đợt lưu này không bắt đầu phase triển khai tiếp theo.
+Tài liệu tiếp tục hiện hành. Thay thế các thứ tự phase cũ và các đoạn snapshot còn ghi giữ TCW, tách nhiều dòng mỗi mã trên vùng hoặc SWC chỉ có bến phao. Đã cập nhật thêm kết quả phase Bình Dương được người dùng giao trong cùng ngày; snapshot trước phase giữ bên dưới.
 
 ## Cập nhật phase Bình Dương theo yêu cầu mới 30/10/2026
 
-Đã bắt đầu và hoàn thiện tại máy quy trình refresh riêng Bình Dương; xem [triển khai](binhduong-refresh-20261030.md) và [receipt](catalog-review/binhduong-stabilization-20261030.json). Ba run Quality `41079292805`, `41080083652`, `41080575259` đều success, thay trạng thái còn chờ bên dưới. Edition mới đến 29/10: 8.342 dòng không đổi, last observation vẫn vào 24/08 và rời 15/07. Không đổi PDN.
+Quality **41084003113** của bản tính năng **ea7b7a3** đã **success**, gồm lint/typecheck/Vitest/Python, E2E và cả Next/OpenNext build. CI/readback này không thay nghiệm thu refresh cloud theo lịch hoặc production.
 
-Bước còn lại trong phase: kiểm tra CI/deploy/readback đúng SHA bản mới, lưu receipt. Workflow Bình Dương hiện chỉ cấu hình thủ công trên nhánh staging; chưa đăng ký default branch, chưa chạy refresh cloud hoặc schedule. Không xem cấu hình là nghiệm thu vận hành. Sau readback, bước vận hành kế tiếp là đăng ký/chạy workflow thủ công cloud, rồi mới xét lịch riêng Bình Dương; không mở lại cron PDN.
+Đã hoàn tất refresh thủ công → export → push → deploy → readback staging riêng Bình Dương (`ea7b7a3`); xem [triển khai](binhduong-refresh-20261030.md) và [receipt](catalog-review/binhduong-stabilization-20261030.json). Ba run Quality `41079292805`, `41080083652`, `41080575259` đều success, thay trạng thái còn chờ bên dưới. Edition mới đến 29/10: 8.342 dòng không đổi, last observation vẫn vào 24/08 và rời 15/07. Không đổi PDN.
+
+Cloudflare build `ebe50cc3-e942-4d6f-9699-09d79d656bf6` success; readback 22 tháng hai chiều, journal, tổng GMD miền Nam và hàng GMD vùng đều đạt. [Readback](catalog-review/binhduong-live-readback-20261030.json). Workflow Bình Dương hiện chỉ cấu hình thủ công trên nhánh staging; chưa đăng ký default branch, chưa chạy refresh cloud hoặc schedule. Không xem cấu hình là nghiệm thu vận hành. Bước vận hành kế tiếp là đăng ký/chạy workflow thủ công cloud, rồi mới xét lịch riêng Bình Dương; không mở lại cron PDN.
 
 Các snapshot bên dưới là trước phase Bình Dương, giữ làm mốc lịch sử.
 
@@ -42,8 +44,8 @@ Các snapshot bên dưới là trước phase Bình Dương, giữ làm mốc l�
 
 ## Điểm tiếp tục sau khi người dùng yêu cầu làm tiếp
 
-1. **Chốt kiểm chứng head hiện hành:** xem kết quả CI/Cloudflare nêu trên và các commit tài liệu về sau. Nếu có lỗi, xử lý đúng bằng chứng; staging đã có receipt, không cần lặp toàn bộ audit nếu không có thay đổi.
-2. **Bình Dương riêng:** đánh giá refresh/monitor độc lập, không refresh hoặc thay edition PDN để làm mới Bình Dương. Đọc `scripts/collect-pdn-plans.py`, `scripts/export-binhduong-plans.py`, `scripts/verify-binhduong-live.mjs` và ledger. Giữ raw/hash bất biến, lịch sử khi nguồn rỗng/lỗi, replay không nhân dòng, chống ghi đè do commit cạnh tranh. Đích: refresh thủ công → export → push → deploy → readback đúng edition, có receipt. Có cấu hình lịch không đồng nghĩa đã chạy lịch thật.
+1. **Đã chốt phase Bình Dương thủ công:** tính năng `ea7b7a3`, Quality `41084003113` và Cloudflare `ebe50cc3` success; staging đúng edition đến 29/10, 8.342 dòng, 22 tháng hai chiều và tổng GMD miền Nam khớp. Xem receipt phase và readback ở đầu tài liệu.
+2. **Bình Dương vận hành cloud:** đăng ký workflow riêng trên default branch và chạy thủ công cloud với artifact/receipt trước khi cân nhắc schedule riêng. Giữ raw/hash bất biến, cold-runner history, replay không nhân dòng và push từ chối commit cạnh tranh. Không refresh/thay edition PDN. Có cấu hình lịch không đồng nghĩa đã chạy lịch thật.
 3. **Phạm vi cảng sông/biển có nguồn của GMD/SGP:** ưu tiên khoảng trống SGP K12/TT2 và các tài sản phù hợp còn thiếu khi có chứng cứ mới. Không tự gộp K12/khu neo/TT2, không dùng phao Gemadept thay cảng. Phước Long/Nam Hải ICD và phần cảng cạn/kho bãi để phạm vi riêng sau này theo quyết định mới.
 4. **Khoảng lịch sử:** chỉ điều tra khi có đầu mối mới. Gemalink hiện có 326 dòng vào Jan–Jul/2025 từ PDF quốc gia, còn thiếu chiều rời đầu 2025; đã quét 7.845 hồ sơ/7.683 hash, không tải lại toàn bộ vô cớ. Bình Dương edition đang bàn giao đến 28/10/2026, 8.342 dòng; quan sát rời cuối 15/07 và vào cuối 24/08/2026. Thiếu quan sát không có nghĩa bằng 0.
 5. **Sản lượng công bố tấn/TEU của cảng đủ phạm vi:** giữ riêng với DWT và lịch tàu; kỳ, đơn vị và actual/plan phải rõ. Không lấy bình quân/công suất nhân thành tổng kỳ. TCW và sản lượng kho/bãi không nằm trong phase này.
@@ -59,3 +61,4 @@ Các snapshot bên dưới là trước phase Bình Dương, giữ làm mốc l�
 Raw/cache `.local/swc/`, `.local/swc-longbinh/`, `.local/tcw-recheck/`, `.local/gemalink-national/`, `.local/south-plans/`, `.local/pdn/`, `.local/tcl-recheck/` không đi theo Git; xem tên đường dẫn chính xác trong hồ sơ từng phạm vi. Khôi phục đúng hash trước khi export lại; không giả định máy mới có cache. Module/ledger/docs/receipt đã commit mới là mốc khôi phục từ repository.
 
 Kết thúc mỗi phạm vi: cập nhật trạng thái/giới hạn, kiểm tra phù hợp, commit/push nhánh hiện tại, kiểm tra CI/Cloudflare đúng SHA và lưu readback đúng edition. Không cần hỏi lại quyền commit/push đã được giao. Đợt lưu bàn giao hiện tại dừng ở hồ sơ; chưa bắt đầu Bình Dương hoặc các phase sau.
+

@@ -2,13 +2,15 @@
 
 ## Bình Dương / GMD — ổn định refresh độc lập 30/10/2026
 
+Quality **41084003113** của bản tính năng **ea7b7a3** đã **success**, gồm lint/typecheck/Vitest/Python, E2E và cả Next/OpenNext build. CI/readback này không thay nghiệm thu refresh cloud theo lịch hoặc production.
+
 Đã kiểm tra ba run Quality của `53d226f`, `34005f1`, `2790e0a`: đều **success**. Bàn giao cũ còn ghi đang chạy được thay bằng kết quả này. Đã refresh Bình Dương riêng: 14 phản hồi 23–29/10, edition đến 29/10/2026, 667 ngày/1.334 phản hồi, vẫn **8.342 dòng**; vào cuối 24/08, rời cuối 15/07. Chưa bù được khoảng thiếu; không suy bằng 0 hoặc giảm hoạt động thực.
 
 Collector dùng `.local/binhduong`, lưu raw theo hash bất biến; exporter giữ lịch sử đã duyệt trên cold runner, chặn mất dù một dòng, thiếu raw/checksum lỗi/cutoff lùi và replay không nhân dòng. Không thay edition PDN. Workflow riêng `binhduong-plans.yml` chạy thủ công, push không force/rebase nên từ chối khi nhánh cạnh tranh; chờ deploy rồi kiểm tra đúng edition, 22 tháng hai chiều, GMD miền Nam và một dòng GMD ở vùng. Chưa đăng ký workflow trên default branch hoặc nghiệm thu schedule/cloud refresh/production. [Hồ sơ triển khai](binhduong-refresh-20261030.md), [receipt](catalog-review/binhduong-stabilization-20261030.json).
 
-Tiếp theo: chốt CI/deploy/readback của bản ổn định này; sau đó đăng ký và chạy workflow thủ công trên cloud trước khi cân nhắc lịch riêng Bình Dương. Khoảng nguồn GMD/SGP chỉ tiếp tục khi có đầu mối mới; HCM connectivity, cron PDN, Long Bình Tân, ICD/kho bãi vẫn để sau.
+Bản tính năng `ea7b7a3` đã push, Cloudflare build `ebe50cc3` success; readback đúng edition, 22 tháng hai chiều, journal, tổng GMD miền Nam và hàng GMD vùng đã đạt. [Receipt staging](catalog-review/binhduong-live-readback-20261030.json). Tiếp theo đăng ký và chạy workflow thủ công trên cloud trước khi cân nhắc lịch riêng Bình Dương. Khoảng nguồn GMD/SGP chỉ tiếp tục khi có đầu mối mới; HCM connectivity, cron PDN, Long Bình Tân, ICD/kho bãi vẫn để sau.
 
-## Trạng thái chốt để tiếp tục sau — 30/10/2026
+## Snapshot bàn giao trước phase Bình Dương — 30/10/2026
 
 Đây là trạng thái hiện hành, thay các snapshot lịch sử bên dưới. Đọc [bàn giao đã tổng hợp lại](ports-next-phase-handoff-20261030.md) trước khi làm tiếp.
 
@@ -166,7 +168,7 @@ Chiều tàu rời như ảnh người dùng: tháng 8 tổng 704.494,56 DWT (-6
 
 ## Next steps hiện hành
 
-1. Chốt CI/deploy/readback bản ổn định Bình Dương hiện hành; ba CI bàn giao cũ đã success.
+1. Refresh thủ công và staging Bình Dương `ea7b7a3` đã đạt; xem receipt phase để biết kết quả Quality đúng SHA.
 2. Đăng ký workflow Bình Dương trên default branch và chạy thủ công cloud trước khi xét lịch riêng; không đồng nhất cấu hình với nghiệm thu schedule.
 3. GMD/SGP: chỉ tiếp tục khoảng thiếu hoặc tài sản cảng sông/biển đủ nguồn; không tự gộp K12/khu neo/TT2 hoặc lấy phao Gemadept thay cảng.
 4. Tấn/TEU công bố của cảng đủ phạm vi giữ riêng DWT; so lũy kế cùng tháng/cutoff.
@@ -188,3 +190,4 @@ Các trạng thái trước PDN trong lịch sử Git là snapshot lịch sử; 
 ## Readback Bình Dương 26/10/2026
 
 Commit `6f52024` đã push lên `codex/cloudflare-next-compat`; Cloudflare Workers Builds thành công. Verifier riêng đã đối chiếu staging thành công 22 tháng ở cả hai chiều, metadata edition đến 25/10, null và nhật ký dòng quan sát cuối. Biên nhận: [Bình Dương live readback](catalog-review/binhduong-live-readback-20261026.json). Không chứng nhận cron hoặc toàn bộ hoạt động cảng; khoảng thiếu sau tháng 6 vẫn chưa có nguồn bù đủ điều kiện.
+

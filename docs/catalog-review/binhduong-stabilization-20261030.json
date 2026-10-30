@@ -74,5 +74,408 @@
     "e2e_desktop_mobile": 4
   },
   "scheduled_refresh_verified": false,
-  "production_verified": false
+  "production_verified": false,
+  "feature_commit": "ea7b7a34ab661d87c6cc69fa0f2cc26cf64d13f9",
+  "source_window": {
+    "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
+    "responses": [
+      {
+        "day": "2026-10-23",
+        "direction": "arrival",
+        "source_rows": 21,
+        "BC198_rows": 0,
+        "sha256": "c12ace855be6d53ac3b1b10544b34580aaf3c29f9cc99332f4aba1e93c90616b",
+        "checked_at": "2026-10-30T15:44:09.460490+00:00"
+      },
+      {
+        "day": "2026-10-23",
+        "direction": "departure",
+        "source_rows": 19,
+        "BC198_rows": 0,
+        "sha256": "618eb1b2729e193d528070628c62578abad47cd17838bc336e1517b326145863",
+        "checked_at": "2026-10-30T15:44:09.431660+00:00"
+      },
+      {
+        "day": "2026-10-24",
+        "direction": "arrival",
+        "source_rows": 13,
+        "BC198_rows": 0,
+        "sha256": "cce6205d5faf169cbf834a5c7365e21cc97361436ccd7107f315d88edae4cf26",
+        "checked_at": "2026-10-30T15:44:09.131666+00:00"
+      },
+      {
+        "day": "2026-10-24",
+        "direction": "departure",
+        "source_rows": 16,
+        "BC198_rows": 0,
+        "sha256": "433c636b8e83fac54f489e6ec2a486a1818664c1bd0095097f435ca8d111c3a8",
+        "checked_at": "2026-10-30T15:44:11.277674+00:00"
+      },
+      {
+        "day": "2026-10-25",
+        "direction": "arrival",
+        "source_rows": 8,
+        "BC198_rows": 0,
+        "sha256": "b009a23a67c01554ece8d9abaff6129b5a2174adb48386293a6873347121ff41",
+        "checked_at": "2026-10-30T15:44:11.559170+00:00"
+      },
+      {
+        "day": "2026-10-25",
+        "direction": "departure",
+        "source_rows": 9,
+        "BC198_rows": 0,
+        "sha256": "2bb00d21a2ebfe5fafab9d213df2abe53720e8fd1062a242257515daca91aa79",
+        "checked_at": "2026-10-30T15:44:11.508709+00:00"
+      },
+      {
+        "day": "2026-10-26",
+        "direction": "arrival",
+        "source_rows": 17,
+        "BC198_rows": 0,
+        "sha256": "7401c170b77091c147449ce357f9b80187606212fb4240e36e5d01ee2dc71125",
+        "checked_at": "2026-10-30T15:44:13.486799+00:00"
+      },
+      {
+        "day": "2026-10-26",
+        "direction": "departure",
+        "source_rows": 17,
+        "BC198_rows": 0,
+        "sha256": "4d11a20128f9e7bb0a45d217ea2feb4429d48146fff3370e44f6acea776a5766",
+        "checked_at": "2026-10-30T15:44:13.543133+00:00"
+      },
+      {
+        "day": "2026-10-27",
+        "direction": "arrival",
+        "source_rows": 13,
+        "BC198_rows": 0,
+        "sha256": "64cd1e9f2c74dc52ea257073ec956f450a6c3349e112333613b0131ca0ca1744",
+        "checked_at": "2026-10-30T15:44:14.189160+00:00"
+      },
+      {
+        "day": "2026-10-27",
+        "direction": "departure",
+        "source_rows": 13,
+        "BC198_rows": 0,
+        "sha256": "345816582becb29efc95c450fc2778cc8ecdf57688edc2a6df7ef580f64bc455",
+        "checked_at": "2026-10-30T15:44:15.510994+00:00"
+      },
+      {
+        "day": "2026-10-28",
+        "direction": "arrival",
+        "source_rows": 9,
+        "BC198_rows": 0,
+        "sha256": "0193751fd63d2f76ce2f59165863c383519fabd7b84a48014406dfddc73ce641",
+        "checked_at": "2026-10-30T15:44:15.610458+00:00"
+      },
+      {
+        "day": "2026-10-28",
+        "direction": "departure",
+        "source_rows": 11,
+        "BC198_rows": 0,
+        "sha256": "d39212350db2f3c5054253bb519caf169fb39a5677da2db6543542642b89079d",
+        "checked_at": "2026-10-30T15:44:16.047154+00:00"
+      },
+      {
+        "day": "2026-10-29",
+        "direction": "arrival",
+        "source_rows": 14,
+        "BC198_rows": 0,
+        "sha256": "a221ea0aae2b1d20b47c40fc6c13f5c805fb5f88c6b49d63a5e00511af0ebeca",
+        "checked_at": "2026-10-30T15:44:17.533566+00:00"
+      },
+      {
+        "day": "2026-10-29",
+        "direction": "departure",
+        "source_rows": 13,
+        "BC198_rows": 0,
+        "sha256": "d10e863613d043114397e5f961a6786f24872f5a9583a975f1f3897d9ea9d20b",
+        "checked_at": "2026-10-30T15:44:17.512359+00:00"
+      }
+    ],
+    "source_rows_total": 193,
+    "binhduong_rows_total": 0,
+    "absence_means_zero": false
+  },
+  "history_retention": {
+    "matched_files": 44,
+    "all_historical_journals_and_pdn_publication_unchanged": true,
+    "sha256": {
+      "packages/modules/port/src/binhduong-journal-data/2025-01.ts": "aec004bcda33ff63249b22600b5395c23644d693c86a637e0fa3d39a9c3c2aac",
+      "packages/modules/port/src/binhduong-journal-data/2025-02.ts": "60d7bd985119c17838e13ab88a79bc28c756f41e81e768839278ee338ee677d4",
+      "packages/modules/port/src/binhduong-journal-data/2025-03.ts": "8323ad58bf943344bd62023579ba609455542ea7d1b7204849b620e11f19fc49",
+      "packages/modules/port/src/binhduong-journal-data/2025-04.ts": "b5ef39eca354059376b9b27bffc6f1c6b5a56140ffd0cfd868a3675db83ffe2f",
+      "packages/modules/port/src/binhduong-journal-data/2025-05.ts": "2dabff5d5ae5ef3723d30a1aea82a43f821e4984dd9daf90ec680e6a37983555",
+      "packages/modules/port/src/binhduong-journal-data/2025-06.ts": "f42683ad06f313f87094de4cb692eb692c9dc51d904a2d0824564097fb6b4d75",
+      "packages/modules/port/src/binhduong-journal-data/2025-07.ts": "b1b9d9705122d798e24e8086c57dc2f44b3f46bae1db0056a70c9e26a1462aab",
+      "packages/modules/port/src/binhduong-journal-data/2025-08.ts": "3e1ba26cb50dd5c3095bbb3bbbf6571e8ccd1223107b18ec8a9909f080f1ac5c",
+      "packages/modules/port/src/binhduong-journal-data/2025-09.ts": "3dc9e7f8d1b5222be9807ce1b5e8b799195fce09c0baab7eddc60d1cee120d32",
+      "packages/modules/port/src/binhduong-journal-data/2025-10.ts": "227eafcf3fa10241ef437b933dbdd5b3767bcbc93e6e38ad0f0afc89adee4878",
+      "packages/modules/port/src/binhduong-journal-data/2025-11.ts": "6d71c8244e9c8528ecc67af3069b3a74e2381907d135000e2e531383b6d28cac",
+      "packages/modules/port/src/binhduong-journal-data/2025-12.ts": "295935f2bbfb27b4d4997a00e4b1f96ea8a1a209a93e727165eb17722e6d3149",
+      "packages/modules/port/src/binhduong-journal-data/2026-01.ts": "4ae3d2f5ec5af075043d4d98b480b97348351ef0b0bb3c03d0136a5a58c7c6af",
+      "packages/modules/port/src/binhduong-journal-data/2026-02.ts": "9468d7a3c294bb22bf385980bba099bba1533bfc157a526be7d421b27282fe0e",
+      "packages/modules/port/src/binhduong-journal-data/2026-03.ts": "dc81e40021c1c46cdd0e6663447b01829778550acf9722f9d0cfc60763e4303d",
+      "packages/modules/port/src/binhduong-journal-data/2026-04.ts": "313b9391b8e36f179a564456f1055f59e2fe776353301ce332168558ece4d50c",
+      "packages/modules/port/src/binhduong-journal-data/2026-05.ts": "a0fe0d64dd84a3c4418f1c885b81904ff82f626a66876bb50927da76b7af49ac",
+      "packages/modules/port/src/binhduong-journal-data/2026-06.ts": "315ccbd1adec22fdddef05d27704429500b78515f69d85ce32e60044f9708220",
+      "packages/modules/port/src/binhduong-journal-data/2026-07.ts": "125f92256cc8552b0512e4eaac81d229ee8c53335c1ff2e58d692dda5cde1779",
+      "packages/modules/port/src/binhduong-journal-data/2026-08.ts": "b57ea95dec1ffba81307f4e1ff0d4a1fac15e5daa41d09b7308e458500fb9ee5",
+      "packages/modules/port/src/pdn-journal-data/2025-01.ts": "cdd560426e9fe98c0fb68f284989568106bc2d0e74a209ee049e9c97edfa72f4",
+      "packages/modules/port/src/pdn-journal-data/2025-02.ts": "0d581c42977024fa17b124d31273f531126dc415d139bfd771b7060d09c96aae",
+      "packages/modules/port/src/pdn-journal-data/2025-03.ts": "430b80cb1469b3516a0f5e94ccc196ac748909a4e1b4ac8bdc18acfbb5aa0f07",
+      "packages/modules/port/src/pdn-journal-data/2025-04.ts": "57287e6231892e20ab370e0dfa81e50e1a88194f9c8ecd32d6007b5f95f78a03",
+      "packages/modules/port/src/pdn-journal-data/2025-05.ts": "a884665243276b268d0008c817ad9f3b66ead70b693897cdd8a0b5f4438f245e",
+      "packages/modules/port/src/pdn-journal-data/2025-06.ts": "7b61fb21a60f9bf56879fc9a874dd46da670977219e1e5f7372686545347b233",
+      "packages/modules/port/src/pdn-journal-data/2025-07.ts": "d9f15dbd4cc91d28ab9f90afe3354b8af93bb15e36392aa773fa2bf4816945e7",
+      "packages/modules/port/src/pdn-journal-data/2025-08.ts": "b53e2b565edf1d44908a2ccaa53fe8aa82b35803c75d23e0e721102ebc231ec1",
+      "packages/modules/port/src/pdn-journal-data/2025-09.ts": "bc628cbeb687ebd4ec2b467ea5bf7d847d5ecd57a0730649c0f3620c5f751053",
+      "packages/modules/port/src/pdn-journal-data/2025-10.ts": "e2616bd07422af3e1731e53fcdc9129609607f138c946eb320f4bee70ff0ad75",
+      "packages/modules/port/src/pdn-journal-data/2025-11.ts": "4a7f164a62075ae71c478d7282b0bca3d3d59eb1970b74ef2a592fcfe6242cca",
+      "packages/modules/port/src/pdn-journal-data/2025-12.ts": "4aeda54c185780fcb8b548abe74458f16e0ec6afa24bd2ed40c33c1e8abe3bbe",
+      "packages/modules/port/src/pdn-journal-data/2026-01.ts": "46a48007ab25f5ca69738258ba9bd6f6590df17be24763583d7fe6e4ae23a45a",
+      "packages/modules/port/src/pdn-journal-data/2026-02.ts": "b833d8b71abacda1fe18372a288398043ad8781b2ad5fb4ff31f21d94cdf7c95",
+      "packages/modules/port/src/pdn-journal-data/2026-03.ts": "4eee030c485a34ab02060aeef58c8ce5c2855f675498e61c69059e885c31294a",
+      "packages/modules/port/src/pdn-journal-data/2026-04.ts": "11522d98565554772eca23546a292f919bf032f7ef7cb3e0f37ae8922d60b98c",
+      "packages/modules/port/src/pdn-journal-data/2026-05.ts": "b70583ca590d5113ff617748a55580592eed9fa5567a25cf5cc78bcae2b68888",
+      "packages/modules/port/src/pdn-journal-data/2026-06.ts": "36d73e8879a0120f512a9c9a3d814996dc9f546637e2ba2e67699ca2d64c3f0f",
+      "packages/modules/port/src/pdn-journal-data/2026-07.ts": "1baf1516b870b102866a1a09cee427c24e06c63de15a6eaf0608884d5a8597de",
+      "packages/modules/port/src/pdn-journal-data/2026-08.ts": "edd2a07e6749825daa83305dd54b1c2523310c5fd3c5313aeb5f6dab67ba0529",
+      "packages/modules/port/src/pdn-journal-data/2026-09.ts": "c9d577820bb1068766f4036f3a95a6b7951d65f9cbfa086b180f16ca6d36ae37",
+      "packages/modules/port/src/pdn-journal-data/2026-10.ts": "d7e59bd1d970339569769449be0241ddaa1d05e4855795471546d3d410a5ea74",
+      "packages/modules/port/src/pdn-history-data.ts": "4266e4c88283bb55dc9fe0960bcb95ee22c5d8342b785098650e0086bd1b8f1e",
+      "docs/catalog-review/pdn-history-ledger.json": "ddde3ad43e66ae3c892e1e108bad299bb90e755d6fad0a76a772aaaa4f4a1521"
+    }
+  },
+  "live_readback_receipt": "binhduong-live-readback-20261030.json",
+  "deployment_readback_verified": true,
+  "release": {
+    "checked_at": "2026-10-30T15:55:11.226503+00:00",
+    "commit": "ea7b7a34ab661d87c6cc69fa0f2cc26cf64d13f9",
+    "quality": {
+      "id": 41084003113,
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41084003113"
+    },
+    "checks": [
+      {
+        "name": "Workers Builds: investing-pro-web-staging",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/ebe50cc3-e942-4d6f-9699-09d79d656bf6"
+      },
+      {
+        "name": "check",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41084003113/job/124160235318"
+      }
+    ],
+    "jobs": [
+      {
+        "id": 124160235318,
+        "run_id": 41084003113,
+        "workflow_name": "Quality",
+        "head_branch": "codex/cloudflare-next-compat",
+        "run_url": "https://api.github.com/repos/nguyenducdung96/InvestingPro/actions/runs/41084003113",
+        "run_attempt": 1,
+        "node_id": "CR_kwDOVJhEU88AAAAc6IbXNg",
+        "head_sha": "ea7b7a34ab661d87c6cc69fa0f2cc26cf64d13f9",
+        "url": "https://api.github.com/repos/nguyenducdung96/InvestingPro/actions/jobs/124160235318",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41084003113/job/124160235318",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-30T15:47:52Z",
+        "started_at": "2026-10-30T15:47:54Z",
+        "completed_at": "2026-10-30T15:54:46Z",
+        "name": "check",
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1,
+            "started_at": "2026-10-30T15:47:54Z",
+            "completed_at": "2026-10-30T15:47:55Z"
+          },
+          {
+            "name": "Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2,
+            "started_at": "2026-10-30T15:47:55Z",
+            "completed_at": "2026-10-30T15:47:57Z"
+          },
+          {
+            "name": "Run pnpm/action-setup@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3,
+            "started_at": "2026-10-30T15:47:57Z",
+            "completed_at": "2026-10-30T15:47:58Z"
+          },
+          {
+            "name": "Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4,
+            "started_at": "2026-10-30T15:47:58Z",
+            "completed_at": "2026-10-30T15:48:02Z"
+          },
+          {
+            "name": "Run pnpm install --frozen-lockfile",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5,
+            "started_at": "2026-10-30T15:48:02Z",
+            "completed_at": "2026-10-30T15:48:06Z"
+          },
+          {
+            "name": "Run pnpm lint",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 6,
+            "started_at": "2026-10-30T15:48:06Z",
+            "completed_at": "2026-10-30T15:48:14Z"
+          },
+          {
+            "name": "Run pnpm typecheck",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7,
+            "started_at": "2026-10-30T15:48:14Z",
+            "completed_at": "2026-10-30T15:48:32Z"
+          },
+          {
+            "name": "Run pnpm test",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 8,
+            "started_at": "2026-10-30T15:48:32Z",
+            "completed_at": "2026-10-30T15:48:53Z"
+          },
+          {
+            "name": "Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 9,
+            "started_at": "2026-10-30T15:48:53Z",
+            "completed_at": "2026-10-30T15:48:53Z"
+          },
+          {
+            "name": "Run python -m pip install -r scripts/requirements-gemalink-national.txt",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 10,
+            "started_at": "2026-10-30T15:48:53Z",
+            "completed_at": "2026-10-30T15:48:55Z"
+          },
+          {
+            "name": "Run python scripts/test-gemalink-national.py",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 11,
+            "started_at": "2026-10-30T15:48:55Z",
+            "completed_at": "2026-10-30T15:48:56Z"
+          },
+          {
+            "name": "Run python scripts/test-swc-longbinh-plans.py",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 12,
+            "started_at": "2026-10-30T15:48:56Z",
+            "completed_at": "2026-10-30T15:48:56Z"
+          },
+          {
+            "name": "Run python scripts/test-binhduong-plans.py",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 13,
+            "started_at": "2026-10-30T15:48:56Z",
+            "completed_at": "2026-10-30T15:48:57Z"
+          },
+          {
+            "name": "Run pnpm exec playwright install --with-deps chromium",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14,
+            "started_at": "2026-10-30T15:48:57Z",
+            "completed_at": "2026-10-30T15:49:11Z"
+          },
+          {
+            "name": "Run pnpm test:e2e",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15,
+            "started_at": "2026-10-30T15:49:11Z",
+            "completed_at": "2026-10-30T15:54:00Z"
+          },
+          {
+            "name": "Run pnpm build",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 16,
+            "started_at": "2026-10-30T15:54:00Z",
+            "completed_at": "2026-10-30T15:54:28Z"
+          },
+          {
+            "name": "Run pnpm build:cloudflare",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 17,
+            "started_at": "2026-10-30T15:54:28Z",
+            "completed_at": "2026-10-30T15:54:43Z"
+          },
+          {
+            "name": "Post Run actions/setup-python@v5",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 31,
+            "started_at": "2026-10-30T15:54:43Z",
+            "completed_at": "2026-10-30T15:54:43Z"
+          },
+          {
+            "name": "Post Run actions/setup-node@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 32,
+            "started_at": "2026-10-30T15:54:43Z",
+            "completed_at": "2026-10-30T15:54:43Z"
+          },
+          {
+            "name": "Post Run pnpm/action-setup@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 33,
+            "started_at": "2026-10-30T15:54:43Z",
+            "completed_at": "2026-10-30T15:54:43Z"
+          },
+          {
+            "name": "Post Run actions/checkout@v4",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 34,
+            "started_at": "2026-10-30T15:54:43Z",
+            "completed_at": "2026-10-30T15:54:44Z"
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 35,
+            "started_at": "2026-10-30T15:54:44Z",
+            "completed_at": "2026-10-30T15:54:44Z"
+          }
+        ],
+        "check_run_url": "https://api.github.com/repos/nguyenducdung96/InvestingPro/check-runs/124160235318",
+        "labels": [
+          "ubuntu-latest"
+        ],
+        "runner_id": 1000000349,
+        "runner_name": "GitHub Actions 1000000349",
+        "runner_group_id": 0,
+        "runner_group_name": "GitHub Actions"
+      }
+    ]
+  }
 }

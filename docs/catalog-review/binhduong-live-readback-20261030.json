@@ -1,0 +1,28 @@
+{
+  "verified_at": "2026-10-30T15:48:27.841Z",
+  "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+  "through": "2026-10-29",
+  "checked_at": "2026-10-30T15:44:17.533566+00:00",
+  "deployment_readback_verified": true,
+  "scheduled_refresh_verified": false,
+  "published_commit": "ea7b7a34ab661d87c6cc69fa0f2cc26cf64d13f9",
+  "checks": [
+    {
+      "direction": "arrival",
+      "months_matched": 22,
+      "last_observation": "2026-08-24",
+      "journal_rows": 1,
+      "gmd_south_aggregate_matched": true,
+      "regional_single_gmd_row_matched": true
+    },
+    {
+      "direction": "departure",
+      "months_matched": 22,
+      "last_observation": "2026-07-15",
+      "journal_rows": 1,
+      "gmd_south_aggregate_matched": true,
+      "regional_single_gmd_row_matched": true
+    }
+  ],
+  "completed_at": "2026-10-30T15:52:02.694863+00:00"
+}
