@@ -1,0 +1,47 @@
+name: SGP K12 TT2 pilot plan archive
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: sgp-pilot-review
+  cancel-in-progress: false
+jobs:
+  archive:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/test-sgp-pilot-plans.py
+      - run: python scripts/test-sgp-pilot-overlap.py
+      - uses: actions/cache/restore@v4
+        with:
+          path: .local/sgp-pilot
+          key: sgp-pilot-review-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: sgp-pilot-review-v1-
+      - name: Archive both public day tabs and revisions
+        run: python scripts/collect-sgp-pilot-plans.py
+      - name: Review overlap only where local authority evidence is available
+        run: python scripts/review-sgp-pilot-overlap.py
+      - name: Confirm no product edition changes
+        run: git diff --exit-code -- packages/modules/port apps/web
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .local/sgp-pilot
+          key: sgp-pilot-review-v1-${{ github.run_id }}-${{ github.run_attempt }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sgp-pilot-review
+          path: .local/sgp-pilot/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 90
