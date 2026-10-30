@@ -32,4 +32,3 @@ Receipt phase: [binhduong-stabilization-20261030.json](catalog-review/binhduong-
 ## Bước tiếp theo
 
 Đăng ký/chạy workflow thủ công trên cloud trước khi cân nhắc lịch riêng Bình Dương. Nghiên cứu khoảng thiếu hoặc tài sản cảng sông/biển GMD/SGP tiếp theo chỉ khi có bằng chứng mới. HCM connectivity, cron PDN, Long Bình Tân, ICD/depot/kho bãi và Dung Quất định kỳ tiếp tục để sau.
-

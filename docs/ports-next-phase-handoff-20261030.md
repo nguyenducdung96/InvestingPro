@@ -61,4 +61,3 @@ Các snapshot bên dưới là trước phase Bình Dương, giữ làm mốc l�
 Raw/cache `.local/swc/`, `.local/swc-longbinh/`, `.local/tcw-recheck/`, `.local/gemalink-national/`, `.local/south-plans/`, `.local/pdn/`, `.local/tcl-recheck/` không đi theo Git; xem tên đường dẫn chính xác trong hồ sơ từng phạm vi. Khôi phục đúng hash trước khi export lại; không giả định máy mới có cache. Module/ledger/docs/receipt đã commit mới là mốc khôi phục từ repository.
 
 Kết thúc mỗi phạm vi: cập nhật trạng thái/giới hạn, kiểm tra phù hợp, commit/push nhánh hiện tại, kiểm tra CI/Cloudflare đúng SHA và lưu readback đúng edition. Không cần hỏi lại quyền commit/push đã được giao. Đợt lưu bàn giao hiện tại dừng ở hồ sơ; chưa bắt đầu Bình Dương hoặc các phase sau.
-
