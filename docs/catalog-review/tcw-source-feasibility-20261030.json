@@ -1,0 +1,672 @@
+{
+  "checked_at": "2026-10-30T15:04:43.524157+00:00",
+  "ticker": "TCW",
+  "decision": "no_supported_vessel_scope_found",
+  "operating_port_confirmed": false,
+  "absence_is_universal_proof": false,
+  "product_change": "none; preserve TCW catalog and unavailable vessel metrics",
+  "company_sources": [
+    {
+      "url": "https://tancangwarehousing.com.vn/co-so-vat-chat.html",
+      "finding": "CFS/bonded warehouses, yards, Suoi Tien depot and open-port zone within Cat Lai; capacity is not throughput"
+    },
+    {
+      "url": "https://tancangwarehousing.com.vn/cong-ty-thanh-vien.html",
+      "finding": "Subsidiary and associate logistics/depot operations; not berth ownership proof"
+    },
+    {
+      "url": "https://saigonnewport.com.vn/cang-cong-ty/tan-cang-hiep-luc-depot",
+      "finding": "SNP describes Hiep Luc as a 30000m2 depot with 3000m2 warehouse; registered waterway activities do not prove an operating berth"
+    }
+  ],
+  "annual_report": {
+    "url": "https://tancangwarehousing.com.vn/uploads/files/2026/03/23/en-annualreport-2025-1.pdf",
+    "sha256": "5787297861ce2e23c4ab2a042e4c5a651071c802bfb93a67b36b7c69d02b9531",
+    "pages": 51,
+    "reviewed_pages": [
+      3,
+      4,
+      5,
+      6
+    ],
+    "visually_verified_ownership_page": 6,
+    "ownership_percent": {
+      "Cat Lai Logistics": 57.5,
+      "Tan Cang Hiep Luc": 51,
+      "Tan Cang Express": 36,
+      "Depot Kho Van Tan Cang": 36
+    },
+    "download_url": "https://tancangwarehousing.com.vn/quan-he-co-dong/download/en-annualreport-2025",
+    "hash_applies_to": "browser download response; View link retained as document reference"
+  },
+  "reported_services": {
+    "source_url": "https://tancangwarehousing.com.vn/uploads/files/2026/05/14/vi-tailieuhopdaihoidongcodongthuongnien-2026-cap-nhat-compressed-1.pdf",
+    "sha256": "cce5521887e392982d2e5aba99e3e8f2c14d23a7312f113515affd70c2e1e5af",
+    "document_pages": 42,
+    "page": 6,
+    "visual_verification": true,
+    "source_status": "reported actuals in updated AGM materials; not independently audited production",
+    "scope": "parent company; not consolidated",
+    "frequency": "annual",
+    "rows": [
+      {
+        "metric": "warehouse",
+        "unit": "tonnes",
+        "actual_2024": 1314489,
+        "actual_2025": 1394382,
+        "yoy_percent": 6.077875128662158
+      },
+      {
+        "metric": "cfs_import",
+        "unit": "tonnes",
+        "actual_2024": 775165,
+        "actual_2025": 816366,
+        "yoy_percent": 5.315126456947872
+      },
+      {
+        "metric": "cfs_export",
+        "unit": "tonnes",
+        "actual_2024": 502167,
+        "actual_2025": 541151,
+        "yoy_percent": 7.763154488447066
+      },
+      {
+        "metric": "bonded_warehouse",
+        "unit": "tonnes",
+        "actual_2024": 37158,
+        "actual_2025": 36865,
+        "yoy_percent": -0.7885246784003486
+      },
+      {
+        "metric": "yard",
+        "unit": "TEU",
+        "actual_2024": 747024,
+        "actual_2025": 841032,
+        "yoy_percent": 12.584334639850937
+      },
+      {
+        "metric": "transshipment_zone",
+        "unit": "TEU",
+        "actual_2024": 126790,
+        "actual_2025": 130403,
+        "yoy_percent": 2.849593816547036
+      },
+      {
+        "metric": "cargo_yard",
+        "unit": "TEU",
+        "actual_2024": 548902,
+        "actual_2025": 626508,
+        "yoy_percent": 14.138407220232384
+      },
+      {
+        "metric": "suoi_tien_depot",
+        "unit": "TEU",
+        "actual_2024": 71332,
+        "actual_2025": 84121,
+        "yoy_percent": 17.928839791397966
+      },
+      {
+        "metric": "VTVN",
+        "unit": "containers",
+        "actual_2024": 16243,
+        "actual_2025": 21726,
+        "yoy_percent": 33.75607954195654
+      }
+    ],
+    "caveats": [
+      "Keep published warehouse total for 2024: component sum is 1314490, one tonne above published total 1314489. Do not silently correct.",
+      "Yard already includes Suoi Tien and other components; never add components to its total again.",
+      "No monthly/quarterly observations or vessel/DWT series verified.",
+      "Exclude 2025 and 2026 plan columns from actuals."
+    ],
+    "download_url": "https://tancangwarehousing.com.vn/quan-he-co-dong/download/vi-tailieuhopdaihoidongcodongthuongnien-2026-cap-nhat-compressed",
+    "hash_applies_to": "browser download response; View link retained as document reference"
+  },
+  "investment_review": {
+    "source_document": "updated AGM 2026",
+    "visually_verified_pages": [
+      8,
+      12
+    ],
+    "finding": "2025 equipment/warehouse works and 2026 warehouse contribution at Tan Cang Long Binh are not proof of an operating TCW port; never map Tan Cang Long Binh to Sowatco Long Binh",
+    "historical_q9": "Historical proposed inland-port project remains unverified for commissioning; absence from reviewed current investment tables is not proof of cancellation."
+  },
+  "hcm_catalogue": [
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=news&cat=3099",
+      "category": "3099",
+      "page": 1,
+      "sha256": "e9018e9effc0d54d0334426bc207399cdc1f6ab64052c6a20e4424c28a5f6ffd",
+      "items": [
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8666",
+          "title": "Cảng DKNK Sao Vàng - Đại Nguyệt (Văn phòng điều hành Idemitsu Gas Production (Vietnam) Co, Ltd)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8665",
+          "title": "Mỏ Lan Tây-Lan Đỏ -Phong Lan Dại (Công ty Rosneft Việt Nam B.V)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8664",
+          "title": "Cảng DKNK Biển Đông (Công ty Liên doanh điều hành Biển Đông)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8663",
+          "title": "Cảng DKNK Mỏ Chim Sáo (Công Ty TNHH Premier Oil Vietnam)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8662",
+          "title": "Cảng DKNK Mỏ Tê Giác Trắng (Công ty điều hành Hoàng Long)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8661",
+          "title": "Cảng DKNK Mỏ Rồng Đôi – Rồng Đôi Tây (Công ty Dầu khí quốc gia Hàn Quốc (KNOC))"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8660",
+          "title": "Cảng DKNK Mỏ Đại Hùng (Chi Nhánh Điều Hành Dầu Khí Trong Nước - Công Ty Trách Nhiệm Hữu Hạn - Tổng Công Ty Thăm Dò Khai Thác Dầu Khí (PVEP POC))"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8659",
+          "title": "Cảng DKNK Mỏ Rạng Đông (Công ty Dầu khí Nhật Việt (JVPC))"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8658",
+          "title": "Cảng dầu khí ngoài khơi mỏ Vietsopetro 02\tchuyên dụng  dầu khí\t\t149.158 dwt\tKhông áp dụng\t\"9°34'38.8126\"\"N\r\n107°51'39.4420\"\"E\"\tQuyết định số 706/QĐ-PC ngày 14/4/1987 của Bộ Giao thông vận tải và Quyết định số 300/2000/QĐ-CHHVN ngày 29/09/2000 của Cục Hàng hải Việt Nam"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8657",
+          "title": "Cảng DKNK Mỏ Bạch Hổ (Xí nghiệp khai thác dầu khí, Liên doanh Việt Nga-Vietsovpetro)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8656",
+          "title": "Bến cảng tàu khách Côn Đảo (Ban Quản lý cảng Bến Đầm)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8655",
+          "title": "Bến cảng Bến Đầm (Ban Quản lý cảng Bến Đầm)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8654",
+          "title": "Bến cảng Khu dịch vụ công nghiệp Long Sơn (giai đoạn 1) (Công ty CP Cảng Quốc tế Long Sơn)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8653",
+          "title": "Bến cảng chuyên dụng Dự án tổ hợp hóa dầu miền Nam Việt Nam (Công ty TNHH hoá dầu Long Sơn)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8652",
+          "title": "Bến cảng Kết cấu kim loại và lắp máy dầu khí (PVC-MS) (Công ty Cổ phần Kết cấu Kim loại và lắp máy dầu khí)"
+        }
+      ]
+    },
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=news&cat=3099",
+      "category": "3099",
+      "page": 2,
+      "sha256": "1e6c8b439a8c79b883b9cf7735550fe1cf831158b3e583bffdf2886c896514f4",
+      "items": [
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8651",
+          "title": "Bến cảng Chế tạo giàn khoan dầu khí (PV Shipyard) (Công ty cổ phần Chế tạo giàn khoan dầu khí)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8650",
+          "title": "Bến cảng Hạ lưu PTSC (Công ty Cảng Dịch vụ Dầu khí)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8649",
+          "title": "Bến cảng Vietsovpetro (Xí Nghiệp Dịch vụ cảng và cung ứng vật tư thiết bị, Liên doanh dầu khí Việt - Nga Vietsovpetro)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8648",
+          "title": "Bến cảng Thượng lưu PTSC (Tổng công ty dầu Việt Nam (PV Oil) - Xí nghiệp Tổng kho xăng dầu Miền Đông)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8647",
+          "title": "Bến cảng Kho xăng dầu Cù Lao Tào (Tổng công ty dầu Việt Nam (PV Oil) - Xí nghiệp Tổng kho xăng dầu Miền Đông)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8646",
+          "title": "Bến cảng Xăng dầu PTSC (Tổng công ty dầu Việt Nam (PV Oil) -Xí nghiệp Tổng kho xăng dầu Miền Đông)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8645",
+          "title": "Bến cảng Vạn An (Công ty Cổ phần Hóa dầu Vạn An)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8644",
+          "title": "Bến cảng của Công ty TNHH Vard Vũng Tàu (Công ty TNHH Vard Vũng Tàu)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8643",
+          "title": "Bến cảng Vina Offshore (Công ty TNHH Kỹ thuật CKHH Vina Offshore)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8642",
+          "title": "Bến cảng Khu công nghiệp Đông Xuyên (Công ty Cổ phần cảng Đông Xuyên)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8641",
+          "title": "Bến cảng Vungtau shipyard (Công ty cổ phần Đóng tàu và dịch vụ dầu khí Vũng Tàu)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8640",
+          "title": "Cầu cảng NASOS (Trung tâm ƯPSCTD Khu vực phía Nam)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8639",
+          "title": "Bến cảng kho xăng dầu K2 (Công ty TNHH MTV xăng dầu Bà Rịa-Vũng Tàu)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8638",
+          "title": "Bến cảng Thương Cảng Vũng Tàu (Công ty Cổ phần Thương cảng Vũng Tàu)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8637",
+          "title": "Bến cảng Côn Đảo-Vũng Tàu (Ban Quản Lý Cảng Bến Đầm)"
+        }
+      ]
+    },
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=news&cat=3099",
+      "category": "3099",
+      "page": 3,
+      "sha256": "cde55310a18ba9d15bc2ad9f3939a0dec27283b27dc9da95694d0f7265ba6c13",
+      "items": [
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8636",
+          "title": "Bến cảng quốc phòng quân khu 7 (Công ty TNHH MTV Đông Hải)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8635",
+          "title": "Bến cảng Trung tâm Phối hợp, tìm kiếm cứu nạn hàng hải khu vực III (Trung tâm phối hợp tìm kiếm cứu nạn hàng hải khu vực III)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8631",
+          "title": "Bến cảng Cái Mép Gemadept-Terminal Link (Công ty Cổ phần Cảng Cái Mép Gemadept-Terminal Link)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8630",
+          "title": "Bến cảng container Quốc tế Cảng Sài Gòn-SSA (SSIT) (Công ty Liên doanh dịch vụ container Cảng Quốc tế Cảng Sài Gòn-SSA)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8629",
+          "title": "Bến cảng Container Quốc tế Cái Mép (TCTT) (Công ty TNHH MTV Cảng Tân cảng Cái Mép Thị Vải)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8628",
+          "title": "Bến cảng Quốc tế Cái Mép CMIT (Công ty TNHH Cảng Quốc tế Cái Mép)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8627",
+          "title": "Bến cảng Tổng hợp Cái Mép (Công ty Cổ Phần Cảng Tổng hợp Cái Mép)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8626",
+          "title": "Bến cảng Xăng dầu Petro Vũng Tàu (Công ty TNHH Dầu khí Hải Linh Vũng Tàu)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8625",
+          "title": "Bến cảng xăng dầu PETEC Cái Mép (Tổng công ty thương mại kỹ thuật và đầu tư - PETEC, XN xăng dầu Petec Cái Mép)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8624",
+          "title": "Bến cảng PVGAS Vũng Tàu (Công ty chế biến khí Vũng Tàu (PV Gas Vungtau))"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8623",
+          "title": "Bến cảng Hyosung Vina chemicals (Công ty TNHH Hóa Chất Hyosung Vina)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8622",
+          "title": "Bến cảng Container Cái Mép Thượng (TCIT) - Công ty TNHH Cảng Quốc tế Tân cảng Cái Mép"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8621",
+          "title": "Bến cảng Container Cái Mép Thượng (TCCT)- (Công ty CP Tân cảng Cái Mép- Tổng Công ty Tân Cảng Sài Gòn)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8620",
+          "title": "Bến cảng Interflour Cái Mép (Công ty TNHH Interflour Việt Nam)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8619",
+          "title": "Bến cảng Nhà máy đóng tàu Ba son (Tổng công ty Ba son)"
+        }
+      ]
+    },
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=news&cat=3099",
+      "category": "3099",
+      "page": 4,
+      "sha256": "e9140278e619a7919774632b2bcb0ae6ac5565e421c5b99db26a56c77f33c183",
+      "items": [
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8618",
+          "title": "Bến cảng Posco Yamato Vina (Công ty cổ phần thép Posco Yamato Vina)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8617",
+          "title": "Bến cảng POSCO (Công ty TNHH POSCO Việt Nam)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8633",
+          "title": "Bến cảng Hải đoàn 129 (Công ty TNHH MTV Hải sản Trường Sa)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8616",
+          "title": "Bến cảng Quốc tế SP-PSA (Công ty TNHH Cảng Quốc tế SP-PSA)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8615",
+          "title": "Bến cảng Tổng hợp Thị Vải (ODA Thị Vải) (Công ty Cổ phần Cảng Tổng hợp Thị Vải)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8614",
+          "title": "Cầu cảng Nhà máy Thép Phú Mỹ (Chi nhánh Công ty TNHH MTV cảng Sài Gòn tại Bà Rịa- Vũng Tàu)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8613",
+          "title": "Bến cảng Đạm và Dịch vụ dầu khí tổng hợp (PTSC PM) (Công ty Cổ phần Cảng dịch vụ Dầu khí Tổng hợp Phú Mỹ)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8612",
+          "title": "Bến Cảng Baria Serece (Công ty cổ phần Dịch vụ xuất nhập khẩu Nông lâm sản và Phân bón Baria)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8611",
+          "title": "Bến cảng Quốc tế Thị Vải (Công ty TNHH Cảng Quốc tế Thị Vải)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8610",
+          "title": "Bến cảng Quốc tế Sài Gòn Việt Nam SITV (Công ty TNHH Cảng Quốc tế Sài Gòn Việt Nam)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8609",
+          "title": "Bến cảng SCC-VN Thị Vải (Công ty TNHH Siamcity Cement Việt Nam – Trạm nghiền Clinker Thị Vải)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8607",
+          "title": "Cầu cảng Trạm nghiền xi măng Cẩm Phả (Công ty Cổ phần Xi măng Cẩm Phả - Chi nhánh phía Nam)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8608",
+          "title": "Bến cảng Nhà máy điện Phú Mỹ (Công ty Nhiệt điện Phú Mỹ - Chi nhánh Tổng công ty phát điện 3 - Công ty cổ phần)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2192",
+          "title": "Bến cảng Sài Gòn"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8310",
+          "title": "Bến cảng Tân Thuận 2"
+        }
+      ]
+    },
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=news&cat=3099",
+      "category": "3099",
+      "page": 5,
+      "sha256": "1bcd933e936d1d2fd0ec241f6f7e48bbf1d5b4726b1751d36510cb5fe5014690",
+      "items": [
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2189",
+          "title": "Bến cảng Tân Thuận Đông"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2199",
+          "title": "Bến cảng Bến Nghé"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8311",
+          "title": "Bến cảng Bến Nghé Phú Hữu"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2188",
+          "title": "Bến cảng Container Quốc tế Việt Nam"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2196",
+          "title": "Bến cảng ELF gas Sài Gòn"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2198",
+          "title": "BẾN CẢNG BIỂN ĐÔNG"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2194",
+          "title": "Bến cảng công nghiệp tàu thủy Sài Gòn"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2193",
+          "title": "Bến cảng Rau Quả"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8319",
+          "title": "Bến cảng Mỹ Tho"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8318",
+          "title": "Bến cảng xăng dầu Soài Rạp - Hiệp Phước"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8317",
+          "title": "Bến cảng dầu khí Quốc tế Pacific Petro"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8316",
+          "title": "Bến cảng quốc tế Long An"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2191",
+          "title": "Bến cảng Sài Gòn - Hiệp Phước"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2185",
+          "title": "Bến cảng Fu-I"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2180",
+          "title": "Bến cảng thương mại vận tải xăng dầu Minh Tấn"
+        }
+      ]
+    },
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=news&cat=3099",
+      "category": "3099",
+      "page": 6,
+      "sha256": "0a030e1fb6c9b4eff0c5398e720ba7bbac756a1338d842ac0285ac4f94eb9387",
+      "items": [
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2178",
+          "title": "Bến cảng xi măng Nghi Sơn (tại Hiệp Phước)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2167",
+          "title": "Bến cảng Saint-Gobain Việt Nam"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2159",
+          "title": "Bến cảng Xi măng Hạ Long"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8315",
+          "title": "Bến cảng chuyên dùng Calofic"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8313",
+          "title": "Bến cảng container Trung tâm Sài Gòn (SPCT)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=8312",
+          "title": "Bến cảng Tổng kho xăng dầu 102 mở rộng"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2190",
+          "title": "Bến cảng Tân cảng Hiệp Phước"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2187",
+          "title": "Bến cảng xăng dầu PVOIL Nhà Bè"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2186",
+          "title": "Bến cảng kho xăng dầu VK.102"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2184",
+          "title": "Bến cảng chuyên dùng Nhà máy nghiền Clinker Hiệp Phước"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2182",
+          "title": "Bến cảng điện Hiệp Phước"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2181",
+          "title": "Bến cảng Lâm Tài Chánh (Lataca)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2176",
+          "title": "Bến cảng X51"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2175",
+          "title": "Bến cảng xi măng Fico"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2169",
+          "title": "Bến cảng Tổng kho xăng dầu Nhà Bè"
+        }
+      ]
+    },
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=news&cat=3099",
+      "category": "3099",
+      "page": 7,
+      "sha256": "8871682b3e7127d6e068212d5e381a448bd2556b32e3be798ca81dcee9357f34",
+      "items": [
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2158",
+          "title": "Bến cảng xi măng Thăng Long"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2202",
+          "title": "Bến cảng Đóng tàu An Phú"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2197",
+          "title": "Bến cảng Cát Lái"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2179",
+          "title": "Bến cảng Dầu thực vật Nhà Bè (Navioil)"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2174",
+          "title": "Bến cảng xăng dầu Sài Gòn Petro"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2173",
+          "title": "Bến cảng Đóng tàu và Công nghiệp hàng hải Sài Gòn"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2172",
+          "title": "Bến cảng trang trí Nhà máy sửa chữa và đóng tàu Sài Gòn"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2170",
+          "title": "Bến cảng Tân cảng Cát Lái"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2168",
+          "title": "Bến cảng trường kỹ thuật nghiệp vụ Hàng Giang II"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2161",
+          "title": "Bến Cảng Trạm tiếp nhận, nghiền và phân phối xi măng phía Nam"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2160",
+          "title": "Bến cảng xi măng Sao Mai"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2195",
+          "title": "Bến cảng Bông Sen"
+        },
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2171",
+          "title": "Bến cảng Container Quốc tế SP-ITC"
+        }
+      ]
+    },
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=news&cat=3096",
+      "category": "3096",
+      "page": 1,
+      "sha256": "b28aeb6b471058d004a5c894c725086fb72d8c3151f800b667b055f446656bef",
+      "items": [
+        {
+          "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2144",
+          "title": "Bến thủy nội địa trong vùng nước cảng biển TPHCM"
+        }
+      ]
+    }
+  ],
+  "hcm_details": [
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2170",
+      "sha256": "727312935b29ddabe22bf1c83a24ee82476f12da28b7277d286b941f061bca1f",
+      "finding": "Tan Cang Cat Lai operator: Saigon Newport Corporation"
+    },
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2197",
+      "sha256": "12799cdaf417088e606675648b98c66fc30d6a4decc17dbb6600f32932fc2083",
+      "finding": "Cat Lai operator: Tan Cang Offshore Services"
+    },
+    {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=detail&id=2144",
+      "sha256": "1903de05509ba70869aa6fe8ad7bdd9dab04c71d2cfb5c37dc997e81217a09b4",
+      "finding": "2019 inland berth list links legacy benthuynoidia.doc; historical list not a 2026 completeness certificate"
+    }
+  ],
+  "dongnai_catalogue": {
+    "source_url": "http://123.25.204.166/web/guest/public-kh",
+    "maritime_code": "11",
+    "categories": [
+      {
+        "category": "DM_PORT_HARBOUR",
+        "total": 51,
+        "sha256": "e161fcc03438cad5d440da365d3cda353e9dab444d090b8a582f8f69477ec816"
+      },
+      {
+        "category": "DM_PORT_WHARF",
+        "total": 79,
+        "sha256": "007c39fb28343646a1b3fe25dd5e9433ab2809a7bb3867d4d6820d132475f10e"
+      }
+    ],
+    "normalized_name_terms": [
+      "kho van",
+      "hiep luc",
+      "suoi tien",
+      "cong nghe cao",
+      "tcw"
+    ],
+    "matches": [],
+    "caveat": "A name search within this authority is not a national ownership registry."
+  },
+  "inland_authority": {
+    "url": "https://cangvudtndhcm.gov.vn/",
+    "http_status": 200,
+    "sha256": "729d0505ad4a6658105bcfc86169c4749cf296d2340d9e6fbb86c43708c35630",
+    "finding": "Public site checked; no TCW-linked operating permit or historical vessel feed established.",
+    "legacy_list_sha256": "461f814af2f49c35fadc3133a5f7cefda0fbd5e39ca35dafbf55827d608d3aa9",
+    "legacy_list_content_verified": false
+  },
+  "limitations": [
+    "No outreach or non-public eWMS/ePort access.",
+    "Some direct Node company fetches failed; browser download and visible official pages succeeded.",
+    "National 2026 catalogue PDF fetch failed; do not claim it was reviewed.",
+    "No proof that TCW has no port anywhere; only no eligible berth-to-issuer mapping established by this review."
+  ]
+}

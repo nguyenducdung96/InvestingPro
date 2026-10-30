@@ -1,5 +1,10 @@
 # Tiến độ ngành cảng — cập nhật 30/10/2026
 
+## Rà TCW theo yêu cầu riêng — 30/10/2026
+
+Đã hoàn tất [đánh giá nguồn TCW](tcw-source-feasibility-20261030.md): website doanh nghiệp, báo cáo 2025, tài liệu ĐHĐCĐ 2026, 7 trang/103 mục bến cảng TP.HCM và danh mục Đồng Nai 51 cảng/79 cầu. Chưa xác lập được cảng biển/sông đang vận hành và mapping lịch tàu/DWT đủ căn cứ cho TCW; không gán toàn Cát Lái, không tự rút TCW. Có số thực hiện **công ty mẹ** 2024/2025: kho 1.314.489/1.394.382 tấn; bãi 747.024/841.032 TEU (đã gồm Suối Tiên). Đã lưu receipt và giới hạn nguồn ĐTNĐ. Chưa triển khai dashboard sản lượng dịch vụ mới; không gọi rà nguồn là hoàn thiện dashboard tàu TCW. Code/API/UI/edition không đổi. Không mở lại TCL hoặc các phạm vi đã để sau. Người dùng đã ưu tiên TCW trong đợt này; các phase khác giữ thứ tự hiện hành.
+
+
 ## Điều chỉnh tổng quan vùng — một dòng mỗi mã, 30/10/2026
 
 Đã push `f916399` và đọc lại staging: mỗi mã một dòng, tổng/API/UI khớp hai chiều theo tháng/quý. Local lint/typecheck, 8 unit test liên quan và 8 E2E desktop/mobile đã kiểm tra đạt; CI `41073780446` đang chạy ở thời điểm readback. [Receipt](catalog-review/regional-issuer-totals-20261030.json).

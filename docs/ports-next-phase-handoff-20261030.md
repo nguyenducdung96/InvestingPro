@@ -1,5 +1,10 @@
 # Bàn giao ngành cảng — 30/10/2026
 
+## Rà TCW theo yêu cầu riêng — 30/10/2026
+
+Đã hoàn tất [đánh giá nguồn TCW](tcw-source-feasibility-20261030.md): website doanh nghiệp, báo cáo 2025, tài liệu ĐHĐCĐ 2026, 7 trang/103 mục bến cảng TP.HCM và danh mục Đồng Nai 51 cảng/79 cầu. Chưa xác lập được cảng biển/sông đang vận hành và mapping lịch tàu/DWT đủ căn cứ cho TCW; không gán toàn Cát Lái, không tự rút TCW. Có số thực hiện **công ty mẹ** 2024/2025: kho 1.314.489/1.394.382 tấn; bãi 747.024/841.032 TEU (đã gồm Suối Tiên). Đã lưu receipt và giới hạn nguồn ĐTNĐ. Chưa triển khai dashboard sản lượng dịch vụ mới; không gọi rà nguồn là hoàn thiện dashboard tàu TCW. Code/API/UI/edition không đổi. Không mở lại TCL hoặc các phạm vi đã để sau. Người dùng đã ưu tiên TCW trong đợt này; các phase khác giữ thứ tự hiện hành.
+
+
 ## Quy tắc tổng quan vùng mới
 
 Người dùng yêu cầu mỗi mã một dòng tổng trong vùng; cảng riêng nằm ở chi tiết mã. Miền Nam dùng GMD `gmd_south` (Gemalink+Bình Dương) và SWC `swc_all` (Long Bình+bến phao). Các đoạn bàn giao trước đó nói hai dòng monitor GMD/SWC riêng đã được thay thế ở màn hình tổng quan vùng. Không gộp tài sản ngoài vùng, không cộng tổng các issuer hoặc thay chuỗi nguồn.
