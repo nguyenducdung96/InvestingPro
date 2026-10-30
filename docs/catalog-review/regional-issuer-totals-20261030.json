@@ -1,0 +1,112 @@
+{
+  "commit": "f91639937dd9a769675a29671d84a8c32de2e3c8",
+  "checked_at": "2026-10-30T14:43:58.235Z",
+  "checks": [
+    {
+      "ticker": "GMD",
+      "direction": "arrival",
+      "frequency": "month",
+      "period": "2026-10",
+      "rows": 49,
+      "dwt": 5057026,
+      "unique": true,
+      "aggregate_matched": true
+    },
+    {
+      "ticker": "SWC",
+      "direction": "arrival",
+      "frequency": "month",
+      "period": "2026-10",
+      "rows": 8,
+      "dwt": 117825.6,
+      "unique": true,
+      "aggregate_matched": true
+    },
+    {
+      "ticker": "GMD",
+      "direction": "arrival",
+      "frequency": "quarter",
+      "period": "2026-Q3",
+      "rows": 158,
+      "dwt": 17526057,
+      "unique": true,
+      "aggregate_matched": true
+    },
+    {
+      "ticker": "SWC",
+      "direction": "arrival",
+      "frequency": "quarter",
+      "period": "2026-Q3",
+      "rows": 38,
+      "dwt": 376397.51999999996,
+      "unique": true,
+      "aggregate_matched": true
+    },
+    {
+      "ticker": "GMD",
+      "direction": "departure",
+      "frequency": "month",
+      "period": "2026-10",
+      "rows": 48,
+      "dwt": 5136808,
+      "unique": true,
+      "aggregate_matched": true
+    },
+    {
+      "ticker": "SWC",
+      "direction": "departure",
+      "frequency": "month",
+      "period": "2026-10",
+      "rows": 27,
+      "dwt": 238552.85,
+      "unique": true,
+      "aggregate_matched": true
+    },
+    {
+      "ticker": "GMD",
+      "direction": "departure",
+      "frequency": "quarter",
+      "period": "2026-Q3",
+      "rows": 161,
+      "dwt": 17677229,
+      "unique": true,
+      "aggregate_matched": true
+    },
+    {
+      "ticker": "SWC",
+      "direction": "departure",
+      "frequency": "quarter",
+      "period": "2026-Q3",
+      "rows": 83,
+      "dwt": 923523.9699999999,
+      "unique": true,
+      "aggregate_matched": true
+    }
+  ],
+  "local_validation": {
+    "unit_tests": 8,
+    "e2e_cases": 8,
+    "lint": true,
+    "typecheck": true
+  },
+  "ui_readback": {
+    "one_row_per_ticker": true,
+    "SWC_departure_2026_10": {
+      "rows": 27,
+      "dwt": 238552.85
+    },
+    "GMD_assets": [
+      "gemalink",
+      "gmd_binh_duong"
+    ],
+    "SWC_assets": [
+      "swc_long_binh",
+      "swc_buoys"
+    ]
+  },
+  "ci": {
+    "run_id": 41073780446,
+    "status": "in_progress_at_readback",
+    "conclusion": null
+  }
+}

@@ -2,6 +2,8 @@
 
 ## Điều chỉnh tổng quan vùng — một dòng mỗi mã, 30/10/2026
 
+Đã push `f916399` và đọc lại staging: mỗi mã một dòng, tổng/API/UI khớp hai chiều theo tháng/quý. Local lint/typecheck, 8 unit test liên quan và 8 E2E desktop/mobile đã kiểm tra đạt; CI `41073780446` đang chạy ở thời điểm readback. [Receipt](catalog-review/regional-issuer-totals-20261030.json).
+
 Theo yêu cầu mới, tổng quan vùng hiển thị mỗi mã một dòng tổng các cảng đang theo dõi thuộc chính vùng đó; từng cảng giữ ở chi tiết mã. Miền Nam gộp GMD = Gemalink + Bình Dương (`gmd_south`), SWC = Long Bình + bốn bến phao (`swc_all`). Miền Bắc/Trung vốn đã một dòng mỗi mã. Không đưa Nam Đình Vũ/Dung Quất vào tổng GMD miền Nam; không cộng các mã thành tổng vùng. Nguồn, khoảng thiếu và số ghi nhận tiếp tục giữ riêng; API chi tiết cảng vẫn dùng được. Quy tắc này thay thế các đoạn lịch sử bên dưới còn yêu cầu tách hai dòng GMD/SWC ở tổng quan vùng.
 
 
