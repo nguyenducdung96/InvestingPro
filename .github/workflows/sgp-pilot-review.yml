@@ -1,6 +1,9 @@
 name: SGP K12 TT2 pilot plan archive
 on:
   workflow_dispatch:
+  schedule:
+    # Archive revisions at 06:15, 12:15, 18:15 and 23:15 Vietnam time.
+    - cron: '15 5,11,16,23 * * *'
 permissions:
   contents: read
 concurrency:
