@@ -17,12 +17,11 @@ test('southern expansion attributes each source and excludes unsupported company
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   if(ticker==='CLL')await page.screenshot({path:`.local/south/expansion-cll-${info.project.name}.png`,fullPage:true});
  }
- for(const ticker of ['TCW']){await page.goto(`/companies/${ticker}`);await expect(page.getByRole('region',{name:`Phạm vi theo dõi ${ticker}`,exact:true})).toBeVisible();await expect(page.getByRole('region',{name:`Lịch điều động ${ticker}`,exact:true})).toHaveCount(0);}
  expect((await page.request.get('/api/v1/companies/CLL/plans?asset=gemalink')).status()).toBe(400);
  expect((await page.request.get('/api/v1/companies/VGP/plans?direction=internal')).status()).toBe(400);
  await page.goto('/industries/ports/south?period=2026-10');
  for(const ticker of ['CLL','SWC','VGP'])await expect(page.locator(`tr[data-ticker="${ticker}"] .badge`)).toHaveText(['Đã tích hợp một phần']);
- await expect(page.locator('tr[data-ticker="TCW"] [data-label="Lượt"]')).toHaveText('—');
+ await expect(page.locator('tr[data-ticker="TCW"]')).toHaveCount(0);
  await expect(page.locator('tr[data-ticker="TCL"]')).toHaveCount(0);
- expect((await(await page.request.get('/api/v1/industries/ports/south')).json()).rows.some((r:{ticker:string})=>r.ticker==='TCL')).toBe(false);
+ expect((await(await page.request.get('/api/v1/industries/ports/south')).json()).rows.some((r:{ticker:string})=>['TCL','TCW'].includes(r.ticker))).toBe(false);
 });

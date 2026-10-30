@@ -45,6 +45,5 @@ export const southTargets=[
  {ticker:'PDN',name:'Long Bình Tân · Gò Dầu A/B',assets:[],status:'integrated',note:'Lịch công bố Đồng Nai; gồm tuyến giữa khu neo và cầu đã ghép. Chuyển giữa các bến PDN giữ riêng. Chưa chứng nhận toàn bộ hoạt động.',asset:'pdn'},
  {ticker:'CLL',name:'Cầu số 7 · bến 2.200 DWT',assets:['cll_berth7','cll_b7'],status:'integrated',note:'Chỉ phạm vi CLL; bến 2.200 DWT hợp tác TCL được ghi một lần tại CLL.',asset:'cll'},
  {ticker:'SWC',name:'Long Bình · bốn bến phao',assets:['swc_long_binh','swc_buoys'],status:'integrated',note:'Tổng số ghi nhận tại Long Bình và bốn bến phao ĐT1/ĐT2/ĐT3/TL9. Giữ nguồn riêng; chưa có chuỗi ICD Sotrans và Mekong – Cần Thơ. Chưa đại diện toàn bộ SWC.',asset:'swc_all'},
- {ticker:'TCW',name:'Kho · bãi · depot Tân Cảng',assets:[],status:'pending',note:'Báo cáo 2025 xác nhận hoạt động kho/bãi, cảng mở và depot. Chưa có cầu riêng để gán lịch tàu; cần chỉ tiêu dịch vụ phù hợp.',asset:''},
  {ticker:'VGP',name:'Cảng Rau Quả · K16',assets:['vgp_k16'],status:'integrated',note:'Lịch tại cầu K16; VGP công bố cho thuê kho/bãi, cầu cảng. Không coi DWT là doanh thu hoặc sản lượng VGP.',asset:'vgp_k16'},
 ] as const;

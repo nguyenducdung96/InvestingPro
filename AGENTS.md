@@ -1,5 +1,7 @@
 # Port investment dashboards
 
+User scope update (2026-10-30): current monitoring is for river and sea ports. TCW is withdrawn after the source review did not establish an eligible operating port scope. Dry ports, depots and warehouses are deferred to a separate future product scope; do not add TCW warehouse throughput to this port list. Preserve research evidence separately.
+
 User update (2026-10-30): regional overviews show exactly one aggregate row per stock ticker, summing only its tracked assets within that region. Keep individual port monitors on the issuer detail page. Preserve available recorded contributions and source-specific quality details; do not include the issuer's assets from other regions or sum overlapping issuers into a regional total.
 
 User-confirmed display policy (2026-10-25): the purpose is observing investment trends. For every integrated port issuer and regional overview, display recorded vessel rows, recorded DWT, cumulative sums and YoY even if some source days or individual DWT values are missing. Do not blank an entire month, quarter or YTD because coverage is incomplete. Compute displayed YoY from the two displayed recorded values when the prior value is positive.

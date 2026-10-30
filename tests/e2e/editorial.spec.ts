@@ -12,11 +12,15 @@ test('public catalog works without a session or provider and keeps reported fact
  await expect(page.getByText('Đã phát hành 41 hồ sơ dữ kiện; thêm 1 bản biên tập.',{exact:false})).toBeVisible();
  await page.context().clearCookies();
  await page.goto('/industries/ports/companies?view=all');
- await expect(page.getByText('40 / 40 doanh nghiệp',{exact:false})).toBeVisible();
+ await expect(page.getByText('39 / 39 doanh nghiệp',{exact:false})).toBeVisible();
  await expect(page.getByRole('link',{name:'Xem hồ sơ TCL',exact:true})).toHaveCount(0);
  await page.getByLabel('Tìm mã hoặc tên doanh nghiệp').fill('TCL');await page.getByRole('button',{name:'Tìm doanh nghiệp',exact:true}).click();
  await expect(page.locator('main article')).toHaveCount(0);
  for(const path of ['/companies/TCL','/companies/tcl?view=research','/companies/id/009b5929-253c-5b10-8d75-22b9828c93ae','/api/v1/companies/TCL/activity'])expect((await request.get(path)).status()).toBe(404);
+ await expect(page.getByRole('link',{name:'Xem hồ sơ TCW',exact:true})).toHaveCount(0);
+ await page.getByLabel('Tìm mã hoặc tên doanh nghiệp').fill('TCW');await page.getByRole('button',{name:'Tìm doanh nghiệp',exact:true}).click();
+ await expect(page.locator('main article')).toHaveCount(0);
+ for(const path of ['/companies/TCW','/companies/tcw?view=research','/companies/id/a251ebfd-2516-5067-99f7-91dce6623f7b','/api/v1/companies/TCW/activity','/api/v1/companies/TCW/plans'])expect((await request.get(path)).status()).toBe(404);
  await page.getByLabel('Tìm mã hoặc tên doanh nghiệp').fill('GMD');await page.getByRole('button',{name:'Tìm doanh nghiệp',exact:true}).click();
  await expect(page.locator('main article')).toHaveCount(1);
  await page.getByRole('link',{name:'GMD · Công ty Cổ phần Tập đoàn Gemadept',exact:true}).click();

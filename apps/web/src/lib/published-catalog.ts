@@ -2,14 +2,14 @@ import type {Transport} from '@invest/db';
 import type {EditorialEdition} from '@invest/domain';
 
 // Product scope, independent of whether a historical catalog fact was verified.
-// TCL was withdrawn on 2026-10-30 after the official-source feasibility review.
-const withdrawnCompanyId='009b5929-253c-5b10-8d75-22b9828c93ae';
-export function isPublishedCompany(key:string){return !['TCL',withdrawnCompanyId.toUpperCase()].includes(key.toUpperCase());}
+// Withdrawn from port monitoring; research evidence remains stored separately.
+const withdrawnCompanies=[{ticker:'TCL',id:'009b5929-253c-5b10-8d75-22b9828c93ae'},{ticker:'TCW',id:'a251ebfd-2516-5067-99f7-91dce6623f7b'}];
+export function isPublishedCompany(key:string){return !withdrawnCompanies.some(c=>c.ticker===key.toUpperCase()||c.id.toUpperCase()===key.toUpperCase());}
 
 export function publishedCatalogTransport(transport:Transport):Transport{
  return {...transport,async read(schema,table,query){
   const parameters=new URLSearchParams(query);
-  const exclusion=schema==='catalog'&&table==='entities'?`id.neq.${withdrawnCompanyId}`:schema==='catalog'&&table==='company_listings'?'ticker.neq.TCL':null;
+  const exclusion=schema==='catalog'&&table==='entities'?withdrawnCompanies.map(c=>`id.neq.${c.id}`).join(','):schema==='catalog'&&table==='company_listings'?withdrawnCompanies.map(c=>`ticker.neq.${c.ticker}`).join(','):null;
   if(exclusion){
    const and=parameters.get('and');
    parameters.set('and',`(${exclusion}${and?`,${and.slice(1,-1)}`:''})`);

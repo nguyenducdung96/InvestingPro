@@ -31,6 +31,7 @@ describe('southern authority plans',()=>{
   expect(new Set(southTargets.map(t=>t.ticker)).size).toBe(southTargets.length);
   expect(southTargets.find(t=>t.ticker==='GMD')?.assets).toEqual(['gemalink','gmd_binh_duong']);
   expect(southTargets.find(t=>t.ticker==='SWC')?.assets).toEqual(['swc_long_binh','swc_buoys']);
-  expect(southTargets.filter(t=>t.status==='pending').every(t=>t.assets.length===0)).toBe(true);
+  expect(southTargets.map(t=>t.ticker)).not.toContain('TCW');
+  expect(southTargets.map(t=>t.ticker)).not.toContain('TCL');
  });
 });

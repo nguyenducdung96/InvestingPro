@@ -1,5 +1,10 @@
 # TCW — kết quả rà nguồn ngày 30/10/2026
 
+## Rút TCW khỏi phạm vi cảng — theo yêu cầu người dùng 30/10/2026
+
+Quyết định mới thay thế phần trước còn giữ TCW: sản phẩm hiện chỉ theo dõi cảng sông/biển; cảng cạn, depot và kho bãi tách riêng sau này. TCW bị gỡ khỏi danh mục/tìm kiếm/tổng quan miền Nam, trang mã/ID cũ và API công khai trả 404. Hồ sơ nghiên cứu và số liệu dịch vụ đã lưu vẫn là bằng chứng lịch sử, không phải module sẽ triển khai tiếp trong phạm vi hiện tại. Chưa đủ căn cứ xác nhận cảng TCW đang vận hành; không đổi kết luận nghiên cứu thành khẳng định không có cảng ở mọi nơi. Không tự rút thêm doanh nghiệp khác trong đợt này.
+
+
 ## Kết luận phạm vi
 
 Chưa xác lập được cảng biển/cảng sông đang khai thác thuộc TCW hoặc công ty con, kèm mã cầu bến và chuỗi lịch tàu đủ căn cứ để triển khai tương tự SWC/PDN. Đây là kết luận về bằng chứng đã kiểm tra, **không phải khẳng định TCW không có cảng ở mọi nơi**. Không tạo collector tàu/DWT, không lấy toàn Cát Lái thay TCW, không biến thiếu quan sát thành số 0. Giữ TCW trong danh mục hiện hành; không tự áp dụng quyết định rút TCL.
@@ -43,3 +48,7 @@ Tổng kho 2024 công bố là 1.314.489, trong khi ba thành phần cộng ra 1
 [Receipt nguồn, SHA-256, toàn bộ mục danh mục và giá trị trích đã kiểm tra](catalog-review/tcw-source-feasibility-20261030.json). PDF/HTML gốc và ảnh trang lưu ở `.local/tcw-recheck/`, không commit toàn tài liệu bên thứ ba. Báo cáo thường niên được tải từ trang công ty qua browser; các lỗi fetch trực tiếp không đồng nghĩa website không có tài liệu.
 
 Đợt này chỉ cập nhật hồ sơ nghiên cứu và bàn giao; code, API, UI và edition dữ liệu không đổi. Kiểm tra JSON, tổng/YoY, liên kết hồ sơ và diff tài liệu; không có bản sản phẩm mới để nghiệm thu staging/production/cron. Chỉ mở triển khai tàu/DWT khi có bằng chứng vận hành và mã cầu bến ghép được; nếu triển khai sản lượng dịch vụ phải ghi rõ công ty mẹ, kỳ năm và nguồn, theo phạm vi sản lượng công bố riêng.
+
+## Kiểm chứng bản rút TCW
+
+Local: 7 Vitest (bộ lọc catalog và phạm vi miền Nam), 4 Playwright desktop/mobile (danh mục 39 mã sau lọc, tìm TCW rỗng, mã/ID/API cũ 404, các mã còn lại hoạt động), lint và typecheck đạt. Code và test đã thay đổi trong bản rút này; phần ghi “chỉ nghiên cứu, code không đổi” bên trên thuộc đợt rà nguồn trước quyết định rút. Chưa dùng local để chứng nhận CI, staging hoặc production.
