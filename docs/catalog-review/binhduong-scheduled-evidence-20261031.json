@@ -1,0 +1,176 @@
+{
+  "checked_at": "2026-10-31T12:14:26.894218+00:00",
+  "code_commit": "3dc4189",
+  "registered_main_commit": "f22ee3cd8e45174eedaa970bccb2839212beb703",
+  "local_tests": {
+    "node_verifier_and_recorder": 14,
+    "result": "passed"
+  },
+  "code_checks": [
+    {
+      "name": "check",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41199851589/job/124534161294"
+    },
+    {
+      "name": "Workers Builds: investing-pro-web-staging",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/86c66c71-cbd7-43f5-a429-44a3b47d9eb6"
+    },
+    {
+      "name": "e2e (mobile)",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41199851589/job/124533329278"
+    },
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41199851589/job/124533329216"
+    },
+    {
+      "name": "e2e (desktop)",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41199851589/job/124533328992"
+    }
+  ],
+  "cloud_run": {
+    "id": 41199942594,
+    "event": "workflow_dispatch",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41199942594"
+  },
+  "receipts": {
+    "collect-receipt": {
+      "checked_at": "2026-10-31T12:11:05.873890+00:00",
+      "from": "2026-10-24",
+      "through": "2026-10-30",
+      "source_refresh_success": true,
+      "export_success": true,
+      "scheduled_refresh_verified": false,
+      "counts": {
+        "ok": 14
+      }
+    },
+    "live-readback": {
+      "verified_at": "2026-10-31T12:13:21.523Z",
+      "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+      "through": "2026-10-30",
+      "checked_at": "2026-10-31T12:11:10.764642+00:00",
+      "deployment_readback_verified": true,
+      "scheduled_refresh_verified": false,
+      "published_commit": "9a098103dd242a65cd3573fae8f55afa9687de34",
+      "event_name": "workflow_dispatch",
+      "run_id": "41199942594",
+      "run_attempt": "1",
+      "verifier_version": "south-live/1",
+      "transient_retries": [
+        {
+          "url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev/companies/GMD?plan_asset=gmd_binh_duong",
+          "attempt": 1,
+          "status": 503,
+          "error": null,
+          "retry_after_ms": 5000,
+          "at": "2026-10-31T12:13:14.335Z"
+        }
+      ],
+      "checks": [
+        {
+          "direction": "arrival",
+          "months_matched": 22,
+          "last_observation": "2026-08-24",
+          "journal_rows": 1
+        },
+        {
+          "direction": "departure",
+          "months_matched": 22,
+          "last_observation": "2026-07-15",
+          "journal_rows": 1
+        }
+      ],
+      "source_refresh_success": true
+    },
+    "scheduled-acceptance": {
+      "cycle_recorder_version": "binhduong-cycle/1",
+      "verifier_version": "south-live/1",
+      "event_name": "workflow_dispatch",
+      "run_id": "41199942594",
+      "run_attempt": "1",
+      "verified_at": "2026-10-31T12:13:21.576Z",
+      "published_commit": "9a098103dd242a65cd3573fae8f55afa9687de34",
+      "through": "2026-10-30",
+      "checked_at": "2026-10-31T12:11:10.764642+00:00",
+      "source_refresh_success": true,
+      "deployment_readback_verified": true,
+      "job_status": "success",
+      "collector_outcome": "success",
+      "readback_outcome": "success",
+      "actual_verified": false,
+      "full_scope_certified": false,
+      "production_accepted": false,
+      "scheduled_refresh_verified": false,
+      "scheduled_run_ids": []
+    }
+  },
+  "retained_cycles": [
+    {
+      "cycle_recorder_version": "binhduong-cycle/1",
+      "verifier_version": "south-live/1",
+      "event_name": "workflow_dispatch",
+      "run_id": "41199812097",
+      "run_attempt": "1",
+      "verified_at": "2026-10-31T12:09:56.176Z",
+      "published_commit": null,
+      "through": "2026-10-30",
+      "checked_at": null,
+      "source_refresh_success": true,
+      "deployment_readback_verified": false,
+      "job_status": "failure",
+      "collector_outcome": "success",
+      "readback_outcome": "skipped",
+      "actual_verified": false,
+      "full_scope_certified": false,
+      "production_accepted": false,
+      "error": "Current source, publication and readback must all succeed in this job.",
+      "scheduled_refresh_verified": false,
+      "scheduled_run_ids": []
+    },
+    {
+      "cycle_recorder_version": "binhduong-cycle/1",
+      "verifier_version": "south-live/1",
+      "event_name": "workflow_dispatch",
+      "run_id": "41199942594",
+      "run_attempt": "1",
+      "verified_at": "2026-10-31T12:13:21.576Z",
+      "published_commit": "9a098103dd242a65cd3573fae8f55afa9687de34",
+      "through": "2026-10-30",
+      "checked_at": "2026-10-31T12:11:10.764642+00:00",
+      "source_refresh_success": true,
+      "deployment_readback_verified": true,
+      "job_status": "success",
+      "collector_outcome": "success",
+      "readback_outcome": "success",
+      "actual_verified": false,
+      "full_scope_certified": false,
+      "production_accepted": false,
+      "scheduled_refresh_verified": false,
+      "scheduled_run_ids": []
+    }
+  ],
+  "published_checks": [
+    {
+      "name": "Workers Builds: investing-pro-web-staging",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/a69273f7-4bc2-422d-957d-3a5e78ec761a"
+    }
+  ],
+  "scheduled_refresh_verified": false,
+  "production_accepted": false,
+  "hcm_status": "blocked per existing reviewed evidence; no new supported cloud source route"
+}

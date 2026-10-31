@@ -1,5 +1,15 @@
 # Tiến độ ngành cảng — cập nhật 31/10/2026
 
+## Bình Dương đã có đối chiếu lịch tự động — 31/10/2026, 19:13 Việt Nam
+
+Đã bổ sung recorder/archive và cache riêng cho biên nhận mỗi run/attempt. Bản code **3dc4189** qua CI đầy đủ và Cloudflare build; **14 Node tests** đạt. Workflow trên main được cập nhật riêng tại **f22ee3c** (chỉ workflow Bình Dương), ứng dụng vẫn trên staging. Recorder chạy cả khi bước trước thất bại, khớp source/event/run/attempt/commit/edition trước khi công nhận readback, và tự xét hai schedule thật khác ngày trong 72 giờ. Run thủ công không được cộng; lần chạy lại thất bại thu hồi điều kiện đạt.
+
+[Run cloud 41199942594](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41199942594) **success** toàn luồng; publish **9a09810**, edition đến **30/10**, `checked_at=2026-10-31T12:11:10.764642+00:00`. Cache/artifact đã giữ cả biên nhận publication failure của lượt thử trước và success của lượt mới. Hai run đều thủ công nên `scheduled_refresh_verified=false`, không nhận nhầm thành hai lịch thật. [Runbook](binhduong-scheduled-evidence-20261031.md), [bằng chứng](catalog-review/binhduong-scheduled-evidence-20261031.json).
+
+**Next step:** các lịch Bình Dương sắp tới tự lưu và đối chiếu tại `scheduled-acceptance.json`/GitHub step summary. Cần hai chu kỳ schedule thật success khác ngày; cơ hội tiếp theo 01–02/11 nếu nguồn/scheduler hoạt động. Khi đủ bằng chứng, lưu receipt nghiệm thu bền vào dự án; cache và artifact 14 ngày không thay kho lưu vĩnh viễn. Metadata/API dữ liệu và production chưa được nghiệm thu tự động bởi thay đổi này.
+
+HCM chưa có đầu mối truy cập nguồn mới, vẫn bị chặn theo hồ sơ hiện có; không chạy lại cùng thử nghiệm mạng khi thiếu bằng chứng mới. Tiếp tục giữ lịch tốt đến 28/10 và cổng nguồn chính thức → lịch sử/raw/hash/manifest → export/deploy/readback. PDN cron, Long Bình Tân, Dung Quất định kỳ và ICD/kho bãi giữ để sau. Các mục cũ bên dưới là snapshot trước thay đổi hiện hành này.
+
 ## Bình Dương đã kiểm chứng cloud với retry — 31/10/2026, 19:00 Việt Nam
 
 Đã tiếp tục bản sửa có sẵn **cfa010c**; Quality **41198578621** và Cloudflare build đều success. Kiểm lại 8 Node verifier + 8 Python Bình Dương tests đạt. Retry tối đa bốn attempt với backoff 5/10/20 giây cho HTTP 502/503/504 và lỗi mạng tạm thời; giữ nguyên các assertion edition/metric/provenance, lỗi kéo dài vẫn fail.
