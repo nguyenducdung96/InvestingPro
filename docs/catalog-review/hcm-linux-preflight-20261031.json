@@ -1,0 +1,51 @@
+{
+  "checked_at": "2026-10-31T15:55:08.492797+00:00",
+  "tls_validation": true,
+  "read_only_probe": true,
+  "tests": [
+    {
+      "method": "POST",
+      "requested_day": "2025-01-01",
+      "validated_day": "2025-01-01",
+      "section_rows": {
+        "arrival": 35,
+        "departure": 37,
+        "internal": 25
+      },
+      "sha256": "4af41925ef96be88acdd5ff49c6987443fbd44ddfb41f8ca51bb4b7dd04c8705",
+      "same_parsed_content_as_local": true
+    },
+    {
+      "method": "POST",
+      "requested_day": "2026-10-30",
+      "validated_day": "2026-10-30",
+      "section_rows": {
+        "arrival": 82,
+        "departure": 77,
+        "internal": 52
+      },
+      "sha256": "f052629b69ab05a4b3358dc4e429ab2288afa83aa2d1459a60144ef717713162",
+      "same_parsed_content_as_local": true
+    }
+  ],
+  "get": {
+    "validated_day": "2026-10-31",
+    "section_rows": {
+      "arrival": 74,
+      "departure": 74,
+      "internal": 29
+    },
+    "sha256": "20ae0a474b191942567d9ec5c863458364f1bdcf8cc91a8cd7a6650ade2048dd"
+  },
+  "source_access_verified": true,
+  "host_tag": "user_provided_linux_collector",
+  "os": "Ubuntu 24.04.4 LTS",
+  "python": "3.12.3",
+  "memory_mb": 3915,
+  "disk_available": "8.8G",
+  "service_installed": false,
+  "schedule_enabled": false,
+  "publication_performed": false,
+  "scheduled_refresh_verified": false,
+  "production_accepted": false
+}

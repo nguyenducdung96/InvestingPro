@@ -1,5 +1,13 @@
 # Tiến độ ngành cảng — cập nhật 31/10/2026
 
+## Máy Linux người dùng cung cấp đã qua kiểm tra access HCM — 31/10/2026
+
+Đã kiểm SSH và đọc nguồn từ **chính máy Linux được người dùng cung cấp**, lúc 22:55 Việt Nam. Ubuntu 24.04.4 LTS, Python 3.12.3, khoảng 4 GB RAM và còn 8,8 GB ổ đĩa. GET đúng ngày 31/10; POST đúng 01/01/2025 và 30/10/2026, đủ ba bảng, TLS hợp lệ. Nội dung parse của cả hai ngày khớp bản lấy tại máy phát triển; hash raw đã kiểm. Khác hash HTML một ngày không đổi nội dung parse (trạng thái form có thể thay đổi). [Biên nhận đã lược thông tin máy/xác thực](catalog-review/hcm-linux-preflight-20261031.json).
+
+**Đã có host ứng viên truy cập được nguồn gốc**, thay trạng thái chưa có máy kiểm chứng ở các snapshot trước. Chưa cài dịch vụ, không bật timer, chưa đưa credential lên GitHub và chưa publish dữ liệu. IP/password/host key giữ ngoài tài liệu public.
+
+**Next step:** triển khai collector độc lập trên máy này bằng tài khoản dịch vụ quyền hạn chế, lưu raw/manifest bền, đồng bộ lịch sử đã kiểm, nối quy trình validate/export/publish/readback. Không đăng ký máy làm runner nhận PR của repo public. Sau khi chạy đầu cuối đạt, bật lịch và nghiệm thu hai schedule thật khác ngày; hiện `scheduled_refresh_verified=false`, production chưa nghiệm thu. Intake quốc gia bổ trợ vẫn hoãn; không đổi parser/alias/metric trong bước preflight.
+
 ## Ưu tiên mới: giải quyết access HCM gốc, hoãn intake quốc gia — 31/10/2026
 
 Theo chỉ đạo mới của người dùng, **hoãn xây intake quốc gia chưa đủ độ phủ**; xử lý đường truy cập bảng HCM gốc trước. Kiểm mới tại máy lúc 22:44 Việt Nam: GET đúng 31/10; POST 01/01/2025 và 30/10/2026 đúng ngày/schema, đủ bảng vào/rời/điều chuyển. Cloudflare kiểm lúc 22:46 vẫn `source_timeout` (HTTP 200 chỉ là probe trả kết quả). Không sửa dữ liệu hoặc publish trong lần kiểm này; chưa xác nhận nguyên nhân là lọc IP/định tuyến.
