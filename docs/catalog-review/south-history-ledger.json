@@ -67,7 +67,7 @@
     "actual_verified": false,
     "full_scope_certified": false,
     "source_rights": "publicly_accessible; republication_rights_not_certified",
-    "scope_review_sha256": "3824d61a4035711320d8ed214e364ba952b0cdb708018af13cf86d966a6b02e6",
+    "scope_review_sha256": "9899ce86f9312bd46a5a12c3df9410b78b0926259242b00a4acba8a5f4202eea",
     "k12_scope_review": {
       "review_version": "sgp-k12-row-review/1.0.0",
       "source_from": "2025-01-01",

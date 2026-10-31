@@ -169,7 +169,9 @@ def load_reviewed_rows(path):
         if not re.fullmatch(r'[a-f0-9]{64}', entry['evidence_sha256']):
             raise ValueError('Invalid registered facility evidence hash')
         approved[key] = entry
-    return manifest, approved, hashlib.sha256(raw).hexdigest()
+    # Git text checkout can use CRLF on Windows and LF on the cloud runner.
+    # Hash the LF form; source-response hashes remain literal immutable bytes.
+    return manifest, approved, hashlib.sha256(raw.replace(b'\r\n', b'\n')).hexdigest()
 
 
 def reviewed_evidence(day, event, approved):

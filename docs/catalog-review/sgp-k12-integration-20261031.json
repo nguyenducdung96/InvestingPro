@@ -1,6 +1,6 @@
 {
   "verified_at": "2026-10-31T06:53:06.351045+00:00",
-  "manifest_sha256": "3824d61a4035711320d8ed214e364ba952b0cdb708018af13cf86d966a6b02e6",
+  "manifest_sha256": "9899ce86f9312bd46a5a12c3df9410b78b0926259242b00a4acba8a5f4202eea",
   "direct_candidates": 452,
   "selected_by_direction": {
     "arrival": {
@@ -95,7 +95,7 @@
   "scheduled_refresh_verified": false,
   "production_acceptance": false,
   "local_checks": {
-    "python_review": 16,
+    "python_review": 17,
     "targeted_e2e": 6,
     "lint": "passed",
     "typecheck": "passed",
@@ -104,6 +104,8 @@
       "passed": 188,
       "mode": "without concurrent E2E"
     },
-    "stale_scope_edition_rejected": true
-  }
+    "stale_scope_edition_rejected": true,
+    "scope_hash_cross_platform_verified": true
+  },
+  "manifest_hash_semantics": "SHA-256 of UTF-8 review manifest normalized to LF; immutable HTTP-response hashes remain byte-exact"
 }

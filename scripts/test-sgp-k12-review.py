@@ -151,6 +151,15 @@ class ReviewTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'facility evidence'):
                 m.load_reviewed_rows(path)
 
+    def test_scope_hash_survives_windows_and_linux_checkout(self):
+        raw = (json.dumps(self.reviewed_manifest(), ensure_ascii=False, indent=2)+'\n').encode()
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp)/'review.json'
+            path.write_bytes(raw)
+            lf = m.load_reviewed_rows(path)[2]
+            path.write_bytes(raw.replace(b'\n', b'\r\n'))
+            self.assertEqual(m.load_reviewed_rows(path)[2], lf)
+
 
 if __name__ == '__main__':
     unittest.main()
