@@ -1,5 +1,13 @@
 # Tiến độ ngành cảng — cập nhật 30/10/2026
 
+## K12 đã đối chiếu riêng từng dòng — 31/10/2026
+
+Bản dữ liệu thêm 291 dòng K12 đủ bằng chứng vào Tân Thuận: 152 vào / DWT 1.985.936 và 139 rời / DWT 1.839.204. Giữ 161 dòng trực tiếp chưa đủ điều kiện và 43 điều chuyển ngoài tổng. Không mở alias K12 toàn cục, không cộng snapshot NEO/Hoa tiêu hoặc suy actual. Sáu monitor SGP và một dòng SGP miền Nam giữ nguyên.
+
+Rà 666 bảng lịch và 193 bản ngày đăng ký; 24/217 ngày đăng ký ứng viên còn chưa tải. Đã tôn trọng phản hồi HTTP 429 nghỉ 15 phút rồi tiếp các batch có giới hạn. Raw/hash, từng kết quả và gate manifest được lưu; 10.803 dòng cũ giữ nguyên. Độ phủ K12 chưa đầy đủ/đều giữa hai năm được nêu trong chi tiết thu gọn. [Runbook](sgp-k12-row-integration-20261031.md), [receipt tích hợp](catalog-review/sgp-k12-integration-20261031.json), [manifest](catalog-review/sgp-k12-reviewed-rows.json).
+
+CI/staging đang được kiểm chứng; các mục cũ bên dưới là biên bản phase trước. HCM cloud acceptance, PDN cron, Long Bình Tân và ICD/kho bãi chưa mở lại.
+
 ## Tân Thuận 2 đã tích hợp — 31/10/2026
 
 Bản ứng dụng cuối **a42c996** trên `codex/cloudflare-next-compat`: [Quality 41174571970](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41174571970) **success ở attempt 2**, gồm lint/typecheck/Vitest/Python/E2E/Next/OpenNext build. Attempt 1 runner nhận shutdown trong E2E; chạy lại cùng SHA, không sửa ứng dụng theo lỗi hạ tầng. Cloudflare build `c0fd6d31-8b72-40f8-8a0e-1b0b94cea27f` **success**. API live khớp 22 tháng hai chiều cho 11 asset theo dõi, tổng sáu phạm vi SGP và dòng miền Nam; bốn ngày mẫu nhật ký khớp raw/hash. UI live desktop/mobile chọn TT2 đúng, một dòng SGP, không tràn ngang. Bản test/evidence a42c996 có cây ứng dụng/packages/scripts giống bản UI đã kiểm chứng cdbd601; API/data không đổi sau readback 262fa2f.

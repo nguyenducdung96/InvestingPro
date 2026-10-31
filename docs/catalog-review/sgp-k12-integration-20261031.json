@@ -1,0 +1,109 @@
+{
+  "verified_at": "2026-10-31T06:53:06.351045+00:00",
+  "manifest_sha256": "3824d61a4035711320d8ed214e364ba952b0cdb708018af13cf86d966a6b02e6",
+  "direct_candidates": 452,
+  "selected_by_direction": {
+    "arrival": {
+      "rows": 152,
+      "recorded_dwt": 1985936.0,
+      "missing_dwt": 0
+    },
+    "departure": {
+      "rows": 139,
+      "recorded_dwt": 1839204.0,
+      "missing_dwt": 0
+    }
+  },
+  "status_counts": {
+    "unresolved_no_exact_visit_registration": 148,
+    "corroborated_sgp_berth_plan": 291,
+    "different_registered_facility": 9,
+    "unresolved_port_entry_vs_berth_time": 3,
+    "conflicting_or_multiple_registrations": 1
+  },
+  "source_window": {
+    "from": "2025-01-01",
+    "through": "2026-10-28",
+    "verified_boards": 666,
+    "registered_snapshot_days": 193,
+    "candidate_arrival_days": 217,
+    "unfetched_arrival_days": [
+      "2025-12-25",
+      "2026-01-03",
+      "2026-01-17",
+      "2026-02-10",
+      "2026-02-28",
+      "2026-03-21",
+      "2026-04-06",
+      "2026-04-18",
+      "2026-04-27",
+      "2026-05-12",
+      "2026-05-31",
+      "2026-06-04",
+      "2026-06-24",
+      "2026-06-29",
+      "2026-07-12",
+      "2026-07-28",
+      "2026-08-03",
+      "2026-08-15",
+      "2026-08-26",
+      "2026-09-10",
+      "2026-09-15",
+      "2026-09-30",
+      "2026-10-10",
+      "2026-10-17"
+    ]
+  },
+  "invariants": {
+    "unchanged_prior_rows": 10803,
+    "unchanged_prior_row_values_and_order": true,
+    "registered_raw_hash_and_record_index_verified": true,
+    "authority_rows_not_inferred_from_snapshots": true,
+    "missing_weights_not_backfilled": true,
+    "global_K12_alias_added": false,
+    "internal_K12_rows_excluded": 43,
+    "overlap_with_prior_SGP_plan_keys": 0,
+    "sgp_regional_rows": 1,
+    "sgp_tracked_scopes": 6
+  },
+  "context_documents": [
+    {
+      "source_url": "https://vimawa.gov.vn/vi/tin-tuc/thong-cao-bao-chi-ve-tai-nan-dam-va-tau-bien-tren-luong-hang-hai-sai-gon-vung-tau",
+      "sha256": "edcba7995dd5f73e5ef34fcccc95c3021cc8297840d999562e86ea9a6f7bc55b",
+      "checked_at": "2026-10-31T06:45:13.006709+00:00",
+      "bytes": 54368,
+      "role": "Context only; no event added from news"
+    },
+    {
+      "source_url": "https://sggt.vn/cang-sai-gon-hiep-phuoc-no-luc-cuu-ho-va-khai-thac-thanh-cong-tau-glengyle/",
+      "sha256": "e644df63288e64a490f1fe52d7a1e89bf5a312cf3668c3b4646a41b3d017587c",
+      "checked_at": "2026-10-31T06:45:14.387505+00:00",
+      "bytes": 93998,
+      "role": "Context only; no event added from news"
+    }
+  ],
+  "source_rate_limit": {
+    "observed_at": "2026-10-31T06:27:01.015657+00:00",
+    "retry_not_before": "2026-10-31T06:42:01.015657+00:00",
+    "http_status": 429,
+    "message": "Source requested a 15 minute cooldown; no automatic retries.",
+    "raw_sha256": "ab4c654a63b426e3e677a5e56cc03e49d97ff94fecc0f86dad17e06cdc7bd02d"
+  },
+  "actual_verified": false,
+  "full_scope_certified": false,
+  "hcm_cloud_connectivity_acceptance": false,
+  "scheduled_refresh_verified": false,
+  "production_acceptance": false,
+  "local_checks": {
+    "python_review": 16,
+    "targeted_e2e": 6,
+    "lint": "passed",
+    "typecheck": "passed",
+    "vitest": {
+      "files": 45,
+      "passed": 188,
+      "mode": "without concurrent E2E"
+    },
+    "stale_scope_edition_rejected": true
+  }
+}

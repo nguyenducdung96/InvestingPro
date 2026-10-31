@@ -1,5 +1,7 @@
 # SGP K12 / Tân Thuận 2 — rà nguồn ngày 31/10/2026
 
+Cập nhật tiếp nối: [K12 được chọn riêng từng dòng từ Cảng vụ](sgp-k12-row-integration-20261031.md); không mở alias toàn cục hoặc cộng Hoa tiêu vào tổng. Các quyết định chưa tích hợp K12 bên dưới là biên bản phase trước.
+
 ## Kết luận và quyết định
 
 Đã xác nhận **cầu K12 và cầu Tân Thuận 2 thuộc phạm vi cảng biển SGP**, đồng thời tìm được nguồn kế hoạch Hoa tiêu có nhãn riêng `K12` / `TT2`. Nguồn mới phù hợp để chuẩn bị collector lưu kế hoạch riêng từ thời điểm hiện tại. **Chưa thêm alias hoặc dữ liệu vào dashboard/tổng SGP**, vì chưa nghiệm thu phân biệt từng dòng, loại trùng giữa nguồn và chuỗi lịch sử DWT.

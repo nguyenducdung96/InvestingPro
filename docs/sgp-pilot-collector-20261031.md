@@ -1,5 +1,7 @@
 # SGP K12 / TT2 — collector kế hoạch Hoa tiêu, 31/10/2026
 
+Cập nhật tiếp nối: [K12 được chọn riêng từng dòng từ Cảng vụ](sgp-k12-row-integration-20261031.md); không mở alias toàn cục hoặc cộng Hoa tiêu vào tổng. Các quyết định chưa tích hợp K12 bên dưới là biên bản phase trước.
+
 Cập nhật tiếp nối: [TT2 đã tích hợp riêng từ Cảng vụ](sgp-tt2-integration-20261031.md); collector Hoa tiêu vẫn chỉ archive/review, không được cộng vào dashboard. Các trạng thái chưa tích hợp bên dưới là biên bản phase collector trước đó.
 
 ## Kiểm chứng cloud và CI

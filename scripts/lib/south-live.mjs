@@ -3,6 +3,7 @@ export const recordedRange=r=>({rows:r.observed_days?r.known_rows:null,dwt:r.obs
 export const sumAvailable=values=>values.some(v=>v!==null)?values.reduce((n,v)=>n+(v??0),0):null;
 export function assertEdition(data,metadata){
  for(const key of ['checked_at','from','through','requested_days','parser_version'])assert.equal(data.metadata?.[key],metadata[key],`Live edition differs: ${key}`);
+ if(metadata.scope_review_sha256)assert.equal(data.metadata?.scope_review_sha256,metadata.scope_review_sha256,'Live scope review edition differs');
  assert.equal(data.actual_verified,false,'Plans must not become verified actuals');
 }
 export function assertAssetMonths(data,ledger,asset,direction){

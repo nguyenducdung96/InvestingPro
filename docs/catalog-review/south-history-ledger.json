@@ -34,7 +34,7 @@
         "last_day": "2026-10-28"
       },
       "sg_tan_thuan": {
-        "rows": 1367,
+        "rows": 1658,
         "first_day": "2025-01-01",
         "last_day": "2026-10-28"
       },
@@ -66,7 +66,24 @@
     },
     "actual_verified": false,
     "full_scope_certified": false,
-    "source_rights": "publicly_accessible; republication_rights_not_certified"
+    "source_rights": "publicly_accessible; republication_rights_not_certified",
+    "scope_review_sha256": "3824d61a4035711320d8ed214e364ba952b0cdb708018af13cf86d966a6b02e6",
+    "k12_scope_review": {
+      "review_version": "sgp-k12-row-review/1.0.0",
+      "source_from": "2025-01-01",
+      "source_through": "2026-10-28",
+      "candidate_rows": 452,
+      "internal_excluded": 43,
+      "status_counts": {
+        "unresolved_no_exact_visit_registration": 148,
+        "corroborated_sgp_berth_plan": 291,
+        "different_registered_facility": 9,
+        "unresolved_port_entry_vs_berth_time": 3,
+        "conflicting_or_multiple_registrations": 1
+      },
+      "snapshot_days": 193,
+      "candidate_arrival_days": 217
+    }
   },
   "monthly": {
     "2025-01": {
@@ -132,13 +149,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 32,
-          "dwt": 427059.0,
+          "rows": 37,
+          "dwt": 523202.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 31,
-          "dwt": 415256.0,
+          "rows": 35,
+          "dwt": 504174.0,
           "missing_dwt": 0
         }
       },
@@ -266,13 +283,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 32,
-          "dwt": 457188.0,
+          "rows": 35,
+          "dwt": 522024.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 30,
-          "dwt": 387541.0,
+          "rows": 33,
+          "dwt": 422497.0,
           "missing_dwt": 0
         }
       },
@@ -400,13 +417,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 40,
-          "dwt": 496332.0,
+          "rows": 44,
+          "dwt": 564301.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 38,
-          "dwt": 554947.0,
+          "rows": 42,
+          "dwt": 641258.0,
           "missing_dwt": 0
         }
       },
@@ -534,13 +551,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 28,
-          "dwt": 273173.0,
+          "rows": 35,
+          "dwt": 358361.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 33,
-          "dwt": 352236.0,
+          "rows": 40,
+          "dwt": 433154.0,
           "missing_dwt": 0
         }
       },
@@ -668,13 +685,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 30,
-          "dwt": 333934.0,
+          "rows": 41,
+          "dwt": 477729.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 35,
-          "dwt": 460373.0,
+          "rows": 44,
+          "dwt": 585952.0,
           "missing_dwt": 0
         }
       },
@@ -802,13 +819,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 29,
-          "dwt": 389764.0,
+          "rows": 39,
+          "dwt": 502943.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 33,
-          "dwt": 489581.0,
+          "rows": 44,
+          "dwt": 611868.0,
           "missing_dwt": 0
         }
       },
@@ -936,13 +953,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 33,
-          "dwt": 387418.0,
+          "rows": 39,
+          "dwt": 484438.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 37,
-          "dwt": 441107.0,
+          "rows": 43,
+          "dwt": 538127.0,
           "missing_dwt": 0
         }
       },
@@ -1070,13 +1087,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 29,
-          "dwt": 401816.0,
+          "rows": 42,
+          "dwt": 536425.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 30,
-          "dwt": 421849.0,
+          "rows": 43,
+          "dwt": 556458.0,
           "missing_dwt": 0
         }
       },
@@ -1204,13 +1221,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 24,
-          "dwt": 234843.0,
+          "rows": 27,
+          "dwt": 261632.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 31,
-          "dwt": 415404.0,
+          "rows": 34,
+          "dwt": 442193.0,
           "missing_dwt": 0
         }
       },
@@ -1338,13 +1355,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 33,
-          "dwt": 440972.0,
+          "rows": 42,
+          "dwt": 555889.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 27,
-          "dwt": 333636.0,
+          "rows": 36,
+          "dwt": 448553.0,
           "missing_dwt": 0
         }
       },
@@ -1472,13 +1489,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 29,
-          "dwt": 434270.0,
+          "rows": 38,
+          "dwt": 555155.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 29,
-          "dwt": 525271.0,
+          "rows": 36,
+          "dwt": 628789.0,
           "missing_dwt": 0
         }
       },
@@ -1606,13 +1623,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 42,
-          "dwt": 626714.0,
+          "rows": 48,
+          "dwt": 735181.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 38,
-          "dwt": 557245.0,
+          "rows": 43,
+          "dwt": 641071.0,
           "missing_dwt": 0
         }
       },
@@ -1740,13 +1757,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 28,
-          "dwt": 301241.0,
+          "rows": 33,
+          "dwt": 360613.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 31,
-          "dwt": 385469.0,
+          "rows": 35,
+          "dwt": 430996.0,
           "missing_dwt": 0
         }
       },
@@ -1874,13 +1891,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 19,
-          "dwt": 237555.0,
+          "rows": 23,
+          "dwt": 277800.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 19,
-          "dwt": 270946.0,
+          "rows": 23,
+          "dwt": 315934.0,
           "missing_dwt": 0
         }
       },
@@ -2008,13 +2025,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 35,
-          "dwt": 363370.0,
+          "rows": 41,
+          "dwt": 474107.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 40,
-          "dwt": 432604.0,
+          "rows": 46,
+          "dwt": 543341.0,
           "missing_dwt": 0
         }
       },
@@ -2142,13 +2159,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 24,
-          "dwt": 299763.0,
+          "rows": 28,
+          "dwt": 336571.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 27,
-          "dwt": 422401.0,
+          "rows": 30,
+          "dwt": 450101.0,
           "missing_dwt": 0
         }
       },
@@ -2276,13 +2293,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 25,
-          "dwt": 339326.0,
+          "rows": 31,
+          "dwt": 434944.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 29,
-          "dwt": 366186.0,
+          "rows": 34,
+          "dwt": 459232.0,
           "missing_dwt": 0
         }
       },
@@ -2410,13 +2427,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 26,
-          "dwt": 299652.0,
+          "rows": 32,
+          "dwt": 358144.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 34,
-          "dwt": 438561.0,
+          "rows": 38,
+          "dwt": 478849.0,
           "missing_dwt": 0
         }
       },
@@ -2544,13 +2561,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 33,
-          "dwt": 439306.0,
+          "rows": 40,
+          "dwt": 536558.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 33,
-          "dwt": 446714.0,
+          "rows": 40,
+          "dwt": 543966.0,
           "missing_dwt": 0
         }
       },
@@ -2678,13 +2695,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 30,
-          "dwt": 421000.0,
+          "rows": 40,
+          "dwt": 529943.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 32,
-          "dwt": 541709.0,
+          "rows": 39,
+          "dwt": 617055.0,
           "missing_dwt": 0
         }
       },
@@ -2812,13 +2829,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 33,
-          "dwt": 352570.0,
+          "rows": 41,
+          "dwt": 445984.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 33,
-          "dwt": 338205.0,
+          "rows": 41,
+          "dwt": 431619.0,
           "missing_dwt": 0
         }
       },
@@ -2946,13 +2963,13 @@
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 31,
-          "dwt": 476117.0,
+          "rows": 41,
+          "dwt": 587375.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 32,
-          "dwt": 445536.0,
+          "rows": 42,
+          "dwt": 556794.0,
           "missing_dwt": 0
         }
       },

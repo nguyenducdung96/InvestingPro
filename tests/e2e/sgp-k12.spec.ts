@@ -1,0 +1,23 @@
+import {test,expect} from '@playwright/test';
+test('SGP keeps only individually scoped K12 plans with separate registration proof',async({page})=>{
+ await page.request.post('http://127.0.0.1:54329/__throughput',{data:[]});
+ const journal=await(await page.request.get('/api/v1/companies/SGP/plans?asset=sg_tan_thuan&direction=arrival&day=2025-07-30')).json();
+ const vimc=journal.events.find((e:{vessel:string})=>e.vessel==='VIMC PIONEER');
+ expect(vimc).toBeDefined();expect(vimc.dwt).toBe(9088);expect(vimc.to).toBe('K12');
+ expect(vimc.source_url).toContain('cangvuhanghaitphcm.gov.vn/index.aspx');
+ expect(vimc.scope_review).toMatchObject({facility_id:52,facility_namespace:'hcm-kehoach/getDSTau4',semantics:'registered_facility_corroboration_only',actual_verified:false});
+ expect(vimc.scope_review.sha256).toMatch(/^[a-f0-9]{64}$/);
+ expect(journal.events.some((e:{vessel:string})=>e.vessel==='BELLIGHT')).toBe(false);
+ await page.goto('/companies/SGP?plan_asset=sg_tan_thuan&plan_direction=arrival&plan_day=2026-10-24');
+ const plans=page.getByRole('region',{name:'Lịch điều động SGP',exact:true});
+ const row=plans.locator('#plan-days tbody tr').filter({hasText:'FORTUNE NAVIGATOR'});
+ await expect(row).toHaveCount(1);
+ await row.getByText('Bằng chứng dòng',{exact:true}).click();
+ await expect(row).toContainText('Đối chiếu K12 theo từng dòng');
+ await expect(row.getByRole('link',{name:'Bản đăng ký bến ↗'})).toHaveAttribute('href',/getDSTau4/);
+ const quality=plans.locator('details').filter({has:page.locator('summary').filter({hasText:'Chi tiết dữ liệu và nguồn'})}).first();
+ await expect(quality).not.toHaveAttribute('open','');
+ await quality.locator('summary').first().click();
+ await expect(quality).toContainText('Độ phủ đối chiếu chưa đầy đủ');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});

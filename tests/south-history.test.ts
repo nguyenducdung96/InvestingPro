@@ -22,11 +22,29 @@ it('reconciles every asset/month/direction to a separate journal ledger',()=>{
 it('retains exact aliases, source hashes and raw DWT in the lazy journal',async()=>{
  const days=new Map(southDaily.map(d=>[d.day,d]));let rows=0;
  for(const month of Object.keys(ledger.monthly))for(const e of await loadSouthJournal(month)){
-  expect((southAssets[e.asset].aliases as readonly string[]).includes((e.direction==='arrival'?e.to:e.from)!)).toBe(true);
+  const label=(e.direction==='arrival'?e.to:e.from)!;
+  if(e.scope_review){expect(e.asset).toBe('sg_tan_thuan');expect(label).toBe('K12');expect(e.scope_review.actual_verified).toBe(false);}
+  else expect((southAssets[e.asset].aliases as readonly string[]).includes(label)).toBe(true);
   expect(e.sha256).toBe(days.get(e.day)?.sha256);expect(e.raw[4]).toBeDefined();expect(['arrival','departure']).toContain(e.direction);rows++;
  }
  expect(rows).toBe(Object.values(southHistoryMetadata.assets).reduce((n,a)=>n+a.rows,0));
  expect(await loadSouthJournal('invalid')).toEqual([]);
+});
+it('selects K12 by immutable reviewed rows, never by a global homonym alias',async()=>{
+ const manifest=JSON.parse(readFileSync('docs/catalog-review/sgp-k12-reviewed-rows.json','utf8'));
+ const approved=new Map(manifest.reviewed_rows.map((r:{row_id:string})=>[r.row_id,r]));
+ const selected=(await Promise.all(Object.keys(ledger.monthly).map(loadSouthJournal))).flat().filter(e=>e.scope_review);
+ expect(selected).toHaveLength(approved.size);
+ expect(new Set(selected.map(e=>e.scope_review!.row_id)).size).toBe(approved.size);
+ for(const event of selected){
+  const row=approved.get(event.scope_review!.row_id) as {day:string;event:{section:string;raw:string[];dwt:number|null};evidence_sha256:string;evidence_record_index:number};
+  expect(row).toBeDefined();expect(event.raw).toEqual(row.event.raw);expect(event.day).toBe(row.day);
+  expect(event.direction).toBe(row.event.section);expect(event.dwt).toBe(row.event.dwt);
+  expect(event.scope_review!.sha256).toBe(row.evidence_sha256);expect(event.scope_review!.record_index).toBe(row.evidence_record_index);
+  expect(event.scope_review!.facility_id).toBe(52);expect(event.scope_review!.semantics).toBe('registered_facility_corroboration_only');
+ }
+ expect(southAssets.sg_tan_thuan.aliases as readonly string[]).not.toContain('K12');
+ expect(manifest.internal_excluded).toBe(43);expect(manifest.actual_verified).toBe(false);
 });
 it('adds only direct TAN.T.2 authority rows once to SGP and its southern overview',async()=>{
  const events=(await Promise.all(Object.keys(ledger.monthly).map(loadSouthJournal))).flat();

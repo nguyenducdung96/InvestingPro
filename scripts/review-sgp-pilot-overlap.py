@@ -94,7 +94,7 @@ def main():
     report = {'reviewed_at': dt.datetime.now(dt.timezone.utc).isoformat(), 'pilot_sha256': sha,
               'authority_days': coverage, 'results': results, 'alias_hypotheses_for_review': {k: sorted(v) for k, v in ALIASES_FOR_REVIEW.items()},
               'product_edition_modified': False, 'issuer_totals_modified': False, 'actual_verified': False,
-              'limitation': 'Candidate relations only; source times may have different meanings. TAN.T.2 is a reviewed alias hypothesis, not a public product mapping. Missing authority days are unverified, not proof of no overlap.'}
+              'limitation': 'Candidate cross-source relations only; source times may have different meanings. Published TAN.T.2 mapping and individually reviewed K12 authority rows do not automatically resolve pilot overlaps. Missing authority days are unverified, not proof of no overlap.'}
     pilot.write_json(args.pilot_dir/'overlap-review.json', report)
     print(json.dumps({'reviewed_rows': len(results), 'authority_days': coverage,
                       'statuses': [r['status'] for r in results], 'product_edition_modified': False}), flush=True)
