@@ -83,11 +83,381 @@
       "mode": "without concurrent E2E"
     },
     "stale_scope_edition_rejected": true,
-    "scope_hash_cross_platform_verified": true
+    "scope_hash_cross_platform_verified": true,
+    "full_e2e": {
+      "passed": 78,
+      "duration": "3.5m",
+      "log": ".local/sgp-k12-review/e2e-all-complete.log"
+    }
   },
   "manifest_hash_semantics": "SHA-256 of UTF-8 review manifest normalized to LF; immutable HTTP-response hashes remain byte-exact",
   "selected_rows_by_year": {
     "2025": 169,
     "2026": 162
+  },
+  "live_api": {
+    "verifier_version": "south-live/1",
+    "verified_at": "2026-10-31T07:34:21.658Z",
+    "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+    "expected_checked_at": "2026-10-29T14:12:52.063915+00:00",
+    "through": "2026-10-28",
+    "event_name": "local",
+    "run_id": "sgp-k12-6c75d59",
+    "run_attempt": "1",
+    "published_commit": "6c75d5980aaa6e4e02c4e742b7d09b92a4042707",
+    "source_refresh_success": false,
+    "deployment_readback_verified": true,
+    "scheduled_refresh_verified": false,
+    "actual_verified": false,
+    "full_scope_certified": false,
+    "checks": [
+      {
+        "asset": "gemalink",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_hiep_phuoc",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "cmit",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sp_psa",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "ssit",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan_2",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_berth7",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_b7",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "swc_buoys",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "vgp_k16",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "direction": "arrival",
+        "sgp_aggregate_matched": true,
+        "south_overview_matched": true
+      },
+      {
+        "asset": "gemalink",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_hiep_phuoc",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "cmit",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sp_psa",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "ssit",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan_2",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_berth7",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_b7",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "swc_buoys",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "vgp_k16",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "direction": "departure",
+        "sgp_aggregate_matched": true,
+        "south_overview_matched": true
+      }
+    ],
+    "scheduled_run_ids": []
+  },
+  "live_ui": {
+    "verified_at": "2026-10-31T07:43:15.019Z",
+    "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+    "code_commit": "6c75d5980aaa6e4e02c4e742b7d09b92a4042707",
+    "manifest_sha256": "21c19d5beb7046408f354a9f50f8c17c0d5b2dca78b832e3c471ff17fdcc25c2",
+    "api_samples": [
+      {
+        "day": "2025-07-30",
+        "direction": "arrival",
+        "raw_rows_matched": 1,
+        "unreviewed_K12_absent": true
+      },
+      {
+        "day": "2025-07-31",
+        "direction": "arrival",
+        "raw_rows_matched": 0,
+        "unreviewed_K12_absent": true
+      },
+      {
+        "day": "2026-10-24",
+        "direction": "arrival",
+        "raw_rows_matched": 1,
+        "unreviewed_K12_absent": true
+      },
+      {
+        "day": "2026-10-25",
+        "direction": "departure",
+        "raw_rows_matched": 1,
+        "unreviewed_K12_absent": true
+      }
+    ],
+    "ui_checks": [
+      {
+        "viewport": "desktop",
+        "separate_row_provenance": true,
+        "quality_collapsed_initially": true,
+        "coverage_counts_matched": true,
+        "scoped_rows": 331,
+        "registered_snapshot_days": 217,
+        "one_sgp_regional_row": true,
+        "no_horizontal_overflow": true
+      },
+      {
+        "viewport": "mobile",
+        "separate_row_provenance": true,
+        "quality_collapsed_initially": true,
+        "coverage_counts_matched": true,
+        "scoped_rows": 331,
+        "registered_snapshot_days": 217,
+        "one_sgp_regional_row": true,
+        "no_horizontal_overflow": true
+      }
+    ]
+  },
+  "concurrent_publishers_preserved": [
+    {
+      "commit": "c434390",
+      "scope": "NAP official activity",
+      "action": "fast-forward; no edits by K12 phase"
+    },
+    {
+      "commit": "1f15041",
+      "scope": "PDN official plans",
+      "action": "fast-forward; no cron acceptance inferred"
+    },
+    {
+      "commit": "5346778",
+      "scope": "GMD Binh Duong official plans",
+      "action": "fast-forward; preserve independent edition"
+    }
+  ],
+  "ci_history": [
+    {
+      "run_id": 41181037139,
+      "attempt": 1,
+      "conclusion": "failure",
+      "cause": "Runner shutdown signal during E2E; no assertion failure shown"
+    },
+    {
+      "run_id": 41181037139,
+      "attempt": 2,
+      "conclusion": "failure",
+      "cause": "Runner shutdown signal during E2E; no assertion failure shown"
+    },
+    {
+      "run_id": 41181037139,
+      "attempt": 3,
+      "conclusion": "failure",
+      "cause": "Runner shutdown after approximately five minutes of E2E; 78/78 local tests passed"
+    }
+  ],
+  "history_integration_verified": true,
+  "deployment_readback_verified": true,
+  "release": {
+    "checked_at": "2026-10-31T08:09:56.847219+00:00",
+    "code_commit": "6ec498cabc317c077a2976fa33c0b4da09097354",
+    "checks": [
+      {
+        "name": "check",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41183079501/job/124484994387"
+      },
+      {
+        "name": "Workers Builds: investing-pro-web-staging",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/74401468-db7b-416e-af17-493157205739"
+      },
+      {
+        "name": "e2e (mobile)",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41183079501/job/124484315049"
+      },
+      {
+        "name": "e2e (desktop)",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41183079501/job/124484314837"
+      },
+      {
+        "name": "validate",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41183079501/job/124484314701"
+      }
+    ],
+    "quality": [
+      {
+        "id": 41183079501,
+        "head_sha": "6ec498cabc317c077a2976fa33c0b4da09097354",
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41183079501",
+        "active_steps": [],
+        "completed_steps": [
+          "Set up job",
+          "Run actions/checkout@v4",
+          "Run pnpm/action-setup@v4",
+          "Run actions/setup-node@v4",
+          "Run pnpm install --frozen-lockfile",
+          "Run pnpm lint",
+          "Run pnpm typecheck",
+          "Run pnpm test",
+          "Run actions/setup-python@v5",
+          "Run python -m pip install -r scripts/requirements-gemalink-national.txt",
+          "Run python scripts/test-gemalink-national.py",
+          "Run python scripts/test-swc-longbinh-plans.py",
+          "Run python scripts/test-binhduong-plans.py",
+          "Run python scripts/test-sgp-pilot-plans.py",
+          "Run python scripts/test-sgp-pilot-overlap.py",
+          "Run python scripts/test-sgp-k12-review.py",
+          "Run pnpm build",
+          "Run pnpm build:cloudflare",
+          "Post Run actions/setup-python@v5",
+          "Post Run actions/setup-node@v4",
+          "Post Run pnpm/action-setup@v4",
+          "Post Run actions/checkout@v4",
+          "Complete job",
+          "Set up job",
+          "Run actions/checkout@v4",
+          "Run pnpm/action-setup@v4",
+          "Run actions/setup-node@v4",
+          "Run pnpm install --frozen-lockfile",
+          "Run pnpm exec playwright install --with-deps chromium",
+          "Run pnpm exec playwright test --project=desktop",
+          "Post Run actions/setup-node@v4",
+          "Post Run pnpm/action-setup@v4",
+          "Post Run actions/checkout@v4",
+          "Complete job",
+          "Set up job",
+          "Run actions/checkout@v4",
+          "Run pnpm/action-setup@v4",
+          "Run actions/setup-node@v4",
+          "Run pnpm install --frozen-lockfile",
+          "Run pnpm exec playwright install --with-deps chromium",
+          "Run pnpm exec playwright test --project=mobile",
+          "Post Run actions/setup-node@v4",
+          "Post Run pnpm/action-setup@v4",
+          "Post Run actions/checkout@v4",
+          "Complete job",
+          "Set up job",
+          "Require validation and both browser projects",
+          "Complete job"
+        ]
+      }
+    ]
+  },
+  "ci_mitigation": {
+    "commit": "6ec498c",
+    "desktop_and_mobile_separate_jobs": true,
+    "fail_fast": false,
+    "required_check_preserved": "check",
+    "required_check_requires": [
+      "validate",
+      "e2e"
+    ],
+    "skipped_cancelled_or_failed_prerequisites_do_not_pass_gate": true,
+    "test_scope_reduced": false
+  },
+  "quality_ci_verified": true,
+  "release_equivalence": {
+    "data_and_ui_verified_commit": "6c75d5980aaa6e4e02c4e742b7d09b92a4042707",
+    "ci_and_build_verified_commit": "6ec498cabc317c077a2976fa33c0b4da09097354",
+    "k12_application_and_data_paths_unchanged": [
+      "apps/web",
+      "packages/modules/port/src/south-plans.ts",
+      "packages/modules/port/src/south-history-data.ts",
+      "packages/modules/port/src/south-journal-data",
+      "scripts/export-south-plans.py",
+      "scripts/review-sgp-k12.py"
+    ]
+  },
+  "acceptance": {
+    "history_integration_verified": true,
+    "deployment_readback_verified": true,
+    "quality_ci_verified": true,
+    "candidate_query_coverage_complete": true,
+    "actual_verified": false,
+    "full_scope_certified": false,
+    "hcm_cloud_connectivity_acceptance": false,
+    "scheduled_refresh_verified": false,
+    "production_acceptance": false
   }
 }

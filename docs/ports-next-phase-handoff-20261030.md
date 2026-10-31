@@ -2,11 +2,17 @@
 
 ## K12 đã đối chiếu riêng từng dòng — 31/10/2026
 
+**Phát hành chốt:** mã dữ liệu K12 `6c75d59`, bản CI cuối `6ec498c` trên `codex/cloudflare-next-compat`. [Quality 41183079501](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41183079501) **success**: validate gồm lint/typecheck/188 Vitest/Python/Next/OpenNext; E2E desktop và mobile đều success; required `check` chỉ success sau tất cả các job. Cloudflare build `74401468-db7b-416e-af17-493157205739` **success**. Ba attempt trước của run 41181037139 bị runner shutdown sau khoảng 5 phút E2E; đã chia project desktop/mobile thành hai job ngắn, giữ đủ test và không dùng continue-on-error/bỏ check. Local toàn bộ 78 E2E đạt.
+
+API live đã khớp 22 tháng hai chiều cho 11 asset theo dõi, tổng sáu phạm vi SGP và một dòng SGP miền Nam; nhận đúng fingerprint manifest LF `21c19d5beb7046408f354a9f50f8c17c0d5b2dca78b832e3c471ff17fdcc25c2`. UI live desktop/mobile đúng 331/452 dòng, 217/217 ngày tra cứu; hash/giờ/DWT mẫu khớp và K12 khu neo bị giữ ngoài tổng. Đường dẫn ứng dụng/dữ liệu K12 không đổi giữa bản live 6c75d59 và bản CI 6ec498c. [Receipt đầy đủ](catalog-review/sgp-k12-integration-20261031.json).
+
+121 dòng chưa đủ điều kiện và 43 điều chuyển tiếp tục giữ riêng. Không nghiệm thu HCM cloud, schedule refresh hoặc production bằng kết quả này; dữ liệu vẫn là kế hoạch công bố đến 28/10/2026, không xác nhận thực hiện. Phạm vi tra cứu ban đầu đã hoàn tất; phần chưa khớp cần bằng chứng khác theo từng movement, không mở alias K12 toàn cục.
+
 Bản dữ liệu thêm 331 dòng K12 đủ bằng chứng vào Tân Thuận: 173 vào / DWT 2.232.642 và 158 rời / DWT 2.067.706. Giữ 121 dòng trực tiếp chưa đủ điều kiện và 43 điều chuyển ngoài tổng. Không mở alias K12 toàn cục, không cộng snapshot NEO/Hoa tiêu hoặc suy actual. Sáu monitor SGP và một dòng SGP miền Nam giữ nguyên.
 
 Rà 666 bảng lịch và đủ 217/217 bản ngày đăng ký ứng viên; không còn ngày truy vấn ban đầu chưa tải. Đã tôn trọng phản hồi HTTP 429 nghỉ 15 phút rồi tiếp các batch có giới hạn. Raw/hash, từng kết quả và gate manifest được lưu; 10.803 dòng cũ giữ nguyên. Độ phủ K12 chưa đầy đủ/đều giữa hai năm được nêu trong chi tiết thu gọn. [Runbook](sgp-k12-row-integration-20261031.md), [receipt tích hợp](catalog-review/sgp-k12-integration-20261031.json), [manifest](catalog-review/sgp-k12-reviewed-rows.json).
 
-CI/staging đang được kiểm chứng; các mục cũ bên dưới là biên bản phase trước. HCM cloud acceptance, PDN cron, Long Bình Tân và ICD/kho bãi chưa mở lại.
+CI/staging đã kiểm chứng như trên; các mục cũ bên dưới là biên bản phase trước. HCM cloud acceptance, PDN cron, Long Bình Tân và ICD/kho bãi chưa mở lại.
 
 ## Tân Thuận 2 đã tích hợp — 31/10/2026
 
