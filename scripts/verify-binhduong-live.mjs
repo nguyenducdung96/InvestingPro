@@ -1,12 +1,13 @@
 import assert from 'node:assert/strict';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 import {setTimeout as delay} from 'node:timers/promises';
-import {assertAssetMonths,assertEdition,recordedRange,sumAvailable} from './lib/south-live.mjs';
+import {assertAssetMonths,assertEdition,fetchWithRetry,recordedRange,sumAvailable} from './lib/south-live.mjs';
 const root=new URL('../',import.meta.url);
 const ledger=JSON.parse(await readFile(new URL('docs/catalog-review/binhduong-history-ledger.json',root),'utf8'));
 const base=process.env.SOUTH_VERIFY_BASE??'https://investing-pro-web-staging.tuyenkinhmon88.workers.dev';
-const receipt={verified_at:new Date().toISOString(),base_url:base,through:ledger.metadata.through,checked_at:ledger.metadata.checked_at,deployment_readback_verified:false,scheduled_refresh_verified:false,published_commit:process.env.PUBLISHED_COMMIT??null,event_name:process.env.GITHUB_EVENT_NAME??'local',run_id:process.env.GITHUB_RUN_ID??null,run_attempt:process.env.GITHUB_RUN_ATTEMPT??null,verifier_version:'south-live/1',checks:[]};
-async function get(path){const r=await fetch(base+path,{redirect:'error',signal:AbortSignal.timeout(30000)});assert.equal(r.status,200,path);return r.json();}
+const receipt={verified_at:new Date().toISOString(),base_url:base,through:ledger.metadata.through,checked_at:ledger.metadata.checked_at,deployment_readback_verified:false,scheduled_refresh_verified:false,published_commit:process.env.PUBLISHED_COMMIT??null,event_name:process.env.GITHUB_EVENT_NAME??'local',run_id:process.env.GITHUB_RUN_ID??null,run_attempt:process.env.GITHUB_RUN_ATTEMPT??null,verifier_version:'south-live/1',transient_retries:[],checks:[]};
+const fetchLive=(path,options={})=>fetchWithRetry(base+path,options,{retries:receipt.transient_retries});
+async function get(path){const r=await fetchLive(path,{redirect:'error'});assert.equal(r.status,200,path);return r.json();}
 try{
  if(process.argv.includes('--wait')){
   const until=Date.now()+10*60000;
@@ -46,8 +47,9 @@ try{
   for(const event of detail.events){assert.equal(event.direction,direction);assert.equal(event.harbour_code,'BC198');assert.match(event.sha256,/^[a-f0-9]{64}$/);}
   receipt.checks.push({direction,months_matched:result.months.length,last_observation:day,journal_rows:detail.events.length});
  }
- const page=await fetch(base+'/companies/GMD?plan_asset=gmd_binh_duong',{signal:AbortSignal.timeout(30000)});
- assert.equal(page.status,200);assert.ok((await page.text()).includes('Bối cảnh nguồn Bình Dương từ tháng 7/2026'));
+ const pagePath='/companies/GMD?plan_asset=gmd_binh_duong';
+ const page=await fetchLive(pagePath);
+ assert.equal(page.status,200,pagePath);assert.ok((await page.text()).includes('Bối cảnh nguồn Bình Dương từ tháng 7/2026'));
  receipt.deployment_readback_verified=true;
  receipt.verified_at=new Date().toISOString();
  const sourceText=await readFile(new URL('.local/binhduong/collect-receipt.json',root),'utf8').catch(error=>{if(error.code!=='ENOENT')throw error;return null;});

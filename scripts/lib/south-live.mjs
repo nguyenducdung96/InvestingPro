@@ -1,4 +1,26 @@
 import assert from 'node:assert/strict';
+import {setTimeout as delay} from 'node:timers/promises';
+// Bounded retry for transient gateway/network failures only. Edition, matrix and
+// provenance assertions are never retried here; a wrong edition still fails.
+export const TRANSIENT_HTTP_STATUS=new Set([502,503,504]);
+const TRANSIENT_NETWORK_CODES=new Set(['ECONNRESET','ECONNREFUSED','ETIMEDOUT','EAI_AGAIN','UND_ERR_SOCKET','UND_ERR_CONNECT_TIMEOUT','UND_ERR_HEADERS_TIMEOUT']);
+export function isTransientFetchError(error){
+ if(error?.name==='TimeoutError')return true;
+ const code=error?.cause?.code??error?.code;
+ return TRANSIENT_NETWORK_CODES.has(code);
+}
+export async function fetchWithRetry(url,options={},{attempts=4,baseDelayMs=5000,timeoutMs=30000,fetchImpl=fetch,sleep=delay,retries=[]}={}){
+ for(let attempt=1;;attempt++){
+  let response=null,error=null;
+  try{response=await fetchImpl(url,{...options,signal:AbortSignal.timeout(timeoutMs)});}catch(caught){error=caught;}
+  const transient=error?isTransientFetchError(error):TRANSIENT_HTTP_STATUS.has(response.status);
+  if(!transient||attempt>=attempts){if(error)throw error;return response;}
+  const wait=baseDelayMs*2**(attempt-1);
+  retries.push({url,attempt,status:response?.status??null,error:error?(error.cause?.code??error.name):null,retry_after_ms:wait,at:new Date().toISOString()});
+  try{await response?.body?.cancel();}catch{}
+  await sleep(wait);
+ }
+}
 export const recordedRange=r=>({rows:r.observed_days?r.known_rows:null,dwt:r.observed_dwt});
 export const sumAvailable=values=>values.some(v=>v!==null)?values.reduce((n,v)=>n+(v??0),0):null;
 export function assertEdition(data,metadata){
