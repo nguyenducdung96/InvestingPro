@@ -1,0 +1,124 @@
+{
+  "checked_at": "2026-10-31T11:59:08.291026+00:00",
+  "retry_commit": "cfa010c75b23200ef1cc91fe00cdd7a5e08e96ba",
+  "retry_policy": {
+    "attempts": 4,
+    "backoff_ms": [
+      5000,
+      10000,
+      20000
+    ],
+    "http_statuses": [
+      502,
+      503,
+      504
+    ],
+    "persistent_failure_still_fails": true,
+    "edition_and_metric_assertions_preserved": true,
+    "retry_receipt_field": "transient_retries"
+  },
+  "local_validation": {
+    "south_live_node_tests": 8,
+    "binhduong_python_tests": 8,
+    "result": "passed"
+  },
+  "code_checks": [
+    {
+      "name": "check",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41198578621/job/124530392316"
+    },
+    {
+      "name": "Workers Builds: investing-pro-web-staging",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/20cbff24-4d63-41ab-84f1-e8d814192e00"
+    },
+    {
+      "name": "e2e (desktop)",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41198578621/job/124529643976"
+    },
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41198578621/job/124529643889"
+    },
+    {
+      "name": "e2e (mobile)",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41198578621/job/124529643822"
+    }
+  ],
+  "manual_run_id": 41198997846,
+  "scheduled_refresh_verified": false,
+  "production_accepted": false,
+  "manual_run": {
+    "id": 41198997846,
+    "event": "workflow_dispatch",
+    "head_sha": "f4b008a300f37ce4cd32388c595564176e11dc96",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41198997846",
+    "created_at": "2026-10-31T11:57:43Z",
+    "updated_at": "2026-10-31T12:00:23Z"
+  },
+  "cloud_receipts": {
+    "collect-receipt": {
+      "checked_at": "2026-10-31T11:57:50.661867+00:00",
+      "from": "2026-10-24",
+      "through": "2026-10-30",
+      "source_refresh_success": true,
+      "export_success": true,
+      "scheduled_refresh_verified": false,
+      "counts": {
+        "ok": 14
+      }
+    },
+    "live-readback": {
+      "verified_at": "2026-10-31T12:00:19.239Z",
+      "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+      "through": "2026-10-30",
+      "checked_at": "2026-10-31T11:58:04.721707+00:00",
+      "deployment_readback_verified": true,
+      "scheduled_refresh_verified": false,
+      "published_commit": "873fba7f18529d9cf88f41eda7e5bee03d4cfca5",
+      "event_name": "workflow_dispatch",
+      "run_id": "41198997846",
+      "run_attempt": "1",
+      "verifier_version": "south-live/1",
+      "transient_retries": [],
+      "checks": [
+        {
+          "direction": "arrival",
+          "months_matched": 22,
+          "last_observation": "2026-08-24",
+          "journal_rows": 1
+        },
+        {
+          "direction": "departure",
+          "months_matched": 22,
+          "last_observation": "2026-07-15",
+          "journal_rows": 1
+        }
+      ],
+      "source_refresh_success": true
+    }
+  },
+  "published_commit": "873fba7f18529d9cf88f41eda7e5bee03d4cfca5",
+  "published_checks": [
+    {
+      "name": "Workers Builds: investing-pro-web-staging",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/511a30cf-2929-472c-ba41-e8ba35ce5d24"
+    }
+  ],
+  "verified_at": "2026-10-31T12:01:30.554953+00:00",
+  "hcm_status": "blocked_source_network; no new supported access route established; retain published edition and prior evidence",
+  "next_gate": "Two genuine successful scheduled refreshes on distinct days; manual run is excluded. HCM needs an official cloud-accessible source route."
+}

@@ -1,5 +1,15 @@
 # Tiến độ ngành cảng — cập nhật 31/10/2026
 
+## Bình Dương đã kiểm chứng cloud với retry — 31/10/2026, 19:00 Việt Nam
+
+Đã tiếp tục bản sửa có sẵn **cfa010c**; Quality **41198578621** và Cloudflare build đều success. Kiểm lại 8 Node verifier + 8 Python Bình Dương tests đạt. Retry tối đa bốn attempt với backoff 5/10/20 giây cho HTTP 502/503/504 và lỗi mạng tạm thời; giữ nguyên các assertion edition/metric/provenance, lỗi kéo dài vẫn fail.
+
+[Run cloud 41198997846](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41198997846) **success**: 14 phản hồi nguồn → export → push **873fba7** → native Cloudflare build → readback đúng edition `checked_at=2026-10-31T11:58:04.721707+00:00`, đến **30/10**. Đủ 22 tháng hai chiều, journal/hash, tổng GMD miền Nam và trang chi tiết. Run này không phát sinh retry; khả năng phục hồi 503 được kiểm thử mô phỏng, không phải một sự cố 503 đã quan sát trong run mới. [Hồ sơ](binhduong-retry-acceptance-20261031.md), [receipt](catalog-review/binhduong-retry-cloud-20261031.json).
+
+**Next step hiện hành:** Bình Dương chờ/xác minh **hai chu kỳ schedule thật thành công, khác ngày**; không tính run thủ công mới hoặc đổi kết quả schedule 31/10 đã thất bại. `scheduled_refresh_verified=false`, production chưa nghiệm thu. Hai cơ hội lịch tiếp theo là 01–02/11 nếu nguồn/scheduler hoạt động; không bảo đảm giờ chạy thực tế.
+
+HCM vẫn bị chặn theo bằng chứng đã lưu; chưa có đường nguồn chính thức mới từ cloud. Không lặp lại thử nghiệm cũ khi thiếu đầu mối mới. Cần nguồn hỗ trợ truy cập lịch hoặc feed tương đương, rồi xác minh GET/POST/raw/hash/manifest và collect → export → push → deploy → readback. SGP K12/TT2 đã tích hợp, vẫn dùng lịch HCM tốt đến 28/10. PDN cron, Long Bình Tân, Dung Quất định kỳ và ICD/kho bãi tiếp tục để sau. Mục này thay bước “bổ sung retry Bình Dương” còn ghi trong snapshot bên dưới.
+
 ## Status tổng hợp hiện hành — 31/10/2026, 15:35 Việt Nam
 
 **Đã có dashboard staging và dữ liệu được đối chiếu; chưa nghiệm thu vận hành tự động toàn bộ hoặc production.** Phạm vi hiện tại chỉ cảng sông/cảng biển; ICD, depot, kho bãi để phase riêng. Bằng chứng kiểm tra mới tại [ports-status-20261031.json](catalog-review/ports-status-20261031.json). Các mục theo phase bên dưới giữ làm lịch sử; status tổng hợp này ưu tiên khi có khác biệt.
