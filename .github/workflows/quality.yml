@@ -1,7 +1,7 @@
 name: Quality
 on: [push, pull_request]
 jobs:
-  check:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -24,7 +24,33 @@ jobs:
       - run: python scripts/test-sgp-pilot-plans.py
       - run: python scripts/test-sgp-pilot-overlap.py
       - run: python scripts/test-sgp-k12-review.py
-      - run: pnpm exec playwright install --with-deps chromium
-      - run: pnpm test:e2e
       - run: pnpm build
       - run: pnpm build:cloudflare
+  e2e:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project: [desktop, mobile]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm exec playwright test --project=${{ matrix.project }}
+  check:
+    if: ${{ always() }}
+    needs: [validate, e2e]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require validation and both browser projects
+        env:
+          VALIDATE_RESULT: ${{ needs.validate.result }}
+          E2E_RESULT: ${{ needs.e2e.result }}
+        run: |
+          test "$VALIDATE_RESULT" = success
+          test "$E2E_RESULT" = success
