@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 test('southern expansion attributes each source and excludes unsupported company totals',async({page},info)=>{
  await page.request.post('http://127.0.0.1:54329/__throughput',{data:[]});
- for(const [ticker,asset] of [['CLL','cll'],['SWC','swc_buoys'],['VGP','vgp_k16'],['SGP','sg_tan_thuan'],['GMD','gmd_binh_duong']]){
+ for(const [ticker,asset] of [['CLL','cll'],['SWC','swc_buoys'],['VGP','vgp_k16'],['SGP','sg_tan_thuan'],['SGP','sg_tan_thuan_2'],['GMD','gmd_binh_duong']]){
   await page.goto(`/companies/${ticker}?plan_asset=${asset}`);
   const region=page.getByRole('region',{name:`Lịch điều động ${ticker}`,exact:true});
   await expect(region.getByLabel('Phạm vi theo dõi')).toHaveValue(asset);

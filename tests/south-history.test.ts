@@ -2,7 +2,7 @@ import {it,expect} from 'vitest';
 import {readFileSync} from 'node:fs';
 import {southDaily,southHistoryMetadata} from '../packages/modules/port/src/south-history-data';
 import {loadSouthJournal} from '../packages/modules/port/src/south-journal-loader';
-import {southAssets,southPlanDays,southSeries,type SouthAsset} from '../packages/modules/port/src/south-plans';
+import {southAssets,southScopes,southTargets,southPlanDays,southSeries,type SouthAsset} from '../packages/modules/port/src/south-plans';
 const ledger=JSON.parse(readFileSync('docs/catalog-review/south-history-ledger.json','utf8'));
 const now=new Date(Date.parse(southHistoryMetadata.through+'T08:00:00+07:00')+86400000);
 it('reconciles every asset/month/direction to a separate journal ledger',()=>{
@@ -27,4 +27,20 @@ it('retains exact aliases, source hashes and raw DWT in the lazy journal',async(
  }
  expect(rows).toBe(Object.values(southHistoryMetadata.assets).reduce((n,a)=>n+a.rows,0));
  expect(await loadSouthJournal('invalid')).toEqual([]);
+});
+it('adds only direct TAN.T.2 authority rows once to SGP and its southern overview',async()=>{
+ const events=(await Promise.all(Object.keys(ledger.monthly).map(loadSouthJournal))).flat();
+ const tt2=events.filter(e=>e.asset==='sg_tan_thuan_2'&&e.day<='2026-10-28');
+ for(const [direction,count,dwt] of [['arrival',168,2691676],['departure',180,3113233]] as const){
+  const rows=tt2.filter(e=>e.direction===direction);
+  expect(rows).toHaveLength(count);expect(rows.reduce((n,e)=>n+(e.dwt??0),0)).toBe(dwt);
+  expect(rows.every(e=>(direction==='arrival'?e.to:e.from)==='TAN.T.2'&&e.dwt!==null)).toBe(true);
+ }
+ const ids=events.map(e=>JSON.stringify([e.sha256,e.direction,e.raw]));
+ expect(new Set(ids).size).toBe(ids.length);
+ expect(tt2.find(e=>e.day==='2025-01-04')?.time).toBe('00:01');
+ expect(southScopes.SGP.sgp.assets).toContain('sg_tan_thuan_2');
+ expect(southTargets.filter(t=>t.ticker==='SGP')).toHaveLength(1);
+ expect(southTargets.find(t=>t.ticker==='SGP')?.assets).toEqual(southScopes.SGP.sgp.assets);
+ expect(Object.values(southAssets).flatMap(a=>[...a.aliases])).not.toContain('K12');
 });

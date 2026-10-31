@@ -1,5 +1,7 @@
 # SGP K12 / TT2 — collector kế hoạch Hoa tiêu, 31/10/2026
 
+Cập nhật tiếp nối: [TT2 đã tích hợp riêng từ Cảng vụ](sgp-tt2-integration-20261031.md); collector Hoa tiêu vẫn chỉ archive/review, không được cộng vào dashboard. Các trạng thái chưa tích hợp bên dưới là biên bản phase collector trước đó.
+
 ## Kiểm chứng cloud và CI
 
 Code `e074654`: **Quality 41117367465 success**, Cloudflare build `4ba1d7c9-54c8-48b9-89c4-2cb5f7a772f5` success. Hai run thủ công cloud `41117509985` (runner lạnh) và `41118011611` (khôi phục cache) success; đã có **run schedule thật 41159531589 success**. Đã tải và kiểm tra hash/parse của artifact: 1 → 2 → 3 raw revisions giữ nguyên; latest vẫn 3 dòng, không cộng thành 9. Run schedule ghi nhận nguồn sửa giờ vào của NEWSUN GREEN 03 từ ô trống thành 05:00, giữ cả bản trước. Một chu kỳ schedule thật không thay nghiệm thu vận hành dài hạn/production; `scheduled_refresh_verified=false`.

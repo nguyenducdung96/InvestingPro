@@ -14,6 +14,7 @@ ALIASES={
  'sp_psa':['CẦU CẢNG SỐ 1 - SP-PSA','CẦU CẢNG SỐ 2 - SP-PSA'],
  'ssit':['CẦU CẢNG SỐ 1 - SSIT','CẦU CẢNG SỐ 2 (BẾN SÀ LAN) - SSIT','CẦU CẢNG SỐ 3 (BẾN SÀ LAN) - SSIT'],
  'sg_tan_thuan':['K12A','K12B','K12C','K12C1'],
+ 'sg_tan_thuan_2':['TAN.T.2'],
  'cll_berth7':['C.LAI 7'],
  'cll_b7':['CAU CANG 2.200 DWT'],
  'swc_buoys':['SOWATCO-ĐT1','SOWATCO-ĐT2','SOWATCO-ĐT3','SOWATCO-TL9'],

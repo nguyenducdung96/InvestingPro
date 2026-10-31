@@ -6,7 +6,7 @@ test('regional tables have one row per ticker with only that region’s recorded
   const regional=await(await page.request.get(`/api/v1/industries/ports/south?period=${period}&frequency=${frequency}&direction=${direction}`)).json();
   expect(new Set(regional.rows.map((r:{ticker:string})=>r.ticker)).size).toBe(regional.rows.length);
   expect(regional.regional_total).toBeNull();
-  for(const [ticker,scope,assets] of [['GMD','gmd_south',['gemalink','gmd_binh_duong']],['SWC','swc_all',['swc_long_binh','swc_buoys']]] as const){
+  for(const [ticker,scope,assets] of [['GMD','gmd_south',['gemalink','gmd_binh_duong']],['SWC','swc_all',['swc_long_binh','swc_buoys']],['SGP','sgp',['sg_hiep_phuoc','cmit','sp_psa','ssit','sg_tan_thuan','sg_tan_thuan_2']]] as const){
    const row=regional.rows.find((r:{ticker:string})=>r.ticker===ticker),parts=[];
    expect(row.asset).toBe(scope);expect(row.assets).toEqual([...assets]);
    for(const asset of assets){

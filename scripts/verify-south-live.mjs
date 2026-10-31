@@ -12,16 +12,16 @@ await mkdir(archive,{recursive:true});
 async function get(path){const r=await fetch(base+path,{redirect:'error',signal:AbortSignal.timeout(30000),headers:{Accept:'application/json'}});if(!r.ok)throw Error(`Live API HTTP ${r.status}: ${path}`);return r.json();}
 try{
  if(process.argv.includes('--source-unavailable'))throw Error('Initial authority connection failed; keep the last published edition.');
- // A new collection timestamp proves this refresh is deployed, even when all counts are unchanged.
+ // Check the selected TT2 matrix too: an alias-only edition can retain the collection timestamp.
  const until=Date.now()+10*60000;let lastError;
- while(true){try{assertEdition(await get('/api/v1/companies/GMD/plans?asset=gemalink'),ledger.metadata);break;}catch(error){lastError=error;if(Date.now()>=until)throw lastError;console.log('Waiting for the collected edition to deploy: '+error.message.split('\n')[0]);await delay(15000);}}
+ while(true){try{assertEdition(await get('/api/v1/companies/GMD/plans?asset=gemalink'),ledger.metadata);assertAssetMonths(await get('/api/v1/companies/SGP/plans?asset=sg_tan_thuan_2&direction=arrival'),ledger,'sg_tan_thuan_2','arrival');break;}catch(error){lastError=error;if(Date.now()>=until)throw lastError;console.log('Waiting for the collected edition to deploy: '+error.message.split('\n')[0]);await delay(15000);}}
  for(const direction of ['arrival','departure']){
   const series={};
-  for(const [asset,ticker] of [['gemalink','GMD'],['sg_hiep_phuoc','SGP'],['cmit','SGP'],['sp_psa','SGP'],['ssit','SGP'],['sg_tan_thuan','SGP'],['cll_berth7','CLL'],['cll_b7','CLL'],['swc_buoys','SWC'],['vgp_k16','VGP']]){
+  for(const [asset,ticker] of [['gemalink','GMD'],['sg_hiep_phuoc','SGP'],['cmit','SGP'],['sp_psa','SGP'],['ssit','SGP'],['sg_tan_thuan','SGP'],['sg_tan_thuan_2','SGP'],['cll_berth7','CLL'],['cll_b7','CLL'],['swc_buoys','SWC'],['vgp_k16','VGP']]){
    const data=await get(`/api/v1/companies/${ticker}/plans?asset=${asset}&direction=${direction}`);assertAssetMonths(data,ledger,asset,direction);series[asset]=data;receipt.checks.push({asset,direction,months_matched:data.months.length});
   }
   const combined=await get(`/api/v1/companies/SGP/plans?asset=sgp&direction=${direction}`);assertEdition(combined,ledger.metadata);
-  for(const p of combined.months)for(const key of ['rows','dwt'])assert.equal(recordedRange(p.current)[key],sumAvailable(['sg_hiep_phuoc','cmit','sp_psa','ssit','sg_tan_thuan'].map(a=>ledger.monthly[p.period][a][direction][key])),`SGP aggregate ${p.period}/${direction}/${key}`);
+  for(const p of combined.months)for(const key of ['rows','dwt'])assert.equal(recordedRange(p.current)[key],sumAvailable(['sg_hiep_phuoc','cmit','sp_psa','ssit','sg_tan_thuan','sg_tan_thuan_2'].map(a=>ledger.monthly[p.period][a][direction][key])),`SGP aggregate ${p.period}/${direction}/${key}`);
   const period=ledger.metadata.through.slice(0,7),region=await get(`/api/v1/industries/ports/south?period=${period}&direction=${direction}`);
   assert.equal(region.regional_total,null);assert.equal(region.nationwide_complete,false);
   const gmdSouth=await get(`/api/v1/companies/GMD/plans?asset=gmd_south&direction=${direction}`),swcAll=await get(`/api/v1/companies/SWC/plans?asset=swc_all&direction=${direction}`);

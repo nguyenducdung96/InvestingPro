@@ -1,5 +1,11 @@
 # Bàn giao ngành cảng — trạng thái chốt 30/10/2026
 
+## Tân Thuận 2 đã tích hợp — 31/10/2026
+
+Đã mở monitor `sg_tan_thuan_2` cho nhãn chính xác TAN.T.2; SGP sáu phạm vi và miền Nam vẫn một dòng SGP. 168 vào + 180 rời = 348 dòng lịch sử, DWT lần lượt 2.691.676 / 3.113.233; 46 điều chuyển riêng, không cộng Hoa tiêu. Rà SHA/reparse đủ 666 bảng, bảo toàn 10.455 dòng cũ. K12, B.TT2, TTD, K17 tiếp tục loại khỏi alias TT2. Mapping dựa nguồn SGP/Cục Hàng hải và một mẫu tàu độc lập; dữ liệu vẫn là kế hoạch công bố.
+
+[Hồ sơ tích hợp](sgp-tt2-integration-20261031.md), [receipt](catalog-review/sgp-tt2-integration-20261031.json). Các mục dưới là biên bản phase trước, không thay trạng thái mới này. HCM cloud acceptance, PDN cron, Long Bình Tân và ICD/kho bãi chưa mở lại.
+
 ## Collector SGP K12 / TT2 — triển khai 31/10/2026
 
 Code `e074654`: **Quality 41117367465 success**, Cloudflare build `4ba1d7c9-54c8-48b9-89c4-2cb5f7a772f5` success. Hai run thủ công cloud `41117509985` (runner lạnh) và `41118011611` (khôi phục cache) success; đã có **run schedule thật 41159531589 success**. Đã tải và kiểm tra hash/parse của artifact: 1 → 2 → 3 raw revisions giữ nguyên; latest vẫn 3 dòng, không cộng thành 9. Run schedule ghi nhận nguồn sửa giờ vào của NEWSUN GREEN 03 từ ô trống thành 05:00, giữ cả bản trước. Một chu kỳ schedule thật không thay nghiệm thu vận hành dài hạn/production; `scheduled_refresh_verified=false`.
