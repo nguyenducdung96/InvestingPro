@@ -4,7 +4,7 @@
     "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
     "from": "2025-01-01",
     "through": "2026-10-30",
-    "checked_at": "2026-10-31T11:58:04.721707+00:00",
+    "checked_at": "2026-10-31T12:11:10.764642+00:00",
     "requested_days": 668,
     "responses": 1336,
     "events": 8342,
@@ -11582,13 +11582,13 @@
         {
           "section": "arrival",
           "sha256": "cce6205d5faf169cbf834a5c7365e21cc97361436ccd7107f315d88edae4cf26",
-          "checked_at": "2026-10-31T11:57:56.125048+00:00",
+          "checked_at": "2026-10-31T12:11:08.120994+00:00",
           "source_rows": 13
         },
         {
           "section": "departure",
           "sha256": "433c636b8e83fac54f489e6ec2a486a1818664c1bd0095097f435ca8d111c3a8",
-          "checked_at": "2026-10-31T11:57:55.926268+00:00",
+          "checked_at": "2026-10-31T12:11:08.137977+00:00",
           "source_rows": 16
         }
       ]
@@ -11599,13 +11599,13 @@
         {
           "section": "arrival",
           "sha256": "b009a23a67c01554ece8d9abaff6129b5a2174adb48386293a6873347121ff41",
-          "checked_at": "2026-10-31T11:57:55.853131+00:00",
+          "checked_at": "2026-10-31T12:11:07.859256+00:00",
           "source_rows": 8
         },
         {
           "section": "departure",
           "sha256": "2bb00d21a2ebfe5fafab9d213df2abe53720e8fd1062a242257515daca91aa79",
-          "checked_at": "2026-10-31T11:57:57.940925+00:00",
+          "checked_at": "2026-10-31T12:11:08.367236+00:00",
           "source_rows": 9
         }
       ]
@@ -11616,13 +11616,13 @@
         {
           "section": "arrival",
           "sha256": "ed2ef6bf9e70c8af8f05f0a4c9a90412c9b2fd975ab6454a4364ceea14719275",
-          "checked_at": "2026-10-31T11:57:58.448961+00:00",
+          "checked_at": "2026-10-31T12:11:08.876171+00:00",
           "source_rows": 17
         },
         {
           "section": "departure",
           "sha256": "4d11a20128f9e7bb0a45d217ea2feb4429d48146fff3370e44f6acea776a5766",
-          "checked_at": "2026-10-31T11:57:58.445838+00:00",
+          "checked_at": "2026-10-31T12:11:08.904169+00:00",
           "source_rows": 17
         }
       ]
@@ -11633,13 +11633,13 @@
         {
           "section": "arrival",
           "sha256": "64cd1e9f2c74dc52ea257073ec956f450a6c3349e112333613b0131ca0ca1744",
-          "checked_at": "2026-10-31T11:58:00.218788+00:00",
+          "checked_at": "2026-10-31T12:11:09.103519+00:00",
           "source_rows": 13
         },
         {
           "section": "departure",
           "sha256": "345816582becb29efc95c450fc2778cc8ecdf57688edc2a6df7ef580f64bc455",
-          "checked_at": "2026-10-31T11:58:00.703402+00:00",
+          "checked_at": "2026-10-31T12:11:09.644706+00:00",
           "source_rows": 13
         }
       ]
@@ -11650,13 +11650,13 @@
         {
           "section": "arrival",
           "sha256": "0193751fd63d2f76ce2f59165863c383519fabd7b84a48014406dfddc73ce641",
-          "checked_at": "2026-10-31T11:58:00.556138+00:00",
+          "checked_at": "2026-10-31T12:11:09.405010+00:00",
           "source_rows": 9
         },
         {
           "section": "departure",
           "sha256": "d39212350db2f3c5054253bb519caf169fb39a5677da2db6543542642b89079d",
-          "checked_at": "2026-10-31T11:58:02.115527+00:00",
+          "checked_at": "2026-10-31T12:11:09.611162+00:00",
           "source_rows": 11
         }
       ]
@@ -11667,13 +11667,13 @@
         {
           "section": "arrival",
           "sha256": "a221ea0aae2b1d20b47c40fc6c13f5c805fb5f88c6b49d63a5e00511af0ebeca",
-          "checked_at": "2026-10-31T11:58:02.972368+00:00",
+          "checked_at": "2026-10-31T12:11:10.144453+00:00",
           "source_rows": 14
         },
         {
           "section": "departure",
           "sha256": "d10e863613d043114397e5f961a6786f24872f5a9583a975f1f3897d9ea9d20b",
-          "checked_at": "2026-10-31T11:58:02.948808+00:00",
+          "checked_at": "2026-10-31T12:11:10.354184+00:00",
           "source_rows": 13
         }
       ]
@@ -11684,13 +11684,13 @@
         {
           "section": "arrival",
           "sha256": "83abaaee896581ac0da54c42752edcb1ced21f53ff6f6a0c8713ffcbfb90cc39",
-          "checked_at": "2026-10-31T11:58:04.039625+00:00",
+          "checked_at": "2026-10-31T12:11:10.154104+00:00",
           "source_rows": 6
         },
         {
           "section": "departure",
           "sha256": "8ff227c0c3bb352730fbe67993271d67105e22dc1683b305ff8ef933b2287975",
-          "checked_at": "2026-10-31T11:58:04.721707+00:00",
+          "checked_at": "2026-10-31T12:11:10.764642+00:00",
           "source_rows": 11
         }
       ]
