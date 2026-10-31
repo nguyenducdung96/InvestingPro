@@ -1,0 +1,1324 @@
+{
+  "cases": [
+    {
+      "year": 2025,
+      "asset": "cmit",
+      "day": "2025-10-22",
+      "sha256": "36831e3024bab29285003b843e1cfc588f9dd350110bd1ba57b4f0d7f5cce70d",
+      "event": {
+        "section": "arrival",
+        "vessel": "MISSISSIPPI",
+        "call_sign": "CRZL",
+        "time": "00:00",
+        "dwt": 65968.0,
+        "from": null,
+        "to": "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+        "raw": [
+          "3",
+          "* MISSISSIPPI",
+          "PORTUGAL",
+          "CRZL",
+          "65968",
+          "255.00",
+          "9.1",
+          "CONTAINER 27",
+          "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+          "00:00",
+          "00:00",
+          "VNL FUTURE,VNL RELIANCE",
+          "S5 VIET NAM CO.,LTD",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "vgp_k16",
+      "day": "2025-10-22",
+      "sha256": "36831e3024bab29285003b843e1cfc588f9dd350110bd1ba57b4f0d7f5cce70d",
+      "event": {
+        "section": "arrival",
+        "vessel": "PRIMA VERDE",
+        "call_sign": "5LTY5",
+        "time": "00:01",
+        "dwt": 17611.0,
+        "from": null,
+        "to": "K16",
+        "raw": [
+          "4",
+          "* PRIMA VERDE",
+          "LIBERIA",
+          "5LTY5",
+          "17611",
+          "129.66",
+          "8.9",
+          "TÔN CUỘN 2496",
+          "K16",
+          "00:01",
+          "00:01",
+          "KIM AN 02,KIM AN 06",
+          "THORESEN-VINAMA",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "gemalink",
+      "day": "2025-10-22",
+      "sha256": "36831e3024bab29285003b843e1cfc588f9dd350110bd1ba57b4f0d7f5cce70d",
+      "event": {
+        "section": "arrival",
+        "vessel": "CMA CGM ARGENTINA",
+        "call_sign": "9HA5066",
+        "time": "00:30",
+        "dwt": 157076.0,
+        "from": null,
+        "to": "CAI MEP GEMADEPT-TERMINAL LINK",
+        "raw": [
+          "6",
+          "* CMA CGM ARGENTINA",
+          "MALTA",
+          "9HA5066",
+          "157076",
+          "365.98",
+          "11.7",
+          "CONTAINER 9690",
+          "CAI MEP GEMADEPT-TERMINAL LINK",
+          "00:30",
+          "00:30",
+          "HVS 51.H5,STAR 2,STAR 3",
+          "VIETFRACHT",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "ssit",
+      "day": "2025-10-22",
+      "sha256": "36831e3024bab29285003b843e1cfc588f9dd350110bd1ba57b4f0d7f5cce70d",
+      "event": {
+        "section": "arrival",
+        "vessel": "HAIAN TIME",
+        "call_sign": "XVLV9",
+        "time": "07:00",
+        "dwt": 18055.0,
+        "from": null,
+        "to": "CẦU CẢNG SỐ 1 - SSIT",
+        "raw": [
+          "18",
+          "HAIAN TIME",
+          "VIET NAM",
+          "XVLV9",
+          "18055",
+          "161.85",
+          "8.2",
+          "CONTAINER 628",
+          "CẦU CẢNG SỐ 1 - SSIT",
+          "07:00",
+          "07:00",
+          "HVS 51.H9,SEA CHAMPION,STAR 3,TOAN THANG",
+          "MARINA HCM",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "sp_psa",
+      "day": "2025-10-22",
+      "sha256": "36831e3024bab29285003b843e1cfc588f9dd350110bd1ba57b4f0d7f5cce70d",
+      "event": {
+        "section": "arrival",
+        "vessel": "TRAN GIA 09",
+        "call_sign": "XVAU",
+        "time": "13:00",
+        "dwt": 1951.0,
+        "from": null,
+        "to": "CẦU CẢNG SỐ 1 - SP-PSA",
+        "raw": [
+          "44",
+          "TRAN GIA 09",
+          "VIET NAM",
+          "XVAU",
+          "1951",
+          "69.85",
+          "3.5",
+          "NIL",
+          "CẦU CẢNG SỐ 1 - SP-PSA",
+          "13:00",
+          "13:00",
+          "",
+          "TU TUC",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "sg_tan_thuan",
+      "day": "2025-10-22",
+      "sha256": "36831e3024bab29285003b843e1cfc588f9dd350110bd1ba57b4f0d7f5cce70d",
+      "event": {
+        "section": "arrival",
+        "vessel": "TU CUONG 68",
+        "call_sign": null,
+        "time": "13:00",
+        "dwt": 13386.0,
+        "from": null,
+        "to": "K12A",
+        "raw": [
+          "45",
+          "TU CUONG 68",
+          "VIET NAM",
+          "",
+          "13386",
+          "116.80",
+          "8.2",
+          "SAT THEP 10935",
+          "K12A",
+          "13:00",
+          "13:00",
+          "CSG 54,CSG 63",
+          "GOLDEN SEA CO.,LTD",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "cmit",
+      "day": "2025-10-22",
+      "sha256": "36831e3024bab29285003b843e1cfc588f9dd350110bd1ba57b4f0d7f5cce70d",
+      "event": {
+        "section": "departure",
+        "vessel": "NORDBALTIC",
+        "call_sign": "5BRW6",
+        "time": "02:30",
+        "dwt": 24580.0,
+        "from": "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+        "to": null,
+        "raw": [
+          "7",
+          "* NORDBALTIC",
+          "CYPRUS",
+          "5BRW6",
+          "24580",
+          "172.00",
+          "8.1",
+          "CONTAINER 6079",
+          "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+          "02:30",
+          "AWAJI MARU 43.V7,MIRAI",
+          "ISS-GEMADEPT",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "cll_berth7",
+      "day": "2025-10-22",
+      "sha256": "36831e3024bab29285003b843e1cfc588f9dd350110bd1ba57b4f0d7f5cce70d",
+      "event": {
+        "section": "departure",
+        "vessel": "WAN HAI 293",
+        "call_sign": "9V6513",
+        "time": "12:00",
+        "dwt": 23816.0,
+        "from": "C.LAI 7",
+        "to": null,
+        "raw": [
+          "36",
+          "WAN HAI 293",
+          "SINGAPORE",
+          "9V6513",
+          "23816",
+          "175.00",
+          "10.5",
+          "CONTAINER 11094",
+          "C.LAI 7",
+          "12:00",
+          "TAN CANG A1,TAN CANG A9",
+          "CTL MARITIME",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "ssit",
+      "day": "2025-10-22",
+      "sha256": "36831e3024bab29285003b843e1cfc588f9dd350110bd1ba57b4f0d7f5cce70d",
+      "event": {
+        "section": "departure",
+        "vessel": "MSC YOKOHAMA",
+        "call_sign": "D5VS6",
+        "time": "15:00",
+        "dwt": 106449.0,
+        "from": "CẦU CẢNG SỐ 1 - SSIT",
+        "to": null,
+        "raw": [
+          "45",
+          "MSC YOKOHAMA",
+          "LIBERIA",
+          "D5VS6",
+          "106449",
+          "299.99",
+          "13.2",
+          "CONTAINER 24024",
+          "CẦU CẢNG SỐ 1 - SSIT",
+          "15:00",
+          "HVS 51.H9,STAR 3",
+          "GREEN LINK VN",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "gemalink",
+      "day": "2025-10-22",
+      "sha256": "36831e3024bab29285003b843e1cfc588f9dd350110bd1ba57b4f0d7f5cce70d",
+      "event": {
+        "section": "departure",
+        "vessel": "EVER MASS",
+        "call_sign": "9V7628",
+        "time": "21:30",
+        "dwt": 156278.0,
+        "from": "CAI MEP GEMADEPT-TERMINAL LINK",
+        "to": null,
+        "raw": [
+          "68",
+          "* EVER MASS",
+          "SINGAPORE",
+          "9V7628",
+          "156278",
+          "366.10",
+          "12.5",
+          "CONTAINER 11067",
+          "CAI MEP GEMADEPT-TERMINAL LINK",
+          "21:30",
+          "SKY 1,HVS 51.H5,STAR 2,STAR 3",
+          "VICONSHIP HCM",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "cll_berth7",
+      "day": "2025-10-23",
+      "sha256": "c5bee01ff1250b2780718cac9e780c89f7b72b2d0abc998ed6823f198472dcaa",
+      "event": {
+        "section": "arrival",
+        "vessel": "SKY SUNSHINE",
+        "call_sign": "D5ST2",
+        "time": "21:00",
+        "dwt": 22497.0,
+        "from": null,
+        "to": "C.LAI 7",
+        "raw": [
+          "77",
+          "* SKY SUNSHINE",
+          "LIBERIA",
+          "D5ST2",
+          "22497",
+          "172.07",
+          "8.7",
+          "CONTAINER 6498",
+          "C.LAI 7",
+          "21:00",
+          "21:00",
+          "TAN CANG A1,TAN CANG A3",
+          "VITAMAS CO.,LTD.",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "sg_tan_thuan_2",
+      "day": "2025-10-23",
+      "sha256": "c5bee01ff1250b2780718cac9e780c89f7b72b2d0abc998ed6823f198472dcaa",
+      "event": {
+        "section": "arrival",
+        "vessel": "VIET THUAN 12-06",
+        "call_sign": null,
+        "time": "21:00",
+        "dwt": 12392.0,
+        "from": null,
+        "to": "TAN.T.2",
+        "raw": [
+          "78",
+          "* VIET THUAN 12-06",
+          "VIET NAM",
+          "",
+          "12392",
+          "119.80",
+          "7.4",
+          "SAT THEP 7394",
+          "TAN.T.2",
+          "21:00",
+          "21:00",
+          "CSG 54,CSG 55",
+          "GOLDEN SEA CO.,LTD",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "sp_psa",
+      "day": "2025-10-23",
+      "sha256": "c5bee01ff1250b2780718cac9e780c89f7b72b2d0abc998ed6823f198472dcaa",
+      "event": {
+        "section": "departure",
+        "vessel": "HAMPTON SKY",
+        "call_sign": "3ESA",
+        "time": "09:00",
+        "dwt": 82002.0,
+        "from": "CẦU CẢNG SỐ 1 - SP-PSA",
+        "to": null,
+        "raw": [
+          "20",
+          "HAMPTON SKY",
+          "PANAMA",
+          "3ESA",
+          "82002",
+          "228.90",
+          "7.4",
+          "NIL",
+          "CẦU CẢNG SỐ 1 - SP-PSA",
+          "09:00",
+          "ODIN,THOR",
+          "THORESEN-VINAMA",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "vgp_k16",
+      "day": "2025-10-23",
+      "sha256": "c5bee01ff1250b2780718cac9e780c89f7b72b2d0abc998ed6823f198472dcaa",
+      "event": {
+        "section": "departure",
+        "vessel": "PRIMA VERDE",
+        "call_sign": "5LTY5",
+        "time": "12:00",
+        "dwt": 17611.0,
+        "from": "K16",
+        "to": null,
+        "raw": [
+          "31",
+          "PRIMA VERDE",
+          "LIBERIA",
+          "5LTY5",
+          "17611",
+          "129.66",
+          "8.3",
+          "NIL",
+          "K16",
+          "12:00",
+          "KIM AN 02,KIM AN 04",
+          "THORESEN-VINAMA",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "sg_hiep_phuoc",
+      "day": "2025-10-23",
+      "sha256": "c5bee01ff1250b2780718cac9e780c89f7b72b2d0abc998ed6823f198472dcaa",
+      "event": {
+        "section": "departure",
+        "vessel": "XIN LIN HAI 17",
+        "call_sign": "3E4119",
+        "time": "17:30",
+        "dwt": 12289.0,
+        "from": "CAU CANG SO 3 SG-HP",
+        "to": null,
+        "raw": [
+          "60",
+          "* XIN LIN HAI 17",
+          "PANAMA",
+          "3E4119",
+          "12289",
+          "127.98",
+          "4.0",
+          "NIL",
+          "CAU CANG SO 3 SG-HP",
+          "17:30",
+          "CSG 55,CSG 92",
+          "SAI GON CUU LONG",
+          "SOÀI RẠP"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "sg_hiep_phuoc",
+      "day": "2025-10-24",
+      "sha256": "11fa81e07839082710bfce1f05a9f47825ccc6030a89e6777e88063b9e70c33a",
+      "event": {
+        "section": "arrival",
+        "vessel": "TRUC MINH 07",
+        "call_sign": null,
+        "time": "15:00",
+        "dwt": 131.0,
+        "from": null,
+        "to": "CAU CANG SO 1 SG-HP",
+        "raw": [
+          "59",
+          "TRUC MINH 07",
+          "VIET NAM",
+          "",
+          "131",
+          "26.00",
+          "2.6",
+          "NIL",
+          "CAU CANG SO 1 SG-HP",
+          "15:00",
+          "15:00",
+          "",
+          "TU TUC",
+          "SOÀI RẠP"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "sg_tan_thuan",
+      "day": "2025-10-24",
+      "sha256": "11fa81e07839082710bfce1f05a9f47825ccc6030a89e6777e88063b9e70c33a",
+      "event": {
+        "section": "departure",
+        "vessel": "VIMC PIONEER",
+        "call_sign": "3WPJ",
+        "time": "06:00",
+        "dwt": 9088.0,
+        "from": "K12B",
+        "to": null,
+        "raw": [
+          "14",
+          "VIMC PIONEER",
+          "VIET NAM",
+          "3WPJ",
+          "9088",
+          "120.84",
+          "7.7",
+          "CONTAINER 5785",
+          "K12B",
+          "06:00",
+          "CSG 54,CSG 94",
+          "VIMC LINES",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "sg_tan_thuan_2",
+      "day": "2025-10-25",
+      "sha256": "e77062024544f937e8784b1b16e86f13bf2ac05d6c18ee396662f105f4976cf6",
+      "event": {
+        "section": "departure",
+        "vessel": "VIET THUAN 12-06",
+        "call_sign": null,
+        "time": "07:30",
+        "dwt": 12392.0,
+        "from": "TAN.T.2",
+        "to": null,
+        "raw": [
+          "12",
+          "VIET THUAN 12-06",
+          "VIET NAM",
+          "",
+          "12392",
+          "119.80",
+          "5.4",
+          "NIL",
+          "TAN.T.2",
+          "07:30",
+          "CSG 55,CSG 63",
+          "GOLDEN SEA CO.,LTD",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "swc_buoys",
+      "day": "2025-10-25",
+      "sha256": "e77062024544f937e8784b1b16e86f13bf2ac05d6c18ee396662f105f4976cf6",
+      "event": {
+        "section": "departure",
+        "vessel": "BUNUN ZEST",
+        "call_sign": "5LNJ2",
+        "time": "13:00",
+        "dwt": 40236.0,
+        "from": "SOWATCO-ĐT1",
+        "to": null,
+        "raw": [
+          "41",
+          "BUNUN ZEST",
+          "LIBERIA",
+          "5LNJ2",
+          "40236",
+          "182.93",
+          "9.3",
+          "GO 28600",
+          "SOWATCO-ĐT1",
+          "13:00",
+          "NAM HAI 2,PHU MY 01",
+          "HIGH SEA CO., LTD",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2025,
+      "asset": "swc_buoys",
+      "day": "2025-10-27",
+      "sha256": "964044ecd08ee0c286f9df8a97c4026a58adf4ff8c60f39a0fdedc9b7dabc90c",
+      "event": {
+        "section": "arrival",
+        "vessel": "KOTA NAZAR",
+        "call_sign": "9V8600",
+        "time": "02:00",
+        "dwt": 25985.0,
+        "from": null,
+        "to": "SOWATCO-ĐT2",
+        "raw": [
+          "5",
+          "* KOTA NAZAR",
+          "SINGAPORE",
+          "9V8600",
+          "25985",
+          "179.70",
+          "9.0",
+          "NIL",
+          "SOWATCO-ĐT2",
+          "02:00",
+          "02:00",
+          "TAN CANG A1,TAN CANG A2",
+          "S.G.N CO.,LTD",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "gemalink",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "arrival",
+        "vessel": "CMA CGM LAGUNA",
+        "call_sign": "FMYQ",
+        "time": "04:30",
+        "dwt": 154015.0,
+        "from": null,
+        "to": "CAI MEP GEMADEPT-TERMINAL LINK",
+        "raw": [
+          "5",
+          "* CMA CGM LAGUNA",
+          "FRANCE",
+          "FMYQ",
+          "154015",
+          "366.00",
+          "11.8",
+          "CONTAINER 11394",
+          "CAI MEP GEMADEPT-TERMINAL LINK",
+          "04:30",
+          "04:30",
+          "HVS 44.V4,HVS 44.V5,HVS 50.H2",
+          "VIETFRACHT",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "gemalink",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "departure",
+        "vessel": "CMA CGM T. JEFFERSON",
+        "call_sign": "9HA4970",
+        "time": "05:30",
+        "dwt": 148407.0,
+        "from": "CAI MEP GEMADEPT-TERMINAL LINK",
+        "to": null,
+        "raw": [
+          "16",
+          "* CMA CGM T. JEFFERSON",
+          "MALTA",
+          "9HA4970",
+          "148407",
+          "365.96",
+          "13.9",
+          "CONTAINER 38500",
+          "CAI MEP GEMADEPT-TERMINAL LINK",
+          "05:30",
+          "HVS 51.H7,HVS 51.H8,HVS 51.H9",
+          "VIETFRACHT",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "sg_hiep_phuoc",
+      "day": "2026-10-23",
+      "sha256": "13eac33db1a0b1ec9b0a40102bb68c7d364d21533e29e18afd16bd60ed832d99",
+      "event": {
+        "section": "arrival",
+        "vessel": "VIỆT THUẬN 027-05",
+        "call_sign": null,
+        "time": "06:00",
+        "dwt": 2568.0,
+        "from": null,
+        "to": "CAU CANG SO 1 SG-HP",
+        "raw": [
+          "21",
+          "VIỆT THUẬN 027-05",
+          "VIET NAM",
+          "",
+          "2568",
+          "79.98",
+          "2.5",
+          "NIL",
+          "CAU CANG SO 1 SG-HP",
+          "06:00",
+          "06:00",
+          "",
+          "VIET TIN TRADING TRANSPORT COMPANY LIMITED",
+          "SOÀI RẠP"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "sg_hiep_phuoc",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "departure",
+        "vessel": "VINACOMIN HANOI",
+        "call_sign": "XVFA",
+        "time": "04:00",
+        "dwt": 7722.0,
+        "from": "CAU CANG SO 2 SG-HP",
+        "to": null,
+        "raw": [
+          "12",
+          "* VINACOMIN HANOI",
+          "VIET NAM",
+          "XVFA",
+          "7722",
+          "116.50",
+          "4.8",
+          "NIL",
+          "CAU CANG SO 2 SG-HP",
+          "04:00",
+          "PHUONG NAM 02,TRUNG DUC 07",
+          "SAI GON CUU LONG",
+          "SOÀI RẠP"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "cmit",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "arrival",
+        "vessel": "BASLE EXPRESS",
+        "call_sign": "DFGN2",
+        "time": "09:30",
+        "dwt": 142051.0,
+        "from": null,
+        "to": "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+        "raw": [
+          "35",
+          "BASLE EXPRESS",
+          "GERMANY",
+          "DFGN2",
+          "142051",
+          "366.52",
+          "12.6",
+          "CONTAINER 20558",
+          "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+          "09:30",
+          "09:30",
+          "HVS 44.V4,HVS 50.H2,HVS 51.H7",
+          "ISS-GEMADEPT",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "cmit",
+      "day": "2026-10-23",
+      "sha256": "13eac33db1a0b1ec9b0a40102bb68c7d364d21533e29e18afd16bd60ed832d99",
+      "event": {
+        "section": "departure",
+        "vessel": "BASLE EXPRESS",
+        "call_sign": "DFGN2",
+        "time": "18:00",
+        "dwt": 142051.0,
+        "from": "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+        "to": null,
+        "raw": [
+          "64",
+          "* BASLE EXPRESS",
+          "GERMANY",
+          "DFGN2",
+          "142051",
+          "366.52",
+          "14.2",
+          "CONTAINER 28674",
+          "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+          "18:00",
+          "HVS 44.V5,HVS 51.H7,HVS 51.H8",
+          "ISS-GEMADEPT",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "sp_psa",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "arrival",
+        "vessel": "DUC TRI 389",
+        "call_sign": null,
+        "time": "12:30",
+        "dwt": 3678.0,
+        "from": null,
+        "to": "CẦU CẢNG SỐ 2 - SP-PSA",
+        "raw": [
+          "47",
+          "DUC TRI 389",
+          "VIET NAM",
+          "",
+          "3678",
+          "79.79",
+          "2.5",
+          "NIL",
+          "CẦU CẢNG SỐ 2 - SP-PSA",
+          "12:30",
+          "12:30",
+          "",
+          "TU TUC",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "sp_psa",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "departure",
+        "vessel": "TMT 11",
+        "call_sign": null,
+        "time": "06:30",
+        "dwt": 5248.0,
+        "from": "CẦU CẢNG SỐ 2 - SP-PSA",
+        "to": null,
+        "raw": [
+          "23",
+          "TMT 11",
+          "VIET NAM",
+          "",
+          "5248",
+          "79.90",
+          "5.9",
+          "NGÔ 3900",
+          "CẦU CẢNG SỐ 2 - SP-PSA",
+          "06:30",
+          "",
+          "HANG HAI PHU MY",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "ssit",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "arrival",
+        "vessel": "MSC ROSA M",
+        "call_sign": "3FDM4",
+        "time": "09:30",
+        "dwt": 165991.0,
+        "from": null,
+        "to": "CẦU CẢNG SỐ 1 - SSIT",
+        "raw": [
+          "38",
+          "MSC ROSA M",
+          "PANAMA",
+          "3FDM4",
+          "165991",
+          "365.50",
+          "15.1",
+          "CONTAINER 372",
+          "CẦU CẢNG SỐ 1 - SSIT",
+          "09:30",
+          "09:30",
+          "AWAJI MARU 43.V7,KASUGA 43.V2,MIRAI 59.H1",
+          "GREEN LINK VN",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "ssit",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "departure",
+        "vessel": "HAIAN BETA",
+        "call_sign": "XVMQ7",
+        "time": "13:00",
+        "dwt": 24366.0,
+        "from": "CẦU CẢNG SỐ 1 - SSIT",
+        "to": null,
+        "raw": [
+          "48",
+          "HAIAN BETA",
+          "VIET NAM",
+          "XVMQ7",
+          "24366",
+          "171.90",
+          "8.7",
+          "CONTAINER 5064",
+          "CẦU CẢNG SỐ 1 - SSIT",
+          "13:00",
+          "HVS 44.V3,HVS 44.V5",
+          "MARINA HCM",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "sg_tan_thuan",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "arrival",
+        "vessel": "VIỆT THUẬN 26-02",
+        "call_sign": "XVPV7",
+        "time": "17:00",
+        "dwt": 26065.0,
+        "from": null,
+        "to": "K12A",
+        "raw": [
+          "64",
+          "* VIỆT THUẬN 26-02",
+          "VIET NAM",
+          "XVPV7",
+          "26065",
+          "155.18",
+          "8.4",
+          "TÔN CUỘN 9774",
+          "K12A",
+          "17:00",
+          "17:00",
+          "CSG 96,CSG 98",
+          "GOLDEN SEA CO.,LTD",
+          ""
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "sg_tan_thuan",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "departure",
+        "vessel": "GIA LINH 368",
+        "call_sign": null,
+        "time": "02:00",
+        "dwt": 13845.0,
+        "from": "K12",
+        "to": null,
+        "raw": [
+          "6",
+          "* GIA LINH 368",
+          "VIET NAM",
+          "",
+          "13845",
+          "116.80",
+          "5.7",
+          "NIL",
+          "K12",
+          "02:00",
+          "CSG 63,SOWATCO 28",
+          "BINH MINH",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": {
+        "review_version": "sgp-k12-row-review/1.0.0",
+        "row_id": "ea5157e4cdd786b03d4dc9504af136695dc0f18e592f4affa7f8a57c2488b3d6",
+        "source_url": "https://apikehoach.cangvuhanghaitphcm.gov.vn:5000/api/cangvu/getDSTau4?ngay=20%2F10%2F2026",
+        "sha256": "fc1325cc3981096595b2d0bbb224d565f48e38bcc37deccbf4ddb21e6315f956",
+        "record_index": 176,
+        "checked_at": "2026-10-31T06:48:19.595879+00:00",
+        "facility_namespace": "hcm-kehoach/getDSTau4",
+        "facility_id": 52,
+        "semantics": "registered_facility_corroboration_only",
+        "actual_verified": false
+      }
+    },
+    {
+      "year": 2026,
+      "asset": "sg_tan_thuan_2",
+      "day": "2026-10-23",
+      "sha256": "13eac33db1a0b1ec9b0a40102bb68c7d364d21533e29e18afd16bd60ed832d99",
+      "event": {
+        "section": "arrival",
+        "vessel": "TRUNG THANG 558",
+        "call_sign": null,
+        "time": "06:00",
+        "dwt": 13818.0,
+        "from": null,
+        "to": "TAN.T.2",
+        "raw": [
+          "20",
+          "TRUNG THANG 558",
+          "VIET NAM",
+          "",
+          "13818",
+          "119.80",
+          "8.7",
+          "SAT THEP 6245",
+          "TAN.T.2",
+          "06:00",
+          "06:00",
+          "CSG 55,CSG 97",
+          "GOLDEN SEA CO.,LTD",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "sg_tan_thuan_2",
+      "day": "2026-10-23",
+      "sha256": "13eac33db1a0b1ec9b0a40102bb68c7d364d21533e29e18afd16bd60ed832d99",
+      "event": {
+        "section": "departure",
+        "vessel": "KEN OLIVE",
+        "call_sign": "3E8938",
+        "time": "09:30",
+        "dwt": 41515.0,
+        "from": "TAN.T.2",
+        "to": null,
+        "raw": [
+          "35",
+          "KEN OLIVE",
+          "PANAMA",
+          "3E8938",
+          "41515",
+          "179.98",
+          "7.3",
+          "SAT THEP 4901",
+          "TAN.T.2",
+          "09:30",
+          "CSG 55,CSG 97,CSG 99",
+          "MORRIS SHIPPING VIET NAM LIMITED",
+          "SOÀI RẠP"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "cll_berth7",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "arrival",
+        "vessel": "KMTC BANGKOK",
+        "call_sign": "D5ML2",
+        "time": "01:30",
+        "dwt": 21663.0,
+        "from": null,
+        "to": "C.LAI 7",
+        "raw": [
+          "3",
+          "* KMTC BANGKOK",
+          "LIBERIA",
+          "D5ML2",
+          "21663",
+          "172.20",
+          "9.6",
+          "CONTAINER 9612",
+          "C.LAI 7",
+          "01:30",
+          "01:30",
+          "TAN CANG A1,TAN CANG A2",
+          "GST CO.,LTD",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "cll_berth7",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "departure",
+        "vessel": "KMTC ULSAN",
+        "call_sign": "DSRD9",
+        "time": "04:30",
+        "dwt": 21074.0,
+        "from": "C.LAI 7",
+        "to": null,
+        "raw": [
+          "13",
+          "* KMTC ULSAN",
+          "KOREA (REPUBLIC)",
+          "DSRD9",
+          "21074",
+          "168.50",
+          "9.3",
+          "CONTAINER 7461",
+          "C.LAI 7",
+          "04:30",
+          "TAN CANG A1,TAN CANG A2",
+          "GST CO.,LTD",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "cll_b7",
+      "day": "2026-10-27",
+      "sha256": "91f6c656d96c70e9413a707f79c1aebf4fcf79923600529552611b3673dcc862",
+      "event": {
+        "section": "departure",
+        "vessel": "LANG MAS III",
+        "call_sign": "5IM733",
+        "time": "17:00",
+        "dwt": 699.0,
+        "from": "CAU CANG 2.200 DWT",
+        "to": null,
+        "raw": [
+          "58",
+          "* LANG MAS III",
+          "TANZANIA (UNITED REP.)",
+          "5IM733",
+          "699",
+          "54.70",
+          "3.0",
+          "H.KHO KHAC 164",
+          "CAU CANG 2.200 DWT",
+          "17:00",
+          "",
+          "JLC CO.,LTD",
+          "SOÀI RẠP"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "swc_buoys",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "departure",
+        "vessel": "KOTA NEKAD",
+        "call_sign": "9VDK6",
+        "time": "01:30",
+        "dwt": 25985.0,
+        "from": "SOWATCO-ĐT1",
+        "to": null,
+        "raw": [
+          "5",
+          "* KOTA NEKAD",
+          "SINGAPORE",
+          "9VDK6",
+          "25985",
+          "179.70",
+          "10.5",
+          "CONTAINER 16055",
+          "SOWATCO-ĐT1",
+          "01:30",
+          "TAN CANG A3,TÀU LAI TRÚC MINH",
+          "S.G.N CO.,LTD",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "vgp_k16",
+      "day": "2026-10-24",
+      "sha256": "0e77863d8d22405e996e90cc8d8b15b0c76a6adf4b49e20642fcaafad5d193ed",
+      "event": {
+        "section": "arrival",
+        "vessel": "EAST SPEED",
+        "call_sign": "5IM747",
+        "time": "19:00",
+        "dwt": 1200.0,
+        "from": null,
+        "to": "K16",
+        "raw": [
+          "72",
+          "* EAST SPEED",
+          "TANZANIA (UNITED REP.)",
+          "5IM747",
+          "1200",
+          "40.00",
+          "1.8",
+          "NIL",
+          "K16",
+          "19:00",
+          "19:00",
+          "",
+          "A VIET",
+          "SÔNG DỪA"
+        ]
+      },
+      "scope_review": null
+    },
+    {
+      "year": 2026,
+      "asset": "vgp_k16",
+      "day": "2026-10-22",
+      "sha256": "8492755a75aa3d85ff8f4b3233b18b5182f75ec88e8cbb36c7fe9e6809871b4e",
+      "event": {
+        "section": "departure",
+        "vessel": "KEIO CORAL",
+        "call_sign": "DYMZ",
+        "time": "15:00",
+        "dwt": 14272.0,
+        "from": "K16",
+        "to": null,
+        "raw": [
+          "61",
+          "KEIO CORAL",
+          "PHILIPPINES",
+          "DYMZ",
+          "14272",
+          "127.67",
+          "7.5",
+          "NIL",
+          "K16",
+          "15:00",
+          "KIM AN 02,KIM AN 04",
+          "B OCEAN CORP",
+          "SOÀI RẠP"
+        ]
+      },
+      "scope_review": null
+    }
+  ],
+  "no_observations": [
+    {
+      "year": 2025,
+      "asset": "cll_b7",
+      "direction": "arrival",
+      "window": [
+        "2025-10-22",
+        "2025-10-28"
+      ]
+    },
+    {
+      "year": 2025,
+      "asset": "cll_b7",
+      "direction": "departure",
+      "window": [
+        "2025-10-22",
+        "2025-10-28"
+      ]
+    },
+    {
+      "year": 2026,
+      "asset": "cll_b7",
+      "direction": "arrival",
+      "window": [
+        "2026-10-22",
+        "2026-10-28"
+      ]
+    },
+    {
+      "year": 2026,
+      "asset": "swc_buoys",
+      "direction": "arrival",
+      "window": [
+        "2026-10-22",
+        "2026-10-28"
+      ]
+    }
+  ],
+  "review_version": "hcm-national-matrix/1",
+  "windows": [
+    [
+      "2025-10-22",
+      "2025-10-28"
+    ],
+    [
+      "2026-10-22",
+      "2026-10-28"
+    ]
+  ],
+  "selection": "First recorded row per existing asset/direction in each window; frozen approved proof required for bare K12. No-observation cells are unavailable, not zero."
+}

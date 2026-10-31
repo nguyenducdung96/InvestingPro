@@ -20,6 +20,7 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r scripts/requirements-gemalink-national.txt
       - run: python scripts/test-gemalink-national.py
+      - run: python scripts/test-hcm-national-matrix.py
       - run: python scripts/test-swc-longbinh-plans.py
       - run: python scripts/test-binhduong-plans.py
       - run: python scripts/test-sgp-pilot-plans.py

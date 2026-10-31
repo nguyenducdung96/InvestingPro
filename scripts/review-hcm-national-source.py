@@ -18,10 +18,11 @@ spec=importlib.util.spec_from_file_location('geometry',ROOT/'scripts/gemalink-na
 geometry=importlib.util.module_from_spec(spec);spec.loader.exec_module(geometry)
 SAMPLES=[('2025-01-01','HINANO'),('2026-10-25','NYK OCEANUS'),('2026-10-30','NEWSUN GREEN 03')]
 
-def sample_pdf(path):
+def sample_pdf(path,allow_vung_tau=False):
     reader=PdfReader(path);text='\n'.join(page.extract_text() or '' for page in reader.pages)
     compact=geometry.compact(text)
-    if 'KEHOACHDIEUDONGTAUTHUYEN' not in compact or not any(label in compact for label in ['CANGVUHANGHAITPHOCHIMINH','CANGVUHANGHAITHANHPHOHOCHIMINH']):
+    authorities=['CANGVUHANGHAITPHOCHIMINH','CANGVUHANGHAITHANHPHOHOCHIMINH']+(['CANGVUHANGHAIVUNGTAU'] if allow_vung_tau else [])
+    if 'KEHOACHDIEUDONGTAUTHUYEN' not in compact or not any(label in compact for label in authorities):
         raise ValueError('Not an HCM authority published movement-plan PDF')
     rows=[]
     with pdfplumber.open(path) as pdf:
@@ -35,7 +36,7 @@ def sample_pdf(path):
                 if len(indices)!=10 or len(set(indices))!=10:continue
                 for row in values[1:]:
                     raw=[row[i] for i in indices];fields=[' '.join((s or '').split()) for s in raw]
-                    match=re.fullmatch(r'(\d{2}/\d{2}/\d{4})\s+(\d{2}):?(\d{2})(?:\s*LT)?',fields[0])
+                    match=re.fullmatch(r'(\d{2}/\d{2}/\d{4})[\s-]+(\d{2}):?(\d{2})(?:\s*LT)?',fields[0])
                     if not match:raise ValueError('Unrecognized movement plan time')
                     stamp=dt.datetime.strptime(match[1]+' '+match[2]+':'+match[3],'%d/%m/%Y %H:%M')
                     rows.append({'page':number,'raw':raw,'planned_day':str(stamp.date()),'planned_time':stamp.strftime('%H:%M'),
