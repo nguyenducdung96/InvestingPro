@@ -1,0 +1,30 @@
+name: HCM national official plan source review
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: hcm-national-source-review
+  cancel-in-progress: false
+jobs:
+  review:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r scripts/requirements-gemalink-national.txt
+      - run: python scripts/review-hcm-national-source.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hcm-national-source-review
+          path: .local/hcm-national-review/
+          include-hidden-files: true
+          retention-days: 90
