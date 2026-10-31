@@ -26,9 +26,9 @@ export default async function Page({
   const query=await searchParams;
   return (
     <>
-    {ticker==='GMD'&&query.central_asset==='gemadept_dung_quat'?<DungquatScope/>:<CompanyPortScope ticker={ticker}/>}
+    {ticker==='GMD'&&query.central_asset==='gemadept_dung_quat'?<DungquatScope/>:<CompanyPortScope ticker={ticker} query={query}/>}
     {ticker==='GMD'&&query.central_asset==='gemadept_dung_quat'&&<DungquatActivity query={query}/>}
-    {ticker==='GMD'&&query.central_asset!=='gemadept_dung_quat'&&!['gmd','nam_dinh_vu'].includes(query.plan_asset)&&<SouthPlans ticker="GMD" query={query}/>}
+    {ticker==='GMD'&&query.central_asset!=='gemadept_dung_quat'&&!['gmd','nam_dinh_vu'].includes(query.plan_asset)&&<SouthPlans key={[query.plan_asset??'gmd_all',query.plan_direction,query.plan_year,query.plan_period,query.plan_metric].join(':')} ticker="GMD" query={query}/>}
     {ticker==='SWC'&&<SwcReported/>}
     {Object.hasOwn(southScopes,ticker)&&ticker!=='GMD'&&<SouthPlans ticker={ticker as SouthIssuer} query={query}/>}
     {ticker==='PDN'&&<PdnPlans query={query}/>}

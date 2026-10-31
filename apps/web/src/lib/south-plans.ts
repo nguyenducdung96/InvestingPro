@@ -17,7 +17,7 @@ export const southGroups=Object.fromEntries(Object.keys(southAssets).map(a=>[a,s
 southGroups.gemalink=mergeGemalinkPlanDays(southGroups.gemalink,southPlanDays(gemalinkNationalDaily,'gemalink'));
 export async function loadSouthIssuer(ticker:SouthIssuer,requested:string){
  const scopes:Record<string,{name:string;assets:string[];note:string}>=southScopes[ticker];
- const asset=Object.hasOwn(scopes,requested)?requested:Object.keys(scopes)[0];
+ const asset=Object.hasOwn(scopes,requested)?requested:ticker==='GMD'?'gmd_all':Object.keys(scopes)[0];
  const groups:Record<string,TanVuPlanDay[]|undefined>={...southGroups};let northError=false;
  if(scopes[asset].assets.includes('nam_dinh_vu'))try{groups.nam_dinh_vu=(await publicRepository().phpPlans('nam_dinh_vu')).days;}catch{northError=true;}
  const sources=[...(scopes[asset].assets.includes('swc_long_binh')?[swcLongbinhMetadata]:[]),...(scopes[asset].assets.some(a=>a!=='nam_dinh_vu'&&a!=='gmd_binh_duong'&&a!=='swc_long_binh')?[southHistoryMetadata]:[]),...(scopes[asset].assets.includes('gmd_binh_duong')?[binhduongMetadata]:[]),...(scopes[asset].assets.includes('gemalink')?[gemalinkNationalMetadata]:[])];
