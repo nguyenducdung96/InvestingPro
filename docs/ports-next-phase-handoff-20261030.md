@@ -1,5 +1,15 @@
 # Bàn giao ngành cảng — trạng thái chốt 31/10/2026
 
+## HCM có nguồn quốc gia mới đã kiểm chứng mẫu từ cloud — 31/10/2026
+
+Đã chuyển trọng tâm sang HCM trong lúc chờ lịch Bình Dương. Cổng quốc gia có menu kế hoạch điều động và bộ lọc TP.HCM (`maritimeCode=21`), PDF gốc có thời gian kế hoạch/DWT/From/To. [Run cloud 41201078402](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41201078402) **success**, tải/kiểm ba mẫu lịch sử và gần đây; khớp một mẫu K16 năm 2025 và mẫu K12 31/10 với bảng HCM tại máy. Workflow review read-only, dispatch-only, artifact 90 ngày; chưa nối ứng dụng hoặc lịch nghiệp vụ. Code **4d8399f** và sửa nhận số lượng đơn lẻ **d667b83** đều CI/Cloudflare success; 10 national Python tests đạt.
+
+**Chưa thay thế bảng lịch:** ngày danh sách khác ngày kế hoạch; mẫu NEWSUN GREEN 03 mới tìm được kế hoạch vào, chưa đủ hồ sơ rời trong cửa sổ đã rà. Mẫu KIEV có giờ kế hoạch PDF khác bảng HCM; giấy phép rời cảng là loại hồ sơ riêng, mẫu chỉ có GT, không có DWT. Không tự ghép/đếm trùng hoặc gọi giấy phép là actual. Lịch HCM công bố vẫn đến **28/10**, chưa nghiệm thu refresh/schedule/production.
+
+**Next step HCM:** đối chiếu coverage cả hai chiều và phiên bản theo từng phạm vi trong cửa sổ đại diện 2025/2026; tách kế hoạch/giấy phép; chốt chống trùng và hợp đồng nguồn trước khi nối collect/export/deploy/readback. Không còn coi “chưa có đầu mối nguồn mới” là trạng thái hiện hành: đã có đường lấy PDF chính thức từ cloud, còn gate dữ liệu. [Hồ sơ chi tiết](hcm-national-source-review-20261031.md), [receipt](catalog-review/hcm-national-source-review-20261031.json). Website bảng lịch cũ vẫn chưa được nghiệm thu cloud bằng kết quả nguồn mới này.
+
+Bình Dương giữ lịch/recorder chờ hai chu kỳ thật khác ngày. PDN cron, Long Bình Tân, Dung Quất định kỳ, ICD/kho bãi giữ để sau. Các snapshot cũ bên dưới được giữ để truy vết và không thay kết luận mới này.
+
 ## Bình Dương đã có đối chiếu lịch tự động — 31/10/2026, 19:13 Việt Nam
 
 Đã bổ sung recorder/archive và cache riêng cho biên nhận mỗi run/attempt. Bản code **3dc4189** qua CI đầy đủ và Cloudflare build; **14 Node tests** đạt. Workflow trên main được cập nhật riêng tại **f22ee3c** (chỉ workflow Bình Dương), ứng dụng vẫn trên staging. Recorder chạy cả khi bước trước thất bại, khớp source/event/run/attempt/commit/edition trước khi công nhận readback, và tự xét hai schedule thật khác ngày trong 72 giờ. Run thủ công không được cộng; lần chạy lại thất bại thu hồi điều kiện đạt.

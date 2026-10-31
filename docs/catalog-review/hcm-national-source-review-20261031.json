@@ -1,0 +1,731 @@
+{
+  "reviewed_at": "2026-10-31T12:35:17.723610+00:00",
+  "source_url": "https://hanghai.moc.gov.vn/tra-cuu-giay-phep",
+  "cloud_run_id": 41201078402,
+  "main_registration_commit": "de445c296bd0a81c32690916bcdd98dab90b9b88",
+  "cloud_review": {
+    "checked_at": "2026-10-31T12:26:16.147619+00:00",
+    "source_url": "https://hanghai.moc.gov.vn/tra-cuu-giay-phep",
+    "maritime_code": "21",
+    "status": "success",
+    "samples": [
+      {
+        "query_day": "2025-01-01",
+        "filters_verified": true,
+        "listing_sha256": "14a81817d9b0558a80b3a00eb8189e5be0c7805a910a7427cd344ba9c259ccab",
+        "listing_total": 41,
+        "listed_rows_inspected": 20,
+        "listing_complete": false,
+        "selected_listing_cells": [
+          "11",
+          "",
+          "HINANO",
+          "PHILIPPINES",
+          "DYLD",
+          "AGE LINE CO., LTD",
+          "K16",
+          "01/01/2025 19:24",
+          "View"
+        ],
+        "document": {
+          "key": "49b0e1f2887ca168ee619c315d24061732347b2f5a75813c5017ca3032e7c23b",
+          "native": {
+            "jspPage": "/html/report_export.jsp",
+            "DOCUMENT_NAME": "24158313",
+            "DOCUMENT_YEAR": "2024",
+            "MESSAGE_TYPE": "70",
+            "REQUEST_CODE": "c92bb2cc-c6da-4f1c-8ca6-99a0a59aa3bf"
+          },
+          "listing_cells": [
+            "11",
+            "",
+            "HINANO",
+            "PHILIPPINES",
+            "DYLD",
+            "AGE LINE CO., LTD",
+            "K16",
+            "01/01/2025 19:24",
+            "View"
+          ],
+          "source_url": "https://hanghai.moc.gov.vn/documents/10180/31279506/giao_thong30648858179919785.pdf?version=1.0",
+          "sha256": "3adf372ab95d89525dfcfb90445e6c1e7a818772b7a59a3f8c0a115fe549bfb3",
+          "checked_at": "2026-10-31T12:26:42.348620+00:00",
+          "bytes": 336317
+        },
+        "parsed": {
+          "pages": 1,
+          "semantics": "authority_published_plan",
+          "rows": [
+            {
+              "page": 1,
+              "raw": [
+                "01/01/2025\n22:00",
+                "HINANO",
+                "8,91",
+                "116,94",
+                "12292",
+                "CSG 63,CSG 92",
+                "SG-VT",
+                "MASAN",
+                "BẾN\nCẢNG\nRAU\nQUẢ/K16",
+                "AGE-\nLINES\nCO.,LTD"
+              ],
+              "planned_day": "2025-01-01",
+              "planned_time": "22:00",
+              "vessel": "HINANO",
+              "dwt": 12292.0,
+              "from": "MASAN",
+              "to": "BẾN CẢNG RAU QUẢ/K16",
+              "direction": null,
+              "asset_mapping_verified": false
+            }
+          ],
+          "actual_verified": false
+        }
+      },
+      {
+        "query_day": "2026-10-25",
+        "filters_verified": true,
+        "listing_sha256": "3afec5a6835948d2f5d9fa66a00d8e538c12135d817d916bb73858bae00bcad2",
+        "listing_total": 49,
+        "listed_rows_inspected": 20,
+        "listing_complete": false,
+        "selected_listing_cells": [
+          "20",
+          "",
+          "NYK OCEANUS",
+          "LIBERIA",
+          "A8LO7",
+          "Ocean Network Express (Vietnam) Co., Ltd.",
+          "Cầu cảng số 1",
+          "25/10/2026 17:55",
+          "View"
+        ],
+        "document": {
+          "key": "5575fb130c7dae44fd12b8d6ab8d8f31fec8dae5f4285efeb5d5757fabfda99f",
+          "native": {
+            "jspPage": "/html/report_export.jsp",
+            "DOCUMENT_NAME": "26146010",
+            "DOCUMENT_YEAR": "2026",
+            "MESSAGE_TYPE": "70",
+            "REQUEST_CODE": "65e98823-e330-419f-a8f6-0627a5850710"
+          },
+          "listing_cells": [
+            "20",
+            "",
+            "NYK OCEANUS",
+            "LIBERIA",
+            "A8LO7",
+            "Ocean Network Express (Vietnam) Co., Ltd.",
+            "Cầu cảng số 1",
+            "25/10/2026 17:55",
+            "View"
+          ],
+          "source_url": "https://hanghai.moc.gov.vn/documents/10180/42165052/giao_thong14258462445402935.pdf?version=1.0",
+          "sha256": "64ee7a8a7dddfdb02f62db42a5a5b5774874e39e2af6b05f2ffecb791e93ac63",
+          "checked_at": "2026-10-31T12:26:50.670041+00:00",
+          "bytes": 349670
+        },
+        "parsed": {
+          "pages": 1,
+          "semantics": "authority_published_plan",
+          "rows": [
+            {
+              "page": 1,
+              "raw": [
+                "26/10/2026\n00:00",
+                "NYK OCEANUS",
+                "11,8",
+                "336",
+                "104525",
+                "AWAJI MARU\n43.V7,KASUGA\n43.V2,MIRAI 59.H1",
+                "VŨNG\nTÀU - THỊ\nVẢI",
+                "SINGAPOR\nE",
+                "BẾN\nCẢNG\nCONT CÁI\nMÉP\nTHƯỢNG -\nTCCT/CẦU\nCẢNG SỐ\n1 - TCCT",
+                "CÔNG TY\nCP\nHAIVANS\nHIP\nGROUP"
+              ],
+              "planned_day": "2026-10-26",
+              "planned_time": "00:00",
+              "vessel": "NYK OCEANUS",
+              "dwt": 104525.0,
+              "from": "SINGAPOR E",
+              "to": "BẾN CẢNG CONT CÁI MÉP THƯỢNG - TCCT/CẦU CẢNG SỐ 1 - TCCT",
+              "direction": null,
+              "asset_mapping_verified": false
+            }
+          ],
+          "actual_verified": false
+        }
+      },
+      {
+        "query_day": "2026-10-30",
+        "filters_verified": true,
+        "listing_sha256": "d863ac6ed4dcb5d53cef712ad937dd543aaa1e412751334e7ce01a52fc92a5d4",
+        "listing_total": 51,
+        "listed_rows_inspected": 20,
+        "listing_complete": false,
+        "selected_listing_cells": [
+          "12",
+          "",
+          "NEWSUN GREEN 03",
+          "VIET NAM",
+          "3WAL",
+          "VIMC LINES",
+          "K12",
+          "30/10/2026 20:19",
+          "View"
+        ],
+        "document": {
+          "key": "b9fdf189009bb1bf5bf530b3208c8c5dcd440c5d44c67dcaee6b655313ac9d4e",
+          "native": {
+            "jspPage": "/html/report_export.jsp",
+            "DOCUMENT_NAME": "26154718",
+            "DOCUMENT_YEAR": "2026",
+            "MESSAGE_TYPE": "70",
+            "REQUEST_CODE": "3cdd5caa-cdad-43d8-b449-2cad8130f106"
+          },
+          "listing_cells": [
+            "12",
+            "",
+            "NEWSUN GREEN 03",
+            "VIET NAM",
+            "3WAL",
+            "VIMC LINES",
+            "K12",
+            "30/10/2026 20:19",
+            "View"
+          ],
+          "source_url": "https://hanghai.moc.gov.vn/documents/10180/42165052/giao_thong14699105187413104.pdf?version=1.0",
+          "sha256": "a55aedb719bf7cb197bfd7e7dfdaa0f4b1c1c97d0cb6e2b46ac4b52d2d25556f",
+          "checked_at": "2026-10-31T12:26:58.968309+00:00",
+          "bytes": 350576
+        },
+        "parsed": {
+          "pages": 1,
+          "semantics": "authority_published_plan",
+          "rows": [
+            {
+              "page": 1,
+              "raw": [
+                "31/10/2026\n01:00",
+                "NEWSUN GREEN 03",
+                "4,5",
+                "99,88",
+                "4893",
+                "CSG 54,CSG 55",
+                "SÔNG\nDỪA",
+                "ĐÀ NẴNG",
+                "BẾN\nCẢNG SÀI\nGÒN/K12",
+                "CÔNG TY\nCỔ PHẦN\nVẬN TẢI\nCONTAIN\nER VIMC"
+              ],
+              "planned_day": "2026-10-31",
+              "planned_time": "01:00",
+              "vessel": "NEWSUN GREEN 03",
+              "dwt": 4893.0,
+              "from": "ĐÀ NẴNG",
+              "to": "BẾN CẢNG SÀI GÒN/K12",
+              "direction": null,
+              "asset_mapping_verified": false
+            }
+          ],
+          "actual_verified": false
+        }
+      }
+    ],
+    "publication_performed": false,
+    "replacement_verified": false,
+    "execution_environment": "github_actions",
+    "run_id": "41201078402",
+    "cloud_samples_verified": true,
+    "scheduled_refresh_verified": false,
+    "actual_verified": false,
+    "full_scope_certified": false,
+    "completed_at": "2026-10-31T12:26:59.028746+00:00"
+  },
+  "local_overlap": {
+    "historical_day": "2025-01-01",
+    "historical_sha256": "081c531e7a353ba61954fbd323d392a7bf687a783b0a056e4cf3c7fd74a0d10d",
+    "historical_events": [
+      {
+        "section": "arrival",
+        "vessel": "HINANO",
+        "call_sign": "DYLD",
+        "time": "22:00",
+        "dwt": 12292.0,
+        "from": null,
+        "to": "K16",
+        "raw": [
+          "34",
+          "* HINANO",
+          "PHILIPPINES",
+          "DYLD",
+          "12292",
+          "116.94",
+          "8.9",
+          "BACH HOA 3431",
+          "K16",
+          "22:00",
+          "22:00",
+          "CSG 63,CSG 92",
+          "AGE-LINES CO.,LTD",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      }
+    ],
+    "current_day": "2026-10-31",
+    "current_sha256": "b4f4d5d38192e7e2d3090c39bea1d5cad444ece2d6b812e7b1e035c409e6add6",
+    "current_events": [
+      {
+        "section": "arrival",
+        "vessel": "NEWSUN GREEN 03",
+        "call_sign": "3WAL",
+        "time": "01:00",
+        "dwt": 4893.0,
+        "from": null,
+        "to": "K12",
+        "raw": [
+          "2",
+          "* NEWSUN GREEN 03",
+          "VIET NAM",
+          "3WAL",
+          "4893",
+          "99.88",
+          "4.5",
+          "CONTAINER 2396",
+          "K12",
+          "01:00",
+          "01:00",
+          "CSG 54,CSG 55",
+          "VIMC LINES",
+          "SÔNG DỪA"
+        ]
+      },
+      {
+        "section": "departure",
+        "vessel": "NEWSUN GREEN 03",
+        "call_sign": "3WAL",
+        "time": "22:00",
+        "dwt": 4893.0,
+        "from": "K12",
+        "to": null,
+        "raw": [
+          "72",
+          "* NEWSUN GREEN 03",
+          "VIET NAM",
+          "3WAL",
+          "4893",
+          "99.88",
+          "4.5",
+          "CONTAINER 3731",
+          "K12",
+          "22:00",
+          "CSG 63,CSG 97",
+          "VIMC LINES",
+          "SOÀI RẠP"
+        ]
+      }
+    ]
+  },
+  "targeted_newsungreen": {
+    "source_url": "https://hanghai.moc.gov.vn/tra-cuu-giay-phep",
+    "vessel": "NEWSUN GREEN 03",
+    "maritime_code": "21",
+    "query_from": "2026-10-30",
+    "query_through": "2026-10-31",
+    "filters_verified": true,
+    "total": 1,
+    "returned_rows": 1,
+    "listing_complete": true,
+    "sha256": "add01c156ceab66ae1be330ca8f05b87d070b66eca2de58e289b719d8bf7717e",
+    "rows": [
+      {
+        "cells": [
+          "1",
+          "",
+          "NEWSUN GREEN 03",
+          "VIET NAM",
+          "3WAL",
+          "VIMC LINES",
+          "K12",
+          "30/10/2026 20:19",
+          "View"
+        ],
+        "view_url": "https://hanghai.moc.gov.vn/tra-cuu-giay-phep?p_p_id=thongtintauaction_WAR_TichHopGiaoThongportlet&p_p_lifecycle=0&p_p_state=pop_up&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_thongtintauaction_WAR_TichHopGiaoThongportlet_jspPage=%2Fhtml%2Freport_export.jsp&_thongtintauaction_WAR_TichHopGiaoThongportlet_DOCUMENT_NAME=26154718&_thongtintauaction_WAR_TichHopGiaoThongportlet_DOCUMENT_YEAR=2026&_thongtintauaction_WAR_TichHopGiaoThongportlet_MESSAGE_TYPE=70&_thongtintauaction_WAR_TichHopGiaoThongportlet_REQUEST_CODE=3cdd5caa-cdad-43d8-b449-2cad8130f106",
+        "native": {
+          "jspPage": "/html/report_export.jsp",
+          "DOCUMENT_NAME": "26154718",
+          "DOCUMENT_YEAR": "2026",
+          "MESSAGE_TYPE": "70",
+          "REQUEST_CODE": "3cdd5caa-cdad-43d8-b449-2cad8130f106"
+        },
+        "key": "b9fdf189009bb1bf5bf530b3208c8c5dcd440c5d44c67dcaee6b655313ac9d4e"
+      }
+    ],
+    "documents": [
+      {
+        "key": "b9fdf189009bb1bf5bf530b3208c8c5dcd440c5d44c67dcaee6b655313ac9d4e",
+        "native": {
+          "jspPage": "/html/report_export.jsp",
+          "DOCUMENT_NAME": "26154718",
+          "DOCUMENT_YEAR": "2026",
+          "MESSAGE_TYPE": "70",
+          "REQUEST_CODE": "3cdd5caa-cdad-43d8-b449-2cad8130f106"
+        },
+        "listing_cells": [
+          "1",
+          "",
+          "NEWSUN GREEN 03",
+          "VIET NAM",
+          "3WAL",
+          "VIMC LINES",
+          "K12",
+          "30/10/2026 20:19",
+          "View"
+        ],
+        "source_url": "https://hanghai.moc.gov.vn/documents/10180/42165052/giao_thong14699105187413104.pdf?version=1.0",
+        "sha256": "a55aedb719bf7cb197bfd7e7dfdaa0f4b1c1c97d0cb6e2b46ac4b52d2d25556f",
+        "checked_at": "2026-10-31T12:29:16.039002+00:00",
+        "bytes": 350576
+      }
+    ]
+  },
+  "local_kiev_resources": [
+    {
+      "mode": "plan",
+      "total": 3,
+      "query_from": "2026-10-24",
+      "query_through": "2026-10-26",
+      "vessel": "KIEV",
+      "maritime_code": "21",
+      "documents": [
+        {
+          "record": {
+            "key": "e848c0fa90074d8f1680e7f7fc36869968e4abbb3cbe0be8abffb3738ea2aec8",
+            "native": {
+              "jspPage": "/html/report_export.jsp",
+              "DOCUMENT_NAME": "26152963",
+              "DOCUMENT_YEAR": "2026",
+              "MESSAGE_TYPE": "70",
+              "REQUEST_CODE": "59a530dd-d0e1-4437-a33d-ff4e9c8ead2e"
+            },
+            "listing_cells": [
+              "1",
+              "",
+              "KIEV",
+              "VIET NAM",
+              "3WQQ7",
+              "HAIVANSHIP",
+              "TL10",
+              "26/10/2026 19:00",
+              "View"
+            ],
+            "source_url": "https://hanghai.moc.gov.vn/documents/10180/42165052/giao_thong14348803434717002.pdf?version=1.0",
+            "sha256": "67cdce6ec0c3dc6d1998a43cf7265d8c024ab9bdc5493c34278d11eeccd27dc6",
+            "checked_at": "2026-10-31T12:33:11.780472+00:00",
+            "bytes": 346872
+          }
+        },
+        {
+          "record": {
+            "key": "4c431239e288f559b907d6f34c409afeb7f337d3aa6fd384f533658085fa9158",
+            "native": {
+              "jspPage": "/html/report_export.jsp",
+              "DOCUMENT_NAME": "26151964",
+              "DOCUMENT_YEAR": "2026",
+              "MESSAGE_TYPE": "70",
+              "REQUEST_CODE": "e62d29f8-2d23-4227-b6d3-c0efce7003fd"
+            },
+            "listing_cells": [
+              "2",
+              "",
+              "KIEV",
+              "VIET NAM",
+              "3WQQ7",
+              "HAIVANSHIP",
+              "Cầu cảng quốc tế Cái Mép (CMIT)",
+              "24/10/2026 14:59",
+              "View"
+            ],
+            "source_url": "https://hanghai.moc.gov.vn/documents/10180/42165052/giao_thong14161536479913440.pdf?version=1.0",
+            "sha256": "1549a8475483d2df8a45e2d3de54db9921f9d931580fbba2110f1e7aec8b8f8b",
+            "checked_at": "2026-10-31T12:33:12.722302+00:00",
+            "bytes": 348166
+          }
+        },
+        {
+          "record": {
+            "key": "e54cf001a5c14b5a41ab0b88c08217c8ab19c839a7023f5b077d2f876b6a20b5",
+            "native": {
+              "jspPage": "/html/report_export.jsp",
+              "DOCUMENT_NAME": "26151960",
+              "DOCUMENT_YEAR": "2026",
+              "MESSAGE_TYPE": "70",
+              "REQUEST_CODE": "892a4dfa-ac2d-40e2-a846-545423c63ab7"
+            },
+            "listing_cells": [
+              "3",
+              "",
+              "KIEV",
+              "VIET NAM",
+              "3WQQ7",
+              "HAIVANSHIP",
+              "TL10",
+              "24/10/2026 14:56",
+              "View"
+            ],
+            "source_url": "https://hanghai.moc.gov.vn/documents/10180/42165052/giao_thong14161342377958213.pdf?version=1.0",
+            "sha256": "9e81efee5fd9e53cc5b16eec8f901196549490b6c30ecd7406390f428f5f80bb",
+            "checked_at": "2026-10-31T12:33:13.615969+00:00",
+            "bytes": 347115
+          }
+        }
+      ],
+      "execution_environment": "local"
+    },
+    {
+      "mode": "clearance",
+      "total": 3,
+      "query_from": "2026-10-24",
+      "query_through": "2026-10-26",
+      "vessel": "KIEV",
+      "maritime_code": "21",
+      "documents": [
+        {
+          "record": {
+            "key": "b825648320ea329c6f4f3ce0f6322e1c0956a0a664b7b792a6480a10ead65b06",
+            "native": {
+              "jspPage": "/html/report_export.jsp",
+              "DOCUMENT_NAME": "26152962",
+              "DOCUMENT_YEAR": "2026",
+              "MESSAGE_TYPE": "60",
+              "DOCUMENT_TYPE": "5",
+              "REQUEST_CODE": "440dad3f-e466-4918-8684-f348f3b885be"
+            },
+            "listing_cells": [
+              "1",
+              "26152962/HCM",
+              "KIEV",
+              "9377274",
+              "3WQQ7",
+              "26/10/2026 15:00",
+              "CANG QT CAI MEP",
+              "View"
+            ],
+            "source_url": "https://hanghai.moc.gov.vn/documents/10180/42165052/giao_thong14342038571780777.pdf?version=1.0",
+            "sha256": "e634a4ed53ff2060ad66fc84b99d8c4043b039012019e56e01330a3bbe609e17",
+            "checked_at": "2026-10-31T12:33:20.667258+00:00",
+            "bytes": 481271
+          }
+        },
+        {
+          "record": {
+            "key": "f29139d2db91268b12f9ba834d5aa5decdf3ac7aab6e05fb34308870427173fc",
+            "native": {
+              "jspPage": "/html/report_export.jsp",
+              "DOCUMENT_NAME": "26151963",
+              "DOCUMENT_YEAR": "2026",
+              "MESSAGE_TYPE": "60",
+              "DOCUMENT_TYPE": "5",
+              "REQUEST_CODE": "d5549a35-06a4-4988-bd82-f384ad515d85"
+            },
+            "listing_cells": [
+              "2",
+              "26151963/HCM",
+              "KIEV",
+              "9377274",
+              "3WQQ7",
+              "25/10/2026 06:30",
+              "CANG Z (HO CHI MINH)",
+              "View"
+            ],
+            "source_url": "https://hanghai.moc.gov.vn/documents/10180/42165052/giao_thong14173512435948816.pdf?version=1.0",
+            "sha256": "f500d2ae7a471ea0b8ee80ce578bf2b72cfabf2b6febb5f0c47b0842eee7e84b",
+            "checked_at": "2026-10-31T12:33:21.446759+00:00",
+            "bytes": 379650
+          }
+        },
+        {
+          "record": {
+            "key": "88d30c46f67bad3b1783cdcbcdf8fbaa88fadff1542e6088d51903d32d628927",
+            "native": {
+              "jspPage": "/html/report_export.jsp",
+              "DOCUMENT_NAME": "26151959",
+              "DOCUMENT_YEAR": "2026",
+              "MESSAGE_TYPE": "60",
+              "DOCUMENT_TYPE": "5",
+              "REQUEST_CODE": "5e2504dd-d64d-4075-9986-c23642276871"
+            },
+            "listing_cells": [
+              "3",
+              "26151959/HCM",
+              "KIEV",
+              "9377274",
+              "3WQQ7",
+              "24/10/2026 15:00",
+              "CANG QT CAI MEP",
+              "View"
+            ],
+            "source_url": "https://hanghai.moc.gov.vn/documents/10180/42165052/giao_thong14168571595347809.pdf?version=1.0",
+            "sha256": "c8426fb2e5e07c6c84990a8eb6711fd95cf3f804e39a5b4f6a5c7b22b672a5c1",
+            "checked_at": "2026-10-31T12:33:22.242238+00:00",
+            "bytes": 481886
+          }
+        }
+      ],
+      "execution_environment": "local"
+    }
+  ],
+  "kiev_authority_board": {
+    "day": "2026-10-25",
+    "sha256": "1863483737dfd4713b56512ffb6614dd64725cb3db8b2131e43de4101af148e8",
+    "rows": [
+      {
+        "section": "arrival",
+        "vessel": "KIEV",
+        "call_sign": "3WQQ7",
+        "time": "06:00",
+        "dwt": 57.0,
+        "from": null,
+        "to": "TL10",
+        "raw": [
+          "16",
+          "KIEV",
+          "VIET NAM",
+          "3WQQ7",
+          "57",
+          "20.41",
+          "2.7",
+          "NIL",
+          "TL10",
+          "06:00",
+          "06:00",
+          "",
+          "HAIVAN SHIP",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      },
+      {
+        "section": "arrival",
+        "vessel": "KIEV",
+        "call_sign": "3WQQ7",
+        "time": "13:30",
+        "dwt": 57.0,
+        "from": null,
+        "to": "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+        "raw": [
+          "59",
+          "KIEV",
+          "VIET NAM",
+          "3WQQ7",
+          "57",
+          "20.41",
+          "2.7",
+          "NIL",
+          "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+          "13:30",
+          "13:30",
+          "",
+          "HAIVAN SHIP",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      {
+        "section": "departure",
+        "vessel": "KIEV",
+        "call_sign": "3WQQ7",
+        "time": "05:00",
+        "dwt": 57.0,
+        "from": "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+        "to": null,
+        "raw": [
+          "14",
+          "* KIEV",
+          "VIET NAM",
+          "3WQQ7",
+          "57",
+          "20.41",
+          "2.7",
+          "NIL",
+          "CẢNG QUỐC TẾ CAI MÉP (CMIT)",
+          "05:00",
+          "",
+          "HAIVAN SHIP",
+          "VŨNG TÀU - THỊ VẢI"
+        ]
+      },
+      {
+        "section": "departure",
+        "vessel": "KIEV",
+        "call_sign": "3WQQ7",
+        "time": "12:30",
+        "dwt": 57.0,
+        "from": "TL10",
+        "to": null,
+        "raw": [
+          "45",
+          "KIEV",
+          "VIET NAM",
+          "3WQQ7",
+          "57",
+          "20.41",
+          "2.7",
+          "NIL",
+          "TL10",
+          "12:30",
+          "",
+          "HAIVAN SHIP",
+          "SÀI GÒN - VŨNG TÀU"
+        ]
+      }
+    ]
+  },
+  "local_national_tests": {
+    "passed": 10,
+    "singular_result_supported": true
+  },
+  "replacement_verified": false,
+  "application_data_changed": false,
+  "scheduled_refresh_verified": false,
+  "production_accepted": false,
+  "findings": [
+    "Official national plan PDFs reachable from hosted cloud for three selected historical/recent samples.",
+    "Sample list date differs from PDF planned date; never use list date as movement date.",
+    "KIEV plan time 09:30 differs from archived CMIT board arrival 13:30; preserve versions and do not count both as new calls.",
+    "KIEV clearance corroborates a departure permission at 05:00 but carries GT 140, not DWT 57; no weight borrowing and no actual certification.",
+    "Targeted NEWSUN GREEN 03 plan query returns one arrival-plan document; it does not establish coverage for its scheduled departure."
+  ],
+  "next_gate": "Bounded coverage/revision audit across both directions and selected asset scopes, retaining plans and clearances separately; no automatic source replacement until equivalence or explicit partial-source contract is established.",
+  "count_fix_commit": "d667b83",
+  "count_fix_checks": [
+    {
+      "name": "check",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41201404500/job/124538678447"
+    },
+    {
+      "name": "Workers Builds: investing-pro-web-staging",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/64b1ac35-bbef-4e37-9e73-d8a64fe653e4"
+    },
+    {
+      "name": "e2e (desktop)",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41201404500/job/124537774552"
+    },
+    {
+      "name": "e2e (mobile)",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41201404500/job/124537774550"
+    },
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41201404500/job/124537774391"
+    }
+  ]
+}
