@@ -3,14 +3,14 @@
     "parser_version": "pdn-public-plan/1.0.0",
     "source_url": "http://123.25.204.166/web/guest/public-kh#/tra-cuu/ke_hoach/0/0/KeHoachDieuDongTau2",
     "from_day": "2025-01-01",
-    "through": "2026-10-29",
-    "checked_at": "2026-10-30T07:43:17.651772+00:00",
-    "days": 667,
-    "responses": 2001,
-    "events": 19800,
+    "through": "2026-10-30",
+    "checked_at": "2026-10-31T07:29:37.997432+00:00",
+    "days": 668,
+    "responses": 2004,
+    "events": 19807,
     "internal": 58,
     "unmapped_terminal_rows": 0,
-    "normalized_time_rows": 104,
+    "normalized_time_rows": 106,
     "actual_verified": false,
     "full_scope_certified": false
   },
@@ -816,13 +816,13 @@
     "2026-10": {
       "pdn_go_dau_b": {
         "arrival": {
-          "rows": 74,
-          "dwt": 546302.0099999999,
+          "rows": 75,
+          "dwt": 573190.0099999999,
           "missing_dwt": 1
         },
         "departure": {
-          "rows": 72,
-          "dwt": 554285.79,
+          "rows": 74,
+          "dwt": 562243.26,
           "missing_dwt": 0
         }
       },
@@ -840,13 +840,13 @@
       },
       "pdn_go_dau_a": {
         "departure": {
-          "rows": 34,
-          "dwt": 182749.58000000002,
+          "rows": 37,
+          "dwt": 198991.58000000002,
           "missing_dwt": 2
         },
         "arrival": {
-          "rows": 38,
-          "dwt": 205125.85000000003,
+          "rows": 39,
+          "dwt": 214625.85000000003,
           "missing_dwt": 1
         }
       }
@@ -16723,19 +16723,19 @@
         {
           "section": "arrival",
           "sha256": "cce6205d5faf169cbf834a5c7365e21cc97361436ccd7107f315d88edae4cf26",
-          "checked_at": "2026-10-30T07:43:04.881454+00:00",
+          "checked_at": "2026-10-31T07:29:27.755640+00:00",
           "source_rows": 13
         },
         {
           "section": "departure",
           "sha256": "433c636b8e83fac54f489e6ec2a486a1818664c1bd0095097f435ca8d111c3a8",
-          "checked_at": "2026-10-30T07:43:07.469370+00:00",
+          "checked_at": "2026-10-31T07:29:27.532555+00:00",
           "source_rows": 16
         },
         {
           "section": "movement",
-          "sha256": "5c1b0bef17b2d936ec1a8746ebc54d4f4daef8bb5562db9bf6df83694f19f432",
-          "checked_at": "2026-10-30T07:43:06.727142+00:00",
+          "sha256": "9ee8c9ba9bebf6122051c0f1990c1f9e48742313890494b008dbfdbc11a72534",
+          "checked_at": "2026-10-31T07:29:26.081289+00:00",
           "source_rows": 4
         }
       ],
@@ -16747,19 +16747,19 @@
         {
           "section": "arrival",
           "sha256": "b009a23a67c01554ece8d9abaff6129b5a2174adb48386293a6873347121ff41",
-          "checked_at": "2026-10-30T07:43:08.659795+00:00",
+          "checked_at": "2026-10-31T07:29:28.212238+00:00",
           "source_rows": 8
         },
         {
           "section": "departure",
           "sha256": "2bb00d21a2ebfe5fafab9d213df2abe53720e8fd1062a242257515daca91aa79",
-          "checked_at": "2026-10-30T07:43:09.076652+00:00",
+          "checked_at": "2026-10-31T07:29:29.494354+00:00",
           "source_rows": 9
         },
         {
           "section": "movement",
           "sha256": "7a093e1e67a04568d34c9e8f5c20e9eb38553baabf713822d6d18af60af290e5",
-          "checked_at": "2026-10-30T07:43:08.436917+00:00",
+          "checked_at": "2026-10-31T07:29:28.578034+00:00",
           "source_rows": 2
         }
       ],
@@ -16770,20 +16770,20 @@
       "responses": [
         {
           "section": "arrival",
-          "sha256": "7401c170b77091c147449ce357f9b80187606212fb4240e36e5d01ee2dc71125",
-          "checked_at": "2026-10-30T07:43:11.380867+00:00",
+          "sha256": "ed2ef6bf9e70c8af8f05f0a4c9a90412c9b2fd975ab6454a4364ceea14719275",
+          "checked_at": "2026-10-31T07:29:30.508398+00:00",
           "source_rows": 17
         },
         {
           "section": "departure",
           "sha256": "4d11a20128f9e7bb0a45d217ea2feb4429d48146fff3370e44f6acea776a5766",
-          "checked_at": "2026-10-30T07:43:11.312573+00:00",
+          "checked_at": "2026-10-31T07:29:30.787009+00:00",
           "source_rows": 17
         },
         {
           "section": "movement",
           "sha256": "f9fd5734413cb090ae86cb97680f33411ed3f925cdd0fc27fed4bfde7b5fdca4",
-          "checked_at": "2026-10-30T07:43:09.998421+00:00",
+          "checked_at": "2026-10-31T07:29:30.339406+00:00",
           "source_rows": 6
         }
       ],
@@ -16795,20 +16795,20 @@
         {
           "section": "arrival",
           "sha256": "64cd1e9f2c74dc52ea257073ec956f450a6c3349e112333613b0131ca0ca1744",
-          "checked_at": "2026-10-30T07:43:12.801489+00:00",
+          "checked_at": "2026-10-31T07:29:32.783894+00:00",
           "source_rows": 13
         },
         {
           "section": "departure",
           "sha256": "345816582becb29efc95c450fc2778cc8ecdf57688edc2a6df7ef580f64bc455",
-          "checked_at": "2026-10-30T07:43:13.911075+00:00",
+          "checked_at": "2026-10-31T07:29:33.535149+00:00",
           "source_rows": 13
         },
         {
           "section": "movement",
-          "sha256": "b24513fbbacec8e970fb8a441c6a0f1d6282f90c4e4e8dcf102be522ede417e8",
-          "checked_at": "2026-10-30T07:43:12.316253+00:00",
-          "source_rows": 3
+          "sha256": "bca4405d20ab42c298f0cc03368ed9cd8bd7f6f5811f4f4e72e1a51be54b4d4e",
+          "checked_at": "2026-10-31T07:29:31.643121+00:00",
+          "source_rows": 5
         }
       ],
       "unmapped_terminal_rows": 0
@@ -16819,19 +16819,19 @@
         {
           "section": "arrival",
           "sha256": "0193751fd63d2f76ce2f59165863c383519fabd7b84a48014406dfddc73ce641",
-          "checked_at": "2026-10-30T07:43:15.097114+00:00",
+          "checked_at": "2026-10-31T07:29:33.649634+00:00",
           "source_rows": 9
         },
         {
           "section": "departure",
           "sha256": "d39212350db2f3c5054253bb519caf169fb39a5677da2db6543542642b89079d",
-          "checked_at": "2026-10-30T07:43:15.058752+00:00",
+          "checked_at": "2026-10-31T07:29:34.694951+00:00",
           "source_rows": 11
         },
         {
           "section": "movement",
           "sha256": "65f748f3fa89716df8fa6645a02053b76e611ef356f4258c5a63406b3ec24b8a",
-          "checked_at": "2026-10-30T07:43:14.858073+00:00",
+          "checked_at": "2026-10-31T07:29:34.356069+00:00",
           "source_rows": 6
         }
       ],
@@ -16842,21 +16842,45 @@
       "responses": [
         {
           "section": "arrival",
-          "sha256": "2a26212447c8673d0791ab4daf7ad694187475a9a62a33afc2c4932f0e504b3d",
-          "checked_at": "2026-10-30T07:43:17.633521+00:00",
-          "source_rows": 13
+          "sha256": "a221ea0aae2b1d20b47c40fc6c13f5c805fb5f88c6b49d63a5e00511af0ebeca",
+          "checked_at": "2026-10-31T07:29:35.969450+00:00",
+          "source_rows": 14
         },
         {
           "section": "departure",
           "sha256": "d10e863613d043114397e5f961a6786f24872f5a9583a975f1f3897d9ea9d20b",
-          "checked_at": "2026-10-30T07:43:17.651772+00:00",
+          "checked_at": "2026-10-31T07:29:37.036043+00:00",
           "source_rows": 13
         },
         {
           "section": "movement",
-          "sha256": "14ac78eaf294014ae98dc72cc2d9eab874c6cd824c9186aa36b9f5bd8470f962",
-          "checked_at": "2026-10-30T07:43:16.017009+00:00",
+          "sha256": "9aed1723c4e311f73afa2d092d27fa31822992b0702a706918f98dc5422fde01",
+          "checked_at": "2026-10-31T07:29:35.518263+00:00",
           "source_rows": 2
+        }
+      ],
+      "unmapped_terminal_rows": 0
+    },
+    {
+      "day": "2026-10-30",
+      "responses": [
+        {
+          "section": "arrival",
+          "sha256": "83abaaee896581ac0da54c42752edcb1ced21f53ff6f6a0c8713ffcbfb90cc39",
+          "checked_at": "2026-10-31T07:29:37.557049+00:00",
+          "source_rows": 6
+        },
+        {
+          "section": "departure",
+          "sha256": "8ff227c0c3bb352730fbe67993271d67105e22dc1683b305ff8ef933b2287975",
+          "checked_at": "2026-10-31T07:29:37.997432+00:00",
+          "source_rows": 11
+        },
+        {
+          "section": "movement",
+          "sha256": "3fb57d42b75e33dfd0bb1a8b0ff803fbf388286622c87fe8cc8572c70f278cc2",
+          "checked_at": "2026-10-31T07:29:37.848005+00:00",
+          "source_rows": 6
         }
       ],
       "unmapped_terminal_rows": 0
