@@ -1,0 +1,152 @@
+{
+  "phase": "gmd-default-and-dwt-fix-20261031",
+  "code_commit": "15211a6c37aff698d51af1f9b8a2da57d9de0d28",
+  "branch": "codex/cloudflare-next-compat",
+  "live_after": {
+    "verified_at": "2026-10-31T15:24:40.922Z",
+    "code_commit": "15211a6",
+    "assets": {
+      "nam_dinh_vu": {
+        "rows": 1168,
+        "dwt": 23712116,
+        "missing_dwt": 4
+      },
+      "gemalink": {
+        "rows": 279,
+        "dwt": 32250988,
+        "missing_dwt": 0
+      },
+      "gmd_binh_duong": {
+        "rows": 2972,
+        "dwt": 12116892.669999998,
+        "missing_dwt": 1
+      },
+      "gmd_all": {
+        "rows": 4419,
+        "dwt": 68079996.67,
+        "missing_dwt": 5
+      }
+    },
+    "default_aggregate_and_year_card_verified": true
+  },
+  "checks": [
+    {
+      "name": "check",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41214590904/job/124577227898",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41214590904/job/124577227898"
+    },
+    {
+      "name": "Workers Builds: investing-pro-web-staging",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/runs/124577126680",
+      "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/449bf9bc-c200-4f17-a05a-6299bf76a48d"
+    },
+    {
+      "name": "e2e (desktop)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41214590904/job/124576349523",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41214590904/job/124576349523"
+    },
+    {
+      "name": "e2e (mobile)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41214590904/job/124576349470",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41214590904/job/124576349470"
+    },
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41214590904/job/124576349246",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41214590904/job/124576349246"
+    }
+  ],
+  "migration": {
+    "path": "supabase/migrations/202610310001_php_observed_dwt.sql",
+    "applied_to_serving_supabase": true,
+    "raw_events_unchanged": true,
+    "missing_dwt_preserved": true
+  },
+  "nam_dinh_vu": {
+    "before_dwt": 23414212,
+    "after_dwt": 23712116,
+    "restored_other_known_vessel_dwt": 297904,
+    "missing_days": [
+      {
+        "day": "2025-01-19",
+        "known_dwt": 134713.0,
+        "known_rows": 6
+      },
+      {
+        "day": "2025-05-10",
+        "known_dwt": 53201.0,
+        "known_rows": 8
+      },
+      {
+        "day": "2025-05-12",
+        "known_dwt": 82345.0,
+        "known_rows": 7
+      },
+      {
+        "day": "2025-05-18",
+        "known_dwt": 27645.0,
+        "known_rows": 4
+      }
+    ],
+    "raw_hash_checks": [
+      {
+        "day": "2025-01-19",
+        "sha256": "5a5489502b6951194753108cb4e607f221b88541641dd242f4f78df6a108ec00",
+        "verified": true
+      },
+      {
+        "day": "2025-05-10",
+        "sha256": "eed54801149fab5f1d9da46edb4a37d9de12d0c87cb5947af6f1e8f2401cd589",
+        "verified": true
+      },
+      {
+        "day": "2025-05-12",
+        "sha256": "f640257f38aece8defdda9da8b377a42940a85ac31c7b00aa565e856a7574f48",
+        "verified": true
+      },
+      {
+        "day": "2025-05-18",
+        "sha256": "1c2cea537bb2b071982e491bac3def1fae144003fff738a052cf8b85c31fe87f",
+        "verified": true
+      }
+    ]
+  },
+  "binhduong_replay": {
+    "days_reparsed": 365,
+    "responses_revalidated": 730,
+    "departure_rows": 2972,
+    "known_dwt": 12116892.67,
+    "missing_dwt": 1,
+    "sha256_of_source_hashes": "34782c6e3c6b6a8699c61d43780277594cde64b0244c4153d8b50998bd793411",
+    "matches_published_journals": true,
+    "competitor_row_level_difference_resolved": false
+  },
+  "binhduong_competitor_difference": {
+    "rows": 19,
+    "dwt": 74825.67,
+    "row_level_resolved": false,
+    "source_backed_data_changed": false
+  },
+  "ui": {
+    "default_scope": "gmd_all",
+    "default_direction": "departure",
+    "filters_preserved": true,
+    "year_card_separate_from_paired_ytd": true,
+    "live_gemalink_round_trip_verified": true,
+    "regional_scope_unchanged": true
+  },
+  "local_evidence_directory": ".local/ops/gmd-comparison",
+  "scheduled_refresh_accepted_by_this_phase": false,
+  "production_accepted": false,
+  "hcm_source_replaced": false
+}

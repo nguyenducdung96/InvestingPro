@@ -1,5 +1,15 @@
 # Bàn giao ngành cảng — trạng thái chốt 31/10/2026
 
+## GMD đã sửa tổng mặc định và DWT đã ghi nhận — 31/10/2026
+
+Code **15211a6** đã push, [Quality 41214590904](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41214590904) và Cloudflare success; đã đọc lại API/giao diện staging. GMD mặc định **Nam Đình Vũ + Gemalink + Bình Dương**, chuyển tab giữ bộ lọc và chart cùng phạm vi. Thêm tổng đã ghi nhận trong năm, tách với lũy kế tháng chung; tổng vùng vẫn giữ đúng tài sản trong vùng.
+
+Đã sửa trigger chỉ tính known DWT cho Tiên Sa: trước đây một tàu thiếu DWT làm mất cả phần trọng tải đã biết của các tàu khác cùng ngày ở asset khác. Migration đã áp dụng; raw/strict totals/version/hash giữ nguyên. Nam Đình Vũ 2025 từ **23.414.212 → 23.712.116 DWT**, 1.168 dòng và bốn DWT thiếu vẫn null. Gemalink **32.250.988 DWT**; Bình Dương **12.116.892,67 DWT**; GMD ba cảng **68.079.996,67 DWT** / 4.419 dòng chiều rời. Đây là lịch công bố, không phải hàng hóa thông qua hoặc actual.
+
+Reparse Bình Dương 365 ngày/730 phản hồi khớp journal; chênh ảnh bên khác **19 dòng/74.825,67 DWT** chưa giải thích từng dòng, không sửa dữ liệu theo tổng ảnh. [Báo cáo](gmd-default-and-dwt-fix-20261031.md), [receipt](catalog-review/gmd-default-and-dwt-fix-20261031.json).
+
+**Next step:** Bình Dương chờ hai schedule thật success khác ngày; không tính lượt kiểm thủ công này. HCM tiếp tục intake kế hoạch quốc gia độc lập theo kết luận 40 mẫu bên dưới, không thay lịch cũ đến 28/10 hoặc trộn giấy phép. Chưa nghiệm thu production/toàn ngành. PDN cron, Long Bình Tân, Dung Quất định kỳ và ICD/kho bãi giữ để sau. Các snapshot cũ bên dưới là lịch sử; mục mới này chỉ thay trạng thái GMD liên quan.
+
 ## HCM đã chốt đối chiếu nguồn mới: chỉ dùng bổ trợ — 31/10/2026
 
 Đã đối chiếu **40 mẫu** cả hai chiều trong tuần 22–28/10 của 2025/2026; giữ riêng bốn ô không có quan sát. **122 snapshot truy vấn và 46 PDF** được lưu/kiểm; chạy lại offline không gọi mạng và cho kết quả từng ca giống hệt. Kiểm SHA/reparse chín bảng HTML tham chiếu, đủ 40 dòng và scope proof K12. Kết quả: **9 khớp trường kế hoạch, 10 chỉ tương ứng giờ giấy phép, 2 khác trường dữ liệu, 9 thiếu định danh, 10 chưa có đối ứng trong cửa sổ**. Không quy đổi các nhóm này thành tỷ lệ bao phủ hoặc hoạt động cảng.
