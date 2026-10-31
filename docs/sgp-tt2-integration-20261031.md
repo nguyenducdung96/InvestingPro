@@ -22,6 +22,12 @@ Cộng dồn/YoY tiếp tục dùng các tháng có dữ liệu ở cả hai nă
 
 ## Kiểm tra và triển khai
 
-Local: lint/typecheck đạt; 13 kiểm tra tập trung dữ liệu/YoY đạt; E2E tập trung desktop/mobile 6/6 đạt, gồm TT2 detail, đủ bảy lựa chọn SGP (tổng + sáu monitor) và đối chiếu tổng SGP theo tháng/quý hai chiều. CI lần đầu phát hiện kỳ vọng cũ còn sáu lựa chọn; đã sửa kiểm tra và chạy lại, không đổi dữ liệu để đáp ứng test cũ. Toàn bộ Vitest: 45 files / 187 kiểm tra đạt. CI/staging được ghi nhận bổ sung khi hoàn tất.
+Local: lint/typecheck đạt; 13 kiểm tra tập trung dữ liệu/YoY đạt; E2E tập trung desktop/mobile 6/6 đạt, gồm TT2 detail, đủ bảy lựa chọn SGP (tổng + sáu monitor) và đối chiếu tổng SGP theo tháng/quý hai chiều. CI lần đầu phát hiện kỳ vọng cũ còn sáu lựa chọn; đã sửa kiểm tra và chạy lại, không đổi dữ liệu để đáp ứng test cũ. Toàn bộ Vitest: 45 files / 187 kiểm tra đạt; toàn bộ E2E local desktop/mobile: 76/76 đạt (3,4 phút). CI/staging đã nghiệm thu theo biên bản dưới.
 
 Lệnh rà live: `node scripts/verify-south-live.mjs`. Verifier đợi đúng ma trận TT2, không chỉ collection timestamp chung vốn không đổi khi mở rộng alias. Không nghiệm thu lịch cập nhật HCM cloud hoặc production qua lần tích hợp này.
+
+## Biên bản phát hành cuối
+
+Bản ứng dụng cuối **a42c996** trên `codex/cloudflare-next-compat`: [Quality 41174571970](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41174571970) **success ở attempt 2**, gồm lint/typecheck/Vitest/Python/E2E/Next/OpenNext build. Attempt 1 runner nhận shutdown trong E2E; chạy lại cùng SHA, không sửa ứng dụng theo lỗi hạ tầng. Cloudflare build `c0fd6d31-8b72-40f8-8a0e-1b0b94cea27f` **success**. API live khớp 22 tháng hai chiều cho 11 asset theo dõi, tổng sáu phạm vi SGP và dòng miền Nam; bốn ngày mẫu nhật ký khớp raw/hash. UI live desktop/mobile chọn TT2 đúng, một dòng SGP, không tràn ngang. Bản test/evidence a42c996 có cây ứng dụng/packages/scripts giống bản UI đã kiểm chứng cdbd601; API/data không đổi sau readback 262fa2f.
+
+Không dùng kết quả tích hợp lịch sử này để nghiệm thu HCM cloud, schedule refresh hoặc production. Dữ liệu TT2 vẫn đến 28/10/2026; không đưa probe 31/10 hoặc Hoa tiêu vào tổng. K12 tiếp tục cần quy thuộc từng dòng cầu/khu neo; không mở rộng alias bằng tên gần giống.

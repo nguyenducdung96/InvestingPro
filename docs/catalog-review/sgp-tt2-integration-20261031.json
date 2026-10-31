@@ -379,5 +379,293 @@
     "2026-10-23": "13eac33db1a0b1ec9b0a40102bb68c7d364d21533e29e18afd16bd60ed832d99",
     "2026-10-24": "0e77863d8d22405e996e90cc8d8b15b0c76a6adf4b49e20642fcaafad5d193ed",
     "2026-10-28": "d2c6c83b97df366b1ce296daab6bd16c21538bcae0f7c718eb989a8057eceb50"
-  }
+  },
+  "local_validation": {
+    "lint": "passed",
+    "typecheck": "passed",
+    "vitest": {
+      "files": 45,
+      "passed": 187
+    },
+    "e2e": {
+      "passed": 76,
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "log": ".local/sgp-k12-tt2/e2e-all-local.log"
+    }
+  },
+  "live_api": {
+    "verifier_version": "south-live/1",
+    "verified_at": "2026-10-31T05:48:29.364Z",
+    "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+    "expected_checked_at": "2026-10-29T14:12:52.063915+00:00",
+    "through": "2026-10-28",
+    "event_name": "local",
+    "run_id": "sgp-tt2-262fa2f",
+    "run_attempt": "1",
+    "published_commit": "262fa2f4b77000949428d342d6e08cdf087285e9",
+    "source_refresh_success": false,
+    "deployment_readback_verified": true,
+    "scheduled_refresh_verified": false,
+    "actual_verified": false,
+    "full_scope_certified": false,
+    "checks": [
+      {
+        "asset": "gemalink",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_hiep_phuoc",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "cmit",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sp_psa",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "ssit",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan_2",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_berth7",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_b7",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "swc_buoys",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "vgp_k16",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "direction": "arrival",
+        "sgp_aggregate_matched": true,
+        "south_overview_matched": true
+      },
+      {
+        "asset": "gemalink",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_hiep_phuoc",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "cmit",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sp_psa",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "ssit",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan_2",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_berth7",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_b7",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "swc_buoys",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "vgp_k16",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "direction": "departure",
+        "sgp_aggregate_matched": true,
+        "south_overview_matched": true
+      }
+    ],
+    "scheduled_run_ids": []
+  },
+  "live_ui_and_raw_samples": {
+    "verified_at": "2026-10-31T05:53:04.700Z",
+    "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+    "code_commit": "cdbd601e3ff38b85aab2453b870ea917b88d9701",
+    "journal_checks": [
+      {
+        "day": "2025-01-04",
+        "direction": "arrival",
+        "raw_rows_matched": 1
+      },
+      {
+        "day": "2025-01-05",
+        "direction": "departure",
+        "raw_rows_matched": 1
+      },
+      {
+        "day": "2026-10-28",
+        "direction": "arrival",
+        "raw_rows_matched": 1
+      },
+      {
+        "day": "2026-10-24",
+        "direction": "departure",
+        "raw_rows_matched": 1
+      }
+    ],
+    "ui_checks": [
+      {
+        "viewport": "desktop",
+        "tt2_selected": true,
+        "one_sgp_regional_row": true,
+        "no_horizontal_overflow": true,
+        "updated_scope_copy": true
+      },
+      {
+        "viewport": "mobile",
+        "tt2_selected": true,
+        "one_sgp_regional_row": true,
+        "no_horizontal_overflow": true,
+        "updated_scope_copy": true
+      }
+    ]
+  },
+  "release_equivalence": {
+    "ui_verified_commit": "cdbd601e3ff38b85aab2453b870ea917b88d9701",
+    "release_commit": "a42c9960d348e63faab4b332f61804cce8f359d4",
+    "apps_packages_scripts_unchanged": true,
+    "release_only_changes_tests_and_source_evidence": true
+  },
+  "acceptance": {
+    "history_integration_verified": true,
+    "deployment_readback_verified": true,
+    "hcm_cloud_connectivity_acceptance": false,
+    "scheduled_refresh_verified": false,
+    "production_acceptance": false,
+    "quality_ci_verified": true
+  },
+  "release": {
+    "checked_at": "2026-10-31T06:12:51.540494+00:00",
+    "code_commit": "a42c9960d348e63faab4b332f61804cce8f359d4",
+    "checks": [
+      {
+        "name": "check",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41174571970/job/124461045506"
+      },
+      {
+        "name": "Workers Builds: investing-pro-web-staging",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/c0fd6d31-8b72-40f8-8a0e-1b0b94cea27f"
+      }
+    ],
+    "quality": [
+      {
+        "id": 41174571970,
+        "head_sha": "a42c9960d348e63faab4b332f61804cce8f359d4",
+        "run_attempt": 2,
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41174571970",
+        "active_steps": [],
+        "completed_steps": [
+          "Set up job",
+          "Run actions/checkout@v4",
+          "Run pnpm/action-setup@v4",
+          "Run actions/setup-node@v4",
+          "Run pnpm install --frozen-lockfile",
+          "Run pnpm lint",
+          "Run pnpm typecheck",
+          "Run pnpm test",
+          "Run actions/setup-python@v5",
+          "Run python -m pip install -r scripts/requirements-gemalink-national.txt",
+          "Run python scripts/test-gemalink-national.py",
+          "Run python scripts/test-swc-longbinh-plans.py",
+          "Run python scripts/test-binhduong-plans.py",
+          "Run python scripts/test-sgp-pilot-plans.py",
+          "Run python scripts/test-sgp-pilot-overlap.py",
+          "Run pnpm exec playwright install --with-deps chromium",
+          "Run pnpm test:e2e",
+          "Run pnpm build",
+          "Run pnpm build:cloudflare",
+          "Post Run actions/setup-python@v5",
+          "Post Run actions/setup-node@v4",
+          "Post Run pnpm/action-setup@v4",
+          "Post Run actions/checkout@v4",
+          "Complete job"
+        ]
+      }
+    ]
+  },
+  "ci_history": [
+    {
+      "commit": "cdbd601",
+      "run_id": 41174155309,
+      "conclusion": "failure",
+      "cause": "Old E2E expected six options; seven are correct after adding TT2. Updated selector test, targeted desktop/mobile passed."
+    },
+    {
+      "commit": "a42c996",
+      "run_id": 41174571970,
+      "run_attempt": 1,
+      "conclusion": "failure",
+      "cause": "Runner received shutdown signal during E2E; operation canceled. Retried same SHA without application changes."
+    },
+    {
+      "commit": "a42c996",
+      "run_id": 41174571970,
+      "run_attempt": 2,
+      "conclusion": "success"
+    }
+  ]
 }

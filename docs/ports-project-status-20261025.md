@@ -2,6 +2,10 @@
 
 ## Tân Thuận 2 đã tích hợp — 31/10/2026
 
+Bản ứng dụng cuối **a42c996** trên `codex/cloudflare-next-compat`: [Quality 41174571970](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41174571970) **success ở attempt 2**, gồm lint/typecheck/Vitest/Python/E2E/Next/OpenNext build. Attempt 1 runner nhận shutdown trong E2E; chạy lại cùng SHA, không sửa ứng dụng theo lỗi hạ tầng. Cloudflare build `c0fd6d31-8b72-40f8-8a0e-1b0b94cea27f` **success**. API live khớp 22 tháng hai chiều cho 11 asset theo dõi, tổng sáu phạm vi SGP và dòng miền Nam; bốn ngày mẫu nhật ký khớp raw/hash. UI live desktop/mobile chọn TT2 đúng, một dòng SGP, không tràn ngang. Bản test/evidence a42c996 có cây ứng dụng/packages/scripts giống bản UI đã kiểm chứng cdbd601; API/data không đổi sau readback 262fa2f.
+
+Không dùng kết quả tích hợp lịch sử này để nghiệm thu HCM cloud, schedule refresh hoặc production. Dữ liệu TT2 vẫn đến 28/10/2026; không đưa probe 31/10 hoặc Hoa tiêu vào tổng. K12 tiếp tục cần quy thuộc từng dòng cầu/khu neo; không mở rộng alias bằng tên gần giống.
+
 Đã mở monitor `sg_tan_thuan_2` cho nhãn chính xác TAN.T.2; SGP sáu phạm vi và miền Nam vẫn một dòng SGP. 168 vào + 180 rời = 348 dòng lịch sử, DWT lần lượt 2.691.676 / 3.113.233; 46 điều chuyển riêng, không cộng Hoa tiêu. Rà SHA/reparse đủ 666 bảng, bảo toàn 10.455 dòng cũ. K12, B.TT2, TTD, K17 tiếp tục loại khỏi alias TT2. Mapping dựa nguồn SGP/Cục Hàng hải và một mẫu tàu độc lập; dữ liệu vẫn là kế hoạch công bố.
 
 [Hồ sơ tích hợp](sgp-tt2-integration-20261031.md), [receipt](catalog-review/sgp-tt2-integration-20261031.json). Các mục dưới là biên bản phase trước, không thay trạng thái mới này. HCM cloud acceptance, PDN cron, Long Bình Tân và ICD/kho bãi chưa mở lại.
