@@ -22,6 +22,7 @@ jobs:
       - run: python scripts/test-gemalink-national.py
       - run: python scripts/test-hcm-national-matrix.py
       - run: python scripts/test-hcm-collector-bundle.py
+      - run: python scripts/test-hcm-raw-backup.py
       - run: python scripts/test-swc-longbinh-plans.py
       - run: python scripts/test-binhduong-plans.py
       - run: python scripts/test-sgp-pilot-plans.py

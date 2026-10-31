@@ -1,0 +1,56 @@
+name: HCM private raw backup
+on:
+  workflow_dispatch:
+    inputs:
+      restore_manifest:
+        description: Optional immutable manifest key for an independent restore drill
+        type: string
+        default: ''
+  schedule:
+    # 09:05 Vietnam, after the VPS 08:15 collection window.
+    - cron: '5 2 * * *'
+permissions:
+  contents: read
+concurrency:
+  group: hcm-private-raw-backup
+  cancel-in-progress: false
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    environment: staging
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: codex/cloudflare-next-compat
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/test-hcm-raw-backup.py
+      - run: python -m pip install -r config/requirements-hcm-backup.txt
+      - name: Fetch original-source bundle with restricted read-only key
+        if: inputs.restore_manifest == ''
+        env:
+          HCM_COLLECTOR_HOST: ${{ secrets.HCM_COLLECTOR_HOST }}
+          HCM_COLLECTOR_SSH_KEY: ${{ secrets.HCM_COLLECTOR_SSH_KEY }}
+          HCM_COLLECTOR_KNOWN_HOSTS: ${{ secrets.HCM_COLLECTOR_KNOWN_HOSTS }}
+        run: python scripts/fetch-hcm-collector.py --download-only
+      - name: Back up privately and verify every object through a cold restore
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.PHP_NEWSLETTERS_R2_TOKEN }}
+          RESTORE_MANIFEST: ${{ inputs.restore_manifest }}
+        shell: bash
+        run: |
+          if [ -n "$RESTORE_MANIFEST" ]; then
+            python scripts/archive-hcm-raw.py --restore-manifest "$RESTORE_MANIFEST" --restore-dir .local/ops/hcm-r2-restore
+          else
+            python scripts/archive-hcm-raw.py --bundle .local/ops/hcm-collector.tar.gz
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hcm-r2-backup-receipt
+          path: .local/ops/hcm-r2-backup.json
+          include-hidden-files: true
+          if-no-files-found: ignore
+          retention-days: 30

@@ -3,6 +3,7 @@ import os
 from pathlib import Path
 import subprocess
 import tempfile
+import sys
 
 with tempfile.TemporaryDirectory() as directory:
     tmp=Path(directory)
@@ -13,4 +14,5 @@ with tempfile.TemporaryDirectory() as directory:
     dest=Path('.local/ops/hcm-collector.tar.gz');dest.parent.mkdir(parents=True,exist_ok=True)
     with dest.open('wb') as output:
         subprocess.run(['ssh','-i',str(key),'-o','IdentitiesOnly=yes','-o','BatchMode=yes','-o','StrictHostKeyChecking=yes','-o','UserKnownHostsFile='+str(hosts),'-o','ConnectTimeout=20','-o','ServerAliveInterval=15','-o','ServerAliveCountMax=3','invest-hcm-export@'+host,'export-hcm'],stdout=output,check=True,timeout=300)
-subprocess.run(['python','scripts/hcm-collector-bundle.py','unpack',str(dest)],check=True)
+if '--download-only' not in sys.argv:
+    subprocess.run(['python','scripts/hcm-collector-bundle.py','unpack',str(dest)],check=True)

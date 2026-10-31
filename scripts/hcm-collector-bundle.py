@@ -55,7 +55,7 @@ def pack(folder,dest):
     tmp.chmod(0o640);tmp.replace(dest)
     return run
 
-def unpack(bundle,folder):
+def unpack(bundle,folder,now=None):
     # Extract into a fresh directory, reject traversal/links/duplicates before any writes.
     folder.parent.mkdir(parents=True,exist_ok=True)
     with tempfile.TemporaryDirectory(dir=folder.parent) as temp:
@@ -70,7 +70,7 @@ def unpack(bundle,folder):
                 if len(seen)>10000 or item.size>4_000_000 or size>500_000_000:raise ValueError('Bundle too large')
                 target=stage/name;target.parent.mkdir(parents=True,exist_ok=True)
                 with tar.extractfile(item) as source,target.open('wb') as dest:shutil.copyfileobj(source,dest)
-        run,_,_=validate(stage)
+        run,_,_=validate(stage) if now is None else validate(stage,now)
         # Validation is complete before replacing working input. Receipts remain outside.
         for name in ['parsed','archive']:
             dest=folder/name
