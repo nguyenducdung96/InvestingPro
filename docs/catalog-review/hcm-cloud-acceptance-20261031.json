@@ -421,5 +421,28 @@
       ]
     }
   },
-  "workflow_main_matches_staging": true
+  "workflow_main_matches_staging": true,
+  "validation_release": {
+    "commit": "05d524d20b647343a823b1637d0b41ae40e77b38",
+    "quality_run": 41184352373,
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "e2e (desktop)",
+        "conclusion": "success"
+      },
+      {
+        "name": "e2e (mobile)",
+        "conclusion": "success"
+      },
+      {
+        "name": "validate",
+        "conclusion": "success"
+      },
+      {
+        "name": "check",
+        "conclusion": "success"
+      }
+    ]
+  }
 }

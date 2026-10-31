@@ -15,6 +15,8 @@ Biên nhận đã lưu bền: [hcm-cloud-acceptance-20261031.json](catalog-revie
 
 ## Dữ liệu tốt gần nhất và kiểm chứng fallback
 
+Bản kiểm thử/bằng chứng `05d524d` đã push trên `codex/cloudflare-next-compat`; [Quality 41184352373](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41184352373) **success**, gồm validate, E2E desktop/mobile và required check. CI không thay nghiệm thu nguồn cloud.
+
 Readback staging mới lúc 08:19:58 UTC khớp 11 asset × 22 tháng × hai chiều, sáu phạm vi SGP và từng hàng issuer miền Nam. Edition HCM vẫn `checked_at=2026-10-29T14:12:52.063915+00:00`, `through=2026-10-28`, bao gồm fingerprint K12 đã duyệt. Đây là nghiệm thu **bản đang phục vụ**, không phải refresh nguồn vừa thành công.
 
 Đã bổ sung hai kiểm thử collector thực thi đường lỗi theo ngày: giữ nguyên events/raw hash/raw bytes/thời điểm lấy thành công khi refresh thất bại; ngày cold-cache thất bại không có quan sát hoặc hash giả. Tổng **11 Python collector tests và 4 Node verifier tests đạt**. Không thay hành vi collector/exporter/API, không thay số liệu đã công bố.

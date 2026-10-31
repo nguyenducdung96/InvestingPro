@@ -2,6 +2,8 @@
 
 ## HCM cloud đã kiểm lại theo yêu cầu mới — 31/10/2026
 
+Bản kiểm thử/bằng chứng `05d524d` đã push trên `codex/cloudflare-next-compat`; [Quality 41184352373](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41184352373) **success**, gồm validate, E2E desktop/mobile và required check. CI không thay nghiệm thu nguồn cloud.
+
 Đã mở lại phase nghiệm thu HCM theo yêu cầu người dùng. Probe Ubuntu x64 [41184106677](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41184106677) vẫn failure bootstrap; chẩn đoán Linux ARM/Windows [41184128683](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41184128683) xác nhận TCP 80/443 timeout tới nguồn. Máy phát triển cùng đợt GET được HTTP 200/TLS hợp lệ. Sáu chu kỳ schedule 26–31/10 đều không lấy được nguồn; **cloud/scheduled refresh chưa nghiệm thu**.
 
 Staging vẫn khớp bản tốt đến 28/10, 11 asset × 22 tháng × hai chiều và tổng issuer/vùng. Bổ sung hai kiểm thử đường lỗi theo ngày: giữ dữ liệu/raw/thời điểm thành công cũ; ngày thiếu không tạo quan sát/hash giả. 11 Python + 4 Node tests đạt; không thay dữ liệu hay hành vi ứng dụng. Lịch HCM hiện hữu giữ nguyên, main khớp workflow staging. [Kết quả và cổng tiếp tục](hcm-cloud-acceptance-20261031.md), [biên nhận](catalog-review/hcm-cloud-acceptance-20261031.json).
