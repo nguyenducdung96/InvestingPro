@@ -85,7 +85,7 @@ def bootstrap():
  return op,raw,page,form
 def total_rows(page):
  text=' '.join(page.text)
- m=re.search(r'Showing\s+(?:[\d.,]+\s*-\s*[\d.,]+\s+of\s+)?([\d.,]+)\s+results',text)
+ m=re.search(r'Showing\s+(?:[\d.,]+\s*-\s*[\d.,]+\s+of\s+)?([\d.,]+)\s+results?\b',text)
  if m:return int(re.sub(r'\D','',m[1]))
  if re.search(r'No results|No (?:data|records)|Không có (?:dữ liệu|kết quả)',text,re.I):return 0
  raise ValueError('Unknown pagination count')

@@ -41,5 +41,7 @@ class Tests(unittest.TestCase):
   with self.assertRaises(ValueError):c.safe_url('https://example.org/private')
  def test_pagination_counts_and_document_kind_are_not_inferred_from_html_size(self):
   page=c.parse(b'<p>Showing 1 - 20 of 1.065 results</p>');self.assertEqual(c.total_rows(page),1065)
+  self.assertEqual(c.total_rows(c.parse(b'<p>Showing 1 result</p>')),1)
+  self.assertEqual(c.total_rows(c.parse(b'<p>Showing 0 results</p>')),0)
   with self.assertRaises(ValueError):c.total_rows(c.parse(b'<p>Access unavailable</p>'))
 if __name__=='__main__':unittest.main()
