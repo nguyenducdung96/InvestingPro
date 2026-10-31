@@ -31,9 +31,9 @@ Lệnh review: `python scripts/review-sgp-k12.py`; thêm `--fetch --max-new-days
 
 ## Số liệu chốt và kiểm tra
 
-Chọn **291 dòng**: **152 vào / DWT 1.985.936** và **139 rời / DWT 1.839.204**, không thiếu DWT trong tập được chọn. 167 dòng năm 2025 và 124 dòng năm 2026. Đây là tổng trọng tải trên dòng kế hoạch, không phải sản lượng hàng hoặc số tàu duy nhất.
+Chọn **331 dòng**: **173 vào / DWT 2.232.642** và **158 rời / DWT 2.067.706**, không thiếu DWT trong tập được chọn. 169 dòng năm 2025 và 162 dòng năm 2026. Đây là tổng trọng tải trên dòng kế hoạch, không phải sản lượng hàng hoặc số tàu duy nhất.
 
-**161 dòng trực tiếp giữ ngoài SGP**: 148 chưa có đăng ký khớp chính xác, 9 khác bến đăng ký, 3 khác vai trò giờ vùng cảng/giờ vào cầu và 1 có nhiều đăng ký xung đột. 43 điều chuyển vẫn riêng. Đã lưu 193/217 ngày đăng ký ứng viên; 24 ngày chưa tải không được diễn giải là không có hoạt động. Sau khi nguồn yêu cầu nghỉ 15 phút, đã dừng đủ thời gian rồi tải thêm hai batch giới hạn 80 và 15 ngày, không tiếp tục tải vượt quota để ép hoàn tất phạm vi.
+**121 dòng trực tiếp giữ ngoài SGP**: 107 chưa có đăng ký khớp chính xác, 10 khác bến đăng ký, 3 khác vai trò giờ vùng cảng/giờ vào cầu và 1 có nhiều đăng ký xung đột. 43 điều chuyển vẫn riêng. Đã lưu đủ **217/217 ngày đăng ký ứng viên**, không còn ngày truy vấn trong phạm vi ban đầu chưa tải. Đủ ngày truy vấn không chứng nhận đủ mọi hoạt động hoặc đủ scope cho các dòng chưa khớp. Sau khi nguồn yêu cầu nghỉ 15 phút, đã dừng đủ thời gian rồi tải thêm các batch giới hạn 80 và 15 ngày; khi cửa sổ quota tiếp theo mở đã khép nốt 24 ngày còn lại, không vượt giới hạn hoặc đổi IP. Toàn bộ 291 dòng K12 đã chọn trước đó được giữ; đợt cuối bổ sung 40 dòng.
 
 Audit độc lập kiểm tra từng hash raw API và bản ghi đúng chỉ số trong manifest, đối chiếu raw/DWT/giờ với bảng kế hoạch, không chuyển DWT từ bản đồ. Bảo toàn giá trị và thứ tự **10.803 dòng đã phát hành**; không có khóa ngày/chiều/tên tàu/giờ trùng với SGP đã theo dõi hoặc trùng giữa các ứng viên K12. Các nguồn riêng Bình Dương/PDN/Long Bình/Gemalink national không thay đổi.
 
