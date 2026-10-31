@@ -13,7 +13,7 @@ export function buildCycle({env,source,live,previous=[],now=new Date()}){
   &&live?.deployment_readback_verified===true&&live?.source_refresh_success===true
   &&live?.run_id===env.GITHUB_RUN_ID&&live?.run_attempt===env.GITHUB_RUN_ATTEMPT
   &&live?.event_name===env.GITHUB_EVENT_NAME&&live?.verifier_version==='south-live/1'
-  &&live?.through===source.through&&Date.parse(live?.checked_at)>=Date.parse(source.checked_at)
+  &&live?.through===source.through&&Date.parse(live?.checked_at)>=Date.parse(source.checked_at)&&Date.parse(live?.checked_at)<=now.getTime()
   &&live?.published_commit===env.PUBLISHED_COMMIT&&/^[a-f0-9]{40}$/.test(live?.published_commit??'');
  const receipt={cycle_recorder_version:version,verifier_version:'south-live/1',event_name:env.GITHUB_EVENT_NAME,
   run_id:env.GITHUB_RUN_ID,run_attempt:env.GITHUB_RUN_ATTEMPT,verified_at:now.toISOString(),

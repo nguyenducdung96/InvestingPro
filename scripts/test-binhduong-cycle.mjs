@@ -10,7 +10,7 @@ const env={GITHUB_ACTIONS:'true',GITHUB_RUN_ID:'2',GITHUB_RUN_ATTEMPT:'1',GITHUB
 const source={source_refresh_success:true,export_success:true,through:'2026-11-01',checked_at:'2026-11-02T02:00:00Z'};
 const live={verifier_version:'south-live/1',event_name:'schedule',run_id:'2',run_attempt:'1',published_commit:sha,source_refresh_success:true,deployment_readback_verified:true,through:source.through,checked_at:'2026-11-02T02:01:00Z'};
 const build=extra=>buildCycle({env,source,live,now,...extra});
-const first=()=>build({env:{...env,GITHUB_RUN_ID:'1'},live:{...live,run_id:'1'},now:new Date('2026-11-01T04:00:00Z')});
+const first=()=>build({env:{...env,GITHUB_RUN_ID:'1'},source:{...source,checked_at:'2026-11-01T02:00:00Z'},live:{...live,run_id:'1',checked_at:'2026-11-01T02:01:00Z'},now:new Date('2026-11-01T04:00:00Z')});
 test('two distinct scheduled cloud jobs are required; a manual run cannot replace either',()=>{
  const a=first();assert.equal(a.scheduled_refresh_verified,false);
  assert.equal(build({previous:[a]}).scheduled_refresh_verified,true);
