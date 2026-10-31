@@ -1,0 +1,23 @@
+[Unit]
+Description=InvestingPro original HCM source collector
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=invest-hcm
+Group=invest-hcm-data
+WorkingDirectory=/opt/investingpro-hcm
+ExecStart=/usr/bin/python3 /opt/investingpro-hcm/scripts/collect-south-plans.py --workers 1 --refresh-recent 4
+ExecStart=/usr/bin/python3 /opt/investingpro-hcm/scripts/hcm-collector-bundle.py pack /var/lib/investingpro-hcm/export/latest.tar.gz
+TimeoutStartSec=30min
+UMask=0027
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/investingpro-hcm
+MemoryMax=512M
+CPUQuota=50%
+Nice=10
+

@@ -1,0 +1,11 @@
+[Unit]
+Description=Collect HCM before GitHub publication at 08:35 Vietnam
+
+[Timer]
+OnCalendar=*-*-* 01:15:00 UTC
+Persistent=true
+AccuracySec=1min
+Unit=hcm-collector.service
+
+[Install]
+WantedBy=timers.target

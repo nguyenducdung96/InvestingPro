@@ -3,6 +3,13 @@ run-name: ${{ inputs.probe_only && 'Source connectivity probe' || 'Southern offi
 on:
   workflow_dispatch:
     inputs:
+      transport:
+        description: Original-source collection location
+        type: choice
+        default: vps
+        options:
+          - vps
+          - direct
       runner:
         description: Standard hosted runner
         type: choice
@@ -48,11 +55,26 @@ jobs:
           key: south-plans-v1-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: south-plans-v1-
       - run: python scripts/test-south-plans.py
+      - run: python scripts/test-hcm-collector-bundle.py
       - run: node --test scripts/test-south-live.mjs
       - name: Refresh validated historical date forms
         id: collect
         continue-on-error: true
-        run: python scripts/collect-south-plans.py --workers 3 --refresh-recent 4 ${{ inputs.probe_only && '--probe' || '' }}
+        env:
+          HCM_TRANSPORT: ${{ inputs.transport || 'vps' }}
+          HCM_PROBE: ${{ inputs.probe_only }}
+          HCM_COLLECTOR_HOST: ${{ secrets.HCM_COLLECTOR_HOST }}
+          HCM_COLLECTOR_SSH_KEY: ${{ secrets.HCM_COLLECTOR_SSH_KEY }}
+          HCM_COLLECTOR_KNOWN_HOSTS: ${{ secrets.HCM_COLLECTOR_KNOWN_HOSTS }}
+        run: |
+          if [ "$HCM_PROBE" = "true" ]; then
+            python scripts/collect-south-plans.py --probe
+          elif [ "$HCM_TRANSPORT" = "direct" ]; then
+            python scripts/collect-south-plans.py --workers 1 --refresh-recent 4
+          else
+            python scripts/fetch-hcm-collector.py
+            echo "exportable=true" >> "$GITHUB_OUTPUT"
+          fi
       - name: Verify archives and compile an immutable edition
         id: compile
         if: steps.collect.outputs.exportable == 'true'
