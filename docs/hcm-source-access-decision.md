@@ -1,5 +1,15 @@
 # Phương án vận hành chuẩn cho nguồn TP.HCM
 
+## HCM đã chạy đầu cuối trên máy Linux và bật lịch — 31/10/2026
+
+Đã cài collector độc lập trên máy Linux hiện có, tài khoản riêng/quyền hạn chế, không đổi cấu hình n8n. **668 ngày 01/01/2025–30/10/2026** đủ raw/parsed, nguồn không lỗi; lịch sử cũ được seed và các ngày gần nhất tải lại. Gói ~36 MB qua khóa SSH chỉ đọc, host key pin; không root credential hoặc quyền deploy/database trên VPS.
+
+Code **f72852a** qua Quality (validate, desktop/mobile, required check) và Cloudflare. [Run thủ công 41221110728](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41221110728) **success** toàn luồng VPS → GitHub → export → push **bd62179** → Cloudflare → API readback: **11 phạm vi × 22 tháng × hai chiều**, tổng SGP và tổng quan miền Nam khớp edition. Lịch HCM trên staging đã từ 28/10 lên **30/10**, `checked_at=2026-10-31T16:40:29.640476+00:00`. Vẫn là kế hoạch công bố, không phải actual.
+
+Timer VPS **enabled/active**, thu thập **08:15 Việt Nam** hằng ngày; GitHub nhận/xuất bản **08:35**. Workflow trên main cập nhật riêng tại **bf99a486**, không merge ứng dụng staging vào main. Khóa nhận gói chỉ phục vụ dữ liệu cố định; lần collect mới lỗi không được phục vụ success cũ như bản mới. [Runbook/chuyển máy](hcm-linux-collector-20261031.md), [biên nhận](catalog-review/hcm-linux-collector-20261031.json).
+
+**Next step:** nghiệm thu hai chu kỳ schedule thật thành công khác ngày; run thủ công không tính, hiện `scheduled_refresh_verified=false`. Timer dự kiến lần đầu 01/11 08:15 Việt Nam; thời gian GitHub chạy có thể trễ. Raw hiện lưu bền trên VPS và có bản seed/download tại máy; sao lưu raw ngoài VPS lên kho cloud lâu dài chưa nghiệm thu, cache/artifact 14 ngày không thay bước đó. Chưa nghiệm thu production/toàn ngành. Intake quốc gia bổ trợ vẫn hoãn; Bình Dương có lịch riêng; PDN cron, Long Bình Tân, Dung Quất định kỳ và ICD/kho bãi giữ để sau. Các snapshot access HCM chưa có máy/đến 28/10 bên dưới là lịch sử.
+
 ## Máy Linux người dùng cung cấp đã qua kiểm tra access HCM — 31/10/2026
 
 Đã kiểm SSH và đọc nguồn từ **chính máy Linux được người dùng cung cấp**, lúc 22:55 Việt Nam. Ubuntu 24.04.4 LTS, Python 3.12.3, khoảng 4 GB RAM và còn 8,8 GB ổ đĩa. GET đúng ngày 31/10; POST đúng 01/01/2025 và 30/10/2026, đủ ba bảng, TLS hợp lệ. Nội dung parse của cả hai ngày khớp bản lấy tại máy phát triển; hash raw đã kiểm. Khác hash HTML một ngày không đổi nội dung parse (trạng thái form có thể thay đổi). [Biên nhận đã lược thông tin máy/xác thực](catalog-review/hcm-linux-preflight-20261031.json).

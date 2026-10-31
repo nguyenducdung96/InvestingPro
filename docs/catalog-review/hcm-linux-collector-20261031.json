@@ -1,0 +1,236 @@
+{
+  "phase": "hcm-linux-collector-20261031",
+  "code_commit": "f72852a",
+  "data_commit": "bd62179",
+  "default_workflow_commit": "bf99a486fbe579a3f1f58a9262cc8a915cb0209a",
+  "manual_workflow_run": 41221110728,
+  "checks": {
+    "f72852a": [
+      {
+        "name": "check",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41220990446/job/124596208943",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41220990446/job/124596208943"
+      },
+      {
+        "name": "Workers Builds: investing-pro-web-staging",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/runs/124595954537",
+        "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/43ce58e2-b04f-4753-8f32-49aac354865d"
+      },
+      {
+        "name": "refresh",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41221110728/job/124595678837",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41221110728/job/124595678837"
+      },
+      {
+        "name": "e2e (desktop)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41220990446/job/124595306915",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41220990446/job/124595306915"
+      },
+      {
+        "name": "validate",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41220990446/job/124595306844",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41220990446/job/124595306844"
+      },
+      {
+        "name": "e2e (mobile)",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41220990446/job/124595306695",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41220990446/job/124595306695"
+      }
+    ],
+    "bd62179": [
+      {
+        "name": "Workers Builds: investing-pro-web-staging",
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/runs/124596662407",
+        "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/fb0f7da9-0bb3-4dee-9002-477ccc4485f9"
+      }
+    ]
+  },
+  "vps": {
+    "service": {
+      "Result": "success",
+      "ExecMainStatus": "0",
+      "MemoryPeak": "[not set]",
+      "CPUUsageNSec": "[not set]",
+      "ActiveState": "inactive",
+      "SubState": "dead"
+    },
+    "timer": {
+      "NextElapseUSecRealtime": "Sun 2026-11-01 08:15:00 +07",
+      "ActiveState": "active",
+      "UnitFileState": "enabled"
+    },
+    "source_run": {
+      "checked_at": "2026-10-31T16:40:30.929654+00:00",
+      "stage": "collection",
+      "status": "success",
+      "exportable": true,
+      "requested_days": 668,
+      "parsed_days": 668,
+      "error_days": 0,
+      "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146"
+    },
+    "bundle_bytes": 36065529
+  },
+  "live_readback": {
+    "verifier_version": "south-live/1",
+    "verified_at": "2026-10-31T16:48:22.971Z",
+    "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+    "expected_checked_at": "2026-10-31T16:40:29.640476+00:00",
+    "through": "2026-10-30",
+    "event_name": "workflow_dispatch",
+    "run_id": "41221110728",
+    "run_attempt": "1",
+    "published_commit": "bd62179f9504ac20eebb00eb988d4243cab7d355",
+    "source_refresh_success": true,
+    "deployment_readback_verified": true,
+    "scheduled_refresh_verified": false,
+    "actual_verified": false,
+    "full_scope_certified": false,
+    "checks": [
+      {
+        "asset": "gemalink",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_hiep_phuoc",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "cmit",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sp_psa",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "ssit",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan_2",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_berth7",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_b7",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "swc_buoys",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "vgp_k16",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "direction": "arrival",
+        "sgp_aggregate_matched": true,
+        "south_overview_matched": true
+      },
+      {
+        "asset": "gemalink",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_hiep_phuoc",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "cmit",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sp_psa",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "ssit",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan_2",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_berth7",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_b7",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "swc_buoys",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "vgp_k16",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "direction": "departure",
+        "sgp_aggregate_matched": true,
+        "south_overview_matched": true
+      }
+    ],
+    "scheduled_run_ids": [
+      "41021678900",
+      "41180687031"
+    ]
+  },
+  "restricted_export_command_verified": true,
+  "root_credential_in_github": false,
+  "n8n_configuration_changed": false,
+  "raw_external_cloud_archive_accepted": false,
+  "scheduled_refresh_verified": false,
+  "production_accepted": false
+}
