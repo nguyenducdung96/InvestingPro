@@ -16,6 +16,32 @@ def board(day='2026-10-24',clock='11:00',weight='156694'):
   html+='</table>'
  return html.encode()
 class Tests(unittest.TestCase):
+ def test_failed_daily_refresh_preserves_prior_rows_raw_and_success_time(self):
+  import gzip
+  import hashlib
+  day='2026-10-24';raw=board();sha=hashlib.sha256(raw).hexdigest()
+  prior={**m.parse(raw,day),'sha256':sha,'checked_at':'2026-10-25T01:00:00+00:00','parser_version':m.VERSION,'source_url':m.URL,'source_error':None}
+  with tempfile.TemporaryDirectory() as folder:
+   p=Path(folder);(p/'parsed').mkdir();(p/'archive').mkdir()
+   path=p/'parsed'/f'{day}.json';path.write_text(json.dumps(prior),encoding='utf-8')
+   archive=p/'archive'/f'{sha}.html.gz';archive.write_bytes(gzip.compress(raw,mtime=0));stored=archive.read_bytes()
+   with patch.object(m,'OUT',p),patch.object(m,'initial_request',return_value=raw),patch.object(m,'request',side_effect=OSError('source timeout')),patch.object(m.time,'sleep'),patch('sys.argv',['collector','--from',day,'--through',day,'--workers','1']),patch.dict(m.os.environ,{},clear=True),patch('builtins.print'):
+    with self.assertRaises(SystemExit) as error:m.main()
+   self.assertEqual(error.exception.code,1)
+   retained=json.loads(path.read_text(encoding='utf-8'))
+   for key in ['events','sha256','checked_at','rejected','section_rows']:self.assertEqual(retained[key],prior[key])
+   self.assertEqual(archive.read_bytes(),stored);self.assertIn('source timeout',retained['source_error'])
+   self.assertNotEqual(retained['last_attempt'],retained['checked_at'])
+   run=json.loads((p/'last-run.json').read_text());self.assertEqual(run['status'],'failed');self.assertTrue(run['exportable']);self.assertEqual(run['parsed_days'],1)
+ def test_failed_cold_day_has_no_fabricated_observation_or_raw_hash(self):
+  day='2026-10-24'
+  with tempfile.TemporaryDirectory() as folder:
+   p=Path(folder)
+   with patch.object(m,'OUT',p),patch.object(m,'initial_request',return_value=board()),patch.object(m,'request',side_effect=OSError('source timeout')),patch.object(m.time,'sleep'),patch('sys.argv',['collector','--from',day,'--through',day,'--workers','1']),patch.dict(m.os.environ,{},clear=True),patch('builtins.print'):
+    with self.assertRaises(SystemExit):m.main()
+   missing=json.loads((p/'parsed'/f'{day}.json').read_text(encoding='utf-8'))
+   self.assertEqual(missing['events'],[]);self.assertIsNone(missing['sha256']);self.assertIsNone(missing['checked_at'])
+   self.assertEqual(json.loads((p/'last-run.json').read_text())['parsed_days'],0);self.assertEqual(list((p/'archive').iterdir()),[])
  def test_connectivity_probe_cannot_export_or_publish(self):
   with tempfile.TemporaryDirectory() as folder,patch.object(m,'OUT',Path(folder)),patch.object(m,'initial_request',return_value=board()),patch('sys.argv',['collector','--probe']),patch.dict(m.os.environ,{},clear=True),patch('builtins.print'):
    m.main();run=json.loads((Path(folder)/'last-run.json').read_text());self.assertFalse(run['exportable']);self.assertEqual(run['stage'],'connectivity_probe');self.assertFalse((Path(folder)/'receipt.json').exists())

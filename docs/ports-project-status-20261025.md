@@ -1,5 +1,13 @@
 # Tiến độ ngành cảng — cập nhật 30/10/2026
 
+## HCM cloud đã kiểm lại theo yêu cầu mới — 31/10/2026
+
+Đã mở lại phase nghiệm thu HCM theo yêu cầu người dùng. Probe Ubuntu x64 [41184106677](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41184106677) vẫn failure bootstrap; chẩn đoán Linux ARM/Windows [41184128683](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41184128683) xác nhận TCP 80/443 timeout tới nguồn. Máy phát triển cùng đợt GET được HTTP 200/TLS hợp lệ. Sáu chu kỳ schedule 26–31/10 đều không lấy được nguồn; **cloud/scheduled refresh chưa nghiệm thu**.
+
+Staging vẫn khớp bản tốt đến 28/10, 11 asset × 22 tháng × hai chiều và tổng issuer/vùng. Bổ sung hai kiểm thử đường lỗi theo ngày: giữ dữ liệu/raw/thời điểm thành công cũ; ngày thiếu không tạo quan sát/hash giả. 11 Python + 4 Node tests đạt; không thay dữ liệu hay hành vi ứng dụng. Lịch HCM hiện hữu giữ nguyên, main khớp workflow staging. [Kết quả và cổng tiếp tục](hcm-cloud-acceptance-20261031.md), [biên nhận](catalog-review/hcm-cloud-acceptance-20261031.json).
+
+Bước cần giải quyết là đường lịch chính thức truy cập được từ cloud, rồi kiểm POST lịch sử/ngày mới, raw/hash toàn cửa sổ, export/deploy/readback và hai schedule thật. Không thay nguồn bằng NEO hay kết luận vận hành ổn định từ probe. PDN cron, Long Bình Tân, ICD/kho bãi và production vẫn ngoài phase. Các đoạn ghi HCM để sau bên dưới là snapshot trước yêu cầu mở lại này.
+
 ## K12 đã đối chiếu riêng từng dòng — 31/10/2026
 
 **Phát hành chốt:** mã dữ liệu K12 `6c75d59`, bản CI cuối `6ec498c` trên `codex/cloudflare-next-compat`. [Quality 41183079501](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41183079501) **success**: validate gồm lint/typecheck/188 Vitest/Python/Next/OpenNext; E2E desktop và mobile đều success; required `check` chỉ success sau tất cả các job. Cloudflare build `74401468-db7b-416e-af17-493157205739` **success**. Ba attempt trước của run 41181037139 bị runner shutdown sau khoảng 5 phút E2E; đã chia project desktop/mobile thành hai job ngắn, giữ đủ test và không dùng continue-on-error/bỏ check. Local toàn bộ 78 E2E đạt.

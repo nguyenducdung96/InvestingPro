@@ -1,0 +1,425 @@
+{
+  "reviewed_at": "2026-10-31T08:21:28.988265+00:00",
+  "status": "blocked_source_network",
+  "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+  "diagnostic_run": 41184128683,
+  "cloud_diagnostics": [
+    {
+      "runner_artifact": "hcm-network-diagnostic-Linux-ARM64",
+      "checked_at": "2026-10-31T08:20:11.328925+00:00",
+      "authority_network": {
+        "host": "cangvuhanghaitphcm.gov.vn",
+        "addresses": [
+          "222.253.45.177"
+        ],
+        "connections": [
+          {
+            "port": 80,
+            "error": "timed out",
+            "seconds": 6.235
+          },
+          {
+            "port": 443,
+            "error": "timed out",
+            "seconds": 6.477
+          }
+        ]
+      },
+      "authority_http": {
+        "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+        "error": "<urlopen error timed out>",
+        "seconds": 8.621
+      },
+      "tls_validation": true,
+      "publication_performed": false
+    },
+    {
+      "runner_artifact": "hcm-network-diagnostic-Windows-X64",
+      "checked_at": "2026-10-31T08:20:08.944946+00:00",
+      "authority_network": {
+        "host": "cangvuhanghaitphcm.gov.vn",
+        "addresses": [
+          "222.253.45.177"
+        ],
+        "connections": [
+          {
+            "port": 80,
+            "error": "timed out",
+            "seconds": 6.0
+          },
+          {
+            "port": 443,
+            "error": "timed out",
+            "seconds": 6.0
+          }
+        ]
+      },
+      "authority_http": {
+        "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+        "error": "<urlopen error timed out>",
+        "seconds": 8.468
+      },
+      "tls_validation": true,
+      "publication_performed": false
+    }
+  ],
+  "local_source": {
+    "checked_at": "2026-10-31T08:19:48.537293+00:00",
+    "network": {
+      "host": "cangvuhanghaitphcm.gov.vn",
+      "addresses": [
+        "222.253.45.177"
+      ],
+      "connections": [
+        {
+          "port": 80,
+          "tcp_connected": true,
+          "seconds": 0.031
+        },
+        {
+          "port": 443,
+          "tcp_connected": true,
+          "tls_version": "TLSv1.3",
+          "certificate_expires": "Jan 23 23:59:59 2027 GMT",
+          "seconds": 0.09
+        }
+      ]
+    },
+    "http": {
+      "url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "status": 200,
+      "bytes": 174512,
+      "sha256": "33996cb0daa511c5acc8bc9cad29c9965bdfc4d811f853df1078d139b201f179",
+      "content_type": "text/html; charset=utf-8",
+      "schedule_tables": true,
+      "seconds": 0.826
+    }
+  },
+  "scheduled_receipts": [
+    {
+      "verifier_version": "south-live/1",
+      "verified_at": "2026-10-26T06:56:03.627Z",
+      "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+      "expected_checked_at": "2026-10-25T15:17:51.074454+00:00",
+      "through": "2026-10-24",
+      "event_name": "schedule",
+      "run_id": "40282536413",
+      "run_attempt": "1",
+      "published_commit": null,
+      "source_refresh_success": false,
+      "deployment_readback_verified": false,
+      "scheduled_refresh_verified": false,
+      "actual_verified": false,
+      "full_scope_certified": false,
+      "checks": [],
+      "error": "Initial authority connection failed; keep the last published edition.",
+      "scheduled_run_ids": [
+        "40282536413"
+      ]
+    },
+    {
+      "verifier_version": "south-live/1",
+      "verified_at": "2026-10-27T06:49:28.310Z",
+      "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+      "expected_checked_at": "2026-10-25T15:17:51.074454+00:00",
+      "through": "2026-10-24",
+      "event_name": "schedule",
+      "run_id": "40463202900",
+      "run_attempt": "1",
+      "published_commit": null,
+      "source_refresh_success": false,
+      "deployment_readback_verified": false,
+      "scheduled_refresh_verified": false,
+      "actual_verified": false,
+      "full_scope_certified": false,
+      "checks": [],
+      "error": "Initial authority connection failed; keep the last published edition.",
+      "scheduled_run_ids": [
+        "40282536413",
+        "40463202900"
+      ]
+    },
+    {
+      "verifier_version": "south-live/1",
+      "verified_at": "2026-10-28T07:22:22.453Z",
+      "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+      "expected_checked_at": "2026-10-25T15:17:51.074454+00:00",
+      "through": "2026-10-24",
+      "event_name": "schedule",
+      "run_id": "40649399380",
+      "run_attempt": "1",
+      "published_commit": null,
+      "source_refresh_success": false,
+      "deployment_readback_verified": false,
+      "scheduled_refresh_verified": false,
+      "actual_verified": false,
+      "full_scope_certified": false,
+      "checks": [],
+      "error": "Initial authority connection failed; keep the last published edition.",
+      "scheduled_run_ids": [
+        "40463202900",
+        "40649399380"
+      ]
+    },
+    {
+      "verifier_version": "south-live/1",
+      "verified_at": "2026-10-29T07:40:46.256Z",
+      "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+      "expected_checked_at": "2026-10-25T15:17:51.074454+00:00",
+      "through": "2026-10-24",
+      "event_name": "schedule",
+      "run_id": "40836764503",
+      "run_attempt": "1",
+      "published_commit": null,
+      "source_refresh_success": false,
+      "deployment_readback_verified": false,
+      "scheduled_refresh_verified": false,
+      "actual_verified": false,
+      "full_scope_certified": false,
+      "checks": [],
+      "error": "Initial authority connection failed; keep the last published edition.",
+      "scheduled_run_ids": [
+        "40649399380",
+        "40836764503"
+      ]
+    },
+    {
+      "verifier_version": "south-live/1",
+      "verified_at": "2026-10-30T07:43:57.563Z",
+      "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+      "expected_checked_at": "2026-10-29T14:12:52.063915+00:00",
+      "through": "2026-10-28",
+      "event_name": "schedule",
+      "run_id": "41021678900",
+      "run_attempt": "1",
+      "published_commit": null,
+      "source_refresh_success": false,
+      "deployment_readback_verified": false,
+      "scheduled_refresh_verified": false,
+      "actual_verified": false,
+      "full_scope_certified": false,
+      "checks": [],
+      "error": "Initial authority connection failed; keep the last published edition.",
+      "scheduled_run_ids": [
+        "40836764503",
+        "41021678900"
+      ]
+    },
+    {
+      "verifier_version": "south-live/1",
+      "verified_at": "2026-10-31T07:29:44.795Z",
+      "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+      "expected_checked_at": "2026-10-29T14:12:52.063915+00:00",
+      "through": "2026-10-28",
+      "event_name": "schedule",
+      "run_id": "41180687031",
+      "run_attempt": "1",
+      "published_commit": null,
+      "source_refresh_success": false,
+      "deployment_readback_verified": false,
+      "scheduled_refresh_verified": false,
+      "actual_verified": false,
+      "full_scope_certified": false,
+      "checks": [],
+      "error": "Initial authority connection failed; keep the last published edition.",
+      "scheduled_run_ids": [
+        "41021678900",
+        "41180687031"
+      ]
+    }
+  ],
+  "last_scheduled_collection": {
+    "checked_at": "2026-10-31T07:29:44.706826+00:00",
+    "stage": "bootstrap",
+    "status": "failed",
+    "exportable": false,
+    "requested_days": 668,
+    "error": "<urlopen error timed out>",
+    "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146"
+  },
+  "live_retained_edition": {
+    "verifier_version": "south-live/1",
+    "verified_at": "2026-10-31T08:19:58.515Z",
+    "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+    "expected_checked_at": "2026-10-29T14:12:52.063915+00:00",
+    "through": "2026-10-28",
+    "event_name": "local",
+    "run_id": "local",
+    "run_attempt": "1",
+    "published_commit": null,
+    "source_refresh_success": false,
+    "deployment_readback_verified": true,
+    "scheduled_refresh_verified": false,
+    "actual_verified": false,
+    "full_scope_certified": false,
+    "checks": [
+      {
+        "asset": "gemalink",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_hiep_phuoc",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "cmit",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sp_psa",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "ssit",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan_2",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_berth7",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_b7",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "swc_buoys",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "asset": "vgp_k16",
+        "direction": "arrival",
+        "months_matched": 22
+      },
+      {
+        "direction": "arrival",
+        "sgp_aggregate_matched": true,
+        "south_overview_matched": true
+      },
+      {
+        "asset": "gemalink",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_hiep_phuoc",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "cmit",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sp_psa",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "ssit",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "sg_tan_thuan_2",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_berth7",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "cll_b7",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "swc_buoys",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "asset": "vgp_k16",
+        "direction": "departure",
+        "months_matched": 22
+      },
+      {
+        "direction": "departure",
+        "sgp_aggregate_matched": true,
+        "south_overview_matched": true
+      }
+    ],
+    "scheduled_run_ids": []
+  },
+  "tests": {
+    "collector_python": 11,
+    "live_verifier_node": 4,
+    "result": "passed"
+  },
+  "source_refresh_verified": false,
+  "scheduled_refresh_verified": false,
+  "production_accepted": false,
+  "application_data_changed": false,
+  "next_gate": "Official authority HTML history must be accessible from hosted runner with valid TLS; validate GET and date POST, then full historical raw/hash export, deploy/readback, and two genuine scheduled cycles.",
+  "manual_probe": {
+    "run_id": 41184106677,
+    "conclusion": "failure",
+    "last_run": {
+      "checked_at": "2026-10-31T08:21:08.633496+00:00",
+      "stage": "bootstrap",
+      "status": "failed",
+      "exportable": false,
+      "requested_days": 668,
+      "error": "<urlopen error timed out>",
+      "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146"
+    },
+    "readback": {
+      "verifier_version": "south-live/1",
+      "verified_at": "2026-10-31T08:21:08.727Z",
+      "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+      "expected_checked_at": "2026-10-29T14:12:52.063915+00:00",
+      "through": "2026-10-28",
+      "event_name": "workflow_dispatch",
+      "run_id": "41184106677",
+      "run_attempt": "1",
+      "published_commit": null,
+      "source_refresh_success": false,
+      "deployment_readback_verified": false,
+      "scheduled_refresh_verified": false,
+      "actual_verified": false,
+      "full_scope_certified": false,
+      "checks": [],
+      "error": "Initial authority connection failed; keep the last published edition.",
+      "scheduled_run_ids": [
+        "41021678900",
+        "41180687031"
+      ]
+    }
+  },
+  "workflow_main_matches_staging": true
+}
