@@ -1,5 +1,7 @@
 # HCM: nguồn kế hoạch quốc gia truy cập được từ cloud — 31/10/2026
 
+Đã hoàn tất bước đối chiếu ma trận 40 mẫu tiếp theo; dùng [kết quả và hợp đồng nguồn mới](hcm-national-matrix-audit-20261031.md) làm trạng thái hiện hành. Báo cáo ba mẫu ban đầu bên dưới giữ để truy vết.
+
 ## Kết luận và phạm vi
 
 Đã tìm và kiểm chứng một đường nguồn chính thức mới cho HCM trên [cổng dịch vụ công hàng hải quốc gia](https://hanghai.moc.gov.vn/tra-cuu-giay-phep): menu kế hoạch điều động, `maritimeCode=21` có nhãn TP. HỒ CHÍ MINH, hồ sơ `MESSAGE_TYPE=70`. Không phải API bản đồ/NEO. **Đã đạt tải ba mẫu từ cloud; chưa đạt thay thế toàn bộ bảng lịch HCM hoặc refresh tự động.** Website bảng lịch cũ vẫn chưa được nghiệm thu truy cập cloud bằng kết quả này.

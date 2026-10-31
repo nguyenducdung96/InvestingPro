@@ -1,5 +1,15 @@
 # Phương án vận hành chuẩn cho nguồn TP.HCM
 
+## HCM đã chốt đối chiếu nguồn mới: chỉ dùng bổ trợ — 31/10/2026
+
+Đã đối chiếu **40 mẫu** cả hai chiều trong tuần 22–28/10 của 2025/2026; giữ riêng bốn ô không có quan sát. **122 snapshot truy vấn và 46 PDF** được lưu/kiểm; chạy lại offline không gọi mạng và cho kết quả từng ca giống hệt. Kiểm SHA/reparse chín bảng HTML tham chiếu, đủ 40 dòng và scope proof K12. Kết quả: **9 khớp trường kế hoạch, 10 chỉ tương ứng giờ giấy phép, 2 khác trường dữ liệu, 9 thiếu định danh, 10 chưa có đối ứng trong cửa sổ**. Không quy đổi các nhóm này thành tỷ lệ bao phủ hoặc hoạt động cảng.
+
+**Quyết định:** nguồn quốc gia chưa tương đương để thay toàn bộ bảng HCM. Giữ kế hoạch MESSAGE_TYPE=70 và giấy phép MESSAGE_TYPE=60 thành hai loại riêng; không mượn GT/DWT, không ghép hai giờ thành hai lượt, không tự xác nhận bến/issuer chỉ từ tên hoặc hậu tố K12. Các dòng khớp vẫn là ứng viên cần mapping/phiên bản trước khi nhập metric. Không sửa dashboard/ledger/alias trong đợt này; HCM vẫn phục vụ đến **28/10**.
+
+Code **eb2c229**, 7 matrix + 10 national Python tests đạt; [Quality 41203772096](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41203772096) và Cloudflare success. Toàn ma trận được đối chiếu tại máy; bằng chứng cloud vẫn là ba mẫu của run 41201078402. [Báo cáo và hợp đồng nguồn](hcm-national-matrix-audit-20261031.md), [receipt](catalog-review/hcm-national-matrix-audit-20261031.json), [manifest ca](catalog-review/hcm-national-matrix-cases-20261031.json).
+
+**Next step:** intake kế hoạch quốc gia độc lập, có raw archive/revision và hàng chờ đối chiếu; mở rộng có giới hạn cửa sổ hồ sơ cho các ca chưa khớp, bổ sung định danh/mapping. Giấy phép giữ ngoài tổng kế hoạch hiện tại. Chỉ nối collect/export/deploy/readback sau khi các gate dữ liệu đạt; chưa nghiệm thu replacement/schedule HCM hoặc production. Raw đầy đủ hiện ở máy; cần lưu bền phần được chọn trước tích hợp. Bình Dương giữ lịch/recorder chờ hai chu kỳ thật khác ngày. PDN cron, Long Bình Tân, Dung Quất định kỳ và ICD/kho bãi giữ để sau.
+
 ## HCM có nguồn quốc gia mới đã kiểm chứng mẫu từ cloud — 31/10/2026
 
 Đã chuyển trọng tâm sang HCM trong lúc chờ lịch Bình Dương. Cổng quốc gia có menu kế hoạch điều động và bộ lọc TP.HCM (`maritimeCode=21`), PDF gốc có thời gian kế hoạch/DWT/From/To. [Run cloud 41201078402](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41201078402) **success**, tải/kiểm ba mẫu lịch sử và gần đây; khớp một mẫu K16 năm 2025 và mẫu K12 31/10 với bảng HCM tại máy. Workflow review read-only, dispatch-only, artifact 90 ngày; chưa nối ứng dụng hoặc lịch nghiệp vụ. Code **4d8399f** và sửa nhận số lượng đơn lẻ **d667b83** đều CI/Cloudflare success; 10 national Python tests đạt.
