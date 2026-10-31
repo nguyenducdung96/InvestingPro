@@ -1,0 +1,162 @@
+{
+  "checked_at": "2026-10-31T08:34:09.890958+00:00",
+  "head_commit": "cdab820f7d18aa1c36fbd5c091169c0388b76a44",
+  "checks": [
+    {
+      "name": "check",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41184612510/job/124489569642"
+    },
+    {
+      "name": "Workers Builds: investing-pro-web-staging",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/dde5127f-b1f7-478c-8bf9-9aee35220985"
+    },
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41184612510/job/124488853173"
+    },
+    {
+      "name": "e2e (desktop)",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41184612510/job/124488853161"
+    },
+    {
+      "name": "e2e (mobile)",
+      "status": "completed",
+      "conclusion": "success",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41184612510/job/124488852990"
+    }
+  ],
+  "workflows": {
+    "south-plans.yml": [
+      {
+        "id": 41184106677,
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "failure",
+        "created_at": "2026-10-31T08:19:10Z",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41184106677"
+      },
+      {
+        "id": 41180687031,
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "failure",
+        "created_at": "2026-10-31T07:27:43Z",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41180687031"
+      }
+    ],
+    "binhduong-plans.yml": [
+      {
+        "id": 41181536014,
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "failure",
+        "created_at": "2026-10-31T07:40:33Z",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41181536014"
+      },
+      {
+        "id": 41086953831,
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-30T16:07:08Z",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41086953831"
+      }
+    ],
+    "sgp-pilot-review.yml": [
+      {
+        "id": 41159531589,
+        "event": "schedule",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-31T02:20:12Z",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41159531589"
+      },
+      {
+        "id": 41118011611,
+        "event": "workflow_dispatch",
+        "status": "completed",
+        "conclusion": "success",
+        "created_at": "2026-10-30T19:46:42Z",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41118011611"
+      }
+    ]
+  },
+  "binhduong_first_scheduled_run": {
+    "collect-receipt": {
+      "checked_at": "2026-10-31T07:40:42.071629+00:00",
+      "from": "2026-10-24",
+      "through": "2026-10-30",
+      "source_refresh_success": true,
+      "export_success": true,
+      "scheduled_refresh_verified": false,
+      "counts": {
+        "ok": 14
+      }
+    },
+    "live-readback": {
+      "verified_at": "2026-10-31T07:41:36.311Z",
+      "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+      "through": "2026-10-30",
+      "checked_at": "2026-10-31T07:40:56.699623+00:00",
+      "deployment_readback_verified": false,
+      "scheduled_refresh_verified": false,
+      "published_commit": "534677888877f5c4a65ac3713aa7e3904e5fb93f",
+      "event_name": "schedule",
+      "run_id": "41181536014",
+      "run_attempt": "1",
+      "verifier_version": "south-live/1",
+      "checks": [
+        {
+          "direction": "arrival",
+          "months_matched": 22,
+          "last_observation": "2026-08-24",
+          "journal_rows": 1
+        },
+        {
+          "direction": "departure",
+          "months_matched": 22,
+          "last_observation": "2026-07-15",
+          "journal_rows": 1
+        }
+      ],
+      "error": "Expected values to be strictly equal:\n\n503 !== 200\n"
+    }
+  },
+  "binhduong_later_manual_readback": {
+    "verified_at": "2026-10-31T08:34:56.435Z",
+    "base_url": "https://investing-pro-web-staging.tuyenkinhmon88.workers.dev",
+    "through": "2026-10-30",
+    "checked_at": "2026-10-31T07:40:56.699623+00:00",
+    "deployment_readback_verified": true,
+    "scheduled_refresh_verified": false,
+    "published_commit": null,
+    "event_name": "local",
+    "run_id": null,
+    "run_attempt": null,
+    "verifier_version": "south-live/1",
+    "checks": [
+      {
+        "direction": "arrival",
+        "months_matched": 22,
+        "last_observation": "2026-08-24",
+        "journal_rows": 1
+      },
+      {
+        "direction": "departure",
+        "months_matched": 22,
+        "last_observation": "2026-07-15",
+        "journal_rows": 1
+      }
+    ],
+    "source_refresh_success": false
+  },
+  "scope": "Project status refresh only; no collector/application/workflow changes."
+}

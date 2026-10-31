@@ -1,4 +1,20 @@
-# Tiến độ ngành cảng — cập nhật 30/10/2026
+# Tiến độ ngành cảng — cập nhật 31/10/2026
+
+## Status tổng hợp hiện hành — 31/10/2026, 15:35 Việt Nam
+
+**Đã có dashboard staging và dữ liệu được đối chiếu; chưa nghiệm thu vận hành tự động toàn bộ hoặc production.** Phạm vi hiện tại chỉ cảng sông/cảng biển; ICD, depot, kho bãi để phase riêng. Bằng chứng kiểm tra mới tại [ports-status-20261031.json](catalog-review/ports-status-20261031.json). Các mục theo phase bên dưới giữ làm lịch sử; status tổng hợp này ưu tiên khi có khác biệt.
+
+- **Code/CI/deploy:** bản `cdab820` trên `codex/cloudflare-next-compat` đã qua [Quality 41184612510](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41184612510): validate, E2E desktop/mobile, required check đều success. Native Cloudflare staging build `dde5127f-b1f7-478c-8bf9-9aee35220985` success. Bản thay kiểm thử HCM `05d524d` cũng đã đạt CI riêng; không cần Deploy Hook/secret mới.
+- **SGP K12/TT2:** đã tích hợp và đối chiếu staging. K12 thêm 331 dòng đủ bằng chứng, giữ 121 dòng chưa đủ điều kiện và 43 điều chuyển ngoài tổng; TT2 có 348 dòng lịch đến/rời, 46 điều chuyển riêng. Sáu monitor SGP, vùng miền Nam một dòng SGP. Lịch HCM phục vụ đến 28/10; vẫn là kế hoạch công bố, không phải actual.
+- **GMD Bình Dương:** đã cấu hình lịch riêng và có hai run thủ công cloud thành công. [Schedule thật đầu tiên 41181536014](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41181536014) ngày 31/10 lấy đủ 14 phản hồi, export và push `5346778`, edition đến **30/10**; run cuối cùng failure ở readback HTTP 503 sau khi hai chiều đã đối chiếu đủ 22 tháng. Kiểm lại thủ công lúc **15:34:56 Việt Nam** đã success đúng edition `checked_at=2026-10-31T07:40:56.699623+00:00`, gồm API/journal/tổng GMD/vùng và trang chi tiết. Không đổi kết quả run lịch thành success bằng kiểm lại thủ công; `scheduled_refresh_verified=false`. Bản ghi quan sát mới nhất vẫn vào 24/08, rời 15/07; ngày edition không đồng nghĩa có hoạt động mới.
+- **HCM tự động:** chưa đạt. Probe mới và schedule gần nhất đều bootstrap timeout; Linux ARM/Windows timeout TCP tới nguồn, local vẫn đọc được bảng gốc. Staging giữ bản tốt đến **28/10**; 11 asset × 22 tháng × hai chiều và tổng issuer/vùng đã khớp. 11 kiểm thử Python + 4 Node xác nhận fallback/điều kiện nghiệm thu. [Hồ sơ nút chặn](hcm-cloud-acceptance-20261031.md).
+- **Collector Hoa tiêu SGP:** hai run thủ công và một schedule thật success; chỉ archive/review độc lập, chưa thay nguồn movement hoặc được cộng vào tổng. Một chu kỳ không đủ nghiệm thu dài hạn; artifact/cache chưa phải kho lưu vĩnh viễn.
+
+**Next steps theo thứ tự:**
+
+1. Bình Dương: rà khả năng chịu lỗi 503 tạm thời trong bước readback; giữ nguyên yêu cầu đúng edition và không sửa source/coverage để làm run xanh. Sau đó đối chiếu hai chu kỳ schedule thật thành công, khác ngày. Status update này chưa sửa verifier hoặc chạy lại workflow.
+2. HCM: có đường truy cập lịch chính thức được nguồn hỗ trợ từ cloud; xác minh GET/POST lịch sử và ngày mới, đủ raw/hash/manifest K12, collect → export → push → deploy → readback. Chỉ chốt sau hai schedule thật đạt, không dùng NEO thay movement.
+3. Giữ PDN cron acceptance, điều tra lại Long Bình Tân, Dung Quất định kỳ và ICD/kho bãi ở trạng thái để sau; production cần nghiệm thu riêng. Những phase phát triển mới chỉ bắt đầu theo phạm vi được người dùng giao.
 
 ## HCM cloud đã kiểm lại theo yêu cầu mới — 31/10/2026
 
