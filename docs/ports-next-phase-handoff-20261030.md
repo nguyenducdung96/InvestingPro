@@ -1,5 +1,16 @@
 # Bàn giao ngành cảng — trạng thái chốt 30/10/2026
 
+## Collector SGP K12 / TT2 — triển khai 31/10/2026
+
+Code `e074654`: **Quality 41117367465 success**, Cloudflare build `4ba1d7c9-54c8-48b9-89c4-2cb5f7a772f5` success. Hai run thủ công cloud `41117509985` (runner lạnh) và `41118011611` (khôi phục cache) success; đã có **run schedule thật 41159531589 success**. Đã tải và kiểm tra hash/parse của artifact: 1 → 2 → 3 raw revisions giữ nguyên; latest vẫn 3 dòng, không cộng thành 9. Run schedule ghi nhận nguồn sửa giờ vào của NEWSUN GREEN 03 từ ô trống thành 05:00, giữ cả bản trước. Một chu kỳ schedule thật không thay nghiệm thu vận hành dài hạn/production; `scheduled_refresh_verified=false`.
+
+Đã triển khai collector Hoa tiêu riêng `e074654`, lưu cả hai tab ngày, raw/hash/revision và last-good index; DWT null, GRT/giờ/ghi chú nguyên nguồn, hủy/lùi/đổi giờ và dòng trùng/biến mất phải review. Python 11 collector + 3 overlap đạt. Workflow read-only, không publish app, đã chạy cloud lạnh thành công tại [41117509985](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41117509985); lịch archive đã đăng ký trên main `f4b008a` lúc 06:15/12:15/18:15/23:15 Việt Nam. Đã có một schedule thật được kiểm chứng, chưa nghiệm thu vận hành dài hạn/production; artifact 90 ngày/cache chưa phải archive vĩnh viễn.
+
+Đầu mối mới: HAI PHAT 135 ngày 31/10 ở Hoa tiêu TT2 (GRT 6.282, ETA ghi chú 12:00) khớp ứng viên Cảng vụ TAN.T.2 (giờ 12:00, DWT 13.399). Audit đủ 666 raw tìm thêm 168 vào + 180 rời = **348 dòng TAN.T.2 ứng viên**, 46 điều chuyển riêng. Không gán vào SGP ngay. K12 NEWSUN GREEN 03 có giờ hai nguồn khác nhau; chưa merge/backfill DWT. Hai probe local HCM phục vụ đối chiếu, không nghiệm thu kết nối cloud HCM.
+
+[Runbook collector](sgp-pilot-collector-20261031.md), [receipt](catalog-review/sgp-pilot-collector-20261031.json). **Điểm dừng phase: collector/archive/review; chưa đổi alias/API/UI/edition hoặc tổng issuer/vùng.** Bước tiếp: xác nhận TAN.T.2 và quy tắc chống trùng để chuẩn bị tích hợp lịch sử TT2; K12 tiếp tục phân biệt cầu/khu neo từng dòng. Các phần PDN cron, Long Bình Tân, ICD/kho bãi giữ ngoài phạm vi.
+
+
 ## Rà nguồn SGP K12 / TT2 — hoàn tất 31/10/2026
 
 Đã xác minh phạm vi cầu K12 và TT2, xem bản scan thông báo hàng hải 38/2025 và tờ trình SGP 493/2026; kiểm tra hash/parse đủ 666 bảng Cảng vụ (01/01/2025–28/10/2026). K12 có 228 vào + 224 rời còn mơ hồ giữa cầu Sài Gòn/khu neo Vũng Tàu; 43 điều chuyển giữ riêng. `B.TT2` là phao (30 vào/32 rời), `TTD` là bến khác, `K17` thuộc Bông Sen; không gán sang cầu TT2.
@@ -70,7 +81,7 @@ Các snapshot bên dưới là trước phase Bình Dương, giữ làm mốc l�
 
 1. **Đã chốt phase Bình Dương thủ công:** tính năng `ea7b7a3`, Quality `41084003113` và Cloudflare `ebe50cc3` success; staging đúng edition đến 29/10, 8.342 dòng, 22 tháng hai chiều và tổng GMD miền Nam khớp. Xem receipt phase và readback ở đầu tài liệu.
 2. **Bình Dương đã chạy cloud và đăng ký 08:55 Việt Nam:** xem mục đầu tài liệu; tiếp theo nghiệm thu hai chu kỳ schedule thật (sớm nhất 31/10 và 01/11), giữ source/export/readback đúng edition. Không mở lại cron PDN. Các snapshot chưa đăng ký bên dưới là lịch sử trước đợt vận hành này.
-3. **SGP K12/TT2 đã rà nguồn 31/10:** bước sau là collector Hoa tiêu riêng, lưu raw/parse để review trước khi tích hợp; giữ GRT/DWT và K12/khu neo/B.TT2/TTD/K17 riêng. Xem hồ sơ mới ở đầu tài liệu. Các khoảng GMD/SGP khác chỉ mở khi có đầu mối nguồn mới; ICD/kho/bãi để phạm vi riêng.
+3. **Collector Hoa tiêu K12/TT2 đã triển khai 31/10:** xem runbook/receipt đầu tài liệu. Bước kế tiếp xác nhận alias TAN.T.2 (348 dòng vào/rời ứng viên có DWT) và chống trùng trước khi tích hợp lịch sử TT2; giữ K12/khu neo/B.TT2/TTD/K17 riêng. Chưa đổi dashboard hoặc tổng SGP. ICD/kho/bãi để phạm vi riêng.
 4. **Khoảng lịch sử:** chỉ điều tra khi có đầu mối mới. Gemalink hiện có 326 dòng vào Jan–Jul/2025 từ PDF quốc gia, còn thiếu chiều rời đầu 2025; đã quét 7.845 hồ sơ/7.683 hash, không tải lại toàn bộ vô cớ. Bình Dương edition đang bàn giao đến 28/10/2026, 8.342 dòng; quan sát rời cuối 15/07 và vào cuối 24/08/2026. Thiếu quan sát không có nghĩa bằng 0.
 5. **Sản lượng công bố tấn/TEU của cảng đủ phạm vi:** giữ riêng với DWT và lịch tàu; kỳ, đơn vị và actual/plan phải rõ. Không lấy bình quân/công suất nhân thành tổng kỳ. TCW và sản lượng kho/bãi không nằm trong phase này.
 

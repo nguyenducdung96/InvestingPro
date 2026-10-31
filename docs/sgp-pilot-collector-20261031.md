@@ -1,5 +1,9 @@
 # SGP K12 / TT2 — collector kế hoạch Hoa tiêu, 31/10/2026
 
+## Kiểm chứng cloud và CI
+
+Code `e074654`: **Quality 41117367465 success**, Cloudflare build `4ba1d7c9-54c8-48b9-89c4-2cb5f7a772f5` success. Hai run thủ công cloud `41117509985` (runner lạnh) và `41118011611` (khôi phục cache) success; đã có **run schedule thật 41159531589 success**. Đã tải và kiểm tra hash/parse của artifact: 1 → 2 → 3 raw revisions giữ nguyên; latest vẫn 3 dòng, không cộng thành 9. Run schedule ghi nhận nguồn sửa giờ vào của NEWSUN GREEN 03 từ ô trống thành 05:00, giữ cả bản trước. Một chu kỳ schedule thật không thay nghiệm thu vận hành dài hạn/production; `scheduled_refresh_verified=false`.
+
 ## Phạm vi đã triển khai
 
 Collector độc lập lưu nguồn [Hoa tiêu miền Nam — khu vực TP.HCM](https://www.pilotcosouth.vn/ke-hoach-dieu-dong-tau/hoa-tieu-hang-hai-mien-nam-khu-vuc-tphcm-2), cả hai tab ngày và ba bảng vào/rời/điều chuyển. Chỉ chọn chính xác K12/TT2; K12A, B.TT2, TTD, K17 và NEO K12 không được nhận nhầm. **Không có exporter hoặc bước ghi dữ liệu vào dashboard/tổng issuer/vùng.**
@@ -42,7 +46,7 @@ python scripts/audit-sgp-k12-tt2.py
 
 Workflow `.github/workflows/sgp-pilot-review.yml` dùng **contents:read**, không commit/push hoặc deploy app. Cache riêng lưu history và raw giữa các run; artifact `sgp-pilot-review` giữ 90 ngày, gồm raw, parsed revisions, index, receipt và overlap report. Khi runner lạnh, receipt ghi rõ `cold_runner=true` và cửa sổ history thực có; không giả định đã khôi phục toàn bộ lịch sử. Cache có thể bị evict; artifact/cache này chưa phải kho lưu trữ vĩnh viễn. Trước khi nghiệm thu nguồn production cần kho bằng chứng dài hạn và quy trình khôi phục đã kiểm chứng.
 
-Lịch dự kiến để giữ nguồn chỉ có hai tab: **06:15, 12:15, 18:15, 23:15 Việt Nam**. Chỉ bật sau khi manual cloud thành công; trạng thái đăng ký và run thực được cập nhật trong receipt phase. Hai run thủ công không chứng nhận schedule; lưu raw thành công không chứng nhận quy thuộc issuer hoặc tích hợp dashboard.
+Lịch đã active trên `main` tại `f4b008a`: **06:15, 12:15, 18:15, 23:15 Việt Nam**, sau khi manual cloud thành công. Đã kiểm tra workflow trên default branch khớp cấu hình; run schedule thật đã lưu trong receipt phase. Thời gian lấy nguồn thực tế của run `41159531589` là 09:20:19 Việt Nam, không giả định cron luôn chạy đúng phút. Hai run thủ công không chứng nhận schedule; lưu raw thành công không chứng nhận quy thuộc issuer hoặc tích hợp dashboard.
 
 ## Bước tiếp theo và điểm dừng
 

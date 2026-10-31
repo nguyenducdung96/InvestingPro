@@ -1,5 +1,16 @@
 # Tiến độ ngành cảng — cập nhật 30/10/2026
 
+## Collector SGP K12 / TT2 — triển khai 31/10/2026
+
+Code `e074654`: **Quality 41117367465 success**, Cloudflare build `4ba1d7c9-54c8-48b9-89c4-2cb5f7a772f5` success. Hai run thủ công cloud `41117509985` (runner lạnh) và `41118011611` (khôi phục cache) success; đã có **run schedule thật 41159531589 success**. Đã tải và kiểm tra hash/parse của artifact: 1 → 2 → 3 raw revisions giữ nguyên; latest vẫn 3 dòng, không cộng thành 9. Run schedule ghi nhận nguồn sửa giờ vào của NEWSUN GREEN 03 từ ô trống thành 05:00, giữ cả bản trước. Một chu kỳ schedule thật không thay nghiệm thu vận hành dài hạn/production; `scheduled_refresh_verified=false`.
+
+Đã triển khai collector Hoa tiêu riêng `e074654`, lưu cả hai tab ngày, raw/hash/revision và last-good index; DWT null, GRT/giờ/ghi chú nguyên nguồn, hủy/lùi/đổi giờ và dòng trùng/biến mất phải review. Python 11 collector + 3 overlap đạt. Workflow read-only, không publish app, đã chạy cloud lạnh thành công tại [41117509985](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41117509985); lịch archive đã đăng ký trên main `f4b008a` lúc 06:15/12:15/18:15/23:15 Việt Nam. Đã có một schedule thật được kiểm chứng, chưa nghiệm thu vận hành dài hạn/production; artifact 90 ngày/cache chưa phải archive vĩnh viễn.
+
+Đầu mối mới: HAI PHAT 135 ngày 31/10 ở Hoa tiêu TT2 (GRT 6.282, ETA ghi chú 12:00) khớp ứng viên Cảng vụ TAN.T.2 (giờ 12:00, DWT 13.399). Audit đủ 666 raw tìm thêm 168 vào + 180 rời = **348 dòng TAN.T.2 ứng viên**, 46 điều chuyển riêng. Không gán vào SGP ngay. K12 NEWSUN GREEN 03 có giờ hai nguồn khác nhau; chưa merge/backfill DWT. Hai probe local HCM phục vụ đối chiếu, không nghiệm thu kết nối cloud HCM.
+
+[Runbook collector](sgp-pilot-collector-20261031.md), [receipt](catalog-review/sgp-pilot-collector-20261031.json). **Điểm dừng phase: collector/archive/review; chưa đổi alias/API/UI/edition hoặc tổng issuer/vùng.** Bước tiếp: xác nhận TAN.T.2 và quy tắc chống trùng để chuẩn bị tích hợp lịch sử TT2; K12 tiếp tục phân biệt cầu/khu neo từng dòng. Các phần PDN cron, Long Bình Tân, ICD/kho bãi giữ ngoài phạm vi.
+
+
 ## Rà nguồn SGP K12 / TT2 — hoàn tất 31/10/2026
 
 Đã xác minh phạm vi cầu K12 và TT2, xem bản scan thông báo hàng hải 38/2025 và tờ trình SGP 493/2026; kiểm tra hash/parse đủ 666 bảng Cảng vụ (01/01/2025–28/10/2026). K12 có 228 vào + 224 rời còn mơ hồ giữa cầu Sài Gòn/khu neo Vũng Tàu; 43 điều chuyển giữ riêng. `B.TT2` là phao (30 vào/32 rời), `TTD` là bến khác, `K17` thuộc Bông Sen; không gán sang cầu TT2.
@@ -194,7 +205,7 @@ Chiều tàu rời như ảnh người dùng: tháng 8 tổng 704.494,56 DWT (-6
 
 1. Refresh thủ công và staging Bình Dương `ea7b7a3` đã đạt; xem receipt phase để biết kết quả Quality đúng SHA.
 2. Bình Dương đã active lịch 08:55 Việt Nam; tiếp theo đối chiếu hai run schedule thật sau 31/10 và 01/11. Hai run thủ công không chứng nhận schedule.
-3. SGP K12/TT2 đã rà nguồn 31/10: tiếp theo collector Hoa tiêu riêng để lưu raw/parse review, chưa cộng vào tổng khi chưa giải alias/overlap; các khoảng GMD/SGP khác cần đầu mối mới.
+3. Collector K12/TT2 đã chạy cloud và đăng ký archive định kỳ; tiếp theo xác nhận TAN.T.2 (348 dòng vào/rời ứng viên) và xử lý overlap trước khi tích hợp lịch sử TT2. Chưa đổi tổng SGP; các khoảng khác cần nguồn mới.
 4. Tấn/TEU công bố của cảng đủ phạm vi giữ riêng DWT; so lũy kế cùng tháng/cutoff.
 5. HCM connectivity, cron PDN, Long Bình Tân, Dung Quất định kỳ và phạm vi ICD/depot/kho bãi tiếp tục để sau. TCL/TCW đã rút.
 

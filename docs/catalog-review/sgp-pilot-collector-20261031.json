@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-10-30T19:46:12.027349+00:00",
+  "recorded_at": "2026-10-31T05:35:23.538486+00:00",
   "code_commit": "e074654fb32c0ccf10213688610770b6c365ad2d",
   "local_collection": {
     "checked_at": "2026-10-30T19:36:28.960724+00:00",
@@ -3975,11 +3975,618 @@
         "size_in_bytes": 15038,
         "expires_at": "2027-01-28T19:43:05Z"
       }
+    },
+    {
+      "run": {
+        "id": 41118011611,
+        "head_sha": "f4b008a300f37ce4cd32388c595564176e11dc96",
+        "head_branch": "main",
+        "event": "workflow_dispatch",
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41118011611"
+      },
+      "collection": {
+        "checked_at": "2026-10-30T19:46:49.899085+00:00",
+        "source_capture_success": true,
+        "event_name": "workflow_dispatch",
+        "run_id": "41118011611",
+        "run_attempt": "1",
+        "product_edition_modified": false,
+        "source_url": "https://www.pilotcosouth.vn/ke-hoach-dieu-dong-tau/hoa-tieu-hang-hai-mien-nam-khu-vuc-tphcm-2",
+        "sha256": "bf75361ae0f3dc6b92c6d06a40960d3030287abbce3557d7a50d76e7962af52d",
+        "parser_version": "sgp-pilot-review/1.0.0",
+        "days": [
+          "2026-10-30",
+          "2026-10-31"
+        ],
+        "selected_rows": 3,
+        "retained_history_days": 2,
+        "cold_runner": false,
+        "history_from": "2026-10-30",
+        "history_through": "2026-10-31",
+        "review_required": [],
+        "scheduled_refresh_verified": false,
+        "actual_verified": false,
+        "offline_replay": false
+      },
+      "overlap": {
+        "reviewed_at": "2026-10-30T19:46:51.753584+00:00",
+        "pilot_sha256": "bf75361ae0f3dc6b92c6d06a40960d3030287abbce3557d7a50d76e7962af52d",
+        "authority_days": [
+          {
+            "day": "2026-10-30",
+            "available": false,
+            "sha256": null
+          },
+          {
+            "day": "2026-10-31",
+            "available": false,
+            "sha256": null
+          }
+        ],
+        "results": [
+          {
+            "pilot_day": "2026-10-31",
+            "pilot_sha256": "bf75361ae0f3dc6b92c6d06a40960d3030287abbce3557d7a50d76e7962af52d",
+            "pilot_observation_id": "5bdfbb2e55a006e98d445cc625d6bbd0903e4df3c52678623349fa7537005e1a",
+            "pilot_vessel": "NEWSUN GREEN 03",
+            "pilot_section": "arrival",
+            "pilot_berth": "K12",
+            "pilot_scheduled_time": null,
+            "pilot_notes_raw": "Eta 0000",
+            "status": "authority_day_unavailable",
+            "candidates": []
+          },
+          {
+            "pilot_day": "2026-10-31",
+            "pilot_sha256": "bf75361ae0f3dc6b92c6d06a40960d3030287abbce3557d7a50d76e7962af52d",
+            "pilot_observation_id": "025f349123d3f8195ea461cc165dca20e5c3dd178d65f13667f2375ce040c94a",
+            "pilot_vessel": "HAI PHAT 135",
+            "pilot_section": "arrival",
+            "pilot_berth": "TT2",
+            "pilot_scheduled_time": null,
+            "pilot_notes_raw": "Eta 1200 TÀU CHẬM",
+            "status": "authority_day_unavailable",
+            "candidates": []
+          },
+          {
+            "pilot_day": "2026-10-31",
+            "pilot_sha256": "bf75361ae0f3dc6b92c6d06a40960d3030287abbce3557d7a50d76e7962af52d",
+            "pilot_observation_id": "5935c32751175baae96722aef32bfd2c3e675e92124ef8f6d692d862f22dcded",
+            "pilot_vessel": "NEWSUN GREEN 03",
+            "pilot_section": "departure",
+            "pilot_berth": "K12",
+            "pilot_scheduled_time": "22:00",
+            "pilot_notes_raw": null,
+            "status": "authority_day_unavailable",
+            "candidates": []
+          }
+        ],
+        "alias_hypotheses_for_review": {
+          "K12": [
+            "K12"
+          ],
+          "TT2": [
+            "TAN.T.2",
+            "TT2"
+          ]
+        },
+        "product_edition_modified": false,
+        "issuer_totals_modified": false,
+        "actual_verified": false,
+        "limitation": "Candidate relations only; source times may have different meanings. TAN.T.2 is a reviewed alias hypothesis, not a public product mapping. Missing authority days are unverified, not proof of no overlap."
+      },
+      "artifact": {
+        "id": 13007630198,
+        "name": "sgp-pilot-review",
+        "size_in_bytes": 28359,
+        "expires_at": "2027-01-28T19:46:43Z"
+      }
+    },
+    {
+      "run": {
+        "id": 41159531589,
+        "head_sha": "f4b008a300f37ce4cd32388c595564176e11dc96",
+        "head_branch": "main",
+        "event": "schedule",
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41159531589"
+      },
+      "collection": {
+        "checked_at": "2026-10-31T02:20:19.813909+00:00",
+        "source_capture_success": true,
+        "event_name": "schedule",
+        "run_id": "41159531589",
+        "run_attempt": "1",
+        "product_edition_modified": false,
+        "source_url": "https://www.pilotcosouth.vn/ke-hoach-dieu-dong-tau/hoa-tieu-hang-hai-mien-nam-khu-vuc-tphcm-2",
+        "sha256": "a638771d5081c1f766b939d1dafab458eaf41e990adf0912445fa5bdd0a5a2f3",
+        "parser_version": "sgp-pilot-review/1.0.0",
+        "days": [
+          "2026-10-30",
+          "2026-10-31"
+        ],
+        "selected_rows": 3,
+        "retained_history_days": 2,
+        "cold_runner": false,
+        "history_from": "2026-10-30",
+        "history_through": "2026-10-31",
+        "review_required": [],
+        "scheduled_refresh_verified": false,
+        "actual_verified": false,
+        "offline_replay": false
+      },
+      "overlap": {
+        "reviewed_at": "2026-10-31T02:20:21.644336+00:00",
+        "pilot_sha256": "a638771d5081c1f766b939d1dafab458eaf41e990adf0912445fa5bdd0a5a2f3",
+        "authority_days": [
+          {
+            "day": "2026-10-30",
+            "available": false,
+            "sha256": null
+          },
+          {
+            "day": "2026-10-31",
+            "available": false,
+            "sha256": null
+          }
+        ],
+        "results": [
+          {
+            "pilot_day": "2026-10-31",
+            "pilot_sha256": "a638771d5081c1f766b939d1dafab458eaf41e990adf0912445fa5bdd0a5a2f3",
+            "pilot_observation_id": "c53993482d0227e08e415e159989569145fc69d9aba982790bc2e30ab635e665",
+            "pilot_vessel": "NEWSUN GREEN 03",
+            "pilot_section": "arrival",
+            "pilot_berth": "K12",
+            "pilot_scheduled_time": "05:00",
+            "pilot_notes_raw": "Eta 0000",
+            "status": "authority_day_unavailable",
+            "candidates": []
+          },
+          {
+            "pilot_day": "2026-10-31",
+            "pilot_sha256": "a638771d5081c1f766b939d1dafab458eaf41e990adf0912445fa5bdd0a5a2f3",
+            "pilot_observation_id": "025f349123d3f8195ea461cc165dca20e5c3dd178d65f13667f2375ce040c94a",
+            "pilot_vessel": "HAI PHAT 135",
+            "pilot_section": "arrival",
+            "pilot_berth": "TT2",
+            "pilot_scheduled_time": null,
+            "pilot_notes_raw": "Eta 1200 TÀU CHẬM",
+            "status": "authority_day_unavailable",
+            "candidates": []
+          },
+          {
+            "pilot_day": "2026-10-31",
+            "pilot_sha256": "a638771d5081c1f766b939d1dafab458eaf41e990adf0912445fa5bdd0a5a2f3",
+            "pilot_observation_id": "5935c32751175baae96722aef32bfd2c3e675e92124ef8f6d692d862f22dcded",
+            "pilot_vessel": "NEWSUN GREEN 03",
+            "pilot_section": "departure",
+            "pilot_berth": "K12",
+            "pilot_scheduled_time": "22:00",
+            "pilot_notes_raw": null,
+            "status": "authority_day_unavailable",
+            "candidates": []
+          }
+        ],
+        "alias_hypotheses_for_review": {
+          "K12": [
+            "K12"
+          ],
+          "TT2": [
+            "TAN.T.2",
+            "TT2"
+          ]
+        },
+        "product_edition_modified": false,
+        "issuer_totals_modified": false,
+        "actual_verified": false,
+        "limitation": "Candidate relations only; source times may have different meanings. TAN.T.2 is a reviewed alias hypothesis, not a public product mapping. Missing authority days are unverified, not proof of no overlap."
+      },
+      "artifact": {
+        "id": 13026576573,
+        "name": "sgp-pilot-review",
+        "size_in_bytes": 41702,
+        "expires_at": "2027-01-29T02:20:12Z"
+      }
     }
   ],
-  "schedule_configured": false,
+  "schedule_configured": true,
   "scheduled_refresh_verified": false,
   "product_edition_modified": false,
   "issuer_totals_modified": false,
-  "production_verified": false
+  "production_verified": false,
+  "schedule_registration": {
+    "registered_at": "2026-10-30T19:46:39.644507+00:00",
+    "parent": "47b189f310b45011765ea974faa9932ebb81924e",
+    "commit": "f4b008a300f37ce4cd32388c595564176e11dc96",
+    "paths": [
+      ".github/workflows/sgp-pilot-review.yml"
+    ],
+    "schedule_configured": true,
+    "times_vietnam": [
+      "06:15",
+      "12:15",
+      "18:15",
+      "23:15"
+    ],
+    "cron_utc": "15 5,11,16,23 * * *",
+    "permissions": "contents:read",
+    "publishes_product_data": false,
+    "scheduled_refresh_verified": false
+  },
+  "raw_retention": {
+    "github_artifacts_days": 90,
+    "cache_may_be_evicted": true,
+    "permanent_archive_verified": false
+  },
+  "release": {
+    "checked_at": "2026-10-31T05:33:16.931706+00:00",
+    "code_commit": "e074654fb32c0ccf10213688610770b6c365ad2d",
+    "checks": [
+      {
+        "name": "Workers Builds: investing-pro-web-staging",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/4ba1d7c9-54c8-48b9-89c4-2cb5f7a772f5"
+      },
+      {
+        "name": "check",
+        "status": "completed",
+        "conclusion": "success",
+        "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41117367465/job/124274970257"
+      }
+    ],
+    "quality": [
+      {
+        "id": 41117367465,
+        "head_sha": "e074654fb32c0ccf10213688610770b6c365ad2d",
+        "run_attempt": 1,
+        "status": "completed",
+        "conclusion": "success",
+        "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41117367465",
+        "jobs": [
+          {
+            "id": 124274970257,
+            "run_id": 41117367465,
+            "workflow_name": "Quality",
+            "head_branch": "codex/cloudflare-next-compat",
+            "run_url": "https://api.github.com/repos/nguyenducdung96/InvestingPro/actions/runs/41117367465",
+            "run_attempt": 1,
+            "node_id": "CR_kwDOVJhEU88AAAAc712OkQ",
+            "head_sha": "e074654fb32c0ccf10213688610770b6c365ad2d",
+            "url": "https://api.github.com/repos/nguyenducdung96/InvestingPro/actions/jobs/124274970257",
+            "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41117367465/job/124274970257",
+            "status": "completed",
+            "conclusion": "success",
+            "created_at": "2026-10-30T19:42:01Z",
+            "started_at": "2026-10-30T19:42:03Z",
+            "completed_at": "2026-10-30T19:49:32Z",
+            "name": "check",
+            "steps": [
+              {
+                "name": "Set up job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 1,
+                "started_at": "2026-10-30T19:42:04Z",
+                "completed_at": "2026-10-30T19:42:05Z"
+              },
+              {
+                "name": "Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 2,
+                "started_at": "2026-10-30T19:42:05Z",
+                "completed_at": "2026-10-30T19:42:07Z"
+              },
+              {
+                "name": "Run pnpm/action-setup@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 3,
+                "started_at": "2026-10-30T19:42:07Z",
+                "completed_at": "2026-10-30T19:42:08Z"
+              },
+              {
+                "name": "Run actions/setup-node@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 4,
+                "started_at": "2026-10-30T19:42:08Z",
+                "completed_at": "2026-10-30T19:42:13Z"
+              },
+              {
+                "name": "Run pnpm install --frozen-lockfile",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 5,
+                "started_at": "2026-10-30T19:42:13Z",
+                "completed_at": "2026-10-30T19:42:18Z"
+              },
+              {
+                "name": "Run pnpm lint",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 6,
+                "started_at": "2026-10-30T19:42:18Z",
+                "completed_at": "2026-10-30T19:42:27Z"
+              },
+              {
+                "name": "Run pnpm typecheck",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 7,
+                "started_at": "2026-10-30T19:42:27Z",
+                "completed_at": "2026-10-30T19:42:50Z"
+              },
+              {
+                "name": "Run pnpm test",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 8,
+                "started_at": "2026-10-30T19:42:50Z",
+                "completed_at": "2026-10-30T19:43:13Z"
+              },
+              {
+                "name": "Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 9,
+                "started_at": "2026-10-30T19:43:13Z",
+                "completed_at": "2026-10-30T19:43:14Z"
+              },
+              {
+                "name": "Run python -m pip install -r scripts/requirements-gemalink-national.txt",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 10,
+                "started_at": "2026-10-30T19:43:14Z",
+                "completed_at": "2026-10-30T19:43:17Z"
+              },
+              {
+                "name": "Run python scripts/test-gemalink-national.py",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 11,
+                "started_at": "2026-10-30T19:43:17Z",
+                "completed_at": "2026-10-30T19:43:18Z"
+              },
+              {
+                "name": "Run python scripts/test-swc-longbinh-plans.py",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 12,
+                "started_at": "2026-10-30T19:43:18Z",
+                "completed_at": "2026-10-30T19:43:18Z"
+              },
+              {
+                "name": "Run python scripts/test-binhduong-plans.py",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 13,
+                "started_at": "2026-10-30T19:43:18Z",
+                "completed_at": "2026-10-30T19:43:19Z"
+              },
+              {
+                "name": "Run python scripts/test-sgp-pilot-plans.py",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 14,
+                "started_at": "2026-10-30T19:43:19Z",
+                "completed_at": "2026-10-30T19:43:19Z"
+              },
+              {
+                "name": "Run python scripts/test-sgp-pilot-overlap.py",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 15,
+                "started_at": "2026-10-30T19:43:19Z",
+                "completed_at": "2026-10-30T19:43:19Z"
+              },
+              {
+                "name": "Run pnpm exec playwright install --with-deps chromium",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 16,
+                "started_at": "2026-10-30T19:43:19Z",
+                "completed_at": "2026-10-30T19:43:36Z"
+              },
+              {
+                "name": "Run pnpm test:e2e",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 17,
+                "started_at": "2026-10-30T19:43:36Z",
+                "completed_at": "2026-10-30T19:48:29Z"
+              },
+              {
+                "name": "Run pnpm build",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 18,
+                "started_at": "2026-10-30T19:48:29Z",
+                "completed_at": "2026-10-30T19:49:10Z"
+              },
+              {
+                "name": "Run pnpm build:cloudflare",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 19,
+                "started_at": "2026-10-30T19:49:10Z",
+                "completed_at": "2026-10-30T19:49:28Z"
+              },
+              {
+                "name": "Post Run actions/setup-python@v5",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 35,
+                "started_at": "2026-10-30T19:49:28Z",
+                "completed_at": "2026-10-30T19:49:29Z"
+              },
+              {
+                "name": "Post Run actions/setup-node@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 36,
+                "started_at": "2026-10-30T19:49:29Z",
+                "completed_at": "2026-10-30T19:49:29Z"
+              },
+              {
+                "name": "Post Run pnpm/action-setup@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 37,
+                "started_at": "2026-10-30T19:49:29Z",
+                "completed_at": "2026-10-30T19:49:29Z"
+              },
+              {
+                "name": "Post Run actions/checkout@v4",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 38,
+                "started_at": "2026-10-30T19:49:29Z",
+                "completed_at": "2026-10-30T19:49:29Z"
+              },
+              {
+                "name": "Complete job",
+                "status": "completed",
+                "conclusion": "success",
+                "number": 39,
+                "started_at": "2026-10-30T19:49:29Z",
+                "completed_at": "2026-10-30T19:49:30Z"
+              }
+            ],
+            "check_run_url": "https://api.github.com/repos/nguyenducdung96/InvestingPro/check-runs/124274970257",
+            "labels": [
+              "ubuntu-latest"
+            ],
+            "runner_id": 1000000363,
+            "runner_name": "GitHub Actions 1000000363",
+            "runner_group_id": 0,
+            "runner_group_name": "GitHub Actions"
+          }
+        ]
+      }
+    ]
+  },
+  "schedule_verification": {
+    "checked_at": "2026-10-31T05:34:45.913383+00:00",
+    "workflow": {
+      "id": 402172932,
+      "name": "SGP K12 TT2 pilot plan archive",
+      "path": ".github/workflows/sgp-pilot-review.yml",
+      "state": "active",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/blob/main/.github/workflows/sgp-pilot-review.yml"
+    },
+    "default_branch_workflow_matches": true,
+    "times_vietnam": [
+      "06:15",
+      "12:15",
+      "18:15",
+      "23:15"
+    ],
+    "scheduled_run_ids": [
+      41159531589
+    ],
+    "scheduled_capture_cycle_verified": true,
+    "scheduled_refresh_verified": false
+  },
+  "artifact_validation": [
+    {
+      "run_id": 41117509985,
+      "raw_revisions_verified": 1,
+      "latest_selected_rows": 3,
+      "candidate_keys": [
+        "1dc4cbf979397d07c62c3642f035a104a82bf26b43cf9beafb23bc250c94016c",
+        "c66ae76eb8f215ecff8c4898a41961a99d96619ef9760503d40c73715f4e3ffd",
+        "d06b723054d039b269d34b7a6b79abfe4b25b40ff0154be3e4d932e5bdb80d2d"
+      ],
+      "cold_runner": true,
+      "same_observation_ids_as_previous": null,
+      "source_times": [
+        {
+          "vessel": "NEWSUN GREEN 03",
+          "section": "arrival",
+          "scheduled_time": null
+        },
+        {
+          "vessel": "HAI PHAT 135",
+          "section": "arrival",
+          "scheduled_time": null
+        },
+        {
+          "vessel": "NEWSUN GREEN 03",
+          "section": "departure",
+          "scheduled_time": "22:00"
+        }
+      ]
+    },
+    {
+      "run_id": 41118011611,
+      "raw_revisions_verified": 2,
+      "latest_selected_rows": 3,
+      "candidate_keys": [
+        "1dc4cbf979397d07c62c3642f035a104a82bf26b43cf9beafb23bc250c94016c",
+        "c66ae76eb8f215ecff8c4898a41961a99d96619ef9760503d40c73715f4e3ffd",
+        "d06b723054d039b269d34b7a6b79abfe4b25b40ff0154be3e4d932e5bdb80d2d"
+      ],
+      "cold_runner": false,
+      "same_observation_ids_as_previous": true,
+      "source_times": [
+        {
+          "vessel": "NEWSUN GREEN 03",
+          "section": "arrival",
+          "scheduled_time": null
+        },
+        {
+          "vessel": "HAI PHAT 135",
+          "section": "arrival",
+          "scheduled_time": null
+        },
+        {
+          "vessel": "NEWSUN GREEN 03",
+          "section": "departure",
+          "scheduled_time": "22:00"
+        }
+      ]
+    },
+    {
+      "run_id": 41159531589,
+      "raw_revisions_verified": 3,
+      "latest_selected_rows": 3,
+      "candidate_keys": [
+        "1dc4cbf979397d07c62c3642f035a104a82bf26b43cf9beafb23bc250c94016c",
+        "c66ae76eb8f215ecff8c4898a41961a99d96619ef9760503d40c73715f4e3ffd",
+        "d06b723054d039b269d34b7a6b79abfe4b25b40ff0154be3e4d932e5bdb80d2d"
+      ],
+      "cold_runner": false,
+      "same_observation_ids_as_previous": false,
+      "source_times": [
+        {
+          "vessel": "NEWSUN GREEN 03",
+          "section": "arrival",
+          "scheduled_time": "05:00"
+        },
+        {
+          "vessel": "HAI PHAT 135",
+          "section": "arrival",
+          "scheduled_time": null
+        },
+        {
+          "vessel": "NEWSUN GREEN 03",
+          "section": "departure",
+          "scheduled_time": "22:00"
+        }
+      ]
+    }
+  ],
+  "scheduled_capture_cycle_verified": true,
+  "observed_scheduled_runs": 1,
+  "product_source_files_unchanged_from": "b69f6df",
+  "scheduled_capture_not_production_acceptance": true
 }
