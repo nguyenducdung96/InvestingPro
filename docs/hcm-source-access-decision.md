@@ -1,5 +1,13 @@
 # Phương án vận hành chuẩn cho nguồn TP.HCM
 
+## Ưu tiên mới: giải quyết access HCM gốc, hoãn intake quốc gia — 31/10/2026
+
+Theo chỉ đạo mới của người dùng, **hoãn xây intake quốc gia chưa đủ độ phủ**; xử lý đường truy cập bảng HCM gốc trước. Kiểm mới tại máy lúc 22:44 Việt Nam: GET đúng 31/10; POST 01/01/2025 và 30/10/2026 đúng ngày/schema, đủ bảng vào/rời/điều chuyển. Cloudflare kiểm lúc 22:46 vẫn `source_timeout` (HTTP 200 chỉ là probe trả kết quả). Không sửa dữ liệu hoặc publish trong lần kiểm này; chưa xác nhận nguyên nhân là lọc IP/định tuyến.
+
+**Hướng triển khai:** collector chuyên dụng giữ nguồn/parser hiện tại, chạy trên host có IP ra cố định đã kiểm chứng. Thử GET/POST trên IP ứng viên trước; nếu lỗi, cần quản trị nguồn/nhà mạng xử lý định tuyến/allowlist hoặc cung cấp feed đầy đủ tương đương. Chưa thử VPS Việt Nam, không bảo đảm chỉ thuê VPS là hết lỗi. GitHub giữ kiểm tra/xuất bản, Cloudflare giữ phục vụ web. Repo public, chưa có runner riêng; không gắn máy cá nhân vào pipeline PR công khai. Chưa có host/IP để triển khai hoặc xác nhận phía nguồn, chưa phục hồi cloud/schedule/production.
+
+[Giải pháp, bằng chứng và đầu mối chính thức](hcm-original-source-access-resolution-20261031.md), [receipt](catalog-review/hcm-original-source-access-resolution-20261031.json). Bước tiếp theo là kiểm host/IP ứng viên hoặc nhận hướng dẫn mạng từ nguồn, rồi collect → export → deploy → readback và hai schedule thật khác ngày. Các mục cũ đề xuất intake quốc gia bên dưới là lịch sử và đã bị thay thứ tự ưu tiên. Bình Dương tiếp tục chờ schedule riêng; không mở các phạm vi đang hoãn.
+
 ## HCM đã chốt đối chiếu nguồn mới: chỉ dùng bổ trợ — 31/10/2026
 
 Đã đối chiếu **40 mẫu** cả hai chiều trong tuần 22–28/10 của 2025/2026; giữ riêng bốn ô không có quan sát. **122 snapshot truy vấn và 46 PDF** được lưu/kiểm; chạy lại offline không gọi mạng và cho kết quả từng ca giống hệt. Kiểm SHA/reparse chín bảng HTML tham chiếu, đủ 40 dòng và scope proof K12. Kết quả: **9 khớp trường kế hoạch, 10 chỉ tương ứng giờ giấy phép, 2 khác trường dữ liệu, 9 thiếu định danh, 10 chưa có đối ứng trong cửa sổ**. Không quy đổi các nhóm này thành tỷ lệ bao phủ hoặc hoạt động cảng.

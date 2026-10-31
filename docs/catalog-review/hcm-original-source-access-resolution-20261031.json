@@ -1,0 +1,81 @@
+{
+  "phase": "hcm-original-source-access-resolution-20261031",
+  "priority": "restore_original_hcm_schedule_access",
+  "national_supplementary_intake": "deferred_by_user",
+  "local": {
+    "checked_at": "2026-10-31T15:44:29.776984+00:00",
+    "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+    "tls_validation": true,
+    "publication_performed": false,
+    "tests": [
+      {
+        "method": "POST",
+        "requested_day": "2025-01-01",
+        "validated_day": "2025-01-01",
+        "section_rows": {
+          "arrival": 35,
+          "departure": 37,
+          "internal": 25
+        },
+        "sha256": "4af41925ef96be88acdd5ff49c6987443fbd44ddfb41f8ca51bb4b7dd04c8705",
+        "bytes": 125837
+      },
+      {
+        "method": "POST",
+        "requested_day": "2026-10-30",
+        "validated_day": "2026-10-30",
+        "section_rows": {
+          "arrival": 82,
+          "departure": 77,
+          "internal": 52
+        },
+        "sha256": "f13458136b1f5a89c17937100d24d3a93476a83cc62123d87ece0452db4a9f60",
+        "bytes": 204697
+      }
+    ],
+    "ipv4": [
+      "222.253.45.177"
+    ],
+    "get": {
+      "selected_day": "2026-10-31",
+      "bytes": 180639,
+      "section_rows": {
+        "arrival": 74,
+        "departure": 74,
+        "internal": 29
+      },
+      "sha256": "20ae0a474b191942567d9ec5c863458364f1bdcf8cc91a8cd7a6650ade2048dd"
+    }
+  },
+  "cloudflare": {
+    "http_status": 200,
+    "result": {
+      "checked_at": "2026-10-31T15:46:41.845Z",
+      "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
+      "colo": "SIN",
+      "reachable": false,
+      "reason": "source_timeout",
+      "detail": "The operation was aborted",
+      "refresh_verified": false
+    }
+  },
+  "repository": {
+    "public": true,
+    "owner_type": "User",
+    "registered_self_hosted_runners": 0
+  },
+  "recommendation": "dedicated_collector_on_verified_network_with_fixed_egress_keep_original_source",
+  "candidate_vietnam_datacenter_host_tested": false,
+  "network_filtering_cause_confirmed": false,
+  "source_contact_sent": false,
+  "infrastructure_provisioned": false,
+  "cloud_refresh_verified": false,
+  "scheduled_refresh_verified": false,
+  "production_accepted": false,
+  "docs": [
+    "https://docs.github.com/en/actions/reference/runners/github-hosted-runners",
+    "https://docs.github.com/en/actions/how-tos/manage-runners/larger-runners/manage-larger-runners",
+    "https://docs.github.com/en/actions/reference/runners/self-hosted-runners",
+    "https://github.github.com/gh-aw/guides/self-hosted-runners/"
+  ]
+}

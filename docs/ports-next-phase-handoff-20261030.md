@@ -1,5 +1,13 @@
 # Bàn giao ngành cảng — trạng thái chốt 31/10/2026
 
+## Ưu tiên mới: giải quyết access HCM gốc, hoãn intake quốc gia — 31/10/2026
+
+Theo chỉ đạo mới của người dùng, **hoãn xây intake quốc gia chưa đủ độ phủ**; xử lý đường truy cập bảng HCM gốc trước. Kiểm mới tại máy lúc 22:44 Việt Nam: GET đúng 31/10; POST 01/01/2025 và 30/10/2026 đúng ngày/schema, đủ bảng vào/rời/điều chuyển. Cloudflare kiểm lúc 22:46 vẫn `source_timeout` (HTTP 200 chỉ là probe trả kết quả). Không sửa dữ liệu hoặc publish trong lần kiểm này; chưa xác nhận nguyên nhân là lọc IP/định tuyến.
+
+**Hướng triển khai:** collector chuyên dụng giữ nguồn/parser hiện tại, chạy trên host có IP ra cố định đã kiểm chứng. Thử GET/POST trên IP ứng viên trước; nếu lỗi, cần quản trị nguồn/nhà mạng xử lý định tuyến/allowlist hoặc cung cấp feed đầy đủ tương đương. Chưa thử VPS Việt Nam, không bảo đảm chỉ thuê VPS là hết lỗi. GitHub giữ kiểm tra/xuất bản, Cloudflare giữ phục vụ web. Repo public, chưa có runner riêng; không gắn máy cá nhân vào pipeline PR công khai. Chưa có host/IP để triển khai hoặc xác nhận phía nguồn, chưa phục hồi cloud/schedule/production.
+
+[Giải pháp, bằng chứng và đầu mối chính thức](hcm-original-source-access-resolution-20261031.md), [receipt](catalog-review/hcm-original-source-access-resolution-20261031.json). Bước tiếp theo là kiểm host/IP ứng viên hoặc nhận hướng dẫn mạng từ nguồn, rồi collect → export → deploy → readback và hai schedule thật khác ngày. Các mục cũ đề xuất intake quốc gia bên dưới là lịch sử và đã bị thay thứ tự ưu tiên. Bình Dương tiếp tục chờ schedule riêng; không mở các phạm vi đang hoãn.
+
 ## GMD đã sửa tổng mặc định và DWT đã ghi nhận — 31/10/2026
 
 Code **15211a6** đã push, [Quality 41214590904](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41214590904) và Cloudflare success; đã đọc lại API/giao diện staging. GMD mặc định **Nam Đình Vũ + Gemalink + Bình Dương**, chuyển tab giữ bộ lọc và chart cùng phạm vi. Thêm tổng đã ghi nhận trong năm, tách với lũy kế tháng chung; tổng vùng vẫn giữ đúng tài sản trong vùng.
