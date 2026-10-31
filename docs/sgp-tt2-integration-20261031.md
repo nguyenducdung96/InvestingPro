@@ -22,6 +22,6 @@ Cộng dồn/YoY tiếp tục dùng các tháng có dữ liệu ở cả hai nă
 
 ## Kiểm tra và triển khai
 
-Local: lint/typecheck đạt; 13 kiểm tra tập trung dữ liệu/YoY đạt; E2E desktop/mobile 4/4 đạt, gồm TT2 detail và đối chiếu tổng SGP theo tháng/quý hai chiều. Toàn bộ Vitest: 45 files / 187 kiểm tra đạt. CI/staging được ghi nhận bổ sung khi hoàn tất.
+Local: lint/typecheck đạt; 13 kiểm tra tập trung dữ liệu/YoY đạt; E2E tập trung desktop/mobile 6/6 đạt, gồm TT2 detail, đủ bảy lựa chọn SGP (tổng + sáu monitor) và đối chiếu tổng SGP theo tháng/quý hai chiều. CI lần đầu phát hiện kỳ vọng cũ còn sáu lựa chọn; đã sửa kiểm tra và chạy lại, không đổi dữ liệu để đáp ứng test cũ. Toàn bộ Vitest: 45 files / 187 kiểm tra đạt. CI/staging được ghi nhận bổ sung khi hoàn tất.
 
 Lệnh rà live: `node scripts/verify-south-live.mjs`. Verifier đợi đúng ma trận TT2, không chỉ collection timestamp chung vốn không đổi khi mở rộng alias. Không nghiệm thu lịch cập nhật HCM cloud hoặc production qua lần tích hợp này.

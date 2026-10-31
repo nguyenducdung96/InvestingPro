@@ -52,16 +52,27 @@
   "identity_sources": [
     {
       "url": "https://saigonport.vn/cac-chi-nhanh-cong-ty-con/cang-tan-thuan/",
-      "role": "Current issuer branch includes Tan Thuan and Tan Thuan 2"
+      "role": "Current issuer branch includes Tan Thuan and Tan Thuan 2",
+      "sha256": "bd5551a90378dbe570df35c3144da3187d1cc96b04b83e1d66eaeb079628c735",
+      "checked_at": "2026-10-31T05:54:56.159129+00:00",
+      "bytes": 366102,
+      "local_path": ".local/sgp-k12-tt2/sources/bd5551a90378dbe570df35c3144da3187d1cc96b04b83e1d66eaeb079628c735.html"
     },
     {
       "url": "https://vimawa.gov.vn/vi/noi-dung/ben-cang-tan-thuan-2",
-      "role": "Official sea-port berth registry"
+      "role": "Official sea-port berth registry",
+      "sha256": "e504e212c46d7e53f4aafb521665b39a9e0fe523862cb6bd4f24f685a3197272",
+      "checked_at": "2026-10-30T19:20:14.812346+00:00",
+      "bytes": 46785,
+      "local_path": ".local\\sgp-k12-tt2\\sources\\e504e212c46d7e53f4aafb521665b39a9e0fe523862cb6bd4f24f685a3197272.html"
     },
     {
       "url": "https://saigonport.vn/wp-content/uploads/2025/02/38_TBHH_K12B_K12C_TT2.pdf",
       "sha256": "4333e5594b751de51f6785d5101ef4b724e1af7e0faee5059fdfb15b1f99091a",
-      "role": "Separate TT2 water area, not B.TT2 buoy or TTD"
+      "role": "Separate TT2 water area, not B.TT2 buoy or TTD",
+      "checked_at": "2026-10-30T16:33:59.610396+00:00",
+      "bytes": 2568241,
+      "local_path": ".local\\sgp-k12-tt2\\sources\\4333e5594b751de51f6785d5101ef4b724e1af7e0faee5059fdfb15b1f99091a.pdf"
     }
   ],
   "corroboration": {

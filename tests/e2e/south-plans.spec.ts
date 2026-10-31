@@ -37,7 +37,8 @@ test('southern scopes reconcile API/UI and preserve empty history, filters and p
  expect((await page.request.get('/api/v1/companies/SGP/plans?asset=gemalink')).status()).toBe(400);
  expect((await page.request.get('/api/v1/companies/GMD/plans?asset=gemalink&day=2026-02-30')).status()).toBe(400);
  await page.goto('/companies/GMD?plan_asset=gmd_all');await expect(plans.getByLabel('Phạm vi theo dõi')).toHaveValue('gmd_all');
- await page.goto('/companies/SGP');const sgp=page.getByRole('region',{name:'Lịch điều động SGP',exact:true});await expect(sgp.getByLabel('Phạm vi theo dõi').locator('option')).toHaveCount(6);
+ await page.goto('/companies/SGP');const sgp=page.getByRole('region',{name:'Lịch điều động SGP',exact:true});await expect(sgp.getByLabel('Phạm vi theo dõi').locator('option')).toHaveCount(7);
+ await expect(sgp.getByLabel('Phạm vi theo dõi').locator('option[value="sg_tan_thuan_2"]')).toHaveText('Tân Thuận 2 · cầu TT2');
  for(const theme of ['dark','light']){await page.getByLabel('Giao diện',{exact:true}).selectOption(theme);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}
  await page.screenshot({path:`.local/south/south-${info.project.name}.png`,fullPage:true});
  await page.goto('/companies/GMD?central_asset=gemadept_dung_quat');await expect(page.getByRole('region',{name:'Hoạt động tàu Gemadept Dung Quất',exact:true})).toBeVisible();await expect(plans).toHaveCount(0);
