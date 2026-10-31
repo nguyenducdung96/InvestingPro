@@ -19,16 +19,23 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: codex/cloudflare-next-compat
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - run: python scripts/test-binhduong-plans.py
-      - run: python scripts/refresh-binhduong-plans.py
       - uses: pnpm/action-setup@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: pnpm
+      - uses: actions/cache/restore@v4
+        with:
+          path: .local/binhduong/receipts
+          key: binhduong-cycles-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: binhduong-cycles-v1-
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/test-binhduong-plans.py
+      - run: node --test scripts/test-south-live.mjs scripts/test-binhduong-cycle.mjs
+      - id: collect
+        run: python scripts/refresh-binhduong-plans.py
       - run: pnpm install --frozen-lockfile
       - run: pnpm exec vitest run tests/binhduong-history.test.ts tests/south-plans.test.ts --maxWorkers=1
       - run: pnpm typecheck
@@ -44,7 +51,20 @@ jobs:
           fi
           echo "PUBLISHED_COMMIT=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
       - name: Reconcile deployed edition
+        id: reconcile
         run: node scripts/verify-binhduong-live.mjs --wait
+      - name: Record current cycle and evaluate real scheduled evidence
+        if: always()
+        env:
+          CYCLE_JOB_STATUS: ${{ job.status }}
+          CYCLE_COLLECT_OUTCOME: ${{ steps.collect.outcome }}
+          CYCLE_READBACK_OUTCOME: ${{ steps.reconcile.outcome }}
+        run: node scripts/record-binhduong-cycle.mjs
+      - uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: .local/binhduong/receipts
+          key: binhduong-cycles-v1-${{ github.run_id }}-${{ github.run_attempt }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
