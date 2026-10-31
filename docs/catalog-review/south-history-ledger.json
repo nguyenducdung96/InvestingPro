@@ -1,17 +1,17 @@
 {
   "metadata": {
-    "checked_at": "2026-10-29T14:12:52.063915+00:00",
+    "checked_at": "2026-10-31T16:40:29.640476+00:00",
     "source_url": "https://cangvuhanghaitphcm.gov.vn/index.aspx?page=shipschedule&cat=3146",
     "parser_version": "hcm-authority-schedule/1.0.0",
     "from": "2025-01-01",
-    "through": "2026-10-28",
-    "requested_days": 666,
+    "through": "2026-10-30",
+    "requested_days": 668,
     "source_errors": [],
     "assets": {
       "gemalink": {
-        "rows": 1854,
+        "rows": 1860,
         "first_day": "2025-07-23",
-        "last_day": "2026-10-28"
+        "last_day": "2026-10-30"
       },
       "sg_hiep_phuoc": {
         "rows": 540,
@@ -19,34 +19,34 @@
         "last_day": "2026-10-28"
       },
       "cmit": {
-        "rows": 2595,
+        "rows": 2605,
         "first_day": "2025-07-09",
-        "last_day": "2026-10-28"
+        "last_day": "2026-10-30"
       },
       "sp_psa": {
-        "rows": 685,
+        "rows": 690,
         "first_day": "2025-08-01",
-        "last_day": "2026-10-28"
+        "last_day": "2026-10-30"
       },
       "ssit": {
-        "rows": 971,
+        "rows": 975,
         "first_day": "2025-07-23",
-        "last_day": "2026-10-28"
+        "last_day": "2026-10-30"
       },
       "sg_tan_thuan": {
-        "rows": 1698,
+        "rows": 1702,
         "first_day": "2025-01-01",
-        "last_day": "2026-10-28"
+        "last_day": "2026-10-30"
       },
       "sg_tan_thuan_2": {
-        "rows": 348,
+        "rows": 349,
         "first_day": "2025-01-04",
-        "last_day": "2026-10-28"
+        "last_day": "2026-10-29"
       },
       "cll_berth7": {
-        "rows": 1675,
+        "rows": 1680,
         "first_day": "2025-01-01",
-        "last_day": "2026-10-28"
+        "last_day": "2026-10-30"
       },
       "cll_b7": {
         "rows": 98,
@@ -59,9 +59,9 @@
         "last_day": "2026-10-22"
       },
       "vgp_k16": {
-        "rows": 253,
+        "rows": 254,
         "first_day": "2025-01-01",
-        "last_day": "2026-10-24"
+        "last_day": "2026-10-30"
       }
     },
     "actual_verified": false,
@@ -2903,13 +2903,13 @@
     "2026-10": {
       "gemalink": {
         "arrival": {
-          "rows": 49,
-          "dwt": 5057026.0,
+          "rows": 51,
+          "dwt": 5367432.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 48,
-          "dwt": 5136808.0,
+          "rows": 52,
+          "dwt": 5685911.0,
           "missing_dwt": 0
         }
       },
@@ -2927,49 +2927,49 @@
       },
       "cmit": {
         "arrival": {
-          "rows": 104,
-          "dwt": 2229600.0,
+          "rows": 109,
+          "dwt": 2396733.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 101,
-          "dwt": 2402973.0,
+          "rows": 106,
+          "dwt": 2428127.0,
           "missing_dwt": 0
         }
       },
       "sp_psa": {
         "arrival": {
-          "rows": 10,
-          "dwt": 137787.0,
+          "rows": 11,
+          "dwt": 149194.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 43,
-          "dwt": 865021.0,
+          "rows": 47,
+          "dwt": 958841.0,
           "missing_dwt": 0
         }
       },
       "ssit": {
         "arrival": {
-          "rows": 27,
-          "dwt": 3266439.0,
+          "rows": 30,
+          "dwt": 3620245.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 27,
-          "dwt": 2987217.0,
+          "rows": 28,
+          "dwt": 3167645.0,
           "missing_dwt": 0
         }
       },
       "sg_tan_thuan": {
         "arrival": {
-          "rows": 42,
-          "dwt": 596024.0,
+          "rows": 44,
+          "dwt": 635820.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 44,
-          "dwt": 570336.0,
+          "rows": 46,
+          "dwt": 621191.0,
           "missing_dwt": 0
         }
       },
@@ -2980,20 +2980,20 @@
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 8,
-          "dwt": 185514.0,
+          "rows": 9,
+          "dwt": 199188.0,
           "missing_dwt": 0
         }
       },
       "cll_berth7": {
         "arrival": {
-          "rows": 30,
-          "dwt": 746430.0,
+          "rows": 33,
+          "dwt": 826184.0,
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 35,
-          "dwt": 845787.0,
+          "rows": 37,
+          "dwt": 888105.0,
           "missing_dwt": 0
         }
       },
@@ -3028,8 +3028,8 @@
           "missing_dwt": 0
         },
         "departure": {
-          "rows": 9,
-          "dwt": 102230.0,
+          "rows": 10,
+          "dwt": 103430.0,
           "missing_dwt": 0
         }
       }
