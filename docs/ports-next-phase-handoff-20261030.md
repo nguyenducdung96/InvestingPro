@@ -1,5 +1,13 @@
 # Bàn giao ngành cảng — trạng thái chốt 31/10/2026
 
+## Raw HCM đã sao lưu R2 và phục hồi độc lập — 01/11/2026
+
+Đã lưu ngoài VPS **668 ngày đến 30/10/2026**, **1.338 file raw/parsed/receipt, 36.481.371 bytes** vào bucket R2 riêng tư `investing-pro-evidence-staging`, prefix `port-raw/hcm/`. Mỗi object và manifest được GET/so SHA-256; sau đó tải toàn bộ vào thư mục trống, kiểm hash và tái parse đối chiếu. [Run backup 41222934855](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41222934855) **success**. [Run phục hồi riêng 41223745082](https://github.com/nguyenducdung96/InvestingPro/actions/runs/41223745082) **success**, bước SSH/VPS skipped; không dùng cache hoặc máy nguồn làm fallback.
+
+Code **61d1f8f** qua Quality và Cloudflare. Workflow backup đăng ký riêng trên main tại **6710922**, lịch **09:05 Việt Nam** hằng ngày; giữ khóa R2 ở GitHub, không cài lên VPS. Bucket public domain disabled, không custom domain, không rule xóa object. Lifecycle bảy ngày chỉ abort multipart chưa hoàn tất. Bản cũ giữ theo hash/manifest, script không overwrite; không gọi đây là WORM. [Runbook phục hồi](hcm-raw-backup-20261101.md), [receipt bền](catalog-review/hcm-raw-backup-20261101.json).
+
+**Next step hiện hành:** nghiệm thu hai lịch thật HCM/Bình Dương thành công khác ngày; run backup/restore thủ công không tính. Theo dõi lịch backup thật đầu tiên; hiện `scheduled_backup_verified=false`, `scheduled_refresh_verified=false`. Raw đã có bản R2 được kiểm phục hồi, thay phần còn thiếu sao lưu ngoài VPS trong snapshot cũ. Backup không thay ngày nguồn thành ngày chạy: dashboard HCM vẫn edition đến 30/10. Chưa nghiệm thu production/toàn ngành; các phạm vi hoãn giữ nguyên.
+
 ## HCM đã chạy đầu cuối trên máy Linux và bật lịch — 31/10/2026
 
 Đã cài collector độc lập trên máy Linux hiện có, tài khoản riêng/quyền hạn chế, không đổi cấu hình n8n. **668 ngày 01/01/2025–30/10/2026** đủ raw/parsed, nguồn không lỗi; lịch sử cũ được seed và các ngày gần nhất tải lại. Gói ~36 MB qua khóa SSH chỉ đọc, host key pin; không root credential hoặc quyền deploy/database trên VPS.

@@ -1,0 +1,104 @@
+{
+  "phase": "hcm-raw-backup-20261101",
+  "checked_at": "2026-10-31T17:18:37.432153+00:00",
+  "code_commit": "61d1f8f",
+  "default_workflow_commit": "6710922554ad7991ef2c2ba10c38d4e04b88b1bd",
+  "backup_run_id": 41222934855,
+  "independent_restore_run_id": 41223745082,
+  "backup": {
+    "objects": 1338,
+    "new_objects": 1338,
+    "stored_bytes": 36481371,
+    "manifest_sha256": "d46b0d7fb5e1a510e37e60b1b2088c12c80513c814893150959ba5c0200c6edd",
+    "cold_restore_verified": true,
+    "days": 668,
+    "through": "2026-10-30",
+    "files_restored": 1338,
+    "manifest_key": "port-raw/hcm/manifests/sha256/d46b0d7fb5e1a510e37e60b1b2088c12c80513c814893150959ba5c0200c6edd.json",
+    "source_checked_at": "2026-10-31T16:40:30.929654+00:00",
+    "verified_at": "2026-10-31T17:15:02.611666+00:00",
+    "bucket": "investing-pro-evidence-staging",
+    "private_bucket_access_changed": false,
+    "source_metrics_changed": false,
+    "production_accepted": false
+  },
+  "independent_restore": {
+    "cold_restore_verified": true,
+    "days": 668,
+    "through": "2026-10-30",
+    "files_restored": 1338,
+    "manifest_key": "port-raw/hcm/manifests/sha256/d46b0d7fb5e1a510e37e60b1b2088c12c80513c814893150959ba5c0200c6edd.json",
+    "manifest_sha256": "d46b0d7fb5e1a510e37e60b1b2088c12c80513c814893150959ba5c0200c6edd",
+    "verified_at": "2026-10-31T17:18:06.758668+00:00",
+    "bucket": "investing-pro-evidence-staging",
+    "private_bucket_access_changed": false,
+    "source_metrics_changed": false,
+    "production_accepted": false
+  },
+  "restore_used_vps": false,
+  "checks": [
+    {
+      "name": "check",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41222788290/job/124601583816",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41222788290/job/124601583816"
+    },
+    {
+      "name": "Workers Builds: investing-pro-web-staging",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/runs/124601151928",
+      "details_url": "https://dash.cloudflare.com/5e84958e47290692c6ec2817fa1d9af6/workers/services/view/investing-pro-web-staging/production/builds/cbcdbfe4-36f9-4c9a-8d53-c7cc7d3f9ea2"
+    },
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41222788290/job/124600641505",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41222788290/job/124600641505"
+    },
+    {
+      "name": "e2e (desktop)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41222788290/job/124600641479",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41222788290/job/124600641479"
+    },
+    {
+      "name": "e2e (mobile)",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41222788290/job/124600641230",
+      "details_url": "https://github.com/nguyenducdung96/InvestingPro/actions/runs/41222788290/job/124600641230"
+    }
+  ],
+  "storage_configuration": {
+    "managed_public_access_enabled": false,
+    "custom_domain_count": 0,
+    "lifecycle_rules": [
+      {
+        "id": "Default Multipart Abort Rule",
+        "enabled": true,
+        "conditions": {},
+        "abortMultipartUploadsTransition": {
+          "condition": {
+            "type": "Age",
+            "maxAge": 604800
+          }
+        }
+      }
+    ],
+    "object_expiration_configured": false,
+    "settings_changed": false
+  },
+  "daily_backup_schedule": "09:05 Asia/Ho_Chi_Minh",
+  "scheduled_backup_verified": false,
+  "hcm_scheduled_refresh_verified": false,
+  "production_accepted": false,
+  "environment_rejected_trial": {
+    "run_id": 41222815931,
+    "reason": "staging environment only permits main workflow; reran from main",
+    "protection_rules_changed": false
+  }
+}
